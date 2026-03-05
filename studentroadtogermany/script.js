@@ -204,7 +204,7 @@ function updateActiveNav() {
 
 // Add active nav style
 const navActiveStyle = document.createElement('style');
-navActiveStyle.textContent = `.active-nav { color: var(--gold-light) !important; background: rgba(212,160,23,0.08) !important; }`;
+navActiveStyle.textContent = `.active-nav { color: var(--secondary-light) !important; background: rgba(206,148,47,0.12) !important; }`;
 document.head.appendChild(navActiveStyle);
 
 window.addEventListener('scroll', updateActiveNav, { passive: true });
