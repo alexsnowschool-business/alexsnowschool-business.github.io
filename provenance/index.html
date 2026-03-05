@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROVENANCE — Authenticated Heritage</title>
+  <meta name="description"
+    content="A curated boutique for pre-owned pieces from the world's finest non-logo heritage houses. Delvaux. Valextra. Loro Piana. Moynat. If you know, you know." />
+  <meta property="og:title" content="PROVENANCE — Authenticated Heritage" />
+  <meta property="og:description" content="Curated pre-owned pieces from Delvaux, Valextra, Loro Piana, and Moynat." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <div class="logo-wordmark">PROVENANCE</div>
+        <div class="logo-rule"></div>
+        <div class="logo-sub">Authenticated Heritage</div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#collection" class="nav-link">Collection</a></li>
+        <li><a href="#houses" class="nav-link">The Houses</a></li>
+        <li><a href="#why" class="nav-link">Our Standard</a></li>
+        <li><a href="#consign" class="nav-link">Consign</a></li>
+        <li><a href="#access" class="nav-btn">Request Access</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="hero.png" alt="A curated heritage piece in a museum gallery" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-vert-rule"></div>
+    <div class="hero-content">
+      <div class="hero-prelude">If you know, you know.</div>
+      <h1 class="hero-title">The objects that<br><em>outlast</em> the logo.</h1>
+      <p class="hero-subtitle">Pre-owned pieces from the world's most discreet heritage houses — authenticated, curated,
+        and presented without compromise. For those who recognise craftsmanship over monogram.</p>
+      <div class="hero-actions">
+        <a href="#collection" class="btn btn-primary" id="heroCtaBtn"><span>Enter the Collection</span></a>
+        <a href="#why" class="btn btn-ghost">Our Standard</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-indicator"></div>
+      <span>Explore</span>
+    </div>
+  </section>
+
+  <!-- ====== MANIFESTO ====== -->
+  <section class="manifesto" id="manifesto">
+    <div class="container">
+      <div class="manifesto-inner">
+        <div class="manifesto-side">
+          <div class="section-tag">The Premise</div>
+        </div>
+        <div class="manifesto-body">
+          <blockquote class="manifesto-quote">
+            "Standard resale platforms are flooded with fakes and fast fashion.<br>
+            We exist for a different kind of buyer."
+          </blockquote>
+          <p class="manifesto-text">In 2026, the ultimate status symbol is what others <em>cannot see</em>. No monogram.
+            No logo. Just a Delvaux Brillant quietly set on a desk, a Valextra tote on a train platform, a Loro Piana
+            coat on a cold morning. The connoisseur knows. Everyone else simply does not.</p>
+          <p class="manifesto-text">PROVENANCE is a curated boutique for pre-owned works by the world's most understated
+            ateliers. Every piece is authenticated by hand. Every listing is selected, not aggregated. This is not a
+            marketplace. This is a private collection made available.</p>
+          <div class="manifesto-rule"></div>
+          <div class="manifesto-stats">
+            <div class="m-stat">
+              <span class="m-stat-num">100%</span>
+              <span class="m-stat-label">Hand-authenticated</span>
+            </div>
+            <div class="m-stat-div"></div>
+            <div class="m-stat">
+              <span class="m-stat-num">4</span>
+              <span class="m-stat-label">Heritage houses</span>
+            </div>
+            <div class="m-stat-div"></div>
+            <div class="m-stat">
+              <span class="m-stat-num">0</span>
+              <span class="m-stat-label">Logos. Zero.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== COLLECTION ====== -->
+  <section class="collection" id="collection">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Current Offerings</div>
+        <h2 class="section-title">The Collection</h2>
+        <p class="section-desc">Each piece is offered once. When it is gone, it is gone. Updated as new acquisitions
+          arrive.</p>
+      </div>
+
+      <!-- Filter -->
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="delvaux">Delvaux</button>
+        <button class="filter-btn" data-filter="valextra">Valextra</button>
+        <button class="filter-btn" data-filter="loro-piana">Loro Piana</button>
+        <button class="filter-btn" data-filter="moynat">Moynat</button>
+      </div>
+
+      <div class="collection-grid" id="collectionGrid">
+
+        <!-- Item 1 — Delvaux Brillant -->
+        <article class="piece-card reveal" data-house="delvaux" id="piece1">
+          <div class="piece-img-wrap">
+            <img src="hero.png" alt="Delvaux Brillant MM — Burgundy Box Calf" class="piece-img" />
+            <div class="piece-status">Available</div>
+            <div class="piece-house-tag">Delvaux</div>
+          </div>
+          <div class="piece-info">
+            <div class="piece-meta">
+              <span class="piece-year">c. 2019</span>
+              <span class="piece-cond">Excellent</span>
+            </div>
+            <h3 class="piece-name">Brillant MM</h3>
+            <p class="piece-detail">Box calf leather &mdash; Bordeaux &mdash; Gold hardware</p>
+            <div class="piece-footer">
+              <span class="piece-price">&euro; 2,400</span>
+              <a href="#access" class="piece-btn">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 — Valextra Iside -->
+        <article class="piece-card reveal" data-house="valextra" id="piece2">
+          <div class="piece-img-wrap piece-img-neutral">
+            <div class="piece-img-placeholder">
+              <span class="piece-placeholder-text">Iside</span>
+            </div>
+            <div class="piece-status">Available</div>
+            <div class="piece-house-tag">Valextra</div>
+          </div>
+          <div class="piece-info">
+            <div class="piece-meta">
+              <span class="piece-year">c. 2021</span>
+              <span class="piece-cond">Very Good</span>
+            </div>
+            <h3 class="piece-name">Iside Medium</h3>
+            <p class="piece-detail">Vitello VS leather &mdash; White &mdash; No hardware</p>
+            <div class="piece-footer">
+              <span class="piece-price">&euro; 1,650</span>
+              <a href="#access" class="piece-btn">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 — Loro Piana -->
+        <article class="piece-card reveal" data-house="loro-piana" id="piece3">
+          <div class="piece-img-wrap piece-img-warm">
+            <div class="piece-img-placeholder">
+              <span class="piece-placeholder-text">LP</span>
+            </div>
+            <div class="piece-status">Available</div>
+            <div class="piece-house-tag">Loro Piana</div>
+          </div>
+          <div class="piece-info">
+            <div class="piece-meta">
+              <span class="piece-year">c. 2022</span>
+              <span class="piece-cond">Pristine</span>
+            </div>
+            <h3 class="piece-name">Cashmere Overcoat</h3>
+            <p class="piece-detail">100% vicuña cashmere &mdash; Camel &mdash; Size 44</p>
+            <div class="piece-footer">
+              <span class="piece-price">&euro; 4,200</span>
+              <a href="#access" class="piece-btn">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 — Moynat -->
+        <article class="piece-card reveal" data-house="moynat" id="piece4">
+          <div class="piece-img-wrap piece-img-forest">
+            <div class="piece-img-placeholder">
+              <span class="piece-placeholder-text">M.</span>
+            </div>
+            <div class="piece-status">Reserved</div>
+            <div class="piece-house-tag">Moynat</div>
+          </div>
+          <div class="piece-info">
+            <div class="piece-meta">
+              <span class="piece-year">c. 2018</span>
+              <span class="piece-cond">Excellent</span>
+            </div>
+            <h3 class="piece-name">Cylindre</h3>
+            <p class="piece-detail">Vegetal tanned leather &mdash; Forest &mdash; Gold clasp</p>
+            <div class="piece-footer">
+              <span class="piece-price">&euro; 1,890</span>
+              <a href="#access" class="piece-btn piece-btn-reserved">Reserved</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5 — Delvaux Pin -->
+        <article class="piece-card reveal" data-house="delvaux" id="piece5">
+          <div class="piece-img-wrap piece-img-slate">
+            <div class="piece-img-placeholder">
+              <span class="piece-placeholder-text">Pin</span>
+            </div>
+            <div class="piece-status">Available</div>
+            <div class="piece-house-tag">Delvaux</div>
+          </div>
+          <div class="piece-info">
+            <div class="piece-meta">
+              <span class="piece-year">c. 2020</span>
+              <span class="piece-cond">Very Good</span>
+            </div>
+            <h3 class="piece-name">Pin Mini</h3>
+            <p class="piece-detail">Taurillon Palmelato &mdash; Noir &mdash; Gold pin closure</p>
+            <div class="piece-footer">
+              <span class="piece-price">&euro; 1,350</span>
+              <a href="#access" class="piece-btn">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6 — Valextra Tric Trac -->
+        <article class="piece-card reveal" data-house="valextra" id="piece6">
+          <div class="piece-img-wrap piece-img-parchment">
+            <div class="piece-img-placeholder">
+              <span class="piece-placeholder-text">TT</span>
+            </div>
+            <div class="piece-status">Available</div>
+            <div class="piece-house-tag">Valextra</div>
+          </div>
+          <div class="piece-info">
+            <div class="piece-meta">
+              <span class="piece-year">c. 2023</span>
+              <span class="piece-cond">Near Mint</span>
+            </div>
+            <h3 class="piece-name">Tric Trac Small</h3>
+            <p class="piece-detail">Pebble grain leather &mdash; Parchment &mdash; No visible branding</p>
+            <div class="piece-footer">
+              <span class="piece-price">&euro; 980</span>
+              <a href="#access" class="piece-btn">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="collection-footer">
+        <p>New acquisitions are added privately. <a href="#access">Join the list</a> for first access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== THE HOUSES ====== -->
+  <section class="houses" id="houses">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">The Heritage Houses</div>
+        <h2 class="section-title">Four ateliers.<br><span class="gradient-text">One standard.</span></h2>
+        <p class="section-desc">We stock only these four houses. Not by limitation — by conviction.</p>
+      </div>
+      <div class="houses-grid">
+
+        <div class="house-card reveal" id="house-delvaux">
+          <div class="house-num">I.</div>
+          <div class="house-info">
+            <h3 class="house-name">Delvaux</h3>
+            <p class="house-year">Est. 1829 &mdash; Brussels</p>
+            <p class="house-desc">The world's oldest fine leather goods house. Every Brillant, every Tempête, is
+              assembled by a single artisan over several days. The lock mechanism alone has more moving parts than any
+              competitor.</p>
+            <div class="house-note">Known to those who know.</div>
+          </div>
+        </div>
+
+        <div class="house-card reveal" id="house-valextra">
+          <div class="house-num">II.</div>
+          <div class="house-info">
+            <h3 class="house-name">Valextra</h3>
+            <p class="house-year">Est. 1937 &mdash; Milan</p>
+            <p class="house-desc">Pure geometry. No external pockets. No visible stitching. No logo on the exterior. A
+              Valextra piece is recognisable only to someone who has touched one. That is intentional. That is the
+              point.</p>
+            <div class="house-note">Architecture in leather.</div>
+          </div>
+        </div>
+
+        <div class="house-card reveal" id="house-loropiana">
+          <div class="house-num">III.</div>
+          <div class="house-info">
+            <h3 class="house-name">Loro Piana</h3>
+            <p class="house-year">Est. 1924 &mdash; Quarona</p>
+            <p class="house-desc">Holders of the world's finest cashmere and vicuña sourcing rights. A Loro Piana coat
+              has no discernible branding. The price tag — once removed — leaves only the fabric itself. And the fabric
+              is enough.</p>
+            <div class="house-note">The fabric is the flex.</div>
+          </div>
+        </div>
+
+        <div class="house-card reveal" id="house-moynat">
+          <div class="house-num">IV.</div>
+          <div class="house-info">
+            <h3 class="house-name">Moynat</h3>
+            <p class="house-year">Est. 1849 &mdash; Paris</p>
+            <p class="house-desc">Predating Louis Vuitton by four years, Moynat's curved trunks sailed on ocean liners
+              and trains across Empire-era Europe. Revived with utmost discretion, each piece now carries that entire
+              history silently.</p>
+            <div class="house-note">History without announcement.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WHY PROVENANCE ====== -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-image-col">
+          <img src="campus.png" alt="Curated heritage collection" class="why-img" />
+          <div class="why-img-badge">
+            <div class="badge-label">Every piece</div>
+            <div class="badge-value">Hand-verified</div>
+          </div>
+        </div>
+        <div class="why-content">
+          <div class="section-tag">Our Standard</div>
+          <h2 class="section-title">Not a marketplace.<br><span class="gradient-text">A point of view.</span></h2>
+          <p class="why-desc">eBay has 1.7 billion listings. Poshmark has millions of unverified sellers. We have a
+            selection. The difference is not scale — it is judgement.</p>
+          <div class="why-points">
+            <div class="why-point">
+              <div class="point-icon">i.</div>
+              <div>
+                <h4>Every piece is examined in person</h4>
+                <p>No platform uploads. No seller descriptions. Our team physically handles each acquisition before it
+                  is listed. Hardware tested. Leather assessed. Provenance confirmed.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="point-icon">ii.</div>
+              <div>
+                <h4>We decline more than we accept</h4>
+                <p>Roughly 70% of pieces submitted for consignment are declined. Condition, rarity, and house alignment
+                  all matter. We would rather offer nothing than offer something mediocre.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="point-icon">iii.</div>
+              <div>
+                <h4>Stealth, not status</h4>
+                <p>Our buyers are not buying labels. They are buying craft. They are buying the knowledge that separates
+                  them — quietly, invisibly, permanently — from those who need to announce it.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="point-icon">iv.</div>
+              <div>
+                <h4>Access, not volume</h4>
+                <p>We operate by enquiry and private list. No checkout button. No cart. Acquisition at PROVENANCE begins
+                  with a conversation. We prefer it that way.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== HOW IT WORKS ====== -->
+  <section class="process" id="consign">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">How It Works</div>
+        <h2 class="section-title">Buy or <span class="gradient-text">Consign</span></h2>
+      </div>
+
+      <!-- Tab toggle -->
+      <div class="process-tabs">
+        <button class="tab-btn active" data-tab="buy" id="tabBuy">Acquiring a Piece</button>
+        <button class="tab-btn" data-tab="sell" id="tabSell">Consigning a Piece</button>
+      </div>
+
+      <div class="process-steps" id="processContent">
+
+        <!-- Buy flow (default) -->
+        <div class="tab-content active" id="tab-buy">
+          <div class="step">
+            <span class="step-num">I</span>
+            <span class="step-icon">Request.</span>
+            <h3>Request Access</h3>
+            <p>Submit your enquiry below. We respond to every serious request within one business day. Browsing is free.
+              There is no obligation.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">II</span>
+            <span class="step-icon">Select.</span>
+            <h3>Select Your Piece</h3>
+            <p>Browse the current collection. When a piece resonates, enquire. We send full condition notes, additional
+              photographs, and the complete file.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">III</span>
+            <span class="step-icon">Acquire.</span>
+            <h3>Secure &amp; Ship</h3>
+            <p>Payment is settled directly — no platform fees deducted. The piece is wrapped, documented, and dispatched
+              with full insurance and tracking.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">IV</span>
+            <span class="step-icon">Own.</span>
+            <h3>Arrives Perfectly</h3>
+            <p>Every shipment includes the complete authentication dossier, condition record, and PROVENANCE
+              certificate. The piece is now yours to keep — or to return to us one day.</p>
+          </div>
+        </div>
+
+        <!-- Sell flow (hidden by default) -->
+        <div class="tab-content" id="tab-sell">
+          <div class="step">
+            <span class="step-num">I</span>
+            <span class="step-icon">Submit.</span>
+            <h3>Submit for Review</h3>
+            <p>Describe your piece and send photographs. We assess acquisition fit, condition, and pricing within 48
+              hours. No obligation at this stage.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">II</span>
+            <span class="step-icon">Send.</span>
+            <h3>Ship to Our Atelier</h3>
+            <p>If accepted, we send a prepaid, fully insured shipping label. The piece travels to us under our insurance
+              for the duration of consignment.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">III</span>
+            <span class="step-icon">List.</span>
+            <h3>We Curate &amp; List</h3>
+            <p>Our team photographs, writes, and lists your piece. We set the price together, based on market data and
+              condition assessment. No guessing.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">IV</span>
+            <span class="step-icon">Receive.</span>
+            <h3>You Are Paid</h3>
+            <p>When the piece sells, you receive 75% of the final sale price — transferred within 3 business days of the
+              buyer confirming receipt.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ACCESS / CONTACT ====== -->
+  <section class="access" id="access">
+    <div class="container">
+      <div class="access-inner">
+        <div class="access-text">
+          <div class="section-tag">Private Access</div>
+          <h2 class="section-title">Join the List</h2>
+          <p class="access-desc">We send acquisition alerts to a private list before any piece appears publicly. One
+            email per new arrival. No newsletters. No noise.</p>
+          <div class="access-ethos">
+            <div class="ethos-item">
+              <span class="ethos-mark">&mdash;</span>
+              <span>New pieces arrive quietly</span>
+            </div>
+            <div class="ethos-item">
+              <span class="ethos-mark">&mdash;</span>
+              <span>First-list members get 48h priority</span>
+            </div>
+            <div class="ethos-item">
+              <span class="ethos-mark">&mdash;</span>
+              <span>You may unsubscribe at any moment</span>
+            </div>
+            <div class="ethos-item">
+              <span class="ethos-mark">&mdash;</span>
+              <span>We do not share your details. Ever.</span>
+            </div>
+          </div>
+        </div>
+        <div class="access-form-wrap">
+          <form class="access-form" id="contactForm" novalidate>
+            <div class="form-header">
+              <h3>Request Access</h3>
+              <p>Buyers and consignors welcome.</p>
+            </div>
+            <div class="form-group">
+              <input type="text" id="nameInput" placeholder="Full Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" id="emailInput" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <select id="packageSelect">
+                <option value="" disabled selected>I am interested in&hellip;</option>
+                <option value="buy">Acquiring a piece</option>
+                <option value="sell">Consigning a piece</option>
+                <option value="both">Both</option>
+                <option value="list">Simply joining the list</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select id="houseSelect">
+                <option value="" disabled selected>House of particular interest (optional)</option>
+                <option value="delvaux">Delvaux</option>
+                <option value="valextra">Valextra</option>
+                <option value="loropiana">Loro Piana</option>
+                <option value="moynat">Moynat</option>
+                <option value="any">Open to any</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea id="messageInput" placeholder="A note, if you wish." rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn form-submit" id="submitBtn"><span>Submit Enquiry</span></button>
+            <div class="form-success" id="formSuccess">Received. We will be in touch within one business day.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-wordmark">PROVENANCE</div>
+          <div class="footer-tagline">Authenticated Heritage</div>
+          <p>We believe the finest things need no introduction. Only recognition.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Collection</h4>
+          <ul>
+            <li><a href="#collection">All Pieces</a></li>
+            <li><a href="#houses">Delvaux</a></li>
+            <li><a href="#houses">Valextra</a></li>
+            <li><a href="#houses">Loro Piana</a></li>
+            <li><a href="#houses">Moynat</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#why">Our Standard</a></li>
+            <li><a href="#consign">How to Buy</a></li>
+            <li><a href="#consign">How to Consign</a></li>
+            <li><a href="#access">Private Access</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:acquisitions@provenance.co">acquisitions@provenance.co</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Authentication Standard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PROVENANCE. All rights reserved.</p>
+        <p class="footer-iykyk">&#8220;For those who know.&#8221;</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8593;</button>
+  <script src="script.js"></script>
+</body>
+
+</html>
