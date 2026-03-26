@@ -20,26 +20,9 @@ Current ventures:
 
 To add a new venture: create a new folder, add its files, then add a card in the root `index.html` `#cardGrid`.
 
-## Code Style
+## Rules
 
-- **CSS**: BEM class naming (`block__element--modifier`), CSS custom properties from `:root` — never hardcode color values
-- **Indentation**: 4 spaces
-- **JS**: ES6+ syntax, `const`/`let` only
-
-## Design System (Provenance / shared aesthetic)
-
-- **Fonts**: Cormorant Garamond italic for headings, Jost 300/400 for body
-- **Colors**: `--ivory`, `--slate`, `--gold` via CSS custom properties; warm palette only — no cool grays, no neons
-- **Icons/numbers**: Roman numerals (I. II. III. IV.), no emoji
-- **Borders**: 1px hairlines only
-- **CTA copy tone**: "Enquire" not "Buy Now" — editorial, unhurried
-
-## Commit Convention
-
-```
-type(scope): short description
-# e.g.: feat(animations): add smooth scroll on navbar
-# types: feat, fix, docs, chore, refactor, test, perf, ci
-```
-
-Branch naming: `type/short-desc` (e.g. `feat/hero-section-animations`). PRs go against `main`.
+- @.claude/rules/code-style.md
+- @.claude/rules/design-system.md
+- @.claude/rules/git-workflow.md
+- @.claude/rules/new-venture.md
