@@ -70,7 +70,19 @@ tbody tr:hover { background:#ece5d8; }
 .comp-ratio { color:var(--gold); font-weight:700; }
 .arb-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; }
 .loading-msg { text-align:center; padding:5rem 2rem; font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--text-mute); letter-spacing:.06em; }
-@media(max-width:700px) { .grid2,.grid3,.obs-grid { grid-template-columns:1fr; } .page { padding:1rem; } }
+@media(max-width:700px) {
+  .grid2,.grid3,.obs-grid { grid-template-columns:1fr; }
+  .page { padding:1rem; }
+  nav { padding:0 1rem; height:52px; }
+  .nav-brand { font-size:15px; }
+  .nav-brand span { display:none; }
+  .nav-links a { font-size:11px; padding:6px 8px; }
+  .kpi-grid { grid-template-columns:repeat(2,1fr); }
+  .chart-wrap { height:220px; }
+  .chart-wrap-tall { height:260px; }
+  table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .section-label { font-size:18px; margin-top:2rem; }
+}
 </style>
 </head>
 <body>
@@ -122,7 +134,6 @@ async function init() {
   const kellyFake  = (d.type_rows.find(r => r.type === 'Kelly')  || {}).fake_avg || 0;
 
   const top2Types = d.concentration.slice(0,2).map(c => c.type).join(' + ');
-  const imgRatio  = d.img_kb_fake ? (d.img_kb_auth / d.img_kb_fake).toFixed(1) + '×' : '—';
   const ebayStats = d.ebay_stats || {};
   const vintedStats = d.vinted_stats || {};
   const ss = d.source_summary || {};
@@ -142,10 +153,7 @@ async function init() {
     { num:'04', title:'Psychological Pricing',
       stat:'Counterfeit listings cluster at €99, €149, €199, €249',
       note:'Anchored to "feels like a deal on something branded". Spikes at these round numbers reveal deliberate seller framing, not random pricing.' },
-    { num:'05', title:'Image Quality Gap',
-      stat:`Authentic avg ${d.img_kb_auth} KB vs counterfeit ${d.img_kb_fake} KB (${imgRatio})`,
-      note:'Photo quality encodes the seller\'s class position. This is a classifier confounder — model must not learn "high-res = authentic" instead of bag features.' },
-    { num:'06', title:'Platform Trust Premium',
+    { num:'05', title:'Platform Trust Premium',
       stat:`Vestiaire median €${(ss['vestiairecollective.com']||{median:0}).median.toLocaleString()} vs Vinted €${vintedStats.median||0} vs eBay $${ebayStats.median||0}`,
       note:'Authenticated resale (Vestiaire) commands a massive premium over peer-to-peer (Vinted). eBay fakes skew higher — wider audience creates room for more ambitious counterfeit pricing.' },
   ];

@@ -201,11 +201,63 @@ input[type="search"] { min-width: 190px; }
 .empty-state { text-align: center; padding: 5rem 2rem; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-mute); letter-spacing: .04em; }
 
 @media (max-width: 640px) {
-  .modal { flex-direction: column; }
-  .modal-gallery-col { width: 100%; min-height: 220px; }
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .stats-band { gap: 1.2rem; }
-  nav, .toolbar, .grid-wrap { padding-left: 1rem; padding-right: 1rem; }
+  /* --- Nav --- */
+  nav { padding: 0 1rem; height: 52px; }
+  .nav-brand { font-size: 15px; }
+  .nav-brand span { display: none; }
+  .nav-links a { font-size: 11px; padding: 6px 8px; letter-spacing: .04em; }
+
+  /* --- Stats band — horizontal scroll --- */
+  .stats-band {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; flex-wrap: nowrap;
+    gap: 1.2rem; padding: .5rem 1rem;
+  }
+  .stats-band::-webkit-scrollbar { display: none; }
+  .stat-val { font-size: 18px; }
+  .stat-lbl { font-size: 8px; }
+  .stat-sep { height: 22px; }
+
+  /* --- Toolbar — vertical stack --- */
+  .toolbar { flex-direction: column; align-items: stretch; gap: 8px; padding: .75rem 1rem; }
+  .pills { display: flex; }
+  .pill { flex: 1; text-align: center; padding: 9px 4px; font-size: 10px; }
+  select, input[type="search"] {
+    width: 100%; min-width: 0;
+    height: 44px;
+    font-size: 16px; /* prevents iOS Safari zoom on focus */
+    padding: 0 12px;
+  }
+  .toolbar-end { margin-left: 0; display: flex; align-items: center; gap: 8px; }
+  .toolbar-end select { flex: 1; height: 44px; font-size: 16px; }
+
+  /* --- Grid & cards --- */
+  .grid-wrap { padding: 1rem 1rem 3rem; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card-frame { padding: 7px 7px 0; }
+  .card-placard { padding: 7px 9px 9px; margin: 0 7px; }
+  .card-name { font-size: 13px; }
+  .card-price { font-size: 12px; }
+  .card-tag { font-size: 8px; }
+
+  /* --- Modal — bottom sheet --- */
+  .modal-overlay { padding: 0; align-items: flex-end; }
+  .modal {
+    flex-direction: column;
+    max-height: 92vh; width: 100%; max-width: 100%;
+    border-radius: 14px 14px 0 0;
+    border-left: none; border-right: none; border-bottom: none;
+  }
+  .modal-gallery-col {
+    width: 100%; flex: 0 0 auto;
+    border-right: none; border-bottom: 1px solid var(--border);
+  }
+  .modal-main-img { min-height: 180px; max-height: 52vw; }
+  .modal-main-img img { max-height: 52vw; }
+  .modal-detail { padding: 16px 16px 32px; overflow-y: auto; }
+  .modal-close { top: 10px; right: 12px; width: 36px; height: 36px; font-size: 15px; }
+  .modal-title { font-size: 20px; }
+  .modal-price { font-size: 17px; }
 }
 </style>
 </head>
