@@ -80,7 +80,8 @@ jobs:
             echo "No new data — nothing to commit."
           else
             COUNT=$(git diff --cached --name-only data/ebay/metadata/ | wc -l | tr -d ' ')
+            git fetch origin main
+            git rebase origin/main
             git commit -m "chore(data): daily eBay scrape $(date -u '+%Y-%m-%d') (+${COUNT} items)"
-            git pull --rebase origin main
             git push
           fi
