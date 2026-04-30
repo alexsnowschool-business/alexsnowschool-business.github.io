@@ -67,12 +67,21 @@ def _search(app_id: str, query: str, page: int, per_page: int = 100) -> dict:
         "outputSelector":              "PictureURLLarge",
         "sortOrder":                   "StartTimeNewest",
     }
-    with httpx.Client(timeout=20) as c:
-        resp = c.get(FINDING_API, params=params)
-        if not resp.is_success:
-            print(f"  eBay API {resp.status_code}: {resp.text[:300]}")
+    for attempt in range(4):
+        with httpx.Client(timeout=20) as c:
+            resp = c.get(FINDING_API, params=params)
+        if resp.is_success:
+            return resp.json()
+        body = resp.text
+        # Rate-limit (errorId 10001) — back off and retry
+        if resp.status_code == 500 and "10001" in body:
+            wait = 60 * (2 ** attempt)
+            print(f"  Rate-limited by eBay (attempt {attempt+1}/4) — waiting {wait}s")
+            import time; time.sleep(wait)
+            continue
+        print(f"  eBay API {resp.status_code}: {body[:300]}")
         resp.raise_for_status()
-        return resp.json()
+    resp.raise_for_status()  # final raise after all retries exhausted
 
 
 def _val(field) -> str:
