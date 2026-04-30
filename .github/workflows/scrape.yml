@@ -29,37 +29,22 @@ jobs:
         env:
           EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
           EBAY_CERT_ID: ${{ secrets.EBAY_CERT_ID }}
-          EBAY_APP_TOKEN_STORED: ${{ secrets.EBAY_APP_TOKEN }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
         run: |
-          TOKEN=""
-
-          # Try OAuth2 auto-refresh first (needs EBAY_APP_ID + EBAY_CERT_ID secrets)
-          if [ -n "$EBAY_APP_ID" ] && [ -n "$EBAY_CERT_ID" ]; then
-            RESPONSE=$(curl -s -X POST "https://api.ebay.com/identity/v1/oauth2/token" \
-              -H "Content-Type: application/x-www-form-urlencoded" \
-              -u "$EBAY_APP_ID:$EBAY_CERT_ID" \
-              -d "grant_type=client_credentials&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")
-            TOKEN=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['token_type']+' '+d['access_token'])" 2>/dev/null || echo "")
-            if [ -n "$TOKEN" ]; then
-              echo "Token auto-refreshed via OAuth2."
-            else
-              echo "OAuth2 refresh failed (response: $RESPONSE) — falling back to stored token."
-            fi
-          else
-            echo "EBAY_APP_ID or EBAY_CERT_ID not set — skipping OAuth2 refresh."
-          fi
-
-          # Fall back to manually stored token
+          # Browse API requires a user token — refresh it using the stored refresh token
+          # (refresh tokens last 18 months; get one by running scripts/get_ebay_refresh_token.py)
+          RESPONSE=$(curl -s -X POST "https://api.ebay.com/identity/v1/oauth2/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -u "$EBAY_APP_ID:$EBAY_CERT_ID" \
+            -d "grant_type=refresh_token&refresh_token=$EBAY_REFRESH_TOKEN&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")
+          TOKEN=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print('Bearer '+d['access_token'])" 2>/dev/null || echo "")
           if [ -z "$TOKEN" ]; then
-            TOKEN="$EBAY_APP_TOKEN_STORED"
-            if [ -z "$TOKEN" ]; then
-              echo "No eBay token available. Add EBAY_APP_TOKEN or EBAY_APP_ID+EBAY_CERT_ID to repo secrets."
-              exit 1
-            fi
-            echo "Using stored EBAY_APP_TOKEN secret."
+            echo "Token refresh failed. Response: $RESPONSE"
+            echo "Run scripts/get_ebay_refresh_token.py locally to get a new refresh token."
+            exit 1
           fi
-
           echo "EBAY_APP_TOKEN=$TOKEN" >> $GITHUB_ENV
+          echo "Token refreshed successfully."
 
       - name: Run eBay scraper
         run: uv run python -m scraper.ebay --max-products 150
