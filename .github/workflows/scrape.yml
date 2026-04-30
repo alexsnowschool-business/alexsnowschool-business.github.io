@@ -81,5 +81,6 @@ jobs:
           else
             COUNT=$(git diff --cached --name-only data/ebay/metadata/ | wc -l | tr -d ' ')
             git commit -m "chore(data): daily eBay scrape $(date -u '+%Y-%m-%d') (+${COUNT} items)"
+            git pull --rebase origin main
             git push
           fi
