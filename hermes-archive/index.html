@@ -305,6 +305,7 @@ input[type="search"] { min-width: 190px; }
   <input type="search" id="search-input" placeholder="Search name, price…" oninput="applyFilters()">
   <div class="toolbar-end">
     <select id="sort-sel" onchange="applyFilters()">
+      <option value="date-desc">Listed — newest first</option>
       <option value="price-desc">Price — high to low</option>
       <option value="price-asc">Price — low to high</option>
       <option value="alpha">Name A–Z</option>
@@ -363,6 +364,15 @@ function priceVal(item) {
   return d ? parseInt(d) : -1;
 }
 
+function dateVal(item) {
+  const v = item.listed_at;
+  if (!v) return 0;
+  const s = String(v);
+  if (/^\d{10,}$/.test(s)) return parseInt(s);
+  const t = Date.parse(s);
+  return isNaN(t) ? 0 : t / 1000;
+}
+
 function getImgs(item) {
   return item.image_urls || [];
 }
@@ -408,7 +418,8 @@ function applyFilters() {
     }
     return true;
   });
-  if (sort === 'price-desc') filtered.sort((a,b) => priceVal(b)-priceVal(a));
+  if (sort === 'date-desc') filtered.sort((a,b) => dateVal(b)-dateVal(a));
+  else if (sort === 'price-desc') filtered.sort((a,b) => priceVal(b)-priceVal(a));
   else if (sort === 'price-asc') filtered.sort((a,b) => priceVal(a)-priceVal(b));
   else if (sort === 'leather') filtered.sort((a,b) => (a.leather_type||'zzz').localeCompare(b.leather_type||'zzz'));
   else filtered.sort((a,b) => (a.name||'').localeCompare(b.name||''));
