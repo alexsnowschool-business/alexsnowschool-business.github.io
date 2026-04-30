@@ -67,10 +67,11 @@ def _search(token: str, query: str, offset: int, limit: int = 50) -> dict:
                 "limit": limit,
                 "offset": offset,
                 "filter": f"price:[0..{MAX_PRICE_USD}],priceCurrency:USD",
-                "sort": "newlyListed",
             },
             headers={"Authorization": token, "X-EBAY-C-MARKETPLACE-ID": MARKETPLACE},
         )
+        if not resp.is_success:
+            print(f"  eBay API {resp.status_code}: {resp.text}")
         resp.raise_for_status()
         return resp.json()
 
