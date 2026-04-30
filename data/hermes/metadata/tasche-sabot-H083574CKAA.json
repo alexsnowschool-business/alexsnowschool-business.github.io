@@ -19,5 +19,13 @@
     "data/hermes/images/cd48ad735bc9135c5c18305d7d56608c.webp",
     "data/hermes/images/54721a784e3cd972cc2f272b11ff7a7b.webp",
     "data/hermes/images/e386309dbeeeb0c32e89059f2252a59d.webp"
-  ]
+  ],
+  "description": "Tasche aus Butler-Kalbsleder und Hunter-Rindsleder Zum Tragen in der Hand oder in der Armbeuge. Abmessungen: L 19 x H 16 x T 15 cm | Henkelh\u00f6he: 9,5 cm. Mehr erfahren \u00fcber das Butler-Kalbsleder\n Ein bahnbrechendes Leder, dessen Name an das Wort &quot;Butter&quot; erinnert. Es verweist auf die Cremigkeit und Reichhaltigkeit jener Butter und zeichnet sich durch eine raffinierte Eleganz und gro\u00dfe Sinnlichkeit aus.\n In der Kollektion verwendet seit: 2012\n Optische Eigenschaften: Glatt, marmoriert, seine Farbe ist pflanzlich transparent\n Oberfl\u00e4chenbeschaffenheit: \u00dcppig und weich\n Hand: Reichhaltig und voll, biegsam und zusammengezogene Narbung infolge der mineralischen Gerbung\n Entwicklung im Laufe der Zeit: Setzt Patina an, wird dunkler und geschmeidiger\n",
+  "leather_type": "Butler-Kalbsleder",
+  "dimensions": "L 19 x H 16 x T 15 cm",
+  "collection_since": "2012",
+  "availability": "out_of_stock",
+  "condition": "new",
+  "product_ref": "H083574CKAA",
+  "carry_type": "hand"
 }
