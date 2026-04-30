@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hermès Archive — Authenticity Dataset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #f0e9de;
+  --bg-card:   #faf5ec;
+  --nav-bg:    #17110a;
+  --nav-text:  #e8dcc8;
+  --gold:      #b8923a;
+  --gold-lt:   #eedcad;
+  --auth:      #2d5a1b;
+  --auth-lt:   #e4eed9;
+  --fake:      #7a1414;
+  --fake-lt:   #f2e0e0;
+  --text:      #1e150a;
+  --text-mid:  #6b5640;
+  --text-mute: #a8937a;
+  --border:    #cfc0a5;
+  --shadow:    rgba(30,21,10,.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--nav-bg); height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; border-bottom: 2px solid var(--gold);
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; letter-spacing: .06em;
+  color: var(--gold); text-transform: uppercase;
+}
+.nav-brand span { color: var(--nav-text); font-weight: 400; letter-spacing: .02em; font-size: 14px; margin-left: 12px; }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  color: #9c8a75; text-decoration: none; font-size: 12px; font-weight: 500;
+  padding: 6px 14px; border-radius: 4px; letter-spacing: .08em; text-transform: uppercase;
+  transition: all .15s;
+}
+.nav-links a:hover { color: var(--nav-text); }
+.nav-links a.active { color: var(--gold); border-bottom: 2px solid var(--gold); border-radius: 0; }
+
+.stats-band {
+  background: var(--nav-bg); padding: .6rem 2rem;
+  display: flex; gap: 2.5rem; align-items: center;
+  border-bottom: 1px solid #2e2218;
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--nav-text); line-height: 1;
+}
+.stat-lbl { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #6b5640; }
+.stat-sep { width: 1px; height: 28px; background: #2e2218; }
+
+.toolbar {
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  padding: .8rem 2rem; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+}
+.pills { display: flex; gap: 4px; }
+.pill {
+  padding: 5px 16px; border-radius: 2px; border: 1px solid var(--border);
+  font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+  cursor: pointer; background: transparent; color: var(--text-mid); transition: all .15s;
+  font-family: 'Inter', sans-serif;
+}
+.pill:hover { border-color: var(--gold); color: var(--text); }
+.pill.active     { background: var(--text); color: var(--bg-card); border-color: var(--text); }
+.pill.active-auth { background: var(--auth); color: #fff; border-color: var(--auth); }
+.pill.active-fake { background: var(--fake); color: #fff; border-color: var(--fake); }
+
+select, input[type="search"] {
+  height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: 2px;
+  font-size: 12px; font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg-card);
+  outline: none; transition: border-color .15s; letter-spacing: .02em;
+}
+select:focus, input[type="search"]:focus { border-color: var(--gold); }
+input[type="search"] { min-width: 190px; }
+.toolbar-end { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.result-count { font-size: 11px; color: var(--text-mute); letter-spacing: .06em; text-transform: uppercase; }
+
+.grid-wrap { padding: 1.5rem 2rem 3rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--bg-card); cursor: pointer;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: box-shadow .2s, transform .2s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  box-shadow: 0 10px 32px rgba(30,21,10,.18);
+  transform: translateY(-3px);
+}
+.card-frame { padding: 10px 10px 0; background: var(--bg-card); }
+.card-img-wrap {
+  aspect-ratio: 3/4; overflow: hidden; background: #e8dfd0;
+  border: 1px solid var(--border);
+}
+.card-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .4s ease;
+}
+.card:hover .card-img-wrap img { transform: scale(1.05); }
+.card-no-img {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  color: var(--border); font-size: 2.5rem;
+}
+.card-placard {
+  padding: 10px 12px 12px;
+  border-top: 2px solid var(--border);
+  margin: 0 10px;
+  flex: 1; display: flex; flex-direction: column; gap: 4px;
+}
+.card-tag {
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-mute);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 600; line-height: 1.25; color: var(--text);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-price { font-size: 14px; font-weight: 600; margin-top: 2px; }
+.card-foot { margin-top: auto; padding-top: 8px; display: flex; align-items: center; justify-content: space-between; }
+.label-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.load-more-wrap { text-align: center; padding: 2rem 0; }
+.load-more-btn {
+  padding: 10px 32px; border: 1px solid var(--border); border-radius: 2px;
+  background: var(--bg-card); font-size: 11px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; cursor: pointer; color: var(--text-mid);
+  font-family: 'Inter', sans-serif; transition: all .15s;
+}
+.load-more-btn:hover { border-color: var(--gold); color: var(--text); background: var(--bg); }
+
+.modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(15,9,3,.75);
+  z-index: 300; align-items: center; justify-content: center; padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--bg-card); max-width: 900px; width: 100%; max-height: 90vh;
+  display: flex; overflow: hidden; position: relative;
+  border: 1px solid var(--border); box-shadow: 0 24px 80px rgba(0,0,0,.4);
+}
+.modal-close {
+  position: absolute; top: 10px; right: 12px; z-index: 10;
+  width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--bg-card); cursor: pointer; font-size: 14px; color: var(--text-mid);
+  display: flex; align-items: center; justify-content: center; transition: all .15s;
+}
+.modal-close:hover { background: var(--border); color: var(--text); }
+.modal-gallery-col {
+  width: 56%; flex-shrink: 0; display: flex; flex-direction: column;
+  background: #e8dfd0; border-right: 1px solid var(--border);
+}
+.modal-main-img {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; min-height: 300px;
+}
+.modal-main-img img { max-width: 100%; max-height: 440px; object-fit: contain; }
+.modal-thumbs {
+  display: flex; gap: 6px; padding: 8px; overflow-x: auto; background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.modal-thumb {
+  width: 52px; height: 52px; flex-shrink: 0; cursor: pointer;
+  border: 2px solid transparent; overflow: hidden; opacity: .7; transition: all .15s;
+}
+.modal-thumb:hover, .modal-thumb.active { border-color: var(--gold); opacity: 1; }
+.modal-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.modal-detail { flex: 1; overflow-y: auto; padding: 24px; }
+.modal-super { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 6px; }
+.modal-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; line-height: 1.2; margin-bottom: 8px; }
+.modal-price { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+.modal-badge { display: inline-block; padding: 4px 14px; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 20px; }
+.modal-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+.modal-fields { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.modal-field { display: flex; gap: 12px; }
+.mf-key { width: 80px; flex-shrink: 0; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-mute); padding-top: 2px; }
+.mf-val { font-size: 13px; color: var(--text); line-height: 1.4; }
+.modal-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; font-style: italic; }
+.modal-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; padding: 8px 18px; background: var(--text); color: var(--bg-card); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; transition: background .15s; }
+.modal-link:hover { background: #3a2a1a; }
+
+.loading-state { text-align: center; padding: 5rem 2rem; color: var(--text-mute); font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: .06em; }
+.empty-state { text-align: center; padding: 5rem 2rem; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-mute); letter-spacing: .04em; }
+
+@media (max-width: 640px) {
+  .modal { flex-direction: column; }
+  .modal-gallery-col { width: 100%; min-height: 220px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stats-band { gap: 1.2rem; }
+  nav, .toolbar, .grid-wrap { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:baseline;gap:0">
+    <span class="nav-brand">The Hermès Archive <span>— Authenticity Dataset</span></span>
+  </div>
+  <div class="nav-links">
+    <a href="./index.html" class="active">Catalogue</a>
+    <a href="./analysis.html">Analysis</a>
+    <a href="../" style="margin-left:8px;border-left:1px solid #2e2218;padding-left:14px">← Portfolio</a>
+  </div>
+</nav>
+
+<div class="stats-band">
+  <div class="stat-item"><div class="stat-val" id="s-total">—</div><div class="stat-lbl">Items</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-val" style="color:#8cb87a" id="s-auth">—</div><div class="stat-lbl">Authentic</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-val" style="color:#c97070" id="s-fake">—</div><div class="stat-lbl">Counterfeit</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-val" id="s-images">—</div><div class="stat-lbl">Images</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-val" style="color:var(--gold)" id="s-sources">—</div><div class="stat-lbl">Sources</div></div>
+</div>
+
+<div class="toolbar">
+  <div class="pills">
+    <button class="pill active"   id="pill-all"          onclick="setLabel('all')">All</button>
+    <button class="pill"          id="pill-authentic"    onclick="setLabel('authentic')">Authentic</button>
+    <button class="pill"          id="pill-counterfeit"  onclick="setLabel('counterfeit')">Counterfeit</button>
+  </div>
+  <select id="platform-sel" onchange="applyFilters()">
+    <option value="">All sources</option>
+    <option value="vestiairecollective.com">Vestiaire Collective</option>
+    <option value="hermes.com">Hermès.com</option>
+    <option value="vinted.de">Vinted</option>
+    <option value="ebay.com">eBay</option>
+  </select>
+  <select id="leather-sel" onchange="applyFilters()">
+    <option value="">All leathers</option>
+  </select>
+  <input type="search" id="search-input" placeholder="Search name, price…" oninput="applyFilters()">
+  <div class="toolbar-end">
+    <select id="sort-sel" onchange="applyFilters()">
+      <option value="price-desc">Price — high to low</option>
+      <option value="price-asc">Price — low to high</option>
+      <option value="alpha">Name A–Z</option>
+      <option value="leather">Leather A–Z</option>
+    </select>
+    <span class="result-count" id="result-count"></span>
+  </div>
+</div>
+
+<div class="grid-wrap">
+  <div class="loading-state" id="loading">Loading catalogue…</div>
+  <div class="grid" id="grid"></div>
+  <div class="empty-state" id="empty" style="display:none">No items match this filter.</div>
+  <div class="load-more-wrap" id="load-more-wrap" style="display:none">
+    <button class="load-more-btn" onclick="showMore()">View More Works</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalBg(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-gallery-col">
+      <div class="modal-main-img" id="modal-main-img"></div>
+      <div class="modal-thumbs" id="modal-thumbs"></div>
+    </div>
+    <div class="modal-detail" id="modal-detail"></div>
+  </div>
+</div>
+
+<script>
+const PAGE = 120;
+let all = [], filtered = [], shown = 0, activeLabel = 'all';
+let currentImgs = [];
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function fmtDate(v) {
+  if (!v) return '—';
+  const s = String(v);
+  if (/^\d{10,}$/.test(s)) return new Date(parseInt(s) * 1000).toISOString().slice(0,10);
+  return s.slice(0,10);
+}
+
+const PLATFORM_LABELS = {
+  'vestiairecollective.com': 'Vestiaire',
+  'hermes.com': 'Hermès.com',
+  'vinted.de': 'Vinted',
+  'ebay.com': 'eBay',
+};
+
+function priceVal(item) {
+  const d = (item.price || '').replace(/[^\d]/g, '');
+  return d ? parseInt(d) : -1;
+}
+
+function getImgs(item) {
+  return item.image_urls || [];
+}
+
+async function init() {
+  const items = await fetch('./catalogue.json').then(r => r.json());
+  all = items;
+  const auth = all.filter(i => i.authenticity_label === 'authentic').length;
+  const fake = all.filter(i => i.authenticity_label === 'counterfeit').length;
+  const imgs = all.reduce((s,i) => s + (i.image_urls||[]).length, 0);
+  const sources = new Set(all.map(i => i.platform)).size;
+  document.getElementById('s-total').textContent   = all.length.toLocaleString();
+  document.getElementById('s-auth').textContent    = auth.toLocaleString();
+  document.getElementById('s-fake').textContent    = fake.toLocaleString();
+  document.getElementById('s-images').textContent  = imgs.toLocaleString();
+  document.getElementById('s-sources').textContent = sources;
+  document.getElementById('loading').style.display = 'none';
+
+  const leathers = [...new Set(all.map(i => i.leather_type).filter(Boolean))].sort();
+  const leatherSel = document.getElementById('leather-sel');
+  leathers.forEach(lt => {
+    const opt = document.createElement('option');
+    opt.value = lt; opt.textContent = lt;
+    leatherSel.appendChild(opt);
+  });
+  if (leathers.length === 0) leatherSel.style.display = 'none';
+
+  applyFilters();
+}
+
+function applyFilters() {
+  const plat    = document.getElementById('platform-sel').value;
+  const leather = document.getElementById('leather-sel').value;
+  const query   = document.getElementById('search-input').value.toLowerCase();
+  const sort    = document.getElementById('sort-sel').value;
+  filtered = all.filter(item => {
+    if (activeLabel !== 'all' && item.authenticity_label !== activeLabel) return false;
+    if (plat && item.platform !== plat) return false;
+    if (leather && item.leather_type !== leather) return false;
+    if (query) {
+      const txt = ((item.name||'') + ' ' + (item.price||'') + ' ' + (item.leather_type||'')).toLowerCase();
+      if (!txt.includes(query)) return false;
+    }
+    return true;
+  });
+  if (sort === 'price-desc') filtered.sort((a,b) => priceVal(b)-priceVal(a));
+  else if (sort === 'price-asc') filtered.sort((a,b) => priceVal(a)-priceVal(b));
+  else if (sort === 'leather') filtered.sort((a,b) => (a.leather_type||'zzz').localeCompare(b.leather_type||'zzz'));
+  else filtered.sort((a,b) => (a.name||'').localeCompare(b.name||''));
+  document.getElementById('result-count').textContent = filtered.length.toLocaleString() + ' works';
+  shown = 0;
+  document.getElementById('grid').innerHTML = '';
+  document.getElementById('empty').style.display = 'none';
+  showMore();
+  if (filtered.length === 0) document.getElementById('empty').style.display = '';
+}
+
+function showMore() {
+  const batch = filtered.slice(shown, shown + PAGE);
+  const frag = document.createDocumentFragment();
+  batch.forEach(item => frag.appendChild(buildCard(item)));
+  document.getElementById('grid').appendChild(frag);
+  shown += batch.length;
+  document.getElementById('load-more-wrap').style.display = shown < filtered.length ? '' : 'none';
+}
+
+function buildCard(item) {
+  const isAuth = item.authenticity_label === 'authentic';
+  const imgs = getImgs(item);
+  const thumb = imgs.length ? imgs[0] : null;
+  const price = item.price || '—';
+  const plat  = PLATFORM_LABELS[item.platform] || item.platform || '';
+  const authColor = isAuth ? 'var(--auth)' : 'var(--fake)';
+
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.onclick = () => openModal(item);
+  el.innerHTML = `
+    <div class="card-frame">
+      <div class="card-img-wrap">
+        ${thumb
+          ? `<img src="${thumb}" alt="" loading="lazy">`
+          : `<div class="card-no-img">◇</div>`}
+      </div>
+    </div>
+    <div class="card-placard">
+      <div class="card-tag">
+        <span>${plat}</span>
+        <span style="display:flex;align-items:center;gap:4px">
+          <span class="label-dot" style="background:${authColor}"></span>
+          <span style="color:${authColor}">${isAuth ? 'Auth.' : 'Fake'}</span>
+        </span>
+      </div>
+      <div class="card-name">${esc(item.name || '—')}</div>
+      <div class="card-price" style="color:${authColor}">${esc(price)}</div>
+    </div>`;
+  return el;
+}
+
+function setLabel(label) {
+  activeLabel = label;
+  document.getElementById('pill-all').className = 'pill' + (label==='all' ? ' active' : '');
+  document.getElementById('pill-authentic').className = 'pill' + (label==='authentic' ? ' active-auth' : '');
+  document.getElementById('pill-counterfeit').className = 'pill' + (label==='counterfeit' ? ' active-fake' : '');
+  applyFilters();
+}
+
+function openModal(item) {
+  const isAuth = item.authenticity_label === 'authentic';
+  const imgs = getImgs(item);
+  currentImgs = imgs;
+
+  const mainDiv = document.getElementById('modal-main-img');
+  const thumbsDiv = document.getElementById('modal-thumbs');
+
+  if (imgs.length) {
+    mainDiv.innerHTML = `<img id="modal-big" src="${imgs[0]}" alt="">`;
+    thumbsDiv.innerHTML = imgs.map((u,i) =>
+      `<div class="modal-thumb ${i===0?'active':''}" onclick="switchImg(${i})">
+         <img src="${u}" alt="">
+       </div>`).join('');
+  } else {
+    mainDiv.innerHTML = `<span style="color:var(--text-mute);font-size:13px">No images</span>`;
+    thumbsDiv.innerHTML = '';
+  }
+
+  const authColor = isAuth ? 'var(--auth)' : 'var(--fake)';
+  const authLt    = isAuth ? 'var(--auth-lt)' : 'var(--fake-lt)';
+
+  const colorVal = item.color
+    || (Array.isArray(item.colors) ? item.colors.filter(Boolean).join(', ') : '')
+    || '—';
+
+  const carryLabels = {hand:'Hand carry', shoulder:'Shoulder', crossbody:'Crossbody', arm:'Arm carry'};
+  const fields = [
+    ['Platform',        PLATFORM_LABELS[item.platform] || item.platform || '—'],
+    ['Ref.',            item.product_ref || '—'],
+    ['Model',           item.model || item.bag_model || '—'],
+    ['Size',            item.bag_size ? item.bag_size + ' cm' : '—'],
+    ['Colour',          colorVal],
+    ['Leather',         item.leather_type || '—'],
+    ['Dimensions',      item.dimensions || '—'],
+    ['Hardware',        item.hardware || '—'],
+    ['Carry',           carryLabels[item.carry_type] || item.carry_type || '—'],
+    ['Made In',         item.made_in || '—'],
+    ['In Collection',   item.collection_since ? 'Since ' + item.collection_since : '—'],
+    ['Handmade',        item.handmade ? 'Yes' : '—'],
+    ['Condition',       item.condition || '—'],
+    ['Availability',    item.availability === 'in_stock' ? 'In Stock' : item.availability === 'out_of_stock' ? 'Out of Stock' : '—'],
+    ['Origin',          item.country || '—'],
+    ['Listed',          fmtDate(item.listed_at)],
+    ['Images',          (item.image_urls||[]).length || '—'],
+  ];
+
+  const fieldsHtml = fields
+    .filter(([,v]) => v && v !== '—')
+    .map(([k,v]) => `<div class="modal-field"><div class="mf-key">${esc(k)}</div><div class="mf-val">${esc(v)}</div></div>`)
+    .join('');
+
+  const descHtml = item.description
+    ? `<div class="modal-desc">"${esc(item.description).replace(/\n/g,'<br>')}"</div>` : '';
+
+  const linkHtml = item.source_url
+    ? `<a class="modal-link" href="${esc(item.source_url)}" target="_blank" rel="noopener">
+         Open Listing &nbsp;↗
+       </a>` : '';
+
+  document.getElementById('modal-detail').innerHTML = `
+    <div class="modal-super">Hermès &nbsp;·&nbsp; ${isAuth ? 'Authenticated Piece' : 'Counterfeit Specimen'}</div>
+    <div class="modal-title">${esc(item.name || '—')}</div>
+    <div class="modal-price" style="color:${authColor}">${esc(item.price || '—')}</div>
+    <div class="modal-badge" style="background:${authLt};color:${authColor}">
+      ${isAuth ? '✦ Authentic' : '✕ Counterfeit'}
+    </div>
+    <hr class="modal-divider">
+    <div class="modal-fields">${fieldsHtml}</div>
+    ${descHtml}
+    ${linkHtml}`;
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchImg(i) {
+  document.getElementById('modal-big').src = currentImgs[i];
+  document.querySelectorAll('.modal-thumb').forEach((t,j) =>
+    t.classList.toggle('active', i===j));
+}
+
+function closeModalBg(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+
+init();
+</script>
+</body>
+</html>

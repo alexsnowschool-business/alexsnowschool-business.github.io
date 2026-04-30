@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hermès Archive — Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:#f0e9de; --bg-card:#faf5ec; --nav-bg:#17110a;
+  --gold:#b8923a; --gold-lt:#eedcad;
+  --auth:#2d5a1b; --auth-lt:#e4eed9;
+  --fake:#7a1414; --fake-lt:#f2e0e0;
+  --text:#1e150a; --text-mid:#6b5640; --text-mute:#a8937a;
+  --border:#cfc0a5;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
+nav {
+  background:var(--nav-bg); height:60px; position:sticky; top:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 2rem; border-bottom:2px solid var(--gold);
+}
+.nav-brand {
+  font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600;
+  letter-spacing:.06em; color:var(--gold); text-transform:uppercase;
+}
+.nav-brand span { color:#e8dcc8; font-weight:400; font-size:14px; margin-left:12px; letter-spacing:.02em; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a {
+  color:#9c8a75; text-decoration:none; font-size:12px; font-weight:500;
+  padding:6px 14px; border-radius:4px; letter-spacing:.08em; text-transform:uppercase; transition:all .15s;
+}
+.nav-links a:hover { color:#e8dcc8; }
+.nav-links a.active { color:var(--gold); border-bottom:2px solid var(--gold); border-radius:0; }
+.page { max-width:1200px; margin:0 auto; padding:2rem; }
+.section-label {
+  font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600;
+  letter-spacing:.02em; color:var(--text); margin:3rem 0 1.25rem;
+  padding-bottom:.6rem; border-bottom:1px solid var(--border);
+  display:flex; align-items:baseline; gap:.75rem;
+}
+.section-num { font-size:10px; letter-spacing:.14em; color:var(--text-mute); text-transform:uppercase; font-family:'Inter',sans-serif; font-weight:600; }
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(175px,1fr)); gap:14px; margin-bottom:2rem; }
+.kpi { background:var(--bg-card); border:1px solid var(--border); padding:1.2rem; }
+.kpi .label { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.12em; color:var(--text-mute); }
+.kpi .value { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:600; line-height:1; margin-top:4px; }
+.kpi .sub { font-size:11px; color:var(--text-mid); margin-top:5px; }
+.obs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; margin-bottom:2rem; }
+.obs-card { background:var(--bg-card); border:1px solid var(--border); padding:1.4rem; border-left:3px solid var(--gold); }
+.obs-num { font-size:9px; font-weight:700; color:var(--gold); letter-spacing:.14em; text-transform:uppercase; margin-bottom:6px; }
+.obs-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; margin-bottom:8px; }
+.obs-stat { font-size:12px; font-weight:600; background:var(--bg); padding:6px 10px; margin-bottom:8px; border-left:2px solid var(--gold); color:var(--text); }
+.obs-note { font-size:12px; color:var(--text-mid); line-height:1.6; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:2rem; }
+.grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:2rem; }
+.card { background:var(--bg-card); border:1px solid var(--border); padding:1.5rem; }
+.card-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; margin:0 0 3px; }
+.card-sub { font-size:10px; color:var(--text-mute); margin:0 0 1rem; letter-spacing:.06em; text-transform:uppercase; }
+.chart-wrap { position:relative; height:280px; }
+.chart-wrap-tall { position:relative; height:360px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { text-align:left; padding:8px 10px; border-bottom:1px solid var(--border); font-size:9px; text-transform:uppercase; letter-spacing:.1em; color:var(--text-mute); font-weight:600; }
+td { padding:9px 10px; border-bottom:1px solid #e8dfd0; color:var(--text); }
+tr:last-child td { border-bottom:none; }
+tbody tr:hover { background:#ece5d8; }
+.spread-val { color:var(--auth); font-weight:600; }
+.comp-ratio { color:var(--gold); font-weight:700; }
+.arb-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; }
+.loading-msg { text-align:center; padding:5rem 2rem; font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--text-mute); letter-spacing:.06em; }
+@media(max-width:700px) { .grid2,.grid3,.obs-grid { grid-template-columns:1fr; } .page { padding:1rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <span class="nav-brand">The Hermès Archive <span>— Authenticity Dataset</span></span>
+  <div class="nav-links">
+    <a href="./index.html">Catalogue</a>
+    <a href="./analysis.html" class="active">Analysis</a>
+    <a href="../" style="margin-left:8px;border-left:1px solid #2e2218;padding-left:14px">← Portfolio</a>
+  </div>
+</nav>
+
+<div class="page" id="page-content">
+  <div class="loading-msg" id="loading-msg">Loading analysis…</div>
+</div>
+
+<script>
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.color = '#a8937a';
+Chart.defaults.borderColor = '#cfc0a5';
+
+const AUTH_COLOR  = 'rgba(45,90,27,0.72)';
+const FAKE_COLOR  = 'rgba(122,20,20,0.72)';
+const AUTH_BORDER = 'rgb(45,90,27)';
+const FAKE_BORDER = 'rgb(122,20,20)';
+const BLUE_COLOR  = 'rgba(184,146,58,0.72)';
+const BLUE_BORDER = 'rgb(184,146,58)';
+
+function fmt(v) { return v != null ? '€' + v.toLocaleString() : '—'; }
+function esc(s) { return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function pctBar(pct) {
+  const w = Math.round(pct * 1.2), e = Math.round((100-pct)*1.2);
+  return `<span style="display:inline-flex;align-items:center;gap:5px">
+    <span style="display:inline-block;height:5px;width:${w}px;background:#b8923a;opacity:.75"></span>
+    <span style="display:inline-block;height:5px;width:${e}px;background:#cfc0a5"></span>
+    <span style="font-size:10px;color:#6b5640">${pct}%</span>
+  </span>`;
+}
+
+async function init() {
+  const d = await fetch('./analysis.json').then(r => r.json());
+  document.getElementById('loading-msg').remove();
+
+  const auth = d.auth, fake = d.fake;
+  const birkinAuth = (d.type_rows.find(r => r.type === 'Birkin') || {}).auth_avg || 0;
+  const birkinFake = (d.type_rows.find(r => r.type === 'Birkin') || {}).fake_avg || 0;
+  const kellyAuth  = (d.type_rows.find(r => r.type === 'Kelly')  || {}).auth_avg || 0;
+  const kellyFake  = (d.type_rows.find(r => r.type === 'Kelly')  || {}).fake_avg || 0;
+
+  const top2Types = d.concentration.slice(0,2).map(c => c.type).join(' + ');
+  const imgRatio  = d.img_kb_fake ? (d.img_kb_auth / d.img_kb_fake).toFixed(1) + '×' : '—';
+  const ebayStats = d.ebay_stats || {};
+  const vintedStats = d.vinted_stats || {};
+  const ss = d.source_summary || {};
+  const tc = d.top_compression || {type:'—', ratio:0};
+  const descCovPct = d.total_items ? Math.round(d.total_with_metadata * 100 / d.total_items) : 0;
+
+  const observations = [
+    { num:'01', title:'Status Symbol Concentration',
+      stat:`${d.top2_fake_pct.toFixed(0)}% of fakes are ${top2Types}`,
+      note:`vs ${d.top2_auth_pct.toFixed(0)}% of authentic listings — counterfeit demand concentrates on the most culturally legible pieces.` },
+    { num:'02', title:'Aspirational Distance',
+      stat:`${tc.type}: ${tc.ratio}× compression`,
+      note:'The authentic item is so far out of reach that counterfeit demand is structurally guaranteed — no amount of saving closes this gap.' },
+    { num:'03', title:'Bimodal Wealth Signal',
+      stat:'Two authentic price tiers: entry (€2k–€6k) and trophy (€15k+)',
+      note:'Mirrors the buyer wealth distribution — upper-middle stretch purchase vs. genuinely wealthy trophy acquisition. Counterfeit buyers occupy a third, separate tier.' },
+    { num:'04', title:'Psychological Pricing',
+      stat:'Counterfeit listings cluster at €99, €149, €199, €249',
+      note:'Anchored to "feels like a deal on something branded". Spikes at these round numbers reveal deliberate seller framing, not random pricing.' },
+    { num:'05', title:'Image Quality Gap',
+      stat:`Authentic avg ${d.img_kb_auth} KB vs counterfeit ${d.img_kb_fake} KB (${imgRatio})`,
+      note:'Photo quality encodes the seller\'s class position. This is a classifier confounder — model must not learn "high-res = authentic" instead of bag features.' },
+    { num:'06', title:'Platform Trust Premium',
+      stat:`Vestiaire median €${(ss['vestiairecollective.com']||{median:0}).median.toLocaleString()} vs Vinted €${vintedStats.median||0} vs eBay $${ebayStats.median||0}`,
+      note:'Authenticated resale (Vestiaire) commands a massive premium over peer-to-peer (Vinted). eBay fakes skew higher — wider audience creates room for more ambitious counterfeit pricing.' },
+  ];
+
+  const obsCards = observations.map(o => `
+    <div class="obs-card">
+      <div class="obs-num">No. ${o.num}</div>
+      <div class="obs-title">${o.title}</div>
+      <div class="obs-stat">${o.stat}</div>
+      <div class="obs-note">${o.note}</div>
+    </div>`).join('');
+
+  const sourceRows = Object.entries(ss).map(([src,v]) =>
+    `<tr><td>${src}</td><td>${v.count}</td><td>€${v.median.toLocaleString()}</td><td>€${v.mean.toLocaleString()}</td></tr>`).join('');
+
+  const typeTableRows = d.type_rows.map(r => `
+    <tr>
+      <td><strong>${r.type}</strong></td>
+      <td>${r.auth_count}</td><td>${fmt(r.auth_avg)}</td>
+      <td>${r.fake_count}</td><td>${fmt(r.fake_avg)}</td>
+      <td>${r.spread != null ? `<span class="spread-val">€${r.spread.toLocaleString()}</span>` : '—'}</td>
+    </tr>`).join('');
+
+  const compRows = d.compression_rows.map(r => `
+    <tr>
+      <td><strong>${r.type}</strong></td>
+      <td class="comp-ratio">${r.ratio}×</td>
+      <td>${fmt(r.auth_avg)}</td><td>${fmt(r.fake_avg)}</td>
+    </tr>`).join('');
+
+  const coverageHeader = ['description','condition','size','color','listed_at','model','country']
+    .map(f => `<th>${f}</th>`).join('');
+  const coverageRows = (d.coverage_rows||[]).map(r => `
+    <tr>
+      <td><strong>${r.platform}</strong></td>
+      <td style="color:#6b7280">${r.total}</td>
+      ${['description','condition','size','color','listed_at','model','country']
+        .map(f => `<td style="font-size:11px;white-space:nowrap">${pctBar((r.fields[f]||{pct:0}).pct)}</td>`)
+        .join('')}
+    </tr>`).join('');
+
+  const modelRows = (d.top_models||[]).length
+    ? d.top_models.map(r => `<tr><td>${esc(r.model)}</td><td style="text-align:right;font-weight:600">${r.count}</td></tr>`).join('')
+    : `<tr><td colspan="2" style="color:#9ca3af">No data yet</td></tr>`;
+
+  const countryRows = (d.top_countries||[]).length
+    ? d.top_countries.map(r => `<tr><td>${esc(r.country)}</td><td style="text-align:right;font-weight:600">${r.count}</td></tr>`).join('')
+    : `<tr><td colspan="2" style="color:#9ca3af">No data yet</td></tr>`;
+
+  const conditionRows = (d.top_conditions||[]).length
+    ? d.top_conditions.map(r => `<tr><td>${esc(r.condition)}</td><td style="text-align:right;font-weight:600">${r.count}</td></tr>`).join('')
+    : `<tr><td colspan="2" style="color:#9ca3af">No data yet</td></tr>`;
+
+  const ebayCondRows = (d.top_ebay_conditions||[]).length
+    ? d.top_ebay_conditions.map(r => `<tr><td>${esc(r.condition)}</td><td style="text-align:right;font-weight:600">${r.count}</td></tr>`).join('')
+    : '';
+  const ebayCtryRows = (d.top_ebay_countries||[]).length
+    ? d.top_ebay_countries.map(r => `<tr><td>${esc(r.country)}</td><td style="text-align:right;font-weight:600">${r.count}</td></tr>`).join('')
+    : '';
+
+  const arbCards = (d.arbitrage||[]).slice(0,20).map(a => `
+    <a href="${esc(a.url)}" target="_blank" rel="noopener"
+       style="display:flex;gap:10px;align-items:center;padding:10px;border:1px solid #cfc0a5;background:#faf5ec;text-decoration:none;color:#1e150a;transition:border-color .15s"
+       onmouseover="this.style.borderColor='#b8923a'" onmouseout="this.style.borderColor='#cfc0a5'">
+      ${a.img ? `<img src="${esc(a.img)}" style="width:56px;height:56px;object-fit:cover;flex-shrink:0;border:1px solid #cfc0a5">` : '<div style="width:56px;height:56px;background:#e8dfd0;flex-shrink:0"></div>'}
+      <div style="min-width:0">
+        <p style="margin:0;font-size:14px;font-weight:600;font-family:\'Cormorant Garamond\',serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(a.name)}</p>
+        <p style="margin:2px 0;font-size:10px;color:#a8937a;letter-spacing:.06em;text-transform:uppercase">${esc(a.platform)}</p>
+        <p style="margin:0;font-size:13px;color:#7a1414;font-weight:700">${esc(a.price)}</p>
+      </div>
+    </a>`).join('');
+
+  document.getElementById('page-content').innerHTML = `
+  <div class="section-label"><span class="section-num">I</span> Key Metrics</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="label">Total Items</div><div class="value">${d.total_items.toLocaleString()}</div><div class="sub">${d.total_images.toLocaleString()} images collected</div></div>
+    <div class="kpi"><div class="label">Authentic Median</div><div class="value" style="color:var(--auth)">€${auth.median.toLocaleString()}</div><div class="sub">${auth.count} items · €${auth.min.toLocaleString()}–€${auth.max.toLocaleString()}</div></div>
+    <div class="kpi"><div class="label">Counterfeit Median</div><div class="value" style="color:var(--fake)">€${fake.median.toLocaleString()}</div><div class="sub">${fake.count} items · €${fake.min.toLocaleString()}–€${fake.max.toLocaleString()}</div></div>
+    <div class="kpi"><div class="label">Median Spread</div><div class="value" style="color:var(--gold)">€${(auth.median - fake.median).toLocaleString()}</div><div class="sub">${fake.median ? Math.round(auth.median/fake.median) : '—'}× authentic vs counterfeit</div></div>
+    <div class="kpi"><div class="label">Birkin Auth. Avg</div><div class="value">€${birkinAuth.toLocaleString()}</div><div class="sub">vs €${birkinFake.toLocaleString()} counterfeit</div></div>
+    <div class="kpi"><div class="label">Kelly Auth. Avg</div><div class="value">€${kellyAuth.toLocaleString()}</div><div class="sub">vs €${kellyFake.toLocaleString()} counterfeit</div></div>
+  </div>
+
+  <div class="section-label"><span class="section-num">II</span> Curatorial Observations</div>
+  <div class="obs-grid">${obsCards}</div>
+
+  <div class="section-label"><span class="section-num">III</span> Price Distribution</div>
+  <div class="grid2">
+    <div class="card"><div class="card-title">Price Band Distribution</div><div class="card-sub">Authentic vs Counterfeit — broad view</div><div class="chart-wrap"><canvas id="bandChart"></canvas></div></div>
+    <div class="card"><div class="card-title">Average Price by Bag Type</div><div class="card-sub">Where each model sits on the price spectrum</div><div class="chart-wrap"><canvas id="typeChart"></canvas></div></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><div class="card-title">Authentic Price Distribution</div><div class="card-sub">€2,000 bins — reveals bimodal wealth tiers</div><div class="chart-wrap"><canvas id="authFineChart"></canvas></div></div>
+    <div class="card"><div class="card-title">Counterfeit Psychological Pricing</div><div class="card-sub">€25 bins, €0–€500 — deliberate price anchoring</div><div class="chart-wrap"><canvas id="psychChart"></canvas></div></div>
+  </div>
+
+  <div class="section-label"><span class="section-num">IV</span> Cultural &amp; Aspirational Analysis</div>
+  <div class="grid2">
+    <div class="card"><div class="card-title">Aspirational Distance</div><div class="card-sub">Authentic avg ÷ counterfeit avg — structural inaccessibility by model</div><div class="chart-wrap-tall"><canvas id="compChart"></canvas></div></div>
+    <div class="card"><div class="card-title">Status Symbol Concentration</div><div class="card-sub">Share of each class's listings by model — where counterfeit demand concentrates</div><div class="chart-wrap-tall"><canvas id="concChart"></canvas></div></div>
+  </div>
+
+  <div class="section-label"><span class="section-num">V</span> Provenance Tables</div>
+  <div class="card" style="margin-bottom:2rem">
+    <div class="card-title">Model Price Comparison</div>
+    <div class="card-sub">Authenticated vs counterfeit — average price and spread by bag type</div>
+    <table><thead><tr><th>Model</th><th>Auth items</th><th>Auth avg</th><th>Fake items</th><th>Fake avg</th><th>Price spread</th></tr></thead><tbody>${typeTableRows}</tbody></table>
+  </div>
+  <div class="grid2" style="margin-bottom:2rem">
+    <div class="card">
+      <div class="card-title">Aspirational Distance</div>
+      <div class="card-sub">Compression ratio — authentic avg ÷ fake avg</div>
+      <table><thead><tr><th>Model</th><th>Ratio</th><th>Auth avg</th><th>Fake avg</th></tr></thead><tbody>${compRows}</tbody></table>
+    </div>
+    <div class="card">
+      <div class="card-title">Price by Source</div>
+      <div class="card-sub">eBay in USD · all others in EUR</div>
+      <table><thead><tr><th>Platform</th><th>Items</th><th>Median</th><th>Mean</th></tr></thead><tbody>${sourceRows}</tbody></table>
+    </div>
+  </div>
+
+  <div class="section-label"><span class="section-num">VI</span> eBay Counterfeit Specimens</div>
+  <div class="kpi-grid" style="margin-bottom:1.25rem">
+    <div class="kpi"><div class="label">eBay Specimens</div><div class="value">${d.ebay_total.toLocaleString()}</div><div class="sub">counterfeit listings collected</div></div>
+    <div class="kpi"><div class="label">eBay Median Price</div><div class="value" style="color:var(--fake)">$${(ebayStats.median||0).toLocaleString()}</div><div class="sub">USD · range $${(ebayStats.min||0).toLocaleString()}–$${(ebayStats.max||0).toLocaleString()}</div></div>
+    <div class="kpi"><div class="label">vs Vinted Median</div><div class="value" style="color:var(--fake)">€${(vintedStats.median||0).toLocaleString()}</div><div class="sub">EUR · eBay prices ~${vintedStats.median ? Math.round((ebayStats.median||0)/vintedStats.median) : '—'}× higher</div></div>
+  </div>
+  <div class="grid2" style="margin-bottom:2rem">
+    <div class="card">
+      <div class="card-title">Listing Condition</div>
+      <div class="card-sub">Seller-reported condition on eBay counterfeit listings</div>
+      ${ebayCondRows ? `<table><thead><tr><th>Condition</th><th style="text-align:right">Count</th></tr></thead><tbody>${ebayCondRows}</tbody></table><p style="margin-top:1rem;font-size:11px;color:var(--text-mute);font-style:italic">New listings at $100 are a strong counterfeit signal — authentic Hermès is never available new at this price.</p>` : '<p style="font-size:12px;color:var(--text-mute)">No eBay data yet.</p>'}
+    </div>
+    <div class="card">
+      <div class="card-title">Seller Country</div>
+      <div class="card-sub">Geographic origin of eBay counterfeit listings</div>
+      ${ebayCtryRows ? `<table><thead><tr><th>Country</th><th style="text-align:right">Count</th></tr></thead><tbody>${ebayCtryRows}</tbody></table>` : '<p style="font-size:12px;color:var(--text-mute)">No eBay data yet.</p>'}
+    </div>
+  </div>
+
+  <div class="section-label"><span class="section-num">VII</span> Text &amp; Metadata Coverage</div>
+  <div class="card" style="margin-bottom:2rem">
+    <div class="card-title">Field Coverage by Source <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:400;color:var(--text-mute);margin-left:8px">${d.total_with_metadata.toLocaleString()} / ${d.total_items.toLocaleString()} items (${descCovPct}%)</span></div>
+    <div class="card-sub" style="margin-bottom:1rem">Proportion of items with each metadata field populated</div>
+    <div style="overflow-x:auto">
+      <table style="font-size:12px"><thead><tr><th>Platform</th><th>Items</th>${coverageHeader}</tr></thead><tbody>${coverageRows}</tbody></table>
+    </div>
+  </div>
+  <div class="grid3" style="margin-bottom:2rem">
+    <div class="card"><div class="card-title">Bag Model Distribution</div><div class="card-sub">Authentic listings with model field</div><table><thead><tr><th>Model</th><th style="text-align:right">Count</th></tr></thead><tbody>${modelRows}</tbody></table></div>
+    <div class="card"><div class="card-title">Seller Country</div><div class="card-sub">Authentic listings — origin country</div><table><thead><tr><th>Country</th><th style="text-align:right">Count</th></tr></thead><tbody>${countryRows}</tbody></table></div>
+    <div class="card"><div class="card-title">Listing Condition</div><div class="card-sub">Counterfeit listings — seller-reported</div><table><thead><tr><th>Condition</th><th style="text-align:right">Count</th></tr></thead><tbody>${conditionRows}</tbody></table></div>
+  </div>
+  <div class="grid2" style="margin-bottom:2rem">
+    <div class="card">
+      <div class="card-title">Description Length</div>
+      <div class="card-sub">Character count — how much sellers write</div>
+      <table style="margin-bottom:1rem">
+        <thead><tr><th>Label</th><th>Items with desc</th><th>Median chars</th><th>Mean chars</th></tr></thead>
+        <tbody>
+          <tr><td><span style="color:var(--auth);font-weight:600">Authentic</span></td><td>${d.desc_auth.count}</td><td>${d.desc_auth.median.toLocaleString()}</td><td>${d.desc_auth.mean.toLocaleString()}</td></tr>
+          <tr><td><span style="color:var(--fake);font-weight:600">Counterfeit</span></td><td>${d.desc_fake.count}</td><td>${d.desc_fake.median.toLocaleString()}</td><td>${d.desc_fake.mean.toLocaleString()}</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--text-mute);font-style:italic;margin:0">
+        ${d.desc_auth.count || d.desc_fake.count ? 'Authentic descriptions are longer and more technical — leather type, dimensions, date stamp.' : 'No description data yet.'}
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-title">Listing Date Timeline</div>
+      <div class="card-sub">When items were listed — by month</div>
+      ${d.timeline.labels.length ? '<div class="chart-wrap"><canvas id="timelineChart"></canvas></div>' : '<p style="font-size:12px;color:var(--text-mute);padding-top:1rem;font-style:italic">No listed_at data yet.</p>'}
+    </div>
+  </div>
+
+  <div class="section-label"><span class="section-num">VIII</span> High-Value Counterfeit Specimens</div>
+  <div class="card" style="margin-bottom:3rem">
+    <p style="font-size:12px;color:var(--text-mid);margin:0 0 1.25rem;font-style:italic">Listings priced ≥ €200 — where deceptive presentation or mislabelling creates material risk. Click to open the original listing.</p>
+    <div class="arb-grid">${arbCards}</div>
+  </div>`;
+
+  // Charts
+  new Chart(document.getElementById('bandChart'), {
+    type:'bar', data:{ labels:d.band_labels, datasets:[
+      {label:'Authentic', data:d.auth_bands, backgroundColor:AUTH_COLOR, borderColor:AUTH_BORDER, borderWidth:1},
+      {label:'Counterfeit', data:d.fake_bands, backgroundColor:FAKE_COLOR, borderColor:FAKE_BORDER, borderWidth:1},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{x:{ticks:{maxRotation:45,font:{size:10}}},y:{beginAtZero:true,title:{display:true,text:'Items'}}}}
+  });
+
+  new Chart(document.getElementById('typeChart'), {
+    type:'bar', data:{ labels:d.type_rows.map(r=>r.type), datasets:[
+      {label:'Authentic avg (€)', data:d.type_rows.map(r=>r.auth_avg), backgroundColor:AUTH_COLOR, borderColor:AUTH_BORDER, borderWidth:1},
+      {label:'Counterfeit avg (€)', data:d.type_rows.map(r=>r.fake_avg), backgroundColor:FAKE_COLOR, borderColor:FAKE_BORDER, borderWidth:1},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{y:{beginAtZero:true,title:{display:true,text:'Avg Price (€)'}}}}
+  });
+
+  new Chart(document.getElementById('authFineChart'), {
+    type:'bar', data:{ labels:d.auth_fine_labels, datasets:[
+      {label:'Authentic listings', data:d.auth_fine_bands, backgroundColor:AUTH_COLOR, borderColor:AUTH_BORDER, borderWidth:1}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:45,font:{size:10}}},y:{beginAtZero:true,title:{display:true,text:'Items'}}}}
+  });
+
+  new Chart(document.getElementById('psychChart'), {
+    type:'bar', data:{ labels:d.psych_labels, datasets:[
+      {label:'Counterfeit listings', data:d.psych_bands, backgroundColor:FAKE_COLOR, borderColor:FAKE_BORDER, borderWidth:1}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxRotation:45,font:{size:9}}},y:{beginAtZero:true,title:{display:true,text:'Items'}}}}
+  });
+
+  new Chart(document.getElementById('compChart'), {
+    type:'bar', data:{ labels:d.compression_rows.map(r=>r.type), datasets:[
+      {label:'Compression ratio (×)', data:d.compression_rows.map(r=>r.ratio), backgroundColor:BLUE_COLOR, borderColor:BLUE_BORDER, borderWidth:1}
+    ]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x+'×'}}},scales:{x:{beginAtZero:true,title:{display:true,text:'Authentic avg ÷ Counterfeit avg'}},y:{ticks:{font:{size:11}}}}}
+  });
+
+  new Chart(document.getElementById('concChart'), {
+    type:'bar', data:{ labels:d.concentration.map(c=>c.type), datasets:[
+      {label:'% of authentic listings', data:d.concentration.map(c=>c.auth_pct), backgroundColor:AUTH_COLOR, borderColor:AUTH_BORDER, borderWidth:1},
+      {label:'% of counterfeit listings', data:d.concentration.map(c=>c.fake_pct), backgroundColor:FAKE_COLOR, borderColor:FAKE_BORDER, borderWidth:1},
+    ]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.x+'%'}}},scales:{x:{beginAtZero:true,title:{display:true,text:'% of class listings'}},y:{ticks:{font:{size:11}}}}}
+  });
+
+  if (d.timeline.labels.length && document.getElementById('timelineChart')) {
+    new Chart(document.getElementById('timelineChart'), {
+      type:'line', data:{ labels:d.timeline.labels, datasets:[
+        {label:'Authentic listed', data:d.timeline.auth, borderColor:'rgb(22,163,74)', backgroundColor:'rgba(34,197,94,0.1)', tension:.3, fill:true},
+        {label:'Counterfeit listed', data:d.timeline.fake, borderColor:'rgb(220,38,38)', backgroundColor:'rgba(239,68,68,0.1)', tension:.3, fill:true},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{x:{ticks:{maxRotation:45,font:{size:10}}},y:{beginAtZero:true,title:{display:true,text:'Listings'}}}}
+    });
+  }
+}
+
+init();
+</script>
+</body>
+</html>
