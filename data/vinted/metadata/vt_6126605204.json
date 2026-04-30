@@ -1,0 +1,29 @@
+{
+  "id": "6126605204",
+  "name": "Magic Kelly Hermes",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac450",
+  "description": "",
+  "condition": "Sehr gut",
+  "size": "",
+  "color": "",
+  "listed_at": "",
+  "source_url": "https://www.vinted.de/items/6126605204-magic-kelly-hermes",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/04_01a56_DtMQQVGDC8mvgEUVfbPQe7BZ/1744362226.jpeg?s=b3b3efa3640c6e490c055bb30ad0c605aa6b3af8",
+    "https://images1.vinted.net/tc/04_01f55_VpgP5rRWVS31jukqFMEpuooQ/1744362226.jpeg?s=82cf054d932e296bd52ebcb420e938338bad9195",
+    "https://images1.vinted.net/tc/02_00807_bUT9YD1ChgcuhEHtjGnnaEGp/1744362226.jpeg?s=87eea50ef24521ad943573b088c4df41ef3b0e2a",
+    "https://images1.vinted.net/tc/02_004e9_smeeGUUnEWjwTnfaww2gedKp/1744362226.jpeg?s=07cc189127ecfccee05f0efe6806d12760c92a07",
+    "https://images1.vinted.net/tc/01_02182_bSC4kEnZSUR9pT7ynCn7oAEC/1744362226.jpeg?s=4c124b7bcc1ae1c330fc2a1376d96d317d07e22b"
+  ],
+  "local_images": [
+    "data/vinted/images/109e6dca166bfab7600733c9d7287f11.jpg",
+    "data/vinted/images/75841fd420d615f079de16ac4a654246.jpg",
+    "data/vinted/images/38b2129c7fe1e8c49b09362490abdc23.jpg",
+    "data/vinted/images/ee069d884ada1ad476d835e66d3e5045.jpg",
+    "data/vinted/images/9424e1e62b3506ccd409fb3c34299029.jpg"
+  ]
+}

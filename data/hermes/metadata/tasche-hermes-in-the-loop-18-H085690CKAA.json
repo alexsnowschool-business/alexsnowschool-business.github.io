@@ -1,0 +1,35 @@
+{
+  "name": "Tasche Herm\u00e8s In-the-Loop 18",
+  "sku": "tasche-hermes-in-the-loop-18-H085690CKAA",
+  "price": "\u20ac3,700",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-hermes-in-the-loop-18-H085690CKAA/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--085690CKAA-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--085690CKAA-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--085690CKAA-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--085690CKAA-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--085690CKAA-detail-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--085690CKAA-below-wm-8-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--085690CKAA-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/6e47f015c8bd7313f4dcc03174453049.jpg",
+    "data/hermes/images/1b9ede0487927819ff5d8afd39b14c44.jpg",
+    "data/hermes/images/790a42270348b1847e107296a7585874.jpg",
+    "data/hermes/images/63252197dbe4939fef5de199aa48a856.jpg",
+    "data/hermes/images/7f474e7ef53a555f6e365f16f5edbe57.webp",
+    "data/hermes/images/89434370c7d678dd6f59e9eac68162ca.webp",
+    "data/hermes/images/51ecf32d5d33fc7e4cf43c77f8dec2e3.webp"
+  ],
+  "description": "Tasche aus Toile H und Swift-Kalbsleder  - \"Cha\u00eene d'Ancre\"-Kettengliedschlie\u00dfe - Zwei Innentaschen - Ungef\u00fcttert - Zum Tragen in der Hand  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 18 x H 19,5 x T 12 cm",
+  "dimensions": "L 18 x H 19,5 x T 12 cm",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H085690CKAA",
+  "bag_size": "18",
+  "handmade": true,
+  "carry_type": "hand"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Tasche M\u00e9dor",
+  "sku": "tasche-medor-H085055CKAA",
+  "price": "Preis8.150 \u20ac",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-medor-H085055CKAA/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-medor--085055CKAA-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-medor--085055CKAA-worn-2-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-medor--085055CKAA-worn-3-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-medor--085055CKAA-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-medor--085055CKAA-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-medor--085055CKAA-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-medor--085055CKAA-detail-wm-7-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/7747238ae299d9630b923b88c36477f3.webp",
+    "data/hermes/images/25d366295eb229f07346ac425504ca2a.webp",
+    "data/hermes/images/c2c43f23d72ed103e0329ee0b8021ff4.webp",
+    "data/hermes/images/45c05b9d9a081472d386789867bd5830.webp",
+    "data/hermes/images/ad3ed56379d2fa552decb9bbeefae759.webp",
+    "data/hermes/images/ca03a36ff6c26265b935f270612cafb3.webp",
+    "data/hermes/images/2f4f7eb88e7354886a22284a214d4d1b.webp"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "5143284646",
+  "name": "Herm\u00e8s Twilly",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac125",
+  "source_url": "https://www.vinted.de/items/5143284646-hermes-twilly",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes birkin",
+  "image_urls": [
+    "https://images1.vinted.net/tc/01_00cda_H2i6GVxvxqXteHZ3UzmJNmkr/1727811481.jpeg?s=f29cd941ece0cca75f81f002c12b26ac6f5d6523",
+    "https://images1.vinted.net/tc/03_01abb_b7YvcERkT8D5e8vC5owqFWmo/1727811481.jpeg?s=848f82a8e792fa012fa8488a48ca3793e30122d8",
+    "https://images1.vinted.net/tc/02_01177_tkQepoyJZHSLJSfP3xPUQ48a/1727811481.jpeg?s=68c822d70653fed66ebd3f2ac547075ba139d2cb",
+    "https://images1.vinted.net/tc/03_01845_uZA8gxxJi39dXd6qyVjerPBR/1727811481.jpeg?s=327d9e68b321691453bce4b2521b6d3c12b9ce05"
+  ],
+  "local_images": [
+    "data/vinted/images/5abdde6ec386f5b0ef19d92b35e805b8.jpg",
+    "data/vinted/images/d5e5836fcb43a364be1298f8cd1c5178.jpg",
+    "data/vinted/images/071c7120b03b433c6cd3b9349d9d1b80.jpg",
+    "data/vinted/images/cc7e9003c1a4034b2b0ffe0e99ec7508.jpg"
+  ]
+}

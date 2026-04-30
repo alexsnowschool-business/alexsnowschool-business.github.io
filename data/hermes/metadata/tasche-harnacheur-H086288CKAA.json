@@ -1,0 +1,29 @@
+{
+  "name": "Tasche Harnacheur",
+  "sku": "tasche-harnacheur-H086288CKAA",
+  "price": "\u20ac6,950",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-harnacheur-H086288CKAA/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-harnacheur--086288CKAA-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-harnacheur--086288CKAA-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-harnacheur--086288CKAA-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-harnacheur--086288CKAA-back-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/a8eeecd0833f9cebe21da97682f2b696.webp",
+    "data/hermes/images/68a963667c839e9b40149b250bfdae90.webp",
+    "data/hermes/images/fe1c29d92eca015abf0bab089d59f10d.webp",
+    "data/hermes/images/502852a24da3a32abc0c90a86aaab1e8.webp"
+  ],
+  "description": "Tasche aus Evergrain-Kalbsleder und Hunter-Rindsleder  - Griffe - Verstellbarer und abnehmbarer Schulterriemen - Zum Tragen in der Hand, \u00fcber der Schulter oder diagonal am K\u00f6rper. Abmessungen: L 33 x H 36 x T 14 cm | L\u00e4nge des Schulterriemens: 125\u2013139,5 cm. Mehr erfahren \u00fcber das Evergrain-Kalbsleder\n Als entfernter Verwandter des Evercalf-Kalbsleders besitzt dieses Leder eine vergleichbare Biegsamkeit. Allerdings verf\u00fcgt es \u00fcber eine dezent gepr\u00e4gte Narbung, die sehr regelm\u00e4\u00dfig ist, wie sein Name vermuten l\u00e4sst.\n In der Kollektion verwendet seit: 2004\n Optische Eigenschaften: Feine, regelm\u00e4\u00dfige und leichte Narbung, seidig\n Oberfl\u00e4chenbeschaffenheit: Nahezu unmerkliche Narbung\n Hand: Biegsam und weich\n Entwicklung im Laufe der Zeit: Scheuert sich ab und wird geschmeidiger\n",
+  "leather_type": "Evergrain-Kalbsleder",
+  "dimensions": "L 33 x H 36 x T 14 cm",
+  "collection_since": "2004",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H086288CKAA",
+  "carry_type": "hand"
+}

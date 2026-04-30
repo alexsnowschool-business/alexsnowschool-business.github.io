@@ -1,0 +1,24 @@
+{
+  "id": "6873772255",
+  "name": "Sandales Kelly Hermes",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac500",
+  "source_url": "https://www.vinted.de/items/6873772255-sandales-kelly-hermes",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/01_00a3e_iYDqUGevX5Meei4TQGr3n5Ez/1755266426.jpeg?s=e4a6206ba99fb981910ef66428d6ff143baed662",
+    "https://images1.vinted.net/tc/04_012f5_EuZkMPNACSwd36r2TQibFggk/1755266426.jpeg?s=6dc1c85d51400d729792734245a213783fda26cd",
+    "https://images1.vinted.net/tc/04_01822_1FHS5azDqHV5ZogN2go6QMJj/1755266426.jpeg?s=1beaa41b32607021c69db5c7006f82e29453cf07",
+    "https://images1.vinted.net/tc/04_0194e_qjUmB9qLvZNFMP6yFQqH2udM/1755266426.jpeg?s=3a7548a12933a7e1d826a585ac69dde2172237d1",
+    "https://images1.vinted.net/tc/01_0131a_fvTMRiPYbSNN5N7ZbHwyRHk6/1755266426.jpeg?s=9e3d900a76ba32674df56774ed6e740d62f13046"
+  ],
+  "local_images": [
+    "data/vinted/images/8e4caf6a998eaff5a588c211707404fe.jpg",
+    "data/vinted/images/4631fa5a9ec8e35e76a3a831a5dc178e.jpg",
+    "data/vinted/images/e8f5d030e14f2569fd50363170543b09.jpg",
+    "data/vinted/images/6662c397c802e79d2c879dfb4821146a.jpg",
+    "data/vinted/images/880b94a80db274fdf42b1ff7dbe78472.jpg"
+  ]
+}

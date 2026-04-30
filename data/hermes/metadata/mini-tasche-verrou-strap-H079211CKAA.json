@@ -1,0 +1,29 @@
+{
+  "name": "Mini-Tasche Verrou Strap",
+  "sku": "mini-tasche-verrou-strap-H079211CKAA",
+  "price": "Preis7.800 \u20ac",
+  "source_url": "https://www.hermes.com/de/de/product/mini-tasche-verrou-strap-H079211CKAA/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-verrou-strap--079211CKAA-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-verrou-strap--079211CKAA-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-verrou-strap--079211CKAA-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-verrou-strap--079211CKAA-back-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/0bf2be7b847f213c540ac3301363f3ad.webp",
+    "data/hermes/images/354404cfcfd5ef5687b6b39ecaafcd2e.webp",
+    "data/hermes/images/8db09c9bb459cdca28e7b2b83f99566f.webp",
+    "data/hermes/images/6f1f7c014f8afac0f110e6dcf4c985d4.webp"
+  ],
+  "description": "Tasche aus Mysore-Ziegenleder, Schlie\u00dfe in Schlossform, aufgesetzte Tasche, Allegro-Gurt als Schulterriemen Zum Tragen \u00fcber der Schulter. Abmessungen: L 17 x H 14 x T 4,2 cm",
+  "leather_type": "Mysore-Ziegenleder",
+  "dimensions": "L 17 x H 14 x T 4,2 cm",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H079211CKAA",
+  "bag_model": "Verrou",
+  "carry_type": "shoulder"
+}

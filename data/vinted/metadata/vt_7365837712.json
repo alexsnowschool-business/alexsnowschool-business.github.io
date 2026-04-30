@@ -1,0 +1,24 @@
+{
+  "id": "7365837712",
+  "name": "Carr\u00e9 herm\u00e8s 70cm",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac450",
+  "source_url": "https://www.vinted.de/items/7365837712-carre-hermes-70cm",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/03_004e5_EDNU9E7hL4zgj2cYiFR1x7zX/1760969102.jpeg?s=fd4494b9de3145768de69574230c22267870289b",
+    "https://images1.vinted.net/tc/03_005eb_9rq9PFb8s2rAHsRNsxKzLCBo/1760969102.jpeg?s=334217c75448ee4443dc152ec51d0a24995e896b",
+    "https://images1.vinted.net/tc/02_01fca_bMJ85Zpi7Lgwo5x8GjeFpG8g/1760969102.jpeg?s=eb6b244f5abffe904cdfcc1bb1464b806d30fbc8",
+    "https://images1.vinted.net/tc/02_00065_GNGzy7QmnVQEU4NTGYoA5bF4/1760969102.jpeg?s=11d4b143c88a07a6e6ca3b807f39d763da2fd822",
+    "https://images1.vinted.net/tc/04_01a3a_oBLzenQ9pYiBsrePA9Ghs9p4/1760969102.jpeg?s=5b2134becfc5655394629809b653254d30503637"
+  ],
+  "local_images": [
+    "data/vinted/images/4eb2c93243172ff279fed5cdd1cca7b7.jpg",
+    "data/vinted/images/e3d7531ebdff55158f6e425db825ee85.jpg",
+    "data/vinted/images/ca0628f7c1c07848f9a09d9699129f89.jpg",
+    "data/vinted/images/fee55572cdd62ed0b176ca740b269a3f.jpg",
+    "data/vinted/images/926077f96df79de2f240b6b5d3da4997.jpg"
+  ]
+}

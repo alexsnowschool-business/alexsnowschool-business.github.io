@@ -1,0 +1,29 @@
+{
+  "name": "Tasche Herm\u00e8s Videpoches",
+  "sku": "tasche-hermes-videpoches-H085760CKAE",
+  "price": "\u20ac3,400",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-hermes-videpoches-H085760CKAE/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--085760CKAE-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--085760CKAE-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--085760CKAE-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--085760CKAE-back-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/b0656f14410a181a2ee5720ca3e543d8.webp",
+    "data/hermes/images/daf2235625f702e802f5fe5b846ee92e.webp",
+    "data/hermes/images/2af8257313baab459d68a14ab2e56848.webp",
+    "data/hermes/images/f33e22b0cd11667e93a12fcb6aa3f891.webp"
+  ],
+  "description": "Tasche aus Togo-Kalbsleder  - Pattenverschluss im Origami-Stil mit zwei \"Clou de Selle\"-Druckkn\u00f6pfen -  Charakteristisches \"H\"-Perforationsmotiv - Verstellbarer Schulterriemen aus Cordage-Gurt - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper. Abmessungen: L 27 x H 14 x T 4 cm | L\u00e4nge des Schulterriemens: 84\u2013123 cm. Mehr erfahren \u00fcber das Togo-Kalbsleder\n Bei diesem Leder werden die nat\u00fcrlichen Eigenschaften durch ein intensives Walken verst\u00e4rkt. Es verdankt seinen Namen dem Thema, das im Jahr seiner Entstehung bei Herm\u00e8s im Mittelpunkt stand: Afrika. Togo ist ein afrikanischer Staat.\n In der Kollektion verwendet seit: 1997\n Optische Eigenschaften: Matt, runde und unregelm\u00e4\u00dfige Narbung, h\u00e4ufig sichtbare und markante Adern und Falten\n Oberfl\u00e4chenbeschaffenheit: Trocken, relativ kraftvoll, prall\n Hand: Biegsam und kraftvoll\n Entwicklung im Laufe der Zeit: Es wird geschmeidiger\n",
+  "leather_type": "Togo-Kalbsleder",
+  "dimensions": "L 27 x H 14 x T 4 cm",
+  "collection_since": "1997",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H085760CKAE",
+  "carry_type": "shoulder"
+}

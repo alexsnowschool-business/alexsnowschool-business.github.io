@@ -1,0 +1,29 @@
+{
+  "id": "5512572450",
+  "name": "Gants SOYA",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac500",
+  "description": "",
+  "condition": "Sehr gut",
+  "size": "7,5",
+  "color": "",
+  "listed_at": "",
+  "source_url": "https://www.vinted.de/items/5512572450-gants-soya",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/04_00d7d_FQ5cX34gE2cs2T7xVyLbvpp8/1733906536.jpeg?s=f0e50b13932e2f2c946e7897e68252651e28e77b",
+    "https://images1.vinted.net/tc/04_01ecc_XgZpd8hGm6yhJzwwn7hgq72z/1733906536.jpeg?s=38d08bd5de9a427a8138fe7af96300d255a03cd4",
+    "https://images1.vinted.net/tc/01_01f54_MxtgR4tGmCUsNidBiwp3Bpay/1733906536.jpeg?s=d846a77ef7749263684076073b83c8a89d3f4f9c",
+    "https://images1.vinted.net/tc/02_01aa7_LaTrjL2hzqEFTTFQCCeNZ1NV/1733906536.jpeg?s=c72bf81458cc1ae0c0536ab096a9ecc83b7c5f74",
+    "https://images1.vinted.net/tc/04_021e5_ERDzrAXCiKiXEqyYDTG3bVXm/1733906536.jpeg?s=8e4409fe6711c05403458c1a852eb0be492c1af7"
+  ],
+  "local_images": [
+    "data/vinted/images/523be7fa3539a434ee5736635555195d.jpg",
+    "data/vinted/images/8e281ac11fdb3a155da90f19a688ca15.jpg",
+    "data/vinted/images/8b90a0d5dd4e229662d9985cb07981d6.jpg",
+    "data/vinted/images/5bff0a1dddfb624aade160b51c1bc503.jpg",
+    "data/vinted/images/cee736e44b3382ed7b2890ee700b7269.jpg"
+  ]
+}

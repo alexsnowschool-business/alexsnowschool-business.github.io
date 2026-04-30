@@ -1,0 +1,21 @@
+{
+  "name": "Tasche N\u00e9o Garden Voyage 41",
+  "sku": "tasche-neo-garden-voyage-41-H086934CKAA",
+  "price": "\u20ac3,650",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-neo-garden-voyage-41-H086934CKAA/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-neo-garden-voyage-41--086934CKAA-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-neo-garden-voyage-41--086934CKAA-worn-2-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-neo-garden-voyage-41--086934CKAA-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-neo-garden-voyage-41--086934CKAA-above-wm-5-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/3d257494f8844d01423d6fe41990b143.webp",
+    "data/hermes/images/b8078250ef38ef41afdf2895d9ae8c5e.webp",
+    "data/hermes/images/661bbed3deb4d63d5ef5bd0661a2be79.jpg",
+    "data/hermes/images/44de4a234cd225898c03455fc63c7b9b.jpg"
+  ]
+}

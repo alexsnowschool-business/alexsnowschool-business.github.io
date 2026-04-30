@@ -1,0 +1,30 @@
+{
+  "id": "7201613705",
+  "name": "Sneakers Day Hermes",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac430",
+  "source_url": "https://www.vinted.de/items/7201613705-sneakers-day-hermes",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/02_01831_gE8LsujELabdgX6jpy6Acqbp/1759223102.jpeg?s=75d6de20b148185b61fcc0e7f376b8ff7a5ea77d",
+    "https://images1.vinted.net/tc/04_012a7_UXt1mf7AVUxh7v9AVrtWMRxB/1759223102.jpeg?s=bb724eab2d5c9221b60959e4a32a8c9bd7f83b81",
+    "https://images1.vinted.net/tc/04_00e24_zooNKmL5ScgeVzuV8Wbif8Fp/1759223102.jpeg?s=becfef83536c72fa2f170ca2c45dfa1a9b8b5491",
+    "https://images1.vinted.net/tc/02_011e4_jPpxgDPHfJwnNAaHNiREtrek/1759223102.jpeg?s=a8ae577c2c8be4ba0c9764c98bd2f993dfafc649",
+    "https://images1.vinted.net/tc/04_01114_SENNMbkuQApLsDVSoJkyaqLy/1759223102.jpeg?s=a74cb5a35754eaef6f195a0598513a12b1a434fd",
+    "https://images1.vinted.net/tc/03_00a1d_vdbPNfkeLFXRByGeXTZpmHqz/1759223102.jpeg?s=1b6378d85cc3e0c4e5bc1a1fe31e567bcd5e6a3e",
+    "https://images1.vinted.net/tc/02_026d3_kXB2ZxrAnUx58RFDLC7z9xis/1759223102.jpeg?s=0163d60ac1b35757654d1df9427ece4b5eb98d8f",
+    "https://images1.vinted.net/tc/03_01f9f_Pj6Hx9kPgV8ZbX9bT8vYFfxq/1759223102.jpeg?s=a3e7f2ad292eec5746bec98c2228affa57ac0688"
+  ],
+  "local_images": [
+    "data/vinted/images/368ce31e96a7b58054f2aacc40850f2f.jpg",
+    "data/vinted/images/283a4840d4b9ab18dedf90bf6a8ca000.jpg",
+    "data/vinted/images/5be5697a1e03be5e6de908d776771cb8.jpg",
+    "data/vinted/images/7c14e8e168b71a65f7101a824458c869.jpg",
+    "data/vinted/images/890b2a2782fc348a544f6c21531e4ec4.jpg",
+    "data/vinted/images/b1506dc2f36209c2487134adc8c50e9d.jpg",
+    "data/vinted/images/0164b5c096d9c89f9f47182e84dfb1d9.jpg",
+    "data/vinted/images/6a7aa29e5f5f61ad078b8c6297dca8d8.jpg"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Tasche Faubourg Express",
+  "sku": "tasche-faubourg-express-H086409CC89",
+  "price": "\u20ac7,900",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-faubourg-express-H086409CC89/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086409CC89-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086409CC89-worn-2-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086409CC89-worn-3-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086409CC89-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086409CC89-detail-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086409CC89-above-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/e3bfee0015598828722988a651240ed6.webp",
+    "data/hermes/images/921cf4c85bef7418fdc270022c00b525.webp",
+    "data/hermes/images/7e0c0fc4f86a04b7a016fdc60e8664c4.webp",
+    "data/hermes/images/6b882ae61413a764b101527788237a2a.webp",
+    "data/hermes/images/d5e56095a5a2306212e959a873778c8f.webp",
+    "data/hermes/images/dc4ab55e5eb554dc6e809daa6be847b1.webp"
+  ],
+  "description": "Tasche aus Evergrain-Kalbsleder  - Griffe - Zum Tragen in der Hand oder in der Armbeuge  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 21 x H 10 x T 8 cm. Mehr erfahren \u00fcber das Evergrain-Kalbsleder\n Als entfernter Verwandter des Evercalf-Kalbsleders besitzt dieses Leder eine vergleichbare Biegsamkeit. Allerdings verf\u00fcgt es \u00fcber eine dezent gepr\u00e4gte Narbung, die sehr regelm\u00e4\u00dfig ist, wie sein Name vermuten l\u00e4sst.\n In der Kollektion verwendet seit: 2004\n Optische Eigenschaften: Feine, regelm\u00e4\u00dfige und leichte Narbung, seidig\n Oberfl\u00e4chenbeschaffenheit: Nahezu unmerkliche Narbung\n Hand: Biegsam und weich\n Entwicklung im Laufe der Zeit: Scheuert sich ab und wird geschmeidiger\n",
+  "leather_type": "Evergrain-Kalbsleder",
+  "dimensions": "L 21 x H 10 x T 8 cm",
+  "collection_since": "2004",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H086409CC89",
+  "handmade": true,
+  "carry_type": "hand"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Tasche Ar\u00e7on Slim",
+  "sku": "tasche-arcon-slim-H087032CPAM",
+  "price": "\u20ac4,200",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-arcon-slim-H087032CPAM/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arcon-slim--087032CPAM-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arcon-slim--087032CPAM-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arcon-slim--087032CPAM-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arcon-slim--087032CPAM-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arcon-slim--087032CPAM-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/e3e1eef65b740361475c16baaa62d84d.webp",
+    "data/hermes/images/053b8119542058f32b219f4b19d714d6.webp",
+    "data/hermes/images/445df3e3bad8f13c632a3082444732ee.webp",
+    "data/hermes/images/0d01cef8b0b5ff532e36127efe7275e8.webp",
+    "data/hermes/images/052677a58cfadb9b5d2d67098db64127.webp"
+  ],
+  "description": "Tasche aus Togo-Kalbsleder und Swift-Kalbsleder  - Gro\u00dfes Innenfach - Au\u00dfentasche mit Rei\u00dfverschluss und Futter aus Toile H auf der Vorderseite - Karabiner zum Befestigen von Handschuhen oder einem Talisman - Verstellbarer Schulterriemen mit \u00c9trivi\u00e8re-Schlie\u00dfe - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 27 x H 22 x T 4 cm | L\u00e4nge des Schulterriemens ohne Karabiner: 69\u201394 cm. Mehr erfahren \u00fcber das Togo-Kalbsleder\n Bei diesem Leder werden die nat\u00fcrlichen Eigenschaften durch ein intensives Walken verst\u00e4rkt. Es verdankt seinen Namen dem Thema, das im Jahr seiner Entstehung bei Herm\u00e8s im Mittelpunkt stand: Afrika. Togo ist ein afrikanischer Staat.\n In der Kollektion verwendet seit: 1997\n Optische Eigenschaften: Matt, runde und unregelm\u00e4\u00dfige Narbung, h\u00e4ufig sichtbare und markante Adern und Falten\n Oberfl\u00e4chenbeschaffenheit: Trocken, relativ kraftvoll, prall\n Hand: Biegsam und kraftvoll\n Entwicklung im Laufe der Zeit: Es wird geschmeidiger\n",
+  "leather_type": "Togo-Kalbsleder",
+  "dimensions": "L 27 x H 22 x T 4 cm",
+  "collection_since": "1997",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H087032CPAM",
+  "handmade": true,
+  "carry_type": "shoulder"
+}

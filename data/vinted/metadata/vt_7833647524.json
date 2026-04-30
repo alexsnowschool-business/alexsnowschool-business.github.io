@@ -1,0 +1,28 @@
+{
+  "id": "7833647524",
+  "name": "Bracelet Hermes Kelly",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac500",
+  "source_url": "https://www.vinted.de/items/7833647524-bracelet-hermes-kelly",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/06_01f04_Kzs74eUR5K2Kqr3EB4S75vqL/1767712662.jpeg?s=a97fdc235943cba519b0a0c40deca6dceedce305",
+    "https://images1.vinted.net/tc/05_019e8_jeby4526cJrtZb1LuiVcXcCi/1767712663.jpeg?s=d60c59113f12d9dbcf4bc2580748c2bc7fda1a27",
+    "https://images1.vinted.net/tc/05_00b1b_crZ9tp3wWNnUHpDnTsoEeHfo/1767712663.jpeg?s=8c5eab4ece25358f3c7c61c5f8c05d0d7f26b231",
+    "https://images1.vinted.net/tc/06_01f69_pbxYwjGG9G83FQvoz78KnWMv/1767712662.jpeg?s=81af2c7a4c56d1811c52b9b2502af58c9e4a90cf",
+    "https://images1.vinted.net/tc/06_00e17_VcJfvF8QPmYvYeMDLqVQ8mki/1767712663.jpeg?s=238634e9f0df442dc7077f07501413c587114286",
+    "https://images1.vinted.net/tc/06_0244c_785JechxpKZsKhNM5mpW7pVe/1767712663.jpeg?s=8144956776d9bc183cd44a6a726d3a4eb9494652",
+    "https://images1.vinted.net/tc/01_00244_dvi3FphxpQsZWjUAKcobG94C/1767712663.jpeg?s=d51f9d24dccc973b0e61afa643c04a5c09eb0c27"
+  ],
+  "local_images": [
+    "data/vinted/images/da40f792501558519ca2ab9f20710ece.jpg",
+    "data/vinted/images/d6329cd72b16a9768d093bac59f7b537.jpg",
+    "data/vinted/images/9f2d9c4f675fec8b3b429ab5931040b8.jpg",
+    "data/vinted/images/deb626f954c0020d466fa0871c018d9f.jpg",
+    "data/vinted/images/f8430d6013047e484f63be91f05e2922.jpg",
+    "data/vinted/images/5ba518497c65780156d28e17f475d0e1.jpg",
+    "data/vinted/images/763492603d5a505bc33e620320a9d8a7.jpg"
+  ]
+}

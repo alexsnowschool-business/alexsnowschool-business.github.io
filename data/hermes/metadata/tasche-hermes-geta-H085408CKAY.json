@@ -1,0 +1,32 @@
+{
+  "name": "Tasche Herm\u00e8s Geta",
+  "sku": "tasche-hermes-geta-H085408CKAY",
+  "price": "\u20ac5,300",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-hermes-geta-H085408CKAY/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--085408CKAY-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--085408CKAY-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--085408CKAY-above-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--085408CKAY-back-wm-8-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--085408CKAY-below-wm-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/b8a61bf72623307b33a243d9bb649155.webp",
+    "data/hermes/images/e77faa237af29a23610126c65cf30e72.webp",
+    "data/hermes/images/5c1bebeb62ecbb37630d55f5814926be.webp",
+    "data/hermes/images/3cba70b00f5d53cd086827db0e618133.webp",
+    "data/hermes/images/3bf329060cbdb53b0dc91cbd0c49a105.jpg"
+  ],
+  "description": "Tasche aus Evercolor-Kalbsleder  - \"H\"-Schlie\u00dfe mit farblich abgestimmten Lederintarsien - Mittelfach - Zwei aufgesetzte Innentaschen (davon eine mit zwei F\u00e4chern) - Verstellbarer Fibre-Gurt als Schulterriemen - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper  Die Schlie\u00dfe ist ein multifunktionales Element, das als Magnetschlie\u00dfe, Taschenfu\u00df und Verstellsystem f\u00fcr den Schulterriemen dient.  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 20 x H 15 x T 7 cm | L\u00e4nge des Schulterriemens ohne Karabiner: 61\u2013120 cm. Mehr erfahren \u00fcber das Evercolor-Kalbsleder\n Dieses Leder ist in einer gro\u00dfen &quot;for ever&quot;-Farbvielfalt erh\u00e4ltlich und in der Biegsamkeit mit dem Evergrain-Kalbsleder vergleichbar.\n In der Kollektion verwendet seit: 2012\n Optische Eigenschaften: Seidig, regelm\u00e4\u00dfige kleine, durch Pr\u00e4gung erhaltene Narbung\n Oberfl\u00e4chenbeschaffenheit: Narbung sp\u00fcrbarer im Vergleich zum Evergrain-Kalbsleder\n Hand: Biegsam und weich\n Entwicklung im Laufe der Zeit: Wird geschmeidiger und scheuert sich ab\n",
+  "leather_type": "Evercolor-Kalbsleder",
+  "dimensions": "L 20 x H 15 x T 7 cm",
+  "collection_since": "2012",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H085408CKAY",
+  "handmade": true,
+  "carry_type": "shoulder"
+}

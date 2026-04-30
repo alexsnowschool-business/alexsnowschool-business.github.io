@@ -1,0 +1,28 @@
+{
+  "id": "v1-167670946379-0",
+  "name": "Brand new Hermes Birkin storage bag, approximately 43cm long x 46cm wide, extra",
+  "brand": "Herm\u00e8s",
+  "price": "$148",
+  "description": "",
+  "condition": "New with tags",
+  "country": "JP",
+  "listed_at": "2025-07-25T05:31:42.000Z",
+  "source_url": "https://www.ebay.com/itm/167670946379?_skw=hermes+birkin+bag&hash=item2709f79a4b:g:mOYAAeSwdpxpk8Q2",
+  "platform": "ebay.com",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes birkin bag",
+  "image_urls": [
+    "https://i.ebayimg.com/images/g/mOYAAeSwdpxpk8Q2/s-l1600.jpg",
+    "https://i.ebayimg.com/images/g/9PoAAeSwWStpk8Q2/s-l1600.jpg",
+    "https://i.ebayimg.com/images/g/b0sAAeSwX~Bpk8Q2/s-l1600.jpg",
+    "https://i.ebayimg.com/images/g/VxwAAeSwIoBpk8Q2/s-l1600.jpg",
+    "https://i.ebayimg.com/images/g/yu0AAeSw0Mhpk8Q2/s-l1600.jpg"
+  ],
+  "local_images": [
+    "data/ebay/images/58071211b9595e4796b9c1972319b10b.jpg",
+    "data/ebay/images/6e22626d64336cabad435d34f043460a.jpg",
+    "data/ebay/images/35a1f02a822fecea015b743ddbe733ff.jpg",
+    "data/ebay/images/aac5520ddb5f979fb5cecd325e5cd988.jpg",
+    "data/ebay/images/d388e86ce120126ef5a28f236b4269b2.jpg"
+  ]
+}

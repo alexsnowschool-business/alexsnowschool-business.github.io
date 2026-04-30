@@ -1,0 +1,25 @@
+{
+  "name": "Tasche Le Petit Sac",
+  "sku": "tasche-le-petit-sac-H087967CKI2",
+  "price": "\u20ac4,400",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-le-petit-sac-H087967CKI2/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-le-petit-sac--087967CKI2-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-le-petit-sac--087967CKI2-worn-2-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-le-petit-sac--087967CKI2-worn-3-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-le-petit-sac--087967CKI2-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-le-petit-sac--087967CKI2-above-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-le-petit-sac--087967CKI2-back-wm-8-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/1c6e7cbe5816b0c1c1ac0d26034b72a5.webp",
+    "data/hermes/images/0309fef879d258199c40e4bf28161b54.webp",
+    "data/hermes/images/bdfd2d28d214ee01ad5a6f6bf6fdf15a.jpg",
+    "data/hermes/images/b00b155f7b9ca1dd1e246f28dccb7a17.webp",
+    "data/hermes/images/66bd154205410b203512e3b782432988.webp",
+    "data/hermes/images/9baf9fce63aff832c2028c8c624fb120.webp"
+  ]
+}

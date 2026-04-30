@@ -1,0 +1,33 @@
+{
+  "name": "Tasche Herm\u00e8s In-the-Loop 18",
+  "sku": "tasche-hermes-in-the-loop-18-H084274CKCG",
+  "price": "Preis3.800 \u20ac",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-hermes-in-the-loop-18-H084274CKCG/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--084274CKCG-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--084274CKCG-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--084274CKCG-above-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--084274CKCG-back-wm-8-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-in-the-loop-18--084274CKCG-detail-wm-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/64a5ec4c115b527674a4b3ca79d958bf.webp",
+    "data/hermes/images/dd1c841b1aef54b75e9cca36761767ee.webp",
+    "data/hermes/images/ddeca29f9da69f69f6333f65630e218f.webp",
+    "data/hermes/images/a727f0bbadd815beea83047cddc41d78.webp",
+    "data/hermes/images/fe28722d0fe0b3ecca3133eb51f6c967.webp"
+  ],
+  "description": "Tasche aus Cl\u00e9mence-Jungstierleder und Swift-Kalbsleder  - \"Cha\u00eene d'Ancre\"-Kettengliedschlie\u00dfe - Zwei Innentaschen - Ungef\u00fcttert - Zum Tragen in der Hand  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 18 x H 19,5 x T 12 cm. Mehr erfahren \u00fcber das Cl\u00e9mence-Jungstierleder\n Es wurde zu Ehren des Mannes, der es in unsere Kollektionen einf\u00fchrte, nach seiner Tochter benannt. Urspr\u00fcnglich f\u00fcr Gep\u00e4ck entwickelt, handelt es sich um ein gewalktes genarbtes Leder. Durch das Walken wird es geschmeidiger und seine Narbung an der Oberfl\u00e4che wird betont.\n In der Kollektion verwendet seit: 1992\n Optische Eigenschaften: Halbmatt, gro\u00dfe und unregelm\u00e4\u00dfige Narbung\n Oberfl\u00e4chenbeschaffenheit: Weich, cremig\n Hand: Weich\n Entwicklung im Laufe der Zeit: Es gewinnt an Biegsamkeit\n",
+  "leather_type": "Cl\u00e9mence-Jungstierleder",
+  "dimensions": "L 18 x H 19,5 x T 12 cm",
+  "collection_since": "1992",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H084274CKCG",
+  "bag_size": "18",
+  "handmade": true,
+  "carry_type": "hand"
+}

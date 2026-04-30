@@ -1,0 +1,26 @@
+{
+  "id": "v1-147278758730-0",
+  "name": "HERMES Kelly 25 bag, orange, Z00032, size 36, excellent condition.",
+  "brand": "Herm\u00e8s",
+  "price": "$260",
+  "description": "",
+  "condition": "Used",
+  "country": "JP",
+  "listed_at": "2026-04-26T06:40:46.000Z",
+  "source_url": "https://www.ebay.com/itm/147278758730?_skw=hermes+kelly+bag&hash=item224a7f834a:g:xqsAAeSwcCJp7bMq",
+  "platform": "ebay.com",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly bag",
+  "image_urls": [
+    "https://i.ebayimg.com/images/g/xqsAAeSwcCJp7bMq/s-l1600.jpg",
+    "https://i.ebayimg.com/images/g/~tUAAeSwmT1p7bMq/s-l1600.jpg",
+    "https://i.ebayimg.com/images/g/7XkAAeSw~F1p7bMq/s-l1600.jpg",
+    "https://i.ebayimg.com/images/g/DIIAAeSwQMdp7bMq/s-l1600.jpg"
+  ],
+  "local_images": [
+    "data/ebay/images/b198681396815e5217b2a2f1e38b4249.jpg",
+    "data/ebay/images/ee067a9be7695e2e3080a6abcb52778e.jpg",
+    "data/ebay/images/26e13f9dce5f6fdd5e34106a676a8e96.jpg",
+    "data/ebay/images/2cdbe55a74b8075f8498515bdcc56d0d.jpg"
+  ]
+}

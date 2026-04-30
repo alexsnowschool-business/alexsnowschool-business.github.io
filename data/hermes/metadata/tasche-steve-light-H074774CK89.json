@@ -1,0 +1,23 @@
+{
+  "name": "Tasche Steve Light",
+  "sku": "tasche-steve-light-H074774CK89",
+  "price": "\u20ac5,550",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-steve-light-H074774CK89/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steve-light--074774CK89-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steve-light--074774CK89-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steve-light--074774CK89-detail-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steve-light--074774CK89-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steve-light--074774CK89-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/f1baeb445c9ac5806be114a9a0fd85bd.webp",
+    "data/hermes/images/2da9335741d237e106f0b861b85617c2.webp",
+    "data/hermes/images/a169615be5ec89b4aeabda8de3b07d85.webp",
+    "data/hermes/images/c6a9f9c75ded8c76aaef1d9e06618847.webp",
+    "data/hermes/images/b4f414db0ee6b6a4f2d02549cd0f1594.webp"
+  ]
+}

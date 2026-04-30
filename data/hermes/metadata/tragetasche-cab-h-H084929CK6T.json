@@ -1,0 +1,21 @@
+{
+  "name": "Tragetasche Cab'H",
+  "sku": "tragetasche-cab-h-H084929CK6T",
+  "price": "\u20ac5,150",
+  "source_url": "https://www.hermes.com/de/de/product/tragetasche-cab-h-H084929CK6T/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-cab-h--084929CK6T-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-cab-h--084929CK6T-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-cab-h--084929CK6T-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-cab-h--084929CK6T-back-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/a6f87a443ed1f46174bc500794ce4735.webp",
+    "data/hermes/images/8c0c3586d3e073f272cd1495f05b1b20.webp",
+    "data/hermes/images/bbe9ab40b8f68c3415e7d5629348d464.webp",
+    "data/hermes/images/708acc86a2b1fe56ab58f6fbc6bdbad4.webp"
+  ]
+}

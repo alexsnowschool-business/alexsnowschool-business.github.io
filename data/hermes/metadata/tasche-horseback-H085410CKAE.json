@@ -1,0 +1,29 @@
+{
+  "name": "Tasche Horseback",
+  "sku": "tasche-horseback-H085410CKAE",
+  "price": "\u20ac4,750",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-horseback-H085410CKAE/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-horseback--085410CKAE-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-horseback--085410CKAE-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-horseback--085410CKAE-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-horseback--085410CKAE-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-horseback--085410CKAE-detail-wm-7-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/cb8749d89709a0d8d09e1652e7556f4f.webp",
+    "data/hermes/images/6f9ff4439439cfdd9daaee568ba99464.webp",
+    "data/hermes/images/3a1a01ee3c092bfa58b535aab5709044.webp",
+    "data/hermes/images/e559572a695b6826b5686065ec389645.webp",
+    "data/hermes/images/6203ce9f4e84b385b4ad5f0cb6a66b43.jpg"
+  ],
+  "description": "Tasche aus Toile Woolycot und Swift-Kalbsleder  - Rei\u00dfverschluss - Gro\u00dfe Innentasche an der R\u00fcckseite mit Mittelnaht f\u00fcr zwei Mobiltelefone - Abgepolsterter, ergonomischer \u00dcberschlag, der die Codes der Schabracke aufgreift - Basis aus Leder - \"Herm\u00e8s Sellier\"-Wappen - Verstellbarer Schulterriemen aus Wooly 2-in-1-Gurt - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper. Abmessungen: L 37 x H 30,5 x T 8 cm | L\u00e4nge des Schulterriemens: 90\u2013134 cm",
+  "dimensions": "L 37 x H 30,5 x T 8 cm",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H085410CKAE",
+  "carry_type": "shoulder"
+}

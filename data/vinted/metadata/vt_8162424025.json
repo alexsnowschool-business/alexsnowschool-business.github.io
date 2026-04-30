@@ -1,0 +1,19 @@
+{
+  "id": "8162424025",
+  "name": "Hermes Birkin Box",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac120",
+  "source_url": "https://www.vinted.de/items/8162424025-hermes-birkin-box",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes birkin",
+  "image_urls": [
+    "https://images1.vinted.net/tc/01_01b14_9Gmb43WGF1MGifw3jkb7F1Xn/1770933893.jpeg?s=36b30ba13b274df302438d7c4ccbfdb649457d74",
+    "https://images1.vinted.net/tc/06_0157f_bfBc5pq2BGaLC8VfhdK6VmkA/1770933893.jpeg?s=0777f4106d2454dfea8a7322e8f4496febe91a79",
+    "https://images1.vinted.net/tc/06_02694_Gq9vncESsQFzxECp535vtujm/1770933893.jpeg?s=f589726e7f79aee86b7ff62cc5d0d2eaa0a082b3"
+  ],
+  "local_images": [
+    "data/vinted/images/319810ab8829bf9f7ce0ed409c65ca29.jpg",
+    "data/vinted/images/8162041c108a889ad9c010902852a73e.jpg"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Tasche Herm\u00e8s Videpoches",
+  "sku": "tasche-hermes-videpoches-H088914CK37",
+  "price": "\u20ac3,800",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-hermes-videpoches-H088914CK37/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--088914CK37-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--088914CK37-worn-2-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--088914CK37-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--088914CK37-above-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-videpoches--088914CK37-back-wm-8-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/ff04aa6e37c10a7c663df6306c48b745.webp",
+    "data/hermes/images/d6b2bd2dc9f5c8719bb8db841cd13a9f.webp",
+    "data/hermes/images/d0542e0ea4a9116faeebf0d6a30d7617.webp",
+    "data/hermes/images/669aa05cdbf8ad42d318bbfe52f068ca.webp",
+    "data/hermes/images/b05d71a5e6770a6592e1e50dc007e46b.webp"
+  ],
+  "description": "Tasche aus Togo-Kalbsleder  - Pattenverschluss im Origami-Stil mit zwei \"Clou de Selle\"-Druckkn\u00f6pfen - Perforierte \"H\"-Signatur - Verstellbarer Schulterriemen - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 27 x H 14 x T 4 cm | L\u00e4nge des Schulterriemens: 84\u2013123 cm",
+  "leather_type": "Togo-Kalbsleder",
+  "dimensions": "L 27 x H 14 x T 4 cm",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H088914CK37",
+  "handmade": true,
+  "carry_type": "shoulder"
+}

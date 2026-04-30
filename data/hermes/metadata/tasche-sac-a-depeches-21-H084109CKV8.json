@@ -1,0 +1,21 @@
+{
+  "name": "Tasche Sac \u00e0 D\u00e9p\u00eaches 21",
+  "sku": "tasche-sac-a-depeches-21-H084109CKV8",
+  "price": "\u20ac6,150",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-sac-a-depeches-21-H084109CKV8/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sac-a-depeches-21--084109CKV8-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sac-a-depeches-21--084109CKV8-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sac-a-depeches-21--084109CKV8-above-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sac-a-depeches-21--084109CKV8-back-wm-8-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/f4d5fbfee03c2035056c31277675ce6b.webp",
+    "data/hermes/images/1c3139311e2d5d72989093e0d37c0fc8.webp",
+    "data/hermes/images/df878df4446cf39f61256416292fe7ef.jpg",
+    "data/hermes/images/4b0d0211761897c01401793d6244a238.webp"
+  ]
+}

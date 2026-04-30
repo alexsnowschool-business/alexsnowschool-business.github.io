@@ -1,0 +1,27 @@
+{
+  "name": "Tasche Arceau",
+  "sku": "tasche-arceau-H087145CKAA",
+  "price": "Preis10.600 \u20ac",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-arceau-H087145CKAA/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arceau--087145CKAA-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arceau--087145CKAA-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arceau--087145CKAA-back-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-arceau--087145CKAA-detail-wm-8-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/643eb08e1754844795ca867db5f60ed5.webp",
+    "data/hermes/images/828f07b98f01b6362bb177c1a116236a.webp",
+    "data/hermes/images/6c7b6f2f326b7bbb8f4b52f7d6d558ea.webp",
+    "data/hermes/images/c9f8889d70d712071d50e42cf364d40e.webp"
+  ],
+  "description": "Tasche aus Korbweide und Swift-Kalbsleder  - Kleine Tasche - Griff - Zum Aufbewahren von Handy, Schl\u00fcsseln, Lippenstift, Kartenetui, AirPods und einem kleinen Notizbuch (Passformat) - Zum Tragen in der Hand, in der Armbeuge oder \u00fcber der Schulter. Abmessungen: L 26 x H 17 x T 27 cm",
+  "dimensions": "L 26 x H 17 x T 27 cm",
+  "availability": "out_of_stock",
+  "condition": "new",
+  "product_ref": "H087145CKAA",
+  "carry_type": "hand"
+}

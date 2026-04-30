@@ -1,0 +1,28 @@
+{
+  "id": "8354295791",
+  "name": "Hermes twilly",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac150",
+  "source_url": "https://www.vinted.de/items/8354295791-hermes-twilly",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/06_00ae3_sCynKAjwt7Ak5WfFz2aPUz5P/1773075117.jpeg?s=598d63c139b4a9a57067123245f4d10863a919c8",
+    "https://images1.vinted.net/tc/05_0244f_BEAUNnrixCpmCk72sT68ESsS/1773075117.jpeg?s=ae4e0fd6bc46221588b1dba2a255575513ef7a45",
+    "https://images1.vinted.net/tc/06_00ad3_xyRKGz7SXt2S5QNz6AGmNr41/1773075117.jpeg?s=44c99f59fdeb27575423833540808bf2cfbdfc8b",
+    "https://images1.vinted.net/tc/05_00073_Bj1aohKknR1uT1pwfhDndznd/1773075117.jpeg?s=73ad4d17befa39e5bdf1b81295c1abc2c97d6025",
+    "https://images1.vinted.net/tc/01_00724_u5boLR2FRR45p3GDfwGN5hss/1773075117.jpeg?s=3b70520e0365940357255610e613a2f1254c48ea",
+    "https://images1.vinted.net/tc/06_01f7b_DmgRNQ7LsxRQU2nbg8EJXydo/1773075117.jpeg?s=ba8414eb04b07c077111512386aaeee9483c0359",
+    "https://images1.vinted.net/tc/06_00745_S6SCCzdpo7HvbgQXo2oGyUuw/1773075117.jpeg?s=627fd096806339dca27c24037537437e09821a39"
+  ],
+  "local_images": [
+    "data/vinted/images/ea205a5d6ebb759a29485ae29228495b.jpg",
+    "data/vinted/images/c8340c985f55c2cba2f46f30c21945af.jpg",
+    "data/vinted/images/0ec8eb7a34b309c3ec61b97151e03ed7.jpg",
+    "data/vinted/images/0681bb3f0ef6a6fb0cdc63bd8e7d1dda.jpg",
+    "data/vinted/images/52c1a9bf052e864626e996a66130963a.jpg",
+    "data/vinted/images/09d05d7b7d68e7942f3c5ac083d29a2f.jpg",
+    "data/vinted/images/6cd5d4de9db218c4a7e5ff1fc624cbed.jpg"
+  ]
+}

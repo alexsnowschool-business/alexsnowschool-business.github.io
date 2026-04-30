@@ -1,0 +1,64 @@
+name: Daily eBay Scrape
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # midnight UTC every day
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # needed to commit scraped data back
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python + uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: uv sync
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Refresh eBay token (client credentials)
+        id: ebay_token
+        run: |
+          RESPONSE=$(curl -s -X POST "https://api.ebay.com/identity/v1/oauth2/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -u "${{ secrets.EBAY_APP_ID }}:${{ secrets.EBAY_CERT_ID }}" \
+            -d "grant_type=client_credentials&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")
+          TOKEN=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['token_type']+' '+d['access_token'])" 2>/dev/null || echo "")
+          if [ -z "$TOKEN" ]; then
+            echo "Token refresh failed. Response: $RESPONSE"
+            exit 1
+          fi
+          echo "EBAY_APP_TOKEN=$TOKEN" >> $GITHUB_ENV
+          echo "Token refreshed successfully."
+
+      - name: Run eBay scraper
+        run: uv run python -m scraper.ebay --max-products 150
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Rebuild catalogue.json and analysis.json
+        run: uv run python scripts/build_json.py
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ebay/metadata/ hermes-archive/catalogue.json hermes-archive/analysis.json
+          if git diff --cached --quiet; then
+            echo "No new data — nothing to commit."
+          else
+            COUNT=$(git diff --cached --name-only data/ebay/metadata/ | wc -l | tr -d ' ')
+            git commit -m "chore(data): daily eBay scrape $(date -u '+%Y-%m-%d') (+${COUNT} items)"
+            git push
+          fi

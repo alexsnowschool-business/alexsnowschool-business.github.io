@@ -1,0 +1,31 @@
+{
+  "id": "5935618664",
+  "name": "Coffret Herm\u00e8s",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac105",
+  "description": "",
+  "condition": "Neu, mit Etikett",
+  "size": "",
+  "color": "",
+  "listed_at": "",
+  "source_url": "https://www.vinted.de/items/5935618664-coffret-hermes",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/03_00643_srRkoUVAGk29VrvZVqv5Es3t/1741470330.jpeg?s=16637feebf584baf5726b941bb3932b7a69ae6bb",
+    "https://images1.vinted.net/tc/04_01394_gLs4JTWejxU6eJRVFMTSWJJK/1741470330.jpeg?s=813aa1ce6d5035ab4c9dfdccff8dcc7fdddbece7",
+    "https://images1.vinted.net/tc/04_00743_kFL2BjLmwSJvCJkk1ANmTyhD/1741470330.jpeg?s=d872033a92b57c90b2eab2337b815a5e2b2263eb",
+    "https://images1.vinted.net/tc/04_02179_o26HHKYVPmXneGfDD8ftqm39/1741470330.jpeg?s=c0a5aa7d480fb5dad34b3be83eef7e7cef3fac83",
+    "https://images1.vinted.net/tc/04_00bcc_M3zCrTQDNbnEkmH5qSTFnsTy/1741470330.jpeg?s=4ee51de3c25bcf1e81c5a7cacbfc8dd05b107b40",
+    "https://images1.vinted.net/tc/04_02256_FLoe1yoEbFKXnzBuMMPweYxp/1741470330.jpeg?s=bc2695a94d6a6467215a05e3a2eb5c5564f22e12"
+  ],
+  "local_images": [
+    "data/vinted/images/9a522a4f3457ba19f713c957adcc24f4.jpg",
+    "data/vinted/images/b024340630f182ee20ccaf303df93d1d.jpg",
+    "data/vinted/images/b0e3cba5d9deeb9824eb4262c7569b5c.jpg",
+    "data/vinted/images/431a7a702019a1b4031f363cf4bc27b2.jpg",
+    "data/vinted/images/a845a30631be70313c7223b57c162c22.jpg",
+    "data/vinted/images/4d5ad478ac53956c52af359199166d6c.jpg"
+  ]
+}

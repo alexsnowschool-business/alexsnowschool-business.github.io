@@ -1,0 +1,25 @@
+{
+  "name": "Tasche Petite Course Stitch",
+  "sku": "tasche-petite-course-stitch-H087081CK1C",
+  "price": "\u20ac4,150",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-petite-course-stitch-H087081CK1C/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course-stitch--087081CK1C-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course-stitch--087081CK1C-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course-stitch--087081CK1C-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course-stitch--087081CK1C-detail-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course-stitch--087081CK1C-back-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course-stitch--087081CK1C-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/580e6d9b28cb9d57de889ea864ad3786.jpg",
+    "data/hermes/images/70fecae1144d64e2ba72318025df5d16.webp",
+    "data/hermes/images/4b180ac80fbb7815ca157a7abea01fa5.jpg",
+    "data/hermes/images/f31c14e2c70a73fd82793ea6539293df.webp",
+    "data/hermes/images/cbb8a2d1035a1649a4c4c75f0cd98d8d.webp",
+    "data/hermes/images/61f3b0d527156e383fc6cc87cb21148f.webp"
+  ]
+}

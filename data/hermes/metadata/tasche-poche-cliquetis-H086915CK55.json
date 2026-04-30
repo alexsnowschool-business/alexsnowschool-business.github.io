@@ -1,0 +1,25 @@
+{
+  "name": "Tasche Poche Cliquetis",
+  "sku": "tasche-poche-cliquetis-H086915CK55",
+  "price": "\u20ac5,600",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-poche-cliquetis-H086915CK55/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-poche-cliquetis--086915CK55-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-poche-cliquetis--086915CK55-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-poche-cliquetis--086915CK55-above-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-poche-cliquetis--086915CK55-back-wm-8-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-poche-cliquetis--086915CK55-worn-9-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-poche-cliquetis--086915CK55-front-wm-10-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/c39bdc07cc6cb24c9624e582ff81d2d3.webp",
+    "data/hermes/images/24ce0c42008ae3b7b975c0a5f4ab5de1.webp",
+    "data/hermes/images/6f7e8b25e47b9d35cbebe21f552a87bb.webp",
+    "data/hermes/images/731e7f592eeece08564cb587ba3b9ba2.webp",
+    "data/hermes/images/1264f67c4765dd5ba9ddda7cc260dd93.webp",
+    "data/hermes/images/915bf77764d2c456a40c1fd077e2586b.webp"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "6990170376",
+  "name": "Parfums Kelly",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac125",
+  "source_url": "https://www.vinted.de/items/6990170376-parfums-kelly",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/04_01e71_BR6eokJ9ThDHkRU4zdFu62Ng/1756724275.jpeg?s=3646f8ded8b9d6d199ed2aa4606555101ce9ff89",
+    "https://images1.vinted.net/tc/03_01eec_R6ddKjRPurbK3P1uFnZLXPyG/1756724275.jpeg?s=dc6a6be78354e09be524d45d24d55838b504166d",
+    "https://images1.vinted.net/tc/04_01487_EmSFwyZZLqc7Tu4o8E8SWFLn/1756724275.jpeg?s=ce463170ad03912abd7799ff0bd5a532192825ee",
+    "https://images1.vinted.net/tc/01_0132d_wYAwvQDHmhAqJMuUKTzmbCvv/1756724275.jpeg?s=5521fa65aac93749681836ad98bed5f2355124de"
+  ],
+  "local_images": [
+    "data/vinted/images/29c113e370909313385044563b23baf6.jpg",
+    "data/vinted/images/5b9067dcb0b08e9d208634a8b7647907.jpg",
+    "data/vinted/images/e1cc72dbc010a71b9c51dbbfda846927.jpg",
+    "data/vinted/images/e77e9ddcbd95289b6c7e0dc361b455aa.jpg"
+  ]
+}

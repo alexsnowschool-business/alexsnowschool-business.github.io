@@ -1,0 +1,34 @@
+{
+  "name": "Minaudi\u00e8re En Piste",
+  "sku": "minaudiere-en-piste-H084948CK89",
+  "price": "Preis5.300 \u20ac",
+  "source_url": "https://www.hermes.com/de/de/product/minaudiere-en-piste-H084948CK89/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/minaudiere-en-piste--084948CK89-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/minaudiere-en-piste--084948CK89-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/minaudiere-en-piste--084948CK89-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/minaudiere-en-piste--084948CK89-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/minaudiere-en-piste--084948CK89-detail-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/minaudiere-en-piste--084948CK89-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/3c57540433bd211efdcea4be76bc25d8.webp",
+    "data/hermes/images/9ef2a58a0653d8eb2a78e8c359156662.webp",
+    "data/hermes/images/0980cd174df03e8ce60dd1f5928b548c.webp",
+    "data/hermes/images/fff40b4353fe373f28b9a1fa84436ab1.webp",
+    "data/hermes/images/4eb203adbe1b12b0901e23bf960d8621.webp",
+    "data/hermes/images/27df211bbeb7031ab95a24a50f105149.webp"
+  ],
+  "description": "Minaudi\u00e8re aus Chamkila-Ziegenleder  - Druckknopfverschluss - Griff mit charakteristischer \"Clou de Selle\"-Signatur - Abnehmbarer Schulterriemen - Zum Tragen in der Hand, \u00fcber der Schulter oder diagonal am K\u00f6rper  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 14 x H 13 x T 5 cm | L\u00e4nge des Schulterriemens: 65 cm. Mehr erfahren \u00fcber das Chamkila-Ziegenleder\n Unter unseren Ziegenledern, die alle aus Indien stammen, zeichnet sich dieses durch seine gro\u00dfe Eleganz, seine kleine und sehr glatte Narbung und seinen starken Glanz aus. Ein Glanz, dem es seinen Namen verdankt: &quot;chamkila&quot; bedeutet gl\u00e4nzend auf Hindi.\n In der Kollektion verwendet seit: 2018\n Optische Eigenschaften: Unregelm\u00e4\u00dfige, aber harmonische kleine Narbung\n Oberfl\u00e4chenbeschaffenheit: Kleine, fast unmerkliche Narbung beim Ber\u00fchren\n Hand: Fest und weich\n Entwicklung im Laufe der Zeit: Starke Neigung zur Patina\n",
+  "leather_type": "Chamkila-Ziegenleder",
+  "dimensions": "L 14 x H 13 x T 5 cm",
+  "collection_since": "2018",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H084948CK89",
+  "handmade": true,
+  "carry_type": "hand"
+}

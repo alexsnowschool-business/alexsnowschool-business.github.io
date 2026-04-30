@@ -1,0 +1,26 @@
+{
+  "id": "7370049138",
+  "name": "Herm\u00e8s Kelly",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac320",
+  "source_url": "https://www.vinted.de/items/7370049138-hermes-kelly",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/04_01b15_yoKkBszBL2b84xzprTr8tSyu/1761027255.jpeg?s=b5176be27aa7de6bcea739a6f633954a792d7c43",
+    "https://images1.vinted.net/tc/05_0095d_hZNxDeAnBGe2Xbw63KoT1gnL/1761027255.jpeg?s=a3f5fdd1aa1bfb7a3558acede694b10e0d68f8a3",
+    "https://images1.vinted.net/tc/05_00ba1_jpQfV27ppgtnstSfiXE3xyiW/1761027255.jpeg?s=fbf51976003028cb234ae746c86466b2f6ed9971",
+    "https://images1.vinted.net/tc/04_02266_keWrY6agkEyrFv1W3VK7LBMy/1761027255.jpeg?s=091bb9a745c62c3b53fcc671659b71dba99d4ae3",
+    "https://images1.vinted.net/tc/04_01d07_ofXQgK4mTUcP2RBRFBFjPPt1/1761027255.jpeg?s=c2b93ea5bdb7aa3b9157d48161820fce6d3b1a0e",
+    "https://images1.vinted.net/tc/02_010b9_p7gZHqFx3LcxFZiqGwjTCJrA/1763102912.jpeg?s=e9a0043e9ad63e723deb2f3c0f035e148a9a6125"
+  ],
+  "local_images": [
+    "data/vinted/images/ef64a17a10f84c57a1f4c6d5ffb25464.jpg",
+    "data/vinted/images/183d7082651e9b531377e7d9bb347f5c.jpg",
+    "data/vinted/images/c1d1587e42871036d047764ed3339fc8.jpg",
+    "data/vinted/images/e56f8d87e87e4466bf869c6326b00980.jpg",
+    "data/vinted/images/b5f17da10858ba2d1749a480fcd58f16.jpg",
+    "data/vinted/images/255186277b05a5fa5a6094fb6c904f54.jpg"
+  ]
+}

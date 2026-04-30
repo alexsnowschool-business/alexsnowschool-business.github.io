@@ -1,0 +1,30 @@
+{
+  "name": "Tasche \u00c9trivi\u00e8re Shopping",
+  "sku": "tasche-etriviere-shopping-H063022CKAB",
+  "price": "\u20ac1,930",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-etriviere-shopping-H063022CKAB/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-etriviere-shopping--063022CKAB-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-etriviere-shopping--063022CKAB-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-etriviere-shopping--063022CKAB-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-etriviere-shopping--063022CKAB-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-etriviere-shopping--063022CKAB-detail-wm-7-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/b01642fcc2f673faf8ae98ecd276af1e.jpg",
+    "data/hermes/images/b134c5af6192a1ea638c4d2601604a7a.webp",
+    "data/hermes/images/8d890b978c77d3ee9294d09a32e73786.webp",
+    "data/hermes/images/f4f2caa369ff9eee50532bd1e82809a1.webp",
+    "data/hermes/images/e7b0949f3960f6036e44b12aa160ec29.jpg"
+  ],
+  "description": "Tragetasche aus Toile H und Hunter-Rindsleder  - Lose Innentasche aus H-Toile - Verstellbarer Griff mit \u00c9trivi\u00e8re-Schlie\u00dfe - Zum Tragen in der Hand oder \u00fcber der Schulter  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 40 x H 40 x T 15 cm",
+  "dimensions": "L 40 x H 40 x T 15 cm",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H063022CKAB",
+  "handmade": true,
+  "carry_type": "hand"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Tasche Petite Course",
+  "sku": "tasche-petite-course-H084847CCO5",
+  "price": "Preis4.150 \u20ac",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-petite-course-H084847CCO5/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course--084847CCO5-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course--084847CCO5-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course--084847CCO5-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course--084847CCO5-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course--084847CCO5-detail-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-petite-course--084847CCO5-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/08c5525a77eda482357387cc14e253c2.webp",
+    "data/hermes/images/9a937321927ca905d1b8dfb70af9ab8f.webp",
+    "data/hermes/images/5c4137be6db8740499a7d0ab81b49ada.webp",
+    "data/hermes/images/9de6347449dc6f2d42656c048c51d3f8.webp",
+    "data/hermes/images/b4b69998ced5c33af179ed86d4072802.webp",
+    "data/hermes/images/6e62c06cb7ce7868ea6f52b97782a8c1.webp"
+  ]
+}

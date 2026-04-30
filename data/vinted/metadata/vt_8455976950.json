@@ -1,0 +1,30 @@
+{
+  "id": "8455976950",
+  "name": "Collana Hermes",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac500",
+  "source_url": "https://www.vinted.de/items/8455976950-collana-hermes",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes kelly",
+  "image_urls": [
+    "https://images1.vinted.net/tc/04_02544_WSGthFYxJ4bqA9iXn8gcLxCa/1774183457.jpeg?s=e1709076c43cf7edc4c649518223ca73ebe84ab3",
+    "https://images1.vinted.net/tc/05_00455_whPCGZfNQBJm2JLp4nFELdjY/1774183457.jpeg?s=36cad3215fd92ce5e111f730ab2f65303f71a516",
+    "https://images1.vinted.net/tc/06_01b8c_4Fq7WhGnpNRXBXtofkLGSLqQ/1774183457.jpeg?s=ea944630c6b94849e838df97b96b5894360eb20e",
+    "https://images1.vinted.net/tc/06_00ba5_vZpdR62MFxMszebmfsiw2NTX/1774183457.jpeg?s=bd5035e69722cc169500e0ffb1ba06f64131b843",
+    "https://images1.vinted.net/tc/05_02636_phXM5WFcteWX7SzcyARM9zNv/1774183457.jpeg?s=8087f64b9a711318a303f54e664afbb3767a6923",
+    "https://images1.vinted.net/tc/05_01a1d_r33wmvgkUzhFuU2VTPS5fEjg/1774183457.jpeg?s=563fa67cf36bd51aee84e8160d38c8575dcc20b2",
+    "https://images1.vinted.net/tc/01_0079b_DfYdwWocBcjrMmGJhM17CMrv/1774183457.jpeg?s=4186c43e9ab9274ef627b50bc0a53b57385f5c1b",
+    "https://images1.vinted.net/tc/03_01cfc_nrXSnVGuoy4MXBzcKX9X7ewr/1774183457.jpeg?s=6611efc3b332128763eef5c15df8af3599e22436"
+  ],
+  "local_images": [
+    "data/vinted/images/910e627119fde1de5f2b91ad7038598a.jpg",
+    "data/vinted/images/3b7095f640fa821fdac78c1af2e3bace.jpg",
+    "data/vinted/images/130b5057b07fe148f7c019d609bc2af4.jpg",
+    "data/vinted/images/a0a12e6e5c53026fdc3130724e66eb52.jpg",
+    "data/vinted/images/4bdaccf66c5414af55e6ad54ac179cb5.jpg",
+    "data/vinted/images/53cccfc4720e542357c1803f1cdd2251.jpg",
+    "data/vinted/images/aee92954d01ba451648606b0eb14876e.jpg",
+    "data/vinted/images/bb24ce2c105eee4ba171b91c1135e276.jpg"
+  ]
+}

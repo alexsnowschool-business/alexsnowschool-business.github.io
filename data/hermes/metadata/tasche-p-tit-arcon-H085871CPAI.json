@@ -1,0 +1,23 @@
+{
+  "name": "Tasche P'tit Ar\u00e7on",
+  "sku": "tasche-p-tit-arcon-H085871CPAI",
+  "price": "Preis3.950 \u20ac",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-p-tit-arcon-H085871CPAI/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-p-tit-arcon--085871CPAI-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-p-tit-arcon--085871CPAI-side-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-p-tit-arcon--085871CPAI-above-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-p-tit-arcon--085871CPAI-back-wm-8-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-p-tit-arcon--085871CPAI-front-wm-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/bb24109e7145cd5120406d26a10ebe5c.webp",
+    "data/hermes/images/d0685ba9b9f9411f859cdaa6d5c1c503.webp",
+    "data/hermes/images/5dbdcd6380714144d75a3836f45f341a.webp",
+    "data/hermes/images/f3febba2a59f75ccedeb417bdf34417b.webp",
+    "data/hermes/images/ff75ca23a58e9b3e322fac12d3612700.webp"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "4348963392",
+  "name": "Charm",
+  "brand": "Herm\u00e8s",
+  "price": "\u20ac429",
+  "source_url": "https://www.vinted.de/items/4348963392-charm",
+  "platform": "vinted.de",
+  "authenticity_label": "counterfeit",
+  "search_query": "hermes birkin",
+  "image_urls": [
+    "https://images1.vinted.net/tc/01_00fd5_hybzp7XKbGAS2zSw8vvX1jFw/1712842335.jpeg?s=7f5698845fc41de8ccc3e3d0af2439bd6893dbad",
+    "https://images1.vinted.net/tc/03_01a26_noKgrpKLmJe5DexB2d2FHjX7/1712842335.jpeg?s=7d5e0436d76ba766e8acc4e88b4c0b1b00d3a136",
+    "https://images1.vinted.net/tc/03_0204b_TFHdeMVzBq5qDdHmADgjTGAJ/1712842335.jpeg?s=94a56c770f1bcc2b3a7fcdb7ad6003ef0d78a0dd",
+    "https://images1.vinted.net/tc/01_017bc_5dWpskxSSujGKYy9VRoxM3NE/1712842335.jpeg?s=dbd669324af35e5d9501dd85b597576b4ad4e937"
+  ],
+  "local_images": [
+    "data/vinted/images/15feb9c85e25b81ee575979e15ac09e2.jpg",
+    "data/vinted/images/71f84e78b085100ac18de8be1c41d528.jpg",
+    "data/vinted/images/3bd4ec2c0f903c06ef8edd15aa537ad8.jpg",
+    "data/vinted/images/d5020c2a32aa8a49c5834fb29070983e.jpg"
+  ]
+}

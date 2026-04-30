@@ -1,0 +1,30 @@
+{
+  "name": "Tasche Herm\u00e8s Geta",
+  "sku": "tasche-hermes-geta-H083052CCAM",
+  "price": "\u20ac5,300",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-hermes-geta-H083052CCAM/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--083052CCAM-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--083052CCAM-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--083052CCAM-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-hermes-geta--083052CCAM-below-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/7164942f94c958fad4b5ab4b3bb1c064.webp",
+    "data/hermes/images/c36eef64f8bb6886606f5fc3961e9330.webp",
+    "data/hermes/images/b759e95d0fc4babf819a7959994abea3.webp",
+    "data/hermes/images/0797784bf14ab5769228050d7885a748.webp"
+  ],
+  "description": "Tasche aus Mysore-Ziegenleder  - \"H\"-Schlie\u00dfe mit farblich abgestimmten Lederintarsien - Mittelfach - Zwei aufgesetzte Innentaschen (davon eine mit zwei F\u00e4chern) - Verstellbarer Fibre-Gurt als Schulterriemen - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper  Die Schlie\u00dfe ist ein multifunktionales Element, das als Magnetschlie\u00dfe, Taschenfu\u00df und Verstellsystem f\u00fcr den Schulterriemen dient.  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 20 x H 15 x T 7 cm | L\u00e4nge des Schulterriemens ohne Karabiner: 61\u2013120 cm. Mehr erfahren \u00fcber das Mysore-Ziegenleder\n Wie seine Namensgebung in Anlehnung an die gleichnamige s\u00fcdindische Stadt vermuten l\u00e4sst, stammt das unbehandelte Leder aus Indien. Sein Markenzeichen ist seine besondere Narbung, die durch die Chagrin-Technik erhalten wird. Dabei wird das Leder auf der Narbenseite aneinander gerieben, um die Narbung auszurichten. Dies kann in einer Richtung erfolgen, um ein feines Linienmuster zu erhalten, oder aber in verschiedenen Richtungen.\n In der Kollektion verwendet seit: 1990er Jahre\n Optische Eigenschaften: Unregelm\u00e4\u00dfige aber harmonische Narbung, leichter Glanz, der die nat\u00fcrlichen Eigenschaften des Ziegenleders offenbart\n Oberfl\u00e4chenbeschaffenheit: Eher trocken, wird im Laufe der Zeit weicher\n Hand: Biegsam\n Entwicklung im Laufe der Zeit: Wird geschmeidiger und seidig\n",
+  "leather_type": "Mysore-Ziegenleder",
+  "dimensions": "L 20 x H 15 x T 7 cm",
+  "collection_since": "1990",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H083052CCAM",
+  "handmade": true,
+  "carry_type": "shoulder"
+}

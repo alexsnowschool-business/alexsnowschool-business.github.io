@@ -1,0 +1,23 @@
+{
+  "name": "Tasche Sabot",
+  "sku": "tasche-sabot-H083574CKAA",
+  "price": "\u20ac5,700",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-sabot-H083574CKAA/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sabot--083574CKAA-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sabot--083574CKAA-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sabot--083574CKAA-detail-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sabot--083574CKAA-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-sabot--083574CKAA-detail-wm-7-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/cf2babb9f6326cfa05925c08ade1717e.webp",
+    "data/hermes/images/21bf136ce6962d3debbbb49c10cc7824.webp",
+    "data/hermes/images/cd48ad735bc9135c5c18305d7d56608c.webp",
+    "data/hermes/images/54721a784e3cd972cc2f272b11ff7a7b.webp",
+    "data/hermes/images/e386309dbeeeb0c32e89059f2252a59d.webp"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Mini-Tasche Roulis",
+  "sku": "mini-tasche-roulis-H071205CP89",
+  "price": "\u20ac7,150",
+  "source_url": "https://www.hermes.com/de/de/product/mini-tasche-roulis-H071205CP89/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-roulis--071205CP89-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-roulis--071205CP89-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-roulis--071205CP89-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-roulis--071205CP89-back-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/mini-tasche-roulis--071205CP89-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/46b2aadea65dc36437f4a71dabfa7ee8.webp",
+    "data/hermes/images/a461b4080de758dc16a5a22cbd8dfa9f.webp",
+    "data/hermes/images/5e2bef9f5dc3e7fe07c4d251d51c9570.webp",
+    "data/hermes/images/5f4ba757042c5c40eb4ec2ee92166bb7.webp",
+    "data/hermes/images/db06ac8e281bb24ffd8bae8ebd6af47c.webp"
+  ],
+  "description": "Tasche aus Evergrain-Kalbsleder  - Zwischenfach - Flache Au\u00dfentasche auf der R\u00fcckseite - Verstellbarer Schulterriemen - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 18 x H 14 x T 6,2 cm | L\u00e4nge des Schulterriemens mit Karabiner: 104 cm. Mehr erfahren \u00fcber das Evergrain-Kalbsleder\n Als entfernter Verwandter des Evercalf-Kalbsleders besitzt dieses Leder eine vergleichbare Biegsamkeit. Allerdings verf\u00fcgt es \u00fcber eine dezent gepr\u00e4gte Narbung, die sehr regelm\u00e4\u00dfig ist, wie sein Name vermuten l\u00e4sst.\n In der Kollektion verwendet seit: 2004\n Optische Eigenschaften: Feine, regelm\u00e4\u00dfige und leichte Narbung, seidig\n Oberfl\u00e4chenbeschaffenheit: Nahezu unmerkliche Narbung\n Hand: Biegsam und weich\n Entwicklung im Laufe der Zeit: Scheuert sich ab und wird geschmeidiger\n",
+  "leather_type": "Evergrain-Kalbsleder",
+  "dimensions": "L 18 x H 14 x T 6,2 cm",
+  "collection_since": "2004",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H071205CP89",
+  "bag_model": "Roulis",
+  "handmade": true,
+  "carry_type": "shoulder"
+}

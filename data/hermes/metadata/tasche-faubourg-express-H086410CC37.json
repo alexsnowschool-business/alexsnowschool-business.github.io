@@ -1,0 +1,32 @@
+{
+  "name": "Tasche Faubourg Express",
+  "sku": "tasche-faubourg-express-H086410CC37",
+  "price": "\u20ac7,700",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-faubourg-express-H086410CC37/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086410CC37-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086410CC37-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086410CC37-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086410CC37-detail-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-faubourg-express--086410CC37-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/60c486a25416859b7be0c0b2ab1efb49.webp",
+    "data/hermes/images/bbbfc3af0198d4888043137f26b7a2fc.webp",
+    "data/hermes/images/ae8a2d1c147bee1e4b762e57058db444.webp",
+    "data/hermes/images/661a4e744789c069fbf1939ee8d3f6a1.webp",
+    "data/hermes/images/de7b332b98b9201c1acd8d8965504b86.webp"
+  ],
+  "description": "Tasche aus Evercolor-Kalbsleder  - Griffe - Zum Tragen in der Hand oder in der Armbeuge  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 21 x H 10 x T 8 cm. Mehr erfahren \u00fcber das Evercolor-Kalbsleder\n Dieses Leder ist in einer gro\u00dfen &quot;for ever&quot;-Farbvielfalt erh\u00e4ltlich und in der Biegsamkeit mit dem Evergrain-Kalbsleder vergleichbar.\n In der Kollektion verwendet seit: 2012\n Optische Eigenschaften: Seidig, regelm\u00e4\u00dfige kleine, durch Pr\u00e4gung erhaltene Narbung\n Oberfl\u00e4chenbeschaffenheit: Narbung sp\u00fcrbarer im Vergleich zum Evergrain-Kalbsleder\n Hand: Biegsam und weich\n Entwicklung im Laufe der Zeit: Wird geschmeidiger und scheuert sich ab\n",
+  "leather_type": "Evercolor-Kalbsleder",
+  "dimensions": "L 21 x H 10 x T 8 cm",
+  "collection_since": "2012",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H086410CC37",
+  "handmade": true,
+  "carry_type": "hand"
+}

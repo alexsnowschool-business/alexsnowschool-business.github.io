@@ -1,0 +1,25 @@
+{
+  "name": "Tasche Steeple 25",
+  "sku": "tasche-steeple-25-H083618CKAG",
+  "price": "\u20ac3,800",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-steeple-25-H083618CKAG/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steeple-25--083618CKAG-worn-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steeple-25--083618CKAG-worn-3-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steeple-25--083618CKAG-worn-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steeple-25--083618CKAG-worn-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steeple-25--083618CKAG-worn-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-steeple-25--083618CKAG-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/4c0472a5eddc475af693ec939a358ad3.webp",
+    "data/hermes/images/40d895481e3506302f857c4421c7f54b.webp",
+    "data/hermes/images/cf567fa2282d0d5ea7a6f37da29b2bfa.webp",
+    "data/hermes/images/7db053686e807a8dae9e2210cb795d6f.webp",
+    "data/hermes/images/d9cf4e5820ed80bb116ee5843c2267d9.webp",
+    "data/hermes/images/033972f68b17f86cfe7c28e7cfe7d28a.webp"
+  ]
+}

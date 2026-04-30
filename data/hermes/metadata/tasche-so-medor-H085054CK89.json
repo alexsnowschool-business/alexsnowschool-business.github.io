@@ -1,0 +1,19 @@
+{
+  "name": "Tasche So M\u00e9dor",
+  "sku": "tasche-so-medor-H085054CK89",
+  "price": "\u20ac5,800",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-so-medor-H085054CK89/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-so-medor--085054CK89-side-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-so-medor--085054CK89-front-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-so-medor--085054CK89-back-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/2523ba91050eb385e6d68c141d5082d8.webp",
+    "data/hermes/images/de74feffdbf97423b4d90cdd822e3703.webp",
+    "data/hermes/images/1d4780f2655968d1c79c98b1db66b18d.webp"
+  ]
+}

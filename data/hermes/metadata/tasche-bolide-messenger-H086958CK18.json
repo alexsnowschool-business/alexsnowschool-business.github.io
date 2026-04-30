@@ -1,0 +1,33 @@
+{
+  "name": "Tasche Bolide Messenger",
+  "sku": "tasche-bolide-messenger-H086958CK18",
+  "price": "\u20ac6,000",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-bolide-messenger-H086958CK18/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-bolide-messenger--086958CK18-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-bolide-messenger--086958CK18-worn-2-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-bolide-messenger--086958CK18-side-wm-4-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-bolide-messenger--086958CK18-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-bolide-messenger--086958CK18-back-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/c59a7943295dc18def80a6689faec2e3.webp",
+    "data/hermes/images/131efceaae007ced8b27355d4f0cc5f4.webp",
+    "data/hermes/images/a062d74af7eccfdd6610f0e6e0010156.webp",
+    "data/hermes/images/4e993e8cf93deaec694239c69965aa2f.webp",
+    "data/hermes/images/2b6cab1a9023a05024b41d346f9e5025.webp"
+  ],
+  "description": "Tasche aus Togo-Kalbsleder  - Rei\u00dfverschluss - Flache Innentasche auf der R\u00fcckseite - Ungef\u00fcttert - Verstellbarer Schulterriemen aus Gurt - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper  Dieser Artikel ist handgefertigt. Die genauen Abmessungen k\u00f6nnen daher variieren.. Abmessungen: L 26,5 x H 20,5 x T 9 cm | L\u00e4nge des Schulterriemens: 40\u201365 cm. Mehr erfahren \u00fcber das Togo-Kalbsleder\n Bei diesem Leder werden die nat\u00fcrlichen Eigenschaften durch ein intensives Walken verst\u00e4rkt. Es verdankt seinen Namen dem Thema, das im Jahr seiner Entstehung bei Herm\u00e8s im Mittelpunkt stand: Afrika. Togo ist ein afrikanischer Staat.\n In der Kollektion verwendet seit: 1997\n Optische Eigenschaften: Matt, runde und unregelm\u00e4\u00dfige Narbung, h\u00e4ufig sichtbare und markante Adern und Falten\n Oberfl\u00e4chenbeschaffenheit: Trocken, relativ kraftvoll, prall\n Hand: Biegsam und kraftvoll\n Entwicklung im Laufe der Zeit: Es wird geschmeidiger\n",
+  "leather_type": "Togo-Kalbsleder",
+  "dimensions": "L 26,5 x H 20,5 x T 9 cm",
+  "collection_since": "1997",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H086958CK18",
+  "bag_model": "Bolide",
+  "handmade": true,
+  "carry_type": "shoulder"
+}

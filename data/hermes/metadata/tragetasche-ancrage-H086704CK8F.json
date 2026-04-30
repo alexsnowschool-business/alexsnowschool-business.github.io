@@ -1,0 +1,23 @@
+{
+  "name": "Tragetasche Ancrage",
+  "sku": "tragetasche-ancrage-H086704CK8F",
+  "price": "\u20ac4,500",
+  "source_url": "https://www.hermes.com/de/de/product/tragetasche-ancrage-H086704CK8F/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-ancrage--086704CK8F-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-ancrage--086704CK8F-above-wm-6-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-ancrage--086704CK8F-back-wm-7-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-ancrage--086704CK8F-side-wm-8-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tragetasche-ancrage--086704CK8F-worn-9-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/23f5bf735a9c886f57b69d673736fbab.webp",
+    "data/hermes/images/a01b54619c2a57e6df66b97f1d7ff2f3.webp",
+    "data/hermes/images/0ffba956225d38dd91f26ec28579078e.webp",
+    "data/hermes/images/692e32dd5763f62f701fa4813cd8857d.webp",
+    "data/hermes/images/82973dd457f962d804746bcdc2de9f5d.webp"
+  ]
+}

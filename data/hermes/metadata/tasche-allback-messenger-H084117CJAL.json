@@ -1,0 +1,27 @@
+{
+  "name": "Tasche Allback Messenger",
+  "sku": "tasche-allback-messenger-H084117CJAL",
+  "price": "\u20ac5,600",
+  "source_url": "https://www.hermes.com/de/de/product/tasche-allback-messenger-H084117CJAL/",
+  "brand": "Hermes",
+  "platform": "hermes.com",
+  "authenticity_label": "authentic",
+  "image_urls": [
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-allback-messenger--084117CJAL-front-wm-1-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-allback-messenger--084117CJAL-side-wm-3-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-allback-messenger--084117CJAL-above-wm-5-0-0-800-800_g.jpg",
+    "https://assets.hermes.com/is/image/hermesproduct/tasche-allback-messenger--084117CJAL-back-wm-6-0-0-800-800_g.jpg"
+  ],
+  "local_images": [
+    "data/hermes/images/97cf0b2225c9ab94abbc3c24e30631b9.webp",
+    "data/hermes/images/a1e7fb584e9e3716c2988bc2320918f1.webp",
+    "data/hermes/images/4d7f6bd6a23609afa010305eea4a3184.webp",
+    "data/hermes/images/5ea6f4ce96df14e646ba8496a4b140e3.webp"
+  ],
+  "description": "Tasche aus Toile Bivouac und Swift-Kalbsleder  - Au\u00dfentaschen an der R\u00fcckseite - Versteckter abnehmbarer Karabiner zum Aufbewahren des Schl\u00fcsselbunds - Charakteristischer \"H\"-Patch aus Leder - Verstellbarer Schulterriemen - Zum Tragen \u00fcber der Schulter oder diagonal am K\u00f6rper. Abmessungen: L 30 x H 27 x T 12 cm",
+  "dimensions": "L 30 x H 27 x T 12 cm",
+  "availability": "in_stock",
+  "condition": "new",
+  "product_ref": "H084117CJAL",
+  "carry_type": "shoulder"
+}
