@@ -25,20 +25,34 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
-      - name: Refresh eBay token (client credentials)
-        id: ebay_token
+      - name: Get eBay token
         run: |
-          RESPONSE=$(curl -s -X POST "https://api.ebay.com/identity/v1/oauth2/token" \
-            -H "Content-Type: application/x-www-form-urlencoded" \
-            -u "${{ secrets.EBAY_APP_ID }}:${{ secrets.EBAY_CERT_ID }}" \
-            -d "grant_type=client_credentials&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")
-          TOKEN=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['token_type']+' '+d['access_token'])" 2>/dev/null || echo "")
-          if [ -z "$TOKEN" ]; then
-            echo "Token refresh failed. Response: $RESPONSE"
-            exit 1
+          # Try OAuth2 auto-refresh first (needs EBAY_APP_ID + EBAY_CERT_ID secrets)
+          TOKEN=""
+          if [ -n "${{ secrets.EBAY_APP_ID }}" ] && [ -n "${{ secrets.EBAY_CERT_ID }}" ]; then
+            RESPONSE=$(curl -s -X POST "https://api.ebay.com/identity/v1/oauth2/token" \
+              -H "Content-Type: application/x-www-form-urlencoded" \
+              -u "${{ secrets.EBAY_APP_ID }}:${{ secrets.EBAY_CERT_ID }}" \
+              -d "grant_type=client_credentials&scope=https%3A%2F%2Fapi.ebay.com%2Foauth%2Fapi_scope")
+            TOKEN=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['token_type']+' '+d['access_token'])" 2>/dev/null || echo "")
+            if [ -n "$TOKEN" ]; then
+              echo "Token auto-refreshed via OAuth2."
+            else
+              echo "OAuth2 refresh failed (response: $RESPONSE) — falling back to stored token."
+            fi
           fi
+
+          # Fall back to manually stored token secret
+          if [ -z "$TOKEN" ]; then
+            TOKEN="${{ secrets.EBAY_APP_TOKEN }}"
+            if [ -z "$TOKEN" ]; then
+              echo "No eBay token available. Add EBAY_APP_TOKEN or EBAY_APP_ID+EBAY_CERT_ID to repo secrets."
+              exit 1
+            fi
+            echo "Using stored EBAY_APP_TOKEN secret."
+          fi
+
           echo "EBAY_APP_TOKEN=$TOKEN" >> $GITHUB_ENV
-          echo "Token refreshed successfully."
 
       - name: Run eBay scraper
         run: uv run python -m scraper.ebay --max-products 150
