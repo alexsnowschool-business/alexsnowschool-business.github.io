@@ -48,6 +48,11 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
+      - name: Run Vestiaire scraper
+        run: uv run python -m scraper.vestiaire --max-products 150
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
       - name: Rebuild catalogue.json and analysis.json
         run: uv run python scripts/build_json.py
         env:
@@ -57,13 +62,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ebay/metadata/ data/vinted/metadata/ hermes-archive/catalogue.json hermes-archive/analysis.json
+          git add data/ebay/metadata/ data/vinted/metadata/ data/vestiaire/metadata/ hermes-archive/catalogue.json hermes-archive/analysis.json
           if git diff --cached --quiet; then
             echo "No new data — nothing to commit."
             exit 0
           fi
           EBAY_COUNT=$(git diff --cached --name-only data/ebay/metadata/ | wc -l | tr -d ' ')
           VINTED_COUNT=$(git diff --cached --name-only data/vinted/metadata/ | wc -l | tr -d ' ')
-          git commit -m "chore(data): daily scrape $(date -u '+%Y-%m-%d') (ebay +${EBAY_COUNT}, vinted +${VINTED_COUNT})"
+          VESTIAIRE_COUNT=$(git diff --cached --name-only data/vestiaire/metadata/ | wc -l | tr -d ' ')
+          git commit -m "chore(data): daily scrape $(date -u '+%Y-%m-%d') (ebay +${EBAY_COUNT}, vinted +${VINTED_COUNT}, vestiaire +${VESTIAIRE_COUNT})"
           git pull --rebase origin main
           git push
