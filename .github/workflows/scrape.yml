@@ -47,8 +47,6 @@ jobs:
             exit 0
           fi
           COUNT=$(git diff --cached --name-only data/ebay/metadata/ | wc -l | tr -d ' ')
-          # Rebase after staging so tracked-file changes don't block the rebase
-          git fetch origin main
-          git rebase origin/main
           git commit -m "chore(data): daily eBay scrape $(date -u '+%Y-%m-%d') (+${COUNT} items)"
+          git pull --rebase origin main
           git push
