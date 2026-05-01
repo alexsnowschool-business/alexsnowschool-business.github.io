@@ -29,10 +29,12 @@ body {
     font-family: var(--font-sans);
     background: var(--ivory);
     color: var(--slate);
-    line-height: 1.75;
+    line-height: 1.85;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 16px;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -284,15 +286,17 @@ section { padding: 120px 0; }
     line-height: 1.2;
     color: var(--slate);
     margin-bottom: 16px;
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 
 .section-desc {
     font-family: var(--font-sans);
     color: var(--stone);
-    font-size: 0.88rem;
+    font-size: 0.94rem;
     font-weight: 300;
     line-height: 2;
     max-width: 560px;
+    letter-spacing: 0.01em;
 }
 
 /* ── TIMELINE ───────────────────────── */
@@ -414,20 +418,22 @@ section { padding: 120px 0; }
 
 .timeline-event-title {
     font-family: var(--font-serif);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 400;
     font-style: italic;
     color: var(--slate);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     line-height: 1.35;
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 
 .timeline-text {
     font-family: var(--font-sans);
-    font-size: 0.80rem;
+    font-size: 0.90rem;
     color: var(--stone);
-    line-height: 1.9;
+    line-height: 1.95;
     font-weight: 300;
+    letter-spacing: 0.01em;
 }
 
 .timeline-context {
@@ -438,7 +444,7 @@ section { padding: 120px 0; }
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--gold-muted);
-    margin-top: 12px;
+    margin-top: 14px;
     padding: 4px 10px;
     border: 1px solid var(--rule-gold);
 }
@@ -537,36 +543,39 @@ section { padding: 120px 0; }
 
 .thinker-concept {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 400;
     font-style: italic;
     color: var(--gold-warm);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     line-height: 1.4;
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 
 .thinker-body {
     font-family: var(--font-sans);
-    font-size: 0.82rem;
-    color: rgba(244, 239, 230, 0.46);
-    line-height: 2;
+    font-size: 0.92rem;
+    color: rgba(244, 239, 230, 0.52);
+    line-height: 2.05;
     font-weight: 300;
     margin-bottom: 20px;
+    letter-spacing: 0.01em;
 }
 
 .thinker-body em {
     font-style: italic;
-    color: rgba(244, 239, 230, 0.70);
+    color: rgba(244, 239, 230, 0.80);
 }
 
 .thinker-quote {
     border-left: 1px solid var(--rule-gold);
-    padding-left: 20px;
+    padding-left: 22px;
     font-family: var(--font-serif);
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-style: italic;
-    color: rgba(244, 239, 230, 0.38);
-    line-height: 1.7;
+    color: rgba(244, 239, 230, 0.42);
+    line-height: 1.75;
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 
 /* ── IDEOLOGY ───────────────────────── */
@@ -634,10 +643,11 @@ section { padding: 120px 0; }
 
 .ideology-body {
     font-family: var(--font-sans);
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     color: var(--stone);
-    line-height: 2;
+    line-height: 2.0;
     font-weight: 300;
+    letter-spacing: 0.01em;
 }
 
 .ideology-body em {
@@ -662,11 +672,12 @@ section { padding: 120px 0; }
 
 .evidence-intro p {
     font-family: var(--font-sans);
-    font-size: 0.88rem;
+    font-size: 0.94rem;
     color: var(--stone);
-    line-height: 2;
+    line-height: 2.0;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    letter-spacing: 0.01em;
 }
 
 .evidence-table {
@@ -685,22 +696,23 @@ section { padding: 120px 0; }
 .evidence-row:hover { background: rgba(168, 134, 74, 0.03); }
 
 .ev-finding {
-    padding: 16px 20px;
+    padding: 18px 22px;
     font-family: var(--font-sans);
-    font-size: 0.76rem;
+    font-size: 0.84rem;
     font-weight: 400;
     color: var(--slate);
     border-right: 1px solid var(--rule);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
 }
 
 .ev-interpretation {
-    padding: 16px 20px;
+    padding: 18px 22px;
     font-family: var(--font-sans);
-    font-size: 0.76rem;
+    font-size: 0.84rem;
     color: var(--stone);
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
 }
 
 .evidence-row.header .ev-finding,
@@ -741,6 +753,9 @@ section { padding: 120px 0; }
     display: flex;
     flex-direction: column;
     gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .library-card:nth-child(3n) { border-right: none; }
@@ -772,11 +787,12 @@ section { padding: 120px 0; }
 
 .lib-desc {
     font-family: var(--font-sans);
-    font-size: 0.78rem;
+    font-size: 0.86rem;
     color: var(--stone);
-    line-height: 1.8;
+    line-height: 1.85;
     font-weight: 300;
     flex: 1;
+    letter-spacing: 0.01em;
 }
 
 .lib-tag {

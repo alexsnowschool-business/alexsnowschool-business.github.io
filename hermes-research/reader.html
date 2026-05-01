@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hermès Research — Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <style>
+        :root {
+            --ivory:       #F4EFE6;
+            --ivory-deep:  #EBE4D8;
+            --ivory-card:  #FAF7F2;
+            --ivory-pure:  #FDFCF9;
+            --slate:       #1A1916;
+            --slate-mid:   #2C2A27;
+            --slate-soft:  #4B4843;
+            --stone:       #8A8278;
+            --stone-light: #B5AFA8;
+            --gold:        #A8864A;
+            --gold-warm:   #C4A96A;
+            --gold-muted:  #7A6535;
+            --rule:        rgba(26,25,22,0.10);
+            --rule-gold:   rgba(168,134,74,0.28);
+            --font-serif:  'Cormorant Garamond', Georgia, serif;
+            --font-sans:   'Jost', 'Helvetica Neue', sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--ivory);
+            color: var(--slate);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.85;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: sticky;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(244,239,230,0.97);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--rule);
+            padding: 14px 0;
+        }
+
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            color: var(--stone);
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover { color: var(--slate); }
+
+        .nav-back svg { flex-shrink: 0; opacity: 0.5; }
+
+        .nav-doc-type {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold-muted);
+        }
+
+        /* ── READING PROGRESS ── */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A8864A, #C4A96A);
+            z-index: 200;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ── DOC HEADER ── */
+        .doc-header {
+            background: var(--slate);
+            padding: 80px 0 72px;
+        }
+
+        .doc-header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .doc-type-tag {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold-warm);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .doc-type-tag::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+
+        .doc-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ivory);
+            line-height: 1.12;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+
+        .doc-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .doc-filename {
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: rgba(244,239,230,0.30);
+        }
+
+        /* ── MAIN READING AREA ── */
+        .reading-area {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 72px 40px 100px;
+        }
+
+        /* ── MARKDOWN CONTENT STYLES ── */
+        #content h1 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.2;
+            margin: 60px 0 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+
+        #content h1:first-child { margin-top: 0; }
+
+        #content h2 {
+            font-family: var(--font-serif);
+            font-size: 1.65rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.25;
+            margin: 52px 0 18px;
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+
+        #content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--slate-soft);
+            line-height: 1.35;
+            margin: 40px 0 14px;
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+
+        #content h4 {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-muted);
+            margin: 32px 0 12px;
+        }
+
+        #content p {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--slate-soft);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            letter-spacing: 0.01em;
+        }
+
+        #content p strong {
+            font-weight: 500;
+            color: var(--slate);
+        }
+
+        #content p em {
+            font-style: italic;
+            color: var(--slate);
+        }
+
+        /* ── BLOCKQUOTE ── */
+        #content blockquote {
+            border-left: 2px solid var(--gold);
+            margin: 36px 0;
+            padding: 20px 28px;
+            background: var(--ivory-card);
+        }
+
+        #content blockquote p {
+            font-family: var(--font-serif);
+            font-size: 1.12rem;
+            font-style: italic;
+            font-weight: 300;
+            color: var(--slate);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* ── LISTS ── */
+        #content ul, #content ol {
+            margin: 0 0 22px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        #content ul li, #content ol li {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--slate-soft);
+            line-height: 1.85;
+            padding: 5px 0 5px 24px;
+            position: relative;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        #content ul li:last-child, #content ol li:last-child { border-bottom: none; }
+
+        #content ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gold-muted);
+            font-size: 0.8rem;
+            top: 8px;
+        }
+
+        #content ol {
+            counter-reset: ol-counter;
+        }
+
+        #content ol li::before {
+            content: counter(ol-counter);
+            counter-increment: ol-counter;
+            position: absolute;
+            left: 0;
+            color: var(--gold-muted);
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            font-style: italic;
+            top: 8px;
+        }
+
+        /* ── TABLES ── */
+        #content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 0.88rem;
+            background: var(--ivory-card);
+            border: 1px solid var(--rule);
+        }
+
+        #content thead {
+            background: var(--slate);
+        }
+
+        #content thead th {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-warm);
+            padding: 14px 18px;
+            text-align: left;
+            border-right: 1px solid rgba(244,239,230,0.08);
+        }
+
+        #content thead th:last-child { border-right: none; }
+
+        #content tbody td {
+            font-family: var(--font-sans);
+            font-size: 0.86rem;
+            font-weight: 300;
+            color: var(--slate-soft);
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--rule);
+            border-right: 1px solid var(--rule);
+            vertical-align: top;
+            line-height: 1.65;
+        }
+
+        #content tbody td:first-child {
+            font-weight: 400;
+            color: var(--slate);
+        }
+
+        #content tbody td:last-child { border-right: none; }
+        #content tbody tr:last-child td { border-bottom: none; }
+        #content tbody tr:hover { background: var(--ivory-deep); }
+
+        /* ── CODE ── */
+        #content code {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.82rem;
+            background: var(--ivory-deep);
+            color: var(--slate);
+            padding: 2px 7px;
+            border: 1px solid var(--rule);
+            letter-spacing: 0;
+        }
+
+        #content pre {
+            background: var(--slate);
+            border: 1px solid var(--rule-gold);
+            padding: 24px 28px;
+            overflow-x: auto;
+            margin: 28px 0;
+        }
+
+        #content pre code {
+            background: none;
+            border: none;
+            color: var(--ivory);
+            padding: 0;
+            font-size: 0.84rem;
+            line-height: 1.7;
+        }
+
+        /* ── HR ── */
+        #content hr {
+            border: none;
+            border-top: 1px solid var(--rule-gold);
+            margin: 48px 0;
+            opacity: 0.6;
+        }
+
+        /* ── LOADING STATE ── */
+        .loading {
+            text-align: center;
+            padding: 80px 20px;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--stone);
+            letter-spacing: 0.06em;
+        }
+
+        .error-msg {
+            background: var(--ivory-card);
+            border: 1px solid var(--rule);
+            border-left: 3px solid var(--gold);
+            padding: 28px 32px;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            color: var(--stone);
+            line-height: 1.8;
+        }
+
+        /* ── TOC FLOAT ── */
+        .toc-toggle {
+            position: fixed;
+            bottom: 100px;
+            right: 36px;
+            width: 40px;
+            height: 40px;
+            background: var(--ivory-card);
+            border: 1px solid var(--rule);
+            color: var(--stone);
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 90;
+            transition: all 0.3s;
+        }
+
+        .toc-toggle:hover {
+            background: var(--slate);
+            color: var(--gold-warm);
+            border-color: transparent;
+        }
+
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 48px;
+            right: 36px;
+            width: 40px;
+            height: 40px;
+            background: var(--slate);
+            color: var(--gold-warm);
+            border: 1px solid rgba(168,134,74,0.30);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.35s;
+            z-index: 90;
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top-btn:hover {
+            background: var(--gold);
+            color: var(--ivory);
+            border-color: transparent;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #0E0D0C;
+            padding: 40px 0 28px;
+            border-top: 1px solid rgba(244,239,230,0.05);
+        }
+
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-left {
+            font-family: var(--font-sans);
+            font-size: 0.70rem;
+            font-weight: 300;
+            color: rgba(244,239,230,0.22);
+            letter-spacing: 0.06em;
+        }
+
+        .footer-right {
+            font-family: var(--font-serif);
+            font-size: 0.80rem;
+            font-style: italic;
+            color: rgba(168,134,74,0.28);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .nav-inner, .doc-header-inner, .reading-area, .footer-inner {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            .doc-header { padding: 60px 0 52px; }
+            .reading-area { padding-top: 48px; }
+            #content h1 { font-size: 1.75rem; }
+            #content h2 { font-size: 1.35rem; }
+            #content table { font-size: 0.80rem; }
+            #content thead th, #content tbody td { padding: 10px 12px; }
+            .scroll-top-btn { right: 20px; bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <a href="./index.html" class="nav-back">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                <path d="M13 5H1M5 9l-4-4 4-4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Research
+        </a>
+        <div class="nav-doc-type" id="navDocType">—</div>
+    </div>
+</nav>
+
+<!-- DOC HEADER -->
+<div class="doc-header">
+    <div class="doc-header-inner">
+        <div class="doc-type-tag" id="docTypeTag">Loading</div>
+        <h1 class="doc-title" id="docTitle">…</h1>
+        <div class="doc-meta">
+            <span class="doc-filename" id="docFilename"></span>
+        </div>
+    </div>
+</div>
+
+<!-- READING AREA -->
+<main class="reading-area">
+    <div id="content">
+        <div class="loading">Loading document…</div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-left">© 2026 AlexSnow School · Hermès Research Archive</div>
+        <div class="footer-right">
+            <a href="./index.html" style="color: inherit;">← Back to Research</a>
+        </div>
+    </div>
+</footer>
+
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+'use strict';
+
+const DOC_META = {
+    'BOURDIEU_ANALYSIS.md':         { title: 'Bourdieu Analysis',          type: 'Social Theory · Deep Study' },
+    'HERMES_SOCIAL_HISTORY.md':     { title: 'Hermès Social History',       type: 'Social History · Timeline' },
+    'BUSINESS_RESEARCH.md':         { title: 'Business Research',           type: 'Market Analysis' },
+    'COMPETITOR_ANALYSIS.md':       { title: 'Competitor Analysis',         type: 'Competitive Intelligence' },
+    'AUTHENTICATION_TECH_RESEARCH.md': { title: 'Authentication Technology', type: 'Technology Research' },
+    'OBSERVATIONS.md':              { title: 'Dataset Observations',        type: 'Data Interpretation' },
+    'STUDY_PLAN.md':                { title: 'Study Plan',                  type: 'Learning Path' },
+    'DATA_COLLECTION_RESEARCH.md':  { title: 'Data Collection Research',    type: 'Data Collection' },
+};
+
+const params = new URLSearchParams(window.location.search);
+const docFile = params.get('doc');
+
+if (!docFile || !DOC_META[docFile]) {
+    document.getElementById('docTitle').textContent = 'Document not found';
+    document.getElementById('content').innerHTML =
+        '<div class="error-msg">No document specified. Return to the <a href="./index.html" style="color:var(--gold-muted);border-bottom:1px solid var(--rule-gold)">Research page</a> and choose a document from the library.</div>';
+} else {
+    const meta = DOC_META[docFile];
+
+    document.title = meta.title + ' — Hermès Research';
+    document.getElementById('docTitle').textContent   = meta.title;
+    document.getElementById('docTypeTag').textContent = meta.type;
+    document.getElementById('navDocType').textContent = meta.type;
+    document.getElementById('docFilename').textContent = docFile;
+
+    const url = '../research-docs/' + docFile;
+
+    fetch(url)
+        .then(r => {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.text();
+        })
+        .then(md => {
+            marked.setOptions({ breaks: false, gfm: true });
+            document.getElementById('content').innerHTML = marked.parse(md);
+            document.getElementById('content').querySelectorAll('h1')[0]?.remove();
+        })
+        .catch(err => {
+            document.getElementById('content').innerHTML =
+                `<div class="error-msg">Could not load <strong>${docFile}</strong>.<br><br>Error: ${err.message}<br><br>If running locally, try <code>npx serve .</code> from the repo root to avoid file fetch restrictions.</div>`;
+        });
+}
+
+// Progress bar
+const pb = document.getElementById('progressBar');
+const stb = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    pb.style.width = (s / h * 100) + '%';
+    stb.classList.toggle('visible', s > 400);
+}, { passive: true });
+</script>
+
+</body>
+</html>
