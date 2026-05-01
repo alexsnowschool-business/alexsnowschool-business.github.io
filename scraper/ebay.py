@@ -1,10 +1,8 @@
 """
 eBay scraper — counterfeit Hermès bags.
 
-Uses the eBay Finding API — authenticates with App ID only, no OAuth needed.
-
-Auth: EBAY_APP_ID env var (GitHub Actions) or .env file (local).
-      Never expires. No token management required.
+Uses the eBay Browse API with OAuth Application Token (client credentials flow).
+Token is fetched automatically from EBAY_APP_ID + EBAY_CERT_ID — no manual management.
 
 Counterfeit signal: genuine Hermès Kelly/Birkin cost $5,000+ even secondhand.
 Any eBay listing under $400 claiming to be Hermès is almost certainly fake.
@@ -15,6 +13,7 @@ Each item is saved as:
 
 import argparse
 import asyncio
+import base64
 import json
 import os
 import random
@@ -24,77 +23,77 @@ from pathlib import Path
 import httpx
 from tqdm import tqdm
 
-FINDING_API   = "https://svcs.ebay.com/services/search/FindingService/v1"
+BROWSE_API    = "https://api.ebay.com/buy/browse/v1/item_summary/search"
+TOKEN_URL     = "https://api.ebay.com/identity/v1/oauth2/token"
 MAX_PRICE_USD = 400
 SEARCH_QUERIES = ["hermes kelly bag", "hermes birkin bag"]
+MARKETPLACE   = "EBAY_US"
 
 META_DIR = Path("data/ebay/metadata")
 META_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def _load_app_id() -> str:
-    app_id = os.environ.get("EBAY_APP_ID", "")
-    if not app_id:
+def _load_credentials() -> tuple[str, str]:
+    app_id  = os.environ.get("EBAY_APP_ID", "")
+    cert_id = os.environ.get("EBAY_CERT_ID", "")
+    if not app_id or not cert_id:
         env_file = Path(".env")
         if env_file.exists():
             for line in env_file.read_text().splitlines():
                 if line.startswith("EBAY_APP_ID="):
                     app_id = line.split("=", 1)[1].strip()
+                elif line.startswith("EBAY_CERT_ID="):
+                    cert_id = line.split("=", 1)[1].strip()
     if not app_id:
         raise RuntimeError("EBAY_APP_ID not found. Add it to .env or set as environment variable.")
-    return app_id
+    if not cert_id:
+        raise RuntimeError("EBAY_CERT_ID not found. Add it to .env or set as environment variable.")
+    return app_id, cert_id
+
+
+def _get_app_token(app_id: str, cert_id: str) -> str:
+    credentials = base64.b64encode(f"{app_id}:{cert_id}".encode()).decode()
+    with httpx.Client(timeout=20) as c:
+        resp = c.post(
+            TOKEN_URL,
+            headers={
+                "Authorization": f"Basic {credentials}",
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            data={
+                "grant_type": "client_credentials",
+                "scope": "https://api.ebay.com/oauth/api_scope",
+            },
+        )
+        resp.raise_for_status()
+        return "Bearer " + resp.json()["access_token"]
 
 
 def _fullres(url: str) -> str:
     """Upscale eBay CDN thumbnail to 1600px."""
-    url = url.replace("thumbs/images/", "images/")
     return re.sub(r"s-l\d+", "s-l1600", url)
 
 
-def _search(app_id: str, query: str, page: int, per_page: int = 100) -> dict:
-    params = {
-        "OPERATION-NAME":              "findItemsByKeywords",
-        "SERVICE-VERSION":             "1.0.0",
-        "SECURITY-APPNAME":            app_id,
-        "RESPONSE-DATA-FORMAT":        "JSON",
-        "keywords":                    query,
-        "paginationInput.entriesPerPage": per_page,
-        "paginationInput.pageNumber":  page,
-        "itemFilter(0).name":          "MaxPrice",
-        "itemFilter(0).value":         MAX_PRICE_USD,
-        "itemFilter(0).paramName":     "Currency",
-        "itemFilter(0).paramValue":    "USD",
-        "outputSelector":              "PictureURLLarge",
-        "sortOrder":                   "StartTimeNewest",
-    }
-    for attempt in range(4):
-        with httpx.Client(timeout=20) as c:
-            resp = c.get(FINDING_API, params=params)
-        if resp.is_success:
-            return resp.json()
-        body = resp.text
-        # Rate-limit (errorId 10001) — back off and retry
-        if resp.status_code == 500 and "10001" in body:
-            wait = 60 * (2 ** attempt)
-            print(f"  Rate-limited by eBay (attempt {attempt+1}/4) — waiting {wait}s")
-            import time; time.sleep(wait)
-            continue
-        print(f"  eBay API {resp.status_code}: {body[:300]}")
+def _search(token: str, query: str, offset: int, limit: int = 50) -> dict:
+    with httpx.Client(timeout=20) as c:
+        resp = c.get(
+            BROWSE_API,
+            params={
+                "q": query,
+                "limit": limit,
+                "offset": offset,
+                "filter": f"price:[0..{MAX_PRICE_USD}],priceCurrency:USD",
+                "sort": "newlyListed",
+            },
+            headers={"Authorization": token, "X-EBAY-C-MARKETPLACE-ID": MARKETPLACE},
+        )
         resp.raise_for_status()
-    resp.raise_for_status()  # final raise after all retries exhausted
-
-
-def _val(field) -> str:
-    """Unwrap eBay Finding API's nested single-element arrays."""
-    if isinstance(field, list):
-        return _val(field[0]) if field else ""
-    if isinstance(field, dict):
-        return field.get("__value__", field.get("value", ""))
-    return str(field) if field is not None else ""
+        return resp.json()
 
 
 async def scrape(max_products: int = 500, queries: list[str] | None = None) -> None:
-    app_id = _load_app_id()
+    app_id, cert_id = _load_credentials()
+    token = _get_app_token(app_id, cert_id)
     if queries is None:
         queries = SEARCH_QUERIES
 
@@ -105,20 +104,27 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                 break
 
             print(f"\n  Searching eBay: '{query}' (max ${MAX_PRICE_USD})")
-            page = 1
+            offset = 0
+            limit  = 50
 
             while saved < max_products:
                 try:
-                    data = _search(app_id, query, page)
+                    data = _search(token, query, offset, limit)
                 except httpx.HTTPStatusError as e:
-                    tqdm.write(f"  API error (page {page}): {e}")
-                    break
+                    if e.response.status_code == 401:
+                        print("  Token expired — refreshing...")
+                        token = _get_app_token(app_id, cert_id)
+                        try:
+                            data = _search(token, query, offset, limit)
+                        except httpx.HTTPStatusError as e2:
+                            tqdm.write(f"  API error (offset {offset}): {e2}")
+                            break
+                    else:
+                        tqdm.write(f"  API error (offset {offset}): {e}")
+                        break
 
-                response = data.get("findItemsByKeywordsResponse", [{}])[0]
-                search_result = response.get("searchResult", [{}])[0]
-                items = search_result.get("item", [])
-                pagination = response.get("paginationOutput", [{}])[0]
-                total_pages = int(_val(pagination.get("totalPages", [1])))
+                items = data.get("itemSummaries", [])
+                total = data.get("total", 0)
 
                 if not items:
                     tqdm.write(f"  No more items for '{query}'")
@@ -128,7 +134,7 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                     if saved >= max_products:
                         break
 
-                    item_id = _val(item.get("itemId", ""))
+                    item_id = item.get("itemId", "").replace("|", "-")
                     if not item_id:
                         continue
 
@@ -137,35 +143,37 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                         pbar.update(1)
                         continue
 
-                    gallery = _val(item.get("galleryURL", ""))
-                    large   = _val(item.get("pictureURLLarge", ""))
-                    raw_url = large or gallery
-                    if not raw_url:
+                    raw_imgs = []
+                    if item.get("image"):
+                        raw_imgs.append(item["image"]["imageUrl"])
+                    for img in item.get("additionalImages") or []:
+                        raw_imgs.append(img["imageUrl"])
+                    img_urls = [_fullres(u) for u in raw_imgs if u]
+
+                    if not img_urls:
                         continue
-                    img_urls = [_fullres(raw_url)]
 
-                    price_raw = item.get("sellingStatus", [{}])[0].get("currentPrice", [{}])[0]
+                    price     = item.get("price", {})
+                    price_val = price.get("value", "")
+                    price_cur = price.get("currency", "USD")
                     try:
-                        price_str = f"${float(_val(price_raw)):,.0f}"
+                        price_str = f"${float(price_val):,.0f}" if price_cur == "USD" else f"{price_cur} {float(price_val):,.0f}"
                     except (ValueError, TypeError):
-                        price_str = _val(price_raw)
+                        price_str = price_val
 
-                    condition = _val(item.get("condition", [{}])[0].get("conditionDisplayName", ""))
-                    country   = _val(item.get("country", ""))
-                    listed_at = _val(item.get("listingInfo", [{}])[0].get("startTime", ""))
-                    source_url = _val(item.get("viewItemURL", ""))
-                    title      = _val(item.get("title", ""))
+                    loc       = item.get("itemLocation", {})
+                    listed_at = item.get("itemCreationDate") or item.get("itemOriginDate") or ""
 
                     product = {
                         "id":                 item_id,
-                        "name":               title,
+                        "name":               item.get("title", ""),
                         "brand":              "Hermès",
                         "price":              price_str,
                         "description":        "",
-                        "condition":          condition,
-                        "country":            country,
+                        "condition":          item.get("condition", ""),
+                        "country":            loc.get("country", ""),
                         "listed_at":          listed_at,
-                        "source_url":         source_url,
+                        "source_url":         item.get("itemWebUrl", ""),
                         "platform":           "ebay.com",
                         "authenticity_label": "counterfeit",
                         "search_query":       query,
@@ -175,13 +183,13 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                     meta_path.write_text(json.dumps(product, indent=2))
                     saved += 1
                     pbar.update(1)
-                    tqdm.write(f"  saved: {title[:60]} — {price_str}")
+                    tqdm.write(f"  saved: {product['name'][:60]} — {price_str}")
 
                     await asyncio.sleep(random.uniform(0.1, 0.3))
 
-                if page >= total_pages:
+                offset += limit
+                if offset >= total:
                     break
-                page += 1
                 await asyncio.sleep(random.uniform(0.5, 1.0))
 
     print(f"\nDone — {saved} new products saved to {META_DIR}/")
