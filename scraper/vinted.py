@@ -19,17 +19,16 @@ import argparse
 import asyncio
 import json
 import random
-from pathlib import Path
 
 from playwright.async_api import async_playwright
 from tqdm import tqdm
 
+from scraper.db import connect, item_exists, upsert_item
+
 BASE_URL = "https://www.vinted.de"
 SEARCH_QUERIES = ["hermes kelly", "hermes birkin"]
 MAX_PRICE_EUR = 500
-
-META_DIR = Path("data/vinted/metadata")
-META_DIR.mkdir(parents=True, exist_ok=True)
+PLATFORM      = "vinted.de"
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) "
@@ -111,6 +110,7 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
         )
         await asyncio.sleep(4)
 
+        conn  = connect()
         saved = 0
 
         with tqdm(total=max_products, desc="Products") as pbar:
@@ -141,8 +141,7 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                         if not item_id:
                             continue
 
-                        meta_path = META_DIR / f"vt_{item_id}.json"
-                        if meta_path.exists():
+                        if item_exists(conn, item_id, PLATFORM):
                             pbar.update(1)
                             continue
 
@@ -169,13 +168,13 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                             "color": item.get("colour1") or "",
                             "listed_at": item.get("created_at_ts") or "",
                             "source_url": BASE_URL + item_path,
-                            "platform": "vinted.de",
+                            "platform": PLATFORM,
                             "authenticity_label": "counterfeit",
                             "search_query": query,
                             "image_urls": img_urls,
                             "local_images": [],
                         }
-                        meta_path.write_text(json.dumps(product, indent=2))
+                        upsert_item(conn, product)
                         saved += 1
                         pbar.update(1)
                         tqdm.write(f"  saved: {product['name']} — {price_str}")
@@ -187,8 +186,9 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                     api_page += 1
                     await asyncio.sleep(random.uniform(1.0, 2.5))
 
+        conn.close()
         await browser.close()
-        print(f"\nDone — saved {saved} counterfeit products to {META_DIR}/")
+        print(f"\nDone — saved {saved} counterfeit products to DB")
 
 
 if __name__ == "__main__":

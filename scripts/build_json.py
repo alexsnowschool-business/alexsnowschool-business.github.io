@@ -1,45 +1,26 @@
 """
 Rebuild hermes-archive/catalogue.json and hermes-archive/analysis.json
-from all data/*/metadata/*.json files. Run after each scrape.
+from the SQLite database. Run after each scrape.
 """
 
 import datetime
-import json
 import re
 import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
 
-SOURCES = {
-    "vestiaire": Path("data/vestiaire/metadata"),
-    "hermes":    Path("data/hermes/metadata"),
-    "vinted":    Path("data/vinted/metadata"),
-    "ebay":      Path("data/ebay/metadata"),
-}
+from scraper.db import connect, all_items
 
 OUT_DIR = Path("hermes-archive")
 
 
 def _price_value(item: dict) -> float:
-    raw = item.get("price") or ""
-    digits = re.sub(r"[^\d]", "", raw)
-    return float(digits) if digits else -1.0
+    return item.get("price_value") or -1.0
 
 
 def load_items() -> list[dict]:
-    items = []
-    for src, meta_dir in SOURCES.items():
-        if not meta_dir.exists():
-            continue
-        for f in sorted(meta_dir.glob("*.json")):
-            try:
-                d = json.loads(f.read_text())
-                d["meta_file"] = f.name
-                items.append(d)
-            except Exception:
-                pass
-    items.sort(key=_price_value, reverse=True)
-    return items
+    with connect() as conn:
+        return all_items(conn)
 
 
 BAG_TYPES = [
@@ -339,7 +320,9 @@ def build_analysis(items: list[dict]) -> dict:
 
 
 if __name__ == "__main__":
-    print("Loading metadata…")
+    import json
+
+    print("Loading items from DB…")
     items = load_items()
     print(f"  {len(items)} items loaded")
 

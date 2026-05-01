@@ -6,31 +6,26 @@ Token is fetched automatically from EBAY_APP_ID + EBAY_CERT_ID — no manual man
 
 Counterfeit signal: genuine Hermès Kelly/Birkin cost $5,000+ even secondhand.
 Any eBay listing under $400 claiming to be Hermès is almost certainly fake.
-
-Each item is saved as:
-  data/ebay/metadata/eb_<item_id>.json  ← authenticity_label = "counterfeit"
 """
 
 import argparse
 import asyncio
 import base64
-import json
 import os
 import random
 import re
-from pathlib import Path
 
 import httpx
 from tqdm import tqdm
+
+from scraper.db import connect, item_exists, upsert_item
 
 BROWSE_API    = "https://api.ebay.com/buy/browse/v1/item_summary/search"
 TOKEN_URL     = "https://api.ebay.com/identity/v1/oauth2/token"
 MAX_PRICE_USD = 400
 SEARCH_QUERIES = ["hermes kelly bag", "hermes birkin bag"]
 MARKETPLACE   = "EBAY_US"
-
-META_DIR = Path("data/ebay/metadata")
-META_DIR.mkdir(parents=True, exist_ok=True)
+PLATFORM      = "ebay.com"
 
 
 def _load_credentials() -> tuple[str, str]:
@@ -97,6 +92,7 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
     if queries is None:
         queries = SEARCH_QUERIES
 
+    conn  = connect()
     saved = 0
     with tqdm(total=max_products, desc="Products") as pbar:
         for query in queries:
@@ -138,8 +134,7 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                     if not item_id:
                         continue
 
-                    meta_path = META_DIR / f"eb_{item_id}.json"
-                    if meta_path.exists():
+                    if item_exists(conn, item_id, PLATFORM):
                         pbar.update(1)
                         continue
 
@@ -174,13 +169,13 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                         "country":            loc.get("country", ""),
                         "listed_at":          listed_at,
                         "source_url":         item.get("itemWebUrl", ""),
-                        "platform":           "ebay.com",
+                        "platform":           PLATFORM,
                         "authenticity_label": "counterfeit",
                         "search_query":       query,
                         "image_urls":         img_urls,
                         "local_images":       [],
                     }
-                    meta_path.write_text(json.dumps(product, indent=2))
+                    upsert_item(conn, product)
                     saved += 1
                     pbar.update(1)
                     tqdm.write(f"  saved: {product['name'][:60]} — {price_str}")
@@ -192,7 +187,8 @@ async def scrape(max_products: int = 500, queries: list[str] | None = None) -> N
                     break
                 await asyncio.sleep(random.uniform(0.5, 1.0))
 
-    print(f"\nDone — {saved} new products saved to {META_DIR}/")
+    conn.close()
+    print(f"\nDone — {saved} new products saved to DB")
 
 
 if __name__ == "__main__":

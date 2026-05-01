@@ -17,18 +17,17 @@ import random
 import re
 import uuid
 from datetime import datetime, timezone
-from pathlib import Path
 
 from playwright.async_api import async_playwright
 from tqdm import tqdm
+
+from scraper.db import connect, item_exists, upsert_item
 
 BASE_URL = "https://us.vestiairecollective.com"
 IMAGE_BASE = "https://images.vestiairecollective.com/images/resized/w=2000,q=90,f=auto,"
 SEARCH_API = "https://search.vestiairecollective.com/v1/product/search"
 MAX_IMAGES_PER_PRODUCT = 10
-
-META_DIR = Path("data/vestiaire/metadata")
-META_DIR.mkdir(parents=True, exist_ok=True)
+PLATFORM = "vestiairecollective.com"
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) "
@@ -96,6 +95,7 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
         await page.goto(BASE_URL, wait_until="domcontentloaded", timeout=30000)
         await asyncio.sleep(3)
 
+        conn  = connect()
         saved = 0
         offset = 0
         limit = 60
@@ -140,8 +140,7 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
                     if not product_id:
                         continue
 
-                    meta_path = META_DIR / f"vc_{product_id}.json"
-                    if meta_path.exists():
+                    if item_exists(conn, product_id, PLATFORM):
                         pbar.update(1)
                         continue
 
@@ -177,12 +176,12 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
                         "description": item.get("description") or "",
                         "listed_at": listed_at,
                         "source_url": BASE_URL + link,
-                        "platform": "vestiairecollective.com",
+                        "platform": PLATFORM,
                         "authenticity_label": "authentic",
                         "image_urls": candidate_urls,
                         "local_images": [],
                     }
-                    meta_path.write_text(json.dumps(product, indent=2))
+                    upsert_item(conn, product)
                     saved += 1
                     pbar.update(1)
                     tqdm.write(f"  saved: {product['name']} — {price_str}")
@@ -195,8 +194,9 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
 
                 await asyncio.sleep(random.uniform(1.0, 2.0))
 
+        conn.close()
         await browser.close()
-        print(f"\nDone — saved {saved} products to {META_DIR}/")
+        print(f"\nDone — saved {saved} products to DB")
 
 
 if __name__ == "__main__":
