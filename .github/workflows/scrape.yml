@@ -41,14 +41,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Sync with remote before staging so the commit is always fast-forward
-          git fetch origin main
-          git rebase origin/main
           git add data/ebay/metadata/ hermes-archive/catalogue.json hermes-archive/analysis.json
           if git diff --cached --quiet; then
             echo "No new data — nothing to commit."
-          else
-            COUNT=$(git diff --cached --name-only data/ebay/metadata/ | wc -l | tr -d ' ')
-            git commit -m "chore(data): daily eBay scrape $(date -u '+%Y-%m-%d') (+${COUNT} items)"
-            git push
+            exit 0
           fi
+          COUNT=$(git diff --cached --name-only data/ebay/metadata/ | wc -l | tr -d ' ')
+          # Rebase after staging so tracked-file changes don't block the rebase
+          git fetch origin main
+          git rebase origin/main
+          git commit -m "chore(data): daily eBay scrape $(date -u '+%Y-%m-%d') (+${COUNT} items)"
+          git push
