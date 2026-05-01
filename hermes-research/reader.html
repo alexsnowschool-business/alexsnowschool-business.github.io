@@ -6,38 +6,44 @@
     <title>Hermès Research — Reader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <!--
+        Playfair Display — high-contrast, editorial serif for headings.
+        Lora            — humanist text serif designed for on-screen reading, body copy.
+        Jost            — geometric sans for UI labels and navigation.
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
     <style>
         :root {
-            --ivory:       #F4EFE6;
-            --ivory-deep:  #EBE4D8;
-            --ivory-card:  #FAF7F2;
-            --ivory-pure:  #FDFCF9;
+            --ivory:       #F5F0E8;
+            --ivory-deep:  #EDE6D9;
+            --ivory-card:  #FAF6EF;
+            --ivory-pure:  #FEFCF9;
             --slate:       #1A1916;
             --slate-mid:   #2C2A27;
-            --slate-soft:  #4B4843;
+            --slate-soft:  #3E3B37;
             --stone:       #8A8278;
             --stone-light: #B5AFA8;
             --gold:        #A8864A;
             --gold-warm:   #C4A96A;
             --gold-muted:  #7A6535;
             --rule:        rgba(26,25,22,0.10);
-            --rule-gold:   rgba(168,134,74,0.28);
-            --font-serif:  'Cormorant Garamond', Georgia, serif;
-            --font-sans:   'Jost', 'Helvetica Neue', sans-serif;
+            --rule-gold:   rgba(168,134,74,0.25);
+            --font-display: 'Playfair Display', 'Georgia', serif;
+            --font-body:    'Lora', 'Georgia', serif;
+            --font-sans:    'Jost', 'Helvetica Neue', sans-serif;
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-sans);
-            background: var(--ivory);
+            font-family: var(--font-body);
+            background: var(--ivory-pure);
             color: var(--slate);
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 1.85;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.9;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -45,19 +51,31 @@
 
         a { color: inherit; text-decoration: none; }
 
+        /* ── PROGRESS BAR ── */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A8864A 0%, #C4A96A 100%);
+            z-index: 200;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
         /* ── NAVBAR ── */
         .navbar {
             position: sticky;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(244,239,230,0.97);
-            backdrop-filter: blur(24px);
+            background: rgba(254,252,249,0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--rule);
             padding: 14px 0;
         }
 
         .nav-inner {
-            max-width: 900px;
+            max-width: 820px;
             margin: 0 auto;
             padding: 0 40px;
             display: flex;
@@ -67,64 +85,53 @@
         }
 
         .nav-back {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
             font-family: var(--font-sans);
-            font-size: 0.72rem;
-            font-weight: 300;
-            letter-spacing: 0.12em;
+            font-size: 0.70rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
             color: var(--stone);
             transition: color 0.3s;
         }
 
         .nav-back:hover { color: var(--slate); }
 
-        .nav-back svg { flex-shrink: 0; opacity: 0.5; }
-
         .nav-doc-type {
             font-family: var(--font-sans);
-            font-size: 0.60rem;
+            font-size: 0.58rem;
             font-weight: 400;
             letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--gold-muted);
         }
 
-        /* ── READING PROGRESS ── */
-        .progress-bar {
-            position: fixed;
-            top: 0; left: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #A8864A, #C4A96A);
-            z-index: 200;
-            width: 0%;
-            transition: width 0.1s linear;
-        }
-
         /* ── DOC HEADER ── */
         .doc-header {
             background: var(--slate);
-            padding: 80px 0 72px;
+            padding: 84px 0 72px;
         }
 
         .doc-header-inner {
-            max-width: 900px;
+            max-width: 820px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
         .doc-type-tag {
             font-family: var(--font-sans);
-            font-size: 0.60rem;
+            font-size: 0.58rem;
             font-weight: 500;
-            letter-spacing: 0.28em;
+            letter-spacing: 0.30em;
             text-transform: uppercase;
             color: var(--gold-warm);
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin-bottom: 28px;
+            opacity: 0.85;
         }
 
         .doc-type-tag::before {
@@ -134,102 +141,111 @@
             height: 1px;
             background: var(--gold);
             opacity: 0.5;
+            flex-shrink: 0;
         }
 
         .doc-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 4vw, 3.4rem);
-            font-weight: 300;
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 400;
             font-style: italic;
             color: var(--ivory);
-            line-height: 1.12;
+            line-height: 1.1;
             margin-bottom: 20px;
             letter-spacing: -0.01em;
-            font-feature-settings: "kern" 1, "liga" 1;
-        }
-
-        .doc-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
         }
 
         .doc-filename {
             font-family: var(--font-sans);
-            font-size: 0.68rem;
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            color: rgba(244,239,230,0.30);
-        }
-
-        /* ── MAIN READING AREA ── */
-        .reading-area {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 72px 40px 100px;
-        }
-
-        /* ── MARKDOWN CONTENT STYLES ── */
-        #content h1 {
-            font-family: var(--font-serif);
-            font-size: 2.2rem;
+            font-size: 0.64rem;
             font-weight: 300;
+            letter-spacing: 0.10em;
+            color: rgba(244,239,230,0.28);
+        }
+
+        /* ── READING AREA ── */
+        .reading-area {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 80px 40px 120px;
+        }
+
+        /* ══════════════════════════════════════
+           RENDERED MARKDOWN TYPOGRAPHY
+           Playfair Display headings + Lora body
+        ══════════════════════════════════════ */
+
+        /* h1 — chapter title */
+        #content h1 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 400;
             font-style: italic;
             color: var(--slate);
-            line-height: 1.2;
-            margin: 60px 0 24px;
-            padding-bottom: 16px;
+            line-height: 1.18;
+            margin: 80px 0 28px;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--rule);
-            font-feature-settings: "kern" 1, "liga" 1;
         }
 
         #content h1:first-child { margin-top: 0; }
 
+        /* h2 — section heading */
         #content h2 {
-            font-family: var(--font-serif);
-            font-size: 1.65rem;
+            font-family: var(--font-display);
+            font-size: 1.75rem;
             font-weight: 400;
             font-style: italic;
             color: var(--slate);
             line-height: 1.25;
-            margin: 52px 0 18px;
-            font-feature-settings: "kern" 1, "liga" 1;
+            margin: 68px 0 20px;
         }
 
+        /* h2 gold accent line */
+        #content h2::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.45;
+            margin-bottom: 16px;
+        }
+
+        /* h3 — subsection */
         #content h3 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 400;
-            font-style: italic;
+            font-family: var(--font-display);
+            font-size: 1.28rem;
+            font-weight: 500;
+            font-style: normal;
             color: var(--slate-soft);
-            line-height: 1.35;
-            margin: 40px 0 14px;
-            font-feature-settings: "kern" 1, "liga" 1;
+            line-height: 1.4;
+            margin: 52px 0 16px;
         }
 
+        /* h4 — label/tag */
         #content h4 {
             font-family: var(--font-sans);
-            font-size: 0.72rem;
+            font-size: 0.65rem;
             font-weight: 500;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.24em;
             text-transform: uppercase;
             color: var(--gold-muted);
-            margin: 32px 0 12px;
+            margin: 44px 0 14px;
         }
 
+        /* Body paragraphs */
         #content p {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 300;
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 400;
             color: var(--slate-soft);
-            line-height: 1.9;
-            margin-bottom: 20px;
-            letter-spacing: 0.01em;
+            line-height: 1.95;
+            margin-bottom: 28px;
         }
 
         #content p strong {
-            font-weight: 500;
+            font-weight: 700;
             color: var(--slate);
         }
 
@@ -238,111 +254,132 @@
             color: var(--slate);
         }
 
-        /* ── BLOCKQUOTE ── */
+        #content p code {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.82rem;
+            background: var(--ivory-deep);
+            color: var(--slate);
+            padding: 2px 8px;
+            border: 1px solid var(--rule);
+            letter-spacing: 0;
+            font-style: normal;
+        }
+
+        /* Blockquote — pull quote style */
         #content blockquote {
-            border-left: 2px solid var(--gold);
-            margin: 36px 0;
-            padding: 20px 28px;
-            background: var(--ivory-card);
+            border-left: 3px solid var(--gold);
+            margin: 52px 0;
+            padding: 24px 36px;
+            background: var(--ivory-deep);
+            position: relative;
         }
 
         #content blockquote p {
-            font-family: var(--font-serif);
-            font-size: 1.12rem;
+            font-family: var(--font-display);
+            font-size: 1.22rem;
             font-style: italic;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--slate);
             margin: 0;
-            line-height: 1.7;
+            line-height: 1.72;
         }
 
-        /* ── LISTS ── */
-        #content ul, #content ol {
-            margin: 0 0 22px 0;
+        /* Horizontal rule */
+        #content hr {
+            border: none;
+            height: 1px;
+            background: var(--rule-gold);
+            margin: 68px 0;
+            opacity: 0.55;
+        }
+
+        /* Lists */
+        #content ul,
+        #content ol {
+            margin: 0 0 28px 0;
             padding-left: 0;
             list-style: none;
         }
 
-        #content ul li, #content ol li {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 300;
+        #content ul li,
+        #content ol li {
+            font-family: var(--font-body);
+            font-size: 1.02rem;
+            font-weight: 400;
             color: var(--slate-soft);
-            line-height: 1.85;
-            padding: 5px 0 5px 24px;
+            line-height: 1.9;
+            padding: 9px 0 9px 30px;
             position: relative;
             border-bottom: 1px solid var(--rule);
         }
 
-        #content ul li:last-child, #content ol li:last-child { border-bottom: none; }
+        #content ul li:last-child,
+        #content ol li:last-child { border-bottom: none; }
 
         #content ul li::before {
             content: '—';
             position: absolute;
             left: 0;
+            top: 11px;
             color: var(--gold-muted);
-            font-size: 0.8rem;
-            top: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
         }
 
-        #content ol {
-            counter-reset: ol-counter;
-        }
+        #content ol { counter-reset: li; }
 
         #content ol li::before {
-            content: counter(ol-counter);
-            counter-increment: ol-counter;
+            content: counter(li) '.';
+            counter-increment: li;
             position: absolute;
             left: 0;
+            top: 11px;
             color: var(--gold-muted);
-            font-family: var(--font-serif);
-            font-size: 0.85rem;
+            font-family: var(--font-display);
+            font-size: 0.88rem;
             font-style: italic;
-            top: 8px;
         }
 
-        /* ── TABLES ── */
+        /* Tables */
         #content table {
             width: 100%;
             border-collapse: collapse;
-            margin: 32px 0;
-            font-size: 0.88rem;
+            margin: 44px 0;
             background: var(--ivory-card);
             border: 1px solid var(--rule);
+            font-size: 0.92rem;
         }
 
-        #content thead {
-            background: var(--slate);
-        }
+        #content thead { background: var(--slate); }
 
         #content thead th {
             font-family: var(--font-sans);
-            font-size: 0.60rem;
+            font-size: 0.58rem;
             font-weight: 500;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--gold-warm);
-            padding: 14px 18px;
+            padding: 16px 22px;
             text-align: left;
-            border-right: 1px solid rgba(244,239,230,0.08);
+            border-right: 1px solid rgba(244,239,230,0.07);
         }
 
         #content thead th:last-child { border-right: none; }
 
         #content tbody td {
-            font-family: var(--font-sans);
-            font-size: 0.86rem;
-            font-weight: 300;
+            font-family: var(--font-body);
+            font-size: 0.94rem;
+            font-weight: 400;
             color: var(--slate-soft);
-            padding: 12px 18px;
+            padding: 14px 22px;
             border-bottom: 1px solid var(--rule);
             border-right: 1px solid var(--rule);
             vertical-align: top;
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         #content tbody td:first-child {
-            font-weight: 400;
+            font-weight: 500;
             color: var(--slate);
         }
 
@@ -350,99 +387,59 @@
         #content tbody tr:last-child td { border-bottom: none; }
         #content tbody tr:hover { background: var(--ivory-deep); }
 
-        /* ── CODE ── */
-        #content code {
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-            font-size: 0.82rem;
-            background: var(--ivory-deep);
-            color: var(--slate);
-            padding: 2px 7px;
-            border: 1px solid var(--rule);
-            letter-spacing: 0;
-        }
-
+        /* Code blocks */
         #content pre {
             background: var(--slate);
-            border: 1px solid var(--rule-gold);
-            padding: 24px 28px;
+            border: 1px solid rgba(168,134,74,0.20);
+            padding: 28px 32px;
             overflow-x: auto;
-            margin: 28px 0;
+            margin: 36px 0;
         }
 
         #content pre code {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.83rem;
+            line-height: 1.75;
             background: none;
             border: none;
-            color: var(--ivory);
+            color: rgba(244,239,230,0.80);
             padding: 0;
-            font-size: 0.84rem;
-            line-height: 1.7;
+            letter-spacing: 0;
+            font-style: normal;
         }
 
-        /* ── HR ── */
-        #content hr {
-            border: none;
-            border-top: 1px solid var(--rule-gold);
-            margin: 48px 0;
-            opacity: 0.6;
-        }
-
-        /* ── LOADING STATE ── */
+        /* ── LOADING / ERROR ── */
         .loading {
             text-align: center;
-            padding: 80px 20px;
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
+            padding: 100px 20px;
+            font-family: var(--font-display);
+            font-size: 1.35rem;
             font-style: italic;
             color: var(--stone);
-            letter-spacing: 0.06em;
+            letter-spacing: 0.02em;
         }
 
         .error-msg {
             background: var(--ivory-card);
             border: 1px solid var(--rule);
             border-left: 3px solid var(--gold);
-            padding: 28px 32px;
-            font-family: var(--font-sans);
-            font-size: 0.88rem;
+            padding: 32px 36px;
+            font-family: var(--font-body);
+            font-size: 1rem;
             color: var(--stone);
-            line-height: 1.8;
+            line-height: 1.85;
         }
 
-        /* ── TOC FLOAT ── */
-        .toc-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 36px;
-            width: 40px;
-            height: 40px;
-            background: var(--ivory-card);
-            border: 1px solid var(--rule);
-            color: var(--stone);
-            font-size: 0.75rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 90;
-            transition: all 0.3s;
-        }
-
-        .toc-toggle:hover {
-            background: var(--slate);
-            color: var(--gold-warm);
-            border-color: transparent;
-        }
-
+        /* ── SCROLL TOP ── */
         .scroll-top-btn {
             position: fixed;
-            bottom: 48px;
-            right: 36px;
-            width: 40px;
-            height: 40px;
+            bottom: 40px; right: 36px;
+            width: 42px; height: 42px;
             background: var(--slate);
             color: var(--gold-warm);
-            border: 1px solid rgba(168,134,74,0.30);
-            font-size: 0.9rem;
+            border: 1px solid rgba(168,134,74,0.28);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -462,19 +459,19 @@
 
         .scroll-top-btn:hover {
             background: var(--gold);
-            color: var(--ivory);
+            color: var(--ivory-pure);
             border-color: transparent;
         }
 
         /* ── FOOTER ── */
         .footer {
             background: #0E0D0C;
-            padding: 40px 0 28px;
+            padding: 40px 0;
             border-top: 1px solid rgba(244,239,230,0.05);
         }
 
         .footer-inner {
-            max-width: 900px;
+            max-width: 820px;
             margin: 0 auto;
             padding: 0 40px;
             display: flex;
@@ -484,31 +481,34 @@
 
         .footer-left {
             font-family: var(--font-sans);
-            font-size: 0.70rem;
+            font-size: 0.68rem;
             font-weight: 300;
-            color: rgba(244,239,230,0.22);
+            color: rgba(244,239,230,0.20);
             letter-spacing: 0.06em;
         }
 
         .footer-right {
-            font-family: var(--font-serif);
-            font-size: 0.80rem;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
             font-style: italic;
             color: rgba(168,134,74,0.28);
         }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 640px) {
-            .nav-inner, .doc-header-inner, .reading-area, .footer-inner {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-            .doc-header { padding: 60px 0 52px; }
-            .reading-area { padding-top: 48px; }
-            #content h1 { font-size: 1.75rem; }
-            #content h2 { font-size: 1.35rem; }
-            #content table { font-size: 0.80rem; }
-            #content thead th, #content tbody td { padding: 10px 12px; }
+            .nav-inner,
+            .doc-header-inner,
+            .reading-area,
+            .footer-inner { padding-left: 24px; padding-right: 24px; }
+            .doc-header { padding: 60px 0 48px; }
+            .reading-area { padding-top: 52px; padding-bottom: 80px; }
+            body { font-size: 17px; }
+            #content h1 { font-size: 1.85rem; }
+            #content h2 { font-size: 1.5rem; }
+            #content h3 { font-size: 1.15rem; }
+            #content table { font-size: 0.85rem; }
+            #content thead th,
+            #content tbody td { padding: 10px 14px; }
             .scroll-top-btn { right: 20px; bottom: 20px; }
         }
     </style>
@@ -531,15 +531,13 @@
 </nav>
 
 <!-- DOC HEADER -->
-<div class="doc-header">
+<header class="doc-header">
     <div class="doc-header-inner">
         <div class="doc-type-tag" id="docTypeTag">Loading</div>
         <h1 class="doc-title" id="docTitle">…</h1>
-        <div class="doc-meta">
-            <span class="doc-filename" id="docFilename"></span>
-        </div>
+        <div class="doc-filename" id="docFilename"></div>
     </div>
-</div>
+</header>
 
 <!-- READING AREA -->
 <main class="reading-area">
@@ -551,9 +549,9 @@
 <!-- FOOTER -->
 <footer class="footer">
     <div class="footer-inner">
-        <div class="footer-left">© 2026 AlexSnow School · Hermès Research Archive</div>
+        <div class="footer-left">© 2026 AlexSnow School · Hermès Research</div>
         <div class="footer-right">
-            <a href="./index.html" style="color: inherit;">← Back to Research</a>
+            <a href="./index.html" style="color:inherit;">← Back to Research</a>
         </div>
     </div>
 </footer>
@@ -564,17 +562,17 @@
 'use strict';
 
 const DOC_META = {
-    'BOURDIEU_ANALYSIS.md':         { title: 'Bourdieu Analysis',          type: 'Social Theory · Deep Study' },
-    'HERMES_SOCIAL_HISTORY.md':     { title: 'Hermès Social History',       type: 'Social History · Timeline' },
-    'BUSINESS_RESEARCH.md':         { title: 'Business Research',           type: 'Market Analysis' },
-    'COMPETITOR_ANALYSIS.md':       { title: 'Competitor Analysis',         type: 'Competitive Intelligence' },
-    'AUTHENTICATION_TECH_RESEARCH.md': { title: 'Authentication Technology', type: 'Technology Research' },
-    'OBSERVATIONS.md':              { title: 'Dataset Observations',        type: 'Data Interpretation' },
-    'STUDY_PLAN.md':                { title: 'Study Plan',                  type: 'Learning Path' },
-    'DATA_COLLECTION_RESEARCH.md':  { title: 'Data Collection Research',    type: 'Data Collection' },
+    'BOURDIEU_ANALYSIS.md':            { title: 'Bourdieu Analysis',           type: 'Social Theory · Deep Study' },
+    'HERMES_SOCIAL_HISTORY.md':        { title: 'Hermès Social History',        type: 'Social History · Timeline' },
+    'BUSINESS_RESEARCH.md':            { title: 'Business Research',            type: 'Market Analysis' },
+    'COMPETITOR_ANALYSIS.md':          { title: 'Competitor Analysis',          type: 'Competitive Intelligence' },
+    'AUTHENTICATION_TECH_RESEARCH.md': { title: 'Authentication Technology',    type: 'Technology Research' },
+    'OBSERVATIONS.md':                 { title: 'Dataset Observations',         type: 'Data Interpretation' },
+    'STUDY_PLAN.md':                   { title: 'Study Plan',                   type: 'Learning Path' },
+    'DATA_COLLECTION_RESEARCH.md':     { title: 'Data Collection Research',     type: 'Data Collection' },
 };
 
-const params = new URLSearchParams(window.location.search);
+const params  = new URLSearchParams(window.location.search);
 const docFile = params.get('doc');
 
 if (!docFile || !DOC_META[docFile]) {
@@ -583,41 +581,39 @@ if (!docFile || !DOC_META[docFile]) {
         '<div class="error-msg">No document specified. Return to the <a href="./index.html" style="color:var(--gold-muted);border-bottom:1px solid var(--rule-gold)">Research page</a> and choose a document from the library.</div>';
 } else {
     const meta = DOC_META[docFile];
-
     document.title = meta.title + ' — Hermès Research';
-    document.getElementById('docTitle').textContent   = meta.title;
-    document.getElementById('docTypeTag').textContent = meta.type;
-    document.getElementById('navDocType').textContent = meta.type;
+    document.getElementById('docTitle').textContent    = meta.title;
+    document.getElementById('docTypeTag').textContent  = meta.type;
+    document.getElementById('navDocType').textContent  = meta.type;
     document.getElementById('docFilename').textContent = docFile;
 
-    const url = '../research-docs/' + docFile;
-
-    fetch(url)
-        .then(r => {
-            if (!r.ok) throw new Error('HTTP ' + r.status);
-            return r.text();
-        })
+    fetch('../research-docs/' + docFile)
+        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
         .then(md => {
             marked.setOptions({ breaks: false, gfm: true });
-            document.getElementById('content').innerHTML = marked.parse(md);
-            document.getElementById('content').querySelectorAll('h1')[0]?.remove();
+            const html = marked.parse(md);
+            const div  = document.getElementById('content');
+            div.innerHTML = html;
+            // Remove the first h1 — already shown in the header
+            const firstH1 = div.querySelector('h1');
+            if (firstH1) firstH1.remove();
         })
         .catch(err => {
             document.getElementById('content').innerHTML =
-                `<div class="error-msg">Could not load <strong>${docFile}</strong>.<br><br>Error: ${err.message}<br><br>If running locally, try <code>npx serve .</code> from the repo root to avoid file fetch restrictions.</div>`;
+                `<div class="error-msg">Could not load <strong>${docFile}</strong>.<br><br>Error: ${err.message}<br><br>
+                If running locally, use <code>npx serve .</code> from the repo root — browsers block <code>fetch()</code> of local files.</div>`;
         });
 }
 
-// Progress bar
-const pb = document.getElementById('progressBar');
+// Progress + scroll-top
+const pb  = document.getElementById('progressBar');
 const stb = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
     const s = window.scrollY;
     const h = document.documentElement.scrollHeight - window.innerHeight;
-    pb.style.width = (s / h * 100) + '%';
+    pb.style.width = (h > 0 ? s / h * 100 : 0) + '%';
     stb.classList.toggle('visible', s > 400);
 }, { passive: true });
 </script>
-
 </body>
 </html>
