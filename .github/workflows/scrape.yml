@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write       # needed to commit scraped data back
+      actions: write        # needed to trigger static.yml via gh workflow run
 
     steps:
       - name: Checkout repository
@@ -73,3 +74,11 @@ jobs:
           git commit -m "chore(data): daily scrape $(date -u '+%Y-%m-%d') (ebay +${EBAY_COUNT}, vinted +${VINTED_COUNT}, vestiaire +${VESTIAIRE_COUNT})"
           git pull --rebase origin main
           git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+        id: commit
+
+      - name: Trigger Pages deployment
+        if: steps.commit.outputs.pushed == 'true'
+        run: gh workflow run static.yml
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
