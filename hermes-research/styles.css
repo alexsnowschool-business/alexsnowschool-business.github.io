@@ -31,7 +31,7 @@ body {
     color: var(--slate);
     line-height: 1.85;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 18px;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -213,7 +213,7 @@ img { max-width: 100%; display: block; }
 
 .hero-desc {
     font-family: var(--font-sans);
-    font-size: 0.88rem;
+    font-size: 1.0rem;
     color: rgba(244, 239, 230, 0.45);
     line-height: 2;
     font-weight: 300;
@@ -292,7 +292,7 @@ section { padding: 120px 0; }
 .section-desc {
     font-family: var(--font-sans);
     color: var(--stone);
-    font-size: 0.94rem;
+    font-size: 1.05rem;
     font-weight: 300;
     line-height: 2;
     max-width: 560px;
@@ -418,7 +418,7 @@ section { padding: 120px 0; }
 
 .timeline-event-title {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: 400;
     font-style: italic;
     color: var(--slate);
@@ -429,7 +429,7 @@ section { padding: 120px 0; }
 
 .timeline-text {
     font-family: var(--font-sans);
-    font-size: 0.90rem;
+    font-size: 1.02rem;
     color: var(--stone);
     line-height: 1.95;
     font-weight: 300;
@@ -543,7 +543,7 @@ section { padding: 120px 0; }
 
 .thinker-concept {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.42rem;
     font-weight: 400;
     font-style: italic;
     color: var(--gold-warm);
@@ -554,7 +554,7 @@ section { padding: 120px 0; }
 
 .thinker-body {
     font-family: var(--font-sans);
-    font-size: 0.92rem;
+    font-size: 1.04rem;
     color: rgba(244, 239, 230, 0.52);
     line-height: 2.05;
     font-weight: 300;
@@ -571,7 +571,7 @@ section { padding: 120px 0; }
     border-left: 1px solid var(--rule-gold);
     padding-left: 22px;
     font-family: var(--font-serif);
-    font-size: 1rem;
+    font-size: 1.12rem;
     font-style: italic;
     color: rgba(244, 239, 230, 0.42);
     line-height: 1.75;
@@ -634,7 +634,7 @@ section { padding: 120px 0; }
 
 .ideology-title {
     font-family: var(--font-serif);
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 400;
     font-style: italic;
     color: var(--slate);
@@ -643,7 +643,7 @@ section { padding: 120px 0; }
 
 .ideology-body {
     font-family: var(--font-sans);
-    font-size: 0.92rem;
+    font-size: 1.04rem;
     color: var(--stone);
     line-height: 2.0;
     font-weight: 300;
@@ -672,7 +672,7 @@ section { padding: 120px 0; }
 
 .evidence-intro p {
     font-family: var(--font-sans);
-    font-size: 0.94rem;
+    font-size: 1.05rem;
     color: var(--stone);
     line-height: 2.0;
     font-weight: 300;
@@ -698,7 +698,7 @@ section { padding: 120px 0; }
 .ev-finding {
     padding: 18px 22px;
     font-family: var(--font-sans);
-    font-size: 0.84rem;
+    font-size: 0.96rem;
     font-weight: 400;
     color: var(--slate);
     border-right: 1px solid var(--rule);
@@ -708,7 +708,7 @@ section { padding: 120px 0; }
 .ev-interpretation {
     padding: 18px 22px;
     font-family: var(--font-sans);
-    font-size: 0.84rem;
+    font-size: 0.96rem;
     color: var(--stone);
     font-weight: 300;
     line-height: 1.8;
@@ -778,7 +778,7 @@ section { padding: 120px 0; }
 
 .lib-title {
     font-family: var(--font-serif);
-    font-size: 1.10rem;
+    font-size: 1.28rem;
     font-weight: 400;
     font-style: italic;
     color: var(--slate);
@@ -787,7 +787,7 @@ section { padding: 120px 0; }
 
 .lib-desc {
     font-family: var(--font-sans);
-    font-size: 0.86rem;
+    font-size: 0.98rem;
     color: var(--stone);
     line-height: 1.85;
     font-weight: 300;
