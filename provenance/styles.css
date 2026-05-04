@@ -571,7 +571,7 @@ section {
   font-weight: 300;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--stone-light);
+  color: var(--stone);
   margin-top: 16px;
 }
 
@@ -581,24 +581,6 @@ section {
   align-items: center;
   gap: 10px;
   margin-bottom: 64px;
-}
-
-.filter-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.filter-row__label {
-  font-family: var(--font-sans);
-  font-size: 0.54rem;
-  font-weight: 400;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color: var(--stone-light);
-  width: 50px;
-  text-align: right;
-  flex-shrink: 0;
 }
 
 .filter-bar {
@@ -611,8 +593,20 @@ section {
   margin: 0;
 }
 
-.filter-group .filter-bar {
-  margin: 0;
+.filter-bar__label {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 18px;
+  font-family: var(--font-sans);
+  font-size: 0.54rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  border-right: 1px solid var(--rule);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .filter-btn {
@@ -1594,21 +1588,15 @@ section {
     width: 100%;
   }
 
-  .filter-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    width: 100%;
-  }
-
-  .filter-row__label {
-    text-align: left;
-    width: auto;
-  }
-
   .filter-bar {
     flex-wrap: wrap;
     width: 100%;
+  }
+
+  .filter-bar__label {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
   }
 
   .filter-btn {
