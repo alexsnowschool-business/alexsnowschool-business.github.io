@@ -20,6 +20,7 @@ since the DB schema only stores standard fields.
 import argparse
 import asyncio
 import json
+import random
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -231,6 +232,8 @@ async def scrape(max_products: int = 200, categories: list[str] | None = None) -
         print(f"\n{len(unique_urls)} unique products found — scraping details…\n")
 
         # Phase 2: fetch and parse each product page
+        consecutive_fails = 0
+
         with tqdm(total=min(max_products, len(unique_urls)), desc="Products") as pbar:
             for url in unique_urls:
                 if saved >= max_products:
@@ -239,20 +242,35 @@ async def scrape(max_products: int = 200, categories: list[str] | None = None) -
                 slug = url.rstrip("/").rsplit("/", 1)[-1]
                 if item_exists(conn, slug, PLATFORM):
                     pbar.update(1)
+                    # Small delay even for skips — rapid no-op iterations still
+                    # trigger Hermes rate-limiting on subsequent real fetches.
+                    await asyncio.sleep(random.uniform(0.3, 0.7))
                     continue
+
+                # Exponential backoff after consecutive blocked responses.
+                # Reset to base delay on first success.
+                if consecutive_fails > 0:
+                    backoff = min(60, 5 * (2 ** consecutive_fails))
+                    tqdm.write(f"  cooling down {backoff}s ({consecutive_fails} consecutive failures)…")
+                    await asyncio.sleep(backoff)
+                else:
+                    await asyncio.sleep(random.uniform(3.0, 6.0))
 
                 try:
                     page = await session.fetch(url)
                     product = _parse_product_page(page, url)
                 except Exception as e:
                     tqdm.write(f"  error {slug}: {e}")
-                    await asyncio.sleep(1)
+                    consecutive_fails += 1
                     continue
 
                 if not product:
-                    tqdm.write(f"  parse failed: {slug}")
+                    # Empty page = 403/rate-limited; count toward backoff trigger.
+                    tqdm.write(f"  blocked: {slug}")
+                    consecutive_fails += 1
                     continue
 
+                consecutive_fails = 0
                 upsert_item(conn, product)
 
                 # Save rich JSON — leather_type, dimensions, etc. are not in DB schema
@@ -262,7 +280,6 @@ async def scrape(max_products: int = 200, categories: list[str] | None = None) -
                 saved += 1
                 pbar.update(1)
                 tqdm.write(f"  saved: {product['name']} — {product.get('price')}")
-                await asyncio.sleep(1.5)
 
     conn.close()
     print(f"\nDone — {saved} new Hermès products saved")
