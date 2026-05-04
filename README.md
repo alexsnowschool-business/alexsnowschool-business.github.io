@@ -1,5 +1,7 @@
 # AlexSnow School — Business Portfolio
 
+[![Daily Scrape](https://github.com/alexsnowschool-business/alexsnowschool-business.github.io/actions/workflows/scrape.yml/badge.svg)](https://github.com/alexsnowschool-business/alexsnowschool-business.github.io/actions/workflows/scrape.yml)
+
 A multi-venture project hub. Each business idea lives in its own directory.
 
 ## Structure
