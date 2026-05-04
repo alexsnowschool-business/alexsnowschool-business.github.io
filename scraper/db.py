@@ -35,8 +35,13 @@ CREATE TABLE IF NOT EXISTS items (
 def _price_value(price_str: str | None) -> float:
     if not price_str:
         return -1.0
-    digits = re.sub(r"[^\d]", "", price_str)
-    return float(digits) if digits else -1.0
+    # Remove currency symbols and thousand-separator commas, preserve decimal dot.
+    # e.g. "€420.50" → 420.5, "$1,400" → 1400.0, "€7,200" → 7200.0
+    cleaned = re.sub(r"[^\d.]", "", price_str.replace(",", ""))
+    try:
+        return float(cleaned) if cleaned else -1.0
+    except ValueError:
+        return -1.0
 
 
 def connect() -> sqlite3.Connection:

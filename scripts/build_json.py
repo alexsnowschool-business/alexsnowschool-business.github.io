@@ -73,12 +73,13 @@ def build_analysis(items: list[dict]) -> dict:
             if v >= 200:
                 imgs = item.get("image_urls") or []
                 arbitrage.append({
-                    "name":      item.get("name", "—"),
-                    "price":     item.get("price", "—"),
-                    "price_val": v,
-                    "platform":  platform,
-                    "url":       item.get("source_url", ""),
-                    "img":       imgs[0] if imgs else "",
+                    "name":       item.get("name", "—"),
+                    "price":      item.get("price", "—"),
+                    "price_val":  v,
+                    "platform":   platform,
+                    "url":        item.get("source_url", ""),
+                    "img":        imgs[0] if imgs else "",
+                    "scraped_at": item.get("scraped_at", ""),
                 })
 
     def _stats(prices: list[float]) -> dict:
@@ -121,7 +122,9 @@ def build_analysis(items: list[dict]) -> dict:
         for src, prices in by_source.items() if prices
     }
 
-    arbitrage.sort(key=lambda x: x["price_val"], reverse=True)
+    # Sort by most recently scraped so the section refreshes with each daily run.
+    # Within the same scrape batch, break ties by price descending.
+    arbitrage.sort(key=lambda x: (x["scraped_at"], x["price_val"]), reverse=True)
 
     total_auth_c = sum(len(v) for v in type_auth.values())
     total_fake_c = sum(len(v) for v in type_fake.values())
