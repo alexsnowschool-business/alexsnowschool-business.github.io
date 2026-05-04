@@ -285,6 +285,8 @@ input[type="search"] { min-width: 190px; }
   <div class="stat-item"><div class="stat-val" id="s-images">—</div><div class="stat-lbl">Images</div></div>
   <div class="stat-sep"></div>
   <div class="stat-item"><div class="stat-val" style="color:var(--gold)" id="s-sources">—</div><div class="stat-lbl">Sources</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-val" style="color:var(--text-mute)" id="s-updated">—</div><div class="stat-lbl">Updated</div></div>
 </div>
 
 <div class="toolbar">
@@ -378,6 +380,32 @@ function getImgs(item) {
   return item.image_urls || [];
 }
 
+const LEATHER_PATTERNS = [
+  { name: 'Togo',      re: /\btogo\b/i },
+  { name: 'Epsom',     re: /\bepsom\b/i },
+  { name: 'Swift',     re: /\bswift\b/i },
+  { name: 'Clémence',  re: /\bcl[eé]mence\b/i },
+  { name: 'Box Calf',  re: /\bbox[\s-]*(calf|leather|lisse)\b|\bcuir[\s-]*(lisse[\s-]*)?box\b/i },
+  { name: 'Barenia',   re: /\bbarenia\b/i },
+  { name: 'Chèvre',    re: /\bch[eè]vre\b/i },
+  { name: 'Vache',     re: /\bvache\b/i },
+  { name: 'Fjord',     re: /\bfjord\b/i },
+  { name: 'Ostrich',   re: /\bostrich\b|\bautruche\b/i },
+  { name: 'Crocodile', re: /\bcrocodile?\b/i },
+  { name: 'Alligator', re: /\balligator\b/i },
+  { name: 'Lizard',    re: /\blizard\b/i },
+  { name: 'Canvas',    re: /\bcanvas\b|\btoile\b/i },
+  { name: 'Exotic',    re: /\bexotic\s+leather\b/i },
+];
+
+function deriveLeather(item) {
+  const txt = (item.name || '') + ' ' + (item.description || '');
+  for (const { name, re } of LEATHER_PATTERNS) {
+    if (re.test(txt)) return name;
+  }
+  return null;
+}
+
 async function init() {
   const items = await fetch('./catalogue.json').then(r => r.json());
   all = items;
@@ -392,7 +420,16 @@ async function init() {
   document.getElementById('s-sources').textContent = sources;
   document.getElementById('loading').style.display = 'none';
 
-  const leathers = [...new Set(all.map(i => i.leather_type).filter(Boolean))].sort();
+  all.forEach(i => { i._leather = deriveLeather(i); });
+
+  const latestScrape = all.map(i => i.scraped_at).filter(Boolean).sort().pop();
+  if (latestScrape) {
+    const d = new Date(latestScrape);
+    document.getElementById('s-updated').textContent =
+      d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  const leathers = [...new Set(all.map(i => i._leather).filter(Boolean))].sort();
   const leatherSel = document.getElementById('leather-sel');
   leathers.forEach(lt => {
     const opt = document.createElement('option');
@@ -412,9 +449,9 @@ function applyFilters() {
   filtered = all.filter(item => {
     if (activeLabel !== 'all' && item.authenticity_label !== activeLabel) return false;
     if (plat && item.platform !== plat) return false;
-    if (leather && item.leather_type !== leather) return false;
+    if (leather && item._leather !== leather) return false;
     if (query) {
-      const txt = ((item.name||'') + ' ' + (item.price||'') + ' ' + (item.leather_type||'')).toLowerCase();
+      const txt = ((item.name||'') + ' ' + (item.price||'') + ' ' + (item._leather||'')).toLowerCase();
       if (!txt.includes(query)) return false;
     }
     return true;
@@ -422,7 +459,7 @@ function applyFilters() {
   if (sort === 'date-desc') filtered.sort((a,b) => dateVal(b)-dateVal(a));
   else if (sort === 'price-desc') filtered.sort((a,b) => priceVal(b)-priceVal(a));
   else if (sort === 'price-asc') filtered.sort((a,b) => priceVal(a)-priceVal(b));
-  else if (sort === 'leather') filtered.sort((a,b) => (a.leather_type||'zzz').localeCompare(b.leather_type||'zzz'));
+  else if (sort === 'leather') filtered.sort((a,b) => (a._leather||'zzz').localeCompare(b._leather||'zzz'));
   else filtered.sort((a,b) => (a.name||'').localeCompare(b.name||''));
   document.getElementById('result-count').textContent = filtered.length.toLocaleString() + ' works';
   shown = 0;
@@ -515,7 +552,7 @@ function openModal(item) {
     ['Model',           item.model || item.bag_model || '—'],
     ['Size',            item.bag_size ? item.bag_size + ' cm' : '—'],
     ['Colour',          colorVal],
-    ['Leather',         item.leather_type || '—'],
+    ['Leather',         item._leather || item.leather_type || '—'],
     ['Dimensions',      item.dimensions || '—'],
     ['Hardware',        item.hardware || '—'],
     ['Carry',           carryLabels[item.carry_type] || item.carry_type || '—'],
