@@ -23,17 +23,15 @@ import json
 import random
 import re
 from datetime import datetime, timezone
-from pathlib import Path
 
 from scrapling.fetchers import AsyncStealthySession
 from tqdm import tqdm
 
 from scraper.db import connect, item_exists, upsert_item
 
-PLATFORM  = "hermes.com"
-BASE_URL  = "https://www.hermes.com"
-HOMEPAGE  = f"{BASE_URL}/de/de/"
-META_DIR  = Path("data/hermes/metadata")
+PLATFORM = "hermes.com"
+BASE_URL = "https://www.hermes.com"
+HOMEPAGE = f"{BASE_URL}/de/de/"
 
 # DE/DE bag and leather-goods category pages to scrape
 # URLs discovered from hermes.com/de/de/ navigation — all bags live under /lederwaren/
@@ -196,7 +194,6 @@ async def _collect_product_urls(session: AsyncStealthySession, category_url: str
 async def scrape(max_products: int = 200, categories: list[str] | None = None) -> None:
     if categories is None:
         categories = CATEGORIES
-    META_DIR.mkdir(parents=True, exist_ok=True)
     conn = connect()
     saved = 0
 
@@ -272,11 +269,6 @@ async def scrape(max_products: int = 200, categories: list[str] | None = None) -
 
                 consecutive_fails = 0
                 upsert_item(conn, product)
-
-                # Save rich JSON — leather_type, dimensions, etc. are not in DB schema
-                json_path = META_DIR / f"{slug}.json"
-                json_path.write_text(json.dumps(product, indent=2, ensure_ascii=False))
-
                 saved += 1
                 pbar.update(1)
                 tqdm.write(f"  saved: {product['name']} — {product.get('price')}")
