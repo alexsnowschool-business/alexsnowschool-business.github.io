@@ -43,7 +43,7 @@ jobs:
           UV_INDEX_URL: https://pypi.org/simple/
 
       - name: Run Hermès scraper
-        run: uv run python -m scraper.hermes --max-products 200
+        run: uv run python -m scraper.hermes --max-products 20
         env:
           UV_INDEX_URL: https://pypi.org/simple/
           PYTHONPATH: .

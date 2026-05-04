@@ -191,7 +191,7 @@ async def _collect_product_urls(session: AsyncStealthySession, category_url: str
     return list(urls)
 
 
-async def scrape(max_products: int = 200, categories: list[str] | None = None) -> None:
+async def scrape(max_products: int = 20, categories: list[str] | None = None) -> None:
     if categories is None:
         categories = CATEGORIES
     conn = connect()
