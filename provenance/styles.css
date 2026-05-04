@@ -565,6 +565,42 @@ section {
   background: var(--ivory-deep);
 }
 
+.collection-updated {
+  font-family: var(--font-sans);
+  font-size: 0.60rem;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone-light);
+  margin-top: 16px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 64px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filter-row__label {
+  font-family: var(--font-sans);
+  font-size: 0.54rem;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--stone-light);
+  width: 50px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
 .filter-bar {
   display: flex;
   align-items: center;
@@ -572,7 +608,11 @@ section {
   gap: 0;
   border: 1px solid var(--rule);
   width: fit-content;
-  margin: 0 auto 64px;
+  margin: 0;
+}
+
+.filter-group .filter-bar {
+  margin: 0;
 }
 
 .filter-btn {
@@ -1548,6 +1588,22 @@ section {
 
   .house-card {
     border-right: none !important;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .filter-row__label {
+    text-align: left;
+    width: auto;
   }
 
   .filter-bar {

@@ -111,21 +111,39 @@
         <h2 class="section-title">The Collection</h2>
         <p class="section-desc">Each piece is offered once. When it is gone, it is gone. Updated as new acquisitions
           arrive.</p>
+        <div class="collection-updated">Updated 4 May 2026</div>
       </div>
 
-      <!-- Filter -->
-      <div class="filter-bar" id="filterBar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="delvaux">Delvaux</button>
-        <button class="filter-btn" data-filter="valextra">Valextra</button>
-        <button class="filter-btn" data-filter="loro-piana">Loro Piana</button>
-        <button class="filter-btn" data-filter="moynat">Moynat</button>
+      <!-- Filters -->
+      <div class="filter-group">
+        <div class="filter-row">
+          <span class="filter-row__label">House</span>
+          <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="delvaux">Delvaux</button>
+            <button class="filter-btn" data-filter="valextra">Valextra</button>
+            <button class="filter-btn" data-filter="loro-piana">Loro Piana</button>
+            <button class="filter-btn" data-filter="moynat">Moynat</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-row__label">Leather</span>
+          <div class="filter-bar" id="leatherFilterBar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="box-calf">Box Calf</button>
+            <button class="filter-btn" data-filter="vitello">Vitello VS</button>
+            <button class="filter-btn" data-filter="taurillon">Taurillon</button>
+            <button class="filter-btn" data-filter="vegetal-tanned">Vegetal Tanned</button>
+            <button class="filter-btn" data-filter="pebble-grain">Pebble Grain</button>
+            <button class="filter-btn" data-filter="cashmere">Cashmere</button>
+          </div>
+        </div>
       </div>
 
       <div class="collection-grid" id="collectionGrid">
 
         <!-- Item 1 — Delvaux Brillant -->
-        <article class="piece-card reveal" data-house="delvaux" id="piece1">
+        <article class="piece-card reveal" data-house="delvaux" data-leather="box-calf" id="piece1">
           <div class="piece-img-wrap">
             <img src="hero.png" alt="Delvaux Brillant MM — Burgundy Box Calf" class="piece-img" />
             <div class="piece-status">Available</div>
@@ -146,7 +164,7 @@
         </article>
 
         <!-- Item 2 — Valextra Iside -->
-        <article class="piece-card reveal" data-house="valextra" id="piece2">
+        <article class="piece-card reveal" data-house="valextra" data-leather="vitello" id="piece2">
           <div class="piece-img-wrap piece-img-neutral">
             <div class="piece-img-placeholder">
               <span class="piece-placeholder-text">Iside</span>
@@ -169,7 +187,7 @@
         </article>
 
         <!-- Item 3 — Loro Piana -->
-        <article class="piece-card reveal" data-house="loro-piana" id="piece3">
+        <article class="piece-card reveal" data-house="loro-piana" data-leather="cashmere" id="piece3">
           <div class="piece-img-wrap piece-img-warm">
             <div class="piece-img-placeholder">
               <span class="piece-placeholder-text">LP</span>
@@ -192,7 +210,7 @@
         </article>
 
         <!-- Item 4 — Moynat -->
-        <article class="piece-card reveal" data-house="moynat" id="piece4">
+        <article class="piece-card reveal" data-house="moynat" data-leather="vegetal-tanned" id="piece4">
           <div class="piece-img-wrap piece-img-forest">
             <div class="piece-img-placeholder">
               <span class="piece-placeholder-text">M.</span>
@@ -215,7 +233,7 @@
         </article>
 
         <!-- Item 5 — Delvaux Pin -->
-        <article class="piece-card reveal" data-house="delvaux" id="piece5">
+        <article class="piece-card reveal" data-house="delvaux" data-leather="taurillon" id="piece5">
           <div class="piece-img-wrap piece-img-slate">
             <div class="piece-img-placeholder">
               <span class="piece-placeholder-text">Pin</span>
@@ -238,7 +256,7 @@
         </article>
 
         <!-- Item 6 — Valextra Tric Trac -->
-        <article class="piece-card reveal" data-house="valextra" id="piece6">
+        <article class="piece-card reveal" data-house="valextra" data-leather="pebble-grain" id="piece6">
           <div class="piece-img-wrap piece-img-parchment">
             <div class="piece-img-placeholder">
               <span class="piece-placeholder-text">TT</span>

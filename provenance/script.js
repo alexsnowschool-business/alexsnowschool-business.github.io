@@ -25,26 +25,40 @@ document.querySelectorAll('.nav-link, .nav-btn').forEach(link => {
 });
 
 // ===== COLLECTION FILTER =====
-const filterBtns = document.querySelectorAll('.filter-btn');
+const houseFilterBtns = document.querySelectorAll('#filterBar .filter-btn');
+const leatherFilterBtns = document.querySelectorAll('#leatherFilterBar .filter-btn');
 const pieceCards = document.querySelectorAll('.piece-card');
+let activeHouse = 'all';
+let activeLeather = 'all';
 
-filterBtns.forEach(btn => {
+function applyCollectionFilters() {
+  pieceCards.forEach(card => {
+    const matchesHouse = activeHouse === 'all' || card.dataset.house === activeHouse;
+    const matchesLeather = activeLeather === 'all' || card.dataset.leather === activeLeather;
+    if (matchesHouse && matchesLeather) {
+      card.classList.remove('hidden');
+      setTimeout(() => card.classList.add('visible'), 20);
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+houseFilterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Toggle active button
-    filterBtns.forEach(b => b.classList.remove('active'));
+    houseFilterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    activeHouse = btn.dataset.filter;
+    applyCollectionFilters();
+  });
+});
 
-    const filter = btn.dataset.filter;
-
-    pieceCards.forEach(card => {
-      if (filter === 'all' || card.dataset.house === filter) {
-        card.classList.remove('hidden');
-        // Re-trigger reveal if needed
-        setTimeout(() => card.classList.add('visible'), 20);
-      } else {
-        card.classList.add('hidden');
-      }
-    });
+leatherFilterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    leatherFilterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeLeather = btn.dataset.filter;
+    applyCollectionFilters();
   });
 });
 
