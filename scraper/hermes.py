@@ -1,8 +1,11 @@
 """
 Hermès scraper — authentic bags and accessories directly from hermes.com (DE locale).
 
-Uses Scrapling's AsyncDynamicSession (Playwright-backed) in place of raw Playwright.
-Scrapling adds: adaptive CSS selectors, fingerprint spoofing, cleaner async API.
+Uses Scrapling's AsyncStealthySession (Camoufox/Firefox-based) to bypass Hermes's
+Cloudflare protection. Strategy mirrors vestiaire.py and vinted.py:
+  1. Warm up on the homepage to acquire CF clearance cookies
+  2. Fetch category listing pages and extract product URLs
+  3. Fetch each product detail page and parse structured data
 
 Each item saved as:
     platform = "hermes.com"
@@ -10,8 +13,8 @@ Each item saved as:
     condition = "new"
 
 Rich metadata (leather_type, dimensions, collection_since, etc.) is extracted from the
-German-language description and saved both to SQLite and to data/hermes/metadata/*.json
-so the full data survives the DB schema (which only stores standard fields).
+German-language description and saved to both SQLite and data/hermes/metadata/*.json
+since the DB schema only stores standard fields.
 """
 
 import argparse
@@ -21,26 +24,30 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from scrapling.fetchers import AsyncDynamicSession
+from scrapling.fetchers import AsyncStealthySession
 from tqdm import tqdm
 
 from scraper.db import connect, item_exists, upsert_item
 
 PLATFORM  = "hermes.com"
 BASE_URL  = "https://www.hermes.com"
+HOMEPAGE  = f"{BASE_URL}/de/de/"
 META_DIR  = Path("data/hermes/metadata")
 
 # DE/DE bag and leather-goods category pages to scrape
+# URLs discovered from hermes.com/de/de/ navigation — all bags live under /lederwaren/
 CATEGORIES = [
-    f"{BASE_URL}/de/de/category/damen/taschen-und-gepaeck/taschen/",
-    f"{BASE_URL}/de/de/category/damen/taschen-und-gepaeck/rucksaecke/",
-    f"{BASE_URL}/de/de/category/damen/leder-accessoires/brieftaschen/",
-    f"{BASE_URL}/de/de/category/damen/leder-accessoires/kleine-lederaccessoires/",
+    f"{BASE_URL}/de/de/category/lederwaren/taschen-und-kleine-taschen/taschen-und-kleine-taschen-fur-damen/",
+    f"{BASE_URL}/de/de/category/lederwaren/taschen-und-kleine-taschen/taschen-und-kleine-taschen-fur-herren/",
+    f"{BASE_URL}/de/de/category/lederwaren/kleinlederwaren/brieftaschen/",
+    f"{BASE_URL}/de/de/category/lederwaren/kleinlederwaren/",
+    f"{BASE_URL}/de/de/category/lederwaren/reisen/koffer-und-reisetaschen/",
 ]
 
-_DIM_RE      = re.compile(r"(?:Abmessungen|Maße)[:\s]*([^\n|]+)")
+_DIM_RE      = re.compile(r"Abmessungen:\s*([^|\n]+)")
+# Match the leather name after "aus " — e.g. "Tasche aus Epsom-Kalbsleder" → "Epsom-Kalbsleder"
 _LEATHER_RE  = re.compile(
-    r"(?m)^([^\n\-–]+(?:leder|canvas|toile|swift|clemence|epsom|togo|vache|barenia|evergrain|croco|ostrich|alligator)[^\n\-–]*)",
+    r"aus\s+([\w\-]+(?:leder|canvas|toile|swift|clemence|epsom|togo|vache|barenia|evergrain|croco|ostrich|alligator)[\w\-]*)",
     re.IGNORECASE,
 )
 _SINCE_RE    = re.compile(r"In der Kollektion verwendet seit[:\s]+([^\n]+)")
@@ -49,6 +56,12 @@ _SHOULDER_RE = re.compile(r"Schulter|diagonal", re.IGNORECASE)
 _HANDMADE_RE = re.compile(r"handgefertigt", re.IGNORECASE)
 _SIZE_RE     = re.compile(r"\b(\d{2})\b")
 _REF_RE      = re.compile(r"([A-Z][0-9]{6}[A-Z0-9]{2,})")
+_IMG_RES_RE  = re.compile(r"-\d+-\d+(_g\.(?:jpg|webp|png))$")
+
+
+def _hires(url: str) -> str:
+    """Upscale Hermès CDN thumbnails to 800×800 (matching existing data format)."""
+    return _IMG_RES_RE.sub(r"-800-800\1", url)
 
 
 def _parse_description(text: str) -> dict:
@@ -70,7 +83,7 @@ def _parse_product_page(page, url: str) -> dict | None:
     ref_m = _REF_RE.search(slug)
     product_ref = ref_m.group(1) if ref_m else ""
 
-    # Prefer JSON-LD structured data — most reliable and survives layout changes
+    # Prefer JSON-LD structured data — survives layout/class-name changes
     name = description = price_str = availability = None
     img_urls: list[str] = []
 
@@ -100,15 +113,15 @@ def _parse_product_page(page, url: str) -> dict | None:
             availability = "in_stock" if "InStock" in avail_url else "out_of_stock"
             for img in data.get("image", []):
                 if isinstance(img, str):
-                    img_urls.append(img)
+                    img_urls.append(_hires(img))
                 elif isinstance(img, dict):
                     if u := img.get("url") or img.get("contentUrl"):
-                        img_urls.append(u)
+                        img_urls.append(_hires(u))
             break
         except (json.JSONDecodeError, AttributeError, StopIteration):
             continue
 
-    # CSS fallbacks (Scrapling adaptive selectors auto-recover if class names change)
+    # CSS fallbacks — Scrapling adaptive selectors auto-recover if class names change
     if not name:
         name = (
             page.css('h1::text').get() or
@@ -130,7 +143,7 @@ def _parse_product_page(page, url: str) -> dict | None:
 
     if not img_urls:
         img_urls = [
-            src for src in (
+            _hires(src) for src in (
                 page.css('img[src*="assets.hermes.com"]::attr(src)').getall() +
                 page.css('img[data-src*="assets.hermes.com"]::attr(data-src)').getall()
             ) if src
@@ -164,12 +177,7 @@ def _parse_product_page(page, url: str) -> dict | None:
     }
 
 
-async def _collect_product_urls(session: AsyncDynamicSession, category_url: str) -> list[str]:
-    """
-    Fetch a category listing page and return all product detail URLs found.
-    network_idle=True is set at session level so Scrapling waits for lazy-loaded
-    product cards before extracting links.
-    """
+async def _collect_product_urls(session: AsyncStealthySession, category_url: str) -> list[str]:
     try:
         page = await session.fetch(category_url)
     except Exception as e:
@@ -180,7 +188,6 @@ async def _collect_product_urls(session: AsyncDynamicSession, category_url: str)
     urls = set()
     for href in hrefs:
         full = href if href.startswith("http") else BASE_URL + href
-        # Strip query strings
         urls.add(full.split("?")[0].rstrip("/") + "/")
     return list(urls)
 
@@ -192,12 +199,26 @@ async def scrape(max_products: int = 200, categories: list[str] | None = None) -
     conn = connect()
     saved = 0
 
-    # network_idle=True: wait until no outstanding requests before returning the page.
-    # This is important for Hermes's JS-heavy SPA to fully render product cards.
-    async with AsyncDynamicSession(headless=True, network_idle=True) as session:
+    # AsyncStealthySession uses Camoufox (Firefox-based) with advanced fingerprint
+    # spoofing. solve_cloudflare=True handles Cloudflare Turnstile/interstitial
+    # challenges that hermes.com serves to automated browsers.
+    async with AsyncStealthySession(
+        headless=True,
+        network_idle=True,
+        solve_cloudflare=True,
+    ) as session:
+
+        # Warm up on the homepage first — acquires CF clearance cookies before
+        # hitting category pages, same strategy as vestiaire.py and vinted.py.
+        print(f"Loading homepage to acquire CF clearance… ({HOMEPAGE})")
+        try:
+            await session.fetch(HOMEPAGE)
+        except Exception as e:
+            print(f"  Warning: homepage warm-up failed: {e}")
+        await asyncio.sleep(4)
 
         # Phase 1: collect product URLs from each category page
-        print("Discovering product URLs…")
+        print("\nDiscovering product URLs…")
         all_urls: list[str] = []
         for cat_url in categories:
             print(f"  {cat_url}")
@@ -234,7 +255,7 @@ async def scrape(max_products: int = 200, categories: list[str] | None = None) -
 
                 upsert_item(conn, product)
 
-                # Save full rich JSON (leather_type, dimensions, etc. are not in DB schema)
+                # Save rich JSON — leather_type, dimensions, etc. are not in DB schema
                 json_path = META_DIR / f"{slug}.json"
                 json_path.write_text(json.dumps(product, indent=2, ensure_ascii=False))
 
