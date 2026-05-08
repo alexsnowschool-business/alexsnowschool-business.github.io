@@ -18,10 +18,12 @@ as broken links.
 import argparse
 import asyncio
 import json
+import random
 import re
 from datetime import datetime, timezone
 
 import httpx
+from scrapling.fetchers import AsyncStealthySession
 from scrapling.parser import Adaptor
 from tqdm import tqdm
 
@@ -29,6 +31,7 @@ from scraper.db import connect, item_exists, upsert_item
 
 PLATFORM = "hermes.com"
 BASE_URL = "https://www.hermes.com"
+HOMEPAGE = f"{BASE_URL}/de/de/"
 
 CATEGORIES = [
     f"{BASE_URL}/de/de/category/lederwaren/taschen-und-kleine-taschen/taschen-und-kleine-taschen-fur-damen/",
@@ -271,6 +274,112 @@ def backfill_images_sync() -> None:
     print(f"Backfilled candidate image_urls for {updated} items (unverified)")
 
 
+async def fetch_descriptions(limit: int = 100) -> None:
+    """
+    Best-effort: fetch product descriptions via stealth browser (Camoufox/CF bypass).
+    CF blocks many requests — the function stops after 5 consecutive failures and
+    commits whatever it managed to get.
+    """
+    conn = connect()
+    rows = conn.execute(
+        "SELECT id, source_url FROM items "
+        "WHERE platform = ? AND (description IS NULL OR description = '') "
+        "LIMIT ?",
+        (PLATFORM, limit),
+    ).fetchall()
+
+    if not rows:
+        print("All hermes items already have descriptions.")
+        conn.close()
+        return
+
+    print(f"Attempting descriptions for {len(rows)} items via stealth browser…")
+    updated = 0
+
+    async with AsyncStealthySession(
+        headless=True,
+        disable_resources=True,
+        solve_cloudflare=True,
+        timeout=30000,
+    ) as session:
+        print(f"Warming up on {HOMEPAGE}…")
+        try:
+            await asyncio.wait_for(
+                session.fetch(HOMEPAGE, network_idle=False), timeout=45
+            )
+        except Exception as e:
+            print(f"  Warm-up failed: {e}")
+        await asyncio.sleep(3)
+
+        consecutive_fails = 0
+        MAX_FAILS = 5
+
+        for row in tqdm(rows, desc="Descriptions"):
+            if consecutive_fails >= MAX_FAILS:
+                tqdm.write(f"  {MAX_FAILS} consecutive failures — CF is blocking. Stopping early.")
+                break
+
+            if consecutive_fails > 0:
+                backoff = min(30, 5 * consecutive_fails)
+                tqdm.write(f"  cooling down {backoff}s…")
+                await asyncio.sleep(backoff)
+            else:
+                await asyncio.sleep(random.uniform(2.0, 4.0))
+
+            try:
+                page = await asyncio.wait_for(
+                    session.fetch(row["source_url"], network_idle=False), timeout=45
+                )
+            except asyncio.TimeoutError:
+                tqdm.write(f"  timeout: {row['id']}")
+                consecutive_fails += 1
+                continue
+            except Exception as e:
+                tqdm.write(f"  error {row['id']}: {e}")
+                consecutive_fails += 1
+                continue
+
+            # Detect CF challenge page (no Product JSON-LD = blocked)
+            ld_scripts = page.css('script[type="application/ld+json"]::text').getall()
+            title = (page.css("title::text").get() or "").lower()
+            if "just a moment" in title or not ld_scripts:
+                tqdm.write(f"  blocked: {row['id']}")
+                consecutive_fails += 1
+                continue
+
+            description = ""
+            for script_text in ld_scripts:
+                try:
+                    data = json.loads(script_text)
+                    if isinstance(data, list):
+                        data = next(
+                            (d for d in data if d.get("@type") == "Product"), None
+                        )
+                    if data and data.get("@type") == "Product":
+                        description = data.get("description", "")
+                        if description:
+                            break
+                except Exception:
+                    continue
+
+            if not description:
+                tqdm.write(f"  no description found: {row['id']}")
+                consecutive_fails += 1
+                continue
+
+            consecutive_fails = 0
+            conn.execute(
+                "UPDATE items SET description = ? WHERE id = ? AND platform = ?",
+                (description, row["id"], PLATFORM),
+            )
+            conn.commit()
+            updated += 1
+            tqdm.write(f"  saved: {row['id'][:45]} — {description[:60]}…")
+
+    conn.close()
+    print(f"\nDone — descriptions added for {updated}/{len(rows)} items")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Scrape authentic Hermès products from hermes.com/de/de/"
@@ -281,11 +390,17 @@ if __name__ == "__main__":
                         help="Re-probe existing image URLs and clear broken ones")
     parser.add_argument("--backfill-images", action="store_true",
                         help="Construct image URLs for items with none (no verification)")
+    parser.add_argument("--fetch-descriptions", action="store_true",
+                        help="Best-effort: fetch descriptions via stealth browser")
+    parser.add_argument("--desc-limit", type=int, default=100,
+                        help="Max items to attempt descriptions for (default 100)")
     args = parser.parse_args()
 
     if args.fix_images:
         asyncio.run(fix_images())
     elif args.backfill_images:
         backfill_images_sync()
+    elif args.fetch_descriptions:
+        asyncio.run(fetch_descriptions(limit=args.desc_limit))
     else:
         asyncio.run(scrape(max_products=args.max_products, categories=args.categories))
