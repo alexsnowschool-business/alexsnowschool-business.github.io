@@ -40,9 +40,22 @@ _HEADERS = {
     "Accept-Language": "de-DE,de;q=0.9",
 }
 
+_CDN_BASE     = "https://assets.hermes.com/is/image/hermesproduct"
 _REF_RE       = re.compile(r"-([A-Z][0-9]{6}[A-Z0-9]{2,})/?$")
+_SLUG_CDN_RE  = re.compile(r"-([A-Z])([A-Z0-9]+)$")  # strips leading letter from ref
 _SIZE_RE      = re.compile(r"\b(\d{2})\b")
 _DE_PRICE_RE  = re.compile(r"([\d.,]+)\s*€")
+
+
+def _image_urls(slug: str) -> list[str]:
+    """
+    Construct the Hermes CDN front-image URL from a product slug.
+    Pattern: slug `foo-bar-H012345AB` → CDN name `foo-bar--012345AB`
+    (leading letter of ref is stripped, dash is doubled).
+    Only the front view (index 1) is reliably present for all products.
+    """
+    cdn_name = _SLUG_CDN_RE.sub(r"--\2", slug)
+    return [f"{_CDN_BASE}/{cdn_name}-front-wm-1-0-0-800-800_g.jpg"]
 
 
 def _normalize_price(raw: str) -> str | None:
@@ -126,7 +139,7 @@ def _parse_category_page(html: str, page_url: str) -> list[dict]:
             "listed_at":          now,
             "source_url":         full_url,
             "authenticity_label": "authentic",
-            "image_urls":         [],
+            "image_urls":         _image_urls(slug),
             "local_images":       [],
             "product_ref":        ref_m.group(1) if ref_m else "",
         })
@@ -181,6 +194,28 @@ async def scrape(max_products: int = 20, categories: list[str] | None = None) ->
     print(f"\nDone — {saved} new Hermès products saved")
 
 
+def backfill_images() -> None:
+    """Backfill image_urls for existing items that have an empty list."""
+    import json
+    conn = connect()
+    rows = conn.execute(
+        "SELECT id FROM items WHERE platform = ? AND image_urls = '[]'", (PLATFORM,)
+    ).fetchall()
+    updated = 0
+    for row in rows:
+        slug = row["id"]
+        urls = _image_urls(slug)
+        if urls:
+            conn.execute(
+                "UPDATE items SET image_urls = ? WHERE id = ? AND platform = ?",
+                (json.dumps(urls), slug, PLATFORM),
+            )
+            updated += 1
+    conn.commit()
+    conn.close()
+    print(f"Backfilled image_urls for {updated} existing Hermès items")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Scrape authentic Hermès products from hermes.com/de/de/"
@@ -188,5 +223,10 @@ if __name__ == "__main__":
     parser.add_argument("--max-products", type=int, default=200)
     parser.add_argument("--categories", nargs="+", default=None,
                         help="Override default category URLs")
+    parser.add_argument("--backfill-images", action="store_true",
+                        help="Backfill image_urls for existing items with empty images")
     args = parser.parse_args()
-    asyncio.run(scrape(max_products=args.max_products, categories=args.categories))
+    if args.backfill_images:
+        backfill_images()
+    else:
+        asyncio.run(scrape(max_products=args.max_products, categories=args.categories))
