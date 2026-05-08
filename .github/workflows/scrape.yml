@@ -37,11 +37,6 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
-      - name: Install Scrapling browsers
-        run: uv run scrapling install
-        env:
-          UV_INDEX_URL: https://pypi.org/simple/
-
       - name: Run Hermès scraper
         run: uv run python -m scraper.hermes --max-products 20
         env:
