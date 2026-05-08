@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Art Archive — Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+    --bg:       #f0ece4;
+    --bg-card:  #faf8f3;
+    --nav-bg:   #12100d;
+    --gold:     #b8923a;
+    --gold-lt:  #eedcad;
+    --above:    #2d5a1b;
+    --above-lt: #e4eed9;
+    --within:   #4a4a1a;
+    --within-lt:#f0eece;
+    --below:    #7a1414;
+    --below-lt: #f2e0e0;
+    --text:     #1e1710;
+    --text-mid: #6b5640;
+    --text-mute:#a8937a;
+    --border:   #cfc0a5;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Jost',sans-serif; font-weight:300; background:var(--bg); color:var(--text); }
+
+nav {
+    background:var(--nav-bg); height:60px; position:sticky; top:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 2rem; border-bottom:2px solid var(--gold);
+}
+.nav-brand {
+    font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic;
+    letter-spacing:.06em; color:var(--gold); text-transform:uppercase;
+}
+.nav-brand span { color:#e8dcc8; font-weight:400; font-size:14px; margin-left:12px; letter-spacing:.02em; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a {
+    color:#9c8a75; text-decoration:none; font-size:12px; font-weight:500;
+    padding:6px 14px; border-radius:4px; letter-spacing:.08em; text-transform:uppercase; transition:all .15s;
+}
+.nav-links a:hover { color:#e8dcc8; }
+.nav-links a.active { color:var(--gold); border-bottom:2px solid var(--gold); border-radius:0; }
+
+.page { max-width:1200px; margin:0 auto; padding:2rem; }
+
+.section-label {
+    font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; font-style:italic;
+    letter-spacing:.02em; color:var(--text); margin:3rem 0 1.25rem;
+    padding-bottom:.6rem; border-bottom:1px solid var(--border);
+    display:flex; align-items:baseline; gap:.75rem;
+}
+.section-num { font-size:10px; letter-spacing:.14em; color:var(--text-mute); text-transform:uppercase; font-weight:600; font-style:normal; font-family:'Jost',sans-serif; }
+
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:14px; margin-bottom:2rem; }
+.kpi { background:var(--bg-card); border:1px solid var(--border); padding:1.2rem; }
+.kpi .label { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.12em; color:var(--text-mute); }
+.kpi .value { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:300; line-height:1; margin-top:4px; }
+.kpi .sub { font-size:11px; color:var(--text-mid); margin-top:5px; }
+
+.obs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:2rem; }
+.obs-card { background:var(--bg-card); border:1px solid var(--border); padding:1.4rem; border-left:3px solid var(--gold); }
+.obs-num { font-size:9px; font-weight:700; color:var(--gold); letter-spacing:.14em; text-transform:uppercase; margin-bottom:6px; }
+.obs-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:300; font-style:italic; margin-bottom:8px; }
+.obs-stat { font-size:12px; font-weight:600; background:var(--bg); padding:6px 10px; margin-bottom:8px; border-left:2px solid var(--gold); }
+.obs-note { font-size:12px; color:var(--text-mid); line-height:1.6; }
+
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:2rem; }
+.grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:2rem; }
+.card { background:var(--bg-card); border:1px solid var(--border); padding:1.5rem; }
+.card-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; font-style:italic; margin:0 0 3px; }
+.card-sub { font-size:10px; color:var(--text-mute); margin:0 0 1rem; letter-spacing:.06em; text-transform:uppercase; }
+.chart-wrap { position:relative; height:280px; }
+.chart-wrap-tall { position:relative; height:420px; }
+
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { text-align:left; padding:8px 10px; border-bottom:1px solid var(--border); font-size:9px; text-transform:uppercase; letter-spacing:.1em; color:var(--text-mute); font-weight:500; }
+td { padding:9px 10px; border-bottom:1px solid #e8dfd0; }
+tr:last-child td { border-bottom:none; }
+tbody tr:hover { background:#ece5d8; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.gold-val { color:var(--gold); font-weight:600; }
+.above-val { color:var(--above); font-weight:600; }
+.below-val { color:var(--below); font-weight:600; }
+
+.outperform-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; margin-bottom:2rem; }
+.op-card {
+    background:var(--bg-card); border:1px solid var(--border); overflow:hidden;
+    cursor:pointer; transition:box-shadow .2s, transform .2s;
+}
+.op-card:hover { box-shadow:0 4px 16px rgba(30,21,10,.12); transform:translateY(-2px); }
+.op-card img { width:100%; aspect-ratio:4/3; object-fit:cover; background:#e8e0d0; display:block; }
+.op-card__body { padding:10px 12px 12px; }
+.op-card__artist { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14px; line-height:1.2; }
+.op-card__title { font-size:11px; color:var(--text-mid); margin:2px 0 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.op-card__ratio { font-size:18px; font-family:'Cormorant Garamond',serif; color:var(--above); font-weight:400; }
+.op-card__prices { font-size:10px; color:var(--text-mute); margin-top:2px; }
+
+.perf-bar { display:flex; height:10px; border-radius:2px; overflow:hidden; margin:8px 0; }
+.perf-bar__above  { background:var(--above); }
+.perf-bar__within { background:#a0a040; }
+.perf-bar__below  { background:var(--below); }
+.perf-legend { display:flex; gap:14px; font-size:10px; }
+.perf-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; vertical-align:middle; }
+
+@media(max-width:700px) {
+    .grid2,.grid3,.obs-grid { grid-template-columns:1fr; }
+    .page { padding:1rem; }
+    nav { padding:0 1rem; }
+    .nav-brand span { display:none; }
+    .kpi-grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-brand">The Art Archive <span>Analysis</span></div>
+    <div class="nav-links">
+        <a href="../index.html">← Portfolio</a>
+        <a href="index.html">Catalogue</a>
+        <a href="analysis.html" class="active">Analysis</a>
+        <a href="../art-research/">Research</a>
+    </div>
+</nav>
+
+<div class="page" id="page">
+    <div style="text-align:center;padding:5rem 2rem;font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--text-mute);">
+        Loading analysis…
+    </div>
+</div>
+
+<script>
+function fmt(n) {
+    if (!n && n !== 0) return '—';
+    if (n >= 1_000_000) return '$' + (n/1_000_000).toFixed(1) + 'M';
+    if (n >= 1_000)     return '$' + Math.round(n/1_000) + 'k';
+    return '$' + Math.round(n).toLocaleString();
+}
+function fmtFull(n) {
+    if (!n && n !== 0) return '—';
+    return '$' + Math.round(n).toLocaleString();
+}
+function pct(a, total) { return total ? Math.round(a/total*100) + '%' : '—'; }
+
+const CHART_DEFAULTS = {
+    font: { family: "'Jost', sans-serif", size: 11, weight: '300' },
+    color: '#6b5640',
+};
+Chart.defaults.font = CHART_DEFAULTS.font;
+Chart.defaults.color = CHART_DEFAULTS.color;
+
+const GOLD   = '#b8923a';
+const ABOVE  = '#2d5a1b';
+const WITHIN = '#8a8a28';
+const BELOW  = '#7a1414';
+const PALETTE = ['#b8923a','#6b8c4a','#4a6b8c','#8c4a6b','#6b4a8c','#8c6b4a','#4a8c6b','#8c8c4a'];
+
+function buildPage(d) {
+    const total = d.total_lots;
+    const perf  = d.sale_performance || {};
+    const abovePct = total ? Math.round((perf.above||0)/total*100) : 0;
+
+    // Top artist
+    const topArtist = (d.top_artists||[])[0] || {};
+
+    document.getElementById('page').innerHTML = `
+
+    <!-- ── I. KEY METRICS ── -->
+    <div class="section-label"><span class="section-num">I.</span> Key Metrics</div>
+    <div class="kpi-grid">
+        <div class="kpi"><div class="label">Total Lots</div><div class="value" id="kTotalLots">—</div></div>
+        <div class="kpi"><div class="label">Median Hammer</div><div class="value" id="kMedian">—</div></div>
+        <div class="kpi"><div class="label">Above Estimate</div><div class="value" id="kAbove">—</div></div>
+        <div class="kpi"><div class="label">Mean Hammer</div><div class="value" id="kMean">—</div></div>
+        <div class="kpi"><div class="label">Highest Hammer</div><div class="value" id="kMax">—</div><div class="sub" id="kMaxSub"></div></div>
+        <div class="kpi"><div class="label">Total Images</div><div class="value" id="kImages">—</div></div>
+    </div>
+
+    <!-- ── II. OBSERVATIONS ── -->
+    <div class="section-label"><span class="section-num">II.</span> Observations</div>
+    <div class="obs-grid" id="obsGrid"></div>
+
+    <!-- ── III. PRICE DISTRIBUTION ── -->
+    <div class="section-label"><span class="section-num">III.</span> Price Distribution</div>
+    <div class="grid2">
+        <div class="card">
+            <div class="card-title">Hammer Price Tiers</div>
+            <div class="card-sub">Count of lots by USD bracket</div>
+            <div class="chart-wrap"><canvas id="cTiers"></canvas></div>
+        </div>
+        <div class="card">
+            <div class="card-title">Sale Performance</div>
+            <div class="card-sub">Hammer vs pre-sale estimate</div>
+            <div style="display:flex;align-items:center;justify-content:center;height:280px;">
+                <canvas id="cPerf" style="max-width:260px;max-height:260px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── IV. BY MEDIUM ── -->
+    <div class="section-label"><span class="section-num">IV.</span> By Medium</div>
+    <div class="grid2">
+        <div class="card">
+            <div class="card-title">Lot Count by Medium</div>
+            <div class="card-sub">Number of lots per category</div>
+            <div class="chart-wrap"><canvas id="cMedCount"></canvas></div>
+        </div>
+        <div class="card">
+            <div class="card-title">Median Hammer by Medium</div>
+            <div class="card-sub">USD — all currencies converted</div>
+            <div class="chart-wrap"><canvas id="cMedPrice"></canvas></div>
+        </div>
+    </div>
+
+    <!-- ── V. TOP ARTISTS ── -->
+    <div class="section-label"><span class="section-num">V.</span> Top Artists by Total Hammer Value</div>
+    <div class="card" style="margin-bottom:2rem;">
+        <div class="card-title">Top 20 Artists</div>
+        <div class="card-sub">Aggregate hammer price across all lots in this dataset</div>
+        <div class="chart-wrap-tall"><canvas id="cArtists"></canvas></div>
+    </div>
+
+    <!-- ── VI. ARTISTS TABLE ── -->
+    <div class="section-label"><span class="section-num">VI.</span> Artist Detail</div>
+    <div class="card" style="margin-bottom:2rem;">
+        <table id="artistTable">
+            <thead><tr>
+                <th>Artist</th>
+                <th class="num">Lots</th>
+                <th class="num">Total</th>
+                <th class="num">Avg Hammer</th>
+            </tr></thead>
+            <tbody id="artistTbody"></tbody>
+        </table>
+    </div>
+
+    <!-- ── VII. OUTPERFORMERS ── -->
+    <div class="section-label"><span class="section-num">VII.</span> Notable Outperformers</div>
+    <p style="font-size:12px;color:var(--text-mute);margin-bottom:1.2rem;letter-spacing:.03em;">
+        Lots where hammer price most exceeded the mid-point of the pre-sale estimate.
+    </p>
+    <div class="outperform-grid" id="outGrid"></div>
+
+    `;
+
+    // ── KPI values
+    const ov = d.overall || {};
+    document.getElementById('kTotalLots').textContent = total.toLocaleString();
+    document.getElementById('kMedian').textContent    = fmt(ov.median);
+    document.getElementById('kAbove').textContent     = abovePct + '%';
+    document.getElementById('kMean').textContent      = fmt(ov.mean);
+    document.getElementById('kMax').textContent       = fmt(ov.max);
+    document.getElementById('kImages').textContent    = (d.total_images||0).toLocaleString();
+
+    // ── Observations
+    const medByCount = Object.entries(d.by_medium||{}).sort((a,b)=>b[1].count-a[1].count);
+    const topMed = medByCount[0] || ['—', {count:0}];
+    const topMedPct = total ? Math.round(topMed[1].count/total*100) : 0;
+    const obsData = [
+        {
+            num: 'I',
+            title: 'Majority sold above estimate',
+            stat: `${abovePct}% above — ${pct(perf.within||0, total)} within`,
+            note: `${perf.above||0} of ${total} lots exceeded their high estimate, suggesting strong demand across both sales. Only ${perf.below||0} lots passed or sold below estimate.`,
+        },
+        {
+            num: 'II',
+            title: 'Paintings dominate by count',
+            stat: `${topMedPct}% of lots are ${topMed[0]}`,
+            note: `${topMed[1].count} of ${total} lots are categorised as ${topMed[0]}, with a median hammer of ${fmt(topMed[1].median)}. Sculpture and works on paper follow.`,
+        },
+        {
+            num: 'III',
+            title: 'Top artist: ' + (topArtist.artist||'—'),
+            stat: fmt(topArtist.total) + ' across ' + (topArtist.count||0) + ' lots',
+            note: `Average hammer of ${fmt(topArtist.avg)} per lot. The top 5 artists account for a disproportionate share of total value — typical of auction market concentration.`,
+        },
+        {
+            num: 'IV',
+            title: 'Wide price range — thin top tier',
+            stat: `${fmt(ov.min)} – ${fmt(ov.max)}`,
+            note: `The median ($${Math.round(ov.median).toLocaleString()}) sits well below the mean ($${Math.round(ov.mean).toLocaleString()}), indicating a long right tail. Most lots trade under $500k.`,
+        },
+    ];
+    document.getElementById('obsGrid').innerHTML = obsData.map(o => `
+        <div class="obs-card">
+            <div class="obs-num">${o.num}</div>
+            <div class="obs-title">${o.title}</div>
+            <div class="obs-stat">${o.stat}</div>
+            <div class="obs-note">${o.note}</div>
+        </div>
+    `).join('');
+
+    // ── Chart: Price Tiers
+    new Chart(document.getElementById('cTiers'), {
+        type: 'bar',
+        data: {
+            labels: d.tier_labels,
+            datasets: [{ data: d.tier_bands, backgroundColor: GOLD, borderRadius: 2 }],
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: '#e8dfd0' }, ticks: { stepSize: 20 } },
+            },
+        },
+    });
+
+    // ── Chart: Sale Performance donut
+    new Chart(document.getElementById('cPerf'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Above estimate', 'Within estimate', 'Below estimate'],
+            datasets: [{
+                data: [perf.above||0, perf.within||0, perf.below||0],
+                backgroundColor: [ABOVE, WITHIN, BELOW],
+                borderWidth: 0,
+            }],
+        },
+        options: {
+            cutout: '60%',
+            plugins: {
+                legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 8 } },
+            },
+        },
+    });
+
+    // ── Charts: By medium
+    const medOrder = ['painting','works on paper','sculpture','photography','print','other'];
+    const medLabels = medOrder.filter(m => d.by_medium[m]);
+    const medCounts = medLabels.map(m => d.by_medium[m]?.count || 0);
+    const medMedians = medLabels.map(m => d.by_medium[m]?.median || 0);
+
+    new Chart(document.getElementById('cMedCount'), {
+        type: 'bar',
+        data: {
+            labels: medLabels,
+            datasets: [{ data: medCounts, backgroundColor: PALETTE, borderRadius: 2 }],
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: { x: { grid: { display: false } }, y: { grid: { color: '#e8dfd0' } } },
+        },
+    });
+    new Chart(document.getElementById('cMedPrice'), {
+        type: 'bar',
+        data: {
+            labels: medLabels,
+            datasets: [{ data: medMedians, backgroundColor: PALETTE, borderRadius: 2 }],
+        },
+        options: {
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: ctx => ' ' + fmt(ctx.parsed.y) } },
+            },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: '#e8dfd0' }, ticks: { callback: v => fmt(v) } },
+            },
+        },
+    });
+
+    // ── Chart: Top artists horizontal bar
+    const artists = (d.top_artists||[]).slice(0,20);
+    new Chart(document.getElementById('cArtists'), {
+        type: 'bar',
+        data: {
+            labels: artists.map(a => a.artist.replace(/ \(B\. \d+\)| \(\d{4}.*?\)/g, '')),
+            datasets: [{
+                data: artists.map(a => a.total),
+                backgroundColor: GOLD,
+                borderRadius: 2,
+            }],
+        },
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: ctx => ' ' + fmt(ctx.parsed.x) + ' (' + artists[ctx.dataIndex].count + ' lots)' } },
+            },
+            scales: {
+                x: { grid: { color: '#e8dfd0' }, ticks: { callback: v => fmt(v) } },
+                y: { grid: { display: false }, ticks: { font: { size: 11 } } },
+            },
+        },
+    });
+
+    // ── Artist table
+    document.getElementById('artistTbody').innerHTML = artists.map(a => `
+        <tr>
+            <td>${a.artist.replace(/ \(B\. \d+\)| \(\d{4}.*?\)/g, '')}</td>
+            <td class="num">${a.count}</td>
+            <td class="num gold-val">${fmtFull(a.total)}</td>
+            <td class="num">${fmtFull(a.avg)}</td>
+        </tr>
+    `).join('');
+
+    // ── Outperformers grid
+    document.getElementById('outGrid').innerHTML = (d.top_outperformers||[]).map(op => `
+        <div class="op-card" onclick="window.open('${op.url}','_blank')">
+            ${op.img ? `<img src="${op.img}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+            <div class="op-card__body">
+                <div class="op-card__artist">${(op.artist||'Unknown').replace(/ \(B\. \d+\)| \(\d{4}.*?\)/g,'')}</div>
+                <div class="op-card__title">${op.title||'Untitled'}</div>
+                <div class="op-card__ratio">${op.ratio}× estimate</div>
+                <div class="op-card__prices">Hammer ${fmtFull(op.hammer)} · Est. mid ${fmtFull(op.est_mid)}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+fetch('analysis.json')
+    .then(r => r.json())
+    .then(buildPage)
+    .catch(() => {
+        document.getElementById('page').innerHTML =
+            `<div style="text-align:center;padding:5rem;font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--text-mute);">
+                analysis.json not found — run <code>uv run python -m scripts.build_art_json</code>
+            </div>`;
+    });
+</script>
+</body>
+</html>

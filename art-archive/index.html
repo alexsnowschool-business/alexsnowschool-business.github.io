@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Art Archive — Auction Results Dataset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg:        #f0ece4;
+    --bg-card:   #faf8f3;
+    --nav-bg:    #12100d;
+    --nav-text:  #e8dcc8;
+    --gold:      #b8923a;
+    --gold-lt:   #eedcad;
+    --above:     #2d5a1b;
+    --above-lt:  #e4eed9;
+    --within:    #4a4a1a;
+    --within-lt: #f0eece;
+    --below:     #7a1414;
+    --below-lt:  #f2e0e0;
+    --text:      #1e1710;
+    --text-mid:  #6b5640;
+    --text-mute: #a8937a;
+    --border:    #cfc0a5;
+    --shadow:    rgba(30,21,10,.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* ── Nav ── */
+nav {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--nav-bg); height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; border-bottom: 2px solid var(--gold);
+}
+.nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; font-style: italic; letter-spacing: .06em;
+    color: var(--gold); text-transform: uppercase;
+}
+.nav-brand span { color: var(--nav-text); font-weight: 400; letter-spacing: .02em; font-size: 14px; margin-left: 12px; }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+    color: #9c8a75; text-decoration: none; font-size: 12px; font-weight: 500;
+    padding: 6px 14px; border-radius: 4px; letter-spacing: .08em; text-transform: uppercase;
+    transition: all .15s;
+}
+.nav-links a:hover { color: var(--nav-text); }
+.nav-links a.active { color: var(--gold); border-bottom: 2px solid var(--gold); border-radius: 0; }
+
+/* ── Stats band ── */
+.stats-band {
+    background: var(--nav-bg); padding: .6rem 2rem;
+    display: flex; gap: 2.5rem; align-items: center;
+    border-bottom: 1px solid #2e2218;
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.stat-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; color: var(--nav-text); line-height: 1;
+}
+.stat-lbl { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #6b5640; }
+.stat-sep { width: 1px; height: 28px; background: #2e2218; }
+
+/* ── Toolbar ── */
+.toolbar {
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    padding: .8rem 2rem; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+}
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+    padding: 5px 16px; border-radius: 2px; border: 1px solid var(--border);
+    font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+    cursor: pointer; background: transparent; color: var(--text-mid); transition: all .15s;
+    font-family: 'Jost', sans-serif;
+}
+.pill:hover { border-color: var(--gold); color: var(--text); }
+.pill.active        { background: var(--text); color: var(--bg-card); border-color: var(--text); }
+.pill.active-above  { background: var(--above); color: #fff; border-color: var(--above); }
+.pill.active-within { background: var(--within); color: #fff; border-color: var(--within); }
+.pill.active-below  { background: var(--below); color: #fff; border-color: var(--below); }
+
+.toolbar-sep { width: 1px; height: 28px; background: var(--border); }
+
+select, input[type="search"] {
+    background: var(--bg-card); border: 1px solid var(--border); color: var(--text);
+    font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 400;
+    padding: 6px 10px; border-radius: 2px; outline: none;
+    transition: border-color .15s;
+}
+select:focus, input[type="search"]:focus { border-color: var(--gold); }
+input[type="search"] { width: 220px; }
+
+/* ── Grid ── */
+.grid-wrap { padding: 1.5rem 2rem; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* ── Card ── */
+.card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 2px; overflow: hidden;
+    display: flex; flex-direction: column;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: box-shadow .2s, transform .2s;
+}
+.card:hover { box-shadow: 0 6px 20px var(--shadow); transform: translateY(-2px); }
+
+.card__img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    background: #e8e0d0; display: block;
+}
+.card__img-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #e8e0d0 0%, #d4c8b4 100%);
+    display: flex; align-items: center; justify-content: center;
+}
+.card__img-placeholder span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-style: italic; color: #b0a090; font-weight: 300;
+}
+
+.card__body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+
+.card__artist {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 16px; font-weight: 400; color: var(--text); line-height: 1.2;
+}
+.card__title {
+    font-size: 12px; font-weight: 400; color: var(--text-mid);
+    line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card__medium { font-size: 11px; color: var(--text-mute); letter-spacing: .03em; }
+
+.card__divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+.card__price-row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+}
+.card__hammer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 300; color: var(--text);
+}
+.card__estimate { font-size: 10px; color: var(--text-mute); letter-spacing: .04em; text-align: right; line-height: 1.4; }
+
+.card__meta { display: flex; align-items: center; justify-content: space-between; margin-top: 2px; }
+.card__house { font-size: 10px; color: var(--text-mute); letter-spacing: .06em; text-transform: uppercase; }
+.card__date  { font-size: 10px; color: var(--text-mute); }
+
+.badge {
+    display: inline-block; font-size: 9px; font-weight: 500;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 2px;
+}
+.badge--above  { background: var(--above-lt);  color: var(--above);  border: 1px solid #b8d4a0; }
+.badge--within { background: var(--within-lt); color: var(--within); border: 1px solid #ceca80; }
+.badge--below  { background: var(--below-lt);  color: var(--below);  border: 1px solid #dca0a0; }
+.badge--unknown { background: #ede8e0; color: var(--text-mute); border: 1px solid var(--border); }
+
+/* ── Footer count ── */
+.result-count {
+    padding: .5rem 2rem 2rem;
+    font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-mute);
+}
+
+/* ── Empty state ── */
+.empty {
+    grid-column: 1/-1; text-align: center; padding: 60px 20px;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; color: var(--text-mute);
+}
+
+@media (max-width: 600px) {
+    nav, .stats-band, .toolbar, .grid-wrap, .result-count { padding-left: 1rem; padding-right: 1rem; }
+    .stats-band { gap: 1.2rem; overflow-x: auto; }
+    input[type="search"] { width: 150px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-brand">The Art Archive <span>Auction Results</span></div>
+    <div class="nav-links">
+        <a href="../index.html">← Portfolio</a>
+        <a href="index.html" class="active">Catalogue</a>
+        <a href="analysis.html">Analysis</a>
+        <a href="../art-research/">Research</a>
+    </div>
+</nav>
+
+<div class="stats-band" id="statsBand">
+    <div class="stat-item"><span class="stat-val" id="statTotal">—</span><span class="stat-lbl">Total Lots</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="stat-val" id="statHouses">—</span><span class="stat-lbl">Auction Houses</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="stat-val" id="statMedian">—</span><span class="stat-lbl">Median Hammer</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="stat-val" id="statAbove">—</span><span class="stat-lbl">Above Estimate</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="stat-val" id="statImages">—</span><span class="stat-lbl">With Image</span></div>
+</div>
+
+<div class="toolbar">
+    <!-- Performance filter -->
+    <div class="pills" id="perfPills">
+        <button class="pill active" data-perf="all">All</button>
+        <button class="pill" data-perf="above">Above Estimate</button>
+        <button class="pill" data-perf="within">Within Estimate</button>
+        <button class="pill" data-perf="below">Below Estimate</button>
+    </div>
+
+    <div class="toolbar-sep"></div>
+
+    <!-- Medium filter -->
+    <div class="pills" id="mediumPills">
+        <button class="pill active" data-medium="all">All Media</button>
+        <button class="pill" data-medium="painting">Painting</button>
+        <button class="pill" data-medium="works on paper">Works on Paper</button>
+        <button class="pill" data-medium="photography">Photography</button>
+        <button class="pill" data-medium="print">Print</button>
+        <button class="pill" data-medium="sculpture">Sculpture</button>
+        <button class="pill" data-medium="other">Other</button>
+    </div>
+
+    <div class="toolbar-sep"></div>
+
+    <!-- Price tier -->
+    <select id="tierSelect">
+        <option value="all">All Price Tiers</option>
+        <option value="0-10000">Under $10k</option>
+        <option value="10000-100000">$10k – $100k</option>
+        <option value="100000-1000000">$100k – $1M</option>
+        <option value="1000000-99999999">Over $1M</option>
+    </select>
+
+    <!-- Auction house -->
+    <select id="houseSelect">
+        <option value="all">All Houses</option>
+    </select>
+
+    <!-- Search -->
+    <input type="search" id="searchInput" placeholder="Search artist or title…">
+</div>
+
+<div class="grid-wrap">
+    <div class="grid" id="grid"></div>
+</div>
+<div class="result-count" id="resultCount"></div>
+
+<script>
+const PERF_LABELS = { above: "Above Estimate", within: "Within Estimate", below: "Below Estimate", unknown: "Passed / N/A" };
+
+let ALL_LOTS = [];
+let state = { perf: "all", medium: "all", tier: "all", house: "all", q: "" };
+
+function fmt(n) {
+    if (!n || n <= 0) return "—";
+    if (n >= 1_000_000) return "$" + (n / 1_000_000).toFixed(1) + "M";
+    if (n >= 1_000)     return "$" + Math.round(n / 1_000) + "k";
+    return "$" + Math.round(n).toLocaleString();
+}
+
+function fmtFull(n) {
+    if (!n || n <= 0) return "—";
+    return "$" + Math.round(n).toLocaleString();
+}
+
+function renderCard(lot) {
+    const hammer = lot.hammer_usd || lot.hammer_price;
+    const hasImg = lot.image_urls && lot.image_urls.length > 0;
+    const perf   = lot.sale_performance || "unknown";
+    const perfClass = { above: "badge--above", within: "badge--within", below: "badge--below", unknown: "badge--unknown" }[perf] || "badge--unknown";
+    const perfText  = PERF_LABELS[perf] || "—";
+
+    const estText = (lot.estimate_low && lot.estimate_high)
+        ? `Est. ${fmt(lot.estimate_low)} – ${fmt(lot.estimate_high)}`
+        : (lot.estimate_low ? `Est. ${fmt(lot.estimate_low)}+` : "Estimate N/A");
+
+    const imgHtml = hasImg
+        ? `<img class="card__img" src="${lot.image_urls[0]}" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=\\'card__img-placeholder\\'><span>✦</span></div>'">`
+        : `<div class="card__img-placeholder"><span>✦</span></div>`;
+
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+        ${imgHtml}
+        <div class="card__body">
+            <div class="card__artist">${lot.artist || "Unknown Artist"}</div>
+            <div class="card__title">${lot.title || "Untitled"}</div>
+            ${lot.medium ? `<div class="card__medium">${lot.medium}</div>` : ""}
+            <div class="card__divider"></div>
+            <div class="card__price-row">
+                <div class="card__hammer">${fmtFull(hammer)}</div>
+                <div class="card__estimate">${estText}</div>
+            </div>
+            <div class="card__meta">
+                <div>
+                    <span class="card__house">${lot.auction_house || ""}</span>
+                    ${lot.sale_date ? `<span class="card__date"> · ${lot.sale_date.slice(0,7)}</span>` : ""}
+                </div>
+                <span class="badge ${perfClass}">${perfText}</span>
+            </div>
+        </div>
+    `;
+    if (lot.source_url) {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => window.open(lot.source_url, "_blank"));
+    }
+    return card;
+}
+
+function applyFilters() {
+    const q = state.q.toLowerCase();
+    return ALL_LOTS.filter(lot => {
+        if (state.perf !== "all" && lot.sale_performance !== state.perf) return false;
+        if (state.medium !== "all" && lot.medium_category !== state.medium) return false;
+        if (state.house !== "all" && lot.auction_house !== state.house) return false;
+        if (state.tier !== "all") {
+            const [lo, hi] = state.tier.split("-").map(Number);
+            const h = lot.hammer_usd || lot.hammer_price || 0;
+            if (h < lo || h >= hi) return false;
+        }
+        if (q) {
+            const hay = ((lot.artist || "") + " " + (lot.title || "")).toLowerCase();
+            if (!hay.includes(q)) return false;
+        }
+        return true;
+    });
+}
+
+function render() {
+    const filtered = applyFilters();
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    if (!filtered.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "No lots match the current filters.";
+        grid.appendChild(empty);
+    } else {
+        const frag = document.createDocumentFragment();
+        filtered.forEach(lot => frag.appendChild(renderCard(lot)));
+        grid.appendChild(frag);
+    }
+
+    document.getElementById("resultCount").textContent =
+        `${filtered.length.toLocaleString()} lot${filtered.length !== 1 ? "s" : ""} displayed`;
+}
+
+function initStats(lots) {
+    const hammers = lots.map(l => l.hammer_usd || l.hammer_price).filter(Boolean);
+    const houses  = new Set(lots.map(l => l.auction_house).filter(Boolean));
+    const above   = lots.filter(l => l.sale_performance === "above").length;
+    const withImg = lots.filter(l => l.image_urls && l.image_urls.length).length;
+
+    document.getElementById("statTotal").textContent  = lots.length.toLocaleString();
+    document.getElementById("statHouses").textContent = houses.size;
+    document.getElementById("statImages").textContent = withImg.toLocaleString();
+    document.getElementById("statAbove").textContent  =
+        lots.length ? Math.round(above / lots.length * 100) + "%" : "—";
+
+    if (hammers.length) {
+        const sorted = [...hammers].sort((a,b) => a - b);
+        const median = sorted[Math.floor(sorted.length / 2)];
+        document.getElementById("statMedian").textContent = fmt(median);
+    }
+
+    // Populate house select
+    const houseSelect = document.getElementById("houseSelect");
+    [...houses].sort().forEach(h => {
+        const opt = document.createElement("option");
+        opt.value = h; opt.textContent = h;
+        houseSelect.appendChild(opt);
+    });
+}
+
+function bindControls() {
+    document.getElementById("perfPills").addEventListener("click", e => {
+        const btn = e.target.closest("[data-perf]");
+        if (!btn) return;
+        state.perf = btn.dataset.perf;
+        document.querySelectorAll("[data-perf]").forEach(b => {
+            b.className = "pill" + (b === btn ? " active" : "");
+        });
+        render();
+    });
+
+    document.getElementById("mediumPills").addEventListener("click", e => {
+        const btn = e.target.closest("[data-medium]");
+        if (!btn) return;
+        state.medium = btn.dataset.medium;
+        document.querySelectorAll("[data-medium]").forEach(b => {
+            b.className = "pill" + (b === btn ? " active" : "");
+        });
+        render();
+    });
+
+    document.getElementById("tierSelect").addEventListener("change", e => {
+        state.tier = e.target.value;
+        render();
+    });
+
+    document.getElementById("houseSelect").addEventListener("change", e => {
+        state.house = e.target.value;
+        render();
+    });
+
+    let searchTimer;
+    document.getElementById("searchInput").addEventListener("input", e => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+            state.q = e.target.value.trim();
+            render();
+        }, 200);
+    });
+}
+
+fetch("catalogue.json")
+    .then(r => r.json())
+    .then(lots => {
+        ALL_LOTS = lots;
+        initStats(lots);
+        bindControls();
+        render();
+    })
+    .catch(() => {
+        document.getElementById("grid").innerHTML =
+            `<div class="empty">catalogue.json not found — run <code>uv run python scripts/build_art_json.py</code> to generate it.</div>`;
+    });
+</script>
+</body>
+</html>

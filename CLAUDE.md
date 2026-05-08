@@ -5,8 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Running Locally
 
 ```bash
-npx serve .
+python3 -m http.server 3001
 ```
+
+Then open `http://localhost:3001` in a browser.
 
 Then open `http://localhost:3000` in a browser. No build step — all files are plain HTML/CSS/JS.
 
