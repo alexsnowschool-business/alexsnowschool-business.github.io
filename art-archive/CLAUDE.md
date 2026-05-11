@@ -17,13 +17,22 @@ Brand tone: Academic archive meets fine-art editorial — precise, dispassionate
 - Schema: `scraper/art_db.py`
 
 ## Scrapers
-- `scraper/christies.py` — Christie's sold lots via public search API
+- `scraper/christies.py` — Christie's sold lots, chains via embedded `next_lot_url` JSON
   - Run: `uv run python -m scraper.christies --max-lots 300` (from repo root)
-  - Keywords: painting, sculpture, works on paper, photography, print
+  - Seeded from `SALE_STARTS`: list of (sale_number, first_lot_id, hint)
+- `scraper/phillips.py` — Phillips sold lots, iterates lot numbers a1…aN within a sale
+  - Run: `uv run python -m scraper.phillips --max-lots 300` (from repo root)
+  - Seeded from `SALE_STARTS`: list of (sale_id, first_lot_number, hint)
+  - Parses `__NEXT_DATA__` JSON embedded by Next.js; JSON-LD as fallback
+  - Stops after 20 consecutive 404s (sale exhausted)
 
 ## Build pipeline
 ```bash
+# Scrape (run one or both)
 uv run python -m scraper.christies --max-lots 300
+uv run python -m scraper.phillips --max-lots 300
+
+# Rebuild JSON from DB
 uv run python -m scripts.build_art_json
 ```
 
@@ -35,7 +44,7 @@ uv run python -m scripts.build_art_json
 - Free-text artist/title search
 
 ## Notes
-- All prices normalised to USD using static FX rates in `scraper/christies.py` (`_FX` dict)
+- All prices normalised to USD using static `_FX` dicts in each scraper (christies.py, phillips.py)
 - `sale_performance` is computed at insert time in `art_db.py::_sale_performance()`
 - Image URLs are taken directly from source CDN — no local copies
 - `analysis.html` is Phase III work; the nav link exists but the page is not yet built

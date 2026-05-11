@@ -642,6 +642,96 @@ section { padding: 120px 0; }
     color: var(--gold);
 }
 
+.artist-card--stub .artist-movement {
+    color: var(--stone);
+}
+
+.artist-card--stub .artist-name {
+    font-size: 1.0rem;
+}
+
+.artists-loading {
+    grid-column: 1 / -1;
+    padding: 64px;
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+}
+
+/* ── WORKS LISTS ────────────────────── */
+
+.artist-works {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.artist-works__section {
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+}
+
+.artist-works__label {
+    font-family: var(--font-sans);
+    font-size: 0.58rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    margin-bottom: 10px;
+}
+
+.works-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.works-list__item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 2px 12px;
+}
+
+.works-list__title {
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--slate);
+    line-height: 1.4;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.works-list__year {
+    font-family: var(--font-sans);
+    font-size: 0.60rem;
+    font-weight: 300;
+    color: var(--stone-light);
+    letter-spacing: 0.06em;
+    grid-column: 2;
+    grid-row: 1;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.works-list__notes {
+    font-family: var(--font-sans);
+    font-size: 0.80rem;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1.75;
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
 /* ── MARKET SECTION ─────────────────── */
 .market-section {
     background: var(--slate);

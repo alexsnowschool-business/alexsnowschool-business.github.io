@@ -45,27 +45,27 @@
         <div class="hero-right">
             <div class="hero-stat">
                 <span class="stat-label">Lots analysed</span>
-                <span class="stat-value">300</span>
+                <span class="stat-value" data-stat="total_lots">—</span>
             </div>
             <div class="hero-stat">
                 <span class="stat-label">Artists represented</span>
-                <span class="stat-value">198</span>
+                <span class="stat-value" data-stat="total_artists">—</span>
             </div>
             <div class="hero-stat">
                 <span class="stat-label">Median hammer price</span>
-                <span class="stat-value">$141k</span>
+                <span class="stat-value" data-stat="median_hammer">—</span>
             </div>
             <div class="hero-stat">
                 <span class="stat-label">Lots above estimate</span>
-                <span class="stat-value">55%</span>
+                <span class="stat-value" data-stat="pct_above">—</span>
             </div>
             <div class="hero-stat">
                 <span class="stat-label">Max outperformance ratio</span>
-                <span class="stat-value">14.7×</span>
+                <span class="stat-value" data-stat="max_ratio">—</span>
             </div>
             <div class="hero-stat">
-                <span class="stat-label">Source</span>
-                <span class="stat-value">Christie's</span>
+                <span class="stat-label">Sources</span>
+                <span class="stat-value" data-stat="sources">—</span>
             </div>
         </div>
     </div>
@@ -337,331 +337,21 @@
         <div class="artists-header reveal">
             <div class="section-tag">Part III</div>
             <h2 class="section-title">Artists in the Dataset</h2>
-            <p class="section-desc">Profiles of 25 artists drawn from the Christie's auction data, showing their movement, historical position, and market performance across 300 analysed lots. All prices are hammer in USD.</p>
-            <div class="movement-filter">
+            <p class="section-desc" id="artistsDesc">Profiles drawn from the auction dataset — biography, key works, and market performance. Updated weekly from the live database. All prices are hammer in USD.</p>
+            <div class="movement-filter" id="movementFilter">
                 <button class="movement-btn active" data-movement="all">All</button>
                 <button class="movement-btn" data-movement="abstract-expressionism">Abstract Expressionism</button>
                 <button class="movement-btn" data-movement="pop-art">Pop Art</button>
                 <button class="movement-btn" data-movement="modernism">Modernism</button>
-                <button class="movement-btn" data-movement="contemporary">Contemporary</button>
                 <button class="movement-btn" data-movement="impressionism">Impressionism</button>
+                <button class="movement-btn" data-movement="minimalism">Minimalism</button>
+                <button class="movement-btn" data-movement="contemporary">Contemporary</button>
+                <button class="movement-btn" data-movement="expressionism">Expressionism</button>
             </div>
         </div>
 
-        <div class="artists-grid">
-
-            <!-- Frankenthaler -->
-            <div class="artist-card reveal" data-movement="abstract-expressionism">
-                <div class="artist-movement">Abstract Expressionism · Colour Field</div>
-                <div class="artist-name">Helen Frankenthaler</div>
-                <div class="artist-dates">1928–2011 · American</div>
-                <p class="artist-bio">Frankenthaler developed the "soak-stain" method — pouring thinned paint onto unprimed canvas so that colour became integral to the support rather than resting on its surface. This single gesture bridged Abstract Expressionism's gestural energy with the chromatic ambitions of Colour Field painting. Mountains and Sea (1952) made her immediately important; it directly influenced Morris Louis and Kenneth Noland. Her late works are characterised by vast, atmospheric washes of near-pure hue.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 6 lots</div>
-                    <div class="artist-auction-value">$9.3M total · $1.55M avg</div>
-                </div>
-            </div>
-
-            <!-- Pollock -->
-            <div class="artist-card reveal" data-movement="abstract-expressionism">
-                <div class="artist-movement">Abstract Expressionism · Action Painting</div>
-                <div class="artist-name">Jackson Pollock</div>
-                <div class="artist-dates">1912–1956 · American</div>
-                <p class="artist-bio">Pollock's "drip paintings" (1947–50) abandoned the brush entirely. Working on canvas laid flat on the floor, he moved around and above the surface, pouring and dripping enamel paint in dense, allover compositions without hierarchy or focal point. Harold Rosenberg's concept of "action painting" was formulated largely to describe Pollock: the canvas as arena rather than picture. His alcoholism, his death in a car accident at 44, and Hans Namuth's photographs of him working cemented his myth. The paintings are inseparable from the mythology, which is partly what the market is pricing.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 2 lots</div>
-                    <div class="artist-auction-value">$7.7M total · $3.86M avg</div>
-                </div>
-            </div>
-
-            <!-- Joan Mitchell -->
-            <div class="artist-card reveal" data-movement="abstract-expressionism">
-                <div class="artist-movement">Abstract Expressionism · Second Generation</div>
-                <div class="artist-name">Joan Mitchell</div>
-                <div class="artist-dates">1925–1992 · American</div>
-                <p class="artist-bio">Mitchell was consistently undervalued relative to her male peers during her lifetime — a pattern familiar to women artists of the New York School. She moved to Paris in 1959 (later to Vétheuil) and continued working in a gestural abstract mode but increasingly filtered through memory of landscape rather than immediate sensation. Her large-scale polyptychs from the 1970s and 1980s are among the most accomplished works of late Abstract Expressionism. Market revaluation began seriously in the 2010s and accelerated sharply; she now commands the prices that critical opinion had long considered warranted.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 2 lots</div>
-                    <div class="artist-auction-value">$5.4M total · $2.69M avg</div>
-                </div>
-            </div>
-
-            <!-- Ed Ruscha -->
-            <div class="artist-card reveal" data-movement="pop-art">
-                <div class="artist-movement">Pop Art · West Coast · Language in Painting</div>
-                <div class="artist-name">Ed Ruscha</div>
-                <div class="artist-dates">b. 1937 · American</div>
-                <p class="artist-bio">Ruscha occupies a unique position in American post-war art: between Pop and Conceptual, between Los Angeles vernacular culture and high formalism. His word-and-image paintings — gas stations, Standard stations, Hollywood sign — use the graphical economy of commercial signage as a formal language. Twenty-six Gasoline Stations (1963) is one of the first artists' books in the contemporary sense. His later atmospheric word paintings ("Brave Men Run in My Family," "HONK") use language as purely visual material — the meaning activating against the backdrop.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 9 lots</div>
-                    <div class="artist-auction-value">$4.6M total · $510k avg</div>
-                </div>
-            </div>
-
-            <!-- Calder -->
-            <div class="artist-card reveal" data-movement="modernism">
-                <div class="artist-movement">Modernism · Kinetic Sculpture</div>
-                <div class="artist-name">Alexander Calder</div>
-                <div class="artist-dates">1898–1976 · American</div>
-                <p class="artist-bio">Calder invented the mobile — a kinetic sculpture in which sheet metal elements of painted primary colours move in response to air currents, creating compositions that change over time. Duchamp named the mobiles; Arp named the static sculptures "stabiles." Calder's invention introduced time into sculpture: the work has no fixed appearance. His circus performance of miniature wire figures (Calder's Circus, 1926–31) prefigures performance art. He worked at a scale from jewellery to monumental public commissions, never losing the wit and clarity of his basic vocabulary.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 5 lots</div>
-                    <div class="artist-auction-value">$2.5M total · $504k avg</div>
-                </div>
-            </div>
-
-            <!-- Chagall -->
-            <div class="artist-card reveal" data-movement="modernism">
-                <div class="artist-movement">Modernism · Jewish Folk Tradition</div>
-                <div class="artist-name">Marc Chagall</div>
-                <div class="artist-dates">1887–1985 · Belarusian-French</div>
-                <p class="artist-bio">Chagall synthesised Cubism's spatial fragmentation with the visual culture of Hasidic Judaism and the folk imagery of his native Vitebsk. Flying figures, fiddlers on rooftops, green-faced violinists, and lovers suspended in air are his recurring motifs — not as personal symbols but as a shared visual language of a community. He lived through the Russian Revolution, Paris modernism, WWII exile in the United States, and a celebrated old age in Provence. His late work shows consistent aesthetic decline but unfailing market strength — the iconic imagery maintains collector demand regardless of quality variation.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 15 lots</div>
-                    <div class="artist-auction-value">$2.2M total · $149k avg</div>
-                </div>
-            </div>
-
-            <!-- Robert Motherwell -->
-            <div class="artist-card reveal" data-movement="abstract-expressionism">
-                <div class="artist-movement">Abstract Expressionism · Elegy Series</div>
-                <div class="artist-name">Robert Motherwell</div>
-                <div class="artist-dates">1915–1991 · American</div>
-                <p class="artist-bio">Motherwell was the most intellectually articulate of the Abstract Expressionists — he had studied philosophy at Stanford and Harvard, and served as the movement's primary editor and anthologist (The Dada Painters and Poets, 1951). His Elegies to the Spanish Republic (begun 1948) — large black ovoids pressing against vertical bars in stark black and white — became a sustained meditation that occupied him for over forty years and resulted in more than 150 paintings. The Spanish Civil War as the occasion; the elegiac mode as the mode for all political tragedy.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 3 lots</div>
-                    <div class="artist-auction-value">$2.7M total · $888k avg</div>
-                </div>
-            </div>
-
-            <!-- Hockney -->
-            <div class="artist-card reveal" data-movement="pop-art">
-                <div class="artist-movement">Pop Art · British Painting · Figuration</div>
-                <div class="artist-name">David Hockney</div>
-                <div class="artist-dates">b. 1937 · British</div>
-                <p class="artist-bio">Hockney straddles Pop and figuration: the swimming pools of the Los Angeles paintings (1964–71) use a flat, clear light and a deliberately non-dramatic compositional calm that owes something to Pop's removal of Expressionist anxiety but is fully committed to representation. His Cubist-derived photo collages (Joiners) investigate the same problems Cézanne raised: how does a moving eye perceive space? His more recent iPad drawings and Yorkshire landscape paintings extend the same inquiry across medium. He is the most celebrated living British painter and commands institutional prices across all major categories.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 2 lots</div>
-                    <div class="artist-auction-value">$2.5M total · $1.23M avg</div>
-                </div>
-            </div>
-
-            <!-- Matisse -->
-            <div class="artist-card reveal" data-movement="modernism">
-                <div class="artist-movement">Fauvism · Modernism · Decoration</div>
-                <div class="artist-name">Henri Matisse</div>
-                <div class="artist-dates">1869–1954 · French</div>
-                <p class="artist-bio">Matisse and Picasso are the two poles of early 20th-century modernism: where Picasso fragments and analyses, Matisse integrates and harmonises. His colour is not expressive (Fauvism's early phase) but architectural — colour creates space, defines volume, constructs the picture's internal logic. The late cut-outs (Jazz, 1947; the Chapelle du Rosaire, Vence, 1948–51), made when arthritis prevented painting, are among the most formally perfect works of the century: scissors become the drawing instrument, and negative and positive space are held in equilibrium.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 5 lots</div>
-                    <div class="artist-auction-value">$1.6M total · $323k avg</div>
-                </div>
-            </div>
-
-            <!-- Warhol -->
-            <div class="artist-card reveal" data-movement="pop-art">
-                <div class="artist-movement">Pop Art · Seriality · Factory</div>
-                <div class="artist-name">Andy Warhol</div>
-                <div class="artist-dates">1928–1987 · American</div>
-                <p class="artist-bio">Warhol's achievement is conceptual before it is pictorial: he understood that mechanical reproduction, celebrity, and death are related themes, and he built an art practice that is simultaneously their subject and their instrument. The silkscreen removes the artist's hand; the serial repetition drains the image of expressiveness; the choice of subject (Marilyn Monroe, the Electric Chair, Mao Zedong, car crashes) makes the work a philosophical proposition about contemporary life. The Factory — a studio staffed by collaborators ("superstars") — extended the Duchampian premise: the artist is a brand, and the brand is what creates value.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 5 lots</div>
-                    <div class="artist-auction-value">$1.5M total · $301k avg</div>
-                </div>
-            </div>
-
-            <!-- Alice Neel -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Figurative Realism · Portrait</div>
-                <div class="artist-name">Alice Neel</div>
-                <div class="artist-dates">1900–1984 · American</div>
-                <p class="artist-bio">Neel spent decades painting the occupants of her Spanish Harlem neighbourhood — her children, lovers, collectors, artists, pregnant women, the elderly — with a directness and psychological acuity that the mainstream art world ignored until the feminist revisions of the 1970s. Her portraits refuse to flatter: Andy Warhol is shown post-shooting, corseted and scarred. She did not share the Abstract Expressionists' turning away from representation, and the market spent decades penalising her for it. Posthumous revaluation has been dramatic: she is now among the most sought-after American figurative painters.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 3 lots</div>
-                    <div class="artist-auction-value">$1.4M total · $471k avg</div>
-                </div>
-            </div>
-
-            <!-- Kusama -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Avant-Garde · Infinity · Polka-Dot</div>
-                <div class="artist-name">Yayoi Kusama</div>
-                <div class="artist-dates">b. 1929 · Japanese</div>
-                <p class="artist-bio">Kusama began painting Infinity Net paintings in New York in the late 1950s — canvases covered edge-to-edge with obsessive, repetitive marks. She connects the compulsion to paint to a childhood of visual hallucinations: the dots were a symptom before they were a style. Her happenings and installation works of the 1960s addressed the body and sexuality with a directness that influenced younger artists significantly. She returned to Japan in 1973, voluntarily entering a psychiatric institution where she has lived and worked since. The late Infinity Mirror Rooms and pumpkin sculptures command the largest auction prices and the longest museum queues.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 3 lots</div>
-                    <div class="artist-auction-value">$1.1M total · $362k avg</div>
-                </div>
-            </div>
-
-            <!-- George Condo -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Neo-Expressionism · Artificial Realism</div>
-                <div class="artist-name">George Condo</div>
-                <div class="artist-dates">b. 1957 · American</div>
-                <p class="artist-bio">Condo coined the term "artificial realism" for his practice: figures derived from art-historical sources (Velázquez, Goya, Picasso) are distorted, fragmented, and recombined in configurations that are simultaneously comic and disturbing. The faces are wrong — features displaced, mouths too large, eyes asynchronous — in ways that reference both Cubist simultaneous viewpoints and the diagnostic vocabulary of psychological disturbance. His studio technique is directly oil-based, with considerable skill in traditional paint handling, used in service of thoroughly unconventional imagery. He remains one of the most collectible figurative painters working today.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 4 lots</div>
-                    <div class="artist-auction-value">$3.3M total · $823k avg</div>
-                </div>
-            </div>
-
-            <!-- Ernie Barnes -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Figurative · African-American Narrative</div>
-                <div class="artist-name">Ernie Barnes</div>
-                <div class="artist-dates">1938–2009 · American</div>
-                <p class="artist-bio">Barnes began as a professional NFL offensive guard (San Diego Chargers, 1960–66), an origin that shaped his visual language: elongated, straining figures engaged in athletic and social ritual — dances, basketball games, church scenes, neighbourhood gatherings in the American South. His most famous work, Sugar Shack, appeared on the cover of Marvin Gaye's I Want You (1976). The dataset's outperformer table includes two Barnes works: At Last (sold at 8.1× estimate, $567k) and The Winning Shot ($592k, 5.9×). This is posthumous market discovery — his prices were modest in his lifetime.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset top outperformer — 2 lots</div>
-                    <div class="artist-auction-value">$1.16M total · 8.1× above estimate</div>
-                </div>
-            </div>
-
-            <!-- Robert Longo -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Neo-Expressionism · Figurative · Drawing</div>
-                <div class="artist-name">Robert Longo</div>
-                <div class="artist-dates">b. 1953 · American</div>
-                <p class="artist-bio">Longo's Men in the Cities drawings (1976–83) — monumental charcoal figures in convulsing business suits — became emblematic images of 1980s urban alienation and corporate culture. The figures are frozen mid-contortion, as if struck by an invisible force. His more recent hyperrealist charcoal works — large-scale drawings of atomic bomb detonations, the American flag, ocean waves — use photographic source material as the basis for obsessively detailed, technically virtuosic drawing. Study of Eric — the dataset's top outperformer at 14.7× estimate — sold for $441k against a $30k estimate.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset top outperformer</div>
-                    <div class="artist-auction-value">$441k · 14.7× estimate</div>
-                </div>
-            </div>
-
-            <!-- Wayne Thiebaud -->
-            <div class="artist-card reveal" data-movement="pop-art">
-                <div class="artist-movement">Pop Art · California Realism</div>
-                <div class="artist-name">Wayne Thiebaud</div>
-                <div class="artist-dates">1920–2021 · American</div>
-                <p class="artist-bio">Thiebaud painted cakes, pies, gumball machines, and diner counters with a formally rigorous attention to light, shadow, and the physicality of paint that distinguished his work from the cooler irony of East Coast Pop. The frosting on a slice of layer cake is painted with thick, exuberant impasto; the display-case setting is handled with a Hopper-esque attention to commercial loneliness. His San Francisco cityscape paintings — extreme vertiginous perspectives down hillside streets — achieve a formally ambitious spatial organisation. He worked actively into his late nineties.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 5 lots</div>
-                    <div class="artist-auction-value">$2.5M total · $497k avg</div>
-                </div>
-            </div>
-
-            <!-- Frank Stella -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Minimalism · Hard-Edge · Shaped Canvas</div>
-                <div class="artist-name">Frank Stella</div>
-                <div class="artist-dates">1936–2024 · American</div>
-                <p class="artist-bio">Stella's Black Paintings (1958–60) — stripes of black enamel separated by thin lines of raw canvas, in formats that make the support's shape a determinant of the interior composition — became the defining works of Minimalist painting. "What you see is what you see" (Stella's statement, paraphrased) is the movement's manifesto. He subsequently moved away from Minimalism's rigour into increasingly elaborate shaped reliefs and three-dimensional works that introduced colour, gesture, and spatial complexity — a progression that some critics read as the exhaustion of Minimalism's premises and others as its liberation.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 2 lots</div>
-                    <div class="artist-auction-value">$1.2M total · $611k avg</div>
-                </div>
-            </div>
-
-            <!-- Sam Francis -->
-            <div class="artist-card reveal" data-movement="abstract-expressionism">
-                <div class="artist-movement">Abstract Expressionism · Colour Field</div>
-                <div class="artist-name">Sam Francis</div>
-                <div class="artist-dates">1923–1994 · American</div>
-                <p class="artist-bio">Francis began painting in hospital during treatment for spinal tuberculosis contracted during WWII service — the horizontal orientation, the emphasis on light filtering from above, are legible in the all-white compositions of his early Paris period. He moved to Paris in 1950 and absorbed the influence of Monet's late water-lily paintings alongside Abstract Expressionism, producing luminous chromatic fields in which colour clusters toward the edges, leaving centres of white that glow with accumulated light. He later introduced blue and red cells and grids, establishing a signature vocabulary that is among the most recognisable in post-war American painting.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 3 lots</div>
-                    <div class="artist-auction-value">$1.1M total · $379k avg</div>
-                </div>
-            </div>
-
-            <!-- Cecily Brown -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Neo-Expressionism · British Figuration</div>
-                <div class="artist-name">Cecily Brown</div>
-                <div class="artist-dates">b. 1969 · British</div>
-                <p class="artist-bio">Brown emerged in New York in the late 1990s with paintings that synthesised gestural abstraction with erotic figuration, often taking their visual language from Old Master sources (Rubens, Delacroix) and dissolving representation into paint at the edge of legibility. Her densely layered surfaces reward sustained looking: what initially reads as pure abstraction resolves into figures, gardens, and battlefields. She represents the contemporary reclamation of painterly virtuosity and pictorial complexity after decades of Conceptual dominance — a position that has proved commercially very strong.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 2 lots</div>
-                    <div class="artist-auction-value">$1.4M total · $706k avg</div>
-                </div>
-            </div>
-
-            <!-- Sean Scully -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Abstract · Stripe Painting</div>
-                <div class="artist-name">Sean Scully</div>
-                <div class="artist-dates">b. 1945 · Irish</div>
-                <p class="artist-bio">Scully's mature work is built from horizontal and vertical stripes of varying width, loosely painted in warm, earthy tones that carry considerable gestural energy despite the geometric structure. He positions himself as heir to Rothko and Mondrian while insisting on a humanist warmth that he sees as their common ground: the stripe as a fundamental unit of visual order, the brushwork as the mark of a body moving in time. His work is widely collected by European and American institutions and commands reliable market prices across a substantial range of formats.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset performance — 3 lots</div>
-                    <div class="artist-auction-value">$1.2M total · $415k avg</div>
-                </div>
-            </div>
-
-            <!-- Jenna Gribbon -->
-            <div class="artist-card reveal" data-movement="contemporary">
-                <div class="artist-movement">Contemporary Figuration · Intimacy</div>
-                <div class="artist-name">Jenna Gribbon</div>
-                <div class="artist-dates">b. 1978 · American</div>
-                <p class="artist-bio">Gribbon paints domestic interiors and intimate moments — her partner and family in scenes of reading, sleeping, working — with a clear art-historical awareness (references to Vallotton, Hopper, and Vermeer are legible) but a contemporary frankness that is distinctly her own. The paintings insist on the ordinary as a subject worthy of the sustained attention traditionally reserved for the monumental. Her market trajectory has been steep: Set List Focus sold at 8.06× estimate in the dataset, one of the most dramatic outperformances. She represents the current wave of figurative painters commanding premium prices at auction.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset outperformer</div>
-                    <div class="artist-auction-value">$403k · 8.06× estimate</div>
-                </div>
-            </div>
-
-            <!-- Eugène Boudin -->
-            <div class="artist-card reveal" data-movement="impressionism">
-                <div class="artist-movement">Pre-Impressionism · Marine Painting</div>
-                <div class="artist-name">Eugène Boudin</div>
-                <div class="artist-dates">1824–1898 · French</div>
-                <p class="artist-bio">Boudin is the crucial bridge figure between the Barbizon School and Impressionism: he was the painter who took Monet to the Norman coast and demonstrated plein-air technique with a directness and meteorological accuracy that made him Monet's first teacher. His beach scenes at Trouville — figures in crinolines, yacht races, Normandy skies — established the subject matter that Monet, Renoir, and Sisley would elaborate. Study of Sky (Étude de ciel) sold at 10.24× estimate in the dataset, one of the strongest outperformances — market enthusiasm for 19th-century French plein-air masters remains very strong.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">Dataset outperformer</div>
-                    <div class="artist-auction-value">$256k · 10.24× estimate</div>
-                </div>
-            </div>
-
-            <!-- Pierre-Auguste Renoir -->
-            <div class="artist-card reveal" data-movement="impressionism">
-                <div class="artist-movement">Impressionism · Figure Painting</div>
-                <div class="artist-name">Pierre-Auguste Renoir</div>
-                <div class="artist-dates">1841–1919 · French</div>
-                <p class="artist-bio">Renoir was the most socially optimistic of the Impressionists: his paintings depict pleasure — dances, luncheons, Sunday afternoons, women bathing — with a warmth and sensuousness that distinguished him from Monet's more meteorological programme. Le Moulin de la Galette (1876) and Luncheon of the Boating Party (1880–81) are the movement's quintessential images of Parisian bourgeois leisure. His late work turned increasingly academic as arthritis distorted his technique; the figures of the late bathers are frankly more decorative than the sharp-edged plein-air works of the 1870s. Institutional prices remain strong globally.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">In Christie's dataset</div>
-                    <div class="artist-auction-value">Impressionist period lots</div>
-                </div>
-            </div>
-
-            <!-- Arshile Gorky -->
-            <div class="artist-card reveal" data-movement="abstract-expressionism">
-                <div class="artist-movement">Abstract Expressionism · Biomorphic Abstraction</div>
-                <div class="artist-name">Arshile Gorky</div>
-                <div class="artist-dates">1904–1948 · Armenian-American</div>
-                <p class="artist-bio">Gorky is the essential transition figure from European Surrealism to American Abstract Expressionism. Born Vosdanig Manoog Adoian in Armenia, he survived the genocide and emigrated to the United States, where he slowly absorbed Cézanne, Picasso, and Miró before arriving at a distinctly personal biomorphic abstraction. His late paintings — The Liver is the Cock's Comb (1944), Agony (1947) — use flowing, organic forms that hover between legibility and dissolution, charged with references to memory, landscape, and the body. He died by suicide in 1948, aged 44, after a series of catastrophic losses.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">In Christie's dataset</div>
-                    <div class="artist-auction-value">Post-War period lots</div>
-                </div>
-            </div>
-
-            <!-- De Kooning -->
-            <div class="artist-card reveal" data-movement="abstract-expressionism">
-                <div class="artist-movement">Abstract Expressionism · Women Series</div>
-                <div class="artist-name">Willem de Kooning</div>
-                <div class="artist-dates">1904–1997 · Dutch-American</div>
-                <p class="artist-bio">De Kooning trained in the classical European tradition at the Rotterdam Academy before emigrating to the United States in 1926. His mature work holds representation and abstraction in perpetual, violent tension: the Women series (1950–53) generated enormous controversy — their aggressive, toothy, confrontational depiction of female figures seemed a rejection of both Abstract Expressionism's non-figurative purity and conventional beauty. He worked with exceptional physical energy into his late career, even as Alzheimer's disease progressed; the late works, ribbons of flowing colour, achieve a formal simplicity that some read as tragedy and others as liberation.</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">In Christie's dataset</div>
-                    <div class="artist-auction-value">Post-War period lots</div>
-                </div>
-            </div>
-
-            <!-- Ernst Ludwig Kirchner -->
-            <div class="artist-card reveal" data-movement="modernism">
-                <div class="artist-movement">German Expressionism · Die Brücke</div>
-                <div class="artist-name">Ernst Ludwig Kirchner</div>
-                <div class="artist-dates">1880–1938 · German</div>
-                <p class="artist-bio">Kirchner co-founded Die Brücke (The Bridge) in Dresden in 1905, a group whose aim was to build a bridge from the art of the past to a new, vital present. His Berlin street scenes (1913–15) — angular, crowded, erotically charged, in strident acid greens and magentas — are the most iconic images of Wilhelmine urban modernity's psychological underside. WWI destroyed him: combat service precipitated a mental breakdown from which he never fully recovered. He moved to Davos, painted the Alps with an increasing formal abstractness, and destroyed himself in 1938 rather than witness the Nazi suppression of German Expressionism as "degenerate art."</p>
-                <div class="artist-auction">
-                    <div class="artist-auction-label">In Christie's dataset</div>
-                    <div class="artist-auction-value">Impressionist/Modern period lots</div>
-                </div>
-            </div>
-
+        <div class="artists-grid" id="artistsGrid">
+            <div class="artists-loading">Loading profiles…</div>
         </div>
     </div>
 </section>

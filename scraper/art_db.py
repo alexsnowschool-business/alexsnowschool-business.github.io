@@ -35,6 +35,19 @@ CREATE TABLE IF NOT EXISTS art_items (
     scraped_at       TEXT DEFAULT (datetime('now')),
     PRIMARY KEY (id, auction_house)
 );
+
+CREATE TABLE IF NOT EXISTS artist_profiles (
+    name_key           TEXT PRIMARY KEY,
+    display_name       TEXT NOT NULL,
+    dates              TEXT,
+    nationality        TEXT,
+    movement           TEXT,
+    movement_id        TEXT,
+    bio                TEXT,
+    famous_works       TEXT DEFAULT '[]',
+    lesser_known_works TEXT DEFAULT '[]',
+    updated_at         TEXT DEFAULT (datetime('now'))
+);
 """
 
 
@@ -105,6 +118,47 @@ def upsert_lot(conn: sqlite3.Connection, lot: dict) -> None:
         lot.get("source_url"),
     ))
     conn.commit()
+
+
+def upsert_artist_profile(conn: sqlite3.Connection, profile: dict) -> None:
+    conn.execute("""
+        INSERT INTO artist_profiles (
+            name_key, display_name, dates, nationality, movement, movement_id,
+            bio, famous_works, lesser_known_works, updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+        ON CONFLICT(name_key) DO UPDATE SET
+            display_name       = excluded.display_name,
+            dates              = excluded.dates,
+            nationality        = excluded.nationality,
+            movement           = excluded.movement,
+            movement_id        = excluded.movement_id,
+            bio                = excluded.bio,
+            famous_works       = excluded.famous_works,
+            lesser_known_works = excluded.lesser_known_works,
+            updated_at         = excluded.updated_at
+    """, (
+        profile["name_key"],
+        profile["display_name"],
+        profile.get("dates"),
+        profile.get("nationality"),
+        profile.get("movement"),
+        profile.get("movement_id"),
+        profile.get("bio"),
+        json.dumps(profile.get("famous_works") or []),
+        json.dumps(profile.get("lesser_known_works") or []),
+    ))
+    conn.commit()
+
+
+def all_artist_profiles(conn: sqlite3.Connection) -> dict[str, dict]:
+    rows = conn.execute("SELECT * FROM artist_profiles").fetchall()
+    result = {}
+    for row in rows:
+        d = dict(row)
+        d["famous_works"]       = json.loads(d.get("famous_works") or "[]")
+        d["lesser_known_works"] = json.loads(d.get("lesser_known_works") or "[]")
+        result[d["name_key"]] = d
+    return result
 
 
 def all_lots(conn: sqlite3.Connection) -> list[dict]:
