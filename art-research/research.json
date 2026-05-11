@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total_lots": 307,
-    "total_artists": 192,
-    "median_hammer_usd": 151200,
-    "pct_above_estimate": 55.4,
+    "total_lots": 382,
+    "total_artists": 228,
+    "median_hammer_usd": 197650,
+    "pct_above_estimate": 53.7,
     "max_ratio": 14.7,
     "sources": [
       "Christie's",
@@ -12,6 +12,193 @@
     "generated_at": "2026-05-11"
   },
   "artists": [
+    {
+      "norm_name": "ROY LICHTENSTEIN",
+      "display_name": "Roy Lichtenstein",
+      "dates": "1923–1997",
+      "nationality": "American",
+      "movement": "Pop Art · Ben-Day Dots · Comic Book",
+      "movement_id": "pop-art",
+      "bio": "Born in New York City, Lichtenstein studied at the Art Students League before WWII service interrupted his training. After Ohio State University and teaching positions, he began in the late 1950s with Abstract Expressionist-influenced work before abruptly pivoting around 1961 to comic-book imagery. Where Warhol chose celebrity and consumer goods, Lichtenstein chose commercial printing — specifically the Ben-Day dot process used in cheap colour printing, enlarged and hand-applied to canvas. The 'romance comics' series, the war comics, the brushstroke paintings that turn the AbEx gesture into a printed cliché — all probe the distance between original and reproduction. His later work systematically parsed the history of modernism: Monet's haystacks, Picasso's cubism, Art Deco, Surrealism — each rendered in his flat, dot-screened vernacular. He produced one of the most coherent and formally rigorous bodies of work in American Pop Art and commanded premium prices throughout his career.",
+      "famous_works": [
+        {
+          "title": "Whaam!",
+          "year": "1963",
+          "notes": "A diptych reproducing a panel from DC Comics' All-American Men of War. Two metres wide. Now in the Tate Modern collection — the apotheosis of the war comic source material."
+        },
+        {
+          "title": "Drowning Girl",
+          "year": "1963",
+          "notes": "A single panel from a romance comic. The woman's thought bubble — 'I don't care! I'd rather sink — than call Brad for help!' — is the complete text. One of the most debated works in Pop Art."
+        },
+        {
+          "title": "Brushstroke",
+          "year": "1965",
+          "notes": "A large brushstroke rendered in Ben-Day dots. The gesture of action painting turned into a printed cliché — the most economical critique of Abstract Expressionism ever made."
+        },
+        {
+          "title": "Reflections on Minerva",
+          "year": "1990",
+          "notes": "From the Reflections series, where printed imagery appears to reflect in glass or mirror. Meta-commentary on the relationship between image, reproduction, and surface."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Water Lily Pond with Reflections (Study)",
+          "year": "2000–2001",
+          "notes": "A late work from the Monet Haystack series — Monet's Impressionist shimmer flattened to dots and primary colours. Art history as subject matter and formal problem simultaneously."
+        },
+        {
+          "title": "Interior with Waterlilies",
+          "year": "1991",
+          "notes": "Combines domestic interior with Monet's water-lily surface. The intersection of two pictorial traditions — modernist abstraction and decorative illusionism — made explicit."
+        },
+        {
+          "title": "The Ring",
+          "year": "1962",
+          "notes": "An early work from the romance comic period. Less reproduced than Drowning Girl but structurally important — the source material still visible through the transformation."
+        }
+      ],
+      "dataset": {
+        "lot_count": 28,
+        "total_usd": 18960100,
+        "avg_usd": 677146,
+        "total_label": "$18.96M",
+        "avg_label": "$677k",
+        "top_lot": {
+          "title": "Interior with African Mask (Study)",
+          "hammer_usd": 2200000,
+          "sale_name": "Contemporary Day Auction, NY May 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Setting Sun and Sea",
+          "ratio": 5.0
+        }
+      }
+    },
+    {
+      "norm_name": "YAYOI KUSAMA",
+      "display_name": "Yayoi Kusama",
+      "dates": "b. 1929",
+      "nationality": "Japanese",
+      "movement": "Avant-Garde · Infinity · Obsessional Art",
+      "movement_id": "contemporary",
+      "bio": "Born in Matsumoto, Nagano, Kusama experienced hallucinatory visions from childhood — flowers speaking, patterns proliferating — which she began to externalise through drawing and painting. She studied at the Kyoto Municipal School of Arts and Crafts before moving to New York in 1957 with encouragement from Georgia O'Keeffe. Her Infinity Net paintings — large canvases covered edge-to-edge with obsessive, repetitive arcs — were among the most radical abstract paintings in New York by 1960, yet she received minimal critical attention compared to her male peers. Her happenings and installation works addressed the body, sexuality, and self-annihilation with a directness that influenced Fluxus, Claes Oldenburg, and others directly. She returned to Japan in 1973, voluntarily entering a psychiatric institution in Tokyo where she has lived and worked since. The late Infinity Mirror Rooms have become cultural phenomena; her pumpkin sculptures command the largest auction prices and the longest museum queues worldwide.",
+      "famous_works": [
+        {
+          "title": "Infinity Nets",
+          "year": "1951–ongoing",
+          "notes": "The foundational series. Large canvases of repetitive arcs creating net-like patterns that extend beyond the picture plane in all directions — the earliest works in this mode predate the New York works."
+        },
+        {
+          "title": "Infinity Mirror Room — Phalli's Field",
+          "year": "1965",
+          "notes": "A room of soft sculptures of white phalli with red dots, reflected in mirrors to apparent infinity. The first Infinity Mirror Room, installed in New York. Body, compulsion, and infinity collapsed into an environment."
+        },
+        {
+          "title": "Pumpkin",
+          "year": "1994",
+          "notes": "The large yellow pumpkin covered in black dots installed on a pier in Naoshima, Japan. The most reproduced image in her late career — domesticity and monumentality fused."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Walking Piece",
+          "year": "1966",
+          "notes": "A happening in Central Park in which Kusama and participants wore polka-dot clothing and moved through the public space. Photography and performance as artistic medium before it was named."
+        },
+        {
+          "title": "Accumulation No. 1",
+          "year": "1962",
+          "notes": "An armchair upholstered entirely in white fabric soft penises. The compulsive proliferation of a single form — the logic of the Infinity Nets translated into three dimensions."
+        },
+        {
+          "title": "Dots Obsession — Infinity Mirrored Room",
+          "year": "1998",
+          "notes": "Polka-dot spheres suspended from the ceiling, reflected to infinity. Less well-known than the LED Infinity Rooms of the 2010s but formally more rigorous."
+        }
+      ],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 14486500,
+        "avg_usd": 2069500,
+        "total_label": "$14.49M",
+        "avg_label": "$2.07M",
+        "top_lot": {
+          "title": "Pumpkin (8) 南瓜（8）",
+          "hammer_usd": 6000000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "High Heels for Going to Heaven",
+          "ratio": 1.76
+        }
+      }
+    },
+    {
+      "norm_name": "ED RUSCHA",
+      "display_name": "Ed Ruscha",
+      "dates": "b. 1937",
+      "nationality": "American",
+      "movement": "Pop Art · West Coast · Language in Painting",
+      "movement_id": "pop-art",
+      "bio": "Born in Omaha and raised in Oklahoma City, Ruscha moved to Los Angeles in 1956 to study at Chouinard Art Institute (now CalArts). He worked as a commercial graphic designer while developing his art practice — a double life whose formal tension never resolved but became the content of his work. His word-and-image paintings use commercial typography and signage as pictorial language: the Standard station burning, the Hollywood sign, gas stations documented with documentary flatness. Twenty-six Gasoline Stations (1963) is among the first artists' books in the modern sense — photographs of mundane subject matter presented without commentary or hierarchy. His later atmospheric word paintings place language — 'HONK,' 'BOSS,' 'ACTUAL SIZE' — against ambiguous atmospheric grounds, activating meaning against backdrop. He remains active in Los Angeles and is the most institutionally embedded living practitioner of West Coast Pop.",
+      "famous_works": [
+        {
+          "title": "Standard Station, Amarillo, Texas",
+          "year": "1963",
+          "notes": "The Standard Oil station rendered in diagonally dramatic commercial perspective. Diagonal motion versus static architecture: American drive-through culture as formal proposition."
+        },
+        {
+          "title": "Twenty-six Gasoline Stations",
+          "year": "1963",
+          "notes": "An artist's book of 26 photographs of gas stations along Route 66. One of the founding documents of Conceptual art's use of documentary structure."
+        },
+        {
+          "title": "Large Trademark with Eight Spotlights",
+          "year": "1962",
+          "notes": "The 20th Century Fox logo rendered in monumental scale. Corporation as monument, emblem as painting."
+        },
+        {
+          "title": "OOF",
+          "year": "1962",
+          "notes": "Three letters on yellow ground. Meaning activated entirely by the reader's projection. MoMA acquired it in 1969 — the canonical word painting."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Actual Size",
+          "year": "1962",
+          "notes": "A can of Spam in the lower right corner, the words 'ACTUAL SIZE' above. The joke about painting's relationship to reality is also a formal proposition."
+        },
+        {
+          "title": "News, Mews, Pews, Brews, Stews & Dues",
+          "year": "1970",
+          "notes": "A book of colour screenprints — each a single word with suffix variation. Language as pure visual material, sound-similarity as compositional structure."
+        },
+        {
+          "title": "The Back of Hollywood",
+          "year": "1977",
+          "notes": "The Hollywood sign from behind — the mechanical infrastructure visible, the facade stripped. Los Angeles as industry of image-making, literally reversed."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 12092800,
+        "avg_usd": 1209280,
+        "total_label": "$12.09M",
+        "avg_label": "$1.21M",
+        "top_lot": {
+          "title": "That Was Then This Is Now",
+          "hammer_usd": 7500000,
+          "sale_name": "Contemporary Evening Auction, NY May 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Hollywood",
+          "ratio": 4.62
+        }
+      }
+    },
     {
       "norm_name": "HELEN FRANKENTHALER",
       "display_name": "Helen Frankenthaler",
@@ -141,70 +328,6 @@
       }
     },
     {
-      "norm_name": "ROY LICHTENSTEIN",
-      "display_name": "Roy Lichtenstein",
-      "dates": "1923–1997",
-      "nationality": "American",
-      "movement": "Pop Art · Ben-Day Dots · Comic Book",
-      "movement_id": "pop-art",
-      "bio": "Born in New York City, Lichtenstein studied at the Art Students League before WWII service interrupted his training. After Ohio State University and teaching positions, he began in the late 1950s with Abstract Expressionist-influenced work before abruptly pivoting around 1961 to comic-book imagery. Where Warhol chose celebrity and consumer goods, Lichtenstein chose commercial printing — specifically the Ben-Day dot process used in cheap colour printing, enlarged and hand-applied to canvas. The 'romance comics' series, the war comics, the brushstroke paintings that turn the AbEx gesture into a printed cliché — all probe the distance between original and reproduction. His later work systematically parsed the history of modernism: Monet's haystacks, Picasso's cubism, Art Deco, Surrealism — each rendered in his flat, dot-screened vernacular. He produced one of the most coherent and formally rigorous bodies of work in American Pop Art and commanded premium prices throughout his career.",
-      "famous_works": [
-        {
-          "title": "Whaam!",
-          "year": "1963",
-          "notes": "A diptych reproducing a panel from DC Comics' All-American Men of War. Two metres wide. Now in the Tate Modern collection — the apotheosis of the war comic source material."
-        },
-        {
-          "title": "Drowning Girl",
-          "year": "1963",
-          "notes": "A single panel from a romance comic. The woman's thought bubble — 'I don't care! I'd rather sink — than call Brad for help!' — is the complete text. One of the most debated works in Pop Art."
-        },
-        {
-          "title": "Brushstroke",
-          "year": "1965",
-          "notes": "A large brushstroke rendered in Ben-Day dots. The gesture of action painting turned into a printed cliché — the most economical critique of Abstract Expressionism ever made."
-        },
-        {
-          "title": "Reflections on Minerva",
-          "year": "1990",
-          "notes": "From the Reflections series, where printed imagery appears to reflect in glass or mirror. Meta-commentary on the relationship between image, reproduction, and surface."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Water Lily Pond with Reflections (Study)",
-          "year": "2000–2001",
-          "notes": "A late work from the Monet Haystack series — Monet's Impressionist shimmer flattened to dots and primary colours. Art history as subject matter and formal problem simultaneously."
-        },
-        {
-          "title": "Interior with Waterlilies",
-          "year": "1991",
-          "notes": "Combines domestic interior with Monet's water-lily surface. The intersection of two pictorial traditions — modernist abstraction and decorative illusionism — made explicit."
-        },
-        {
-          "title": "The Ring",
-          "year": "1962",
-          "notes": "An early work from the romance comic period. Less reproduced than Drowning Girl but structurally important — the source material still visible through the transformation."
-        }
-      ],
-      "dataset": {
-        "lot_count": 8,
-        "total_usd": 6620100,
-        "avg_usd": 827512,
-        "total_label": "$6.62M",
-        "avg_label": "$828k",
-        "top_lot": {
-          "title": "Water Lily Pond with Reflections (Study)",
-          "hammer_usd": 1600000,
-          "sale_name": "Contemporary Day Auction, NY May 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Setting Sun and Sea",
-          "ratio": 5.0
-        }
-      }
-    },
-    {
       "norm_name": "JOAN MITCHELL",
       "display_name": "Joan Mitchell",
       "dates": "1925–1992",
@@ -269,70 +392,6 @@
       }
     },
     {
-      "norm_name": "ED RUSCHA",
-      "display_name": "Ed Ruscha",
-      "dates": "b. 1937",
-      "nationality": "American",
-      "movement": "Pop Art · West Coast · Language in Painting",
-      "movement_id": "pop-art",
-      "bio": "Born in Omaha and raised in Oklahoma City, Ruscha moved to Los Angeles in 1956 to study at Chouinard Art Institute (now CalArts). He worked as a commercial graphic designer while developing his art practice — a double life whose formal tension never resolved but became the content of his work. His word-and-image paintings use commercial typography and signage as pictorial language: the Standard station burning, the Hollywood sign, gas stations documented with documentary flatness. Twenty-six Gasoline Stations (1963) is among the first artists' books in the modern sense — photographs of mundane subject matter presented without commentary or hierarchy. His later atmospheric word paintings place language — 'HONK,' 'BOSS,' 'ACTUAL SIZE' — against ambiguous atmospheric grounds, activating meaning against backdrop. He remains active in Los Angeles and is the most institutionally embedded living practitioner of West Coast Pop.",
-      "famous_works": [
-        {
-          "title": "Standard Station, Amarillo, Texas",
-          "year": "1963",
-          "notes": "The Standard Oil station rendered in diagonally dramatic commercial perspective. Diagonal motion versus static architecture: American drive-through culture as formal proposition."
-        },
-        {
-          "title": "Twenty-six Gasoline Stations",
-          "year": "1963",
-          "notes": "An artist's book of 26 photographs of gas stations along Route 66. One of the founding documents of Conceptual art's use of documentary structure."
-        },
-        {
-          "title": "Large Trademark with Eight Spotlights",
-          "year": "1962",
-          "notes": "The 20th Century Fox logo rendered in monumental scale. Corporation as monument, emblem as painting."
-        },
-        {
-          "title": "OOF",
-          "year": "1962",
-          "notes": "Three letters on yellow ground. Meaning activated entirely by the reader's projection. MoMA acquired it in 1969 — the canonical word painting."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Actual Size",
-          "year": "1962",
-          "notes": "A can of Spam in the lower right corner, the words 'ACTUAL SIZE' above. The joke about painting's relationship to reality is also a formal proposition."
-        },
-        {
-          "title": "News, Mews, Pews, Brews, Stews & Dues",
-          "year": "1970",
-          "notes": "A book of colour screenprints — each a single word with suffix variation. Language as pure visual material, sound-similarity as compositional structure."
-        },
-        {
-          "title": "The Back of Hollywood",
-          "year": "1977",
-          "notes": "The Hollywood sign from behind — the mechanical infrastructure visible, the facade stripped. Los Angeles as industry of image-making, literally reversed."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 4592800,
-        "avg_usd": 510311,
-        "total_label": "$4.59M",
-        "avg_label": "$510k",
-        "top_lot": {
-          "title": "Pattern of Lust",
-          "hammer_usd": 1562500,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Hollywood",
-          "ratio": 4.62
-        }
-      }
-    },
-    {
       "norm_name": "GEORGE CONDO",
       "display_name": "George Condo",
       "dates": "b. 1957",
@@ -375,11 +434,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 3291300,
-        "avg_usd": 822825,
-        "total_label": "$3.29M",
-        "avg_label": "$823k",
+        "lot_count": 5,
+        "total_usd": 4141300,
+        "avg_usd": 828260,
+        "total_label": "$4.14M",
+        "avg_label": "$828k",
         "top_lot": {
           "title": "Untitled (Painting Drawing 6)",
           "hammer_usd": 1804500,
@@ -447,6 +506,65 @@
         "top_ratio_lot": {
           "title": "Caribbean Tea Time",
           "ratio": 5.4
+        }
+      }
+    },
+    {
+      "norm_name": "ANDY WARHOL",
+      "display_name": "Andy Warhol",
+      "dates": "1928–1987",
+      "nationality": "American",
+      "movement": "Pop Art · Seriality · Factory",
+      "movement_id": "pop-art",
+      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
+      "famous_works": [
+        {
+          "title": "Campbell's Soup Cans",
+          "year": "1962",
+          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
+        },
+        {
+          "title": "Gold Marilyn Monroe",
+          "year": "1962",
+          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
+        },
+        {
+          "title": "Eight Elvises",
+          "year": "1963",
+          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Tunafish Disaster",
+          "year": "1963",
+          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
+        },
+        {
+          "title": "Oxidation Painting",
+          "year": "1978",
+          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
+        },
+        {
+          "title": "Shadows",
+          "year": "1978–79",
+          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 2805700,
+        "avg_usd": 467617,
+        "total_label": "$2.81M",
+        "avg_label": "$468k",
+        "top_lot": {
+          "title": "Clockwork Panda Drummer 發條熊貓鼓手",
+          "hammer_usd": 1300000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Lobster)",
+          "ratio": 3.78
         }
       }
     },
@@ -687,6 +805,124 @@
       }
     },
     {
+      "norm_name": "SAM FRANCIS",
+      "display_name": "Sam Francis",
+      "dates": "1923–1994",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Colour Field",
+      "movement_id": "abstract-expressionism",
+      "bio": "Born in San Mateo, California, Francis began painting while hospitalised for spinal tuberculosis contracted during WWII service. The enforced horizontal orientation — the ceiling above a bedridden patient — and the light filtering from above are legible in the all-white early compositions. He moved to Paris in 1950 and absorbed Monet's late water-lily paintings alongside Abstract Expressionism, producing luminous chromatic fields in which colour clusters toward the edges, leaving centres of white that appear to radiate light. He later introduced cellular blue and red grids that gave the colour a structural armature. He travelled extensively — Japan, Europe, California — and his late works engage more directly with gestural energy. He established the Lapis Press in Santa Monica in 1981, producing artist's books of considerable quality. His paintings are widely collected in Europe and Japan, where the white-field works with peripheral colour rings are among the most recognisable of all American post-war paintings.",
+      "famous_works": [
+        {
+          "title": "Untitled (Composition in Blue)",
+          "year": "1951–52",
+          "notes": "An early Paris work of almost pure blue on white — the colour field at its most atmospheric and luminous."
+        },
+        {
+          "title": "Around the Blues",
+          "year": "1957–62",
+          "notes": "A large horizontal canvas in which blue and red cells surround a central emptiness. The most structural of the colour-field works; a direct influence on Japanese Gutai artists."
+        },
+        {
+          "title": "Summer No. 1",
+          "year": "1957",
+          "notes": "Yellow and orange saturate the canvas to the edges while the centre remains open. The light emanates from the void — the most characteristic compositional logic of the mature Francis."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Whiteness of the Whale",
+          "year": "1957",
+          "notes": "Named after the Moby-Dick chapter. One of the few works with a literary title — it suits the white-field paintings better than any formal description."
+        },
+        {
+          "title": "Big Red",
+          "year": "1953",
+          "notes": "The early work of red cells on white, before the compositional logic of peripheral colour was fully established. More aggressive and less atmospheric than the mature work."
+        },
+        {
+          "title": "Shining Back",
+          "year": "1958",
+          "notes": "An almost black canvas with peripheral red and blue flares. Francis's engagement with darkness as a chromatic problem rather than an absence."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 2036520,
+        "avg_usd": 509130,
+        "total_label": "$2.04M",
+        "avg_label": "$509k",
+        "top_lot": {
+          "title": "Untitled (Triptych) 無題 （三聯作）",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 3.28
+        }
+      }
+    },
+    {
+      "norm_name": "RASHID JOHNSON",
+      "display_name": "Rashid Johnson",
+      "dates": "b. 1977",
+      "nationality": "American",
+      "movement": "Contemporary · Black American Identity",
+      "movement_id": "contemporary",
+      "bio": "Born in Chicago, Johnson studied at Columbia College Chicago and the School of the Art Institute of Chicago. He works across photography, film, painting, sculpture, and installation, using materials with specific cultural and historical resonance: shea butter, black soap, tropical plants, mirrored tiles, books, wax. His practice investigates Black American identity, the history of trauma and beauty, the relationship between the domestic and the cosmological. The Shea Butter and Wax paintings combine these materials in sgraffito-like surfaces that have both Expressionist physicality and archival reference. He has been consistently collected by major US institutions and his market has grown substantially since the mid-2010s. His films and public works extend the same investigation into temporal and environmental dimensions.",
+      "famous_works": [
+        {
+          "title": "Anxious Men",
+          "year": "2011–ongoing",
+          "notes": "Agitated male faces drawn in black wax and oil stick on mylar tiles arranged in grids. The anxiety of the title is made structural in the jagged, pressured mark-making."
+        },
+        {
+          "title": "The Hikers",
+          "year": "2016",
+          "notes": "A large mural-scale work combining books, plants, shea butter, and wax. The library and the garden as twin repositories of knowledge — the domestic archive as survival tool."
+        },
+        {
+          "title": "Cosmic Slop",
+          "year": "2013",
+          "notes": "A video installation combining music (George Clinton's 'Cosmic Slop'), texts about Black American culture, and performance. The title connects George Clinton's cosmic black aesthetic to the material world."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The New Negro Escapist Social and Athletic Club",
+          "year": "2008",
+          "notes": "A photographic series depicting a fictional 1930s social club — history as imaginative reconstruction. Johnson's engagement with the Harlem Renaissance as a model for contemporary Black cultural production."
+        },
+        {
+          "title": "Falling Man",
+          "year": "2004",
+          "notes": "A photographic self-portrait series in a Superman falling pose — the heroic posture inverted. The superhero and the falling body: agency and vulnerability in the same gesture."
+        },
+        {
+          "title": "Nubian Monument",
+          "year": "2015",
+          "notes": "A steel tower covered with tropical plants and books. The monument tradition (the column, the obelisk) claimed for Black cultural production."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1947700,
+        "avg_usd": 649233,
+        "total_label": "$1.95M",
+        "avg_label": "$649k",
+        "top_lot": {
+          "title": "Two Standing Broken Men",
+          "hammer_usd": 1450000,
+          "sale_name": "Contemporary Evening Auction, NY May 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Two Standing Broken Men",
+          "ratio": 1.45
+        }
+      }
+    },
+    {
       "norm_name": "FRANK STELLA",
       "display_name": "Frank Stella",
       "dates": "1936–2024",
@@ -801,65 +1037,6 @@
         "top_ratio_lot": {
           "title": "Fille assise à table",
           "ratio": 2.52
-        }
-      }
-    },
-    {
-      "norm_name": "ANDY WARHOL",
-      "display_name": "Andy Warhol",
-      "dates": "1928–1987",
-      "nationality": "American",
-      "movement": "Pop Art · Seriality · Factory",
-      "movement_id": "pop-art",
-      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
-      "famous_works": [
-        {
-          "title": "Campbell's Soup Cans",
-          "year": "1962",
-          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
-        },
-        {
-          "title": "Gold Marilyn Monroe",
-          "year": "1962",
-          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
-        },
-        {
-          "title": "Eight Elvises",
-          "year": "1963",
-          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Tunafish Disaster",
-          "year": "1963",
-          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
-        },
-        {
-          "title": "Oxidation Painting",
-          "year": "1978",
-          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
-        },
-        {
-          "title": "Shadows",
-          "year": "1978–79",
-          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 1505700,
-        "avg_usd": 301140,
-        "total_label": "$1.51M",
-        "avg_label": "$301k",
-        "top_lot": {
-          "title": "Jackie",
-          "hammer_usd": 630000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (Lobster)",
-          "ratio": 3.78
         }
       }
     },
@@ -1100,65 +1277,6 @@
       }
     },
     {
-      "norm_name": "SAM FRANCIS",
-      "display_name": "Sam Francis",
-      "dates": "1923–1994",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Colour Field",
-      "movement_id": "abstract-expressionism",
-      "bio": "Born in San Mateo, California, Francis began painting while hospitalised for spinal tuberculosis contracted during WWII service. The enforced horizontal orientation — the ceiling above a bedridden patient — and the light filtering from above are legible in the all-white early compositions. He moved to Paris in 1950 and absorbed Monet's late water-lily paintings alongside Abstract Expressionism, producing luminous chromatic fields in which colour clusters toward the edges, leaving centres of white that appear to radiate light. He later introduced cellular blue and red grids that gave the colour a structural armature. He travelled extensively — Japan, Europe, California — and his late works engage more directly with gestural energy. He established the Lapis Press in Santa Monica in 1981, producing artist's books of considerable quality. His paintings are widely collected in Europe and Japan, where the white-field works with peripheral colour rings are among the most recognisable of all American post-war paintings.",
-      "famous_works": [
-        {
-          "title": "Untitled (Composition in Blue)",
-          "year": "1951–52",
-          "notes": "An early Paris work of almost pure blue on white — the colour field at its most atmospheric and luminous."
-        },
-        {
-          "title": "Around the Blues",
-          "year": "1957–62",
-          "notes": "A large horizontal canvas in which blue and red cells surround a central emptiness. The most structural of the colour-field works; a direct influence on Japanese Gutai artists."
-        },
-        {
-          "title": "Summer No. 1",
-          "year": "1957",
-          "notes": "Yellow and orange saturate the canvas to the edges while the centre remains open. The light emanates from the void — the most characteristic compositional logic of the mature Francis."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Whiteness of the Whale",
-          "year": "1957",
-          "notes": "Named after the Moby-Dick chapter. One of the few works with a literary title — it suits the white-field paintings better than any formal description."
-        },
-        {
-          "title": "Big Red",
-          "year": "1953",
-          "notes": "The early work of red cells on white, before the compositional logic of peripheral colour was fully established. More aggressive and less atmospheric than the mature work."
-        },
-        {
-          "title": "Shining Back",
-          "year": "1958",
-          "notes": "An almost black canvas with peripheral red and blue flares. Francis's engagement with darkness as a chromatic problem rather than an absence."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 1136520,
-        "avg_usd": 378840,
-        "total_label": "$1.14M",
-        "avg_label": "$379k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 819000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 3.28
-        }
-      }
-    },
-    {
       "norm_name": "KAWS",
       "display_name": "KAWS",
       "dates": "b. 1974",
@@ -1273,65 +1391,6 @@
         "top_ratio_lot": {
           "title": "Archive",
           "ratio": 0.51
-        }
-      }
-    },
-    {
-      "norm_name": "YAYOI KUSAMA",
-      "display_name": "Yayoi Kusama",
-      "dates": "b. 1929",
-      "nationality": "Japanese",
-      "movement": "Avant-Garde · Infinity · Obsessional Art",
-      "movement_id": "contemporary",
-      "bio": "Born in Matsumoto, Nagano, Kusama experienced hallucinatory visions from childhood — flowers speaking, patterns proliferating — which she began to externalise through drawing and painting. She studied at the Kyoto Municipal School of Arts and Crafts before moving to New York in 1957 with encouragement from Georgia O'Keeffe. Her Infinity Net paintings — large canvases covered edge-to-edge with obsessive, repetitive arcs — were among the most radical abstract paintings in New York by 1960, yet she received minimal critical attention compared to her male peers. Her happenings and installation works addressed the body, sexuality, and self-annihilation with a directness that influenced Fluxus, Claes Oldenburg, and others directly. She returned to Japan in 1973, voluntarily entering a psychiatric institution in Tokyo where she has lived and worked since. The late Infinity Mirror Rooms have become cultural phenomena; her pumpkin sculptures command the largest auction prices and the longest museum queues worldwide.",
-      "famous_works": [
-        {
-          "title": "Infinity Nets",
-          "year": "1951–ongoing",
-          "notes": "The foundational series. Large canvases of repetitive arcs creating net-like patterns that extend beyond the picture plane in all directions — the earliest works in this mode predate the New York works."
-        },
-        {
-          "title": "Infinity Mirror Room — Phalli's Field",
-          "year": "1965",
-          "notes": "A room of soft sculptures of white phalli with red dots, reflected in mirrors to apparent infinity. The first Infinity Mirror Room, installed in New York. Body, compulsion, and infinity collapsed into an environment."
-        },
-        {
-          "title": "Pumpkin",
-          "year": "1994",
-          "notes": "The large yellow pumpkin covered in black dots installed on a pier in Naoshima, Japan. The most reproduced image in her late career — domesticity and monumentality fused."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Walking Piece",
-          "year": "1966",
-          "notes": "A happening in Central Park in which Kusama and participants wore polka-dot clothing and moved through the public space. Photography and performance as artistic medium before it was named."
-        },
-        {
-          "title": "Accumulation No. 1",
-          "year": "1962",
-          "notes": "An armchair upholstered entirely in white fabric soft penises. The compulsive proliferation of a single form — the logic of the Infinity Nets translated into three dimensions."
-        },
-        {
-          "title": "Dots Obsession — Infinity Mirrored Room",
-          "year": "1998",
-          "notes": "Polka-dot spheres suspended from the ceiling, reflected to infinity. Less well-known than the LED Infinity Rooms of the 2010s but formally more rigorous."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 1086500,
-        "avg_usd": 362167,
-        "total_label": "$1.09M",
-        "avg_label": "$362k",
-        "top_lot": {
-          "title": "High Heels for Going to Heaven",
-          "hammer_usd": 882000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "High Heels for Going to Heaven",
-          "ratio": 1.76
         }
       }
     },
@@ -1568,6 +1627,65 @@
         "top_ratio_lot": {
           "title": "Untitled (Cartoon Dog)",
           "ratio": 1.35
+        }
+      }
+    },
+    {
+      "norm_name": "SOL LEWITT",
+      "display_name": "Sol LeWitt",
+      "dates": "1928–2007",
+      "nationality": "American",
+      "movement": "Conceptual Art · Minimalism",
+      "movement_id": "minimalism",
+      "bio": "Born in Hartford, Connecticut, to Russian Jewish immigrant parents, LeWitt studied at Syracuse University and worked in the offices of I.M. Pei before finding his direction. 'Paragraphs on Conceptual Art' (1967) and 'Sentences on Conceptual Art' (1969) are the founding texts of Conceptual art's theoretical programme. The central premise: the idea of the work is the work; its physical execution is incidental. His wall drawings, beginning in 1968, are sets of written instructions that can be executed by anyone in any location — the artist provides the score, not the performance. He produced over 1,200 wall drawing instructions and thousands of artist's books. His three-dimensional structures — white cubic open lattices — propose an architecture of pure logic without function. He was enormously generous to younger artists, storing, buying, and championing work throughout his career.",
+      "famous_works": [
+        {
+          "title": "Wall Drawing #260",
+          "year": "1975",
+          "notes": "All combinations of arcs from four corners, four sides, and the centre of a square using black, grey, and white crayon on a white wall. The instruction is the work; the execution is its temporary instantiation."
+        },
+        {
+          "title": "Serial Project No. 1 (ABCD)",
+          "year": "1966",
+          "notes": "A modular structure of open and closed cubes on a grid. The systematic exhaustion of combinatorial possibilities as an artistic programme."
+        },
+        {
+          "title": "Sentences on Conceptual Art",
+          "year": "1969",
+          "notes": "A text work — 35 numbered sentences. 'Irrational thoughts should be followed absolutely and logically.' The text as the art: instructions without physical realisation."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Incomplete Open Cubes",
+          "year": "1974",
+          "notes": "122 variations of the open cube with one or more edges removed — a systematic exploration of incompleteness. The database logic as sculpture."
+        },
+        {
+          "title": "Arcs, Circles and Grids",
+          "year": "1972",
+          "notes": "A series of prints and drawings — the formal vocabulary of LeWitt's wall drawings in portable form. The grid and the arc as fundamental pictorial elements."
+        },
+        {
+          "title": "Five Towers",
+          "year": "1986",
+          "notes": "Stacked concrete blocks in different heights. LeWitt's engagement with vernacular building materials — the monument made from the most banal possible element."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 853300,
+        "avg_usd": 142217,
+        "total_label": "$853k",
+        "avg_label": "$142k",
+        "top_lot": {
+          "title": "Complex Structure in Contained Space 密閉空間中的複合結構",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Horizontal Brushstroke (More or Less)",
+          "ratio": 1.73
         }
       }
     },
@@ -1985,65 +2103,6 @@
       }
     },
     {
-      "norm_name": "SOL LEWITT",
-      "display_name": "Sol LeWitt",
-      "dates": "1928–2007",
-      "nationality": "American",
-      "movement": "Conceptual Art · Minimalism",
-      "movement_id": "minimalism",
-      "bio": "Born in Hartford, Connecticut, to Russian Jewish immigrant parents, LeWitt studied at Syracuse University and worked in the offices of I.M. Pei before finding his direction. 'Paragraphs on Conceptual Art' (1967) and 'Sentences on Conceptual Art' (1969) are the founding texts of Conceptual art's theoretical programme. The central premise: the idea of the work is the work; its physical execution is incidental. His wall drawings, beginning in 1968, are sets of written instructions that can be executed by anyone in any location — the artist provides the score, not the performance. He produced over 1,200 wall drawing instructions and thousands of artist's books. His three-dimensional structures — white cubic open lattices — propose an architecture of pure logic without function. He was enormously generous to younger artists, storing, buying, and championing work throughout his career.",
-      "famous_works": [
-        {
-          "title": "Wall Drawing #260",
-          "year": "1975",
-          "notes": "All combinations of arcs from four corners, four sides, and the centre of a square using black, grey, and white crayon on a white wall. The instruction is the work; the execution is its temporary instantiation."
-        },
-        {
-          "title": "Serial Project No. 1 (ABCD)",
-          "year": "1966",
-          "notes": "A modular structure of open and closed cubes on a grid. The systematic exhaustion of combinatorial possibilities as an artistic programme."
-        },
-        {
-          "title": "Sentences on Conceptual Art",
-          "year": "1969",
-          "notes": "A text work — 35 numbered sentences. 'Irrational thoughts should be followed absolutely and logically.' The text as the art: instructions without physical realisation."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Incomplete Open Cubes",
-          "year": "1974",
-          "notes": "122 variations of the open cube with one or more edges removed — a systematic exploration of incompleteness. The database logic as sculpture."
-        },
-        {
-          "title": "Arcs, Circles and Grids",
-          "year": "1972",
-          "notes": "A series of prints and drawings — the formal vocabulary of LeWitt's wall drawings in portable form. The grid and the arc as fundamental pictorial elements."
-        },
-        {
-          "title": "Five Towers",
-          "year": "1986",
-          "notes": "Stacked concrete blocks in different heights. LeWitt's engagement with vernacular building materials — the monument made from the most banal possible element."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 573300,
-        "avg_usd": 114660,
-        "total_label": "$573k",
-        "avg_label": "$115k",
-        "top_lot": {
-          "title": "Incomplete Open Cube 7/14",
-          "hammer_usd": 252000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Horizontal Brushstroke (More or Less)",
-          "ratio": 1.73
-        }
-      }
-    },
-    {
       "norm_name": "ROBERT LONGO",
       "display_name": "Robert Longo",
       "dates": "b. 1953",
@@ -2099,65 +2158,6 @@
         "top_ratio_lot": {
           "title": "Study of Eric",
           "ratio": 14.7
-        }
-      }
-    },
-    {
-      "norm_name": "RASHID JOHNSON",
-      "display_name": "Rashid Johnson",
-      "dates": "b. 1977",
-      "nationality": "American",
-      "movement": "Contemporary · Black American Identity",
-      "movement_id": "contemporary",
-      "bio": "Born in Chicago, Johnson studied at Columbia College Chicago and the School of the Art Institute of Chicago. He works across photography, film, painting, sculpture, and installation, using materials with specific cultural and historical resonance: shea butter, black soap, tropical plants, mirrored tiles, books, wax. His practice investigates Black American identity, the history of trauma and beauty, the relationship between the domestic and the cosmological. The Shea Butter and Wax paintings combine these materials in sgraffito-like surfaces that have both Expressionist physicality and archival reference. He has been consistently collected by major US institutions and his market has grown substantially since the mid-2010s. His films and public works extend the same investigation into temporal and environmental dimensions.",
-      "famous_works": [
-        {
-          "title": "Anxious Men",
-          "year": "2011–ongoing",
-          "notes": "Agitated male faces drawn in black wax and oil stick on mylar tiles arranged in grids. The anxiety of the title is made structural in the jagged, pressured mark-making."
-        },
-        {
-          "title": "The Hikers",
-          "year": "2016",
-          "notes": "A large mural-scale work combining books, plants, shea butter, and wax. The library and the garden as twin repositories of knowledge — the domestic archive as survival tool."
-        },
-        {
-          "title": "Cosmic Slop",
-          "year": "2013",
-          "notes": "A video installation combining music (George Clinton's 'Cosmic Slop'), texts about Black American culture, and performance. The title connects George Clinton's cosmic black aesthetic to the material world."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The New Negro Escapist Social and Athletic Club",
-          "year": "2008",
-          "notes": "A photographic series depicting a fictional 1930s social club — history as imaginative reconstruction. Johnson's engagement with the Harlem Renaissance as a model for contemporary Black cultural production."
-        },
-        {
-          "title": "Falling Man",
-          "year": "2004",
-          "notes": "A photographic self-portrait series in a Superman falling pose — the heroic posture inverted. The superhero and the falling body: agency and vulnerability in the same gesture."
-        },
-        {
-          "title": "Nubian Monument",
-          "year": "2015",
-          "notes": "A steel tower covered with tropical plants and books. The monument tradition (the column, the obelisk) claimed for Black cultural production."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 497700,
-        "avg_usd": 248850,
-        "total_label": "$498k",
-        "avg_label": "$249k",
-        "top_lot": {
-          "title": "Untitled Anxious Men",
-          "hammer_usd": 403200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled Anxious Men",
-          "ratio": 1.34
         }
       }
     },
@@ -2457,6 +2457,438 @@
       }
     },
     {
+      "norm_name": "YOSHITOMO NARA",
+      "display_name": "Yoshitomo Nara",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 5000000,
+        "avg_usd": 2500000,
+        "total_label": "$5.00M",
+        "avg_label": "$2.50M",
+        "top_lot": {
+          "title": "It's a Cold Day 寒冷的一天",
+          "hammer_usd": 3800000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "It's a Cold Day 寒冷的一天",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "ANISH KAPOOR",
+      "display_name": "Anish Kapoor",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3000000,
+        "avg_usd": 3000000,
+        "total_label": "$3.00M",
+        "avg_label": "$3.00M",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 3000000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "ZHOU CHUNYA",
+      "display_name": "Zhou Chunya",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2700000,
+        "avg_usd": 1350000,
+        "total_label": "$2.70M",
+        "avg_label": "$1.35M",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 1600000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Green Dog No. 6 綠狗 六號",
+          "ratio": 1.29
+        }
+      }
+    },
+    {
+      "norm_name": "KOHEI NAWA",
+      "display_name": "Kohei Nawa",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2660000,
+        "avg_usd": 1330000,
+        "total_label": "$2.66M",
+        "avg_label": "$1.33M",
+        "top_lot": {
+          "title": "PixCell-Bambi #15 PIXCELL系列 - 小鹿斑比15號",
+          "hammer_usd": 2400000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "PixCell-Bambi #15 PIXCELL系列 - 小鹿斑比15號",
+          "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "ADRIAN GHENIE",
+      "display_name": "Adrian Ghenie",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2650000,
+        "avg_usd": 2650000,
+        "total_label": "$2.65M",
+        "avg_label": "$2.65M",
+        "top_lot": {
+          "title": "Alpine Retreat 2",
+          "hammer_usd": 2650000,
+          "sale_name": "Contemporary Evening Auction, NY May 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Alpine Retreat 2",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "FIRENZE LAI",
+      "display_name": "Firenze Lai",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2200000,
+        "avg_usd": 2200000,
+        "total_label": "$2.20M",
+        "avg_label": "$2.20M",
+        "top_lot": {
+          "title": "Yoga Class 瑜伽課",
+          "hammer_usd": 2200000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Yoga Class 瑜伽課",
+          "ratio": 1.47
+        }
+      }
+    },
+    {
+      "norm_name": "IZUMI KATO",
+      "display_name": "Izumi Kato",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1800000,
+        "avg_usd": 900000,
+        "total_label": "$1.80M",
+        "avg_label": "$900k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 1100000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "ZHANG XIAOGANG",
+      "display_name": "Zhang Xiaogang",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1300000,
+        "avg_usd": 1300000,
+        "total_label": "$1.30M",
+        "avg_label": "$1.30M",
+        "top_lot": {
+          "title": "Amnesia and Memory 失憶與記憶",
+          "hammer_usd": 1300000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Amnesia and Memory 失憶與記憶",
+          "ratio": 1.3
+        }
+      }
+    },
+    {
+      "norm_name": "HA CHONGHYUN",
+      "display_name": "Ha Chonghyun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1200000,
+        "avg_usd": 1200000,
+        "total_label": "$1.20M",
+        "avg_label": "$1.20M",
+        "top_lot": {
+          "title": "Conjunction 20-82 接合 20－82",
+          "hammer_usd": 1200000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Conjunction 20-82 接合 20－82",
+          "ratio": 1.41
+        }
+      }
+    },
+    {
+      "norm_name": "JACK WHITTEN",
+      "display_name": "Jack Whitten",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1139000,
+        "avg_usd": 569500,
+        "total_label": "$1.14M",
+        "avg_label": "$570k",
+        "top_lot": {
+          "title": "Alpha Group III",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Alpha Group III",
+          "ratio": 1.36
+        }
+      }
+    },
+    {
+      "norm_name": "YU NISHIMURA",
+      "display_name": "Yu Nishimura",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1100000,
+        "avg_usd": 550000,
+        "total_label": "$1.10M",
+        "avg_label": "$550k",
+        "top_lot": {
+          "title": "A Car Running in the Green 穿過叢林的車子",
+          "hammer_usd": 750000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "across the place",
+          "ratio": 5.83
+        }
+      }
+    },
+    {
+      "norm_name": "BARBARA KRUGER",
+      "display_name": "Barbara Kruger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1088480,
+        "avg_usd": 362827,
+        "total_label": "$1.09M",
+        "avg_label": "$363k",
+        "top_lot": {
+          "title": "Untitled (Love for Sale)",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (War Without End)",
+          "ratio": 4.03
+        }
+      }
+    },
+    {
+      "norm_name": "ANNIE MORRIS",
+      "display_name": "Annie Morris",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 950000,
+        "avg_usd": 950000,
+        "total_label": "$950k",
+        "avg_label": "$950k",
+        "top_lot": {
+          "title": "Stack 3, Cadmium Red 堆叠 3，鎘紅",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Stack 3, Cadmium Red 堆叠 3，鎘紅",
+          "ratio": 0.63
+        }
+      }
+    },
+    {
+      "norm_name": "YUN HYONGKEUN",
+      "display_name": "Yun Hyongkeun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 950000,
+        "avg_usd": 950000,
+        "total_label": "$950k",
+        "avg_label": "$950k",
+        "top_lot": {
+          "title": "Umber-Blue 赭藍",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Umber-Blue 赭藍",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
+      "norm_name": "MEHDI GHADYANLOO",
+      "display_name": "Mehdi Ghadyanloo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 900000,
+        "avg_usd": 900000,
+        "total_label": "$900k",
+        "avg_label": "$900k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 0.78
+        }
+      }
+    },
+    {
+      "norm_name": "TRACEY EMIN",
+      "display_name": "Tracey Emin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 900000,
+        "avg_usd": 900000,
+        "total_label": "$900k",
+        "avg_label": "$900k",
+        "top_lot": {
+          "title": "I can't Believe (how much) How much I Loved You 我無法相信我曾如此(如此",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "I can't Believe (how much) How much I Loved You 我無法相信我曾如此(如此",
+          "ratio": 1.2
+        }
+      }
+    },
+    {
       "norm_name": "HENRI HAYDEN",
       "display_name": "Henri Hayden",
       "dates": "",
@@ -2511,6 +2943,60 @@
       }
     },
     {
+      "norm_name": "ZENG FANZHI",
+      "display_name": "Zeng Fanzhi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 750000,
+        "avg_usd": 750000,
+        "total_label": "$750k",
+        "avg_label": "$750k",
+        "top_lot": {
+          "title": "Idealism Drawing 理想主義繪畫",
+          "hammer_usd": 750000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Idealism Drawing 理想主義繪畫",
+          "ratio": 1.88
+        }
+      }
+    },
+    {
+      "norm_name": "MR.",
+      "display_name": "Mr.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 750000,
+        "avg_usd": 750000,
+        "total_label": "$750k",
+        "avg_label": "$750k",
+        "top_lot": {
+          "title": " Amy 艾美",
+          "hammer_usd": 750000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": " Amy 艾美",
+          "ratio": 0.64
+        }
+      }
+    },
+    {
       "norm_name": "KEN PRICE",
       "display_name": "Ken Price",
       "dates": "",
@@ -2534,6 +3020,60 @@
         "top_ratio_lot": {
           "title": "Deuce",
           "ratio": 1.71
+        }
+      }
+    },
+    {
+      "norm_name": "RHEE SEUNDJA",
+      "display_name": "Rhee Seundja",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 650000,
+        "avg_usd": 650000,
+        "total_label": "$650k",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": " Ceci s'accomplira 這將會實現",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": " Ceci s'accomplira 這將會實現",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "RITA ACKERMANN",
+      "display_name": "Rita Ackermann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 650000,
+        "avg_usd": 650000,
+        "total_label": "$650k",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": "Contours in Prime Color Field 原色領域之輪廓",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Contours in Prime Color Field 原色領域之輪廓",
+          "ratio": 0.93
         }
       }
     },
@@ -2588,6 +3128,33 @@
         "top_ratio_lot": {
           "title": "Albany VIII",
           "ratio": 1.21
+        }
+      }
+    },
+    {
+      "norm_name": "ANGEL OTERO",
+      "display_name": "Angel Otero",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 599700,
+        "avg_usd": 299850,
+        "total_label": "$600k",
+        "avg_label": "$300k",
+        "top_lot": {
+          "title": "Melude 衣服",
+          "hammer_usd": 480000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (SK-VD)",
+          "ratio": 1.2
         }
       }
     },
@@ -2673,6 +3240,33 @@
       }
     },
     {
+      "norm_name": "TAKASHI MURAKAMI",
+      "display_name": "Takashi Murakami",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 560000,
+        "avg_usd": 280000,
+        "total_label": "$560k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "Untitled (Mr. Dob - Multicolour) 無題（Mr. Dob - 彩色）",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Mr. Dob - Multicolour) 無題（Mr. Dob - 彩色）",
+          "ratio": 0.7
+        }
+      }
+    },
+    {
       "norm_name": "MICKALENE THOMAS",
       "display_name": "Mickalene Thomas",
       "dates": "",
@@ -2754,6 +3348,33 @@
       }
     },
     {
+      "norm_name": "MOHAMMED SAMI",
+      "display_name": "Mohammed Sami",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 480000,
+        "avg_usd": 480000,
+        "total_label": "$480k",
+        "avg_label": "$480k",
+        "top_lot": {
+          "title": "Poor Folk II",
+          "hammer_usd": 480000,
+          "sale_name": "Contemporary Evening Auction, NY May 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Poor Folk II",
+          "ratio": 1.2
+        }
+      }
+    },
+    {
       "norm_name": "JONAS WOOD",
       "display_name": "Jonas Wood",
       "dates": "",
@@ -2777,6 +3398,33 @@
         "top_ratio_lot": {
           "title": "GG HK NPP #1",
           "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "ETEL ADNAN",
+      "display_name": "Etel Adnan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 450000,
+        "avg_usd": 450000,
+        "total_label": "$450k",
+        "avg_label": "$450k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 450000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 0.9
         }
       }
     },
@@ -2835,33 +3483,6 @@
       }
     },
     {
-      "norm_name": "BARBARA KRUGER",
-      "display_name": "Barbara Kruger",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 438480,
-        "avg_usd": 219240,
-        "total_label": "$438k",
-        "avg_label": "$219k",
-        "top_lot": {
-          "title": "Untitled (Belief + Doubt = Sanity)",
-          "hammer_usd": 378000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (War Without End)",
-          "ratio": 4.03
-        }
-      }
-    },
-    {
       "norm_name": "LYNNE DREXLER",
       "display_name": "Lynne Drexler",
       "dates": "",
@@ -2885,6 +3506,87 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 2.52
+        }
+      }
+    },
+    {
+      "norm_name": "MINORU NOMATA",
+      "display_name": "Minoru Nomata",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 420000,
+        "avg_usd": 420000,
+        "total_label": "$420k",
+        "avg_label": "$420k",
+        "top_lot": {
+          "title": "Bourou-H 望樓－H",
+          "hammer_usd": 420000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Bourou-H 望樓－H",
+          "ratio": 3.65
+        }
+      }
+    },
+    {
+      "norm_name": "TAKESADA MATSUTANI",
+      "display_name": "Takesada Matsutani",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 420000,
+        "avg_usd": 420000,
+        "total_label": "$420k",
+        "avg_label": "$420k",
+        "top_lot": {
+          "title": "Work 66-7 作品 66-7",
+          "hammer_usd": 420000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Work 66-7 作品 66-7",
+          "ratio": 1.05
+        }
+      }
+    },
+    {
+      "norm_name": "CONRAD SHAWCROSS",
+      "display_name": "Conrad Shawcross",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 420000,
+        "avg_usd": 420000,
+        "total_label": "$420k",
+        "avg_label": "$420k",
+        "top_lot": {
+          "title": "The Dappled Light of the Sun (Study III) 陽光斑點 - 習作三",
+          "hammer_usd": 420000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "The Dappled Light of the Sun (Study III) 陽光斑點 - 習作三",
+          "ratio": 3.36
         }
       }
     },
@@ -3051,6 +3753,33 @@
       }
     },
     {
+      "norm_name": "CHANTAL JOFFE",
+      "display_name": "Chantal Joffe",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 350000,
+        "avg_usd": 350000,
+        "total_label": "$350k",
+        "avg_label": "$350k",
+        "top_lot": {
+          "title": "Purple Dress 紫色裙子",
+          "hammer_usd": 350000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Purple Dress 紫色裙子",
+          "ratio": 1.01
+        }
+      }
+    },
+    {
       "norm_name": "PETER BEARD",
       "display_name": "Peter Beard",
       "dates": "",
@@ -3074,6 +3803,33 @@
         "top_ratio_lot": {
           "title": "Lion at Night, 1984",
           "ratio": 1.09
+        }
+      }
+    },
+    {
+      "norm_name": "MARIA TANIGUCHI",
+      "display_name": "Maria Taniguchi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 310000,
+        "avg_usd": 310000,
+        "total_label": "$310k",
+        "avg_label": "$310k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 310000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 1.55
         }
       }
     },
@@ -3186,6 +3942,33 @@
       }
     },
     {
+      "norm_name": "SADAMASA MOTONAGA",
+      "display_name": "Sadamasa Motonaga",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "Vertical and Horizontal Fillet Black White 垂直與水平圓角 - 黑白",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Vertical and Horizontal Fillet Black White 垂直與水平圓角 - 黑白",
+          "ratio": 0.7
+        }
+      }
+    },
+    {
       "norm_name": "KATHARINA GROSSE",
       "display_name": "Katharina Grosse",
       "dates": "",
@@ -3236,6 +4019,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.58
+        }
+      }
+    },
+    {
+      "norm_name": "HUANG YISHAN",
+      "display_name": "Huang Yishan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 270000,
+        "avg_usd": 270000,
+        "total_label": "$270k",
+        "avg_label": "$270k",
+        "top_lot": {
+          "title": "Mirror 鏡子",
+          "hammer_usd": 270000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Mirror 鏡子",
+          "ratio": 1.08
         }
       }
     },
@@ -3294,6 +4104,87 @@
       }
     },
     {
+      "norm_name": "JI XIN",
+      "display_name": "Ji Xin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 260000,
+        "avg_usd": 260000,
+        "total_label": "$260k",
+        "avg_label": "$260k",
+        "top_lot": {
+          "title": "Portrait of a Young Woman 少女肖像",
+          "hammer_usd": 260000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of a Young Woman 少女肖像",
+          "ratio": 1.86
+        }
+      }
+    },
+    {
+      "norm_name": "QIN QI",
+      "display_name": "Qin Qi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 260000,
+        "avg_usd": 260000,
+        "total_label": "$260k",
+        "avg_label": "$260k",
+        "top_lot": {
+          "title": "Backyard Fire 後院之火",
+          "hammer_usd": 260000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Backyard Fire 後院之火",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "YUAN YUAN",
+      "display_name": "Yuan Yuan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 260000,
+        "avg_usd": 260000,
+        "total_label": "$260k",
+        "avg_label": "$260k",
+        "top_lot": {
+          "title": "The Circular Ruins 環形廢墟",
+          "hammer_usd": 260000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "The Circular Ruins 環形廢墟",
+          "ratio": 0.74
+        }
+      }
+    },
+    {
       "norm_name": "SALMAN TOOR",
       "display_name": "Salman Toor",
       "dates": "",
@@ -3321,6 +4212,33 @@
       }
     },
     {
+      "norm_name": "DANIELLE MCKINNEY",
+      "display_name": "Danielle Mckinney",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 250000,
+        "avg_usd": 250000,
+        "total_label": "$250k",
+        "avg_label": "$250k",
+        "top_lot": {
+          "title": "Stand Still",
+          "hammer_usd": 250000,
+          "sale_name": "Contemporary Evening Auction, NY May 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Stand Still",
+          "ratio": 5.0
+        }
+      }
+    },
+    {
       "norm_name": "GÜNTHER FÖRG",
       "display_name": "Günther Förg",
       "dates": "",
@@ -3344,6 +4262,60 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 2.34
+        }
+      }
+    },
+    {
+      "norm_name": "KEI IMAZU",
+      "display_name": "Kei Imazu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 240000,
+        "avg_usd": 240000,
+        "total_label": "$240k",
+        "avg_label": "$240k",
+        "top_lot": {
+          "title": "Hug 擁抱",
+          "hammer_usd": 240000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Hug 擁抱",
+          "ratio": 1.07
+        }
+      }
+    },
+    {
+      "norm_name": "INVADER",
+      "display_name": "Invader",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 240000,
+        "avg_usd": 240000,
+        "total_label": "$240k",
+        "avg_label": "$240k",
+        "top_lot": {
+          "title": "Radiant, Apple, Space 光芒四射，蘋果，宇宙",
+          "hammer_usd": 240000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Radiant, Apple, Space 光芒四射，蘋果，宇宙",
+          "ratio": 0.8
         }
       }
     },
@@ -3699,33 +4671,6 @@
       }
     },
     {
-      "norm_name": "JACK WHITTEN",
-      "display_name": "Jack Whitten",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 189000,
-        "avg_usd": 189000,
-        "total_label": "$189k",
-        "avg_label": "$189k",
-        "top_lot": {
-          "title": "82°F (27.777C) #II",
-          "hammer_usd": 189000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "82°F (27.777C) #II",
-          "ratio": 1.08
-        }
-      }
-    },
-    {
       "norm_name": "AL HELD",
       "display_name": "Al Held",
       "dates": "",
@@ -4019,6 +4964,60 @@
         "top_ratio_lot": {
           "title": "Composition",
           "ratio": 1.28
+        }
+      }
+    },
+    {
+      "norm_name": "LIU YE",
+      "display_name": "Liu Ye",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 160000,
+        "avg_usd": 160000,
+        "total_label": "$160k",
+        "avg_label": "$160k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 160000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 0.53
+        }
+      }
+    },
+    {
+      "norm_name": "ERNST YOHJI JÄGER",
+      "display_name": "Ernst Yohji Jäger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 160000,
+        "avg_usd": 160000,
+        "total_label": "$160k",
+        "avg_label": "$160k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 160000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.29
         }
       }
     },
@@ -4424,33 +5423,6 @@
         "top_ratio_lot": {
           "title": "Baigneuses dansantes",
           "ratio": 0.96
-        }
-      }
-    },
-    {
-      "norm_name": "ANGEL OTERO",
-      "display_name": "Angel Otero",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 119700,
-        "avg_usd": 119700,
-        "total_label": "$120k",
-        "avg_label": "$120k",
-        "top_lot": {
-          "title": "Untitled (SK-VD)",
-          "hammer_usd": 119700,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (SK-VD)",
-          "ratio": 1.2
         }
       }
     },
