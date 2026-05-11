@@ -429,6 +429,12 @@ fetch("catalogue.json")
         ALL_LOTS = lots;
         initStats(lots);
         bindControls();
+        const presetArtist = new URLSearchParams(location.search).get('artist');
+        if (presetArtist) {
+            const input = document.getElementById('searchInput');
+            input.value = presetArtist;
+            state.q = presetArtist.trim();
+        }
         render();
     })
     .catch(() => {

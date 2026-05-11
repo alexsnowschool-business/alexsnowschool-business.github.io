@@ -8,6 +8,7 @@ dependencies = [
     "tqdm>=4.66",
     "playwright>=1.40",
     "scrapling[fetchers]>=0.2",
+    "anthropic>=0.40",
 ]
 
 [tool.uv]

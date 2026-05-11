@@ -65,11 +65,16 @@ function buildWorksHtml(works, label) {
     if (!works || works.length === 0) return '';
     const items = works.map(w => `
         <li class="works-list__item">
-            <div class="works-list__title-row">
-                <span class="works-list__title">${w.title}</span>
-                <span class="works-list__year">${w.year}</span>
+            <a class="works-list__thumb-link" href="https://en.wikipedia.org/wiki/${encodeURIComponent(w.title)}" target="_blank" rel="noopener">
+                <img class="works-list__thumb" data-wiki-title="${w.title}" alt="${w.title}" />
+            </a>
+            <div class="works-list__item-text">
+                <div class="works-list__title-row">
+                    <span class="works-list__title">${w.title}</span>
+                    <span class="works-list__year">${w.year}</span>
+                </div>
+                <span class="works-list__notes">${w.notes}</span>
             </div>
-            <span class="works-list__notes">${w.notes}</span>
         </li>`).join('');
     return `
         <div class="artist-works__section">
@@ -96,6 +101,7 @@ function buildArtistCard(artist, index) {
                <span class="artist-dataset-label">Dataset</span>
                <span class="artist-dataset-value">${dataset.total_label} total · ${dataset.avg_label} avg · ${lotLabel}</span>
                ${dataset.top_lot ? `<span class="artist-dataset-top">Top lot: <em>${dataset.top_lot.title}</em> — ${fmtUSD(dataset.top_lot.hammer_usd)}</span>` : ''}
+               <a class="artist-archive-link" href="../art-archive/?artist=${encodeURIComponent(display_name)}" target="_blank" rel="noopener">View lots in catalogue →</a>
            </div>`
         : `<p class="artist-stub-note">Auction data only — no biographical profile for this artist yet.</p>`;
 
@@ -128,6 +134,37 @@ function buildArtistCard(artist, index) {
             </div>
         </div>
     </div>`;
+}
+
+async function fetchWikiThumb(title, artistName) {
+    const tryQuery = async (query) => {
+        try {
+            const res = await fetch(
+                `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`
+            );
+            if (!res.ok) return null;
+            const data = await res.json();
+            return data.thumbnail?.source || null;
+        } catch { return null; }
+    };
+    return await tryQuery(title) || await tryQuery(`${title} (${artistName})`);
+}
+
+async function loadArtworkImages(card) {
+    const artistName = card.querySelector('.artist-name')?.textContent?.trim() || '';
+    const thumbEls = [...card.querySelectorAll('.works-list__thumb[data-wiki-title]')]
+        .filter(img => !img.dataset.loaded);
+
+    await Promise.all(thumbEls.map(async img => {
+        img.dataset.loaded = '1';
+        const src = await fetchWikiThumb(img.dataset.wikiTitle, artistName);
+        if (src) {
+            img.src = src;
+            img.classList.add('works-list__thumb--visible');
+        } else {
+            img.closest('.works-list__item').classList.add('works-list__item--no-thumb');
+        }
+    }));
 }
 
 function wireFilters() {
@@ -163,6 +200,7 @@ function wireFilters() {
         const card = header.closest('.artist-card');
         const isOpen = card.classList.toggle('artist-card--open');
         header.setAttribute('aria-expanded', isOpen);
+        if (isOpen) loadArtworkImages(card);
     });
 }
 
