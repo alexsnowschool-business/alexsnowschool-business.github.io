@@ -401,7 +401,7 @@ async def _scrape_sale(
         await asyncio.sleep(0.3)
 
 
-async def scrape(max_lots: int = 300, sale_starts: list[tuple] | None = None) -> None:
+async def scrape(max_lots: int = 50, sale_starts: list[tuple] | None = None) -> None:
     if sale_starts is None:
         sale_starts = SALE_STARTS
 
@@ -427,6 +427,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Scrape sold art lots from Sotheby's (GraphQL + per-lot page fetch)"
     )
-    parser.add_argument("--max-lots", type=int, default=300)
+    parser.add_argument("--max-lots", type=int, default=50)
     args = parser.parse_args()
     asyncio.run(scrape(max_lots=args.max_lots))

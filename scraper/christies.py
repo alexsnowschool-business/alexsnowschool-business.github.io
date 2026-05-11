@@ -359,6 +359,6 @@ async def scrape(max_lots: int = 300, sale_starts: list[tuple] | None = None) ->
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrape sold art lots from Christie's")
-    parser.add_argument("--max-lots", type=int, default=300)
+    parser.add_argument("--max-lots", type=int, default=50)
     args = parser.parse_args()
     asyncio.run(scrape(max_lots=args.max_lots))
