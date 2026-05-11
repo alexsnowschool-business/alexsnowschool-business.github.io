@@ -338,15 +338,21 @@
             <div class="section-tag">Part III</div>
             <h2 class="section-title">Artists in the Dataset</h2>
             <p class="section-desc" id="artistsDesc">Profiles drawn from the auction dataset — biography, key works, and market performance. Updated weekly from the live database. All prices are hammer in USD.</p>
-            <div class="movement-filter" id="movementFilter">
-                <button class="movement-btn active" data-movement="all">All</button>
-                <button class="movement-btn" data-movement="abstract-expressionism">Abstract Expressionism</button>
-                <button class="movement-btn" data-movement="pop-art">Pop Art</button>
-                <button class="movement-btn" data-movement="modernism">Modernism</button>
-                <button class="movement-btn" data-movement="impressionism">Impressionism</button>
-                <button class="movement-btn" data-movement="minimalism">Minimalism</button>
-                <button class="movement-btn" data-movement="contemporary">Contemporary</button>
-                <button class="movement-btn" data-movement="expressionism">Expressionism</button>
+            <div class="artists-filter-row">
+                <div class="movement-filter" id="movementFilter">
+                    <button class="movement-btn active" data-movement="all">All</button>
+                    <button class="movement-btn" data-movement="abstract-expressionism">Abstract Expressionism</button>
+                    <button class="movement-btn" data-movement="pop-art">Pop Art</button>
+                    <button class="movement-btn" data-movement="modernism">Modernism</button>
+                    <button class="movement-btn" data-movement="impressionism">Impressionism</button>
+                    <button class="movement-btn" data-movement="minimalism">Minimalism</button>
+                    <button class="movement-btn" data-movement="contemporary">Contemporary</button>
+                    <button class="movement-btn" data-movement="expressionism">Expressionism</button>
+                </div>
+                <div class="artist-search-wrap">
+                    <input type="search" id="artistSearch" class="artist-search"
+                           placeholder="Search artist…" autocomplete="off" spellcheck="false" />
+                </div>
             </div>
         </div>
 

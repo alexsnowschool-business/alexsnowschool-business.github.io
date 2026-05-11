@@ -96,6 +96,7 @@ function buildArtistCard(artist, index) {
 
     return `<div class="artist-card reveal${bio ? '' : ' artist-card--stub'}"
                  data-movement="${movement_id}"
+                 data-name="${display_name.toLowerCase()}"
                  style="transition-delay:${delay}s">
         <div class="artist-movement">${movement || 'Contemporary'}</div>
         <div class="artist-name">${display_name}</div>
@@ -109,21 +110,31 @@ function buildArtistCard(artist, index) {
     </div>`;
 }
 
-function wireMovementFilter() {
-    const btns = document.querySelectorAll('.movement-btn');
-    const grid = document.getElementById('artistsGrid');
+function wireFilters() {
+    const btns        = document.querySelectorAll('.movement-btn');
+    const searchInput = document.getElementById('artistSearch');
+    const grid        = document.getElementById('artistsGrid');
+
+    function applyFilters() {
+        const movement = document.querySelector('.movement-btn.active')?.dataset.movement || 'all';
+        const query    = (searchInput?.value || '').trim().toLowerCase();
+
+        grid.querySelectorAll('.artist-card').forEach(card => {
+            const matchMovement = movement === 'all' || card.dataset.movement === movement;
+            const matchName     = !query || card.dataset.name.includes(query);
+            card.classList.toggle('hidden', !(matchMovement && matchName));
+        });
+    }
 
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
             btns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            const filter = btn.dataset.movement;
-            grid.querySelectorAll('.artist-card').forEach(card => {
-                const show = filter === 'all' || card.dataset.movement === filter;
-                card.classList.toggle('hidden', !show);
-            });
+            applyFilters();
         });
     });
+
+    searchInput?.addEventListener('input', applyFilters);
 }
 
 async function loadResearch() {
@@ -169,7 +180,7 @@ async function loadResearch() {
     // Observe new cards
     grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    wireMovementFilter();
+    wireFilters();
 }
 
 loadResearch();
