@@ -65,8 +65,10 @@ function buildWorksHtml(works, label) {
     if (!works || works.length === 0) return '';
     const items = works.map(w => `
         <li class="works-list__item">
-            <span class="works-list__title">${w.title}</span
-            ><span class="works-list__year">${w.year}</span>
+            <div class="works-list__title-row">
+                <span class="works-list__title">${w.title}</span>
+                <span class="works-list__year">${w.year}</span>
+            </div>
             <span class="works-list__notes">${w.notes}</span>
         </li>`).join('');
     return `
@@ -83,29 +85,47 @@ function buildArtistCard(artist, index) {
     const datesNat = [dates, nationality].filter(Boolean).join(' · ');
     const lotLabel = `${dataset.lot_count} lot${dataset.lot_count !== 1 ? 's' : ''}`;
     const perfLabel = dataset.total_usd
-        ? `${dataset.total_label} total · ${dataset.avg_label} avg`
-        : 'In dataset';
+        ? `${dataset.total_label} · ${lotLabel}`
+        : `${lotLabel}`;
 
-    const worksHtml = bio ? `
-        <div class="artist-works">
-            ${buildWorksHtml(famous_works, 'Famous Works')}
-            ${buildWorksHtml(lesser_known_works, 'Lesser-Known Works')}
-        </div>` : '';
+    const bodyContent = bio
+        ? `<p class="artist-bio">${bio}</p>
+           ${buildWorksHtml(famous_works, 'Famous Works')}
+           ${buildWorksHtml(lesser_known_works, 'Lesser-Known Works')}
+           <div class="artist-dataset-row">
+               <span class="artist-dataset-label">Dataset</span>
+               <span class="artist-dataset-value">${dataset.total_label} total · ${dataset.avg_label} avg · ${lotLabel}</span>
+               ${dataset.top_lot ? `<span class="artist-dataset-top">Top lot: <em>${dataset.top_lot.title}</em> — ${fmtUSD(dataset.top_lot.hammer_usd)}</span>` : ''}
+           </div>`
+        : `<p class="artist-stub-note">Auction data only — no biographical profile for this artist yet.</p>`;
 
-    const delay = (index % 3) * 0.07;
+    const toggleIcon = `<svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+    </svg>`;
+
+    const delay = (index % 4) * 0.05;
 
     return `<div class="artist-card reveal${bio ? '' : ' artist-card--stub'}"
                  data-movement="${movement_id}"
                  data-name="${display_name.toLowerCase()}"
                  style="transition-delay:${delay}s">
-        <div class="artist-movement">${movement || 'Contemporary'}</div>
-        <div class="artist-name">${display_name}</div>
-        ${datesNat ? `<div class="artist-dates">${datesNat}</div>` : ''}
-        ${bio ? `<p class="artist-bio">${bio}</p>` : ''}
-        ${worksHtml}
-        <div class="artist-auction">
-            <div class="artist-auction-label">Dataset — ${lotLabel}</div>
-            <div class="artist-auction-value">${perfLabel}</div>
+        <button class="artist-card__header" aria-expanded="false">
+            <div class="artist-card__header-left">
+                <span class="artist-movement">${movement || 'Contemporary'}</span>
+                <span class="artist-name">${display_name}</span>
+            </div>
+            <div class="artist-card__header-right">
+                ${datesNat ? `<span class="artist-dates">${datesNat}</span>` : ''}
+                <span class="artist-auction-value">${perfLabel}</span>
+                <span class="artist-card__toggle">${toggleIcon}</span>
+            </div>
+        </button>
+        <div class="artist-card__body">
+            <div class="artist-card__body-inner">
+                <div class="artist-card__body-content">
+                    ${bodyContent}
+                </div>
+            </div>
         </div>
     </div>`;
 }
@@ -135,6 +155,15 @@ function wireFilters() {
     });
 
     searchInput?.addEventListener('input', applyFilters);
+
+    // Accordion toggles — delegate from grid
+    grid.addEventListener('click', e => {
+        const header = e.target.closest('.artist-card__header');
+        if (!header) return;
+        const card = header.closest('.artist-card');
+        const isOpen = card.classList.toggle('artist-card--open');
+        header.setAttribute('aria-expanded', isOpen);
+    });
 }
 
 async function loadResearch() {

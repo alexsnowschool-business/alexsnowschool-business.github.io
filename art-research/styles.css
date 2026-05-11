@@ -602,101 +602,16 @@ section { padding: 120px 0; }
     border-color: var(--slate);
 }
 
+/* ── ARTIST ACCORDION LIST ──────────── */
+
 .artists-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--rule);
-}
-
-.artist-card {
-    background: var(--ivory-card);
-    padding: 28px 32px;
-    transition: background var(--transition);
-    cursor: default;
-}
-
-.artist-card:hover {
-    background: var(--ivory-pure);
-}
-
-.artist-card.hidden {
-    display: none;
-}
-
-.artist-movement {
-    font-family: var(--font-sans);
-    font-size: 0.56rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-}
-
-.artist-name {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--slate);
-    margin-bottom: 4px;
-    line-height: 1.3;
-}
-
-.artist-dates {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 300;
-    color: var(--stone-light);
-    margin-bottom: 14px;
-    letter-spacing: 0.08em;
-}
-
-.artist-bio {
-    font-family: var(--font-sans);
-    font-size: 0.86rem;
-    font-weight: 300;
-    color: var(--slate-soft);
-    line-height: 1.85;
-    margin-bottom: 16px;
-}
-
-.artist-auction {
-    border-top: 1px solid var(--rule);
-    padding-top: 14px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-}
-
-.artist-auction-label {
-    font-family: var(--font-sans);
-    font-size: 0.58rem;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--stone-light);
-}
-
-.artist-auction-value {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--gold);
-}
-
-.artist-card--stub .artist-movement {
-    color: var(--stone);
-}
-
-.artist-card--stub .artist-name {
-    font-size: 1.0rem;
+    border-top: 1px solid var(--rule);
 }
 
 .artists-loading {
-    grid-column: 1 / -1;
-    padding: 64px;
+    padding: 64px 0;
     text-align: center;
     font-family: var(--font-sans);
     font-size: 0.72rem;
@@ -705,65 +620,201 @@ section { padding: 120px 0; }
     color: var(--stone-light);
 }
 
-/* ── WORKS LISTS ────────────────────── */
+.artist-card {
+    border-bottom: 1px solid var(--rule);
+    transition: background var(--transition);
+}
 
-.artist-works {
-    margin-bottom: 16px;
+.artist-card.hidden { display: none; }
+
+.artist-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition);
+}
+
+.artist-card__header:hover { background: none; }
+.artist-card--open .artist-card__header { padding-bottom: 16px; }
+
+.artist-card__header-left {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
 }
 
-.artist-works__section {
-    border-top: 1px solid var(--rule);
-    padding-top: 12px;
+.artist-card__header-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-shrink: 0;
 }
+
+.artist-movement {
+    font-family: var(--font-sans);
+    font-size: 0.54rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.artist-card--stub .artist-movement { color: var(--stone-light); }
+
+.artist-name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--slate);
+    line-height: 1.2;
+}
+
+.artist-card--stub .artist-name {
+    font-size: 1.0rem;
+    color: var(--slate-soft);
+}
+
+.artist-dates {
+    font-family: var(--font-sans);
+    font-size: 0.60rem;
+    font-weight: 300;
+    color: var(--stone-light);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.artist-auction-value {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+.artist-card--stub .artist-auction-value { color: var(--stone); }
+
+.artist-card__toggle {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--stone-light);
+    transition: transform var(--transition), color var(--transition);
+}
+
+.artist-card__toggle svg {
+    width: 10px;
+    height: 10px;
+    transition: transform var(--transition);
+}
+
+.artist-card--open .artist-card__toggle svg {
+    transform: rotate(45deg);
+}
+
+.artist-card--open .artist-card__toggle { color: var(--slate); }
+
+/* Accordion body — animates via grid-template-rows */
+.artist-card__body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artist-card--open .artist-card__body {
+    grid-template-rows: 1fr;
+}
+
+.artist-card__body-inner {
+    overflow: hidden;
+}
+
+.artist-card__body-content {
+    padding-bottom: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 56px;
+}
+
+.artist-bio {
+    font-family: var(--font-sans);
+    font-size: 0.90rem;
+    font-weight: 300;
+    color: var(--slate-soft);
+    line-height: 1.9;
+    grid-column: 1 / -1;
+}
+
+.artist-stub-note {
+    font-family: var(--font-sans);
+    font-size: 0.80rem;
+    font-weight: 300;
+    color: var(--stone-light);
+    font-style: italic;
+    grid-column: 1 / -1;
+    padding: 8px 0;
+}
+
+/* ── WORKS LISTS ────────────────────── */
+
+.artist-works__section { display: flex; flex-direction: column; gap: 12px; }
 
 .artist-works__label {
     font-family: var(--font-sans);
-    font-size: 0.58rem;
-    font-weight: 400;
-    letter-spacing: 0.18em;
+    font-size: 0.56rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--stone-light);
-    margin-bottom: 10px;
+    color: var(--gold-muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule-gold);
 }
 
 .works-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
 }
 
-.works-list__item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    gap: 2px 12px;
+.works-list__item { display: flex; flex-direction: column; gap: 3px; }
+
+.works-list__title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .works-list__title {
     font-family: var(--font-serif);
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     font-weight: 400;
     font-style: italic;
     color: var(--slate);
     line-height: 1.4;
-    grid-column: 1;
-    grid-row: 1;
 }
 
 .works-list__year {
     font-family: var(--font-sans);
-    font-size: 0.60rem;
+    font-size: 0.58rem;
     font-weight: 300;
     color: var(--stone-light);
     letter-spacing: 0.06em;
-    grid-column: 2;
-    grid-row: 1;
     white-space: nowrap;
-    align-self: center;
+    flex-shrink: 0;
 }
 
 .works-list__notes {
@@ -772,8 +823,40 @@ section { padding: 120px 0; }
     font-weight: 300;
     color: var(--stone);
     line-height: 1.75;
+}
+
+.artist-dataset-row {
     grid-column: 1 / -1;
-    grid-row: 2;
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 20px;
+}
+
+.artist-dataset-label {
+    font-family: var(--font-sans);
+    font-size: 0.56rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+}
+
+.artist-dataset-value {
+    font-family: var(--font-serif);
+    font-size: 1.0rem;
+    font-weight: 300;
+    color: var(--gold);
+}
+
+.artist-dataset-top {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--stone);
+    width: 100%;
 }
 
 /* ── MARKET SECTION ─────────────────── */
@@ -1009,7 +1092,6 @@ footer {
 @media (max-width: 900px) {
     .hero-content { grid-template-columns: 1fr; gap: 48px; }
     .thinker-grid { grid-template-columns: 1fr; }
-    .artists-grid { grid-template-columns: 1fr 1fr; }
     .insight-grid { grid-template-columns: 1fr; }
     .market-data-row { grid-template-columns: 1fr 1fr; }
     .links-row { grid-template-columns: 1fr; }
@@ -1019,12 +1101,16 @@ footer {
     .timeline-content { padding: 0 0 40px; border-left: 2px solid var(--gold); padding-left: 24px; }
     .timeline-spacer { display: none; }
     .nav-links { display: none; }
+    .artist-card__header-right { gap: 16px; }
+    .artist-dates { display: none; }
+    .artist-card__body-content { grid-template-columns: 1fr; gap: 24px; }
 }
 
 @media (max-width: 600px) {
-    .artists-grid { grid-template-columns: 1fr; }
     .market-data-row { grid-template-columns: 1fr 1fr; }
     .container { padding: 0 24px; }
     .nav-inner { padding: 0 24px; }
     section { padding: 80px 0; }
+    .artist-auction-value { display: none; }
+    .artist-search { width: 100%; }
 }
