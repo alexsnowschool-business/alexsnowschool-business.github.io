@@ -53,10 +53,22 @@ _GQL_HEADERS = {**_HEADERS, "Content-Type": "application/json", "Accept": "appli
 # These are PAST completed sales with sold lots confirmed.
 # Browse and add more at: https://www.sothebys.com/en/series/the-new-york-sales
 SALE_STARTS: list[tuple[str, str]] = [
-    ("2025/contemporary-day-auction", "Contemporary Day Auction, NY May 2025"),
-    ("2024/contemporary-day-auction", "Contemporary Day Auction, NY April 2024"),
-    ("2024/modern-day-auction",       "Modern Day Auction, NY April 2024"),
-    ("2024/modern-evening-auction",   "Modern Evening Auction, NY April 2024"),
+    ("2025/contemporary-evening-auction",           "Contemporary Evening Auction, NY May 2025"),
+    ("2025/contemporary-day-auction",               "Contemporary Day Auction, NY May 2025"),
+    ("2025/modern-evening-auction",                 "Modern Evening Auction, NY May 2025"),
+    ("2025/modern-day-auction",                     "Modern Day Auction, NY May 2025"),
+    ("2024/contemporary-evening-auction",           "Contemporary Evening Auction, NY Nov 2024"),
+    ("2024/contemporary-day-auction",               "Contemporary Day Auction, NY April 2024"),
+    ("2024/modern-evening-auction",                 "Modern Evening Auction, NY April 2024"),
+    ("2024/modern-day-auction",                     "Modern Day Auction, NY April 2024"),
+    ("2024/impressionist-modern-art-day-auction",   "Impressionist & Modern Art Day, NY 2024"),
+    ("2024/impressionist-modern-art-evening-sale",  "Impressionist & Modern Art Evening, NY 2024"),
+    ("2023/contemporary-evening-auction",           "Contemporary Evening Auction, NY Nov 2023"),
+    ("2023/contemporary-day-auction",               "Contemporary Day Auction, NY 2023"),
+    ("2023/modern-evening-auction",                 "Modern Evening Auction, NY 2023"),
+    ("2023/modern-day-auction",                     "Modern Day Auction, NY 2023"),
+    ("2023/impressionist-modern-art-day-auction",   "Impressionist & Modern Art Day, NY 2023"),
+    ("2023/impressionist-modern-art-evening-sale",  "Impressionist & Modern Art Evening, NY 2023"),
 ]
 
 _NON_ART_BLOCKLIST = re.compile(
@@ -320,6 +332,7 @@ async def _scrape_sale(
     max_lots: int,
     pbar,
     saved_ref: list[int],
+    skipped_ref: list[int],
 ) -> None:
     tqdm.write(f"\nResolving: {sale_slug}")
     auction_id = await _resolve_auction_id(client, sale_slug)
@@ -344,6 +357,8 @@ async def _scrape_sale(
             if not raw.get("sold"):
                 continue
             if lot_exists(conn, lot_id, AUCTION_HOUSE):
+                skipped_ref[0] += 1
+                pbar.set_postfix(saved=saved_ref[0], existing=skipped_ref[0])
                 continue
 
             lot_url = raw.get("url") or ""
@@ -366,6 +381,7 @@ async def _scrape_sale(
             upsert_lot(conn, lot)
             saved_ref[0] += 1
             pbar.update(1)
+            pbar.set_postfix(saved=saved_ref[0], existing=skipped_ref[0])
             price = f"${lot['hammer_usd']:,.0f}" if lot.get("hammer_usd") else "—"
             tqdm.write(f"  saved: {lot['artist']} — {(lot['title'] or '')[:40]} ({price})")
             await asyncio.sleep(0.5)
@@ -380,8 +396,9 @@ async def scrape(max_lots: int = 300, sale_starts: list[tuple] | None = None) ->
     if sale_starts is None:
         sale_starts = SALE_STARTS
 
-    conn      = connect()
-    saved_ref = [0]
+    conn         = connect()
+    saved_ref    = [0]
+    skipped_ref  = [0]
 
     async with httpx.AsyncClient(headers=_HEADERS, follow_redirects=True) as client:
         with tqdm(total=max_lots, desc="Lots") as pbar:
@@ -390,11 +407,11 @@ async def scrape(max_lots: int = 300, sale_starts: list[tuple] | None = None) ->
                     break
                 await _scrape_sale(
                     client, conn, sale_slug, sale_name,
-                    max_lots, pbar, saved_ref,
+                    max_lots, pbar, saved_ref, skipped_ref,
                 )
 
     conn.close()
-    print(f"\nDone — {saved_ref[0]} Sotheby's art lots saved")
+    print(f"\nDone — {saved_ref[0]} new Sotheby's art lots saved ({skipped_ref[0]} already in DB)")
 
 
 if __name__ == "__main__":
