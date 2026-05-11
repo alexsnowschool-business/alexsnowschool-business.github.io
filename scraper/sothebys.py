@@ -49,27 +49,25 @@ _HEADERS = {
 
 _GQL_HEADERS = {**_HEADERS, "Content-Type": "application/json", "Accept": "application/json"}
 
-# (sale_slug, sale_name_hint)
-# These are PAST completed sales with sold lots confirmed.
-# Browse and add more at: https://www.sothebys.com/en/series/the-new-york-sales
-SALE_STARTS: list[tuple[str, str]] = [
-    ("2025/contemporary-evening-auction",           "Contemporary Evening Auction, NY May 2025"),
-    ("2025/contemporary-day-auction",               "Contemporary Day Auction, NY May 2025"),
-    ("2025/modern-evening-auction",                 "Modern Evening Auction, NY May 2025"),
-    ("2025/modern-day-auction",                     "Modern Day Auction, NY May 2025"),
-    ("2024/contemporary-evening-auction",           "Contemporary Evening Auction, NY Nov 2024"),
-    ("2024/contemporary-day-auction",               "Contemporary Day Auction, NY April 2024"),
-    ("2024/modern-evening-auction",                 "Modern Evening Auction, NY April 2024"),
-    ("2024/modern-day-auction",                     "Modern Day Auction, NY April 2024"),
-    ("2024/impressionist-modern-art-day-auction",   "Impressionist & Modern Art Day, NY 2024"),
-    ("2024/impressionist-modern-art-evening-sale",  "Impressionist & Modern Art Evening, NY 2024"),
-    ("2023/contemporary-evening-auction",           "Contemporary Evening Auction, NY Nov 2023"),
-    ("2023/contemporary-day-auction",               "Contemporary Day Auction, NY 2023"),
-    ("2023/modern-evening-auction",                 "Modern Evening Auction, NY 2023"),
-    ("2023/modern-day-auction",                     "Modern Day Auction, NY 2023"),
-    ("2023/impressionist-modern-art-day-auction",   "Impressionist & Modern Art Day, NY 2023"),
-    ("2023/impressionist-modern-art-evening-sale",  "Impressionist & Modern Art Evening, NY 2023"),
+_SALE_NAMES = [
+    ("contemporary-evening-auction",          "Contemporary Evening Auction, NY {y}"),
+    ("contemporary-day-auction",              "Contemporary Day Auction, NY {y}"),
+    ("modern-evening-auction",                "Modern Evening Auction, NY {y}"),
+    ("modern-day-auction",                    "Modern Day Auction, NY {y}"),
+    ("impressionist-modern-art-day-auction",  "Impressionist & Modern Art Day, NY {y}"),
+    ("impressionist-modern-art-evening-sale", "Impressionist & Modern Art Evening, NY {y}"),
 ]
+
+def _build_sale_starts() -> list[tuple[str, str]]:
+    current_year = datetime.now(timezone.utc).year
+    entries = []
+    for year in range(current_year, 2022, -1):
+        y = str(year)
+        for slug_name, label_template in _SALE_NAMES:
+            entries.append((f"{y}/{slug_name}", label_template.format(y=y)))
+    return entries
+
+SALE_STARTS: list[tuple[str, str]] = _build_sale_starts()
 
 _NON_ART_BLOCKLIST = re.compile(
     r"\b(château|bordeaux|burgundy|champagne|whisky|whiskey|diamond|bracelet|necklace|"
