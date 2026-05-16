@@ -1,15 +1,15 @@
 {
   "stats": {
-    "total_lots": 378,
-    "total_artists": 227,
-    "median_hammer_usd": 193662,
-    "pct_above_estimate": 53.4,
+    "total_lots": 428,
+    "total_artists": 240,
+    "median_hammer_usd": 239400,
+    "pct_above_estimate": 52.3,
     "max_ratio": 14.7,
     "sources": [
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-05-11"
+    "generated_at": "2026-05-16"
   },
   "artists": [
     {
@@ -60,19 +60,78 @@
         }
       ],
       "dataset": {
-        "lot_count": 28,
-        "total_usd": 18960100,
-        "avg_usd": 677146,
-        "total_label": "$18.96M",
-        "avg_label": "$677k",
+        "lot_count": 43,
+        "total_usd": 45380100,
+        "avg_usd": 1055351,
+        "total_label": "$45.38M",
+        "avg_label": "$1.06M",
         "top_lot": {
-          "title": "Interior with African Mask (Study)",
-          "hammer_usd": 2200000,
-          "sale_name": "Contemporary Day Auction, NY May 2025"
+          "title": "Reflections: Art",
+          "hammer_usd": 4500000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
           "title": "Setting Sun and Sea",
           "ratio": 5.0
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-MICHEL BASQUIAT",
+      "display_name": "Jean-Michel Basquiat",
+      "dates": "1960–1988",
+      "nationality": "American",
+      "movement": "Neo-Expressionism · Street Art",
+      "movement_id": "contemporary",
+      "bio": "Born in Brooklyn to a Haitian father and a Puerto Rican-American mother, Basquiat dropped out of school at 17 and began spraying SAMO© (Same Old Shit) tags on Lower Manhattan buildings with friend Al Diaz. Discovered by the art world at the 1980 Times Square Show, he was absorbed into the gallery system within two years and became the most celebrated artist of the 1980s New York Neo-Expressionist boom. His paintings combine street-art energy, graffiti aesthetics, African and Caribbean imagery, anatomy diagrams, historical figures, and aggressive textual elements — a dense, layered archive of Black American experience and art-historical reference. He was 21 when he had his first solo gallery show; 27 when he died of a heroin overdose. His collaboration and close friendship with Warhol was formative for both. His prices have become among the highest in contemporary art — Untitled (1982) sold for $110.5M in 2017.",
+      "famous_works": [
+        {
+          "title": "Untitled",
+          "year": "1982",
+          "notes": "Sold for $110.5M in 2017 — the record price for a Black artist. A skull-like face on a black ground, combining graffiti urgency with formal complexity."
+        },
+        {
+          "title": "Hollywood Africans",
+          "year": "1983",
+          "notes": "Three figures labelled with text — Toxic, Samo, Hollywood Africans — against a yellow ground. The Black presence in Hollywood, in American culture, examined through inventory."
+        },
+        {
+          "title": "In Italian",
+          "year": "1983",
+          "notes": "A large canvas combining anatomical drawings, text, and schematic figures. The body as diagram, anatomy as colonial inventory."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Dos Cabezas",
+          "year": "1982",
+          "notes": "A double portrait of Basquiat and Warhol — painted the day after they met. The friendship and artistic relationship compressed into a single confrontational image."
+        },
+        {
+          "title": "Horn Players",
+          "year": "1983",
+          "notes": "Charlie Parker and Dizzy Gillespie depicted with textual annotations about jazz, anatomy, and race. The jazz genealogy as structural scaffold for the painting."
+        },
+        {
+          "title": "Riding with Death",
+          "year": "1988",
+          "notes": "A skeleton astride a skeletal horse against red. Made months before his death — the premonitory imagery has been read as self-knowledge, though Basquiat worked with this vocabulary throughout his career."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 19245000,
+        "avg_usd": 6415000,
+        "total_label": "$19.25M",
+        "avg_label": "$6.42M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 13800000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Cartoon Dog)",
+          "ratio": 1.35
         }
       }
     },
@@ -247,11 +306,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 6,
-        "total_usd": 9315550,
-        "avg_usd": 1552592,
-        "total_label": "$9.32M",
-        "avg_label": "$1.55M",
+        "lot_count": 7,
+        "total_usd": 9425550,
+        "avg_usd": 1346507,
+        "total_label": "$9.43M",
+        "avg_label": "$1.35M",
         "top_lot": {
           "title": "Genuine Blue",
           "hammer_usd": 3317000,
@@ -260,6 +319,65 @@
         "top_ratio_lot": {
           "title": "Earliness",
           "ratio": 2.05
+        }
+      }
+    },
+    {
+      "norm_name": "FRANK STELLA",
+      "display_name": "Frank Stella",
+      "dates": "1936–2024",
+      "nationality": "American",
+      "movement": "Minimalism · Hard-Edge · Shaped Canvas",
+      "movement_id": "minimalism",
+      "bio": "Born in Malden, Massachusetts, Stella studied painting at Princeton before arriving in New York in 1958. His Black Paintings (1958–60) — stripes of black enamel separated by thin lines of raw canvas, in formats that make the support's shape a determinant of the interior composition — became the founding works of Minimalist painting. 'What you see is what you see': the tautology as manifesto. He was 23. He subsequently moved through shaped canvases in aluminium and copper, then into polychrome metallic geometries, and eventually into elaborate relief sculptures and three-dimensional assemblages that introduced colour, gesture, and spatial complexity — a trajectory that some critics read as the exhaustion of Minimalism's premises and others as its liberation. He taught at Yale, and his published lectures Working Space (1986) are the most intellectually serious painter's statement of the late 20th century. He died in May 2024.",
+      "famous_works": [
+        {
+          "title": "Die Fahne Hoch!",
+          "year": "1959",
+          "notes": "From the Black Paintings series. The title ('The Flag on High') is the opening phrase of the Nazi Horst-Wessel-Lied — a confrontational acknowledgement of the work's historical moment."
+        },
+        {
+          "title": "Talladega Three I",
+          "year": "1981",
+          "notes": "From the Circuits series — curvilinear shapes derived from a racetrack map. The entry into gesture and spatial complexity that divided critical opinion."
+        },
+        {
+          "title": "Jarama II",
+          "year": "1982",
+          "notes": "Named after the site of a Spanish Civil War battle. The Circuit series works at its most dramatically spatial — painting escaping the flat surface."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Empress of India",
+          "year": "1965",
+          "notes": "A massive V-shaped metallic canvas — four chevron elements that can be arranged in multiple orientations. The shaped canvas at its most radically anti-rectangular."
+        },
+        {
+          "title": "Conway I",
+          "year": "1966",
+          "notes": "From the Irregular Polygon series — flat, colour-saturated, geometrically complex. The moment of transition between Minimalism's austerity and Stella's subsequent chromatic ambition."
+        },
+        {
+          "title": "Guadalupe Island (Caracara)",
+          "year": "1979",
+          "notes": "From the Exotic Bird series — welded metal relief with painted surfaces. The three-dimensional turn that abandoned the flat support entirely."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 8722200,
+        "avg_usd": 2180550,
+        "total_label": "$8.72M",
+        "avg_label": "$2.18M",
+        "top_lot": {
+          "title": "Adelante",
+          "hammer_usd": 7000000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Vallelunga",
+          "ratio": 1.89
         }
       }
     },
@@ -328,6 +446,124 @@
       }
     },
     {
+      "norm_name": "ROBERT RAUSCHENBERG",
+      "display_name": "Robert Rauschenberg",
+      "dates": "1925–2008",
+      "nationality": "American",
+      "movement": "Neo-Dada · Combines",
+      "movement_id": "contemporary",
+      "bio": "Born in Port Arthur, Texas, Rauschenberg studied at Black Mountain College under Josef Albers and John Cage before arriving in New York. He developed the 'Combines' (1954–64) — works that incorporated objects from daily life (stuffed animals, tires, clothing, photographs, street detritus) into painterly surfaces, making the distinction between painting and sculpture moot. He was among the first artists to collaborate with choreographers (Merce Cunningham, Paul Taylor) and the first to explore the relationship between art and technology institutionally (Experiments in Art and Technology, 1966). He won the Venice Biennale Grand Prize in 1964 — the moment American Pop and Conceptual art were officially consecrated by the European establishment. His Tibetan Buddhism, his gay identity (publicly declared), and his Texan populism were all present in the work, which remains among the most generative in post-war American art.",
+      "famous_works": [
+        {
+          "title": "Bed",
+          "year": "1955",
+          "notes": "His own quilt, pillow, and sheet hung vertically on a stretcher and smeared with toothpaste, paint, and nail varnish. The painting as domestic object, the domestic object as painting."
+        },
+        {
+          "title": "Monogram",
+          "year": "1955–59",
+          "notes": "A stuffed angora goat with a tire around its middle, standing on a painted combine canvas. The most famous of the Combines — sculpture, painting, and absurdist theatre simultaneously."
+        },
+        {
+          "title": "Erased de Kooning Drawing",
+          "year": "1953",
+          "notes": "Rauschenberg visited de Kooning and asked for a drawing he could erase. De Kooning chose a difficult, multiply-media drawing. The act of erasure as the art — Dada's destruction turned into a relationship."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "White Paintings",
+          "year": "1951",
+          "notes": "Pure white canvases that catch shadow and light — precursors to John Cage's 4'33\" in their creation of a field for ambient incident rather than a determined composition."
+        },
+        {
+          "title": "Barge",
+          "year": "1962",
+          "notes": "A monumental transfer drawing — newspaper and magazine images transferred to canvas using solvent. The 22-foot composite of American imagery is the most ambitious single surface in the transfer series."
+        },
+        {
+          "title": "Retroactive I",
+          "year": "1964",
+          "notes": "Kennedy's photograph layered with an astronaut and a hand-signaling figure. The transfer technique applied to the imagery of the 1960s American moment — assassination and space race in the same picture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 7327600,
+        "avg_usd": 3663800,
+        "total_label": "$7.33M",
+        "avg_label": "$3.66M",
+        "top_lot": {
+          "title": "Rigger",
+          "hammer_usd": 7000000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Fuse",
+          "ratio": 3.28
+        }
+      }
+    },
+    {
+      "norm_name": "ANDY WARHOL",
+      "display_name": "Andy Warhol",
+      "dates": "1928–1987",
+      "nationality": "American",
+      "movement": "Pop Art · Seriality · Factory",
+      "movement_id": "pop-art",
+      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
+      "famous_works": [
+        {
+          "title": "Campbell's Soup Cans",
+          "year": "1962",
+          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
+        },
+        {
+          "title": "Gold Marilyn Monroe",
+          "year": "1962",
+          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
+        },
+        {
+          "title": "Eight Elvises",
+          "year": "1963",
+          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Tunafish Disaster",
+          "year": "1963",
+          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
+        },
+        {
+          "title": "Oxidation Painting",
+          "year": "1978",
+          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
+        },
+        {
+          "title": "Shadows",
+          "year": "1978–79",
+          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 6455700,
+        "avg_usd": 806962,
+        "total_label": "$6.46M",
+        "avg_label": "$807k",
+        "top_lot": {
+          "title": "Flowers",
+          "hammer_usd": 3350000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Lobster)",
+          "ratio": 3.78
+        }
+      }
+    },
+    {
       "norm_name": "JOAN MITCHELL",
       "display_name": "Joan Mitchell",
       "dates": "1925–1992",
@@ -375,11 +611,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 5371400,
-        "avg_usd": 2685700,
-        "total_label": "$5.37M",
-        "avg_label": "$2.69M",
+        "lot_count": 4,
+        "total_usd": 6016400,
+        "avg_usd": 1504100,
+        "total_label": "$6.02M",
+        "avg_label": "$1.50M",
         "top_lot": {
           "title": "Untitled",
           "hammer_usd": 5132000,
@@ -388,6 +624,65 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 2.39
+        }
+      }
+    },
+    {
+      "norm_name": "DAVID HOCKNEY",
+      "display_name": "David Hockney",
+      "dates": "b. 1937",
+      "nationality": "British",
+      "movement": "Pop Art · British Painting · Figuration",
+      "movement_id": "pop-art",
+      "bio": "Born in Bradford, Yorkshire, Hockney won every prize at the Royal College of Art (1959–62) before moving to Los Angeles in 1964, drawn by the light, the swimming pools, and the openness. His California paintings of the mid-1960s — the pool series, the portraits of friends and collectors — used flat, clear light and compositional calm to depict a world of pleasure without irony. The domesticity was the content. His Cubist photo collages (the Joiners, 1982–83) were a rigorous investigation of how a moving eye perceives space: hundreds of photographs assembled into composite images that represent time as well as space. His more recent work — iPad drawings of Yorkshire landscapes, the Arrival of Spring in Woldgate (2011) — pursues the same perceptual problem across new media without anxiety. He is the most celebrated living British painter and commands institutional prices across all major formats.",
+      "famous_works": [
+        {
+          "title": "A Bigger Splash",
+          "year": "1967",
+          "notes": "Two weeks to paint the palm trees and architecture; thirty minutes to paint the splash. The paradox of depicting instantaneous movement through laborious technique. Tate Modern."
+        },
+        {
+          "title": "Mr and Mrs Clark and Percy",
+          "year": "1970–71",
+          "notes": "A double portrait of the fashion designers Ossie Clark and Celia Birtwell. The compositional inversion — the wife seated, the husband standing — disturbs the conventional power dynamic."
+        },
+        {
+          "title": "Portrait of an Artist (Pool with Two Figures)",
+          "year": "1972",
+          "notes": "A boy looks down at a figure swimming beneath him. Made in a feverish 48-hour session the day before the exhibition opening. Sold for $90.3M in 2018 — the highest price for a living artist at the time."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Skater (Kasmin)",
+          "year": "1982",
+          "notes": "A photo collage from the Joiners series. The gallery owner Lawrence Kasmin is shown from multiple angles simultaneously — the static photograph made temporally complex."
+        },
+        {
+          "title": "Sun on the Pool, Los Angeles April 13, 1982",
+          "year": "1982",
+          "notes": "A pool painting from the later Los Angeles period. The light is more forensic, less atmospheric than the 1960s pool works — a different account of the same subject."
+        },
+        {
+          "title": "Garrowby Hill",
+          "year": "1998",
+          "notes": "A Yorkshire road winding over the wolds — the return to English landscape before the major Yorkshire series. Less famous than the Arrival of Spring but more quietly remarkable."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 5040400,
+        "avg_usd": 1260100,
+        "total_label": "$5.04M",
+        "avg_label": "$1.26M",
+        "top_lot": {
+          "title": "Green Pool with Diving Board and Shadow (Paper Pool 3)",
+          "hammer_usd": 2349000,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Caribbean Tea Time",
+          "ratio": 5.4
         }
       }
     },
@@ -442,6 +737,60 @@
         "top_ratio_lot": {
           "title": "It's a Cold Day 寒冷的一天",
           "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "SIGMAR POLKE",
+      "display_name": "Sigmar Polke",
+      "dates": "1941–2010",
+      "nationality": "German",
+      "movement": "Neo-Expressionism · Contemporary",
+      "movement_id": "neo-expressionism",
+      "bio": "Sigmar Polke was born in Oels, Silesia (now Oleśnica, Poland) in 1941. His family fled West Germany in 1953, eventually settling in Düsseldorf, where he studied at the Kunstakademie under Karl Otto Götz, alongside Gerhard Richter. In 1963 Polke and Richter announced 'Capitalist Realism', a German response to American Pop that used commercial and mass-media imagery not with Pop's cool detachment but with a corrosive, often scatological humour.\n\nPolke's practice is among the most formally inventive and intellectually restless in post-war art. He worked across decades in a staggering range of materials and methodologies — Raster dot paintings (enlarging commercial printing screens to canvas), paintings on patterned fabric, works using toxic and transformative chemicals, photographic darkroom experimentations, large-scale works on transparent polyester fabric — rarely settling into any single approach long enough for it to become a style. His use of Raster dots anticipated and complicated digital pixelation; his chemical works produced surfaces that continued to change after the work was 'finished'.\n\nPolke won the Golden Lion at the Venice Biennale in 1986, with an installation that filled the German Pavilion with iridescent chemical surfaces. He is represented posthumously by Michael Werner Gallery and his work is held by the Museum of Modern Art, the Museum Ludwig in Cologne, and major collections worldwide.",
+      "famous_works": [
+        {
+          "title": "Higher Powers Command: Paint the Upper Right Corner Black!",
+          "year": "1969",
+          "notes": "A painting in which Polke executes an apparently nonsensical instruction, simultaneously testing authority structures and the conventions of abstract painting."
+        },
+        {
+          "title": "Watchtower",
+          "year": "1984–1988",
+          "notes": "A series of paintings of watchtowers — associated with both the Nazi concentration camp system and the East German border — in which multiple layered materials create images of political resonance and formal complexity."
+        },
+        {
+          "title": "Alice in Wonderland",
+          "year": "1971",
+          "notes": "A work on patterned fabric in which the interference between the applied image and the ground's pattern creates a pictorial complexity that is simultaneously humorous and formally sophisticated."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Bunnies",
+          "year": "1966",
+          "notes": "An early Raster dot painting in which Playboy bunnies are reproduced at enlarged dot-screen scale, connecting commercial printing technology to questions of desire and reproduction."
+        },
+        {
+          "title": "Transformers Paintings",
+          "year": "1995",
+          "notes": "Works using chemicals that alter and transform the painted surface over time, making change itself a constitutive element of the work."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 4848000,
+        "avg_usd": 2424000,
+        "total_label": "$4.85M",
+        "avg_label": "$2.42M",
+        "top_lot": {
+          "title": "Alpenveilchen",
+          "hammer_usd": 4800000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Alpenveilchen",
+          "ratio": 0.8
         }
       }
     },
@@ -505,6 +854,65 @@
       }
     },
     {
+      "norm_name": "AGNES MARTIN",
+      "display_name": "Agnes Martin",
+      "dates": "1912–2004",
+      "nationality": "Canadian-American",
+      "movement": "Minimalism · Abstraction",
+      "movement_id": "minimalism",
+      "bio": "Born in Macklin, Saskatchewan, Canada, Martin moved to New York after studies in Oregon and Columbia University, where she taught. She developed her mature practice in the early 1960s: small-scale canvases of pencil-drawn grids on white or off-white paint, the lines hand-drawn with a ruler, carrying the slight irregularity of the human hand within a rigid structure. She was associated with the first generation of Minimalists at Elsworth Kelly's building on Coenties Slip in Lower Manhattan, though she rejected the Minimalist label, insisting on the emotional and spiritual dimension of her work. She left New York abruptly in 1967 following the death of Ad Reinhardt and a breakdown, and moved to New Mexico, where she lived in self-built adobe houses and did not paint for six years. The late works are horizontal bands of pale colour — pink, blue, grey — of extraordinary refinement.",
+      "famous_works": [
+        {
+          "title": "The Islands I–XII",
+          "year": "1961",
+          "notes": "A series of small square canvases — the grid at its most intimate and complete. The islands of the title are the canvases themselves."
+        },
+        {
+          "title": "With My Back to the World",
+          "year": "1997",
+          "notes": "A late work of pale horizontal bands. The title is a statement of position — withdrawal from the social world as the condition of the work."
+        },
+        {
+          "title": "Friendship",
+          "year": "1963",
+          "notes": "Gold leaf on canvas crossed by thin pencil grid lines. The warmth of the gold and the severity of the grid — the emotional and structural in productive tension."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Happy Holiday",
+          "year": "1999",
+          "notes": "A late canvas of yellow bands — an unusually warm, light work for Martin. The title's unironic positivity and the painting's quiet pleasure are matching."
+        },
+        {
+          "title": "Grass",
+          "year": "1967",
+          "notes": "One of the last works before the New Mexico departure — thin horizontal lines on pale ground. The landscape of the title is implicit in the colour and the horizon."
+        },
+        {
+          "title": "Untitled #10",
+          "year": "1990",
+          "notes": "A return to grid format after the horizontal-bands period of the 1970s and 1980s. The grid reinterpreted in softer, more atmospheric terms than the early Manhattan works."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 3203200,
+        "avg_usd": 1601600,
+        "total_label": "$3.20M",
+        "avg_label": "$1.60M",
+        "top_lot": {
+          "title": "Untitled #11",
+          "hammer_usd": 2800000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled #2",
+          "ratio": 1.01
+        }
+      }
+    },
+    {
       "norm_name": "ANISH KAPOOR",
       "display_name": "Anish Kapoor",
       "dates": "b. 1954",
@@ -555,124 +963,6 @@
         "top_ratio_lot": {
           "title": "Untitled 無題",
           "ratio": 1.0
-        }
-      }
-    },
-    {
-      "norm_name": "DAVID HOCKNEY",
-      "display_name": "David Hockney",
-      "dates": "b. 1937",
-      "nationality": "British",
-      "movement": "Pop Art · British Painting · Figuration",
-      "movement_id": "pop-art",
-      "bio": "Born in Bradford, Yorkshire, Hockney won every prize at the Royal College of Art (1959–62) before moving to Los Angeles in 1964, drawn by the light, the swimming pools, and the openness. His California paintings of the mid-1960s — the pool series, the portraits of friends and collectors — used flat, clear light and compositional calm to depict a world of pleasure without irony. The domesticity was the content. His Cubist photo collages (the Joiners, 1982–83) were a rigorous investigation of how a moving eye perceives space: hundreds of photographs assembled into composite images that represent time as well as space. His more recent work — iPad drawings of Yorkshire landscapes, the Arrival of Spring in Woldgate (2011) — pursues the same perceptual problem across new media without anxiety. He is the most celebrated living British painter and commands institutional prices across all major formats.",
-      "famous_works": [
-        {
-          "title": "A Bigger Splash",
-          "year": "1967",
-          "notes": "Two weeks to paint the palm trees and architecture; thirty minutes to paint the splash. The paradox of depicting instantaneous movement through laborious technique. Tate Modern."
-        },
-        {
-          "title": "Mr and Mrs Clark and Percy",
-          "year": "1970–71",
-          "notes": "A double portrait of the fashion designers Ossie Clark and Celia Birtwell. The compositional inversion — the wife seated, the husband standing — disturbs the conventional power dynamic."
-        },
-        {
-          "title": "Portrait of an Artist (Pool with Two Figures)",
-          "year": "1972",
-          "notes": "A boy looks down at a figure swimming beneath him. Made in a feverish 48-hour session the day before the exhibition opening. Sold for $90.3M in 2018 — the highest price for a living artist at the time."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Skater (Kasmin)",
-          "year": "1982",
-          "notes": "A photo collage from the Joiners series. The gallery owner Lawrence Kasmin is shown from multiple angles simultaneously — the static photograph made temporally complex."
-        },
-        {
-          "title": "Sun on the Pool, Los Angeles April 13, 1982",
-          "year": "1982",
-          "notes": "A pool painting from the later Los Angeles period. The light is more forensic, less atmospheric than the 1960s pool works — a different account of the same subject."
-        },
-        {
-          "title": "Garrowby Hill",
-          "year": "1998",
-          "notes": "A Yorkshire road winding over the wolds — the return to English landscape before the major Yorkshire series. Less famous than the Arrival of Spring but more quietly remarkable."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 2840400,
-        "avg_usd": 946800,
-        "total_label": "$2.84M",
-        "avg_label": "$947k",
-        "top_lot": {
-          "title": "Green Pool with Diving Board and Shadow (Paper Pool 3)",
-          "hammer_usd": 2349000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Caribbean Tea Time",
-          "ratio": 5.4
-        }
-      }
-    },
-    {
-      "norm_name": "ANDY WARHOL",
-      "display_name": "Andy Warhol",
-      "dates": "1928–1987",
-      "nationality": "American",
-      "movement": "Pop Art · Seriality · Factory",
-      "movement_id": "pop-art",
-      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
-      "famous_works": [
-        {
-          "title": "Campbell's Soup Cans",
-          "year": "1962",
-          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
-        },
-        {
-          "title": "Gold Marilyn Monroe",
-          "year": "1962",
-          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
-        },
-        {
-          "title": "Eight Elvises",
-          "year": "1963",
-          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Tunafish Disaster",
-          "year": "1963",
-          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
-        },
-        {
-          "title": "Oxidation Painting",
-          "year": "1978",
-          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
-        },
-        {
-          "title": "Shadows",
-          "year": "1978–79",
-          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 2805700,
-        "avg_usd": 467617,
-        "total_label": "$2.81M",
-        "avg_label": "$468k",
-        "top_lot": {
-          "title": "Clockwork Panda Drummer 發條熊貓鼓手",
-          "hammer_usd": 1300000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (Lobster)",
-          "ratio": 3.78
         }
       }
     },
@@ -1016,6 +1306,60 @@
       }
     },
     {
+      "norm_name": "GEORG BASELITZ",
+      "display_name": "Georg Baselitz",
+      "dates": "b. 1938",
+      "nationality": "German",
+      "movement": "Neo-Expressionism",
+      "movement_id": "neo-expressionism",
+      "bio": "Georg Baselitz was born Hans-Georg Kern in Deutschbaselitz, Saxony in 1938 and grew up in Soviet-occupied East Germany, fleeing to West Berlin in 1956 to study at the Hochschule für bildende Künste. His early paintings of the 1960s provoked scandal for their raw sexuality and anarchic imagery — two were confiscated by authorities — and established his commitment to provoking the normative expectations of both political systems within which he moved.\n\nThe decisive formal development of his career came in 1969, when he began painting his figures upside-down, a procedure he has maintained consistently for more than fifty years. The inversion refuses narrative: the viewer cannot construct a scene, cannot determine foreground from background in the conventional sense, and is forced to attend to the painting as a painted object — to its gestural surface, its colour, its marks — rather than to its depicted content. The figures are in the painting, but the painting is emphatically about itself.\n\nBaselitz has been a central figure in German art for six decades, associated with the resurgence of figuration in the late 1970s and 1980s, and his work has attracted sustained critical debate about the relationship between German cultural tradition, trauma, and the possibilities of Neo-Expressionism. He is represented by Gagosian Gallery and White Cube, and major retrospectives have been mounted at institutions including the Guggenheim Museum Bilbao.",
+      "famous_works": [
+        {
+          "title": "The Big Night Down the Drain",
+          "year": "1962–1963",
+          "notes": "A notorious early work confiscated by West Berlin authorities for obscenity, establishing Baselitz's commitment to transgressive imagery in his pre-inversion period."
+        },
+        {
+          "title": "Motif: The Shepherd (Der Hirte)",
+          "year": "1969",
+          "notes": "One of the first inverted paintings, marking the decisive formal decision that has defined Baselitz's practice for more than five decades."
+        },
+        {
+          "title": "Adler (Eagle)",
+          "year": "1977",
+          "notes": "A monumental inverted eagle in which the national symbol of Germany is subjected to Baselitz's characteristic formal disruption."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Remix series",
+          "year": "2005–present",
+          "notes": "A late series in which Baselitz revisits and repaints his own earlier works, making the history of the practice itself the subject of the paintings."
+        },
+        {
+          "title": "Elke I",
+          "year": "1969",
+          "notes": "An early inverted portrait of his wife Elke demonstrating the application of the inversion principle to the specific genre of portraiture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2275600,
+        "avg_usd": 1137800,
+        "total_label": "$2.28M",
+        "avg_label": "$1.14M",
+        "top_lot": {
+          "title": "Fingermalerei - Akt",
+          "hammer_usd": 2200000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.89
+        }
+      }
+    },
+    {
       "norm_name": "MARC CHAGALL",
       "display_name": "Marc Chagall",
       "dates": "1887–1985",
@@ -1301,61 +1645,110 @@
       }
     },
     {
-      "norm_name": "FRANK STELLA",
-      "display_name": "Frank Stella",
-      "dates": "1936–2024",
+      "norm_name": "JOHN CHAMBERLAIN",
+      "display_name": "John Chamberlain",
+      "dates": "1927–2011",
       "nationality": "American",
-      "movement": "Minimalism · Hard-Edge · Shaped Canvas",
-      "movement_id": "minimalism",
-      "bio": "Born in Malden, Massachusetts, Stella studied painting at Princeton before arriving in New York in 1958. His Black Paintings (1958–60) — stripes of black enamel separated by thin lines of raw canvas, in formats that make the support's shape a determinant of the interior composition — became the founding works of Minimalist painting. 'What you see is what you see': the tautology as manifesto. He was 23. He subsequently moved through shaped canvases in aluminium and copper, then into polychrome metallic geometries, and eventually into elaborate relief sculptures and three-dimensional assemblages that introduced colour, gesture, and spatial complexity — a trajectory that some critics read as the exhaustion of Minimalism's premises and others as its liberation. He taught at Yale, and his published lectures Working Space (1986) are the most intellectually serious painter's statement of the late 20th century. He died in May 2024.",
+      "movement": "Abstract Expressionism · Sculpture",
+      "movement_id": "abstract-expressionism",
+      "bio": "John Chamberlain was born in Rochester, Indiana in 1927 and studied at the Art Institute of Chicago and Black Mountain College, where his encounter with the community around Robert Creeley and Charles Olson confirmed his interest in a practice rooted in direct physical engagement with materials. He began making sculptures from crushed automobile parts in the late 1950s, a development that placed him at the intersection of Abstract Expressionist painting's gestural energy and the three-dimensional world of junk sculpture.\n\nChamberlain's works in compressed and welded automotive steel — the chromium-plated, enamel-painted, sometimes rusted surfaces of car bodies from American mid-century production — generate an abstract sculptural language of considerable formal sophistication. The works are not simply crushed cars: they are constructed from selected and manipulated components whose colour relationships, forms, and spatial organisation have been carefully arranged. The gestural energy of the bending and crushing is preserved in the final object, but it is subordinate to the compositional intelligence that gives each work its visual identity.\n\nFrom the late 1960s Chamberlain also worked with urethane foam, galvanised steel, brown paper, and aluminium foil as sculptural materials. He is represented posthumously by Gagosian Gallery and his work is held by the Museum of Modern Art, the Guggenheim, and major collections internationally.",
       "famous_works": [
         {
-          "title": "Die Fahne Hoch!",
-          "year": "1959",
-          "notes": "From the Black Paintings series. The title ('The Flag on High') is the opening phrase of the Nazi Horst-Wessel-Lied — a confrontational acknowledgement of the work's historical moment."
+          "title": "Nutcracker",
+          "year": "1958",
+          "notes": "An early automobile-part sculpture that established Chamberlain's compressed-steel vocabulary and demonstrated its formal richness in a relatively contained scale."
         },
         {
-          "title": "Talladega Three I",
-          "year": "1981",
-          "notes": "From the Circuits series — curvilinear shapes derived from a racetrack map. The entry into gesture and spatial complexity that divided critical opinion."
+          "title": "Delores James",
+          "year": "1962",
+          "notes": "A large assembled automotive-steel sculpture in which the relationship between the chromatic and formal qualities of the car-body components achieves particular complexity."
         },
         {
-          "title": "Jarama II",
-          "year": "1982",
-          "notes": "Named after the site of a Spanish Civil War battle. The Circuit series works at its most dramatically spatial — painting escaping the flat surface."
+          "title": "Fantan",
+          "year": "1976",
+          "notes": "A late large-scale work demonstrating the development of Chamberlain's automotive-steel method toward increasingly monumental scale and spatial ambition."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Empress of India",
-          "year": "1965",
-          "notes": "A massive V-shaped metallic canvas — four chevron elements that can be arranged in multiple orientations. The shaped canvas at its most radically anti-rectangular."
+          "title": "Foam Sculptures",
+          "year": "1966–1970",
+          "notes": "Works in crumpled urethane foam that extend Chamberlain's compression methodology into a softer, lighter material that produces different spatial and chromatic effects."
         },
         {
-          "title": "Conway I",
-          "year": "1966",
-          "notes": "From the Irregular Polygon series — flat, colour-saturated, geometrically complex. The moment of transition between Minimalism's austerity and Stella's subsequent chromatic ambition."
+          "title": "Papier Maché Works",
+          "year": "1960s",
+          "notes": "Small-scale works on paper that demonstrate the range of Chamberlain's formal and material experimentation beyond his better-known automotive steel."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1770000,
+        "avg_usd": 885000,
+        "total_label": "$1.77M",
+        "avg_label": "$885k",
+        "top_lot": {
+          "title": "Butternut",
+          "hammer_usd": 1600000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Butternut",
+          "ratio": 0.74
+        }
+      }
+    },
+    {
+      "norm_name": "LYNNE DREXLER",
+      "display_name": "Lynne Drexler",
+      "dates": "1928–1999",
+      "nationality": "American",
+      "movement": "Colour-Field · Abstract Expressionism",
+      "movement_id": "colour-field",
+      "bio": "Lynne Drexler was born in Newport News, Virginia in 1928 and studied at the Richmond Professional Institute (now Virginia Commonwealth University), the College of William and Mary, and the Hans Hofmann School in New York and Provincetown, where her encounter with Hofmann's colour theory was decisive for the development of her practice. Working in New York and later on Monhegan Island in Maine, she developed a body of abstract painting that has been recognised only recently as one of the significant achievements of mid-century American Colour Field painting.\n\nDrexler's paintings are characterised by a distinctive technique of short, dense brushstrokes applied in rich, closely valued colour combinations to create mosaic-like surfaces of extraordinary luminosity. Working primarily on small to medium canvases, she builds up chromatic environments of great complexity in which no single colour dominates but the overall effect is one of vibrating, life-affirming warmth. The works recall simultaneously Seurat's pointillism, Klimt's decorative surfaces, and Hofmann's colour theory, while remaining entirely their own.\n\nDrexler died in 1999 with her work largely unrecognised by the mainstream art world. The discovery of a large body of work in her Monhegan Island home after her death, and subsequent exhibitions by Kasmin Gallery in New York, have led to her recognition as an important figure in American abstract painting.",
+      "famous_works": [
+        {
+          "title": "The Catkin",
+          "year": "1963",
+          "notes": "A painting in which Drexler's characteristic short, dense brushstroke technique creates a surface of chromatic richness that demonstrates her mastery of optical colour mixing."
         },
         {
-          "title": "Guadalupe Island (Caracara)",
-          "year": "1979",
-          "notes": "From the Exotic Bird series — welded metal relief with painted surfaces. The three-dimensional turn that abandoned the flat support entirely."
+          "title": "First Folio",
+          "year": "1962",
+          "notes": "An early major work demonstrating the fully developed technique that Drexler would maintain with extraordinary consistency throughout her career."
+        },
+        {
+          "title": "Untitled (Gold and Pink)",
+          "year": "1970",
+          "notes": "A canvas in which warm gold and pink tones create a mosaic surface of extraordinary luminosity, demonstrating the chromatic sophistication of Drexler's mature practice."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Monhegan Island Paintings",
+          "year": "1970s–1990s",
+          "notes": "Works made during Drexler's years of relative isolation on the Maine island that maintained her practice at a high level throughout the decades of her critical obscurity."
+        },
+        {
+          "title": "Hofmann Study",
+          "year": "1958",
+          "notes": "An early work from Drexler's time studying with Hofmann that demonstrates the direct absorption of colour theory principles that underpins her mature approach."
         }
       ],
       "dataset": {
         "lot_count": 3,
-        "total_usd": 1722200,
-        "avg_usd": 574067,
-        "total_label": "$1.72M",
-        "avg_label": "$574k",
+        "total_usd": 1628400,
+        "avg_usd": 542800,
+        "total_label": "$1.63M",
+        "avg_label": "$543k",
         "top_lot": {
-          "title": "WLID",
-          "hammer_usd": 1033200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+          "title": "Herbert's Garden",
+          "hammer_usd": 1200000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Vallelunga",
-          "ratio": 1.89
+          "title": "Untitled",
+          "ratio": 2.52
         }
       }
     },
@@ -1591,6 +1984,60 @@
       }
     },
     {
+      "norm_name": "DONALD JUDD",
+      "display_name": "Donald Judd",
+      "dates": "1928–1994",
+      "nationality": "American",
+      "movement": "Minimalism",
+      "movement_id": "minimalism",
+      "bio": "Donald Judd was born in Excelsior Springs, Missouri in 1928 and studied philosophy at Columbia University before establishing himself as an influential critic — his essay 'Specific Objects' (1965) remains among the defining theoretical texts of Minimalism — and as the movement's most rigorous practitioner. His work began with painted relief works and evolved rapidly toward the three-dimensional objects, or 'specific objects', that he insisted were neither painting nor sculpture but something irreducibly themselves.\n\nJudd's signature forms are stacks of identical units — boxes in anodised aluminium, Plexiglas, and other industrial materials — mounted on walls at precise intervals, and floor pieces of metal forms in series. The works reject composition (each unit is identical), illusionistic space (the interior is as real as the exterior), and handmade craft (they are fabricated by industrial manufacturers to Judd's specifications). What remains is pure material presence: the colour of the anodised surface, the reflectivity of the metal, the depth of the interval between units — these are the work, without metaphor or reference.\n\nIn 1974 Judd began acquiring buildings in Marfa, Texas, which he converted into permanent installations of his own and others' work. The Chinati Foundation that emerged from this project is among the most significant sites for the permanent installation of Minimalist art. Judd is represented posthumously by David Zwirner, and his work is held by virtually every major art museum.",
+      "famous_works": [
+        {
+          "title": "Untitled (Stack)",
+          "year": "1967",
+          "notes": "A vertical series of identical galvanised iron box units mounted on a wall at equal intervals, among the purest realisations of Judd's principle that the work exists entirely in its material facts."
+        },
+        {
+          "title": "100 untitled works in mill aluminum",
+          "year": "1982–1986",
+          "notes": "A permanent installation of one hundred identical aluminium boxes in two artillery sheds at Chinati in Marfa, Texas — the fullest realisation of Judd's vision of art in dedicated architectural space."
+        },
+        {
+          "title": "Untitled (Progression)",
+          "year": "1969",
+          "notes": "A floor piece in which the intervals between box units follow a mathematical progression, introducing serial variation as a structural principle."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Untitled (Purple Anodized Aluminum)",
+          "year": "1989",
+          "notes": "A late stack work in which the richly coloured anodised surface demonstrates Judd's investigation of industrial colour as a material quality rather than applied decoration."
+        },
+        {
+          "title": "Untitled (Bernstein)",
+          "year": "1964",
+          "notes": "An early painted wood relief that represents the transitional moment between Judd's painting practice and his development of the three-dimensional specific object."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1281900,
+        "avg_usd": 640950,
+        "total_label": "$1.28M",
+        "avg_label": "$641k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 1200000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.96
+        }
+      }
+    },
+    {
       "norm_name": "SEAN SCULLY",
       "display_name": "Sean Scully",
       "dates": "b. 1945",
@@ -1763,6 +2210,60 @@
       }
     },
     {
+      "norm_name": "JACK WHITTEN",
+      "display_name": "Jack Whitten",
+      "dates": "1939–2018",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Contemporary",
+      "movement_id": "abstract-expressionism",
+      "bio": "Jack Whitten was born in Bessemer, Alabama in 1939 and came of age during the civil rights movement, studying briefly at the Tuskegee Institute and meeting Martin Luther King Jr. before moving north to New York, where he enrolled at Cooper Union and graduated in 1964. He became part of the downtown art world, befriending Philip Guston and Ad Reinhardt and developing through the 1960s and 1970s a practice of rigorous formal experimentation that remained largely outside mainstream critical attention.\n\nWhitten's work went through numerous distinct phases, each involving technical innovation. In the 1970s he developed an approach using a large homemade squeegee to drag mixed paint across large canvases in a single decisive gesture, creating surfaces of extraordinary tonal complexity. Later he invented what he called 'tesserae' — dried slices of acrylic paint used as mosaic elements — which he pressed into large compositions to create surfaces that combine the history of Byzantine mosaic with the materiality of abstract painting. His work was explicitly concerned with being both a Black American artist and a modernist painter, holding these identities not in tension but in productive synthesis.\n\nLate recognition came with a major retrospective at the Metropolitan Museum of Art in 2014, the year before his death, which confirmed his status as one of the most significant and original painters of his generation. His works are held by major museums including the Guggenheim and the Whitney.",
+      "famous_works": [
+        {
+          "title": "Delta Group",
+          "year": "1975",
+          "notes": "A large squeegee painting in which a single horizontal gesture creates a surface of complex tonal modulation that brings together Jackson Pollock's physical engagement with painting and a more concentrated formal restraint."
+        },
+        {
+          "title": "9/11/01",
+          "year": "2006",
+          "notes": "A tessera painting created in response to the September 11 attacks, in which fragmented acrylic slabs are combined into an elegy that locates abstract painting in relation to collective trauma."
+        },
+        {
+          "title": "Atopolis (For Édouard Glissant)",
+          "year": "2014",
+          "notes": "A large tessera painting dedicated to the Caribbean philosopher, in which the mosaic surface becomes a metaphor for the creolised, rhizomatic cultural identity that Glissant theorised."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Doctor Egypt (and the Witchdoctor's Problem)",
+          "year": "1966",
+          "notes": "An early painting that demonstrates Whitten's engagement with African and African-American cultural sources as formal and intellectual content."
+        },
+        {
+          "title": "Greek Alphabet series",
+          "year": "1975–1976",
+          "notes": "A group of squeegee paintings in which the gestural system is applied with particularly rigorous consistency, creating works of concentrated formal intelligence."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1139000,
+        "avg_usd": 569500,
+        "total_label": "$1.14M",
+        "avg_label": "$570k",
+        "top_lot": {
+          "title": "Alpha Group III",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Alpha Group III",
+          "ratio": 1.36
+        }
+      }
+    },
+    {
       "norm_name": "KAWS",
       "display_name": "KAWS",
       "dates": "b. 1974",
@@ -1877,6 +2378,114 @@
         "top_ratio_lot": {
           "title": "Archive",
           "ratio": 0.51
+        }
+      }
+    },
+    {
+      "norm_name": "YU NISHIMURA",
+      "display_name": "Yu Nishimura",
+      "dates": "b. 1983",
+      "nationality": "Japanese",
+      "movement": "Contemporary · Figurative",
+      "movement_id": "contemporary",
+      "bio": "Yu Nishimura was born in Tokyo in 1983 and studied at the Tama Art University before developing a painting practice that combines the traditions of Japanese figuration — particularly the influence of traditional Japanese painting (nihonga) and woodblock prints — with a contemporary approach to the female figure and personal experience. Her work explores private, contemplative states in which young women inhabit spaces of interiority that are rendered with a particular atmospheric quality.\n\nNishimura's paintings are characterised by their warm palette, their simplified but psychologically resonant figure rendering, and their treatment of interior light. The figures in her canvases are often depicted in moments of absorbed activity — reading, looking out windows, existing in states of quiet concentration — that create images of interior life rendered visible through careful formal attention. Her approach draws on both Japanese and European painting traditions while maintaining a sensibility that is entirely contemporary.\n\nShe has exhibited in Japan and has attracted international attention as part of the growing global interest in Japanese figurative painting. Nishimura represents a thoughtful engagement with the intimate scale of personal experience as a subject for painting.",
+      "famous_works": [
+        {
+          "title": "Woman Reading",
+          "year": "2015",
+          "notes": "A figure absorbed in a book rendered in Nishimura's warm palette and simplified figurative style that creates an image of concentrated inner life."
+        },
+        {
+          "title": "Interior",
+          "year": "2017",
+          "notes": "A domestic scene in which the relationship between figure and space is developed with atmospheric sensitivity characteristic of Nishimura's mature approach."
+        },
+        {
+          "title": "Morning Light",
+          "year": "2019",
+          "notes": "A painting in which the quality of morning light in a domestic space is the primary formal and emotional concern."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Early figure studies",
+          "year": "2008–2012",
+          "notes": "Initial paintings demonstrating the development of Nishimura's figurative approach before its full maturation."
+        },
+        {
+          "title": "Works on paper",
+          "year": "2014–present",
+          "notes": "Drawings and works on paper that demonstrate the intimacy and exploratory quality of Nishimura's practice beyond the painted canvas."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1100000,
+        "avg_usd": 550000,
+        "total_label": "$1.10M",
+        "avg_label": "$550k",
+        "top_lot": {
+          "title": "A Car Running in the Green 穿過叢林的車子",
+          "hammer_usd": 750000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "across the place",
+          "ratio": 5.83
+        }
+      }
+    },
+    {
+      "norm_name": "BARBARA KRUGER",
+      "display_name": "Barbara Kruger",
+      "dates": "b. 1945",
+      "nationality": "American",
+      "movement": "Conceptual · Contemporary",
+      "movement_id": "conceptual",
+      "bio": "Barbara Kruger was born in Newark, New Jersey in 1945 and studied at Syracuse University before transferring to Parsons School of Design in New York, where she trained as a graphic designer under Marvin Israel. She worked for many years as art director and designer at Condé Nast publications — experience that gave her intimate knowledge of how visual rhetoric operates in mass media. When she turned to fine art practice in the late 1970s, she did so armed with the tools of the professional propagandist.\n\nKruger's mature work takes the form of large-format photographs — typically appropriated from mass media archives — overlaid with declarative text in a bold Futura Bold italic typeface, in black and white with red accents. Slogans such as 'Your body is a battleground', 'I shop therefore I am', and 'We don't need another hero' address the viewer directly in a language that seems to belong simultaneously to advertising and political manifesto. The work implicates the viewer in the structures it critiques: the pronouns 'you', 'your', 'we', 'I' shift and destabilise, refusing the comfortable distance of critique.\n\nKruger has exhibited and installed her work at an extraordinary range of scales, from gallery photographs to museum-scaled wrap-around installations and public hoardings. Represented by Mary Boone Gallery and Sprüth Magers, her work has been collected by major museums worldwide and has had a documented influence on graphic design, advertising, and feminist cultural theory that extends far beyond the art world.",
+      "famous_works": [
+        {
+          "title": "Untitled (Your Body Is a Battleground)",
+          "year": "1989",
+          "notes": "A billboard-scale work produced for a Washington D.C. pro-choice march, in which a divided female face frames a text that became a defining slogan of feminist visual culture."
+        },
+        {
+          "title": "Untitled (I Shop Therefore I Am)",
+          "year": "1987",
+          "notes": "A photograph of a hand holding a shopping bag with Kruger's text, compressing commodity culture, Descartes, and identity into a single photographic object."
+        },
+        {
+          "title": "Untitled (We Don't Need Another Hero)",
+          "year": "1987",
+          "notes": "A photograph of a girl observing a flexing boy's bicep, in which the text critiques the myths of masculine heroism on which both advertising and political culture depend."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Untitled (Your Gaze Hits the Side of My Face)",
+          "year": "1981",
+          "notes": "A photograph of a classical female bust whose title exposes the violence of the objectifying male gaze within art historical tradition."
+        },
+        {
+          "title": "Thinking of You",
+          "year": "1999",
+          "notes": "An installation wrapping an entire gallery interior in Kruger's text-and-image language, transforming the exhibition space itself into an environment of mediated address."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1088480,
+        "avg_usd": 362827,
+        "total_label": "$1.09M",
+        "avg_label": "$363k",
+        "top_lot": {
+          "title": "Untitled (Love for Sale)",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (War Without End)",
+          "ratio": 4.03
         }
       }
     },
@@ -2162,65 +2771,6 @@
         "top_ratio_lot": {
           "title": "Portrait of Jackie Kennedy",
           "ratio": 2.36
-        }
-      }
-    },
-    {
-      "norm_name": "JEAN-MICHEL BASQUIAT",
-      "display_name": "Jean-Michel Basquiat",
-      "dates": "1960–1988",
-      "nationality": "American",
-      "movement": "Neo-Expressionism · Street Art",
-      "movement_id": "contemporary",
-      "bio": "Born in Brooklyn to a Haitian father and a Puerto Rican-American mother, Basquiat dropped out of school at 17 and began spraying SAMO© (Same Old Shit) tags on Lower Manhattan buildings with friend Al Diaz. Discovered by the art world at the 1980 Times Square Show, he was absorbed into the gallery system within two years and became the most celebrated artist of the 1980s New York Neo-Expressionist boom. His paintings combine street-art energy, graffiti aesthetics, African and Caribbean imagery, anatomy diagrams, historical figures, and aggressive textual elements — a dense, layered archive of Black American experience and art-historical reference. He was 21 when he had his first solo gallery show; 27 when he died of a heroin overdose. His collaboration and close friendship with Warhol was formative for both. His prices have become among the highest in contemporary art — Untitled (1982) sold for $110.5M in 2017.",
-      "famous_works": [
-        {
-          "title": "Untitled",
-          "year": "1982",
-          "notes": "Sold for $110.5M in 2017 — the record price for a Black artist. A skull-like face on a black ground, combining graffiti urgency with formal complexity."
-        },
-        {
-          "title": "Hollywood Africans",
-          "year": "1983",
-          "notes": "Three figures labelled with text — Toxic, Samo, Hollywood Africans — against a yellow ground. The Black presence in Hollywood, in American culture, examined through inventory."
-        },
-        {
-          "title": "In Italian",
-          "year": "1983",
-          "notes": "A large canvas combining anatomical drawings, text, and schematic figures. The body as diagram, anatomy as colonial inventory."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Dos Cabezas",
-          "year": "1982",
-          "notes": "A double portrait of Basquiat and Warhol — painted the day after they met. The friendship and artistic relationship compressed into a single confrontational image."
-        },
-        {
-          "title": "Horn Players",
-          "year": "1983",
-          "notes": "Charlie Parker and Dizzy Gillespie depicted with textual annotations about jazz, anatomy, and race. The jazz genealogy as structural scaffold for the painting."
-        },
-        {
-          "title": "Riding with Death",
-          "year": "1988",
-          "notes": "A skeleton astride a skeletal horse against red. Made months before his death — the premonitory imagery has been read as self-knowledge, though Basquiat worked with this vocabulary throughout his career."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 945000,
-        "avg_usd": 945000,
-        "total_label": "$945k",
-        "avg_label": "$945k",
-        "top_lot": {
-          "title": "Untitled (Cartoon Dog)",
-          "hammer_usd": 945000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (Cartoon Dog)",
-          "ratio": 1.35
         }
       }
     },
@@ -2559,6 +3109,60 @@
       }
     },
     {
+      "norm_name": "ETEL ADNAN",
+      "display_name": "Etel Adnan",
+      "dates": "1925–2021",
+      "nationality": "Lebanese-American",
+      "movement": "Contemporary · Modernism",
+      "movement_id": "contemporary",
+      "bio": "Etel Adnan was born in Beirut in 1925, the daughter of a Greek mother and Syrian father, and grew up speaking Greek and Turkish, learning French and English later, and Arabic still later — a linguistic multiplicity that was formative for a writer and artist whose entire practice engages the relationship between language, image, and the experience of displacement. She studied philosophy at the Sorbonne in Paris and at Harvard before returning to the Arab world as a teacher and journalist.\n\nAdnan came to visual art relatively late, developing in the 1960s the leporello format — folded accordion-book paintings — that became her primary visual medium alongside poetry and prose. These small, jewel-like works contain simple geometric forms — circles, triangles, rectangles — in areas of pure, luminous colour derived from the landscape and light of Northern California (where she eventually settled) and the landscapes of Lebanon and Greece. The forms are neither representational nor purely abstract but hover between horizon, sun, and mountain in a register of condensed poetic notation.\n\nAdnan was awarded major literary prizes and her novel Sitt Marie Rose has become a classic of war literature. Her visual work was exhibited internationally from the early 2000s, including at Documenta, and she was recognised as one of the most original figures at the intersection of poetry, visual art, and the Arab intellectual tradition. She died in Paris in 2021.",
+      "famous_works": [
+        {
+          "title": "The Arab Apocalypse (leporello)",
+          "year": "1989",
+          "notes": "A visual poem in leporello format combining Arabic calligraphy and geometric forms that responds to the Lebanese Civil War with concentrated poetic-pictorial force."
+        },
+        {
+          "title": "California Leporello series",
+          "year": "1970s–2000s",
+          "notes": "Ongoing series of accordion-folded paintings in which the geometry of horizon, sun, and mountain is condensed into areas of pure colour that carry the emotional weight of landscape remembered and inhabited."
+        },
+        {
+          "title": "Seasons",
+          "year": "2012",
+          "notes": "A late series of leporellos in which chromatic harmonies derived from the natural world create meditations on time, change, and the relationship between body and landscape."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Sea and Fog",
+          "year": "1990s",
+          "notes": "A leporello painting in which the atmospheric conditions of the Pacific Coast are translated into a poetic geometry of greys, blues, and white."
+        },
+        {
+          "title": "Untitled (Mountain Series)",
+          "year": "2000s",
+          "notes": "A group of works in which the triangular form of a mountain is treated as both geometric form and emotionally charged landscape memory."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 770000,
+        "avg_usd": 385000,
+        "total_label": "$770k",
+        "avg_label": "$385k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 450000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.83
+        }
+      }
+    },
+    {
       "norm_name": "PAT STEIR",
       "display_name": "Pat Steir",
       "dates": "b. 1940",
@@ -2673,60 +3277,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.01
-        }
-      }
-    },
-    {
-      "norm_name": "YU NISHIMURA",
-      "display_name": "Yu Nishimura",
-      "dates": "b. 1983",
-      "nationality": "Japanese",
-      "movement": "Contemporary · Figurative",
-      "movement_id": "contemporary",
-      "bio": "Yu Nishimura was born in Tokyo in 1983 and studied at the Tama Art University before developing a painting practice that combines the traditions of Japanese figuration — particularly the influence of traditional Japanese painting (nihonga) and woodblock prints — with a contemporary approach to the female figure and personal experience. Her work explores private, contemplative states in which young women inhabit spaces of interiority that are rendered with a particular atmospheric quality.\n\nNishimura's paintings are characterised by their warm palette, their simplified but psychologically resonant figure rendering, and their treatment of interior light. The figures in her canvases are often depicted in moments of absorbed activity — reading, looking out windows, existing in states of quiet concentration — that create images of interior life rendered visible through careful formal attention. Her approach draws on both Japanese and European painting traditions while maintaining a sensibility that is entirely contemporary.\n\nShe has exhibited in Japan and has attracted international attention as part of the growing global interest in Japanese figurative painting. Nishimura represents a thoughtful engagement with the intimate scale of personal experience as a subject for painting.",
-      "famous_works": [
-        {
-          "title": "Woman Reading",
-          "year": "2015",
-          "notes": "A figure absorbed in a book rendered in Nishimura's warm palette and simplified figurative style that creates an image of concentrated inner life."
-        },
-        {
-          "title": "Interior",
-          "year": "2017",
-          "notes": "A domestic scene in which the relationship between figure and space is developed with atmospheric sensitivity characteristic of Nishimura's mature approach."
-        },
-        {
-          "title": "Morning Light",
-          "year": "2019",
-          "notes": "A painting in which the quality of morning light in a domestic space is the primary formal and emotional concern."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Early figure studies",
-          "year": "2008–2012",
-          "notes": "Initial paintings demonstrating the development of Nishimura's figurative approach before its full maturation."
-        },
-        {
-          "title": "Works on paper",
-          "year": "2014–present",
-          "notes": "Drawings and works on paper that demonstrate the intimacy and exploratory quality of Nishimura's practice beyond the painted canvas."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 750000,
-        "avg_usd": 750000,
-        "total_label": "$750k",
-        "avg_label": "$750k",
-        "top_lot": {
-          "title": "A Car Running in the Green 穿過叢林的車子",
-          "hammer_usd": 750000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "A Car Running in the Green 穿過叢林的車子",
-          "ratio": 2.14
         }
       }
     },
@@ -4003,60 +4553,6 @@
       }
     },
     {
-      "norm_name": "ETEL ADNAN",
-      "display_name": "Etel Adnan",
-      "dates": "1925–2021",
-      "nationality": "Lebanese-American",
-      "movement": "Contemporary · Modernism",
-      "movement_id": "contemporary",
-      "bio": "Etel Adnan was born in Beirut in 1925, the daughter of a Greek mother and Syrian father, and grew up speaking Greek and Turkish, learning French and English later, and Arabic still later — a linguistic multiplicity that was formative for a writer and artist whose entire practice engages the relationship between language, image, and the experience of displacement. She studied philosophy at the Sorbonne in Paris and at Harvard before returning to the Arab world as a teacher and journalist.\n\nAdnan came to visual art relatively late, developing in the 1960s the leporello format — folded accordion-book paintings — that became her primary visual medium alongside poetry and prose. These small, jewel-like works contain simple geometric forms — circles, triangles, rectangles — in areas of pure, luminous colour derived from the landscape and light of Northern California (where she eventually settled) and the landscapes of Lebanon and Greece. The forms are neither representational nor purely abstract but hover between horizon, sun, and mountain in a register of condensed poetic notation.\n\nAdnan was awarded major literary prizes and her novel Sitt Marie Rose has become a classic of war literature. Her visual work was exhibited internationally from the early 2000s, including at Documenta, and she was recognised as one of the most original figures at the intersection of poetry, visual art, and the Arab intellectual tradition. She died in Paris in 2021.",
-      "famous_works": [
-        {
-          "title": "The Arab Apocalypse (leporello)",
-          "year": "1989",
-          "notes": "A visual poem in leporello format combining Arabic calligraphy and geometric forms that responds to the Lebanese Civil War with concentrated poetic-pictorial force."
-        },
-        {
-          "title": "California Leporello series",
-          "year": "1970s–2000s",
-          "notes": "Ongoing series of accordion-folded paintings in which the geometry of horizon, sun, and mountain is condensed into areas of pure colour that carry the emotional weight of landscape remembered and inhabited."
-        },
-        {
-          "title": "Seasons",
-          "year": "2012",
-          "notes": "A late series of leporellos in which chromatic harmonies derived from the natural world create meditations on time, change, and the relationship between body and landscape."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Sea and Fog",
-          "year": "1990s",
-          "notes": "A leporello painting in which the atmospheric conditions of the Pacific Coast are translated into a poetic geometry of greys, blues, and white."
-        },
-        {
-          "title": "Untitled (Mountain Series)",
-          "year": "2000s",
-          "notes": "A group of works in which the triangular form of a mountain is treated as both geometric form and emotionally charged landscape memory."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 450000,
-        "avg_usd": 450000,
-        "total_label": "$450k",
-        "avg_label": "$450k",
-        "top_lot": {
-          "title": "Untitled 無題",
-          "hammer_usd": 450000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled 無題",
-          "ratio": 0.9
-        }
-      }
-    },
-    {
       "norm_name": "HENRI DE TOULOUSE-LAUTREC",
       "display_name": "Henri de Toulouse-Lautrec",
       "dates": "1864–1901",
@@ -4160,114 +4656,6 @@
         },
         "top_ratio_lot": {
           "title": "Grossinger's",
-          "ratio": 2.52
-        }
-      }
-    },
-    {
-      "norm_name": "BARBARA KRUGER",
-      "display_name": "Barbara Kruger",
-      "dates": "b. 1945",
-      "nationality": "American",
-      "movement": "Conceptual · Contemporary",
-      "movement_id": "conceptual",
-      "bio": "Barbara Kruger was born in Newark, New Jersey in 1945 and studied at Syracuse University before transferring to Parsons School of Design in New York, where she trained as a graphic designer under Marvin Israel. She worked for many years as art director and designer at Condé Nast publications — experience that gave her intimate knowledge of how visual rhetoric operates in mass media. When she turned to fine art practice in the late 1970s, she did so armed with the tools of the professional propagandist.\n\nKruger's mature work takes the form of large-format photographs — typically appropriated from mass media archives — overlaid with declarative text in a bold Futura Bold italic typeface, in black and white with red accents. Slogans such as 'Your body is a battleground', 'I shop therefore I am', and 'We don't need another hero' address the viewer directly in a language that seems to belong simultaneously to advertising and political manifesto. The work implicates the viewer in the structures it critiques: the pronouns 'you', 'your', 'we', 'I' shift and destabilise, refusing the comfortable distance of critique.\n\nKruger has exhibited and installed her work at an extraordinary range of scales, from gallery photographs to museum-scaled wrap-around installations and public hoardings. Represented by Mary Boone Gallery and Sprüth Magers, her work has been collected by major museums worldwide and has had a documented influence on graphic design, advertising, and feminist cultural theory that extends far beyond the art world.",
-      "famous_works": [
-        {
-          "title": "Untitled (Your Body Is a Battleground)",
-          "year": "1989",
-          "notes": "A billboard-scale work produced for a Washington D.C. pro-choice march, in which a divided female face frames a text that became a defining slogan of feminist visual culture."
-        },
-        {
-          "title": "Untitled (I Shop Therefore I Am)",
-          "year": "1987",
-          "notes": "A photograph of a hand holding a shopping bag with Kruger's text, compressing commodity culture, Descartes, and identity into a single photographic object."
-        },
-        {
-          "title": "Untitled (We Don't Need Another Hero)",
-          "year": "1987",
-          "notes": "A photograph of a girl observing a flexing boy's bicep, in which the text critiques the myths of masculine heroism on which both advertising and political culture depend."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Untitled (Your Gaze Hits the Side of My Face)",
-          "year": "1981",
-          "notes": "A photograph of a classical female bust whose title exposes the violence of the objectifying male gaze within art historical tradition."
-        },
-        {
-          "title": "Thinking of You",
-          "year": "1999",
-          "notes": "An installation wrapping an entire gallery interior in Kruger's text-and-image language, transforming the exhibition space itself into an environment of mediated address."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 438480,
-        "avg_usd": 219240,
-        "total_label": "$438k",
-        "avg_label": "$219k",
-        "top_lot": {
-          "title": "Untitled (Belief + Doubt = Sanity)",
-          "hammer_usd": 378000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (War Without End)",
-          "ratio": 4.03
-        }
-      }
-    },
-    {
-      "norm_name": "LYNNE DREXLER",
-      "display_name": "Lynne Drexler",
-      "dates": "1928–1999",
-      "nationality": "American",
-      "movement": "Colour-Field · Abstract Expressionism",
-      "movement_id": "colour-field",
-      "bio": "Lynne Drexler was born in Newport News, Virginia in 1928 and studied at the Richmond Professional Institute (now Virginia Commonwealth University), the College of William and Mary, and the Hans Hofmann School in New York and Provincetown, where her encounter with Hofmann's colour theory was decisive for the development of her practice. Working in New York and later on Monhegan Island in Maine, she developed a body of abstract painting that has been recognised only recently as one of the significant achievements of mid-century American Colour Field painting.\n\nDrexler's paintings are characterised by a distinctive technique of short, dense brushstrokes applied in rich, closely valued colour combinations to create mosaic-like surfaces of extraordinary luminosity. Working primarily on small to medium canvases, she builds up chromatic environments of great complexity in which no single colour dominates but the overall effect is one of vibrating, life-affirming warmth. The works recall simultaneously Seurat's pointillism, Klimt's decorative surfaces, and Hofmann's colour theory, while remaining entirely their own.\n\nDrexler died in 1999 with her work largely unrecognised by the mainstream art world. The discovery of a large body of work in her Monhegan Island home after her death, and subsequent exhibitions by Kasmin Gallery in New York, have led to her recognition as an important figure in American abstract painting.",
-      "famous_works": [
-        {
-          "title": "The Catkin",
-          "year": "1963",
-          "notes": "A painting in which Drexler's characteristic short, dense brushstroke technique creates a surface of chromatic richness that demonstrates her mastery of optical colour mixing."
-        },
-        {
-          "title": "First Folio",
-          "year": "1962",
-          "notes": "An early major work demonstrating the fully developed technique that Drexler would maintain with extraordinary consistency throughout her career."
-        },
-        {
-          "title": "Untitled (Gold and Pink)",
-          "year": "1970",
-          "notes": "A canvas in which warm gold and pink tones create a mosaic surface of extraordinary luminosity, demonstrating the chromatic sophistication of Drexler's mature practice."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Monhegan Island Paintings",
-          "year": "1970s–1990s",
-          "notes": "Works made during Drexler's years of relative isolation on the Maine island that maintained her practice at a high level throughout the decades of her critical obscurity."
-        },
-        {
-          "title": "Hofmann Study",
-          "year": "1958",
-          "notes": "An early work from Drexler's time studying with Hofmann that demonstrates the direct absorption of colour theory principles that underpins her mature approach."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 428400,
-        "avg_usd": 214200,
-        "total_label": "$428k",
-        "avg_label": "$214k",
-        "top_lot": {
-          "title": "Blues",
-          "hammer_usd": 327600,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
           "ratio": 2.52
         }
       }
@@ -4485,65 +4873,6 @@
         "top_ratio_lot": {
           "title": "Untitled (After Manet)",
           "ratio": 4.1
-        }
-      }
-    },
-    {
-      "norm_name": "AGNES MARTIN",
-      "display_name": "Agnes Martin",
-      "dates": "1912–2004",
-      "nationality": "Canadian-American",
-      "movement": "Minimalism · Abstraction",
-      "movement_id": "minimalism",
-      "bio": "Born in Macklin, Saskatchewan, Canada, Martin moved to New York after studies in Oregon and Columbia University, where she taught. She developed her mature practice in the early 1960s: small-scale canvases of pencil-drawn grids on white or off-white paint, the lines hand-drawn with a ruler, carrying the slight irregularity of the human hand within a rigid structure. She was associated with the first generation of Minimalists at Elsworth Kelly's building on Coenties Slip in Lower Manhattan, though she rejected the Minimalist label, insisting on the emotional and spiritual dimension of her work. She left New York abruptly in 1967 following the death of Ad Reinhardt and a breakdown, and moved to New Mexico, where she lived in self-built adobe houses and did not paint for six years. The late works are horizontal bands of pale colour — pink, blue, grey — of extraordinary refinement.",
-      "famous_works": [
-        {
-          "title": "The Islands I–XII",
-          "year": "1961",
-          "notes": "A series of small square canvases — the grid at its most intimate and complete. The islands of the title are the canvases themselves."
-        },
-        {
-          "title": "With My Back to the World",
-          "year": "1997",
-          "notes": "A late work of pale horizontal bands. The title is a statement of position — withdrawal from the social world as the condition of the work."
-        },
-        {
-          "title": "Friendship",
-          "year": "1963",
-          "notes": "Gold leaf on canvas crossed by thin pencil grid lines. The warmth of the gold and the severity of the grid — the emotional and structural in productive tension."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Happy Holiday",
-          "year": "1999",
-          "notes": "A late canvas of yellow bands — an unusually warm, light work for Martin. The title's unironic positivity and the painting's quiet pleasure are matching."
-        },
-        {
-          "title": "Grass",
-          "year": "1967",
-          "notes": "One of the last works before the New Mexico departure — thin horizontal lines on pale ground. The landscape of the title is implicit in the colour and the horizon."
-        },
-        {
-          "title": "Untitled #10",
-          "year": "1990",
-          "notes": "A return to grid format after the horizontal-bands period of the 1970s and 1980s. The grid reinterpreted in softer, more atmospheric terms than the early Manhattan works."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 403200,
-        "avg_usd": 403200,
-        "total_label": "$403k",
-        "avg_label": "$403k",
-        "top_lot": {
-          "title": "Untitled #2",
-          "hammer_usd": 403200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled #2",
-          "ratio": 1.01
         }
       }
     },
@@ -5040,65 +5369,6 @@
         "top_ratio_lot": {
           "title": "Lion at Night, 1984",
           "ratio": 1.09
-        }
-      }
-    },
-    {
-      "norm_name": "ROBERT RAUSCHENBERG",
-      "display_name": "Robert Rauschenberg",
-      "dates": "1925–2008",
-      "nationality": "American",
-      "movement": "Neo-Dada · Combines",
-      "movement_id": "contemporary",
-      "bio": "Born in Port Arthur, Texas, Rauschenberg studied at Black Mountain College under Josef Albers and John Cage before arriving in New York. He developed the 'Combines' (1954–64) — works that incorporated objects from daily life (stuffed animals, tires, clothing, photographs, street detritus) into painterly surfaces, making the distinction between painting and sculpture moot. He was among the first artists to collaborate with choreographers (Merce Cunningham, Paul Taylor) and the first to explore the relationship between art and technology institutionally (Experiments in Art and Technology, 1966). He won the Venice Biennale Grand Prize in 1964 — the moment American Pop and Conceptual art were officially consecrated by the European establishment. His Tibetan Buddhism, his gay identity (publicly declared), and his Texan populism were all present in the work, which remains among the most generative in post-war American art.",
-      "famous_works": [
-        {
-          "title": "Bed",
-          "year": "1955",
-          "notes": "His own quilt, pillow, and sheet hung vertically on a stretcher and smeared with toothpaste, paint, and nail varnish. The painting as domestic object, the domestic object as painting."
-        },
-        {
-          "title": "Monogram",
-          "year": "1955–59",
-          "notes": "A stuffed angora goat with a tire around its middle, standing on a painted combine canvas. The most famous of the Combines — sculpture, painting, and absurdist theatre simultaneously."
-        },
-        {
-          "title": "Erased de Kooning Drawing",
-          "year": "1953",
-          "notes": "Rauschenberg visited de Kooning and asked for a drawing he could erase. De Kooning chose a difficult, multiply-media drawing. The act of erasure as the art — Dada's destruction turned into a relationship."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "White Paintings",
-          "year": "1951",
-          "notes": "Pure white canvases that catch shadow and light — precursors to John Cage's 4'33\" in their creation of a field for ambient incident rather than a determined composition."
-        },
-        {
-          "title": "Barge",
-          "year": "1962",
-          "notes": "A monumental transfer drawing — newspaper and magazine images transferred to canvas using solvent. The 22-foot composite of American imagery is the most ambitious single surface in the transfer series."
-        },
-        {
-          "title": "Retroactive I",
-          "year": "1964",
-          "notes": "Kennedy's photograph layered with an astronaut and a hand-signaling figure. The transfer technique applied to the imagery of the 1960s American moment — assassination and space race in the same picture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 327600,
-        "avg_usd": 327600,
-        "total_label": "$328k",
-        "avg_label": "$328k",
-        "top_lot": {
-          "title": "Fuse",
-          "hammer_usd": 327600,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Fuse",
-          "ratio": 3.28
         }
       }
     },
@@ -6831,60 +7101,6 @@
       }
     },
     {
-      "norm_name": "JACK WHITTEN",
-      "display_name": "Jack Whitten",
-      "dates": "1939–2018",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Contemporary",
-      "movement_id": "abstract-expressionism",
-      "bio": "Jack Whitten was born in Bessemer, Alabama in 1939 and came of age during the civil rights movement, studying briefly at the Tuskegee Institute and meeting Martin Luther King Jr. before moving north to New York, where he enrolled at Cooper Union and graduated in 1964. He became part of the downtown art world, befriending Philip Guston and Ad Reinhardt and developing through the 1960s and 1970s a practice of rigorous formal experimentation that remained largely outside mainstream critical attention.\n\nWhitten's work went through numerous distinct phases, each involving technical innovation. In the 1970s he developed an approach using a large homemade squeegee to drag mixed paint across large canvases in a single decisive gesture, creating surfaces of extraordinary tonal complexity. Later he invented what he called 'tesserae' — dried slices of acrylic paint used as mosaic elements — which he pressed into large compositions to create surfaces that combine the history of Byzantine mosaic with the materiality of abstract painting. His work was explicitly concerned with being both a Black American artist and a modernist painter, holding these identities not in tension but in productive synthesis.\n\nLate recognition came with a major retrospective at the Metropolitan Museum of Art in 2014, the year before his death, which confirmed his status as one of the most significant and original painters of his generation. His works are held by major museums including the Guggenheim and the Whitney.",
-      "famous_works": [
-        {
-          "title": "Delta Group",
-          "year": "1975",
-          "notes": "A large squeegee painting in which a single horizontal gesture creates a surface of complex tonal modulation that brings together Jackson Pollock's physical engagement with painting and a more concentrated formal restraint."
-        },
-        {
-          "title": "9/11/01",
-          "year": "2006",
-          "notes": "A tessera painting created in response to the September 11 attacks, in which fragmented acrylic slabs are combined into an elegy that locates abstract painting in relation to collective trauma."
-        },
-        {
-          "title": "Atopolis (For Édouard Glissant)",
-          "year": "2014",
-          "notes": "A large tessera painting dedicated to the Caribbean philosopher, in which the mosaic surface becomes a metaphor for the creolised, rhizomatic cultural identity that Glissant theorised."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Doctor Egypt (and the Witchdoctor's Problem)",
-          "year": "1966",
-          "notes": "An early painting that demonstrates Whitten's engagement with African and African-American cultural sources as formal and intellectual content."
-        },
-        {
-          "title": "Greek Alphabet series",
-          "year": "1975–1976",
-          "notes": "A group of squeegee paintings in which the gestural system is applied with particularly rigorous consistency, creating works of concentrated formal intelligence."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 189000,
-        "avg_usd": 189000,
-        "total_label": "$189k",
-        "avg_label": "$189k",
-        "top_lot": {
-          "title": "82°F (27.777C) #II",
-          "hammer_usd": 189000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "82°F (27.777C) #II",
-          "ratio": 1.08
-        }
-      }
-    },
-    {
       "norm_name": "AL HELD",
       "display_name": "Al Held",
       "dates": "1928–2005",
@@ -7043,60 +7259,6 @@
         "top_ratio_lot": {
           "title": "Danseuse",
           "ratio": 2.51
-        }
-      }
-    },
-    {
-      "norm_name": "JOHN CHAMBERLAIN",
-      "display_name": "John Chamberlain",
-      "dates": "1927–2011",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Sculpture",
-      "movement_id": "abstract-expressionism",
-      "bio": "John Chamberlain was born in Rochester, Indiana in 1927 and studied at the Art Institute of Chicago and Black Mountain College, where his encounter with the community around Robert Creeley and Charles Olson confirmed his interest in a practice rooted in direct physical engagement with materials. He began making sculptures from crushed automobile parts in the late 1950s, a development that placed him at the intersection of Abstract Expressionist painting's gestural energy and the three-dimensional world of junk sculpture.\n\nChamberlain's works in compressed and welded automotive steel — the chromium-plated, enamel-painted, sometimes rusted surfaces of car bodies from American mid-century production — generate an abstract sculptural language of considerable formal sophistication. The works are not simply crushed cars: they are constructed from selected and manipulated components whose colour relationships, forms, and spatial organisation have been carefully arranged. The gestural energy of the bending and crushing is preserved in the final object, but it is subordinate to the compositional intelligence that gives each work its visual identity.\n\nFrom the late 1960s Chamberlain also worked with urethane foam, galvanised steel, brown paper, and aluminium foil as sculptural materials. He is represented posthumously by Gagosian Gallery and his work is held by the Museum of Modern Art, the Guggenheim, and major collections internationally.",
-      "famous_works": [
-        {
-          "title": "Nutcracker",
-          "year": "1958",
-          "notes": "An early automobile-part sculpture that established Chamberlain's compressed-steel vocabulary and demonstrated its formal richness in a relatively contained scale."
-        },
-        {
-          "title": "Delores James",
-          "year": "1962",
-          "notes": "A large assembled automotive-steel sculpture in which the relationship between the chromatic and formal qualities of the car-body components achieves particular complexity."
-        },
-        {
-          "title": "Fantan",
-          "year": "1976",
-          "notes": "A late large-scale work demonstrating the development of Chamberlain's automotive-steel method toward increasingly monumental scale and spatial ambition."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Foam Sculptures",
-          "year": "1966–1970",
-          "notes": "Works in crumpled urethane foam that extend Chamberlain's compression methodology into a softer, lighter material that produces different spatial and chromatic effects."
-        },
-        {
-          "title": "Papier Maché Works",
-          "year": "1960s",
-          "notes": "Small-scale works on paper that demonstrate the range of Chamberlain's formal and material experimentation beyond his better-known automotive steel."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 170000,
-        "avg_usd": 170000,
-        "total_label": "$170k",
-        "avg_label": "$170k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 170000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 0.68
         }
       }
     },
@@ -9369,60 +9531,6 @@
       }
     },
     {
-      "norm_name": "DONALD JUDD",
-      "display_name": "Donald Judd",
-      "dates": "1928–1994",
-      "nationality": "American",
-      "movement": "Minimalism",
-      "movement_id": "minimalism",
-      "bio": "Donald Judd was born in Excelsior Springs, Missouri in 1928 and studied philosophy at Columbia University before establishing himself as an influential critic — his essay 'Specific Objects' (1965) remains among the defining theoretical texts of Minimalism — and as the movement's most rigorous practitioner. His work began with painted relief works and evolved rapidly toward the three-dimensional objects, or 'specific objects', that he insisted were neither painting nor sculpture but something irreducibly themselves.\n\nJudd's signature forms are stacks of identical units — boxes in anodised aluminium, Plexiglas, and other industrial materials — mounted on walls at precise intervals, and floor pieces of metal forms in series. The works reject composition (each unit is identical), illusionistic space (the interior is as real as the exterior), and handmade craft (they are fabricated by industrial manufacturers to Judd's specifications). What remains is pure material presence: the colour of the anodised surface, the reflectivity of the metal, the depth of the interval between units — these are the work, without metaphor or reference.\n\nIn 1974 Judd began acquiring buildings in Marfa, Texas, which he converted into permanent installations of his own and others' work. The Chinati Foundation that emerged from this project is among the most significant sites for the permanent installation of Minimalist art. Judd is represented posthumously by David Zwirner, and his work is held by virtually every major art museum.",
-      "famous_works": [
-        {
-          "title": "Untitled (Stack)",
-          "year": "1967",
-          "notes": "A vertical series of identical galvanised iron box units mounted on a wall at equal intervals, among the purest realisations of Judd's principle that the work exists entirely in its material facts."
-        },
-        {
-          "title": "100 untitled works in mill aluminum",
-          "year": "1982–1986",
-          "notes": "A permanent installation of one hundred identical aluminium boxes in two artillery sheds at Chinati in Marfa, Texas — the fullest realisation of Judd's vision of art in dedicated architectural space."
-        },
-        {
-          "title": "Untitled (Progression)",
-          "year": "1969",
-          "notes": "A floor piece in which the intervals between box units follow a mathematical progression, introducing serial variation as a structural principle."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Untitled (Purple Anodized Aluminum)",
-          "year": "1989",
-          "notes": "A late stack work in which the richly coloured anodised surface demonstrates Judd's investigation of industrial colour as a material quality rather than applied decoration."
-        },
-        {
-          "title": "Untitled (Bernstein)",
-          "year": "1964",
-          "notes": "An early painted wood relief that represents the transitional moment between Judd's painting practice and his development of the three-dimensional specific object."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 81900,
-        "avg_usd": 81900,
-        "total_label": "$82k",
-        "avg_label": "$82k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 81900,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 0.96
-        }
-      }
-    },
-    {
       "norm_name": "MARÍA BERRÍO",
       "display_name": "María Berrío",
       "dates": "b. 1982",
@@ -9635,60 +9743,6 @@
         "top_ratio_lot": {
           "title": "Dwayne \"The Cock\" Johnson",
           "ratio": 6.05
-        }
-      }
-    },
-    {
-      "norm_name": "GEORG BASELITZ",
-      "display_name": "Georg Baselitz",
-      "dates": "b. 1938",
-      "nationality": "German",
-      "movement": "Neo-Expressionism",
-      "movement_id": "neo-expressionism",
-      "bio": "Georg Baselitz was born Hans-Georg Kern in Deutschbaselitz, Saxony in 1938 and grew up in Soviet-occupied East Germany, fleeing to West Berlin in 1956 to study at the Hochschule für bildende Künste. His early paintings of the 1960s provoked scandal for their raw sexuality and anarchic imagery — two were confiscated by authorities — and established his commitment to provoking the normative expectations of both political systems within which he moved.\n\nThe decisive formal development of his career came in 1969, when he began painting his figures upside-down, a procedure he has maintained consistently for more than fifty years. The inversion refuses narrative: the viewer cannot construct a scene, cannot determine foreground from background in the conventional sense, and is forced to attend to the painting as a painted object — to its gestural surface, its colour, its marks — rather than to its depicted content. The figures are in the painting, but the painting is emphatically about itself.\n\nBaselitz has been a central figure in German art for six decades, associated with the resurgence of figuration in the late 1970s and 1980s, and his work has attracted sustained critical debate about the relationship between German cultural tradition, trauma, and the possibilities of Neo-Expressionism. He is represented by Gagosian Gallery and White Cube, and major retrospectives have been mounted at institutions including the Guggenheim Museum Bilbao.",
-      "famous_works": [
-        {
-          "title": "The Big Night Down the Drain",
-          "year": "1962–1963",
-          "notes": "A notorious early work confiscated by West Berlin authorities for obscenity, establishing Baselitz's commitment to transgressive imagery in his pre-inversion period."
-        },
-        {
-          "title": "Motif: The Shepherd (Der Hirte)",
-          "year": "1969",
-          "notes": "One of the first inverted paintings, marking the decisive formal decision that has defined Baselitz's practice for more than five decades."
-        },
-        {
-          "title": "Adler (Eagle)",
-          "year": "1977",
-          "notes": "A monumental inverted eagle in which the national symbol of Germany is subjected to Baselitz's characteristic formal disruption."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Remix series",
-          "year": "2005–present",
-          "notes": "A late series in which Baselitz revisits and repaints his own earlier works, making the history of the practice itself the subject of the paintings."
-        },
-        {
-          "title": "Elke I",
-          "year": "1969",
-          "notes": "An early inverted portrait of his wife Elke demonstrating the application of the inversion principle to the specific genre of portraiture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 75600,
-        "avg_usd": 75600,
-        "total_label": "$76k",
-        "avg_label": "$76k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 75600,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.89
         }
       }
     },
@@ -10607,60 +10661,6 @@
         "top_ratio_lot": {
           "title": "Constellation",
           "ratio": 1.26
-        }
-      }
-    },
-    {
-      "norm_name": "SIGMAR POLKE",
-      "display_name": "Sigmar Polke",
-      "dates": "1941–2010",
-      "nationality": "German",
-      "movement": "Neo-Expressionism · Contemporary",
-      "movement_id": "neo-expressionism",
-      "bio": "Sigmar Polke was born in Oels, Silesia (now Oleśnica, Poland) in 1941. His family fled West Germany in 1953, eventually settling in Düsseldorf, where he studied at the Kunstakademie under Karl Otto Götz, alongside Gerhard Richter. In 1963 Polke and Richter announced 'Capitalist Realism', a German response to American Pop that used commercial and mass-media imagery not with Pop's cool detachment but with a corrosive, often scatological humour.\n\nPolke's practice is among the most formally inventive and intellectually restless in post-war art. He worked across decades in a staggering range of materials and methodologies — Raster dot paintings (enlarging commercial printing screens to canvas), paintings on patterned fabric, works using toxic and transformative chemicals, photographic darkroom experimentations, large-scale works on transparent polyester fabric — rarely settling into any single approach long enough for it to become a style. His use of Raster dots anticipated and complicated digital pixelation; his chemical works produced surfaces that continued to change after the work was 'finished'.\n\nPolke won the Golden Lion at the Venice Biennale in 1986, with an installation that filled the German Pavilion with iridescent chemical surfaces. He is represented posthumously by Michael Werner Gallery and his work is held by the Museum of Modern Art, the Museum Ludwig in Cologne, and major collections worldwide.",
-      "famous_works": [
-        {
-          "title": "Higher Powers Command: Paint the Upper Right Corner Black!",
-          "year": "1969",
-          "notes": "A painting in which Polke executes an apparently nonsensical instruction, simultaneously testing authority structures and the conventions of abstract painting."
-        },
-        {
-          "title": "Watchtower",
-          "year": "1984–1988",
-          "notes": "A series of paintings of watchtowers — associated with both the Nazi concentration camp system and the East German border — in which multiple layered materials create images of political resonance and formal complexity."
-        },
-        {
-          "title": "Alice in Wonderland",
-          "year": "1971",
-          "notes": "A work on patterned fabric in which the interference between the applied image and the ground's pattern creates a pictorial complexity that is simultaneously humorous and formally sophisticated."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Bunnies",
-          "year": "1966",
-          "notes": "An early Raster dot painting in which Playboy bunnies are reproduced at enlarged dot-screen scale, connecting commercial printing technology to questions of desire and reproduction."
-        },
-        {
-          "title": "Transformers Paintings",
-          "year": "1995",
-          "notes": "Works using chemicals that alter and transform the painted surface over time, making change itself a constitutive element of the work."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 48000,
-        "avg_usd": 48000,
-        "total_label": "$48k",
-        "avg_label": "$48k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 48000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 0.69
         }
       }
     },
@@ -12497,6 +12497,357 @@
         "top_ratio_lot": {
           "title": "Untitled (Nude)",
           "ratio": 5.04
+        }
+      }
+    },
+    {
+      "norm_name": "GERHARD RICHTER",
+      "display_name": "Gerhard Richter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 6550000,
+        "avg_usd": 3275000,
+        "total_label": "$6.55M",
+        "avg_label": "$3.27M",
+        "top_lot": {
+          "title": "Abstraktes Bild",
+          "hammer_usd": 5700000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Abstraktes Bild",
+          "ratio": 0.95
+        }
+      }
+    },
+    {
+      "norm_name": "LEE KRASNER",
+      "display_name": "Lee Krasner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4500000,
+        "avg_usd": 4500000,
+        "total_label": "$4.50M",
+        "avg_label": "$4.50M",
+        "top_lot": {
+          "title": "August Petals",
+          "hammer_usd": 4500000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "August Petals",
+          "ratio": 0.9
+        }
+      }
+    },
+    {
+      "norm_name": "FRANÇOIS-XAVIER LALANNE",
+      "display_name": "François-Xavier Lalanne",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2000000,
+        "avg_usd": 2000000,
+        "total_label": "$2.00M",
+        "avg_label": "$2.00M",
+        "top_lot": {
+          "title": "Troupeau de Moutons de Laine",
+          "hammer_usd": 2000000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Troupeau de Moutons de Laine",
+          "ratio": 1.14
+        }
+      }
+    },
+    {
+      "norm_name": "JEFF KOONS",
+      "display_name": "Jeff Koons",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1900000,
+        "avg_usd": 1900000,
+        "total_label": "$1.90M",
+        "avg_label": "$1.90M",
+        "top_lot": {
+          "title": "Baroque Egg with Bow",
+          "hammer_usd": 1900000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Baroque Egg with Bow",
+          "ratio": 0.63
+        }
+      }
+    },
+    {
+      "norm_name": "TOM WESSELMANN",
+      "display_name": "Tom Wesselmann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1800000,
+        "avg_usd": 1800000,
+        "total_label": "$1.80M",
+        "avg_label": "$1.80M",
+        "top_lot": {
+          "title": "Smoker #25",
+          "hammer_usd": 1800000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Smoker #25",
+          "ratio": 1.03
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD PRINCE",
+      "display_name": "Richard Prince",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1200000,
+        "avg_usd": 1200000,
+        "total_label": "$1.20M",
+        "avg_label": "$1.20M",
+        "top_lot": {
+          "title": "Untitled (Cowboy)",
+          "hammer_usd": 1200000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Cowboy)",
+          "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "ELIZABETH CATLETT",
+      "display_name": "Elizabeth Catlett",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 290000,
+        "avg_usd": 145000,
+        "total_label": "$290k",
+        "avg_label": "$145k",
+        "top_lot": {
+          "title": "Woman Resting",
+          "hammer_usd": 180000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Woman Resting",
+          "ratio": 1.44
+        }
+      }
+    },
+    {
+      "norm_name": "JOAN SNYDER",
+      "display_name": "Joan Snyder",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "Diffused Warmth",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Diffused Warmth",
+          "ratio": 2.24
+        }
+      }
+    },
+    {
+      "norm_name": "CHARLES WHITE",
+      "display_name": "Charles White",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 220000,
+        "avg_usd": 220000,
+        "total_label": "$220k",
+        "avg_label": "$220k",
+        "top_lot": {
+          "title": "Seed of Heritage",
+          "hammer_usd": 220000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Seed of Heritage",
+          "ratio": 0.73
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL FEELEY",
+      "display_name": "Paul Feeley",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 140000,
+        "avg_usd": 140000,
+        "total_label": "$140k",
+        "avg_label": "$140k",
+        "top_lot": {
+          "title": "Lysander",
+          "hammer_usd": 140000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Lysander",
+          "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "EMMI WHITEHORSE",
+      "display_name": "Emmi Whitehorse",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 120000,
+        "avg_usd": 120000,
+        "total_label": "$120k",
+        "avg_label": "$120k",
+        "top_lot": {
+          "title": "Wizen",
+          "hammer_usd": 120000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Wizen",
+          "ratio": 1.71
+        }
+      }
+    },
+    {
+      "norm_name": "RUTH ASAWA",
+      "display_name": "Ruth Asawa",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Epyphyllum",
+          "hammer_usd": 65000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Epyphyllum",
+          "ratio": 1.86
+        }
+      }
+    },
+    {
+      "norm_name": "MARY ABBOTT",
+      "display_name": "Mary Abbott",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38000,
+        "avg_usd": 38000,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 38000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.95
         }
       }
     }
