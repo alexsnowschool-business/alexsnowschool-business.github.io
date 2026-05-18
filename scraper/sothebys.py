@@ -341,6 +341,7 @@ async def _scrape_sale(
     tqdm.write(f"  auctionId: {auction_id}")
     currency = _infer_currency(sale_slug)
     skip = 0
+    first_page_ids: set[str] = set()
     MAX_CONSECUTIVE_NO_PRICE = 15
     MAX_CONSECUTIVE_EXISTING = 50
     consecutive_no_price = 0
@@ -349,6 +350,14 @@ async def _scrape_sale(
     while saved_ref[0] < max_lots:
         lots_raw = await _fetch_lots_page(client, auction_id, skip)
         if not lots_raw:
+            break
+
+        # Detect APIs that ignore skip and return the same page forever
+        page_ids = {r.get("lotId") for r in lots_raw if r.get("lotId")}
+        if skip == 0:
+            first_page_ids = page_ids
+        elif page_ids == first_page_ids:
+            tqdm.write("  API repeated first page — pagination not supported, stopping")
             break
 
         for raw in lots_raw:
