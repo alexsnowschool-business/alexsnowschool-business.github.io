@@ -1,15 +1,15 @@
 {
   "stats": {
-    "total_lots": 428,
-    "total_artists": 240,
-    "median_hammer_usd": 239400,
-    "pct_above_estimate": 52.3,
+    "total_lots": 478,
+    "total_artists": 261,
+    "median_hammer_usd": 245000,
+    "pct_above_estimate": 51.0,
     "max_ratio": 14.7,
     "sources": [
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-05-16"
+    "generated_at": "2026-05-18"
   },
   "artists": [
     {
@@ -60,11 +60,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 43,
-        "total_usd": 45380100,
-        "avg_usd": 1055351,
-        "total_label": "$45.38M",
-        "avg_label": "$1.06M",
+        "lot_count": 44,
+        "total_usd": 45475100,
+        "avg_usd": 1033525,
+        "total_label": "$45.48M",
+        "avg_label": "$1.03M",
         "top_lot": {
           "title": "Reflections: Art",
           "hammer_usd": 4500000,
@@ -306,11 +306,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 7,
-        "total_usd": 9425550,
-        "avg_usd": 1346507,
-        "total_label": "$9.43M",
-        "avg_label": "$1.35M",
+        "lot_count": 8,
+        "total_usd": 9545550,
+        "avg_usd": 1193194,
+        "total_label": "$9.55M",
+        "avg_label": "$1.19M",
         "top_lot": {
           "title": "Genuine Blue",
           "hammer_usd": 3317000,
@@ -319,6 +319,70 @@
         "top_ratio_lot": {
           "title": "Earliness",
           "ratio": 2.05
+        }
+      }
+    },
+    {
+      "norm_name": "JOAN MITCHELL",
+      "display_name": "Joan Mitchell",
+      "dates": "1925–1992",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Second Generation",
+      "movement_id": "abstract-expressionism",
+      "bio": "Born in Chicago to a surgeon father and a poet mother who published in Poetry magazine, Mitchell studied at the Art Institute of Chicago and arrived in New York in 1947. She became part of the Cedar Tavern world but was consistently marginalised in critical accounts centred on the male abstract expressionists — a disparity between her critical standing and her market prices that persisted for decades. She moved to Paris in 1959, later settling in Vétheuil, the village where Monet had painted in the 1870s, a proximity she acknowledged obliquely. Her monumental polyptychs of the 1970s and 1980s — La Grande Vallée (1983–84), Chord (1987) — are among the most sustained achievements of late Abstract Expressionism, combining gestural intensity with a structural rigour that her male contemporaries rarely matched. Market revaluation began seriously in the 2010s and accelerated sharply after her 2021 retrospective at SFMOMA and the Guggenheim.",
+      "famous_works": [
+        {
+          "title": "Hemlock",
+          "year": "1956",
+          "notes": "A dense, agitated early painting named after the tree outside her New York studio. Establishes the memory-of-landscape approach that would define her mature work."
+        },
+        {
+          "title": "George Went Swimming at Barnes Hole, But It Got Too Cold",
+          "year": "1957",
+          "notes": "The title signals her method: paintings encode remembered rather than observed experience. Among the most important second-generation AbEx works."
+        },
+        {
+          "title": "La Grande Vallée XIV",
+          "year": "1983",
+          "notes": "Part of a sustained series named after the valley near Vétheuil. The polyptych format opens the painting to temporal extension — the work takes time to read."
+        },
+        {
+          "title": "Chord",
+          "year": "1987",
+          "notes": "A triptych of extraordinary chromatic control. Yellow and blue fields generate a visual chord — the musical analogy is structural, not decorative."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Bracket",
+          "year": "1989",
+          "notes": "A late diptych that shows the synthesis Mitchell achieved between gestural mark-making and architectural spatial organisation."
+        },
+        {
+          "title": "Sunflowers",
+          "year": "1990–91",
+          "notes": "One of the last major series, made in failing health. The sunflower motif absorbs Van Gogh without quoting him — the yellow-black opposition is structural."
+        },
+        {
+          "title": "Untitled (Black)",
+          "year": "1964",
+          "notes": "A rare near-monochrome work that tests whether the energy of her gesture survives the removal of colour. It does."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 8778400,
+        "avg_usd": 1097300,
+        "total_label": "$8.78M",
+        "avg_label": "$1.10M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 5132000,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.39
         }
       }
     },
@@ -505,6 +569,65 @@
       }
     },
     {
+      "norm_name": "ALEXANDER CALDER",
+      "display_name": "Alexander Calder",
+      "dates": "1898–1976",
+      "nationality": "American",
+      "movement": "Modernism · Kinetic Sculpture",
+      "movement_id": "modernism",
+      "bio": "Born into a family of sculptors — his father Alexander Stirling Calder and grandfather Alexander Milne Calder were both prominent — he trained as a mechanical engineer before studying at the Art Students League, New York. In Paris in the late 1920s he constructed his Cirque Calder, a miniature performance of wire figures, to which Mondrian, Léger, and Miró came. A visit to Mondrian's studio in 1930 — the primary colours, the rectangles — was, he said, the turning point. He began making kinetic sculptures driven by motors, then discovered that air itself could provide the motive force: the mobile was born. Duchamp named the moving works; Arp named the static ones 'stabiles.' He worked at every scale from jewellery to monumental public commissions (La Grande Vitesse, Grand Rapids, 1969). The wit and formal clarity of the basic vocabulary — coloured steel elements in balance — never failed him.",
+      "famous_works": [
+        {
+          "title": "Lobster Trap and Fish Tail",
+          "year": "1939",
+          "notes": "The first large mobile commissioned specifically for a museum space (MoMA). Steel wire and metal sheets in biomorphic shapes that move continuously."
+        },
+        {
+          "title": "Big Red",
+          "year": "1959",
+          "notes": "A stabile-mobile in red — Calder's most iconic colour. Demonstrates the synthesis of stability and motion that defines the mature work."
+        },
+        {
+          "title": "La Grande Vitesse",
+          "year": "1969",
+          "notes": "The first public art work commissioned under the US National Endowment for the Arts. Forty-three tons of red-painted steel in Grand Rapids, Michigan — the city adopted it as a symbol."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Calder's Circus",
+          "year": "1926–31",
+          "notes": "The miniature performance work in wire, cork, and found objects. Not quite sculpture, not quite theatre — a proto-performance-art object that Calder performed himself."
+        },
+        {
+          "title": "Fish",
+          "year": "1944",
+          "notes": "A small mobile in which the fish-like biomorphic elements seem genuinely aquatic. One of the most graceful domestic-scale works in the Calder catalogue."
+        },
+        {
+          "title": "The Brass Family",
+          "year": "1929",
+          "notes": "A wire sculpture depicting an acrobatic family — precursor to the mobiles in its demonstration of balance, tension, and form made from line alone."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 6510000,
+        "avg_usd": 651000,
+        "total_label": "$6.51M",
+        "avg_label": "$651k",
+        "top_lot": {
+          "title": "20 White in 20 Inches",
+          "hammer_usd": 2000000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "The Pub",
+          "ratio": 2.52
+        }
+      }
+    },
+    {
       "norm_name": "ANDY WARHOL",
       "display_name": "Andy Warhol",
       "dates": "1928–1987",
@@ -564,70 +687,6 @@
       }
     },
     {
-      "norm_name": "JOAN MITCHELL",
-      "display_name": "Joan Mitchell",
-      "dates": "1925–1992",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Second Generation",
-      "movement_id": "abstract-expressionism",
-      "bio": "Born in Chicago to a surgeon father and a poet mother who published in Poetry magazine, Mitchell studied at the Art Institute of Chicago and arrived in New York in 1947. She became part of the Cedar Tavern world but was consistently marginalised in critical accounts centred on the male abstract expressionists — a disparity between her critical standing and her market prices that persisted for decades. She moved to Paris in 1959, later settling in Vétheuil, the village where Monet had painted in the 1870s, a proximity she acknowledged obliquely. Her monumental polyptychs of the 1970s and 1980s — La Grande Vallée (1983–84), Chord (1987) — are among the most sustained achievements of late Abstract Expressionism, combining gestural intensity with a structural rigour that her male contemporaries rarely matched. Market revaluation began seriously in the 2010s and accelerated sharply after her 2021 retrospective at SFMOMA and the Guggenheim.",
-      "famous_works": [
-        {
-          "title": "Hemlock",
-          "year": "1956",
-          "notes": "A dense, agitated early painting named after the tree outside her New York studio. Establishes the memory-of-landscape approach that would define her mature work."
-        },
-        {
-          "title": "George Went Swimming at Barnes Hole, But It Got Too Cold",
-          "year": "1957",
-          "notes": "The title signals her method: paintings encode remembered rather than observed experience. Among the most important second-generation AbEx works."
-        },
-        {
-          "title": "La Grande Vallée XIV",
-          "year": "1983",
-          "notes": "Part of a sustained series named after the valley near Vétheuil. The polyptych format opens the painting to temporal extension — the work takes time to read."
-        },
-        {
-          "title": "Chord",
-          "year": "1987",
-          "notes": "A triptych of extraordinary chromatic control. Yellow and blue fields generate a visual chord — the musical analogy is structural, not decorative."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Bracket",
-          "year": "1989",
-          "notes": "A late diptych that shows the synthesis Mitchell achieved between gestural mark-making and architectural spatial organisation."
-        },
-        {
-          "title": "Sunflowers",
-          "year": "1990–91",
-          "notes": "One of the last major series, made in failing health. The sunflower motif absorbs Van Gogh without quoting him — the yellow-black opposition is structural."
-        },
-        {
-          "title": "Untitled (Black)",
-          "year": "1964",
-          "notes": "A rare near-monochrome work that tests whether the energy of her gesture survives the removal of colour. It does."
-        }
-      ],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 6016400,
-        "avg_usd": 1504100,
-        "total_label": "$6.02M",
-        "avg_label": "$1.50M",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 5132000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 2.39
-        }
-      }
-    },
-    {
       "norm_name": "DAVID HOCKNEY",
       "display_name": "David Hockney",
       "dates": "b. 1937",
@@ -670,11 +729,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 5040400,
-        "avg_usd": 1260100,
-        "total_label": "$5.04M",
-        "avg_label": "$1.26M",
+        "lot_count": 7,
+        "total_usd": 5450400,
+        "avg_usd": 778629,
+        "total_label": "$5.45M",
+        "avg_label": "$779k",
         "top_lot": {
           "title": "Green Pool with Diving Board and Shadow (Paper Pool 3)",
           "hammer_usd": 2349000,
@@ -967,6 +1026,65 @@
       }
     },
     {
+      "norm_name": "WAYNE THIEBAUD",
+      "display_name": "Wayne Thiebaud",
+      "dates": "1920–2021",
+      "nationality": "American",
+      "movement": "Pop Art · California Realism",
+      "movement_id": "pop-art",
+      "bio": "Born in Mesa, Arizona and raised in Long Beach, California, Thiebaud worked as a commercial illustrator and cartoon animator before studying at San José State and Sacramento State. He began painting food subjects in the late 1950s — cakes, pies, gumball machines, diner counters — with a formally rigorous attention to light, shadow, and the physical materiality of paint that distinguished his work from the cooler irony of East Coast Pop. The frosting on a layer cake is painted with thick, sensuous impasto; the display-case setting is handled with a Hopper-esque attention to commercial loneliness. He taught at UC Davis for decades, building an influential West Coast pedagogical tradition. His San Francisco cityscape paintings — extreme vertiginous perspectives down hillside streets — achieve a formally ambitious spatial organisation that goes well beyond the food work in structural ambition. He continued painting actively into his late nineties.",
+      "famous_works": [
+        {
+          "title": "Cakes",
+          "year": "1963",
+          "notes": "A row of identical cakes on a display counter. The seriality anticipates Minimalism; the impasto pleasure of the frosting is the counter-argument. Whitney Museum."
+        },
+        {
+          "title": "Two Seated Figures",
+          "year": "1965",
+          "notes": "A departure from food subjects — two figures in folding chairs, the social awkwardness of commercial seating rendered with the same formal attention as the pastries."
+        },
+        {
+          "title": "Steep Street",
+          "year": "1988",
+          "notes": "A San Francisco street plunging almost vertically from the picture plane. The spatial vertigo of the cityscape paintings — less famous than the food works but arguably more formally ambitious."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Jawbreaker Machine",
+          "year": "1963",
+          "notes": "A candy machine rendered with the same clinical pleasure as the cake displays. The commercial object as still-life subject with a dignity Chardin would have recognised."
+        },
+        {
+          "title": "Ponds and Streams",
+          "year": "2001",
+          "notes": "A late aerial landscape — Sacramento valley agricultural terrain viewed from above. The food work and the landscape work are formally related through their common grid-like structure."
+        },
+        {
+          "title": "Candy Counter",
+          "year": "1969",
+          "notes": "A selection of wrapped candies in commercial display. Less reproduced than the cakes but the formal problem — seriality, colour, light — is treated with equal seriousness."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 2949300,
+        "avg_usd": 491550,
+        "total_label": "$2.95M",
+        "avg_label": "$492k",
+        "top_lot": {
+          "title": "Delta Sloughs",
+          "hammer_usd": 1260000,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "The Scholar",
+          "ratio": 2.3
+        }
+      }
+    },
+    {
       "norm_name": "ZHOU CHUNYA",
       "display_name": "Zhou Chunya",
       "dates": "b. 1955",
@@ -1188,124 +1306,6 @@
       }
     },
     {
-      "norm_name": "ALEXANDER CALDER",
-      "display_name": "Alexander Calder",
-      "dates": "1898–1976",
-      "nationality": "American",
-      "movement": "Modernism · Kinetic Sculpture",
-      "movement_id": "modernism",
-      "bio": "Born into a family of sculptors — his father Alexander Stirling Calder and grandfather Alexander Milne Calder were both prominent — he trained as a mechanical engineer before studying at the Art Students League, New York. In Paris in the late 1920s he constructed his Cirque Calder, a miniature performance of wire figures, to which Mondrian, Léger, and Miró came. A visit to Mondrian's studio in 1930 — the primary colours, the rectangles — was, he said, the turning point. He began making kinetic sculptures driven by motors, then discovered that air itself could provide the motive force: the mobile was born. Duchamp named the moving works; Arp named the static ones 'stabiles.' He worked at every scale from jewellery to monumental public commissions (La Grande Vitesse, Grand Rapids, 1969). The wit and formal clarity of the basic vocabulary — coloured steel elements in balance — never failed him.",
-      "famous_works": [
-        {
-          "title": "Lobster Trap and Fish Tail",
-          "year": "1939",
-          "notes": "The first large mobile commissioned specifically for a museum space (MoMA). Steel wire and metal sheets in biomorphic shapes that move continuously."
-        },
-        {
-          "title": "Big Red",
-          "year": "1959",
-          "notes": "A stabile-mobile in red — Calder's most iconic colour. Demonstrates the synthesis of stability and motion that defines the mature work."
-        },
-        {
-          "title": "La Grande Vitesse",
-          "year": "1969",
-          "notes": "The first public art work commissioned under the US National Endowment for the Arts. Forty-three tons of red-painted steel in Grand Rapids, Michigan — the city adopted it as a symbol."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Calder's Circus",
-          "year": "1926–31",
-          "notes": "The miniature performance work in wire, cork, and found objects. Not quite sculpture, not quite theatre — a proto-performance-art object that Calder performed himself."
-        },
-        {
-          "title": "Fish",
-          "year": "1944",
-          "notes": "A small mobile in which the fish-like biomorphic elements seem genuinely aquatic. One of the most graceful domestic-scale works in the Calder catalogue."
-        },
-        {
-          "title": "The Brass Family",
-          "year": "1929",
-          "notes": "A wire sculpture depicting an acrobatic family — precursor to the mobiles in its demonstration of balance, tension, and form made from line alone."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 2520000,
-        "avg_usd": 504000,
-        "total_label": "$2.52M",
-        "avg_label": "$504k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 1197000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "The Pub",
-          "ratio": 2.52
-        }
-      }
-    },
-    {
-      "norm_name": "WAYNE THIEBAUD",
-      "display_name": "Wayne Thiebaud",
-      "dates": "1920–2021",
-      "nationality": "American",
-      "movement": "Pop Art · California Realism",
-      "movement_id": "pop-art",
-      "bio": "Born in Mesa, Arizona and raised in Long Beach, California, Thiebaud worked as a commercial illustrator and cartoon animator before studying at San José State and Sacramento State. He began painting food subjects in the late 1950s — cakes, pies, gumball machines, diner counters — with a formally rigorous attention to light, shadow, and the physical materiality of paint that distinguished his work from the cooler irony of East Coast Pop. The frosting on a layer cake is painted with thick, sensuous impasto; the display-case setting is handled with a Hopper-esque attention to commercial loneliness. He taught at UC Davis for decades, building an influential West Coast pedagogical tradition. His San Francisco cityscape paintings — extreme vertiginous perspectives down hillside streets — achieve a formally ambitious spatial organisation that goes well beyond the food work in structural ambition. He continued painting actively into his late nineties.",
-      "famous_works": [
-        {
-          "title": "Cakes",
-          "year": "1963",
-          "notes": "A row of identical cakes on a display counter. The seriality anticipates Minimalism; the impasto pleasure of the frosting is the counter-argument. Whitney Museum."
-        },
-        {
-          "title": "Two Seated Figures",
-          "year": "1965",
-          "notes": "A departure from food subjects — two figures in folding chairs, the social awkwardness of commercial seating rendered with the same formal attention as the pastries."
-        },
-        {
-          "title": "Steep Street",
-          "year": "1988",
-          "notes": "A San Francisco street plunging almost vertically from the picture plane. The spatial vertigo of the cityscape paintings — less famous than the food works but arguably more formally ambitious."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Jawbreaker Machine",
-          "year": "1963",
-          "notes": "A candy machine rendered with the same clinical pleasure as the cake displays. The commercial object as still-life subject with a dignity Chardin would have recognised."
-        },
-        {
-          "title": "Ponds and Streams",
-          "year": "2001",
-          "notes": "A late aerial landscape — Sacramento valley agricultural terrain viewed from above. The food work and the landscape work are formally related through their common grid-like structure."
-        },
-        {
-          "title": "Candy Counter",
-          "year": "1969",
-          "notes": "A selection of wrapped candies in commercial display. Less reproduced than the cakes but the formal problem — seriality, colour, light — is treated with equal seriousness."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 2489300,
-        "avg_usd": 497860,
-        "total_label": "$2.49M",
-        "avg_label": "$498k",
-        "top_lot": {
-          "title": "Delta Sloughs",
-          "hammer_usd": 1260000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "The Scholar",
-          "ratio": 2.3
-        }
-      }
-    },
-    {
       "norm_name": "GEORG BASELITZ",
       "display_name": "Georg Baselitz",
       "dates": "b. 1938",
@@ -1473,6 +1473,60 @@
       }
     },
     {
+      "norm_name": "SAM GILLIAM",
+      "display_name": "Sam Gilliam",
+      "dates": "1933–2022",
+      "nationality": "American",
+      "movement": "Colour-Field · Abstract Expressionism",
+      "movement_id": "colour-field",
+      "bio": "Sam Gilliam was born in Tupelo, Mississippi in 1933 and raised in Louisville, Kentucky. He studied at the University of Louisville and arrived in Washington D.C. in 1962, where he became associated with the Washington Color School — a group of painters including Morris Louis, Kenneth Noland, and Gene Davis who were developing an approach to colour abstraction through the staining of raw canvas. Gilliam absorbed these concerns while radically transforming them.\n\nIn 1965, Gilliam removed the canvas from its stretcher bars and began draping, folding, and hanging it from walls and ceilings in three-dimensional configurations — a decisive innovation that transformed painting from a flat object to a sculptural environment. His draped paintings are executed in the Colour Field method of saturating raw or sized canvas with thinned acrylic paint, but the configuration of the resulting painting is architectural rather than pictorial. These works, shown at the Corcoran Gallery and subsequently at major institutions worldwide, were immediately recognised as a fundamental contribution to the possibilities of painting.\n\nGilliam continued to develop his practice over a sixty-year career, returning at various points to both stretcher-based and draped configurations. He died in 2022 having recently received a major retrospective at the Hirshhorn Museum confirming his importance. His work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally.",
+      "famous_works": [
+        {
+          "title": "Carousel Change",
+          "year": "1970",
+          "notes": "A major draped painting installation in which saturated canvas is suspended from ceiling in sweeping folds that transform the relationship between painting, space, and the viewer's body."
+        },
+        {
+          "title": "Swing series",
+          "year": "1969",
+          "notes": "A group of draped paintings that extend Gilliam's investigation of the unstretched canvas as a sculptural element in architectural space."
+        },
+        {
+          "title": "Watercolor No. 5",
+          "year": "1967",
+          "notes": "A stretched canvas painting from the period immediately before Gilliam's decisive move to the draped format, demonstrating the Colour Field foundations from which that innovation emerged."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Slat series",
+          "year": "1980s",
+          "notes": "Works on slat-like supports that represent one of Gilliam's investigations of alternative support formats beyond both stretchers and draped canvas."
+        },
+        {
+          "title": "Late constructions",
+          "year": "2000s–2010s",
+          "notes": "Three-dimensional works in which canvas, metal, and other materials are combined in constructions that continue Gilliam's investigation of painting as spatial object."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2063000,
+        "avg_usd": 1031500,
+        "total_label": "$2.06M",
+        "avg_label": "$1.03M",
+        "top_lot": {
+          "title": "Ray II",
+          "hammer_usd": 2000000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.1
+        }
+      }
+    },
+    {
       "norm_name": "SAM FRANCIS",
       "display_name": "Sam Francis",
       "dates": "1923–1994",
@@ -1532,6 +1586,119 @@
       }
     },
     {
+      "norm_name": "ALEX KATZ",
+      "display_name": "Alex Katz",
+      "dates": "b. 1927",
+      "nationality": "American",
+      "movement": "Figurative Modernism · Contemporary",
+      "movement_id": "contemporary",
+      "bio": "Alex Katz was born in Brooklyn, New York in 1927 and studied at Cooper Union and the Skowhegan School of Painting and Sculpture in Maine, where he would return repeatedly throughout his career. Coming to maturity in the 1950s, he resisted the dominant pull of Abstract Expressionism, insisting on the figure at a moment when this was an unfashionable position — yet his figuration absorbed the lessons of the New York School in its bold flatness, chromatic intensity, and monumental scale.\n\nKatz developed a signature idiom: large-scale paintings in which flat fields of colour define forms with a precise, graphic economy that acknowledges advertising, fashion photography, and Japanese woodblock prints without being reducible to any of them. His subjects — his wife Ada, friends from the New York arts world, landscape and flora from Maine — are treated with a cool, affectionate attention that refuses psychological probing in favour of surfaces rendered luminously present. The scale of his canvases forces an intimacy: cropped close, the figures exceed human size and the viewer inhabits their field of light.\n\nKatz has also worked extensively in cut-out painted steel sculptures and on a prolific body of prints. Represented by Gavin Brown's Enterprise and Timothy Taylor Gallery, he has achieved international institutional recognition relatively late, with retrospectives at major museums including the Guggenheim Bilbao and the Albertina in Vienna, confirming the singular achievement of a practice spanning more than seven decades.",
+      "famous_works": [
+        {
+          "title": "Ada Ada",
+          "year": "1959",
+          "notes": "One of the early portraits of Katz's wife Ada that established the cropped, flat figuration that became his signature approach."
+        },
+        {
+          "title": "Black Dress 2",
+          "year": "2010",
+          "notes": "A monumental close-up portrait in which a woman in a black dress is rendered with the graphic precision and chromatic intensity of Katz's mature manner."
+        },
+        {
+          "title": "Coca-Cola Girls",
+          "year": "2001",
+          "notes": "A multi-panel work referencing commercial imagery that explicitly acknowledges the dialogue between Katz's pictorial language and American visual culture."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Good Afternoon II",
+          "year": "1974",
+          "notes": "A landscape work from Katz's Maine series demonstrating his ability to apply his flat, graphic aesthetic to natural subjects with equal authority."
+        },
+        {
+          "title": "The Black Jacket",
+          "year": "1972",
+          "notes": "A double portrait combining Katz's interest in fashion-inflected figuration with the flatness and scale that distinguish his approach from conventional portraiture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2000400,
+        "avg_usd": 1000200,
+        "total_label": "$2.00M",
+        "avg_label": "$1.00M",
+        "top_lot": {
+          "title": "Good Afternoon 2",
+          "hammer_usd": 1950000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Study for Twilight",
+          "ratio": 2.02
+        }
+      }
+    },
+    {
+      "norm_name": "WILLEM DE KOONING",
+      "display_name": "Willem de Kooning",
+      "dates": "1904–1997",
+      "nationality": "Dutch-American",
+      "movement": "Abstract Expressionism · Women Series",
+      "movement_id": "abstract-expressionism",
+      "bio": "Born in Rotterdam, de Kooning trained at the Rotterdam Academy of Fine Arts in the classical European tradition — life drawing, typography, commercial design — before stowing away to the United States in 1926. He worked as a house painter and commercial illustrator while developing his fine art practice in New York. His mature work holds representation and abstraction in perpetual, violent tension: the Women series (1950–53) generated enormous controversy — the aggressively distorted female figures seemed a rejection of both AbEx's non-figurative orthodoxy and conventional beauty. He continued oscillating between abstraction and figuration for decades. He moved to East Hampton in 1963, building a studio where the scale and physicality of his work expanded. Alzheimer's disease developed in his late career; the late ribbons of flowing colour are simpler than earlier work, and their status — made under diminished capacity — remains contested. He worked until 1990.",
+      "famous_works": [
+        {
+          "title": "Woman I",
+          "year": "1950–52",
+          "notes": "Worked on and nearly destroyed multiple times over two years. The most contested American painting of the 1950s — abstract painting's refusal to accommodate the figure, or the figure's refusal to be refused."
+        },
+        {
+          "title": "Excavation",
+          "year": "1950",
+          "notes": "A large vertical canvas of interlocking flesh-coloured forms that contain partial figurative references. Won first prize at the Art Institute of Chicago's 61st American Exhibition."
+        },
+        {
+          "title": "Gotham News",
+          "year": "1955",
+          "notes": "A large abstract work in which newsprint is embedded in the paint surface. The city as gesture, the newspaper as texture."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Pink Angels",
+          "year": "1945",
+          "notes": "A biomorphic work of the pre-Women period — flesh-coloured forms arranged with Surrealist automatism. The figuration is there but not yet confrontational."
+        },
+        {
+          "title": "Saturday Night",
+          "year": "1956",
+          "notes": "A large-scale abstract work in which the energy of the Women series is channelled into pure painterly incident. Less dramatic than the Women paintings but more formally assured."
+        },
+        {
+          "title": "Door to the River",
+          "year": "1960",
+          "notes": "The slap-and-drag technique at its most spatial — the mark simultaneously depicts and is the gate. The landscape is suggested through the quality of the gesture alone."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1958000,
+        "avg_usd": 979000,
+        "total_label": "$1.96M",
+        "avg_label": "$979k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 1008000,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Paging Women",
+          "ratio": 1.58
+        }
+      }
+    },
+    {
       "norm_name": "RASHID JOHNSON",
       "display_name": "Rashid Johnson",
       "dates": "b. 1977",
@@ -1587,6 +1754,60 @@
         "top_ratio_lot": {
           "title": "Two Standing Broken Men",
           "ratio": 1.45
+        }
+      }
+    },
+    {
+      "norm_name": "JACK WHITTEN",
+      "display_name": "Jack Whitten",
+      "dates": "1939–2018",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Contemporary",
+      "movement_id": "abstract-expressionism",
+      "bio": "Jack Whitten was born in Bessemer, Alabama in 1939 and came of age during the civil rights movement, studying briefly at the Tuskegee Institute and meeting Martin Luther King Jr. before moving north to New York, where he enrolled at Cooper Union and graduated in 1964. He became part of the downtown art world, befriending Philip Guston and Ad Reinhardt and developing through the 1960s and 1970s a practice of rigorous formal experimentation that remained largely outside mainstream critical attention.\n\nWhitten's work went through numerous distinct phases, each involving technical innovation. In the 1970s he developed an approach using a large homemade squeegee to drag mixed paint across large canvases in a single decisive gesture, creating surfaces of extraordinary tonal complexity. Later he invented what he called 'tesserae' — dried slices of acrylic paint used as mosaic elements — which he pressed into large compositions to create surfaces that combine the history of Byzantine mosaic with the materiality of abstract painting. His work was explicitly concerned with being both a Black American artist and a modernist painter, holding these identities not in tension but in productive synthesis.\n\nLate recognition came with a major retrospective at the Metropolitan Museum of Art in 2014, the year before his death, which confirmed his status as one of the most significant and original painters of his generation. His works are held by major museums including the Guggenheim and the Whitney.",
+      "famous_works": [
+        {
+          "title": "Delta Group",
+          "year": "1975",
+          "notes": "A large squeegee painting in which a single horizontal gesture creates a surface of complex tonal modulation that brings together Jackson Pollock's physical engagement with painting and a more concentrated formal restraint."
+        },
+        {
+          "title": "9/11/01",
+          "year": "2006",
+          "notes": "A tessera painting created in response to the September 11 attacks, in which fragmented acrylic slabs are combined into an elegy that locates abstract painting in relation to collective trauma."
+        },
+        {
+          "title": "Atopolis (For Édouard Glissant)",
+          "year": "2014",
+          "notes": "A large tessera painting dedicated to the Caribbean philosopher, in which the mosaic surface becomes a metaphor for the creolised, rhizomatic cultural identity that Glissant theorised."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Doctor Egypt (and the Witchdoctor's Problem)",
+          "year": "1966",
+          "notes": "An early painting that demonstrates Whitten's engagement with African and African-American cultural sources as formal and intellectual content."
+        },
+        {
+          "title": "Greek Alphabet series",
+          "year": "1975–1976",
+          "notes": "A group of squeegee paintings in which the gestural system is applied with particularly rigorous consistency, creating works of concentrated formal intelligence."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1839000,
+        "avg_usd": 613000,
+        "total_label": "$1.84M",
+        "avg_label": "$613k",
+        "top_lot": {
+          "title": "Alpha Group III",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Alpha Group III",
+          "ratio": 1.36
         }
       }
     },
@@ -1695,6 +1916,60 @@
         "top_ratio_lot": {
           "title": "Butternut",
           "ratio": 0.74
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN DUBUFFET",
+      "display_name": "Jean Dubuffet",
+      "dates": "1901–1985",
+      "nationality": "French",
+      "movement": "Art Brut · Contemporary",
+      "movement_id": "contemporary",
+      "bio": "Jean Dubuffet was born in Le Havre in 1901 and arrived in Paris in 1918, entering the Académie Julian but quickly abandoning formal art education. He spent years working in his family's wine business before committing fully to painting in his forties — a late start that paradoxically gave his practice an independence from contemporary fashions that those trained in art schools often lack. He became the most radical primitivist in twentieth-century art and the theorist and collector of Art Brut.\n\nDubuffet's work, beginning in the mid-1940s, deliberately sought to escape the refinements of Western high culture by working with crude materials — gravel, sand, coal dust, tar — and by developing a drawing style that mimicked the untrained mark-making of children, the mentally ill, and outsider creators. He coined the term 'Art Brut' (raw art) for work made outside cultural conventions, amassing a collection of several thousand works that is now housed at the Collection de l'Art Brut in Lausanne.\n\nDubuffet's own painting moved through numerous phases: the Hautes Pâtes (thick paste) works, the Hourloupe cycle of the 1960s–70s (red, blue, white, and black puzzle-like forms derived from telephone doodles), and late large-scale theatre and sculpture projects. He remains among the most consequential and provocative artists of the post-war period, and his influence on subsequent generations of artists interested in the primitive, the outsider, and the anti-aesthetic is profound.",
+      "famous_works": [
+        {
+          "title": "Corps de Dame",
+          "year": "1950",
+          "notes": "A series of paintings of the female body in which the figure is rendered in thick, crude paste with a deliberate anti-aesthetic brutality that attacks conventional beauty standards."
+        },
+        {
+          "title": "The Busy Life",
+          "year": "1953",
+          "notes": "A dense, primitive urban scene in which Paris pedestrian life is depicted in the flat, graffiti-like manner Dubuffet developed from children's drawing and urban wall art."
+        },
+        {
+          "title": "Pissing Figure (Hourloupe)",
+          "year": "1972",
+          "notes": "A large Hourloupe-cycle painting in which the red, blue, and white puzzle-forms create a complex figure within a visual system that denies both illusion and conventional form."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Minuit Hurlant (Howling Midnight)",
+          "year": "1944",
+          "notes": "An early work demonstrating Dubuffet's initial move toward primitive figuration before the development of the dense material surfaces of his mature Hautes Pâtes period."
+        },
+        {
+          "title": "Coucou Bazar",
+          "year": "1973",
+          "notes": "A theatrical event involving performers in Hourloupe-costumed interaction with Hourloupe stage elements, extending the visual system into time and performance."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 1759000,
+        "avg_usd": 439750,
+        "total_label": "$1.76M",
+        "avg_label": "$440k",
+        "top_lot": {
+          "title": "Tour",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Robinet",
+          "ratio": 7.5
         }
       }
     },
@@ -2210,60 +2485,6 @@
       }
     },
     {
-      "norm_name": "JACK WHITTEN",
-      "display_name": "Jack Whitten",
-      "dates": "1939–2018",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Contemporary",
-      "movement_id": "abstract-expressionism",
-      "bio": "Jack Whitten was born in Bessemer, Alabama in 1939 and came of age during the civil rights movement, studying briefly at the Tuskegee Institute and meeting Martin Luther King Jr. before moving north to New York, where he enrolled at Cooper Union and graduated in 1964. He became part of the downtown art world, befriending Philip Guston and Ad Reinhardt and developing through the 1960s and 1970s a practice of rigorous formal experimentation that remained largely outside mainstream critical attention.\n\nWhitten's work went through numerous distinct phases, each involving technical innovation. In the 1970s he developed an approach using a large homemade squeegee to drag mixed paint across large canvases in a single decisive gesture, creating surfaces of extraordinary tonal complexity. Later he invented what he called 'tesserae' — dried slices of acrylic paint used as mosaic elements — which he pressed into large compositions to create surfaces that combine the history of Byzantine mosaic with the materiality of abstract painting. His work was explicitly concerned with being both a Black American artist and a modernist painter, holding these identities not in tension but in productive synthesis.\n\nLate recognition came with a major retrospective at the Metropolitan Museum of Art in 2014, the year before his death, which confirmed his status as one of the most significant and original painters of his generation. His works are held by major museums including the Guggenheim and the Whitney.",
-      "famous_works": [
-        {
-          "title": "Delta Group",
-          "year": "1975",
-          "notes": "A large squeegee painting in which a single horizontal gesture creates a surface of complex tonal modulation that brings together Jackson Pollock's physical engagement with painting and a more concentrated formal restraint."
-        },
-        {
-          "title": "9/11/01",
-          "year": "2006",
-          "notes": "A tessera painting created in response to the September 11 attacks, in which fragmented acrylic slabs are combined into an elegy that locates abstract painting in relation to collective trauma."
-        },
-        {
-          "title": "Atopolis (For Édouard Glissant)",
-          "year": "2014",
-          "notes": "A large tessera painting dedicated to the Caribbean philosopher, in which the mosaic surface becomes a metaphor for the creolised, rhizomatic cultural identity that Glissant theorised."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Doctor Egypt (and the Witchdoctor's Problem)",
-          "year": "1966",
-          "notes": "An early painting that demonstrates Whitten's engagement with African and African-American cultural sources as formal and intellectual content."
-        },
-        {
-          "title": "Greek Alphabet series",
-          "year": "1975–1976",
-          "notes": "A group of squeegee paintings in which the gestural system is applied with particularly rigorous consistency, creating works of concentrated formal intelligence."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 1139000,
-        "avg_usd": 569500,
-        "total_label": "$1.14M",
-        "avg_label": "$570k",
-        "top_lot": {
-          "title": "Alpha Group III",
-          "hammer_usd": 950000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Alpha Group III",
-          "ratio": 1.36
-        }
-      }
-    },
-    {
       "norm_name": "KAWS",
       "display_name": "KAWS",
       "dates": "b. 1974",
@@ -2486,65 +2707,6 @@
         "top_ratio_lot": {
           "title": "Untitled (War Without End)",
           "ratio": 4.03
-        }
-      }
-    },
-    {
-      "norm_name": "WILLEM DE KOONING",
-      "display_name": "Willem de Kooning",
-      "dates": "1904–1997",
-      "nationality": "Dutch-American",
-      "movement": "Abstract Expressionism · Women Series",
-      "movement_id": "abstract-expressionism",
-      "bio": "Born in Rotterdam, de Kooning trained at the Rotterdam Academy of Fine Arts in the classical European tradition — life drawing, typography, commercial design — before stowing away to the United States in 1926. He worked as a house painter and commercial illustrator while developing his fine art practice in New York. His mature work holds representation and abstraction in perpetual, violent tension: the Women series (1950–53) generated enormous controversy — the aggressively distorted female figures seemed a rejection of both AbEx's non-figurative orthodoxy and conventional beauty. He continued oscillating between abstraction and figuration for decades. He moved to East Hampton in 1963, building a studio where the scale and physicality of his work expanded. Alzheimer's disease developed in his late career; the late ribbons of flowing colour are simpler than earlier work, and their status — made under diminished capacity — remains contested. He worked until 1990.",
-      "famous_works": [
-        {
-          "title": "Woman I",
-          "year": "1950–52",
-          "notes": "Worked on and nearly destroyed multiple times over two years. The most contested American painting of the 1950s — abstract painting's refusal to accommodate the figure, or the figure's refusal to be refused."
-        },
-        {
-          "title": "Excavation",
-          "year": "1950",
-          "notes": "A large vertical canvas of interlocking flesh-coloured forms that contain partial figurative references. Won first prize at the Art Institute of Chicago's 61st American Exhibition."
-        },
-        {
-          "title": "Gotham News",
-          "year": "1955",
-          "notes": "A large abstract work in which newsprint is embedded in the paint surface. The city as gesture, the newspaper as texture."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Pink Angels",
-          "year": "1945",
-          "notes": "A biomorphic work of the pre-Women period — flesh-coloured forms arranged with Surrealist automatism. The figuration is there but not yet confrontational."
-        },
-        {
-          "title": "Saturday Night",
-          "year": "1956",
-          "notes": "A large-scale abstract work in which the energy of the Women series is channelled into pure painterly incident. Less dramatic than the Women paintings but more formally assured."
-        },
-        {
-          "title": "Door to the River",
-          "year": "1960",
-          "notes": "The slap-and-drag technique at its most spatial — the mark simultaneously depicts and is the gate. The landscape is suggested through the quality of the gesture alone."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 1008000,
-        "avg_usd": 1008000,
-        "total_label": "$1.01M",
-        "avg_label": "$1.01M",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 1008000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.01
         }
       }
     },
@@ -3046,6 +3208,60 @@
         "top_ratio_lot": {
           "title": "The Big Bong Theory",
           "ratio": 1.66
+        }
+      }
+    },
+    {
+      "norm_name": "JOSEF ALBERS",
+      "display_name": "Josef Albers",
+      "dates": "1888–1976",
+      "nationality": "American",
+      "movement": "Modernism · Minimalism",
+      "movement_id": "minimalism",
+      "bio": "Josef Albers was born in Bottrop, Westphalia in 1888 and trained as a teacher before enrolling at the Bauhaus in Weimar in 1920. He progressed from student to faculty, teaching the Vorkurs (preliminary course) and the stained glass workshop, remaining at the school through its moves to Dessau and Berlin until its closure by the Nazis in 1933. He emigrated to the United States, where Black Mountain College in North Carolina had been alerted to his availability and immediately invited him to run its art programme.\n\nAlbers's teaching at Black Mountain College (1933–49) and subsequently at Yale School of Art (1950–58) was transformative for American art education and through it, for American art. His Bauhaus-derived emphasis on perceptual investigation, material experimentation, and the primacy of visual phenomena over academic convention shaped generations of students including Rauschenberg, Noland, and Frankenthaler.\n\nHis own practice culminated in the Homage to the Square series, begun in 1949 and continued until his death in 1976: square canvases in which three or four nested squares of flat colour generate optical effects of extraordinary complexity, the apparent spatial relationships between the squares shifting with every change of colour combination. The series — comprising more than a thousand works — constitutes the most sustained investigation of colour interaction in the history of painting, summarised in his theoretical text Interaction of Color (1963).",
+      "famous_works": [
+        {
+          "title": "Homage to the Square: Appearing",
+          "year": "1959",
+          "notes": "A representative work from the defining series in which nested squares of precisely chosen colours produce spatial and chromatic interactions of remarkable complexity from the most elementary formal means."
+        },
+        {
+          "title": "Interaction of Color",
+          "year": "1963",
+          "notes": "Not a painting but a book-portfolio, this landmark theoretical text presenting colour perception experiments became one of the most influential works of colour theory in the history of art."
+        },
+        {
+          "title": "Structural Constellation series",
+          "year": "1950–1958",
+          "notes": "A parallel series to the Homage to the Square, in which line drawings create ambiguous spatial constructions that test the viewer's ability to maintain a single spatial reading."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Variant/Adobe series",
+          "year": "1947–1950",
+          "notes": "Paintings made between the Bauhaus and the Homage to the Square series, in which rectangular forms are arranged in colour investigations that prefigure the later, more systematic approach."
+        },
+        {
+          "title": "Glass and Metalwork (Bauhaus period)",
+          "year": "1920s",
+          "notes": "Objects made during Albers's Bauhaus teaching that demonstrate the material intelligence and perceptual investigation that underlies his subsequent commitment to colour painting."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 802800,
+        "avg_usd": 401400,
+        "total_label": "$803k",
+        "avg_label": "$401k",
+        "top_lot": {
+          "title": "Study for Homage to the Square: In Azure",
+          "hammer_usd": 450000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Study for Homage to the Square: In Azure",
+          "ratio": 1.12
         }
       }
     },
@@ -5211,60 +5427,6 @@
       }
     },
     {
-      "norm_name": "JOSEF ALBERS",
-      "display_name": "Josef Albers",
-      "dates": "1888–1976",
-      "nationality": "American",
-      "movement": "Modernism · Minimalism",
-      "movement_id": "minimalism",
-      "bio": "Josef Albers was born in Bottrop, Westphalia in 1888 and trained as a teacher before enrolling at the Bauhaus in Weimar in 1920. He progressed from student to faculty, teaching the Vorkurs (preliminary course) and the stained glass workshop, remaining at the school through its moves to Dessau and Berlin until its closure by the Nazis in 1933. He emigrated to the United States, where Black Mountain College in North Carolina had been alerted to his availability and immediately invited him to run its art programme.\n\nAlbers's teaching at Black Mountain College (1933–49) and subsequently at Yale School of Art (1950–58) was transformative for American art education and through it, for American art. His Bauhaus-derived emphasis on perceptual investigation, material experimentation, and the primacy of visual phenomena over academic convention shaped generations of students including Rauschenberg, Noland, and Frankenthaler.\n\nHis own practice culminated in the Homage to the Square series, begun in 1949 and continued until his death in 1976: square canvases in which three or four nested squares of flat colour generate optical effects of extraordinary complexity, the apparent spatial relationships between the squares shifting with every change of colour combination. The series — comprising more than a thousand works — constitutes the most sustained investigation of colour interaction in the history of painting, summarised in his theoretical text Interaction of Color (1963).",
-      "famous_works": [
-        {
-          "title": "Homage to the Square: Appearing",
-          "year": "1959",
-          "notes": "A representative work from the defining series in which nested squares of precisely chosen colours produce spatial and chromatic interactions of remarkable complexity from the most elementary formal means."
-        },
-        {
-          "title": "Interaction of Color",
-          "year": "1963",
-          "notes": "Not a painting but a book-portfolio, this landmark theoretical text presenting colour perception experiments became one of the most influential works of colour theory in the history of art."
-        },
-        {
-          "title": "Structural Constellation series",
-          "year": "1950–1958",
-          "notes": "A parallel series to the Homage to the Square, in which line drawings create ambiguous spatial constructions that test the viewer's ability to maintain a single spatial reading."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Variant/Adobe series",
-          "year": "1947–1950",
-          "notes": "Paintings made between the Bauhaus and the Homage to the Square series, in which rectangular forms are arranged in colour investigations that prefigure the later, more systematic approach."
-        },
-        {
-          "title": "Glass and Metalwork (Bauhaus period)",
-          "year": "1920s",
-          "notes": "Objects made during Albers's Bauhaus teaching that demonstrate the material intelligence and perceptual investigation that underlies his subsequent commitment to colour painting."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 352800,
-        "avg_usd": 352800,
-        "total_label": "$353k",
-        "avg_label": "$353k",
-        "top_lot": {
-          "title": "Homage to the Square: Intrepid",
-          "hammer_usd": 352800,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Homage to the Square: Intrepid",
-          "ratio": 0.88
-        }
-      }
-    },
-    {
       "norm_name": "CHANTAL JOFFE",
       "display_name": "Chantal Joffe",
       "dates": "b. 1969",
@@ -6989,60 +7151,6 @@
         "top_ratio_lot": {
           "title": "Abendlandschaft mit weißem Mond",
           "ratio": 0.96
-        }
-      }
-    },
-    {
-      "norm_name": "JEAN DUBUFFET",
-      "display_name": "Jean Dubuffet",
-      "dates": "1901–1985",
-      "nationality": "French",
-      "movement": "Art Brut · Contemporary",
-      "movement_id": "contemporary",
-      "bio": "Jean Dubuffet was born in Le Havre in 1901 and arrived in Paris in 1918, entering the Académie Julian but quickly abandoning formal art education. He spent years working in his family's wine business before committing fully to painting in his forties — a late start that paradoxically gave his practice an independence from contemporary fashions that those trained in art schools often lack. He became the most radical primitivist in twentieth-century art and the theorist and collector of Art Brut.\n\nDubuffet's work, beginning in the mid-1940s, deliberately sought to escape the refinements of Western high culture by working with crude materials — gravel, sand, coal dust, tar — and by developing a drawing style that mimicked the untrained mark-making of children, the mentally ill, and outsider creators. He coined the term 'Art Brut' (raw art) for work made outside cultural conventions, amassing a collection of several thousand works that is now housed at the Collection de l'Art Brut in Lausanne.\n\nDubuffet's own painting moved through numerous phases: the Hautes Pâtes (thick paste) works, the Hourloupe cycle of the 1960s–70s (red, blue, white, and black puzzle-like forms derived from telephone doodles), and late large-scale theatre and sculpture projects. He remains among the most consequential and provocative artists of the post-war period, and his influence on subsequent generations of artists interested in the primitive, the outsider, and the anti-aesthetic is profound.",
-      "famous_works": [
-        {
-          "title": "Corps de Dame",
-          "year": "1950",
-          "notes": "A series of paintings of the female body in which the figure is rendered in thick, crude paste with a deliberate anti-aesthetic brutality that attacks conventional beauty standards."
-        },
-        {
-          "title": "The Busy Life",
-          "year": "1953",
-          "notes": "A dense, primitive urban scene in which Paris pedestrian life is depicted in the flat, graffiti-like manner Dubuffet developed from children's drawing and urban wall art."
-        },
-        {
-          "title": "Pissing Figure (Hourloupe)",
-          "year": "1972",
-          "notes": "A large Hourloupe-cycle painting in which the red, blue, and white puzzle-forms create a complex figure within a visual system that denies both illusion and conventional form."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Minuit Hurlant (Howling Midnight)",
-          "year": "1944",
-          "notes": "An early work demonstrating Dubuffet's initial move toward primitive figuration before the development of the dense material surfaces of his mature Hautes Pâtes period."
-        },
-        {
-          "title": "Coucou Bazar",
-          "year": "1973",
-          "notes": "A theatrical event involving performers in Hourloupe-costumed interaction with Hourloupe stage elements, extending the visual system into time and performance."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 189000,
-        "avg_usd": 189000,
-        "total_label": "$189k",
-        "avg_label": "$189k",
-        "top_lot": {
-          "title": "Site avec 6 personnages",
-          "hammer_usd": 189000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Site avec 6 personnages",
-          "ratio": 0.88
         }
       }
     },
@@ -10287,60 +10395,6 @@
       }
     },
     {
-      "norm_name": "SAM GILLIAM",
-      "display_name": "Sam Gilliam",
-      "dates": "1933–2022",
-      "nationality": "American",
-      "movement": "Colour-Field · Abstract Expressionism",
-      "movement_id": "colour-field",
-      "bio": "Sam Gilliam was born in Tupelo, Mississippi in 1933 and raised in Louisville, Kentucky. He studied at the University of Louisville and arrived in Washington D.C. in 1962, where he became associated with the Washington Color School — a group of painters including Morris Louis, Kenneth Noland, and Gene Davis who were developing an approach to colour abstraction through the staining of raw canvas. Gilliam absorbed these concerns while radically transforming them.\n\nIn 1965, Gilliam removed the canvas from its stretcher bars and began draping, folding, and hanging it from walls and ceilings in three-dimensional configurations — a decisive innovation that transformed painting from a flat object to a sculptural environment. His draped paintings are executed in the Colour Field method of saturating raw or sized canvas with thinned acrylic paint, but the configuration of the resulting painting is architectural rather than pictorial. These works, shown at the Corcoran Gallery and subsequently at major institutions worldwide, were immediately recognised as a fundamental contribution to the possibilities of painting.\n\nGilliam continued to develop his practice over a sixty-year career, returning at various points to both stretcher-based and draped configurations. He died in 2022 having recently received a major retrospective at the Hirshhorn Museum confirming his importance. His work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally.",
-      "famous_works": [
-        {
-          "title": "Carousel Change",
-          "year": "1970",
-          "notes": "A major draped painting installation in which saturated canvas is suspended from ceiling in sweeping folds that transform the relationship between painting, space, and the viewer's body."
-        },
-        {
-          "title": "Swing series",
-          "year": "1969",
-          "notes": "A group of draped paintings that extend Gilliam's investigation of the unstretched canvas as a sculptural element in architectural space."
-        },
-        {
-          "title": "Watercolor No. 5",
-          "year": "1967",
-          "notes": "A stretched canvas painting from the period immediately before Gilliam's decisive move to the draped format, demonstrating the Colour Field foundations from which that innovation emerged."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Slat series",
-          "year": "1980s",
-          "notes": "Works on slat-like supports that represent one of Gilliam's investigations of alternative support formats beyond both stretchers and draped canvas."
-        },
-        {
-          "title": "Late constructions",
-          "year": "2000s–2010s",
-          "notes": "Three-dimensional works in which canvas, metal, and other materials are combined in constructions that continue Gilliam's investigation of painting as spatial object."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 63000,
-        "avg_usd": 63000,
-        "total_label": "$63k",
-        "avg_label": "$63k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 63000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 2.1
-        }
-      }
-    },
-    {
       "norm_name": "REBECCA NESS",
       "display_name": "Rebecca Ness",
       "dates": "b. 1989",
@@ -10499,60 +10553,6 @@
         "top_ratio_lot": {
           "title": "Untitled (Geometric Park)",
           "ratio": 1.06
-        }
-      }
-    },
-    {
-      "norm_name": "ALEX KATZ",
-      "display_name": "Alex Katz",
-      "dates": "b. 1927",
-      "nationality": "American",
-      "movement": "Figurative Modernism · Contemporary",
-      "movement_id": "contemporary",
-      "bio": "Alex Katz was born in Brooklyn, New York in 1927 and studied at Cooper Union and the Skowhegan School of Painting and Sculpture in Maine, where he would return repeatedly throughout his career. Coming to maturity in the 1950s, he resisted the dominant pull of Abstract Expressionism, insisting on the figure at a moment when this was an unfashionable position — yet his figuration absorbed the lessons of the New York School in its bold flatness, chromatic intensity, and monumental scale.\n\nKatz developed a signature idiom: large-scale paintings in which flat fields of colour define forms with a precise, graphic economy that acknowledges advertising, fashion photography, and Japanese woodblock prints without being reducible to any of them. His subjects — his wife Ada, friends from the New York arts world, landscape and flora from Maine — are treated with a cool, affectionate attention that refuses psychological probing in favour of surfaces rendered luminously present. The scale of his canvases forces an intimacy: cropped close, the figures exceed human size and the viewer inhabits their field of light.\n\nKatz has also worked extensively in cut-out painted steel sculptures and on a prolific body of prints. Represented by Gavin Brown's Enterprise and Timothy Taylor Gallery, he has achieved international institutional recognition relatively late, with retrospectives at major museums including the Guggenheim Bilbao and the Albertina in Vienna, confirming the singular achievement of a practice spanning more than seven decades.",
-      "famous_works": [
-        {
-          "title": "Ada Ada",
-          "year": "1959",
-          "notes": "One of the early portraits of Katz's wife Ada that established the cropped, flat figuration that became his signature approach."
-        },
-        {
-          "title": "Black Dress 2",
-          "year": "2010",
-          "notes": "A monumental close-up portrait in which a woman in a black dress is rendered with the graphic precision and chromatic intensity of Katz's mature manner."
-        },
-        {
-          "title": "Coca-Cola Girls",
-          "year": "2001",
-          "notes": "A multi-panel work referencing commercial imagery that explicitly acknowledges the dialogue between Katz's pictorial language and American visual culture."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Good Afternoon II",
-          "year": "1974",
-          "notes": "A landscape work from Katz's Maine series demonstrating his ability to apply his flat, graphic aesthetic to natural subjects with equal authority."
-        },
-        {
-          "title": "The Black Jacket",
-          "year": "1972",
-          "notes": "A double portrait combining Katz's interest in fashion-inflected figuration with the flatness and scale that distinguish his approach from conventional portraiture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 50400,
-        "avg_usd": 50400,
-        "total_label": "$50k",
-        "avg_label": "$50k",
-        "top_lot": {
-          "title": "Study for Twilight",
-          "hammer_usd": 50400,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Study for Twilight",
-          "ratio": 2.02
         }
       }
     },
@@ -12511,19 +12511,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 6550000,
-        "avg_usd": 3275000,
-        "total_label": "$6.55M",
-        "avg_label": "$3.27M",
+        "lot_count": 4,
+        "total_usd": 8100000,
+        "avg_usd": 2025000,
+        "total_label": "$8.10M",
+        "avg_label": "$2.02M",
         "top_lot": {
           "title": "Abstraktes Bild",
           "hammer_usd": 5700000,
           "sale_name": "Contemporary Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Abstraktes Bild",
-          "ratio": 0.95
+          "title": "Ifrit",
+          "ratio": 1.71
         }
       }
     },
@@ -12663,6 +12663,195 @@
       }
     },
     {
+      "norm_name": "OLGA DE AMARAL",
+      "display_name": "Olga De Amaral",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 950000,
+        "avg_usd": 950000,
+        "total_label": "$950k",
+        "avg_label": "$950k",
+        "top_lot": {
+          "title": "Imagen Paisaje I",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Imagen Paisaje I",
+          "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "MORRIS LOUIS",
+      "display_name": "Morris Louis",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 900000,
+        "avg_usd": 900000,
+        "total_label": "$900k",
+        "avg_label": "$900k",
+        "top_lot": {
+          "title": "Approach",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Approach",
+          "ratio": 0.9
+        }
+      }
+    },
+    {
+      "norm_name": "LUCIO FONTANA",
+      "display_name": "Lucio Fontana",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 882000,
+        "avg_usd": 441000,
+        "total_label": "$882k",
+        "avg_label": "$441k",
+        "top_lot": {
+          "title": "Concetto Spaziale",
+          "hammer_usd": 850000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Due Cavaglieri)",
+          "ratio": 1.28
+        }
+      }
+    },
+    {
+      "norm_name": "KAZUO SHIRAGA",
+      "display_name": "Kazuo Shiraga",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 850000,
+        "avg_usd": 850000,
+        "total_label": "$850k",
+        "avg_label": "$850k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 850000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.85
+        }
+      }
+    },
+    {
+      "norm_name": "ON KAWARA",
+      "display_name": "On Kawara",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 450000,
+        "avg_usd": 450000,
+        "total_label": "$450k",
+        "avg_label": "$450k",
+        "top_lot": {
+          "title": "8 JAN. 1973",
+          "hammer_usd": 450000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "8 JAN. 1973",
+          "ratio": 1.29
+        }
+      }
+    },
+    {
+      "norm_name": "HOWARD HODGKIN",
+      "display_name": "Howard Hodgkin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 400000,
+        "avg_usd": 400000,
+        "total_label": "$400k",
+        "avg_label": "$400k",
+        "top_lot": {
+          "title": "Good Morning",
+          "hammer_usd": 400000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Good Morning",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
+      "norm_name": "BRICE MARDEN",
+      "display_name": "Brice Marden",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 392000,
+        "avg_usd": 98000,
+        "total_label": "$392k",
+        "avg_label": "$98k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 170000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Adriatic Study",
+          "ratio": 0.97
+        }
+      }
+    },
+    {
       "norm_name": "ELIZABETH CATLETT",
       "display_name": "Elizabeth Catlett",
       "dates": "",
@@ -12717,6 +12906,114 @@
       }
     },
     {
+      "norm_name": "PIERO MANZONI",
+      "display_name": "Piero Manzoni",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "Achrome",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Achrome",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
+      "norm_name": "HANS HARTUNG",
+      "display_name": "Hans Hartung",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "T1949-21",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "T1949-21",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
+      "norm_name": "CARMEN HERRERA",
+      "display_name": "Carmen Herrera",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "Hallow's Green",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Hallow's Green",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "MARISOL ESCOBAR",
+      "display_name": "Marisol Escobar",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "The Blacks",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "The Blacks",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
       "norm_name": "CHARLES WHITE",
       "display_name": "Charles White",
       "dates": "",
@@ -12740,6 +13037,87 @@
         "top_ratio_lot": {
           "title": "Seed of Heritage",
           "ratio": 0.73
+        }
+      }
+    },
+    {
+      "norm_name": "ANDRÉ CADERE",
+      "display_name": "André Cadere",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 220000,
+        "avg_usd": 220000,
+        "total_label": "$220k",
+        "avg_label": "$220k",
+        "top_lot": {
+          "title": "Round Bar of Wood B 12000034",
+          "hammer_usd": 220000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Round Bar of Wood B 12000034",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "ERNST YOHJI JÄGER",
+      "display_name": "Ernst Yohji Jäger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 160000,
+        "avg_usd": 160000,
+        "total_label": "$160k",
+        "avg_label": "$160k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 160000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.29
+        }
+      }
+    },
+    {
+      "norm_name": "FAITH RINGGOLD",
+      "display_name": "Faith Ringgold",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 160000,
+        "avg_usd": 160000,
+        "total_label": "$160k",
+        "avg_label": "$160k",
+        "top_lot": {
+          "title": "Tar Beach 2",
+          "hammer_usd": 160000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Tar Beach 2",
+          "ratio": 0.8
         }
       }
     },
@@ -12771,6 +13149,33 @@
       }
     },
     {
+      "norm_name": "MANOUCHER YEKTAI",
+      "display_name": "Manoucher Yektai",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 130000,
+        "avg_usd": 130000,
+        "total_label": "$130k",
+        "avg_label": "$130k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 130000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.04
+        }
+      }
+    },
+    {
       "norm_name": "EMMI WHITEHORSE",
       "display_name": "Emmi Whitehorse",
       "dates": "",
@@ -12794,6 +13199,87 @@
         "top_ratio_lot": {
           "title": "Wizen",
           "ratio": 1.71
+        }
+      }
+    },
+    {
+      "norm_name": "BEAUFORD DELANEY",
+      "display_name": "Beauford Delaney",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 110000,
+        "avg_usd": 110000,
+        "total_label": "$110k",
+        "avg_label": "$110k",
+        "top_lot": {
+          "title": "Anita Berliawsky Weinstein",
+          "hammer_usd": 110000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Anita Berliawsky Weinstein",
+          "ratio": 0.63
+        }
+      }
+    },
+    {
+      "norm_name": "LUCIAN FREUD",
+      "display_name": "Lucian Freud",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 95000,
+        "avg_usd": 95000,
+        "total_label": "$95k",
+        "avg_label": "$95k",
+        "top_lot": {
+          "title": "Sleeping Girl",
+          "hammer_usd": 95000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Sleeping Girl",
+          "ratio": 1.36
+        }
+      }
+    },
+    {
+      "norm_name": "CARLA ACCARDI",
+      "display_name": "Carla Accardi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 75000,
+        "avg_usd": 75000,
+        "total_label": "$75k",
+        "avg_label": "$75k",
+        "top_lot": {
+          "title": "Segni Grigi",
+          "hammer_usd": 75000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Segni Grigi",
+          "ratio": 1.07
         }
       }
     },
@@ -12825,6 +13311,60 @@
       }
     },
     {
+      "norm_name": "MELVIN EDWARDS",
+      "display_name": "Melvin Edwards",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Night Talk",
+          "hammer_usd": 65000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Night Talk",
+          "ratio": 1.62
+        }
+      }
+    },
+    {
+      "norm_name": "OLGA ALBIZU",
+      "display_name": "Olga Albizu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 42000,
+        "avg_usd": 42000,
+        "total_label": "$42k",
+        "avg_label": "$42k",
+        "top_lot": {
+          "title": "Sin título",
+          "hammer_usd": 42000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Sin título",
+          "ratio": 1.05
+        }
+      }
+    },
+    {
       "norm_name": "MARY ABBOTT",
       "display_name": "Mary Abbott",
       "dates": "",
@@ -12848,6 +13388,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 0.95
+        }
+      }
+    },
+    {
+      "norm_name": "SUSAN ROTHENBERG",
+      "display_name": "Susan Rothenberg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3500,
+        "avg_usd": 3500,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 3500,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.14
         }
       }
     }
