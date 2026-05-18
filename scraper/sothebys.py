@@ -341,10 +341,10 @@ async def _scrape_sale(
     tqdm.write(f"  auctionId: {auction_id}")
     currency = _infer_currency(sale_slug)
     skip = 0
-    # Move to next sale after this many consecutive lots with no hammer price —
-    # avoids grinding through an entire sale where prices aren't in the Apollo cache.
     MAX_CONSECUTIVE_NO_PRICE = 15
+    MAX_CONSECUTIVE_EXISTING = 50
     consecutive_no_price = 0
+    consecutive_existing = 0
 
     while saved_ref[0] < max_lots:
         lots_raw = await _fetch_lots_page(client, auction_id, skip)
@@ -360,8 +360,11 @@ async def _scrape_sale(
                 continue
             if lot_exists(conn, lot_id, AUCTION_HOUSE):
                 skipped_ref[0] += 1
+                consecutive_existing += 1
                 pbar.set_postfix(saved=saved_ref[0], existing=skipped_ref[0])
-                consecutive_no_price = 0  # reset — we're in a known-good region
+                if consecutive_existing >= MAX_CONSECUTIVE_EXISTING:
+                    tqdm.write(f"  {MAX_CONSECUTIVE_EXISTING} consecutive existing lots — sale fully scraped")
+                    return
                 continue
 
             lot_url = raw.get("url") or ""
@@ -382,6 +385,7 @@ async def _scrape_sale(
                 continue
 
             consecutive_no_price = 0
+            consecutive_existing = 0
             lot = _parse_lot(raw, details, sale_name, currency)
             if not lot:
                 tqdm.write(f"  skipped: lot {raw.get('lotNr')} — filtered out")
