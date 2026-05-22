@@ -52,6 +52,9 @@ jobs:
           fi
 
       - name: Generate reel
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL:   ${{ secrets.OPENROUTER_MODEL }}
         run: python scripts/auto_reel.py --all-time --lot-index ${{ steps.lot.outputs.index }} --run
 
       # Find the reel folder that was just created (most recently modified)
@@ -68,6 +71,8 @@ jobs:
           BUFFER_INSTAGRAM_ID: ${{ secrets.BUFFER_INSTAGRAM_ID }}
           BUFFER_TIKTOK_ID:    ${{ secrets.BUFFER_TIKTOK_ID }}
           GH_TOKEN:            ${{ secrets.GITHUB_TOKEN }}
+          OPENROUTER_API_KEY:  ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL:    ${{ secrets.OPENROUTER_MODEL }}
         run: python scripts/post_to_buffer.py ${{ steps.reel.outputs.folder }}
 
       - name: Post to YouTube

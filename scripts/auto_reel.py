@@ -552,6 +552,35 @@ def _generate_config(hook_lot: dict, week_label: str, all_time: bool, reveal: li
     return "\n".join(lines) + "\n"
 
 
+# ── AI caption writer ──────────────────────────────────────────────────────────
+
+def _write_ai_captions(captions: dict, reel_dir: Path, lot: dict) -> None:
+    """Write AI-generated captions in the same captions.md format as make_captions.py."""
+    from datetime import datetime
+    out = reel_dir / "output" / "captions.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    artist = lot.get("artist", "Unknown")
+    house  = lot.get("auction_house", "Auction")
+    year   = datetime.now().year
+    ig_times = "Tue–Fri, 11am–1pm or 7–9pm (your local time)"
+    tt_times = "Tue–Thu 7–9pm or Sat morning (your local time)"
+    with open(out, "w") as f:
+        f.write(f"# Social Media Captions\n")
+        f.write(f"*{artist} · {house} · {year}*\n\n---\n\n")
+        f.write("## 📸 Instagram\n\n")
+        f.write(f"**Best time to post:** {ig_times}\n")
+        f.write(f"**Cover image:** `output/reel.png`\n\n")
+        f.write("### Caption\n\n```\n")
+        f.write(captions["instagram"])
+        f.write("\n```\n\n---\n\n")
+        f.write("## 🎵 TikTok\n\n")
+        f.write(f"**Best time to post:** {tt_times}\n")
+        f.write(f"**Video:** `output/reel.mp4`\n\n")
+        f.write("### Caption\n\n```\n")
+        f.write(captions["tiktok"])
+        f.write(f"\n```\n\n---\n*Generated {datetime.now().strftime('%B %d, %Y')} · AI*\n")
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -679,11 +708,41 @@ def main() -> None:
             cwd=str(reel_automation),
         )
         if r1.returncode == 0:
-            print("\n▸ Running make_captions.py...")
-            subprocess.run(
-                [sys.executable, str(REEL_TEMPLATE / "make_captions.py"), str(reel_dir)],
-                cwd=str(reel_automation),
-            )
+            # Try AI captions first, fall back to template-based make_captions.py
+            ai_done = False
+            if os.getenv("OPENROUTER_API_KEY"):
+                print("\n▸ Generating AI captions via OpenRouter...")
+                try:
+                    sys.path.insert(0, str(SCRIPT_DIR))
+                    from ai_content import generate_captions
+                    hammer   = hook_lot["hammer_usd"]
+                    est_low  = hook_lot["estimate_low"]
+                    est_high = hook_lot.get("estimate_high") or est_low
+                    pct      = _pct_above(hammer, est_low)
+                    lot_data = {
+                        "artist":       _clean_artist(hook_lot.get("artist") or "Unknown"),
+                        "title":        (hook_lot.get("title") or "Untitled")[:60],
+                        "auction_house": hook_lot.get("auction_house") or "the auction house",
+                        "hammer_fmt":   _fmt_price(hammer),
+                        "estimate_fmt": f"{_fmt_price(est_low)}–{_fmt_price(est_high)}",
+                        "pct_above":    pct,
+                    }
+                    captions = generate_captions(lot_data)
+                    if captions:
+                        _write_ai_captions(captions, reel_dir, lot_data)
+                        ai_done = True
+                        print("  ✓ AI captions saved")
+                    else:
+                        print("  ⚠ AI generation failed — falling back to templates")
+                except Exception as e:
+                    print(f"  ⚠ AI captions error: {e} — falling back to templates")
+
+            if not ai_done:
+                print("\n▸ Running make_captions.py...")
+                subprocess.run(
+                    [sys.executable, str(REEL_TEMPLATE / "make_captions.py"), str(reel_dir)],
+                    cwd=str(reel_automation),
+                )
 
 
 if __name__ == "__main__":

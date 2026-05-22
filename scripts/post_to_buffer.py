@@ -288,14 +288,32 @@ def main() -> None:
     print("═" * 60)
 
     # Fetch art history blurb for Instagram first comment
+    # Prefer AI (OpenRouter) if key is set, fall back to Wikipedia
     first_comment = None
     if artist:
-        print(f"\n▸ Fetching art history for '{artist}' via Wikipedia...")
-        first_comment = _fetch_wiki_blurb(artist, title)
-        if first_comment:
-            print(f"  ✓ Blurb: {first_comment[:80]}...")
-        else:
-            print(f"  ⚠ No Wikipedia entry found — skipping first comment")
+        ai_key = os.getenv("OPENROUTER_API_KEY")
+        if ai_key:
+            print(f"\n▸ Generating art history for '{artist}' via OpenRouter...")
+            try:
+                sys.path.insert(0, str(SCRIPT_DIR))
+                from ai_content import generate_art_history
+                lot_data = {"artist": artist, "title": title,
+                            "auction_house": "", "hammer_fmt": ""}
+                first_comment = generate_art_history(lot_data)
+                if first_comment:
+                    print(f"  ✓ AI blurb: {first_comment[:80]}...")
+                else:
+                    print("  ⚠ AI generation failed — falling back to Wikipedia")
+            except Exception as e:
+                print(f"  ⚠ AI error: {e} — falling back to Wikipedia")
+
+        if not first_comment:
+            print(f"\n▸ Fetching art history for '{artist}' via Wikipedia...")
+            first_comment = _fetch_wiki_blurb(artist, title)
+            if first_comment:
+                print(f"  ✓ Wikipedia blurb: {first_comment[:80]}...")
+            else:
+                print(f"  ⚠ No entry found — skipping first comment")
 
     # Step 1 — host the video on GitHub
     print("\n▸ Hosting video on GitHub releases...")
