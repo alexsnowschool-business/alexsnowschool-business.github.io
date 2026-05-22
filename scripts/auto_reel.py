@@ -22,10 +22,13 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import httpx
+from dotenv import load_dotenv
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 SCRIPT_DIR    = Path(__file__).resolve().parent
 BUSINESS_DIR  = SCRIPT_DIR.parent
+
+load_dotenv(BUSINESS_DIR / ".env", override=False)
 DB_PATH       = BUSINESS_DIR / "data" / "art.db"
 REELS_DIR     = BUSINESS_DIR / "reels"
 REEL_TEMPLATE = BUSINESS_DIR / "reel_template"
@@ -443,16 +446,16 @@ def _build_reveal_sequence(lot: dict, tag_base: str) -> list[dict]:
 
 # ── Config generation ──────────────────────────────────────────────────────────
 
-def _generate_config(hook_lot: dict, week_label: str, all_time: bool, reveal: list[dict] | None = None) -> str:
-    artist    = _clean_artist(hook_lot.get("artist") or "Unknown")
-    title     = (hook_lot.get("title") or "Untitled")[:50]
-    hammer    = hook_lot["hammer_usd"]
-    est_low   = hook_lot["estimate_low"]
-    est_high  = hook_lot.get("estimate_high") or est_low
+def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[dict] | None = None) -> str:
+    artist    = _clean_artist(hook.get("artist") or "Unknown")
+    title     = (hook.get("title") or "Untitled")[:50]
+    hammer    = hook["hammer_usd"]
+    est_low   = hook["estimate_low"]
+    est_high  = hook.get("estimate_high") or est_low
     pct       = _pct_above(hammer, est_low)
-    house     = hook_lot.get("auction_house") or "Auction House"
-    sale_name = (hook_lot.get("sale_name") or "Contemporary Sale")[:40]
-    scraped   = (hook_lot.get("scraped_at") or "")[:10]
+    house     = hook.get("auction_house") or "Auction House"
+    sale_name = (hook.get("sale_name") or "Contemporary Sale")[:40]
+    scraped   = (hook.get("scraped_at") or "")[:10]
 
     est_str    = f"estimate: {_fmt_price(est_low)}–{_fmt_price(est_high)}"
     sold_str   = f"sold: {_fmt_price(hammer)}."
@@ -715,14 +718,14 @@ def main() -> None:
                 try:
                     sys.path.insert(0, str(SCRIPT_DIR))
                     from ai_content import generate_captions
-                    hammer   = hook_lot["hammer_usd"]
-                    est_low  = hook_lot["estimate_low"]
-                    est_high = hook_lot.get("estimate_high") or est_low
+                    hammer   = hook["hammer_usd"]
+                    est_low  = hook["estimate_low"]
+                    est_high = hook.get("estimate_high") or est_low
                     pct      = _pct_above(hammer, est_low)
                     lot_data = {
-                        "artist":       _clean_artist(hook_lot.get("artist") or "Unknown"),
-                        "title":        (hook_lot.get("title") or "Untitled")[:60],
-                        "auction_house": hook_lot.get("auction_house") or "the auction house",
+                        "artist":       _clean_artist(hook.get("artist") or "Unknown"),
+                        "title":        (hook.get("title") or "Untitled")[:60],
+                        "auction_house": hook.get("auction_house") or "the auction house",
                         "hammer_fmt":   _fmt_price(hammer),
                         "estimate_fmt": f"{_fmt_price(est_low)}–{_fmt_price(est_high)}",
                         "pct_above":    pct,
