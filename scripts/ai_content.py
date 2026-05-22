@@ -103,18 +103,19 @@ Rules:
 - All lowercase
 - No fluff, no adjectives like "stunning" or "incredible"
 - Specific and data-driven
+- Do NOT repeat the estimate or hammer price — the video already shows the numbers
 - Do NOT include hashtags
 
 --- INSTAGRAM ---
 Format (3 short paragraphs, each 1–2 lines):
-1. Hook: one line — estimate vs hammer price as a contrast. no label.
-2. The work: one sentence naming {artist} and "{title}", what the % means.
-3. The insight: one sentence using the angle above.
+1. Hook: one punchy line using the angle — lead with the insight, not the price.
+2. The work: one sentence naming {artist} and "{title}" with context about why this result matters.
+3. The so-what: one sentence zooming out — what this tells us about the market.
 
 --- TIKTOK ---
-Format (3 lines max):
+Format (2 lines max):
 1. Same hook line as Instagram.
-2. One follow-up line using the angle.
+2. One follow-up line — the so-what.
 3. "📍 {house}"
 
 Reply with only the two sections and their labels. Nothing else."""
