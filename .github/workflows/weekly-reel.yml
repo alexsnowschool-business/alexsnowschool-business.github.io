@@ -69,3 +69,10 @@ jobs:
           BUFFER_TIKTOK_ID:    ${{ secrets.BUFFER_TIKTOK_ID }}
           GH_TOKEN:            ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/post_to_buffer.py ${{ steps.reel.outputs.folder }}
+
+      - name: Post to YouTube
+        env:
+          YOUTUBE_CLIENT_ID:     ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: python scripts/post_to_youtube.py ${{ steps.reel.outputs.folder }}
