@@ -172,9 +172,10 @@ def _parse_lot_block(block: str, sale_name: str, sale_date: str | None) -> dict 
     date_m = re.search(r'class="lot-auctioneer"[^>]*>.*?<span[^>]*>([^<]+)</span>', block, re.DOTALL)
     lot_date = _parse_date(date_m.group(1)) if date_m else sale_date
 
-    # Image URL
-    img_m = re.search(r'src="(https://imgprivate2\.artprice\.com/lots/[^"]+)"', block)
-    images = [img_m.group(1)] if img_m else []
+    # Artprice images are served from imgprivate2.artprice.com which requires
+    # an active session cookie — they return 410 for unauthenticated requests
+    # and will never load in a public browser. Store empty to show placeholder.
+    images = []
 
     return {
         "id":              lot_id,
