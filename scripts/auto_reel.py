@@ -342,13 +342,13 @@ def _build_reveal_sequence(lot: dict, tag_base: str) -> list[dict]:
         # 3 — outperformance % completes the data box
         _data(line1=E, line2=S, line3=P),
         # 4 — question appears large (no answer yet)
-        _data(line1=E, line2=S, line3=P, q=question, hold=3.0),
+        _data(line1=E, line2=S, line3=P, q=question, hold=4.0),
     ]
 
     # Phrase-by-phrase answer reveal: each sentence fragment appears in sequence
     for j in range(len(phrases)):
         partial = " ".join(phrases[:j + 1])
-        hold = 1.5 if j < len(phrases) - 1 else 4.0
+        hold = 2.5 if j < len(phrases) - 1 else 6.0
         frames.append(_data(line1=E, line2=S, line3=P, q=question, a=partial, hold=hold))
 
     return frames
