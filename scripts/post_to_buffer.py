@@ -129,19 +129,27 @@ def _post_to_buffer(
         print(f"  Caption: {text[:120]}...")
         return True
 
+    # Platform-specific metadata
+    metadata: dict = {}
+    if platform == "Instagram":
+        metadata["instagram"] = {"type": "reel", "shouldShareToFeed": True}
+    elif platform == "TikTok":
+        metadata["tiktok"] = {"title": text[:150]}
+
     variables: dict = {
         "input": {
             "channelId":      channel_id,
             "text":           text,
             "assets":         [{"video": {"url": video_url}}],
             "schedulingType": "automatic",
+            "metadata":       metadata,
         }
     }
 
     if scheduled_at:
         dt = datetime.fromisoformat(scheduled_at).astimezone(timezone.utc)
-        variables["input"]["mode"]   = "customScheduled"
-        variables["input"]["dueAt"]  = dt.isoformat()
+        variables["input"]["mode"]  = "customScheduled"
+        variables["input"]["dueAt"] = dt.isoformat()
     else:
         variables["input"]["mode"] = "addToQueue"
 
