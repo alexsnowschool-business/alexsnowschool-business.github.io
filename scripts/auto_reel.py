@@ -67,11 +67,33 @@ def _week_bounds(ref_date: date) -> tuple[str, str]:
 
 # ── DB queries ─────────────────────────────────────────────────────────────────
 
+def _ensure_posted_table(conn: sqlite3.Connection) -> None:
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS posted_reels (
+            lot_id      TEXT PRIMARY KEY,
+            artist      TEXT,
+            title       TEXT,
+            hammer_usd  REAL,
+            reel_slug   TEXT,
+            platforms   TEXT,
+            posted_at   TEXT DEFAULT (datetime('now'))
+        )
+    """)
+    conn.commit()
+
+
+def _posted_ids(conn: sqlite3.Connection) -> set[str]:
+    rows = conn.execute("SELECT lot_id FROM posted_reels").fetchall()
+    return {r[0] for r in rows}
+
+
 def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
-                    limit: int = 8) -> list[dict]:
-    """Top outperforming lots scraped in the given week, ranked by % above estimate."""
-    rows = conn.execute("""
-        SELECT artist, title, hammer_usd, estimate_low, estimate_high,
+                    limit: int = 8, exclude_ids: set | None = None) -> list[dict]:
+    """Top outperforming lots scraped in the given week, excluding already-posted ones."""
+    exclude = tuple(exclude_ids or [])
+    placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
+    rows = conn.execute(f"""
+        SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
                ROUND((hammer_usd * 1.0 / estimate_low - 1) * 100, 1) AS pct_above,
                source_url
@@ -81,16 +103,20 @@ def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
           AND substr(scraped_at, 1, 10) BETWEEN ? AND ?
+          {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         ORDER BY pct_above DESC
         LIMIT ?
-    """, (week_start, week_end, limit)).fetchall()
+    """, (week_start, week_end, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
 
 
-def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8) -> list[dict]:
-    """All-time top outperforming lots — fallback when the week has no data."""
-    rows = conn.execute("""
-        SELECT artist, title, hammer_usd, estimate_low, estimate_high,
+def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
+                       exclude_ids: set | None = None) -> list[dict]:
+    """All-time top outperforming lots, excluding already-posted ones."""
+    exclude = tuple(exclude_ids or [])
+    placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
+    rows = conn.execute(f"""
+        SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
                ROUND((hammer_usd * 1.0 / estimate_low - 1) * 100, 1) AS pct_above,
                source_url
@@ -99,10 +125,49 @@ def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8) -> list[dict]:
           AND hammer_usd IS NOT NULL
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
+          {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         ORDER BY pct_above DESC
         LIMIT ?
-    """, (limit,)).fetchall()
+    """, (*exclude, limit)).fetchall()
     return [dict(r) for r in rows]
+
+
+def _query_random_week_lot(conn: sqlite3.Connection,
+                           exclude_ids: set | None = None) -> list[dict]:
+    """Pick top lot from a random week that has unposted content."""
+    exclude = tuple(exclude_ids or [])
+    placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
+    rows = conn.execute(f"""
+        SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
+               sale_name, sale_date, scraped_at, auction_house, image_urls,
+               ROUND((hammer_usd * 1.0 / estimate_low - 1) * 100, 1) AS pct_above,
+               source_url,
+               strftime('%Y-%W', scraped_at) AS week_key
+        FROM art_items
+        WHERE sale_performance = 'above'
+          AND hammer_usd IS NOT NULL
+          AND estimate_low IS NOT NULL
+          AND estimate_low > 0
+          {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
+        GROUP BY week_key
+        HAVING MAX(pct_above)
+        ORDER BY RANDOM()
+        LIMIT 1
+    """, (*exclude,)).fetchall()
+    return [dict(r) for r in rows]
+
+
+def _record_posted(conn: sqlite3.Connection, lot: dict, reel_slug: str,
+                   platforms: list[str]) -> None:
+    conn.execute("""
+        INSERT OR REPLACE INTO posted_reels (lot_id, artist, title, hammer_usd, reel_slug, platforms)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (
+        lot["id"], lot.get("artist"), lot.get("title"),
+        lot.get("hammer_usd"), reel_slug, ",".join(platforms),
+    ))
+    conn.commit()
+    print(f"  ✓ Recorded in posted_reels: {lot.get('artist')} — {lot.get('title')}")
 
 
 # ── Image downloading ──────────────────────────────────────────────────────────
@@ -479,6 +544,8 @@ def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[d
         "drop the lot in the comments #thehammerprice #artmarket #auctionresults"
     )
 
+    lot_id = hook.get("id", "")
+
     lines = [
         '"""',
         "╔══════════════════════════════════════════════════════════════╗",
@@ -489,6 +556,7 @@ def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[d
         '"""',
         "",
         "CONFIG = {",
+        f'    "lot_id":         "{lot_id}",',
         "    # ── Caption — The Shock Number ────────────────────────────",
         f'    "caption_tag":    "{tag_line}",',
         f'    "caption_line1":  "{est_str}",',
@@ -616,18 +684,31 @@ def main() -> None:
     # ── Query lots ─────────────────────────────────────────────
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
+    _ensure_posted_table(conn)
+    skip = _posted_ids(conn)
+    if skip:
+        print(f"\n  ℹ Skipping {len(skip)} already-posted lot(s).")
 
     top_n = max(args.top_n, args.lot_index + 1)
     if args.all_time:
-        lots = _query_alltime_top(conn, limit=top_n)
+        lots = _query_alltime_top(conn, limit=top_n, exclude_ids=skip)
         reel_slug = f"weekly-{date.today().isoformat()}-alltime"
     else:
-        lots = _query_top_lots(conn, week_start, week_end, limit=top_n)
+        lots = _query_top_lots(conn, week_start, week_end, limit=top_n, exclude_ids=skip)
         if not lots:
-            print(f"\n  No data found for week {week_label}.")
-            print("  Falling back to all-time top outperformers.\n")
-            lots = _query_alltime_top(conn, limit=top_n)
-            reel_slug = f"weekly-{week_start}-fallback"
+            print(f"\n  No new data for week {week_label} — trying random unposted week...")
+            rand = _query_random_week_lot(conn, exclude_ids=skip)
+            if rand:
+                # re-query that week's top lots
+                w = rand[0]["scraped_at"][:10]
+                wb_start, wb_end = _week_bounds(date.fromisoformat(w))
+                lots = _query_top_lots(conn, wb_start, wb_end, limit=top_n, exclude_ids=skip)
+                reel_slug = f"weekly-{wb_start}-random"
+                print(f"  Using random week: {wb_start}")
+            if not lots:
+                print("  Falling back to all-time top unposted lots.")
+                lots = _query_alltime_top(conn, limit=top_n, exclude_ids=skip)
+                reel_slug = f"weekly-{week_start}-fallback"
     conn.close()
 
     if not lots:

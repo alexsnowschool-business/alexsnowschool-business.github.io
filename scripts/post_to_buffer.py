@@ -347,6 +347,28 @@ def main() -> None:
         print(f"  {'✓' if ok else '✗'} {platform}")
     print("═" * 60)
 
+    # Record successful post to avoid duplication in future runs
+    posted_platforms = [p for p, ok in results if ok]
+    if posted_platforms and not args.dry_run:
+        lot_id = None
+        config_path = reel_dir / "reel_config.py"
+        if config_path.exists():
+            id_m = re.search(r'"lot_id"\s*:\s*"([^"]+)"', config_path.read_text())
+            if id_m: lot_id = id_m.group(1)
+        if lot_id:
+            import sqlite3
+            db_path = BUSINESS_DIR / "data" / "art.db"
+            if db_path.exists():
+                conn = sqlite3.connect(db_path)
+                conn.execute("""
+                    INSERT OR REPLACE INTO posted_reels
+                        (lot_id, artist, title, hammer_usd, reel_slug, platforms)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                """, (lot_id, artist, title, None, reel_slug, ",".join(posted_platforms)))
+                conn.commit()
+                conn.close()
+                print(f"  ✓ Recorded in posted_reels (lot_id={lot_id})")
+
 
 if __name__ == "__main__":
     main()
