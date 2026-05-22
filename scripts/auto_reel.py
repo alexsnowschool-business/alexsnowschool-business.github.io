@@ -145,44 +145,115 @@ def _roman(n: int) -> str:
 # ── Per-frame captions ─────────────────────────────────────────────────────────
 
 # Each entry: (min_pct, question, answer)
-# Structure: 3-sentence build — what happened → why → what it means.
-# Tone: plain, specific, data-first. Every answer names the lot.
+# Each entry: (min_pct, [question variants], [answer variants])
 # Format vars: {artist} {title} {house} {hammer} {estimate} {pct} {n}
 _HOOK_TEMPLATES = [
     (800,
-     "nobody priced this right.",
-     "when a result moves this far, it's rarely a surprise to the buyers in the room. "
-     "someone had conviction — about the artist, the moment, or both — that the estimate completely missed."),
+     [
+         "nobody priced this right.",
+         "the estimate was wrong by {pct}.",
+         "the room ignored the catalogue.",
+     ],
+     [
+         "when a result moves this far, it's rarely a surprise to the buyers in the room. "
+         "someone had conviction — about the artist, the moment, or both — that the estimate completely missed.",
+         "the estimate is set months before the sale. "
+         "by auction day, the market had already moved — what looks shocking in the catalogue is the price catching up.",
+         "two collectors wanted it. neither was willing to walk away. "
+         "when that happens, the estimate becomes irrelevant — the price goes wherever the last bidder stops.",
+     ]),
 
     (500,
-     "the estimate was a suggestion.",
-     "estimates are set to attract interest, not predict outcomes. "
-     "a gap this wide usually means two or more serious collectors decided they couldn't leave without it — and outbid each other to prove it."),
+     [
+         "the estimate was a suggestion.",
+         "a {n} result doesn't happen by accident.",
+         "the catalogue missed the room by {pct}.",
+     ],
+     [
+         "estimates are set to attract interest, not predict outcomes. "
+         "a gap this wide usually means two or more serious collectors decided they couldn't leave without it.",
+         "this kind of outperformance signals a market shift the specialists hadn't priced in. "
+         "when demand outpaces supply, the estimate stops being a ceiling and becomes a floor.",
+         "the auction house put a number on it. "
+         "the market put a different number on it — and the market always wins.",
+     ]),
 
     (300,
-     "the catalogue got this wrong by {pct}.",
-     "specialists price from precedent. "
-     "but when an artist's reputation shifts — or a new collector base enters — the catalogue is always the last to know."),
+     [
+         "the catalogue got this wrong by {pct}.",
+         "the specialists underestimated the room.",
+         "priced for safety. sold for ambition.",
+     ],
+     [
+         "specialists price from precedent. "
+         "but when an artist's reputation shifts — or a new collector base enters — the catalogue is always the last to know.",
+         "a result this far above estimate usually points to something the pre-sale research missed: a fresh buyer, a rediscovered provenance, a cultural moment.",
+         "the estimate is backward-looking. "
+         "the room is forward-looking. "
+         "here, the room was right.",
+     ]),
 
     (150,
-     "the room disagreed with the experts.",
-     "auction houses price conservatively to guarantee a sale. "
-     "the real number is whatever the most motivated buyer is willing to pay — and here, they were very motivated."),
+     [
+         "the room disagreed with the experts.",
+         "the house priced it low. the room priced it right.",
+         "conviction beat the catalogue.",
+     ],
+     [
+         "auction houses price conservatively to guarantee a sale. "
+         "the real number is whatever the most motivated buyer is willing to pay — and here, they were very motivated.",
+         "a result this far above estimate isn't luck — it's two collectors who did their homework and arrived ready to pay.",
+         "the specialists set a floor. "
+         "the bidders set the ceiling. "
+         "that gap is where the real market lives.",
+     ]),
 
     (80,
-     "the room knew something the catalogue didn't.",
-     "moderate outperformance usually means more buyers arrived than the estimate assumed. "
-     "the house priced for certainty; the market priced for desire."),
+     [
+         "the room knew something the catalogue didn't.",
+         "more buyers arrived than the estimate assumed.",
+         "the market priced what the house wouldn't.",
+     ],
+     [
+         "moderate outperformance usually means more buyers arrived than the estimate assumed. "
+         "the house priced for certainty; the market priced for desire.",
+         "when you see consistent outperformance in a range, it's a signal — not noise. "
+         "the estimate is a floor, and the room was willing to go higher.",
+         "the house sets the estimate to sell. "
+         "the bidders set the price to own. "
+         "those are different numbers — and the difference is the story.",
+     ]),
 
     (40,
-     "priced to sell. sold for more.",
-     "estimates are floor prices, not forecasts. "
-     "the auction house sets a number to guarantee a sale — what happens above that is entirely up to the room."),
+     [
+         "priced to sell. sold for more.",
+         "above estimate — the most common story in the room.",
+         "the floor held. the ceiling didn't.",
+     ],
+     [
+         "estimates are floor prices, not forecasts. "
+         "the auction house sets a number to guarantee a sale — what happens above that is entirely up to the room.",
+         "most lots sell above estimate. "
+         "that's not a surprise — it's the system working as designed. "
+         "the house prices conservatively; competition does the rest.",
+         "a small overshoot is the baseline at auction. "
+         "the estimate attracts bidders; the bidders set the price.",
+     ]),
 
     (0,
-     "above estimate — even here.",
-     "small overshoots are the most consistent pattern at auction. "
-     "when more buyers arrive than expected, the price moves — quietly, but reliably."),
+     [
+         "above estimate — even here.",
+         "the floor held. just.",
+         "sold above the low estimate.",
+     ],
+     [
+         "small overshoots are the most consistent pattern at auction. "
+         "when more buyers arrive than expected, the price moves — quietly, but reliably.",
+         "even a modest result above estimate confirms demand. "
+         "the house priced it right; the room agreed and went a little further.",
+         "not every lot is a headline. "
+         "but every lot that sells above estimate tells the same story: demand met supply, and then passed it.",
+     ]),
 ]
 
 
@@ -194,7 +265,8 @@ def _split_phrases(text: str) -> list[str]:
 
 
 def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
-    """Return (question, answer) — lot-specific, 3-beat structure."""
+    """Return (question, answer) — randomly selected from per-tier variants."""
+    import random
     mult     = round(pct / 100 + 1, 1)
     artist   = _clean_artist(lot.get("artist") or "Unknown")
     title    = (lot.get("title") or "Untitled")[:40]
@@ -214,9 +286,11 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
         pct=f"{pct:,.0f}%",
     )
 
-    for threshold, q_tmpl, a_tmpl in _HOOK_TEMPLATES:
+    for threshold, q_variants, a_variants in _HOOK_TEMPLATES:
         if pct >= threshold:
-            return q_tmpl.format(**fmt), a_tmpl.format(**fmt)
+            question = random.choice(q_variants).format(**fmt)
+            answer   = random.choice(a_variants).format(**fmt)
+            return question, answer
 
     return "the hammer price tells the real story.", "follow the data."
 
