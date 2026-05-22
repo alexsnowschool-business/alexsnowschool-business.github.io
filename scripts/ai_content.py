@@ -69,13 +69,18 @@ def _call(messages: list[dict], max_tokens: int = 400) -> str | None:
         return None
 
 
-def generate_captions(lot: dict) -> dict | None:
-    """
-    Returns {"instagram": str, "tiktok": str} or None if API unavailable.
+_ANGLES = [
+    "data pattern — use the stat: 51% of lots at the major houses sell above estimate. connect this result to the broader pattern.",
+    "collector psychology — why did someone pay this much? nobody goes to auction to pay fair value. they go to win.",
+    "market timing — what shifted before the sale? the estimate is set months early. by auction day the market had already moved.",
+    "catalogue vs room — the specialist wrote one number, the room bid another. the gap between them is the real story.",
+    "price discovery — use the actual numbers ({estimate} → {hammer}). the estimate is a floor, not a forecast.",
+]
 
-    lot keys used: artist, title, auction_house, hammer_usd (formatted),
-                   estimate_low, estimate_high, pct_above
-    """
+
+def generate_captions(lot: dict) -> dict | None:
+    """Returns {instagram, tiktok} captions or None if API unavailable."""
+    import random
     if not OPENROUTER_KEY:
         return None
 
@@ -85,28 +90,40 @@ def generate_captions(lot: dict) -> dict | None:
     hammer  = lot.get("hammer_fmt", "unknown")
     est     = lot.get("estimate_fmt", "unknown")
     pct     = lot.get("pct_above", 0)
+    angle   = random.choice(_ANGLES).format(estimate=est, hammer=hammer)
 
-    prompt = f"""You write social media captions for @thehammerprice — a data-driven art market account that exposes auction price patterns.
+    prompt = f"""You write captions for @thehammerprice — an art market account. Short, plain, lowercase. No emojis except where shown.
 
-Lot details:
+Lot:
 - Artist: {artist}
-- Title: "{title}"
-- Auction house: {house}
-- Estimate: {est}
-- Hammer price: {hammer}
-- % above low estimate: {pct:.0f}%
+- Work: "{title}"
+- House: {house}
+- Estimate: {est}  →  Hammer: {hammer}  ({pct:.0f}% above estimate)
 
-Write TWO captions. Tone: plain, specific, data-first. No fluff. Lowercase throughout.
+Angle to use: {angle}
+
+Rules:
+- All lowercase
+- No fluff, no adjectives like "stunning" or "incredible"
+- Specific and data-driven
+- Do NOT include hashtags
 
 --- INSTAGRAM ---
-3–5 lines. Start with a one-line hook comparing estimate vs hammer price (no label, just the contrast). Second paragraph: one sentence about the artist or work. Third: one insight about what this result means for the market. End with one engagement question. Do NOT include hashtags — I'll add them separately.
+Format (4 short paragraphs, each 1–2 lines):
+1. Hook: one line — estimate vs hammer price as a contrast. no label.
+2. The work: one sentence naming {artist} and "{title}", what the % means.
+3. The insight: one sentence using the angle above.
+4. Question: one short engagement question for the comments.
 
 --- TIKTOK ---
-2–3 lines max. Hook line first (estimate vs hammer). One follow-up insight. No question needed. Do NOT include hashtags.
+Format (3 lines max):
+1. Same hook line as Instagram.
+2. One follow-up line using the angle.
+3. "📍 {house}"
 
-Reply with exactly the two sections labelled --- INSTAGRAM --- and --- TIKTOK --- and nothing else."""
+Reply with only the two sections and their labels. Nothing else."""
 
-    raw = _call([{"role": "user", "content": prompt}], max_tokens=500)
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=400)
     if not raw:
         return None
 
