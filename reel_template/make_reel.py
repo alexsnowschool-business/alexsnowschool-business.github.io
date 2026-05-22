@@ -171,13 +171,15 @@ def load_fonts(fonts_dir, scale=1.0, overrides=None):
         return ImageFont.truetype(path, size)
     s = scale
     fonts = {
-        "serif_lg":   f("Gloock-Regular.ttf",      int(84 * s)),
-        "serif_med":  f("InstrumentSerif-Italic.ttf",   int(58 * s)),
-        "italic_med": f("IBMPlexSerif-Italic.ttf",  int(42 * s)),
-        "jura_light": f("Jura-Light.ttf",           int(22 * s)),
-        "jura_med":   f("Jura-Medium.ttf",          int(24 * s)),
-        "mono":       f("DMMono-Regular.ttf",        int(17 * s)),
-        "mono_sm":    f("DMMono-Regular.ttf",        int(14 * s)),
+        "serif_lg":   f("Gloock-Regular.ttf",        int(84 * s)),
+        "serif_med":  f("InstrumentSerif-Italic.ttf", int(58 * s)),
+        "italic_med": f("IBMPlexSerif-Italic.ttf",    int(42 * s)),
+        "sans_hero":  f("BigShoulders-Bold.ttf",      int(108 * s)),
+        "sans_body":  f("WorkSans-Bold.ttf",          int(48 * s)),
+        "jura_light": f("Jura-Light.ttf",             int(22 * s)),
+        "jura_med":   f("Jura-Medium.ttf",            int(24 * s)),
+        "mono":       f("DMMono-Regular.ttf",         int(17 * s)),
+        "mono_sm":    f("DMMono-Regular.ttf",         int(14 * s)),
     }
     if overrides:
         for key, (fname, size) in overrides.items():
@@ -379,8 +381,8 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     if hook_question:
         has_answer = bool(hook_answer)
         if has_answer:
-            _ans_h = measure_wrapped_height(hook_answer, fnt["serif_med"], max_width=W - 200, line_gap=10)
-            HBH = 60 + _ans_h + 32   # question label (44px) + gap to answer (16px) + answer + bottom pad
+            _ans_h = measure_wrapped_height(hook_answer.upper(), fnt["sans_body"], max_width=W - 120, line_gap=14)
+            HBH = 60 + _ans_h + 32
         else:
             HBH = 140
         HBT = (BB + 28) if show_caption else (H // 2 - HBH // 2)
@@ -452,15 +454,14 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
     if hook_question:
         if not has_answer:
-            # Question alone — large, attention-grabbing
-            ctext(draw, HBT + 24, hook_question, fnt["serif_lg"], pal["text_bright"])
+            # Question alone — large bold sans, uppercase
+            ctext_wrapped(draw, HBT + 24, hook_question.upper(), fnt["sans_hero"],
+                          pal["text_bright"], max_width=W - 120, line_gap=12)
         else:
-            # Question shrinks to a small label above the answer
-            ctext(draw, HBT + 12, hook_question, fnt["jura_light"], pal["text_dim"])
-            draw.line([(160, HBT + 44), (W - 160, HBT + 44)], fill=RD, width=1)
-            # Answer dominates — large serif, wrapped, gold (same as sold price)
-            ctext_wrapped(draw, HBT + 60, hook_answer, fnt["serif_med"],
-                          pal["text_bright"], max_width=W - 200, line_gap=10)
+            # Question shrinks to small label; answer dominates in bold sans
+            ctext(draw, HBT + 12, hook_question.upper(), fnt["jura_light"], pal["text_dim"])
+            ctext_wrapped(draw, HBT + 60, hook_answer.upper(), fnt["sans_body"],
+                          pal["text_bright"], max_width=W - 120, line_gap=14)
 
     # Bottom coordinate labels
     draw.line([(72, H-220), (W-72, H-220)], fill=pal["rule_dim"], width=1)
