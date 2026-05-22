@@ -26,6 +26,11 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
+      - name: Install Playwright browsers
+        run: uv run playwright install chromium --with-deps
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
       - name: Run Christie's scraper
         run: uv run python -m scraper.christies --max-lots 50
         env:
@@ -34,6 +39,12 @@ jobs:
 
       - name: Run Sotheby's scraper
         run: uv run python -m scraper.sothebys --max-lots 50
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+          PYTHONPATH: .
+
+      - name: Run Artprice futures scraper
+        run: uv run python -m scraper.artprice --max-lots 200
         env:
           UV_INDEX_URL: https://pypi.org/simple/
           PYTHONPATH: .
