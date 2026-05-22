@@ -361,23 +361,6 @@ After 3 months of this publicly, the advisory product sells itself.
 The moat: **real proprietary data + public track record + accessible voice**.
 
 ---
-
-## XI. Next Steps
-
-- [x] Decided on brand name — The Hammer Price / @thehammerprice
-- [ ] Claim @thehammerprice on TikTok
-- [ ] Claim @thehammerprice on Instagram
-- [ ] Claim @thehammerprice on YouTube (reserve even if not posting yet)
-- [ ] Set interim profile picture — Lichtenstein, *Masterpiece* (1962)
-- [ ] Build logo — Canva (free) or Fiverr ($20–50) using brief in Section III, or use AI generation prompts in Section III
-- [ ] Swap profile picture to logo once ready
-- [ ] Define content voice — write 3 sample captions to test tone before posting
-- [ ] Record first TikTok — the Robert Longo +1,160% story, no setup needed
-- [ ] Set up newsletter platform — Substack or Beehiiv (both free to start)
-- [ ] Post 10 pieces of content before monetising anything
-
----
-
 ## XII. Open Questions
 
 - Is the primary language English only, or bilingual?
