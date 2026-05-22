@@ -32,7 +32,7 @@ from dotenv import load_dotenv
 SCRIPT_DIR   = Path(__file__).resolve().parent
 BUSINESS_DIR = SCRIPT_DIR.parent
 
-load_dotenv(BUSINESS_DIR / ".env")
+load_dotenv(BUSINESS_DIR / ".env", override=False)  # env vars set by CI take precedence
 
 BUFFER_GRAPHQL = "https://api.buffer.com/graphql"
 TOKEN          = os.getenv("BUFFER_TOKEN")

@@ -1,0 +1,69 @@
+name: Weekly Reel — The Hammer Price
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"   # Monday    08:00 UTC
+    - cron: "0 8 * * 3"   # Wednesday 08:00 UTC
+    - cron: "0 8 * * 5"   # Friday    08:00 UTC
+  workflow_dispatch:
+    inputs:
+      lot_index:
+        description: "Lot index to use (0 = top lot, 1 = 2nd, etc.)"
+        required: false
+        default: "0"
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install pillow httpx python-dotenv
+
+      - name: Install ffmpeg
+        run: sudo apt-get install -y ffmpeg --quiet
+
+      # Rotate lot index: Mon=0, Wed=1, Fri=2
+      # Offset by week-of-year so we don't repeat the same 3 lots every week
+      - name: Determine lot index
+        id: lot
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "index=${{ inputs.lot_index }}" >> $GITHUB_OUTPUT
+          else
+            DOW=$(date +%u)         # 1=Mon 3=Wed 5=Fri
+            WEEK=$(date +%V)        # ISO week number
+            if   [ "$DOW" = "1" ]; then DAY_OFFSET=0
+            elif [ "$DOW" = "3" ]; then DAY_OFFSET=1
+            else                        DAY_OFFSET=2
+            fi
+            INDEX=$(( (WEEK * 3 + DAY_OFFSET) % 10 ))
+            echo "index=$INDEX" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate reel
+        run: python scripts/auto_reel.py --all-time --lot-index ${{ steps.lot.outputs.index }} --run
+
+      # Find the reel folder that was just created (most recently modified)
+      - name: Find reel folder
+        id: reel
+        run: |
+          FOLDER=$(ls -dt reels/weekly-* 2>/dev/null | head -1)
+          echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+          echo "Reel folder: $FOLDER"
+
+      - name: Post to Buffer
+        env:
+          BUFFER_TOKEN:        ${{ secrets.BUFFER_TOKEN }}
+          BUFFER_INSTAGRAM_ID: ${{ secrets.BUFFER_INSTAGRAM_ID }}
+          BUFFER_TIKTOK_ID:    ${{ secrets.BUFFER_TIKTOK_ID }}
+          GH_TOKEN:            ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/post_to_buffer.py ${{ steps.reel.outputs.folder }}
