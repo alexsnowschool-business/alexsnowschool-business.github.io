@@ -106,11 +106,10 @@ Rules:
 - Do NOT include hashtags
 
 --- INSTAGRAM ---
-Format (4 short paragraphs, each 1–2 lines):
+Format (3 short paragraphs, each 1–2 lines):
 1. Hook: one line — estimate vs hammer price as a contrast. no label.
 2. The work: one sentence naming {artist} and "{title}", what the % means.
 3. The insight: one sentence using the angle above.
-4. Question: one short engagement question for the comments.
 
 --- TIKTOK ---
 Format (3 lines max):
