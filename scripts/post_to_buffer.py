@@ -173,14 +173,11 @@ def _post_to_buffer(
     video_url: str,
     scheduled_at: str | None,
     dry_run: bool,
-    first_comment: str | None = None,
 ) -> bool:
     if dry_run:
         ts = scheduled_at or "queue"
         print(f"  [dry-run] {platform}: channel={channel_id}, schedule={ts}")
         print(f"  Caption: {text[:120]}...")
-        if first_comment:
-            print(f"  First comment: {first_comment[:120]}...")
         return True
 
     # Platform-specific metadata
@@ -200,8 +197,6 @@ def _post_to_buffer(
         }
     }
 
-    # firstComment is a Buffer paid-plan feature — skip if not supported
-    # (kept in dry-run output for visibility)
 
     if scheduled_at:
         dt = datetime.fromisoformat(scheduled_at).astimezone(timezone.utc)
@@ -273,14 +268,14 @@ def main() -> None:
     config_path = reel_dir / "reel_config.py"
     if config_path.exists():
         cfg_text = config_path.read_text()
-        am = re.search(r'"artist"\s*:\s*"([^"]+)"', cfg_text)
-        tm = re.search(r'"title"\s*:\s*"([^"]+)"', cfg_text)
-        hm = re.search(r'"auction_house"\s*:\s*"([^"]+)"', cfg_text)
-        fm = re.search(r'"hammer_price"\s*:\s*"([^"]+)"', cfg_text)
+        am = re.search(r"'upper_artist'\s*:\s*'([^']+)'", cfg_text)
+        tm = re.search(r"'upper_title'\s*:\s*'([^']+)'", cfg_text)
+        hm = re.search(r'"location"\s*:\s*"([^"]+)"', cfg_text)
+        fm = re.search(r'"caption_line2"\s*:\s*"([^"]+)"', cfg_text)
         if am: artist     = am.group(1)
         if tm: title      = tm.group(1)
         if hm: house      = hm.group(1)
-        if fm: hammer_fmt = fm.group(1)
+        if fm: hammer_fmt = fm.group(1).replace("sold: ", "").rstrip(".")
 
     print("═" * 60)
     print("  BUFFER POSTER — The Hammer Price")
@@ -333,9 +328,12 @@ def main() -> None:
 
     with httpx.Client(headers=headers, timeout=30) as client:
         if args.instagram and (IG_CHANNEL or args.dry_run):
+            ig_text = captions["instagram"]
+            if first_comment:
+                ig_text = ig_text + "\n\n" + first_comment
             ok = _post_to_buffer(client, IG_CHANNEL or "IG_ID", "Instagram",
-                                 captions["instagram"], video_url, args.schedule,
-                                 args.dry_run, first_comment=first_comment)
+                                 ig_text, video_url, args.schedule,
+                                 args.dry_run)
             results.append(("Instagram", ok))
         elif args.instagram:
             print("  ⚠ BUFFER_INSTAGRAM_ID not set — skipping")

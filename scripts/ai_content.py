@@ -33,10 +33,7 @@ OPENROUTER_URL  = "https://openrouter.ai/api/v1/chat/completions"
 #          "anthropic/claude-sonnet-4-5"
 MODEL = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.1-8b-instruct:free")
 
-_HASHTAGS_IG = (
-    "#thehammerprice #artmarket #auctionresults #artcollecting #contemporaryart "
-    "#artinvestment #auctionhouse #fineart #artworld #reels #explore"
-)
+_HASHTAGS_IG = "#thehammerprice #artmarket #auctionresults"
 _HASHTAGS_TT = (
     "#thehammerprice #artmarket #auctionresults #fyp #foryou #foryoupage "
     "#contemporaryart #artcollecting"
