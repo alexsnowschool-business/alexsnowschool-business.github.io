@@ -200,8 +200,8 @@ def _post_to_buffer(
         }
     }
 
-    if first_comment and platform == "Instagram":
-        variables["input"]["firstComment"] = {"text": first_comment}
+    # firstComment is a Buffer paid-plan feature — skip if not supported
+    # (kept in dry-run output for visibility)
 
     if scheduled_at:
         dt = datetime.fromisoformat(scheduled_at).astimezone(timezone.utc)
@@ -269,13 +269,18 @@ def main() -> None:
     if header_m:
         artist = header_m.group(1).strip()
     # Also try reel_config.py if present
+    house, hammer_fmt = "", ""
     config_path = reel_dir / "reel_config.py"
     if config_path.exists():
         cfg_text = config_path.read_text()
         am = re.search(r'"artist"\s*:\s*"([^"]+)"', cfg_text)
         tm = re.search(r'"title"\s*:\s*"([^"]+)"', cfg_text)
-        if am: artist = am.group(1)
-        if tm: title  = tm.group(1)
+        hm = re.search(r'"auction_house"\s*:\s*"([^"]+)"', cfg_text)
+        fm = re.search(r'"hammer_price"\s*:\s*"([^"]+)"', cfg_text)
+        if am: artist     = am.group(1)
+        if tm: title      = tm.group(1)
+        if hm: house      = hm.group(1)
+        if fm: hammer_fmt = fm.group(1)
 
     print("═" * 60)
     print("  BUFFER POSTER — The Hammer Price")
@@ -298,7 +303,7 @@ def main() -> None:
                 sys.path.insert(0, str(SCRIPT_DIR))
                 from ai_content import generate_art_history
                 lot_data = {"artist": artist, "title": title,
-                            "auction_house": "", "hammer_fmt": ""}
+                            "auction_house": house, "hammer_fmt": hammer_fmt}
                 first_comment = generate_art_history(lot_data)
                 if first_comment:
                     print(f"  ✓ AI blurb: {first_comment[:80]}...")
