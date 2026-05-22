@@ -328,11 +328,8 @@ def main() -> None:
 
     with httpx.Client(headers=headers, timeout=30) as client:
         if args.instagram and (IG_CHANNEL or args.dry_run):
-            ig_text = captions["instagram"]
-            if first_comment:
-                ig_text = ig_text + "\n\n" + first_comment
             ok = _post_to_buffer(client, IG_CHANNEL or "IG_ID", "Instagram",
-                                 ig_text, video_url, args.schedule,
+                                 captions["instagram"], video_url, args.schedule,
                                  args.dry_run)
             results.append(("Instagram", ok))
         elif args.instagram:
