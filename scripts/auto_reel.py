@@ -395,10 +395,11 @@ def _generate_config(hook_lot: dict, week_label: str, all_time: bool, reveal: li
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Auto-generate a reel from weekly art auction data")
-    parser.add_argument("--week",     default=None, help="ISO date in target week (default: today)")
-    parser.add_argument("--all-time", action="store_true", help="Use all-time top lots instead of weekly")
-    parser.add_argument("--run",      action="store_true", help="Run make_reel.py + make_captions.py after generation")
-    parser.add_argument("--top-n",    type=int, default=8, help="Max images to include (default: 8)")
+    parser.add_argument("--week",      default=None, help="ISO date in target week (default: today)")
+    parser.add_argument("--all-time",  action="store_true", help="Use all-time top lots instead of weekly")
+    parser.add_argument("--run",       action="store_true", help="Run make_reel.py + make_captions.py after generation")
+    parser.add_argument("--top-n",     type=int, default=8, help="Max lots to query (default: 8)")
+    parser.add_argument("--lot-index", type=int, default=0, help="Which lot to use (0 = top, 1 = 2nd, etc.)")
     args = parser.parse_args()
 
     # ── Resolve week ───────────────────────────────────────────
@@ -423,15 +424,16 @@ def main() -> None:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
 
+    top_n = max(args.top_n, args.lot_index + 1)
     if args.all_time:
-        lots = _query_alltime_top(conn, limit=args.top_n)
+        lots = _query_alltime_top(conn, limit=top_n)
         reel_slug = f"weekly-{date.today().isoformat()}-alltime"
     else:
-        lots = _query_top_lots(conn, week_start, week_end, limit=args.top_n)
+        lots = _query_top_lots(conn, week_start, week_end, limit=top_n)
         if not lots:
             print(f"\n  No data found for week {week_label}.")
             print("  Falling back to all-time top outperformers.\n")
-            lots = _query_alltime_top(conn, limit=args.top_n)
+            lots = _query_alltime_top(conn, limit=top_n)
             reel_slug = f"weekly-{week_start}-fallback"
     conn.close()
 
@@ -439,7 +441,17 @@ def main() -> None:
         print("✗ No suitable lots found in database.")
         sys.exit(1)
 
-    hook = lots[0]
+    if args.lot_index >= len(lots):
+        print(f"✗ --lot-index {args.lot_index} out of range (only {len(lots)} lots found)")
+        sys.exit(1)
+
+    if args.lot_index > 0:
+        reel_slug = reel_slug.replace("alltime", f"alltime-lot{args.lot_index + 1}")
+        reel_slug = reel_slug.replace("fallback", f"fallback-lot{args.lot_index + 1}")
+        if "alltime" not in reel_slug and "fallback" not in reel_slug:
+            reel_slug += f"-lot{args.lot_index + 1}"
+
+    hook = lots[args.lot_index]
     artist = _clean_artist(hook.get("artist") or "Unknown")
     print(f"\n▸ Hook lot: {artist} — {hook.get('title', 'Untitled')[:50]}")
     print(f"  Estimate: {_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}")
