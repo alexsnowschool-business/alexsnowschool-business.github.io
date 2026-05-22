@@ -42,6 +42,52 @@ TT_CHANNEL     = os.getenv("BUFFER_TIKTOK_ID")
 GITHUB_REPO    = "alexsnowschool-business/alexsnowschool-business.github.io"
 
 
+# ── Wikipedia art history blurb ───────────────────────────────────────────────
+
+def _fetch_wiki_blurb(artist: str, title: str) -> str | None:
+    """Return a 2–3 sentence art history blurb for the artist via Wikipedia."""
+    wiki_headers = {"User-Agent": "thehammerprice-reel-bot/1.0 (https://github.com/alexsnowschool-business)"}
+    try:
+        with httpx.Client(timeout=10, headers=wiki_headers, follow_redirects=True) as client:
+            # Step 1: search for the artist page
+            search = client.get(
+                "https://en.wikipedia.org/w/api.php",
+                params={"action": "query", "list": "search", "srsearch": artist,
+                        "format": "json", "srlimit": 1},
+            )
+            results = search.json().get("query", {}).get("search", [])
+            if not results:
+                return None
+
+            page_title = results[0]["title"]
+
+            # Step 2: fetch clean summary extract
+            summary = client.get(
+                f"https://en.wikipedia.org/api/rest_v1/page/summary/{page_title}"
+            )
+            extract = summary.json().get("extract", "")
+            if not extract:
+                return None
+
+            # Take first 2–3 sentences, cap at 400 chars
+            sentences = re.split(r'(?<=\.)\s+', extract.strip())
+            blurb = ""
+            for s in sentences[:3]:
+                candidate = (blurb + " " + s).strip()
+                if len(candidate) > 400:
+                    break
+                blurb = candidate
+
+            if not blurb:
+                return None
+
+            return f"🎨 {blurb}\n\n📖 via Wikipedia"
+
+    except Exception as e:
+        print(f"  ⚠ Wikipedia lookup failed: {e}")
+        return None
+
+
 # ── Caption parser ─────────────────────────────────────────────────────────────
 
 def _parse_captions(captions_md: str) -> dict[str, str]:
@@ -127,11 +173,14 @@ def _post_to_buffer(
     video_url: str,
     scheduled_at: str | None,
     dry_run: bool,
+    first_comment: str | None = None,
 ) -> bool:
     if dry_run:
         ts = scheduled_at or "queue"
         print(f"  [dry-run] {platform}: channel={channel_id}, schedule={ts}")
         print(f"  Caption: {text[:120]}...")
+        if first_comment:
+            print(f"  First comment: {first_comment[:120]}...")
         return True
 
     # Platform-specific metadata
@@ -150,6 +199,9 @@ def _post_to_buffer(
             "metadata":       metadata,
         }
     }
+
+    if first_comment and platform == "Instagram":
+        variables["input"]["firstComment"] = {"text": first_comment}
 
     if scheduled_at:
         dt = datetime.fromisoformat(scheduled_at).astimezone(timezone.utc)
@@ -211,6 +263,20 @@ def main() -> None:
 
     captions = _parse_captions(captions_path.read_text())
 
+    # Parse artist + title from captions header line (*Artist · Year · Topic*)
+    artist, title = "", ""
+    header_m = re.search(r'^\*(.+?)\s+·', captions_path.read_text(), re.MULTILINE)
+    if header_m:
+        artist = header_m.group(1).strip()
+    # Also try reel_config.py if present
+    config_path = reel_dir / "reel_config.py"
+    if config_path.exists():
+        cfg_text = config_path.read_text()
+        am = re.search(r'"artist"\s*:\s*"([^"]+)"', cfg_text)
+        tm = re.search(r'"title"\s*:\s*"([^"]+)"', cfg_text)
+        if am: artist = am.group(1)
+        if tm: title  = tm.group(1)
+
     print("═" * 60)
     print("  BUFFER POSTER — The Hammer Price")
     print(f"  Reel:  {reel_slug}")
@@ -220,6 +286,16 @@ def main() -> None:
     else:
         print(f"  Sched: add to queue")
     print("═" * 60)
+
+    # Fetch art history blurb for Instagram first comment
+    first_comment = None
+    if artist:
+        print(f"\n▸ Fetching art history for '{artist}' via Wikipedia...")
+        first_comment = _fetch_wiki_blurb(artist, title)
+        if first_comment:
+            print(f"  ✓ Blurb: {first_comment[:80]}...")
+        else:
+            print(f"  ⚠ No Wikipedia entry found — skipping first comment")
 
     # Step 1 — host the video on GitHub
     print("\n▸ Hosting video on GitHub releases...")
@@ -235,7 +311,8 @@ def main() -> None:
     with httpx.Client(headers=headers, timeout=30) as client:
         if args.instagram and (IG_CHANNEL or args.dry_run):
             ok = _post_to_buffer(client, IG_CHANNEL or "IG_ID", "Instagram",
-                                 captions["instagram"], video_url, args.schedule, args.dry_run)
+                                 captions["instagram"], video_url, args.schedule,
+                                 args.dry_run, first_comment=first_comment)
             results.append(("Instagram", ok))
         elif args.instagram:
             print("  ⚠ BUFFER_INSTAGRAM_ID not set — skipping")
