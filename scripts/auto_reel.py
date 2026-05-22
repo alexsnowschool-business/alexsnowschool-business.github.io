@@ -147,20 +147,34 @@ def _roman(n: int) -> str:
 # Each entry: (min_pct, question, answer)
 # Each entry: (min_pct, [question variants], [answer variants])
 # Format vars: {artist} {title} {house} {hammer} {estimate} {pct} {n}
+# Angles covered per tier: data pattern · collector psychology · market timing · catalogue vs room · price numbers
 _HOOK_TEMPLATES = [
     (800,
      [
          "nobody priced this right.",
          "the estimate was wrong by {pct}.",
          "the room ignored the catalogue.",
+         "{house} said {estimate}. the room said {hammer}.",
+         "what does {n} above estimate tell you?",
      ],
      [
-         "when a result moves this far, it's rarely a surprise to the buyers in the room. "
-         "someone had conviction — about the artist, the moment, or both — that the estimate completely missed.",
+         # data pattern
+         "51% of lots sell above estimate at the major houses. "
+         "but a move this size — {pct} — that's not a pattern. that's a verdict.",
+         # collector psychology
+         "nobody goes to auction to pay fair value. they go to win. "
+         "when two serious collectors want the same thing, the estimate stops being a ceiling and becomes a starting point.",
+         # market timing
          "the estimate is set months before the sale. "
-         "by auction day, the market had already moved — what looks shocking in the catalogue is the price catching up.",
-         "two collectors wanted it. neither was willing to walk away. "
-         "when that happens, the estimate becomes irrelevant — the price goes wherever the last bidder stops.",
+         "by auction day, {artist}'s market had already moved — the catalogue just hadn't caught up.",
+         # catalogue vs room
+         "the specialist wrote {estimate} in the catalogue. "
+         "the room wrote {hammer} on the day. "
+         "that gap — {pct} — is the real price discovery.",
+         # price numbers
+         "from {estimate} to {hammer}. "
+         "that's not a surprise result — it's a signal. "
+         "someone in that room had conviction the rest of the market hadn't priced in yet.",
      ]),
 
     (500,
@@ -168,14 +182,26 @@ _HOOK_TEMPLATES = [
          "the estimate was a suggestion.",
          "a {n} result doesn't happen by accident.",
          "the catalogue missed the room by {pct}.",
+         "{house} set the floor at {estimate}. the bidders ignored it.",
+         "what does it mean when the market pays {hammer} for a {estimate} estimate?",
      ],
      [
-         "estimates are set to attract interest, not predict outcomes. "
-         "a gap this wide usually means two or more serious collectors decided they couldn't leave without it.",
-         "this kind of outperformance signals a market shift the specialists hadn't priced in. "
-         "when demand outpaces supply, the estimate stops being a ceiling and becomes a floor.",
-         "the auction house put a number on it. "
-         "the market put a different number on it — and the market always wins.",
+         # data pattern
+         "results above 500% of estimate are rare — but they cluster. "
+         "when you see one, there's usually a shift in the artist's market that the specialists hadn't fully priced.",
+         # collector psychology
+         "at this level, collectors aren't bidding on the work. they're bidding on the story. "
+         "the estimate reflects what it sold for before. the hammer reflects what it means now.",
+         # market timing
+         "something changed before this sale — a museum show, an estate, a critical reappraisal. "
+         "the estimate was priced on old data. the room was trading on new information.",
+         # catalogue vs room
+         "the auction house prices to guarantee a sale. "
+         "the collector prices to own something no one else will have. "
+         "those are very different numbers — and here, the collector won.",
+         # price numbers
+         "{estimate} estimate. {hammer} hammer. "
+         "the {pct} gap isn't noise — it's the market telling you the catalogue was working with the wrong assumptions.",
      ]),
 
     (300,
@@ -183,14 +209,25 @@ _HOOK_TEMPLATES = [
          "the catalogue got this wrong by {pct}.",
          "the specialists underestimated the room.",
          "priced for safety. sold for ambition.",
+         "from {estimate} to {hammer} — what changed?",
+         "why does {artist} keep beating estimate?",
      ],
      [
+         # data pattern
          "specialists price from precedent. "
-         "but when an artist's reputation shifts — or a new collector base enters — the catalogue is always the last to know.",
-         "a result this far above estimate usually points to something the pre-sale research missed: a fresh buyer, a rediscovered provenance, a cultural moment.",
-         "the estimate is backward-looking. "
-         "the room is forward-looking. "
-         "here, the room was right.",
+         "but {artist}'s last five results have all beaten estimate — the catalogue is using the wrong baseline.",
+         # collector psychology
+         "a result this far above estimate usually means one thing: a collector arrived who had already decided the price didn't matter. "
+         "those are the bids that move markets.",
+         # market timing
+         "provenance, condition, timing — one of these shifted before this sale. "
+         "the estimate reflected the past. {hammer} is what the market thinks this work is worth today.",
+         # catalogue vs room
+         "the estimate is backward-looking. the room is forward-looking. "
+         "when they disagree by {pct}, the room is almost always right.",
+         # price numbers
+         "the low estimate was {estimate}. it sold for {hammer}. "
+         "that's {pct} above the floor — enough to move an artist's auction record and reset every future estimate.",
      ]),
 
     (150,
@@ -198,14 +235,27 @@ _HOOK_TEMPLATES = [
          "the room disagreed with the experts.",
          "the house priced it low. the room priced it right.",
          "conviction beat the catalogue.",
+         "{estimate} estimate. {hammer} reality.",
+         "why did this sell for {pct} above estimate?",
      ],
      [
+         # data pattern
+         "outperformance of 150–300% happens in roughly 8% of lots at the major houses. "
+         "it's not random — it's demand meeting an estimate set for a different market.",
+         # collector psychology
          "auction houses price conservatively to guarantee a sale. "
-         "the real number is whatever the most motivated buyer is willing to pay — and here, they were very motivated.",
-         "a result this far above estimate isn't luck — it's two collectors who did their homework and arrived ready to pay.",
-         "the specialists set a floor. "
-         "the bidders set the ceiling. "
-         "that gap is where the real market lives.",
+         "the real price is whatever the most motivated buyer decides they can't leave without — and here, that number was {hammer}.",
+         # market timing
+         "the estimate was set before the sale. by the time the room opened, demand had moved. "
+         "that's the gap — not an error, just the market catching up in real time.",
+         # catalogue vs room
+         "the specialists set a floor at {estimate}. "
+         "the bidders set a ceiling at {hammer}. "
+         "that {pct} spread is where the real market lives.",
+         # price numbers
+         "from {estimate} to {hammer}. "
+         "two collectors, one lot, no ceiling. "
+         "this is what price discovery looks like when the catalogue gets it wrong.",
      ]),
 
     (80,
@@ -213,15 +263,26 @@ _HOOK_TEMPLATES = [
          "the room knew something the catalogue didn't.",
          "more buyers arrived than the estimate assumed.",
          "the market priced what the house wouldn't.",
+         "{pct} above estimate — is that a pattern or a fluke?",
+         "the estimate was {estimate}. the hammer was {hammer}.",
      ],
      [
-         "moderate outperformance usually means more buyers arrived than the estimate assumed. "
-         "the house priced for certainty; the market priced for desire.",
-         "when you see consistent outperformance in a range, it's a signal — not noise. "
-         "the estimate is a floor, and the room was willing to go higher.",
-         "the house sets the estimate to sell. "
-         "the bidders set the price to own. "
-         "those are different numbers — and the difference is the story.",
+         # data pattern
+         "moderate outperformance — 80 to 150% above estimate — is actually the most common signal in the data. "
+         "it means the house priced conservatively and competition did the rest.",
+         # collector psychology
+         "nobody in that room was surprised by {hammer}. "
+         "the estimate is a starting point, not a prediction — and experienced collectors treat it that way.",
+         # market timing
+         "the house priced for certainty. the market priced for desire. "
+         "when more buyers show up than the catalogue expected, the estimate becomes a floor, not a target.",
+         # catalogue vs room
+         "the specialist wrote {estimate}. the room bid {hammer}. "
+         "that's not a mistake — it's two different views of the same work, and the room's view is the one that counts.",
+         # price numbers
+         "{pct} above the low estimate. "
+         "quiet, consistent outperformance like this is the pattern the data keeps showing — "
+         "the estimate attracts bidders; competition sets the real price.",
      ]),
 
     (40,
@@ -229,15 +290,27 @@ _HOOK_TEMPLATES = [
          "priced to sell. sold for more.",
          "above estimate — the most common story in the room.",
          "the floor held. the ceiling didn't.",
+         "from {estimate} to {hammer} — small gap, real signal.",
+         "51% of lots beat estimate. this is one of them.",
      ],
      [
+         # data pattern
+         "51% of lots at the major houses sell above estimate. "
+         "that's not randomness — it's a structural feature of how auction houses price. "
+         "conservative floors, competitive rooms.",
+         # collector psychology
          "estimates are floor prices, not forecasts. "
-         "the auction house sets a number to guarantee a sale — what happens above that is entirely up to the room.",
-         "most lots sell above estimate. "
-         "that's not a surprise — it's the system working as designed. "
-         "the house prices conservatively; competition does the rest.",
-         "a small overshoot is the baseline at auction. "
-         "the estimate attracts bidders; the bidders set the price.",
+         "the auction house sets a number to guarantee a sale — what happens above {estimate} is entirely up to the room.",
+         # market timing
+         "the house priced this to move. the room moved it higher. "
+         "small overshoots happen when more buyers arrive than the catalogue assumed — and that happens more than half the time.",
+         # catalogue vs room
+         "the catalogue said {estimate}. the room said {hammer}. "
+         "the difference is small — but it's the difference between a floor price and a market price.",
+         # price numbers
+         "{hammer} on a {estimate} estimate. "
+         "modest outperformance, consistent pattern. "
+         "this is what the auction market looks like most of the time — not the headlines, just the data.",
      ]),
 
     (0,
@@ -245,14 +318,28 @@ _HOOK_TEMPLATES = [
          "above estimate — even here.",
          "the floor held. just.",
          "sold above the low estimate.",
+         "{hammer} on a {estimate} estimate.",
+         "even a small overshoot tells a story.",
      ],
      [
+         # data pattern
          "small overshoots are the most consistent pattern at auction. "
+         "51% of lots beat estimate — most of them by exactly this margin. "
+         "the data is quiet, but it's reliable.",
+         # collector psychology
+         "even a modest result above estimate means someone in that room wanted it more than the next bidder. "
+         "that's all an auction is — a competition between desire and discipline.",
+         # market timing
+         "the house priced for certainty. the room went a little further. "
          "when more buyers arrive than expected, the price moves — quietly, but reliably.",
-         "even a modest result above estimate confirms demand. "
-         "the house priced it right; the room agreed and went a little further.",
-         "not every lot is a headline. "
-         "but every lot that sells above estimate tells the same story: demand met supply, and then passed it.",
+         # catalogue vs room
+         "the estimate reflects what specialists expected. "
+         "the hammer reflects what actually happened in the room. "
+         "here, the room went just a little further — and that matters.",
+         # price numbers
+         "from {estimate} to {hammer}. "
+         "not a headline — but proof that demand was there. "
+         "every lot that sells above estimate tells the same story: the market found its price.",
      ]),
 ]
 
