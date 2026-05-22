@@ -28,7 +28,7 @@ SCRIPT_DIR    = Path(__file__).resolve().parent
 BUSINESS_DIR  = SCRIPT_DIR.parent
 DB_PATH       = BUSINESS_DIR / "data" / "art.db"
 REELS_DIR     = BUSINESS_DIR / "reels"
-REEL_TEMPLATE = BUSINESS_DIR.parent / "reel-automation" / "reel_template"
+REEL_TEMPLATE = BUSINESS_DIR / "reel_template"
 
 _HEADERS = {
     "User-Agent": (
