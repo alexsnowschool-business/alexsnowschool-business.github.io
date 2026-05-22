@@ -45,11 +45,16 @@ GITHUB_REPO    = "alexsnowschool-business/alexsnowschool-business.github.io"
 # ── Caption parser ─────────────────────────────────────────────────────────────
 
 def _parse_captions(captions_md: str) -> dict[str, str]:
-    ig = re.search(r"── INSTAGRAM ──.*?\n(.*?)(?=──|\Z)", captions_md, re.DOTALL)
-    tt = re.search(r"── TIKTOK ──.*?\n(.*?)(?=──|\Z)", captions_md, re.DOTALL)
+    """Extract caption text from the code block under each platform's ### Caption section."""
+    def _extract(section_header: str) -> str:
+        # Find the section, then grab the first ```...``` code block inside it
+        pattern = rf"{re.escape(section_header)}.*?###\s+Caption\s+```(.*?)```"
+        m = re.search(pattern, captions_md, re.DOTALL | re.IGNORECASE)
+        return m.group(1).strip() if m else ""
+
     return {
-        "instagram": ig.group(1).strip() if ig else "",
-        "tiktok":    tt.group(1).strip() if tt else "",
+        "instagram": _extract("## 📸 Instagram"),
+        "tiktok":    _extract("## 🎵 TikTok"),
     }
 
 
