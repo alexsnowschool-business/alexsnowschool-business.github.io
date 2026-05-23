@@ -61,6 +61,14 @@ jobs:
           ELEVENLABS_MODEL_ID:   ${{ secrets.ELEVENLABS_MODEL_ID }}
         run: python -u scripts/auto_reel.py --all-time --lot-index ${{ steps.lot.outputs.index }} --run
 
+      - name: Commit updated database
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/art.db
+          git diff --cached --quiet || git commit -m "chore(db): mark posted lot in posted_reels [skip ci]"
+          git push
+
       # Find the reel folder that was just created (most recently modified)
       - name: Find reel folder
         id: reel
