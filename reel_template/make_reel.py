@@ -372,20 +372,30 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
         backdrop_mask = backdrop_mask.filter(ImageFilter.GaussianBlur(16))
         img = Image.composite(backdrop, img, backdrop_mask)
 
-    # Hook box height depends on content:
-    # — question only: compact (question in large serif)
-    # — question + answer: taller (question shrinks to label, answer dominates in large serif)
+    # Hook box: question only / question+answer / answer only
     HBT = HBB = 0
+    _hook_answer_full = fc.get("_hook_answer_full", hook_answer)
     if hook_question:
         has_answer = bool(hook_answer)
-        # _hook_answer_full keeps box height stable during word-by-word reveal
-        _hook_answer_full = fc.get("_hook_answer_full", hook_answer)
         if has_answer:
             _ans_h = measure_wrapped_height(_hook_answer_full, fnt["serif_med"], max_width=W - 200, line_gap=10)
-            HBH = 60 + _ans_h + 32   # question label (44px) + gap to answer (16px) + answer + bottom pad
+            HBH = 60 + _ans_h + 32
         else:
             _q_h = measure_wrapped_height(hook_question, fnt["serif_lg"], max_width=W - 200, line_gap=12)
             HBH = 24 + _q_h + 24
+        HBT = (BB + 28) if show_caption else (H // 2 - HBH // 2)
+        HBB = HBT + HBH
+        hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
+        hk_backdrop_mask = Image.new("L", (W, H), 0)
+        ImageDraw.Draw(hk_backdrop_mask).rectangle(
+            [(56, HBT - 18), (W - 56, HBB + 18)], fill=188
+        )
+        hk_backdrop_mask = hk_backdrop_mask.filter(ImageFilter.GaussianBlur(14))
+        img = Image.composite(hk_backdrop, img, hk_backdrop_mask)
+    elif hook_answer:
+        # Answer only — no question label, answer fills the box
+        _ans_h = measure_wrapped_height(_hook_answer_full, fnt["serif_med"], max_width=W - 200, line_gap=10)
+        HBH = 24 + _ans_h + 24
         HBT = (BB + 28) if show_caption else (H // 2 - HBH // 2)
         HBB = HBT + HBH
         hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
@@ -461,9 +471,12 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
             # Question shrinks to a small label above the answer
             ctext(draw, HBT + 12, hook_question, fnt["jura_light"], pal["text_dim"])
             draw.line([(160, HBT + 44), (W - 160, HBT + 44)], fill=RD, width=1)
-            # Answer dominates — large serif, wrapped, gold (same as sold price)
             ctext_wrapped(draw, HBT + 60, hook_answer, fnt["serif_med"],
                           pal["text_bright"], max_width=W - 200, line_gap=10)
+    elif hook_answer:
+        # Answer only — no question label, fills the box cleanly
+        ctext_wrapped(draw, HBT + 24, hook_answer, fnt["serif_med"],
+                      pal["text_bright"], max_width=W - 200, line_gap=10)
 
     # Bottom coordinate labels
     draw.line([(72, H-220), (W-72, H-220)], fill=pal["rule_dim"], width=1)

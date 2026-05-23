@@ -506,10 +506,10 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
     """Progressive reveal for a single lot — targets ~25s total.
 
     Frames:
-      1 — estimate + sold price (hook lands immediately)
+      1 — estimate + sold price
       2 — full data box (+ % above estimate)
-      3 — question appears large (no answer yet)
-      4+ — answer reveals word-by-word (AI-generated or template fallback)
+      3 — question narrated by voice only (no on-screen text)
+      4 — answer shown as text + narrated by voice
     """
     hammer        = lot["hammer_usd"]
     est_low       = lot["estimate_low"]
@@ -542,27 +542,22 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
             "hold_seconds":  hold,
         }
 
-    frames = [
-        # 1 — estimate + sold price open together (hook lands immediately, short hold)
-        _data(line1=E, line2=S, hold=2.0),
-        # 2 — outperformance % completes the data box
-        _data(line1=E, line2=S, line3=P),
-        # 3 — question appears large (no answer yet)
-        _data(line1=E, line2=S, line3=P, q=question, hold=4.0),
-    ]
+    if tts_duration > 0:
+        answer_hold = round(tts_duration + 2.0, 1)
+    else:
+        n_words = len(answer.split())
+        answer_hold = max(8.0, round((n_words * 2) / 3 + 2, 1))
 
-    # Answer reveal: one frame per phrase; final frame hold driven by TTS duration
-    for j in range(len(phrases)):
-        partial = " ".join(phrases[:j + 1])
-        if j < len(phrases) - 1:
-            hold = 3.0
-        else:
-            if tts_duration > 0:
-                hold = round(tts_duration + 2.0, 1)   # TTS duration + 2s reading tail
-            else:
-                n_words = len(partial.split())
-                hold = max(8.0, round((n_words * 2) / 3 + 2, 1))
-        frames.append(_data(line1=E, line2=S, line3=P, q=question, a=partial, hold=hold))
+    frames = [
+        # 1 — estimate + sold price
+        _data(line1=E, line2=S, hold=2.0),
+        # 2 — full data box with %
+        _data(line1=E, line2=S, line3=P),
+        # 3 — question narrated by voice only, no text on screen
+        _data(line1=E, line2=S, line3=P, hold=4.0),
+        # 4 — answer shown as text + narrated by voice
+        _data(line1=E, line2=S, line3=P, a=answer, hold=answer_hold),
+    ]
 
     return frames
 
@@ -916,17 +911,16 @@ def main() -> None:
         _est_s     = (f"{_fmt_price(hook['estimate_low'])} "
                       f"to {_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}")
 
+        # Assign narration scripts by frame position, not content:
+        #   0 = price reveal, 1 = percentage, last pre-answer = question
         _frame_scripts: dict[int, str] = {}
-        for _i, _fc in enumerate(reveal[:_first_ans_idx]):
-            if not _fc.get("hook_question") and not _fc.get("line3"):
-                # Price reveal frame — short, punchy
+        for _i in range(_first_ans_idx):
+            if _i == 0:
                 _frame_scripts[_i] = f"estimated at {_est_s}. sold for {_hammer_s}."
-            elif _fc.get("line3") and not _fc.get("hook_question"):
-                # Percentage frame
+            elif _i == 1:
                 _frame_scripts[_i] = f"{round(_pct_val)} percent above the low estimate."
-            elif _fc.get("hook_question") and not _fc.get("hook_answer"):
-                # Question frame — narrate the question
-                _frame_scripts[_i] = _fc["hook_question"]
+            elif _i == _first_ans_idx - 1:
+                _frame_scripts[_i] = _question
 
         frame_tracks: list[tuple[str, float]] = []
 
