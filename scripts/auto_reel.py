@@ -564,6 +564,11 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
 
 # ── Config generation ──────────────────────────────────────────────────────────
 
+def _esc(s: str) -> str:
+    """Escape a value for safe embedding inside a double-quoted Python string literal."""
+    return str(s).replace("\\", "\\\\").replace('"', '\\"')
+
+
 def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[dict] | None = None) -> str:
     artist    = _clean_artist(hook.get("artist") or "Unknown")
     title     = (hook.get("title") or "Untitled")[:50]
@@ -609,17 +614,17 @@ def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[d
         '"""',
         "",
         "CONFIG = {",
-        f'    "lot_id":         "{lot_id}",',
+        f'    "lot_id":         "{_esc(lot_id)}",',
         "    # ── Caption — The Shock Number ────────────────────────────",
-        f'    "caption_tag":    "{tag_line}",',
-        f'    "caption_line1":  "{est_str}",',
-        f'    "caption_line2":  "{sold_str}",',
-        f'    "caption_line3":  "{pct_str}",',
+        f'    "caption_tag":    "{_esc(tag_line)}",',
+        f'    "caption_line1":  "{_esc(est_str)}",',
+        f'    "caption_line2":  "{_esc(sold_str)}",',
+        f'    "caption_line3":  "{_esc(pct_str)}",',
         "",
         "    # ── Location metadata ─────────────────────────────────────",
-        f'    "location_coords": "{house_upper}",',
-        f'    "location_name":   "{sale_upper}",',
-        f'    "location_season": "{scraped[:4]}  ·  SALE RESULT",',
+        f'    "location_coords": "{_esc(house_upper)}",',
+        f'    "location_name":   "{_esc(sale_upper)}",',
+        f'    "location_season": "{_esc(scraped[:4])}  ·  SALE RESULT",',
         '    "frame_label":     "@thehammerprice",',
         "",
         "    # ── Style ─────────────────────────────────────────────────",
@@ -649,15 +654,15 @@ def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[d
         "",
         "    # ── Captions metadata ─────────────────────────────────────",
         '    "topic":          "culture",',
-        f'    "location":       "{house}",',
-        f'    "season":         "{scraped[:4]}",',
+        f'    "location":       "{_esc(house)}",',
+        f'    "season":         "{_esc(scraped[:4])}",',
         '    "caption_full":   (',
-        f'        "{caption_full_line1}\\n\\n"',
-        f'        "{caption_full_line2}"',
+        f'        "{_esc(caption_full_line1)}\\n\\n"',
+        f'        "{_esc(caption_full_line2)}"',
         "    ),",
         '    "caption_hero":   "they priced it wrong",',
-        f'    "personal_note":  "{personal_note}",',
-        f'    "engagement_hook": "{engagement_hook}",',
+        f'    "personal_note":  "{_esc(personal_note)}",',
+        f'    "engagement_hook": "{_esc(engagement_hook)}",',
     ]
 
     # ── per_frame_captions (reveal sequence) ─────────────────
