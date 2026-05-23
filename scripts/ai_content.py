@@ -209,11 +209,60 @@ Reply with only the comment text, nothing else."""
 
 # ── Text-to-speech ─────────────────────────────────────────────────────────────
 
-TTS_VOICE = "en-GB-RyanNeural"   # deep British male — fits auction house tone
+ELEVENLABS_KEY     = os.getenv("ELEVENLABS_API_KEY")
+ELEVENLABS_VOICE   = os.getenv("ELEVENLABS_VOICE_ID", "LXu5MIFyvPZCxBst8fPP")  # Adam — deep, universally available
+ELEVENLABS_MODEL   = os.getenv("ELEVENLABS_MODEL_ID", "eleven_turbo_v2_5")
+
+EDGE_TTS_VOICE = "en-GB-RyanNeural"   # fallback: deep British male
 
 
-async def _tts_with_timing_async(text: str, output_path: str, voice: str) -> list[dict]:
-    """Stream TTS, write MP3, and collect word-boundary events."""
+def _elevenlabs_tts(text: str, output_path: str) -> list[dict]:
+    """
+    Generate TTS via ElevenLabs SDK with character-level timestamps.
+    Returns word_timings = [{"word": str, "start": float_secs}, ...].
+    Writes MP3 to output_path.
+    """
+    import base64
+    from elevenlabs import VoiceSettings
+    from elevenlabs.client import ElevenLabs
+
+    client = ElevenLabs(api_key=ELEVENLABS_KEY)
+    response = client.text_to_speech.convert_with_timestamps(
+        voice_id=ELEVENLABS_VOICE,
+        text=text,
+        model_id=ELEVENLABS_MODEL,
+        output_format="mp3_44100_128",
+        voice_settings=VoiceSettings(stability=0.45, similarity_boost=0.80, style=0.2),
+    )
+
+    with open(output_path, "wb") as f:
+        f.write(base64.b64decode(response.audio_base_64))
+
+    # Convert character-level alignment → word-level timings
+    alignment = response.alignment
+    chars  = (alignment.characters or []) if alignment else []
+    starts = (alignment.character_start_times_seconds or []) if alignment else []
+
+    word_timings: list[dict] = []
+    current_word = ""
+    word_start   = 0.0
+    for char, t in zip(chars, starts):
+        if char in (" ", "\n", "\t"):
+            if current_word:
+                word_timings.append({"word": current_word, "start": word_start})
+                current_word = ""
+        else:
+            if not current_word:
+                word_start = t
+            current_word += char
+    if current_word:
+        word_timings.append({"word": current_word, "start": word_start})
+
+    return word_timings
+
+
+async def _edgetts_with_timing_async(text: str, output_path: str, voice: str) -> list[dict]:
+    """Fallback: Edge-TTS with word-boundary events."""
     import edge_tts
     word_timings = []
     communicate = edge_tts.Communicate(text, voice, boundary="WordBoundary")
@@ -224,19 +273,71 @@ async def _tts_with_timing_async(text: str, output_path: str, voice: str) -> lis
             elif event["type"] == "WordBoundary":
                 word_timings.append({
                     "word":  event["text"],
-                    "start": event["offset"] / 10_000_000,   # 100-ns → seconds
+                    "start": event["offset"] / 10_000_000,
                 })
     return word_timings
 
 
-def generate_voiceover(text: str, output_path: str, voice: str = TTS_VOICE) -> tuple[bool, list[dict]]:
+def generate_voiceover(text: str, output_path: str, voice: str = EDGE_TTS_VOICE) -> tuple[bool, list[dict]]:
     """
-    Synthesise text to MP3 via Edge-TTS (free, no API key).
+    Synthesise text to MP3. Tries ElevenLabs first (if key present), falls back to Edge-TTS.
     Returns (success, word_timings) where word_timings = [{"word": str, "start": float_secs}, ...].
     """
+    if ELEVENLABS_KEY and ELEVENLABS_VOICE:
+        try:
+            timings = _elevenlabs_tts(text, output_path)
+            print(f"  ✓ ElevenLabs TTS ({ELEVENLABS_VOICE}) — {len(timings)} words")
+            return True, timings
+        except Exception as e:
+            print(f"  ⚠ ElevenLabs error (voice={ELEVENLABS_VOICE}): {e} — falling back to Edge-TTS")
+    elif ELEVENLABS_KEY and not ELEVENLABS_VOICE:
+        print(f"  ⚠ ELEVENLABS_VOICE_ID is empty — falling back to Edge-TTS")
+
     try:
-        timings = asyncio.run(_tts_with_timing_async(text, output_path, voice))
+        timings = asyncio.run(_edgetts_with_timing_async(text, output_path, voice))
+        print(f"  ✓ Edge-TTS — {len(timings)} words")
         return True, timings
     except Exception as e:
         print(f"  ⚠ TTS error: {e}")
         return False, []
+
+
+def synthesize_gavel(output_path: str) -> bool:
+    """
+    Synthesize an auction-hammer strike sound using stdlib + ffmpeg MP3 conversion.
+    Low-frequency thud + noise click — no external audio deps required.
+    Returns True on success.
+    """
+    import math
+    import random as _rand
+    import struct
+    import subprocess
+    import wave
+
+    sample_rate = 44100
+    duration    = 0.38
+    n           = int(sample_rate * duration)
+    _rand.seed(42)
+
+    samples = []
+    for i in range(n):
+        t     = i / sample_rate
+        thud  = math.sin(2 * math.pi * 85  * t) * math.exp(-t * 20) * 0.90
+        body  = math.sin(2 * math.pi * 160 * t) * math.exp(-t * 35) * 0.30
+        click = (_rand.random() * 2 - 1)         * math.exp(-t * 90) * 0.45
+        val   = int((thud + body + click) * 32767)
+        samples.append(struct.pack("<h", max(-32768, min(32767, val))))
+
+    wav_tmp = output_path.replace(".mp3", "_gavel_tmp.wav")
+    with wave.open(wav_tmp, "w") as wf:
+        wf.setnchannels(1)
+        wf.setsampwidth(2)
+        wf.setframerate(sample_rate)
+        wf.writeframes(b"".join(samples))
+
+    r = subprocess.run(["ffmpeg", "-y", "-i", wav_tmp, output_path], capture_output=True)
+    try:
+        os.remove(wav_tmp)
+    except OSError:
+        pass
+    return r.returncode == 0

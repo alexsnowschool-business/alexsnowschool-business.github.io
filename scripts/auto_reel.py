@@ -381,6 +381,86 @@ _HOOK_TEMPLATES = [
 ]
 
 
+def _get_audio_duration(path: str) -> float:
+    """Return audio duration in seconds via ffprobe, or 0.0 on failure."""
+    r = subprocess.run(
+        ["ffprobe", "-v", "quiet", "-print_format", "json", "-show_streams", path],
+        capture_output=True, text=True,
+    )
+    if r.returncode != 0:
+        return 0.0
+    try:
+        import json as _json
+        for s in _json.loads(r.stdout).get("streams", []):
+            if s.get("duration"):
+                return float(s["duration"])
+    except Exception:
+        pass
+    return 0.0
+
+
+def _build_sequential_voiceover(
+    frame_tracks: list[tuple[str, float]],  # (path, target_start_seconds) — all clips
+    output_path: str,
+) -> bool:
+    """
+    Build voiceover.mp3 entirely via silence-padding concat — no amix.
+    Each clip (intro, gavel SFX, frame narration, answer) is placed at its exact
+    video timestamp by inserting anullsrc silence before it, then all segments
+    are concatenated in one ffmpeg pass.
+    """
+    valid = [(p, t) for p, t in frame_tracks if os.path.exists(p)]
+    if not valid:
+        print("  ⚠ No audio tracks to build voiceover")
+        return False
+
+    valid.sort(key=lambda x: x[1])
+
+    cmd = ["ffmpeg", "-y"]
+    raw_labels: list[str] = []
+    input_idx = 0
+    current_time = 0.0
+
+    for path, target_start in valid:
+        gap = target_start - current_time
+        if gap > 0.02:
+            cmd += ["-f", "lavfi", "-t", f"{gap:.3f}", "-i", "anullsrc=r=44100:cl=stereo"]
+            raw_labels.append(f"[{input_idx}:a]")
+            input_idx += 1
+        cmd += ["-i", path]
+        raw_labels.append(f"[{input_idx}:a]")
+        input_idx += 1
+        current_time = target_start + _get_audio_duration(path)
+
+    # Normalize all segments to 44100 Hz stereo before concat
+    filter_parts: list[str] = []
+    norm_labels: list[str] = []
+    for k, lbl in enumerate(raw_labels):
+        nl = f"n{k}"
+        filter_parts.append(
+            f"{lbl}aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=stereo[{nl}]"
+        )
+        norm_labels.append(f"[{nl}]")
+
+    n = len(norm_labels)
+    if n == 1:
+        filter_parts[-1] = filter_parts[-1].replace("[n0]", "[out]")
+    else:
+        joined = "".join(norm_labels)
+        filter_parts.append(f"{joined}concat=n={n}:v=0:a=1[out]")
+
+    cmd += ["-filter_complex", ";".join(filter_parts),
+            "-map", "[out]",
+            "-c:a", "libmp3lame", "-b:a", "192k", output_path]
+
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"  ⚠ Voiceover build error: {r.stderr[-400:]}")
+        return False
+    print(f"  ✓ Sequential voiceover ({len(valid)} clip(s)) → {Path(output_path).name}")
+    return True
+
+
 def _split_phrases(text: str) -> list[str]:
     """Split answer text into sentence fragments for phrase-by-phrase reveal."""
     import re
@@ -420,7 +500,9 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
 
 
 def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = None,
-                           tts_duration: float = 0.0) -> list[dict]:
+                           tts_duration: float = 0.0,
+                           question: str | None = None,
+                           template_answer: str | None = None) -> list[dict]:
     """Progressive reveal for a single lot — targets ~25s total.
 
     Frames:
@@ -441,7 +523,8 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
     S     = f"sold: {_fmt_price(hammer)}."
     P     = f"+{pct:,.0f}% above estimate."
 
-    question, template_answer = _hook_caption(lot, pct)
+    if question is None or template_answer is None:
+        question, template_answer = _hook_caption(lot, pct)
     answer  = ai_answer or template_answer
     phrases = _split_phrases(answer)
 
@@ -730,69 +813,166 @@ def main() -> None:
     # ── Build reveal sequence ──────────────────────────────────
     tag_base = "@thehammerprice  ·  weekly results" if not args.all_time else "@thehammerprice  ·  auction data"
 
-    # Try AI-generated art history answer for the hook; fall back to template if unavailable
+    # Generate hook question + template answer once so audio and visual stay in sync
+    _pct      = _pct_above(hook["hammer_usd"], hook["estimate_low"])
+    _question, _tmpl_answer = _hook_caption(hook, _pct)
+
+    _lot_preview = {
+        "artist":        _clean_artist(hook.get("artist") or "Unknown"),
+        "title":         (hook.get("title") or "Untitled")[:60],
+        "auction_house": hook.get("auction_house") or "the auction house",
+        "hammer_fmt":    _fmt_price(hook["hammer_usd"]),
+        "estimate_fmt":  f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
+        "pct_above":     _pct,
+    }
+
+    # Try AI-generated hook answer; fall back to template if unavailable
     ai_hook_answer = None
     if os.getenv("OPENROUTER_API_KEY"):
         try:
             sys.path.insert(0, str(SCRIPT_DIR))
             from ai_content import generate_hook_answer
-            _pct = _pct_above(hook["hammer_usd"], hook["estimate_low"])
-            _question, _tmpl_answer = _hook_caption(hook, _pct)
-            _lot_preview = {
-                "artist":       _clean_artist(hook.get("artist") or "Unknown"),
-                "title":        (hook.get("title") or "Untitled")[:60],
-                "auction_house": hook.get("auction_house") or "the auction house",
-                "hammer_fmt":   _fmt_price(hook["hammer_usd"]),
-                "estimate_fmt": f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
-                "pct_above":    _pct,
-            }
             print("\n▸ Generating AI hook answer...")
             ai_hook_answer = generate_hook_answer(_lot_preview, _question)
             if ai_hook_answer:
                 print(f"  ✓ AI answer: {ai_hook_answer[:80]}...")
             else:
                 print("  ⚠ AI hook answer failed — using template")
-                ai_hook_answer = _tmpl_answer  # use template so TTS and video match
+                ai_hook_answer = _tmpl_answer
         except Exception as e:
             print(f"  ⚠ AI hook answer error: {e} — using template")
-            _pct2 = _pct_above(hook["hammer_usd"], hook["estimate_low"])
-            _, ai_hook_answer = _hook_caption(hook, _pct2)
+            ai_hook_answer = _tmpl_answer
 
-    # ── Generate voiceover with word timestamps ────────────────
-    # TTS narrates only the answer text; audio is offset to start
-    # at the same moment the answer frame appears on screen.
-    voiceover_path = str(reel_dir / "voiceover.mp3")
-    word_timings   = []
-    tts_duration   = 0.0
-    print("\n▸ Generating voiceover...")
+    # ── Generate full-reel voiceover + sound effects ──────────
+    # Tracks:
+    #   tts_intro.mp3    — artist / title / house (t=0)
+    #   sfx_gavel.mp3    — hammer strike (t=0.3s, at price reveal)
+    #   tts_question.mp3 — hook question (when question frame starts)
+    #   tts_answer.mp3   — hook answer, word-by-word sync (when answer frame starts)
+    # All four are mixed → voiceover.mp3; audio_offset=0 (no global delay).
+    print("\n▸ Generating voiceover tracks...")
     try:
         sys.path.insert(0, str(SCRIPT_DIR))
-        from ai_content import generate_voiceover
-        ok, word_timings = generate_voiceover(ai_hook_answer or "", voiceover_path)
-        if ok and word_timings:
-            tts_duration = word_timings[-1]["start"] + 1.5   # last word + 1.5s tail
-            print(f"  ✓ Voiceover saved ({tts_duration:.1f}s, {len(word_timings)} words)")
-        else:
-            voiceover_path = None
-            print("  ⚠ Voiceover failed")
+        from ai_content import generate_voiceover, synthesize_gavel
     except Exception as e:
-        print(f"  ⚠ Voiceover error: {e}")
-        voiceover_path = None
+        print(f"  ⚠ Import error: {e}")
+        generate_voiceover = synthesize_gavel = None
 
-    # Build reveal — pass tts_duration so the answer frame hold fits the audio
-    reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
-                                    tts_duration=tts_duration)
+    word_timings  = []
+    tts_duration  = 0.0
+    voiceover_ok  = False
 
-    # Calculate how many seconds of video play before the first answer frame,
-    # so the audio can be offset to start exactly when answer words appear.
-    _fade_s = 0.5   # matches config fade_seconds
-    _pre_frames = [fc for fc in reveal if not fc.get("hook_answer")]
-    audio_offset = (sum(fc["hold_seconds"] for fc in _pre_frames)
-                    + len(_pre_frames) * _fade_s)
+    if generate_voiceover and synthesize_gavel:
+        sfx_gavel_path  = str(reel_dir / "sfx_gavel.mp3")
+        tts_answer_path = str(reel_dir / "tts_answer.mp3")
+
+        # Step 1 — answer TTS first (need duration to set hold time in reveal sequence)
+        _answer_text = ai_hook_answer or ""
+        _ok_ans, word_timings = generate_voiceover(_answer_text, tts_answer_path)
+        if _ok_ans and word_timings:
+            tts_duration = word_timings[-1]["start"] + 1.5
+            print(f"  ✓ Answer TTS ({tts_duration:.1f}s, {len(word_timings)} words)")
+
+        # Step 2 — build reveal so we have per-frame hold_seconds to compute timestamps
+        reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
+                                        tts_duration=tts_duration,
+                                        question=_question, template_answer=_tmpl_answer)
+
+        # Compute video start time for every frame
+        _fade_s = 0.5
+        _frame_starts: list[float] = []
+        _t = 0.0
+        for _fc in reveal:
+            _frame_starts.append(_t)
+            _t += _fc["hold_seconds"] + _fade_s
+
+        # Identify the first answer frame index (all prior frames are "pre-answer")
+        _first_ans_idx = next(
+            (i for i, fc in enumerate(reveal) if fc.get("hook_answer")),
+            len(reveal),
+        )
+        answer_offset = _frame_starts[_first_ans_idx] if _first_ans_idx < len(reveal) else _t
+
+        # Step 3 — intro TTS: artist name + painting title at t=0
+        _artist_s = _clean_artist(hook.get("artist") or "Unknown")
+        _title_s  = (hook.get("title") or "Untitled")[:50]
+        _intro_script = f"{_artist_s}. {_title_s}."
+        tts_intro_path = str(reel_dir / "tts_intro.mp3")
+        _ok_intro, _ = generate_voiceover(_intro_script, tts_intro_path)
+        _intro_dur = _get_audio_duration(tts_intro_path) if _ok_intro else 0.0
+        if _ok_intro:
+            print(f"  ✓ Intro TTS: \"{_intro_script[:60]}\"")
+
+        # Step 4 — gavel SFX fires right after intro finishes
+        _gavel_offset = round(_intro_dur + 0.1, 3) if _ok_intro else 0.0
+        _ok_gavel = synthesize_gavel(sfx_gavel_path)
+        if _ok_gavel:
+            print(f"  ✓ Gavel SFX (at {_gavel_offset:.2f}s)")
+
+        # Step 5 — narration for each pre-answer frame, timed to its frame start
+        # Scripts: frame 0 = "sold for X", frame 1 = "Y% above estimate", frame 2 = question
+        _pct_val   = _pct_above(hook["hammer_usd"], hook["estimate_low"])
+        _hammer_s  = _fmt_price(hook["hammer_usd"])
+        _est_s     = (f"{_fmt_price(hook['estimate_low'])} "
+                      f"to {_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}")
+
+        _frame_scripts: dict[int, str] = {}
+        for _i, _fc in enumerate(reveal[:_first_ans_idx]):
+            if not _fc.get("hook_question") and not _fc.get("line3"):
+                # Price reveal frame — short, punchy
+                _frame_scripts[_i] = f"estimated at {_est_s}. sold for {_hammer_s}."
+            elif _fc.get("line3") and not _fc.get("hook_question"):
+                # Percentage frame
+                _frame_scripts[_i] = f"{round(_pct_val)} percent above the low estimate."
+            elif _fc.get("hook_question") and not _fc.get("hook_answer"):
+                # Question frame — narrate the question
+                _frame_scripts[_i] = _fc["hook_question"]
+
+        frame_tracks: list[tuple[str, float]] = []
+
+        # Intro at t=0
+        if _ok_intro:
+            frame_tracks.append((tts_intro_path, 0.0))
+
+        # Gavel at its computed offset (after intro)
+        if _ok_gavel:
+            frame_tracks.append((sfx_gavel_path, _gavel_offset))
+
+        for _i, _script in _frame_scripts.items():
+            _path = str(reel_dir / f"tts_frame{_i}.mp3")
+            # Price reveal narration starts after gavel has fired
+            _start = _frame_starts[_i] + (_gavel_offset + 0.35 if _i == 0 else 0.0)
+            _ok, _ = generate_voiceover(_script, _path)
+            if _ok:
+                frame_tracks.append((_path, _start))
+                print(f"  ✓ Frame {_i} TTS: \"{_script[:50]}\"")
+
+        # Answer starts 0.3s before its frame boundary to reduce perceived silence gap
+        if _ok_ans:
+            frame_tracks.append((tts_answer_path, max(0.0, answer_offset - 0.3)))
+
+        # Step 6 — build entire voiceover via silence-padding concat (no amix)
+        voiceover_ok = _build_sequential_voiceover(
+            frame_tracks=frame_tracks,
+            output_path=str(reel_dir / "voiceover.mp3"),
+        )
+        if not voiceover_ok:
+            import shutil as _shutil
+            if os.path.exists(tts_answer_path):
+                _shutil.copy2(tts_answer_path, str(reel_dir / "voiceover.mp3"))
+                voiceover_ok = True
+    else:
+        # No TTS available — build reveal without audio timing
+        reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
+                                        tts_duration=0.0,
+                                        question=_question, template_answer=_tmpl_answer)
+        answer_offset = 0.0
 
     # Save timing data for make_reel.py
+    # audio_offset=0 because all tracks are baked into voiceover.mp3 at correct positions;
+    # word_timings are 0-based from tts_answer.mp3 (answer frame visual sync unchanged).
     import json as _json
-    timing_data = {"audio_offset": round(audio_offset, 3), "word_timings": word_timings}
+    timing_data = {"audio_offset": 0.0, "word_timings": word_timings}
     (reel_dir / "voiceover_timing.json").write_text(_json.dumps(timing_data, indent=2))
 
     # Map each reveal frame to an image file (cycle through available sources)
