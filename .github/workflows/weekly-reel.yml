@@ -53,12 +53,13 @@ jobs:
 
       - name: Generate reel
         env:
+          PYTHONUNBUFFERED:      "1"
           OPENROUTER_API_KEY:    ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL:      ${{ secrets.OPENROUTER_MODEL }}
           ELEVENLABS_API_KEY:    ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID:   ${{ secrets.ELEVENLABS_VOICE_ID }}
           ELEVENLABS_MODEL_ID:   ${{ secrets.ELEVENLABS_MODEL_ID }}
-        run: python scripts/auto_reel.py --all-time --lot-index ${{ steps.lot.outputs.index }} --run
+        run: python -u scripts/auto_reel.py --all-time --lot-index ${{ steps.lot.outputs.index }} --run
 
       # Find the reel folder that was just created (most recently modified)
       - name: Find reel folder
