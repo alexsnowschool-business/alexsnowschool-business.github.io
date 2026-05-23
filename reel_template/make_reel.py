@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║           TRAVEL REEL GENERATOR — Reusable Template         ║
+║           ART REEL GENERATOR — Reusable Template         ║
 ║  Usage: python reel_template/make_reel.py reels/<name>       ║
 ║  Each reel folder needs a reel_config.py with CONFIG dict.   ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -378,11 +378,14 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     HBT = HBB = 0
     if hook_question:
         has_answer = bool(hook_answer)
+        # _hook_answer_full keeps box height stable during word-by-word reveal
+        _hook_answer_full = fc.get("_hook_answer_full", hook_answer)
         if has_answer:
-            _ans_h = measure_wrapped_height(hook_answer, fnt["serif_med"], max_width=W - 200, line_gap=10)
+            _ans_h = measure_wrapped_height(_hook_answer_full, fnt["serif_med"], max_width=W - 200, line_gap=10)
             HBH = 60 + _ans_h + 32   # question label (44px) + gap to answer (16px) + answer + bottom pad
         else:
-            HBH = 140
+            _q_h = measure_wrapped_height(hook_question, fnt["serif_lg"], max_width=W - 200, line_gap=12)
+            HBH = 24 + _q_h + 24
         HBT = (BB + 28) if show_caption else (H // 2 - HBH // 2)
         HBB = HBT + HBH
         hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
@@ -452,8 +455,8 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
     if hook_question:
         if not has_answer:
-            # Question alone — large, attention-grabbing
-            ctext(draw, HBT + 24, hook_question, fnt["serif_lg"], pal["text_bright"])
+            # Question alone — wrapped, large, attention-grabbing
+            ctext_wrapped(draw, HBT + 24, hook_question, fnt["serif_lg"], pal["text_bright"], max_width=W - 200, line_gap=12)
         else:
             # Question shrinks to a small label above the answer
             ctext(draw, HBT + 12, hook_question, fnt["jura_light"], pal["text_dim"])
@@ -480,6 +483,16 @@ def main():
     reel_dir = os.path.abspath(sys.argv[1])
     cfg = load_config(reel_dir)
     os.makedirs(cfg["output_folder"], exist_ok=True)
+
+    # Load voiceover timing data if present
+    import json as _json
+    _timing_path = os.path.join(reel_dir, "voiceover_timing.json")
+    _word_timings = None   # [{"word": str, "start": float_secs}]
+    _audio_offset = 0.0    # seconds to delay audio track in final MP4
+    if os.path.exists(_timing_path):
+        _td = _json.load(open(_timing_path))
+        _audio_offset  = _td.get("audio_offset", 0.0)
+        _word_timings  = _td.get("word_timings") or None
 
     print("═" * 60)
     print("  TRAVEL REEL GENERATOR")
@@ -543,18 +556,55 @@ def main():
             show = always_caption or (i == 0)
             return show, None
 
+        prev_hook_answer_words = []  # track words already revealed in prior frame
+
         for i, (fname, photo) in enumerate(photos):
             show, fc = _frame_cap(i)
-            base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
 
             # Per-frame hold_seconds overrides the global
             if fc and "hold_seconds" in fc:
                 hold_f = int(fc["hold_seconds"] * FPS)
             else:
                 hold_f = HOLD_F
-            for _ in range(hold_f):
-                base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
-                frame_i += 1
+
+            hook_answer_text = (fc or {}).get("hook_answer", "")
+            all_words = hook_answer_text.split() if hook_answer_text else []
+
+            # Determine which words are genuinely NEW in this frame (continuation detection)
+            prev_n = len(prev_hook_answer_words)
+            is_continuation = (
+                len(all_words) > prev_n and
+                all_words[:prev_n] == prev_hook_answer_words
+            )
+            new_words = all_words[prev_n:] if is_continuation else all_words
+            carried_text = " ".join(all_words[:prev_n]) if is_continuation else ""
+
+            if new_words and hold_f > 1:
+                # Reveal new words: driven by TTS timestamps when available, else 2 frames/word
+                FRAMES_PER_WORD = 2
+                base = None
+                for k in range(hold_f):
+                    if _word_timings:
+                        t_secs = k / FPS
+                        n_new = sum(1 for wt in _word_timings if wt["start"] <= t_secs)
+                        n_new = max(1, min(len(new_words), n_new))
+                    else:
+                        n_new = max(1, min(len(new_words), k // FRAMES_PER_WORD + 1))
+                    partial_answer = (carried_text + " " + " ".join(new_words[:n_new])).strip()
+                    partial_fc = dict(fc)
+                    partial_fc["hook_answer"] = partial_answer
+                    partial_fc["_hook_answer_full"] = hook_answer_text
+                    frame = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
+                    frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                    frame_i += 1
+                    base = frame
+            else:
+                base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
+                for _ in range(hold_f):
+                    base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                    frame_i += 1
+
+            prev_hook_answer_words = all_words  # advance cursor for next frame
 
             if i < len(photos) - 1:
                 next_show, next_fc = _frame_cap(i + 1)
@@ -572,19 +622,44 @@ def main():
         OUTPUT_FPS = max(30, cfg.get("output_fps", 30))
         print(f"\n▸ Encoding MP4 ({frame_i} frames @ {FPS}fps → {OUTPUT_FPS}fps output)...")
         out_mp4 = os.path.join(cfg["output_folder"], "reel.mp4")
-        cmd = [
-            "ffmpeg", "-y",
-            "-framerate", str(FPS),
-            "-i", os.path.join(frames_dir, "f%05d.png"),
-            "-r", str(OUTPUT_FPS),
-            "-c:v", "libx264",
-            "-preset", "slow",
-            "-crf", "18",
-            "-pix_fmt", "yuv420p",
-            "-movflags", "+faststart",
-            "-vf", f"scale={W}:{H}",
-            out_mp4
-        ]
+
+        # Mix in voiceover if present in the reel directory
+        voiceover_path = os.path.join(reel_dir, "voiceover.mp3")
+        has_audio = os.path.exists(voiceover_path)
+
+        if has_audio:
+            print(f"  ♪ Mixing voiceover (offset {_audio_offset:.1f}s): voiceover.mp3")
+            cmd = [
+                "ffmpeg", "-y",
+                "-framerate", str(FPS),
+                "-i", os.path.join(frames_dir, "f%05d.png"),
+                "-itsoffset", str(_audio_offset),
+                "-i", voiceover_path,
+                "-r", str(OUTPUT_FPS),
+                "-c:v", "libx264",
+                "-preset", "slow",
+                "-crf", "18",
+                "-c:a", "aac",
+                "-b:a", "192k",
+                "-pix_fmt", "yuv420p",
+                "-movflags", "+faststart",
+                "-vf", f"scale={W}:{H}",
+                out_mp4
+            ]
+        else:
+            cmd = [
+                "ffmpeg", "-y",
+                "-framerate", str(FPS),
+                "-i", os.path.join(frames_dir, "f%05d.png"),
+                "-r", str(OUTPUT_FPS),
+                "-c:v", "libx264",
+                "-preset", "slow",
+                "-crf", "18",
+                "-pix_fmt", "yuv420p",
+                "-movflags", "+faststart",
+                "-vf", f"scale={W}:{H}",
+                out_mp4
+            ]
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode == 0:
             size_mb = os.path.getsize(out_mp4) / 1024 / 1024

@@ -14,6 +14,7 @@ Requires OPENROUTER_API_KEY in .env or environment.
 Falls back gracefully (returns None) if key is missing or API fails.
 """
 
+import asyncio
 import os
 import re
 from pathlib import Path
@@ -81,13 +82,13 @@ def generate_captions(lot: dict) -> dict | None:
     if not OPENROUTER_KEY:
         return None
 
-    artist  = lot.get("artist", "Unknown")
-    title   = lot.get("title", "Untitled")
-    house   = lot.get("auction_house", "the auction house")
-    hammer  = lot.get("hammer_fmt", "unknown")
-    est     = lot.get("estimate_fmt", "unknown")
-    pct     = lot.get("pct_above", 0)
-    angle   = random.choice(_ANGLES).format(estimate=est, hammer=hammer)
+    artist    = lot.get("artist", "Unknown")
+    title     = lot.get("title", "Untitled")
+    house     = lot.get("auction_house", "the auction house")
+    hammer    = lot.get("hammer_fmt", "unknown")
+    est       = lot.get("estimate_fmt", "unknown")
+    pct       = lot.get("pct_above", 0)
+    angle = random.choice(_ANGLES).format(estimate=est, hammer=hammer)
 
     prompt = f"""You write captions for @thehammerprice — an art market account. Short, plain, lowercase. No emojis except where shown.
 
@@ -137,6 +138,41 @@ Reply with only the two sections and their labels. Nothing else."""
     return {"instagram": ig, "tiktok": tt}
 
 
+def generate_hook_answer(lot: dict, question: str) -> str | None:
+    """
+    Generate a 2–3 sentence art-history explanation for the reel hook answer.
+    Specific to the artist and work — replaces hardcoded _HOOK_TEMPLATES answers.
+    Returns plain lowercase text or None if API unavailable.
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    artist = lot.get("artist", "Unknown")
+    title  = lot.get("title", "Untitled")
+    house  = lot.get("auction_house", "the auction house")
+    hammer = lot.get("hammer_fmt", "unknown")
+    est    = lot.get("estimate_fmt", "unknown")
+    pct    = lot.get("pct_above", 0)
+
+    prompt = f"""You write punchy on-screen text for art auction reels. 1–2 short sentences, all lowercase.
+
+Auction result:
+- Artist: {artist}
+- Work: "{title}"
+- House: {house}
+- Estimate: {est} → Hammer: {hammer} ({pct:.0f}% above estimate)
+- Hook question on screen: "{question}"
+
+Answer that question in the voice of an auction house narrator — talk about the catalogue, the room, the estimate, the gap. Make it feel like insider commentary: why did the room bid this high? what did the specialists miss? Keep it tight, specific to this lot.
+
+Rules: all lowercase. no fluff. 1–2 sentences only, under 25 words total.
+
+Reply with only the answer text, nothing else."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=60)
+    return raw.strip() if raw else None
+
+
 def generate_art_history(lot: dict) -> str | None:
     """
     Returns a 3–4 sentence art history blurb for Instagram first comment, or None.
@@ -168,4 +204,39 @@ Reply with only the comment text, nothing else."""
     if not blurb.startswith("🎨"):
         blurb = "🎨 " + blurb
 
-    return blurb + "\n\n📖 ai-generated art history"
+    return blurb + f"\n\ndata source: {house} "
+
+
+# ── Text-to-speech ─────────────────────────────────────────────────────────────
+
+TTS_VOICE = "en-GB-RyanNeural"   # deep British male — fits auction house tone
+
+
+async def _tts_with_timing_async(text: str, output_path: str, voice: str) -> list[dict]:
+    """Stream TTS, write MP3, and collect word-boundary events."""
+    import edge_tts
+    word_timings = []
+    communicate = edge_tts.Communicate(text, voice, boundary="WordBoundary")
+    with open(output_path, "wb") as f:
+        async for event in communicate.stream():
+            if event["type"] == "audio":
+                f.write(event["data"])
+            elif event["type"] == "WordBoundary":
+                word_timings.append({
+                    "word":  event["text"],
+                    "start": event["offset"] / 10_000_000,   # 100-ns → seconds
+                })
+    return word_timings
+
+
+def generate_voiceover(text: str, output_path: str, voice: str = TTS_VOICE) -> tuple[bool, list[dict]]:
+    """
+    Synthesise text to MP3 via Edge-TTS (free, no API key).
+    Returns (success, word_timings) where word_timings = [{"word": str, "start": float_secs}, ...].
+    """
+    try:
+        timings = asyncio.run(_tts_with_timing_async(text, output_path, voice))
+        return True, timings
+    except Exception as e:
+        print(f"  ⚠ TTS error: {e}")
+        return False, []

@@ -226,23 +226,19 @@ _HOOK_TEMPLATES = [
          "what does {n} above estimate tell you?",
      ],
      [
-         # data pattern
-         "51% of lots sell above estimate at the major houses. "
-         "but a move this size — {pct} — that's not a pattern. that's a verdict.",
-         # collector psychology
-         "nobody goes to auction to pay fair value. they go to win. "
-         "when two serious collectors want the same thing, the estimate stops being a ceiling and becomes a starting point.",
-         # market timing
-         "the estimate is set months before the sale. "
-         "by auction day, {artist}'s market had already moved — the catalogue just hadn't caught up.",
-         # catalogue vs room
-         "the specialist wrote {estimate} in the catalogue. "
-         "the room wrote {hammer} on the day. "
-         "that gap — {pct} — is the real price discovery.",
-         # price numbers
-         "from {estimate} to {hammer}. "
-         "that's not a surprise result — it's a signal. "
-         "someone in that room had conviction the rest of the market hadn't priced in yet.",
+         # canon revision
+         "a result this far above estimate isn't a market anomaly — it's the room rewriting the artist's place in the canon. "
+         "what the catalogue priced as one thing, collectors recognized as something else entirely.",
+         # legacy
+         "estimates reflect what an artist has done. hammer prices reflect what collectors believe they will mean. "
+         "at {n} above estimate, the room made a clear statement about {artist}'s legacy.",
+         # art history rewrite
+         "'{title}' walked into that room as a catalogue entry. it left as a record. "
+         "that's how art history gets repriced — not in museums, but at auction.",
+         # critical reappraisal
+         "the specialist's estimate is built on precedent. "
+         "a {pct} overshoot means the room had already moved past that precedent — "
+         "and recognized something in {artist}'s work that the catalogue hadn't caught up to.",
      ]),
 
     (500,
@@ -254,22 +250,18 @@ _HOOK_TEMPLATES = [
          "what does it mean when the market pays {hammer} for a {estimate} estimate?",
      ],
      [
-         # data pattern
-         "results above 500% of estimate are rare — but they cluster. "
-         "when you see one, there's usually a shift in the artist's market that the specialists hadn't fully priced.",
-         # collector psychology
-         "at this level, collectors aren't bidding on the work. they're bidding on the story. "
-         "the estimate reflects what it sold for before. the hammer reflects what it means now.",
-         # market timing
-         "something changed before this sale — a museum show, an estate, a critical reappraisal. "
-         "the estimate was priced on old data. the room was trading on new information.",
-         # catalogue vs room
-         "the auction house prices to guarantee a sale. "
-         "the collector prices to own something no one else will have. "
-         "those are very different numbers — and here, the collector won.",
-         # price numbers
-         "{estimate} estimate. {hammer} hammer. "
-         "the {pct} gap isn't noise — it's the market telling you the catalogue was working with the wrong assumptions.",
+         # critical moment
+         "at this level, collectors aren't just buying a work — they're staking a position on the artist. "
+         "the estimate reflects where {artist} has been. {hammer} is where the room thinks they're going.",
+         # museum-to-market
+         "results like this happen when critical and market consensus finally align. "
+         "a museum moment, a major publication, a retrospective — something shifted the conversation before this sale, and the room responded.",
+         # provenance
+         "provenance and period matter at this price. "
+         "'{title}' carried a history the estimate didn't fully price — and the room understood what it was acquiring.",
+         # artist significance
+         "a {pct} overshoot of this scale is a verdict on an artist's significance. "
+         "the catalogue reflects the past record. the hammer is the new one.",
      ]),
 
     (300,
@@ -281,21 +273,18 @@ _HOOK_TEMPLATES = [
          "why does {artist} keep beating estimate?",
      ],
      [
-         # data pattern
-         "specialists price from precedent. "
-         "but {artist}'s last five results have all beaten estimate — the catalogue is using the wrong baseline.",
-         # collector psychology
-         "a result this far above estimate usually means one thing: a collector arrived who had already decided the price didn't matter. "
-         "those are the bids that move markets.",
-         # market timing
-         "provenance, condition, timing — one of these shifted before this sale. "
-         "the estimate reflected the past. {hammer} is what the market thinks this work is worth today.",
-         # catalogue vs room
-         "the estimate is backward-looking. the room is forward-looking. "
-         "when they disagree by {pct}, the room is almost always right.",
-         # price numbers
+         # critical reappraisal
+         "auction rooms reprice artists faster than institutions do. "
+         "{artist} had been estimated on old assumptions — the room corrected them.",
+         # period and movement
+         "the estimate was set by precedent. the room was pricing on where {artist} now sits in the conversation — "
+         "and that's a very different number.",
+         # collector conviction
+         "a result {pct} above estimate means someone arrived with deep knowledge of the work and the artist. "
+         "that kind of conviction — anchored in research, not sentiment — is what moves an artist's market.",
+         # legacy building
          "the low estimate was {estimate}. it sold for {hammer}. "
-         "that's {pct} above the floor — enough to move an artist's auction record and reset every future estimate.",
+         "that gap is enough to reset the artist's record, shift the reference point for every future valuation, and start a new chapter.",
      ]),
 
     (150,
@@ -307,23 +296,18 @@ _HOOK_TEMPLATES = [
          "why did this sell for {pct} above estimate?",
      ],
      [
-         # data pattern
-         "outperformance of 150–300% happens in roughly 8% of lots at the major houses. "
-         "it's not random — it's demand meeting an estimate set for a different market.",
-         # collector psychology
-         "auction houses price conservatively to guarantee a sale. "
-         "the real price is whatever the most motivated buyer decides they can't leave without — and here, that number was {hammer}.",
-         # market timing
-         "the estimate was set before the sale. by the time the room opened, demand had moved. "
-         "that's the gap — not an error, just the market catching up in real time.",
-         # catalogue vs room
-         "the specialists set a floor at {estimate}. "
-         "the bidders set a ceiling at {hammer}. "
-         "that {pct} spread is where the real market lives.",
-         # price numbers
-         "from {estimate} to {hammer}. "
-         "two collectors, one lot, no ceiling. "
-         "this is what price discovery looks like when the catalogue gets it wrong.",
+         # art historical moment
+         "the estimate is built from past sales. "
+         "when the room bids {pct} above that, it's saying: the past doesn't tell the full story of this artist anymore.",
+         # collector knowledge
+         "serious collectors don't bid on estimates — they bid on their own research. "
+         "a {pct} overshoot usually means someone in that room understood {artist}'s significance better than the catalogue did.",
+         # market recognition
+         "the auction house priced {artist} conservatively. "
+         "the room disagreed — and when a room this competitive disagrees, the result becomes the new reference point.",
+         # period significance
+         "'{title}' is from a period in {artist}'s career that the market has been reassessing. "
+         "the {pct} overshoot reflects that — a work carrying more weight than the estimate assumed.",
      ]),
 
     (80,
@@ -335,22 +319,18 @@ _HOOK_TEMPLATES = [
          "the estimate was {estimate}. the hammer was {hammer}.",
      ],
      [
-         # data pattern
-         "moderate outperformance — 80 to 150% above estimate — is actually the most common signal in the data. "
-         "it means the house priced conservatively and competition did the rest.",
-         # collector psychology
-         "nobody in that room was surprised by {hammer}. "
-         "the estimate is a starting point, not a prediction — and experienced collectors treat it that way.",
-         # market timing
-         "the house priced for certainty. the market priced for desire. "
-         "when more buyers show up than the catalogue expected, the estimate becomes a floor, not a target.",
-         # catalogue vs room
-         "the specialist wrote {estimate}. the room bid {hammer}. "
-         "that's not a mistake — it's two different views of the same work, and the room's view is the one that counts.",
-         # price numbers
-         "{pct} above the low estimate. "
-         "quiet, consistent outperformance like this is the pattern the data keeps showing — "
-         "the estimate attracts bidders; competition sets the real price.",
+         # quality recognition
+         "the estimate is a floor, not a forecast. "
+         "when the room bids above it, it usually means the work carried more quality — or more significance — than the catalogue captured.",
+         # artist momentum
+         "{artist}'s presence in major collections and exhibitions has been building. "
+         "a {pct} overshoot confirms the market has been paying attention.",
+         # work significance
+         "'{title}' outperformed because the room valued what it is, not just what {artist} has sold for before. "
+         "the estimate anchors on history. the hammer reflects the present.",
+         # collector demand
+         "when two serious collectors want the same work, the estimate becomes irrelevant. "
+         "what matters is who understands the artist's importance — and who wants to own a piece of it.",
      ]),
 
     (40,
@@ -359,26 +339,21 @@ _HOOK_TEMPLATES = [
          "above estimate — the most common story in the room.",
          "the floor held. the ceiling didn't.",
          "from {estimate} to {hammer} — small gap, real signal.",
-         "51% of lots beat estimate. this is one of them.",
+         "the room had more conviction than the catalogue.",
      ],
      [
-         # data pattern
-         "51% of lots at the major houses sell above estimate. "
-         "that's not randomness — it's a structural feature of how auction houses price. "
-         "conservative floors, competitive rooms.",
-         # collector psychology
-         "estimates are floor prices, not forecasts. "
-         "the auction house sets a number to guarantee a sale — what happens above {estimate} is entirely up to the room.",
-         # market timing
-         "the house priced this to move. the room moved it higher. "
-         "small overshoots happen when more buyers arrive than the catalogue assumed — and that happens more than half the time.",
-         # catalogue vs room
-         "the catalogue said {estimate}. the room said {hammer}. "
-         "the difference is small — but it's the difference between a floor price and a market price.",
-         # price numbers
-         "{hammer} on a {estimate} estimate. "
-         "modest outperformance, consistent pattern. "
-         "this is what the auction market looks like most of the time — not the headlines, just the data.",
+         # consistent demand
+         "a result above estimate — even modestly — confirms that demand for {artist}'s work is real and consistent. "
+         "the catalogue sets the floor. the room decides the ceiling.",
+         # artist standing
+         "the estimate reflects what specialists expected based on precedent. "
+         "{hammer} is what collectors in that room were willing to pay — and that's always the more honest number.",
+         # work quality
+         "when a work sells above estimate, it's usually because the room found something in it the catalogue missed — "
+         "quality, condition, period, or simply the right buyer at the right moment.",
+         # market signal
+         "a modest overshoot like this is quiet but meaningful. "
+         "it tells you demand is ahead of where the specialists priced {artist}'s market.",
      ]),
 
     (0,
@@ -390,24 +365,18 @@ _HOOK_TEMPLATES = [
          "even a small overshoot tells a story.",
      ],
      [
-         # data pattern
-         "small overshoots are the most consistent pattern at auction. "
-         "51% of lots beat estimate — most of them by exactly this margin. "
-         "the data is quiet, but it's reliable.",
-         # collector psychology
-         "even a modest result above estimate means someone in that room wanted it more than the next bidder. "
-         "that's all an auction is — a competition between desire and discipline.",
-         # market timing
-         "the house priced for certainty. the room went a little further. "
-         "when more buyers arrive than expected, the price moves — quietly, but reliably.",
-         # catalogue vs room
-         "the estimate reflects what specialists expected. "
-         "the hammer reflects what actually happened in the room. "
-         "here, the room went just a little further — and that matters.",
-         # price numbers
-         "from {estimate} to {hammer}. "
-         "not a headline — but proof that demand was there. "
-         "every lot that sells above estimate tells the same story: the market found its price.",
+         # demand signal
+         "even a small overshoot confirms there was more than one serious buyer in the room. "
+         "for {artist}, that demand matters — it keeps the market active and the next estimate honest.",
+         # collector interest
+         "the estimate is a starting point. the hammer is the truth. "
+         "here, the truth was just a little higher than the catalogue expected — and that's enough to move the conversation.",
+         # artist market
+         "a result above estimate — however modest — means the market for {artist} is healthy. "
+         "collectors are paying attention, and competition, even at this level, is a signal worth reading.",
+         # historical record
+         "every lot that sells above estimate becomes part of an artist's price history. "
+         "'{title}' just added one more data point — and it moved in the right direction.",
      ]),
 ]
 
@@ -450,15 +419,15 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
     return "the hammer price tells the real story.", "follow the data."
 
 
-def _build_reveal_sequence(lot: dict, tag_base: str) -> list[dict]:
-    """5-frame progressive reveal for a single lot — targets ~25s total.
+def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = None,
+                           tts_duration: float = 0.0) -> list[dict]:
+    """Progressive reveal for a single lot — targets ~25s total.
 
     Frames:
-      1 — estimate line (price reveal starts immediately)
-      2 — + sold price
-      3 — full data box (+ % above estimate)
-      4 — question appears large below the data (no answer yet)
-      5 — question shrinks to label, answer dominates in large serif
+      1 — estimate + sold price (hook lands immediately)
+      2 — full data box (+ % above estimate)
+      3 — question appears large (no answer yet)
+      4+ — answer reveals word-by-word (AI-generated or template fallback)
     """
     hammer        = lot["hammer_usd"]
     est_low       = lot["estimate_low"]
@@ -472,7 +441,8 @@ def _build_reveal_sequence(lot: dict, tag_base: str) -> list[dict]:
     S     = f"sold: {_fmt_price(hammer)}."
     P     = f"+{pct:,.0f}% above estimate."
 
-    question, answer = _hook_caption(lot, pct)
+    question, template_answer = _hook_caption(lot, pct)
+    answer  = ai_answer or template_answer
     phrases = _split_phrases(answer)
 
     def _data(line1="", line2="", line3="", q=None, a="", hold=4.0):
@@ -490,20 +460,25 @@ def _build_reveal_sequence(lot: dict, tag_base: str) -> list[dict]:
         }
 
     frames = [
-        # 1 — estimate lands
-        _data(line1=E),
-        # 2 — sold price reveals
-        _data(line1=E, line2=S),
-        # 3 — outperformance % completes the data box
+        # 1 — estimate + sold price open together (hook lands immediately, short hold)
+        _data(line1=E, line2=S, hold=2.0),
+        # 2 — outperformance % completes the data box
         _data(line1=E, line2=S, line3=P),
-        # 4 — question appears large (no answer yet)
+        # 3 — question appears large (no answer yet)
         _data(line1=E, line2=S, line3=P, q=question, hold=4.0),
     ]
 
-    # Phrase-by-phrase answer reveal: each sentence fragment appears in sequence
+    # Answer reveal: one frame per phrase; final frame hold driven by TTS duration
     for j in range(len(phrases)):
         partial = " ".join(phrases[:j + 1])
-        hold = 2.5 if j < len(phrases) - 1 else 6.0
+        if j < len(phrases) - 1:
+            hold = 3.0
+        else:
+            if tts_duration > 0:
+                hold = round(tts_duration + 2.0, 1)   # TTS duration + 2s reading tail
+            else:
+                n_words = len(partial.split())
+                hold = max(8.0, round((n_words * 2) / 3 + 2, 1))
         frames.append(_data(line1=E, line2=S, line3=P, q=question, a=partial, hold=hold))
 
     return frames
@@ -576,7 +551,7 @@ def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[d
         "    # ── Font overrides ─────────────────────────────────────────",
         '    "fonts_override": {',
         '        "serif_lg":   ("InstrumentSerif-Regular.ttf", 82),',
-        '        "serif_med":  ("InstrumentSerif-Italic.ttf",  58),',
+        '        "serif_med":  ("InstrumentSerif-Regular.ttf",  58),',
         '        "italic_med": ("InstrumentSerif-Italic.ttf",  40),',
         '        "mono":       ("IBMPlexMono-Regular.ttf",      17),',
         '        "mono_sm":    ("IBMPlexMono-Regular.ttf",      14),',
@@ -752,9 +727,73 @@ def main() -> None:
         print("✗ No images downloaded — cannot generate reel.")
         sys.exit(1)
 
-    # ── Build reveal sequence (7 frames) ──────────────────────
+    # ── Build reveal sequence ──────────────────────────────────
     tag_base = "@thehammerprice  ·  weekly results" if not args.all_time else "@thehammerprice  ·  auction data"
-    reveal = _build_reveal_sequence(hook, tag_base)
+
+    # Try AI-generated art history answer for the hook; fall back to template if unavailable
+    ai_hook_answer = None
+    if os.getenv("OPENROUTER_API_KEY"):
+        try:
+            sys.path.insert(0, str(SCRIPT_DIR))
+            from ai_content import generate_hook_answer
+            _pct = _pct_above(hook["hammer_usd"], hook["estimate_low"])
+            _question, _tmpl_answer = _hook_caption(hook, _pct)
+            _lot_preview = {
+                "artist":       _clean_artist(hook.get("artist") or "Unknown"),
+                "title":        (hook.get("title") or "Untitled")[:60],
+                "auction_house": hook.get("auction_house") or "the auction house",
+                "hammer_fmt":   _fmt_price(hook["hammer_usd"]),
+                "estimate_fmt": f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
+                "pct_above":    _pct,
+            }
+            print("\n▸ Generating AI hook answer...")
+            ai_hook_answer = generate_hook_answer(_lot_preview, _question)
+            if ai_hook_answer:
+                print(f"  ✓ AI answer: {ai_hook_answer[:80]}...")
+            else:
+                print("  ⚠ AI hook answer failed — using template")
+                ai_hook_answer = _tmpl_answer  # use template so TTS and video match
+        except Exception as e:
+            print(f"  ⚠ AI hook answer error: {e} — using template")
+            _pct2 = _pct_above(hook["hammer_usd"], hook["estimate_low"])
+            _, ai_hook_answer = _hook_caption(hook, _pct2)
+
+    # ── Generate voiceover with word timestamps ────────────────
+    # TTS narrates only the answer text; audio is offset to start
+    # at the same moment the answer frame appears on screen.
+    voiceover_path = str(reel_dir / "voiceover.mp3")
+    word_timings   = []
+    tts_duration   = 0.0
+    print("\n▸ Generating voiceover...")
+    try:
+        sys.path.insert(0, str(SCRIPT_DIR))
+        from ai_content import generate_voiceover
+        ok, word_timings = generate_voiceover(ai_hook_answer or "", voiceover_path)
+        if ok and word_timings:
+            tts_duration = word_timings[-1]["start"] + 1.5   # last word + 1.5s tail
+            print(f"  ✓ Voiceover saved ({tts_duration:.1f}s, {len(word_timings)} words)")
+        else:
+            voiceover_path = None
+            print("  ⚠ Voiceover failed")
+    except Exception as e:
+        print(f"  ⚠ Voiceover error: {e}")
+        voiceover_path = None
+
+    # Build reveal — pass tts_duration so the answer frame hold fits the audio
+    reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
+                                    tts_duration=tts_duration)
+
+    # Calculate how many seconds of video play before the first answer frame,
+    # so the audio can be offset to start exactly when answer words appear.
+    _fade_s = 0.5   # matches config fade_seconds
+    _pre_frames = [fc for fc in reveal if not fc.get("hook_answer")]
+    audio_offset = (sum(fc["hold_seconds"] for fc in _pre_frames)
+                    + len(_pre_frames) * _fade_s)
+
+    # Save timing data for make_reel.py
+    import json as _json
+    timing_data = {"audio_offset": round(audio_offset, 3), "word_timings": word_timings}
+    (reel_dir / "voiceover_timing.json").write_text(_json.dumps(timing_data, indent=2))
 
     # Map each reveal frame to an image file (cycle through available sources)
     import shutil
@@ -798,7 +837,7 @@ def main() -> None:
                 print("\n▸ Generating AI captions via OpenRouter...")
                 try:
                     sys.path.insert(0, str(SCRIPT_DIR))
-                    from ai_content import generate_captions
+                    from ai_content import generate_captions, generate_art_history
                     hammer   = hook["hammer_usd"]
                     est_low  = hook["estimate_low"]
                     est_high = hook.get("estimate_high") or est_low
@@ -810,9 +849,18 @@ def main() -> None:
                         "hammer_fmt":   _fmt_price(hammer),
                         "estimate_fmt": f"{_fmt_price(est_low)}–{_fmt_price(est_high)}",
                         "pct_above":    pct,
+                        "sale_name":    (hook.get("sale_name") or "").strip(),
+                        "source_url":   (hook.get("source_url") or "").strip(),
                     }
                     captions = generate_captions(lot_data)
                     if captions:
+                        # Append art history to the Instagram caption body
+                        art_history = generate_art_history(lot_data)
+                        if art_history:
+                            captions["instagram"] = captions["instagram"].replace(
+                                "\n\n#thehammerprice",
+                                f"\n\n{art_history}\n\n#thehammerprice",
+                            )
                         _write_ai_captions(captions, reel_dir, lot_data)
                         ai_done = True
                         print("  ✓ AI captions saved")
