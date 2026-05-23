@@ -4,3 +4,8 @@ __pycache__/
 *.pyc
 .DS_Store
 reels/
+# Track reel outputs but not intermediate audio/image files
+!reels/*/output/reel.mp4
+!reels/*/output/reel.png
+!reels/*/output/captions.md
+!reels/*/reel_config.py
