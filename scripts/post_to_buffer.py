@@ -192,11 +192,10 @@ def _post_to_buffer(
             "channelId":      channel_id,
             "text":           text,
             "assets":         [{"video": {"url": video_url}}],
-            "schedulingType": "free",
+            "schedulingType": "automatic",
             "metadata":       metadata,
         }
     }
-
 
     if scheduled_at:
         dt = datetime.fromisoformat(scheduled_at).astimezone(timezone.utc)
