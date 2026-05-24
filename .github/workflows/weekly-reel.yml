@@ -116,7 +116,9 @@ jobs:
       - name: Commit Substack draft
         if: steps.lot_id.outputs.value != ''
         run: |
-          git pull --rebase
           git add output/substack/
+          git stash
+          git pull --rebase
+          git stash pop
           git diff --cached --quiet || git commit -m "feat(substack): draft post for lot ${{ steps.lot_id.outputs.value }} [skip ci]"
           git push
