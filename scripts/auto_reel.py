@@ -43,10 +43,26 @@ _HEADERS = {
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
 def _fmt_price(usd: float) -> str:
-    """Format a USD price compactly: $441,000 or $13.8M."""
-    if usd >= 1_000_000:
-        return f"${usd / 1_000_000:.1f}M"
+    """Format a USD price with full zeros: $441,000 or $1,380,000."""
     return f"${usd:,.0f}"
+
+
+def _fmt_price_tts(usd: float) -> str:
+    """Spoken-English price for TTS — no symbols or commas that confuse synthesizers."""
+    if usd >= 1_000_000:
+        return f"{usd / 1_000_000:.1f} million dollars"
+    if usd >= 1_000:
+        return f"{usd / 1_000:.0f} thousand dollars"
+    return f"{usd:.0f} dollars"
+
+
+def _prices_to_speech(text: str) -> str:
+    """Replace $X,XXX-style price tokens in arbitrary text with their spoken form."""
+    import re as _re
+    def _sub(m: "_re.Match") -> str:
+        digits = m.group(1).replace(",", "")
+        return _fmt_price_tts(float(digits))
+    return _re.sub(r"\$([0-9][0-9,]*)", _sub, text)
 
 
 def _pct_above(hammer: float, low: float) -> float:
@@ -399,6 +415,9 @@ def _get_audio_duration(path: str) -> float:
     return 0.0
 
 
+_VOICE_GAP_SECONDS = 0.4  # minimum silence inserted between consecutive voice clips
+
+
 def _build_sequential_voiceover(
     frame_tracks: list[tuple[str, float]],  # (path, target_start_seconds) — all clips
     output_path: str,
@@ -422,7 +441,9 @@ def _build_sequential_voiceover(
     current_time = 0.0
 
     for path, target_start in valid:
-        gap = target_start - current_time
+        # Enforce a minimum breathing gap between consecutive voice clips
+        effective_start = max(target_start, current_time + _VOICE_GAP_SECONDS) if current_time > 0.0 else target_start
+        gap = effective_start - current_time
         if gap > 0.02:
             cmd += ["-f", "lavfi", "-t", f"{gap:.3f}", "-i", "anullsrc=r=44100:cl=stereo"]
             raw_labels.append(f"[{input_idx}:a]")
@@ -430,7 +451,7 @@ def _build_sequential_voiceover(
         cmd += ["-i", path]
         raw_labels.append(f"[{input_idx}:a]")
         input_idx += 1
-        current_time = target_start + _get_audio_duration(path)
+        current_time = effective_start + _get_audio_duration(path)
 
     # Normalize all segments to 44100 Hz stereo before concat
     filter_parts: list[str] = []
@@ -867,7 +888,7 @@ def main() -> None:
         tts_answer_path = str(reel_dir / "tts_answer.mp3")
 
         # Step 1 — answer TTS first (need duration to set hold time in reveal sequence)
-        _answer_text = ai_hook_answer or ""
+        _answer_text = _prices_to_speech(ai_hook_answer or "")
         _ok_ans, word_timings = generate_voiceover(_answer_text, tts_answer_path)
         if _ok_ans and word_timings:
             tts_duration = word_timings[-1]["start"] + 1.5
@@ -912,9 +933,9 @@ def main() -> None:
         # Step 5 — narration for each pre-answer frame, timed to its frame start
         # Scripts: frame 0 = "sold for X", frame 1 = "Y% above estimate", frame 2 = question
         _pct_val   = _pct_above(hook["hammer_usd"], hook["estimate_low"])
-        _hammer_s  = _fmt_price(hook["hammer_usd"])
-        _est_s     = (f"{_fmt_price(hook['estimate_low'])} "
-                      f"to {_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}")
+        _hammer_s  = _fmt_price_tts(hook["hammer_usd"])
+        _est_s     = (f"{_fmt_price_tts(hook['estimate_low'])} "
+                      f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}")
 
         # Assign narration scripts by frame position, not content:
         #   0 = price reveal, 1 = percentage, last pre-answer = question

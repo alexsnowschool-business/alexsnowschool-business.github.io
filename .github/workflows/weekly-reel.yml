@@ -93,3 +93,30 @@ jobs:
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: python scripts/post_to_youtube.py ${{ steps.reel.outputs.folder }}
+
+      - name: Extract lot ID from reel config
+        id: lot_id
+        run: |
+          LOT_ID=$(python -c "
+          import re, sys
+          text = open('${{ steps.reel.outputs.folder }}/reel_config.py').read()
+          m = re.search(r'\"lot_id\"\s*:\s*\"([^\"]+)\"', text)
+          print(m.group(1) if m else '')
+          ")
+          echo "value=$LOT_ID" >> $GITHUB_OUTPUT
+          echo "Lot ID: $LOT_ID"
+
+      - name: Generate Substack draft
+        if: steps.lot_id.outputs.value != ''
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL:   ${{ secrets.OPENROUTER_MODEL }}
+        run: python -u scripts/substack_post.py --lot-id "${{ steps.lot_id.outputs.value }}"
+
+      - name: Commit Substack draft
+        if: steps.lot_id.outputs.value != ''
+        run: |
+          git pull --rebase
+          git add output/substack/
+          git diff --cached --quiet || git commit -m "feat(substack): draft post for lot ${{ steps.lot_id.outputs.value }} [skip ci]"
+          git push

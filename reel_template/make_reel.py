@@ -508,7 +508,7 @@ def main():
         _word_timings  = _td.get("word_timings") or None
 
     print("═" * 60)
-    print("  TRAVEL REEL GENERATOR")
+    print("REEL GENERATOR")
     print(f"  Vibe: {cfg['vibe']}  |  Caption: {cfg['caption_position']}")
     print("═" * 60)
 

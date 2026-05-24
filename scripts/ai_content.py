@@ -207,6 +207,181 @@ Reply with only the comment text, nothing else."""
     return blurb + f"\n\ndata source: {house} "
 
 
+# ── Substack content ───────────────────────────────────────────────────────────
+
+def _lot_context(lot: dict) -> str:
+    """Shared lot summary block reused across Substack prompts."""
+    hammer   = f"${lot.get('hammer_usd', 0):,.0f}"
+    est_low  = f"${lot.get('estimate_low', 0):,.0f}"
+    est_high = f"${lot.get('estimate_high') or lot.get('estimate_low', 0):,.0f}"
+    pct      = lot.get("pct_above", 0)
+    return (
+        f"Artist: {lot.get('artist', 'Unknown')}\n"
+        f"Work: \"{lot.get('title', 'Untitled')}\"\n"
+        f"Auction house: {lot.get('auction_house', 'unknown')}\n"
+        f"Sale: {lot.get('sale_name', '')}, {lot.get('sale_date', '')}\n"
+        f"Estimate: {est_low}–{est_high}\n"
+        f"Hammer: {hammer} ({pct:.0f}% above low estimate)"
+    )
+
+
+def generate_substack_title(lot: dict) -> str | None:
+    """Generate an editorial headline + subtitle for the Substack post."""
+    if not OPENROUTER_KEY:
+        return None
+
+    prompt = f"""You write editorial headlines for a Substack called The Hammer Price — art market analysis for collectors and curious readers.
+
+Auction result:
+{_lot_context(lot)}
+
+Write:
+1. TITLE: one punchy headline (~8 words). Not clickbait. Factual but intriguing. Can use a colon. Should name the artist or work.
+2. SUBTITLE: one sentence (~20 words). Sets up the question this post will answer — what does this result tell us about the market, the artist, or the collector?
+
+Rules: sentence case (not title case). No quotes around the title. No emojis.
+
+Reply with only:
+TITLE: <title>
+SUBTITLE: <subtitle>"""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=120)
+    return raw.strip() if raw else None
+
+
+def generate_substack_price_commentary(lot: dict) -> str | None:
+    """
+    Generate a 250-word price commentary section: estimate vs hammer, what the gap signals,
+    market context for this artist.
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    prompt = f"""You write art market analysis for The Hammer Price, a Substack for informed collectors. Voice: editorial, precise, no hype. Like a sharp auction house specialist talking off the record.
+
+Auction result:
+{_lot_context(lot)}
+
+Write the PRICE COMMENTARY section (~250 words). Cover:
+1. The estimate vs the hammer — what the specialists thought going in, and what the room decided.
+2. What the percentage gap means in this market context — is this surprising? Routine? Historically significant?
+3. What drives collectors to push past estimate for this kind of work — demand signal, scarcity, timing?
+4. End with one sentence that frames what this result reveals about where the market is right now.
+
+Rules:
+- Prose paragraphs only — no bullet points, no headers within the section.
+- Specific and data-grounded — reference the actual numbers.
+- No fluff adjectives ("stunning", "remarkable"). Say what things mean, not how impressive they are.
+- Write in present tense where appropriate.
+
+Reply with only the section text."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=600)
+    return raw.strip() if raw else None
+
+
+def generate_substack_work_analysis(lot: dict) -> str | None:
+    """
+    Generate a 200-word analysis of the specific artwork — medium, period, visual/conceptual
+    significance, why this piece rather than another by the same hand.
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    prompt = f"""You write art market analysis for The Hammer Price, a Substack for informed collectors. Voice: editorial, precise, knowledgeable.
+
+Auction result:
+{_lot_context(lot)}
+
+Write THE WORK section (~200 words). Cover:
+1. What this specific piece is — medium, likely period or date range, scale if known, subject or visual character.
+2. What distinguishes it within this artist's output — is this a signature subject? An atypical experiment? A peak-period work?
+3. Any provenance or exhibition context if known — if you don't know specifics, note what collectors typically look for in a work like this.
+4. Why the room wanted this piece in particular — not just the artist, but this object.
+
+Rules:
+- Prose paragraphs only.
+- Be specific about the work, not generic about the artist.
+- If you're uncertain about a detail, reason from what's probable — don't invent provenance dates or exhibition names.
+
+Reply with only the section text."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=500)
+    return raw.strip() if raw else None
+
+
+def generate_substack_art_history(lot: dict) -> str | None:
+    """
+    Generate a 280-word art history analysis: artist biography, movement, market trajectory,
+    why this result matters in the arc of their career and market.
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    prompt = f"""You write art history and market analysis for The Hammer Price, a Substack for informed collectors. Voice: authoritative, specific, not academic.
+
+Auction result:
+{_lot_context(lot)}
+
+Write THE ARTIST section (~280 words). Cover:
+1. Who this artist is — nationality, birth/death years if known, training, major periods of activity.
+2. The movement or school they belong to — be specific (not just "modern art"). Name influences, contemporaries, the critical context they emerged from.
+3. How their auction market has behaved over time — when did they peak? Any periods of critical or commercial revival? Where do they sit in the market hierarchy today?
+4. What this result means in the arc of their auction history — is this a new high, a confirmation of a trend, a correction?
+
+Rules:
+- Prose paragraphs only — no bullet points.
+- Name specific movements, decades, critics, or contemporaries where relevant.
+- If you're uncertain about a specific date or fact, write what is probable and well-supported.
+- Don't pad. Every sentence should add information.
+
+Reply with only the section text."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=700)
+    return raw.strip() if raw else None
+
+
+def generate_substack_post(lot: dict) -> dict | None:
+    """
+    Generate all sections of a Substack post for a single auction lot.
+    Returns a dict with keys: title, subtitle, price_commentary, work_analysis, art_history.
+    Returns None if the API is unavailable.
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    title_raw        = generate_substack_title(lot)
+    price_commentary = generate_substack_price_commentary(lot)
+    work_analysis    = generate_substack_work_analysis(lot)
+    art_history      = generate_substack_art_history(lot)
+
+    if not any([title_raw, price_commentary, work_analysis, art_history]):
+        return None
+
+    title    = ""
+    subtitle = ""
+    if title_raw:
+        for line in title_raw.splitlines():
+            if line.upper().startswith("TITLE:"):
+                title = line.split(":", 1)[1].strip()
+            elif line.upper().startswith("SUBTITLE:"):
+                subtitle = line.split(":", 1)[1].strip()
+
+    def _clean(text: str | None) -> str:
+        """Strip any section heading the model echoed back (e.g. '# THE WORK')."""
+        if not text:
+            return ""
+        return re.sub(r"^\s*#+\s+[A-Z][A-Z\s]+\n+", "", text).strip()
+
+    return {
+        "title":             title,
+        "subtitle":          subtitle,
+        "price_commentary":  _clean(price_commentary),
+        "work_analysis":     _clean(work_analysis),
+        "art_history":       _clean(art_history),
+    }
+
+
 # ── Text-to-speech ─────────────────────────────────────────────────────────────
 
 ELEVENLABS_KEY     = os.getenv("ELEVENLABS_API_KEY")

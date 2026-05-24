@@ -1,0 +1,42 @@
+name: Substack Post — The Hammer Price
+
+# Manual trigger for any lot outside the weekly reel cycle.
+# The weekly-reel workflow auto-generates a draft for each reel it produces.
+on:
+  workflow_dispatch:
+    inputs:
+      lot_id:
+        description: "Lot ID from art.db (run: python scripts/substack_post.py --list)"
+        required: true
+
+jobs:
+  substack:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install httpx python-dotenv
+
+      - name: Generate Substack draft
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL:   ${{ secrets.OPENROUTER_MODEL }}
+        run: python -u scripts/substack_post.py --lot-id "${{ inputs.lot_id }}"
+
+      - name: Commit draft
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/substack/
+          git diff --cached --quiet || git commit -m "feat(substack): draft post for lot ${{ inputs.lot_id }} [skip ci]"
+          git push
