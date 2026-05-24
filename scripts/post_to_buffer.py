@@ -192,7 +192,7 @@ def _post_to_buffer(
             "channelId":      channel_id,
             "text":           text,
             "assets":         [{"video": {"url": video_url}}],
-            "schedulingType": "direct",
+            "schedulingType": "free",
             "metadata":       metadata,
         }
     }
