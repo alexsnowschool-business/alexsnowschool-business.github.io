@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 728,
-    "total_artists": 403,
-    "median_hammer_usd": 252000,
-    "pct_above_estimate": 50.6,
+    "total_lots": 978,
+    "total_artists": 524,
+    "median_hammer_usd": 280000,
+    "pct_above_estimate": 47.2,
     "max_ratio": 14.7,
     "sources": [
       "Artprice",
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-05-22"
+    "generated_at": "2026-05-24"
   },
   "artists": [
     {
@@ -78,6 +78,60 @@
       }
     },
     {
+      "norm_name": "PABLO PICASSO",
+      "display_name": "Pablo Picasso",
+      "dates": "1881–1973",
+      "nationality": "Spanish",
+      "movement": "Cubism · Modernism",
+      "movement_id": "cubism",
+      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
+      "famous_works": [
+        {
+          "title": "Les Demoiselles d'Avignon",
+          "year": "1907",
+          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
+        },
+        {
+          "title": "Guernica",
+          "year": "1937",
+          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
+        },
+        {
+          "title": "Girl Before a Mirror",
+          "year": "1932",
+          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "La Vie",
+          "year": "1903",
+          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
+        },
+        {
+          "title": "Seated Woman with Wrists Crossed (Françoise)",
+          "year": "1953",
+          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
+        }
+      ],
+      "dataset": {
+        "lot_count": 11,
+        "total_usd": 25446022,
+        "avg_usd": 2313275,
+        "total_label": "$25.45M",
+        "avg_label": "$2.31M",
+        "top_lot": {
+          "title": "Homme assis",
+          "hammer_usd": 12800000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Danseuse",
+          "ratio": 2.51
+        }
+      }
+    },
+    {
       "norm_name": "JEAN-MICHEL BASQUIAT",
       "display_name": "Jean-Michel Basquiat",
       "dates": "1960–1988",
@@ -133,6 +187,65 @@
         "top_ratio_lot": {
           "title": "Untitled (Cartoon Dog)",
           "ratio": 1.35
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXANDER CALDER",
+      "display_name": "Alexander Calder",
+      "dates": "1898–1976",
+      "nationality": "American",
+      "movement": "Modernism · Kinetic Sculpture",
+      "movement_id": "modernism",
+      "bio": "Born into a family of sculptors — his father Alexander Stirling Calder and grandfather Alexander Milne Calder were both prominent — he trained as a mechanical engineer before studying at the Art Students League, New York. In Paris in the late 1920s he constructed his Cirque Calder, a miniature performance of wire figures, to which Mondrian, Léger, and Miró came. A visit to Mondrian's studio in 1930 — the primary colours, the rectangles — was, he said, the turning point. He began making kinetic sculptures driven by motors, then discovered that air itself could provide the motive force: the mobile was born. Duchamp named the moving works; Arp named the static ones 'stabiles.' He worked at every scale from jewellery to monumental public commissions (La Grande Vitesse, Grand Rapids, 1969). The wit and formal clarity of the basic vocabulary — coloured steel elements in balance — never failed him.",
+      "famous_works": [
+        {
+          "title": "Lobster Trap and Fish Tail",
+          "year": "1939",
+          "notes": "The first large mobile commissioned specifically for a museum space (MoMA). Steel wire and metal sheets in biomorphic shapes that move continuously."
+        },
+        {
+          "title": "Big Red",
+          "year": "1959",
+          "notes": "A stabile-mobile in red — Calder's most iconic colour. Demonstrates the synthesis of stability and motion that defines the mature work."
+        },
+        {
+          "title": "La Grande Vitesse",
+          "year": "1969",
+          "notes": "The first public art work commissioned under the US National Endowment for the Arts. Forty-three tons of red-painted steel in Grand Rapids, Michigan — the city adopted it as a symbol."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Calder's Circus",
+          "year": "1926–31",
+          "notes": "The miniature performance work in wire, cork, and found objects. Not quite sculpture, not quite theatre — a proto-performance-art object that Calder performed himself."
+        },
+        {
+          "title": "Fish",
+          "year": "1944",
+          "notes": "A small mobile in which the fish-like biomorphic elements seem genuinely aquatic. One of the most graceful domestic-scale works in the Calder catalogue."
+        },
+        {
+          "title": "The Brass Family",
+          "year": "1929",
+          "notes": "A wire sculpture depicting an acrobatic family — precursor to the mobiles in its demonstration of balance, tension, and form made from line alone."
+        }
+      ],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 18160000,
+        "avg_usd": 1513333,
+        "total_label": "$18.16M",
+        "avg_label": "$1.51M",
+        "top_lot": {
+          "title": "Four Big Dots",
+          "hammer_usd": 7000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "The Pub",
+          "ratio": 2.52
         }
       }
     },
@@ -570,65 +683,6 @@
       }
     },
     {
-      "norm_name": "ALEXANDER CALDER",
-      "display_name": "Alexander Calder",
-      "dates": "1898–1976",
-      "nationality": "American",
-      "movement": "Modernism · Kinetic Sculpture",
-      "movement_id": "modernism",
-      "bio": "Born into a family of sculptors — his father Alexander Stirling Calder and grandfather Alexander Milne Calder were both prominent — he trained as a mechanical engineer before studying at the Art Students League, New York. In Paris in the late 1920s he constructed his Cirque Calder, a miniature performance of wire figures, to which Mondrian, Léger, and Miró came. A visit to Mondrian's studio in 1930 — the primary colours, the rectangles — was, he said, the turning point. He began making kinetic sculptures driven by motors, then discovered that air itself could provide the motive force: the mobile was born. Duchamp named the moving works; Arp named the static ones 'stabiles.' He worked at every scale from jewellery to monumental public commissions (La Grande Vitesse, Grand Rapids, 1969). The wit and formal clarity of the basic vocabulary — coloured steel elements in balance — never failed him.",
-      "famous_works": [
-        {
-          "title": "Lobster Trap and Fish Tail",
-          "year": "1939",
-          "notes": "The first large mobile commissioned specifically for a museum space (MoMA). Steel wire and metal sheets in biomorphic shapes that move continuously."
-        },
-        {
-          "title": "Big Red",
-          "year": "1959",
-          "notes": "A stabile-mobile in red — Calder's most iconic colour. Demonstrates the synthesis of stability and motion that defines the mature work."
-        },
-        {
-          "title": "La Grande Vitesse",
-          "year": "1969",
-          "notes": "The first public art work commissioned under the US National Endowment for the Arts. Forty-three tons of red-painted steel in Grand Rapids, Michigan — the city adopted it as a symbol."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Calder's Circus",
-          "year": "1926–31",
-          "notes": "The miniature performance work in wire, cork, and found objects. Not quite sculpture, not quite theatre — a proto-performance-art object that Calder performed himself."
-        },
-        {
-          "title": "Fish",
-          "year": "1944",
-          "notes": "A small mobile in which the fish-like biomorphic elements seem genuinely aquatic. One of the most graceful domestic-scale works in the Calder catalogue."
-        },
-        {
-          "title": "The Brass Family",
-          "year": "1929",
-          "notes": "A wire sculpture depicting an acrobatic family — precursor to the mobiles in its demonstration of balance, tension, and form made from line alone."
-        }
-      ],
-      "dataset": {
-        "lot_count": 10,
-        "total_usd": 6510000,
-        "avg_usd": 651000,
-        "total_label": "$6.51M",
-        "avg_label": "$651k",
-        "top_lot": {
-          "title": "20 White in 20 Inches",
-          "hammer_usd": 2000000,
-          "sale_name": "Contemporary Day Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "The Pub",
-          "ratio": 2.52
-        }
-      }
-    },
-    {
       "norm_name": "ANDY WARHOL",
       "display_name": "Andy Warhol",
       "dates": "1928–1987",
@@ -671,7 +725,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 9,
+        "lot_count": 15,
         "total_usd": 6455700,
         "avg_usd": 806962,
         "total_label": "$6.46M",
@@ -801,6 +855,65 @@
       }
     },
     {
+      "norm_name": "MARC CHAGALL",
+      "display_name": "Marc Chagall",
+      "dates": "1887–1985",
+      "nationality": "Belarusian-French",
+      "movement": "Modernism · Jewish Folk Tradition",
+      "movement_id": "modernism",
+      "bio": "Born Moishe Shagal in Vitebsk, Belarus, to a Hasidic Jewish family, Chagall absorbed Cubism's spatial fragmentation in Paris (1910–14) while keeping the visual culture of his hometown — floating figures, green-faced fiddlers, lovers suspended above rooftops — as his permanent subject matter. He returned to Russia after WWI, directed the Vitebsk Art School, then fled the Bolshevik purges for Berlin and Paris. The Nazi invasion of France sent him to the United States (1941–48), where he designed sets and costumes for Stravinsky's Firebird. His late Provence years produced the biblical works (the 17 paintings now in the Nice Biblical Message Museum), Paris Opera ceiling (1964), and stained glass commissions for the Hadassah Hospital, Jerusalem and the UN building, New York. His late work shows consistent aesthetic decline but unfailing market strength: the iconic vocabulary — green donkeys, flying couples, Vitebsk rooftops — maintains collector demand regardless of quality.",
+      "famous_works": [
+        {
+          "title": "I and the Village",
+          "year": "1911",
+          "notes": "The great synthesis of Cubist structure and Eastern European folk imagery. A goat and a man face each other across a circular composition containing the memory of Vitebsk."
+        },
+        {
+          "title": "The Birthday",
+          "year": "1915",
+          "notes": "Bella Rosenfeld (his future wife) floats above the floor bearing flowers. The levitation of joy — Chagall's most characteristic formal metaphor — rendered with intimate directness."
+        },
+        {
+          "title": "White Crucifixion",
+          "year": "1938",
+          "notes": "Christ on the cross surrounded by scenes of Nazi persecution. The most politically direct of all Chagall's works and one of the few in which the floating figures serve an explicitly critical function."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Cattle Dealer",
+          "year": "1912",
+          "notes": "A more grounded work than the famous levitating canvases — figures and animals depicted with Fauvist flatness against a winter landscape. Less reproduced but structurally important."
+        },
+        {
+          "title": "Solitude",
+          "year": "1933",
+          "notes": "A rabbi and a cow on a dark ground. Made in the year of Hitler's appointment as Chancellor — the mood is premonitory and the imagery stripped back to essentials."
+        },
+        {
+          "title": "The Tribe of Levi (Hadassah Window)",
+          "year": "1962",
+          "notes": "One of the twelve stained glass windows for the Hadassah Hebrew University Medical Center. The medium (stained glass) suits Chagall's colour sensibility better than oil on canvas."
+        }
+      ],
+      "dataset": {
+        "lot_count": 19,
+        "total_usd": 4992278,
+        "avg_usd": 262751,
+        "total_label": "$4.99M",
+        "avg_label": "$263k",
+        "top_lot": {
+          "title": "Le Baou de Saint-Jeannet",
+          "hammer_usd": 1800000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Panier de fruits ou Le panier de fleurs",
+          "ratio": 10.4
+        }
+      }
+    },
+    {
       "norm_name": "SIGMAR POLKE",
       "display_name": "Sigmar Polke",
       "dates": "1941–2010",
@@ -851,6 +964,65 @@
         "top_ratio_lot": {
           "title": "Alpenveilchen",
           "ratio": 0.8
+        }
+      }
+    },
+    {
+      "norm_name": "WILLEM DE KOONING",
+      "display_name": "Willem de Kooning",
+      "dates": "1904–1997",
+      "nationality": "Dutch-American",
+      "movement": "Abstract Expressionism · Women Series",
+      "movement_id": "abstract-expressionism",
+      "bio": "Born in Rotterdam, de Kooning trained at the Rotterdam Academy of Fine Arts in the classical European tradition — life drawing, typography, commercial design — before stowing away to the United States in 1926. He worked as a house painter and commercial illustrator while developing his fine art practice in New York. His mature work holds representation and abstraction in perpetual, violent tension: the Women series (1950–53) generated enormous controversy — the aggressively distorted female figures seemed a rejection of both AbEx's non-figurative orthodoxy and conventional beauty. He continued oscillating between abstraction and figuration for decades. He moved to East Hampton in 1963, building a studio where the scale and physicality of his work expanded. Alzheimer's disease developed in his late career; the late ribbons of flowing colour are simpler than earlier work, and their status — made under diminished capacity — remains contested. He worked until 1990.",
+      "famous_works": [
+        {
+          "title": "Woman I",
+          "year": "1950–52",
+          "notes": "Worked on and nearly destroyed multiple times over two years. The most contested American painting of the 1950s — abstract painting's refusal to accommodate the figure, or the figure's refusal to be refused."
+        },
+        {
+          "title": "Excavation",
+          "year": "1950",
+          "notes": "A large vertical canvas of interlocking flesh-coloured forms that contain partial figurative references. Won first prize at the Art Institute of Chicago's 61st American Exhibition."
+        },
+        {
+          "title": "Gotham News",
+          "year": "1955",
+          "notes": "A large abstract work in which newsprint is embedded in the paint surface. The city as gesture, the newspaper as texture."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Pink Angels",
+          "year": "1945",
+          "notes": "A biomorphic work of the pre-Women period — flesh-coloured forms arranged with Surrealist automatism. The figuration is there but not yet confrontational."
+        },
+        {
+          "title": "Saturday Night",
+          "year": "1956",
+          "notes": "A large-scale abstract work in which the energy of the Women series is channelled into pure painterly incident. Less dramatic than the Women paintings but more formally assured."
+        },
+        {
+          "title": "Door to the River",
+          "year": "1960",
+          "notes": "The slap-and-drag technique at its most spatial — the mark simultaneously depicts and is the gate. The landscape is suggested through the quality of the gesture alone."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 4658000,
+        "avg_usd": 1552667,
+        "total_label": "$4.66M",
+        "avg_label": "$1.55M",
+        "top_lot": {
+          "title": "Two Figures in Dunes",
+          "hammer_usd": 2700000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Paging Women",
+          "ratio": 1.58
         }
       }
     },
@@ -914,6 +1086,119 @@
       }
     },
     {
+      "norm_name": "JEAN DUBUFFET",
+      "display_name": "Jean Dubuffet",
+      "dates": "1901–1985",
+      "nationality": "French",
+      "movement": "Art Brut · Contemporary",
+      "movement_id": "contemporary",
+      "bio": "Jean Dubuffet was born in Le Havre in 1901 and arrived in Paris in 1918, entering the Académie Julian but quickly abandoning formal art education. He spent years working in his family's wine business before committing fully to painting in his forties — a late start that paradoxically gave his practice an independence from contemporary fashions that those trained in art schools often lack. He became the most radical primitivist in twentieth-century art and the theorist and collector of Art Brut.\n\nDubuffet's work, beginning in the mid-1940s, deliberately sought to escape the refinements of Western high culture by working with crude materials — gravel, sand, coal dust, tar — and by developing a drawing style that mimicked the untrained mark-making of children, the mentally ill, and outsider creators. He coined the term 'Art Brut' (raw art) for work made outside cultural conventions, amassing a collection of several thousand works that is now housed at the Collection de l'Art Brut in Lausanne.\n\nDubuffet's own painting moved through numerous phases: the Hautes Pâtes (thick paste) works, the Hourloupe cycle of the 1960s–70s (red, blue, white, and black puzzle-like forms derived from telephone doodles), and late large-scale theatre and sculpture projects. He remains among the most consequential and provocative artists of the post-war period, and his influence on subsequent generations of artists interested in the primitive, the outsider, and the anti-aesthetic is profound.",
+      "famous_works": [
+        {
+          "title": "Corps de Dame",
+          "year": "1950",
+          "notes": "A series of paintings of the female body in which the figure is rendered in thick, crude paste with a deliberate anti-aesthetic brutality that attacks conventional beauty standards."
+        },
+        {
+          "title": "The Busy Life",
+          "year": "1953",
+          "notes": "A dense, primitive urban scene in which Paris pedestrian life is depicted in the flat, graffiti-like manner Dubuffet developed from children's drawing and urban wall art."
+        },
+        {
+          "title": "Pissing Figure (Hourloupe)",
+          "year": "1972",
+          "notes": "A large Hourloupe-cycle painting in which the red, blue, and white puzzle-forms create a complex figure within a visual system that denies both illusion and conventional form."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Minuit Hurlant (Howling Midnight)",
+          "year": "1944",
+          "notes": "An early work demonstrating Dubuffet's initial move toward primitive figuration before the development of the dense material surfaces of his mature Hautes Pâtes period."
+        },
+        {
+          "title": "Coucou Bazar",
+          "year": "1973",
+          "notes": "A theatrical event involving performers in Hourloupe-costumed interaction with Hourloupe stage elements, extending the visual system into time and performance."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 3709000,
+        "avg_usd": 741800,
+        "total_label": "$3.71M",
+        "avg_label": "$742k",
+        "top_lot": {
+          "title": "L'Après-midi chômé",
+          "hammer_usd": 1950000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Robinet",
+          "ratio": 7.5
+        }
+      }
+    },
+    {
+      "norm_name": "HENRI MATISSE",
+      "display_name": "Henri Matisse",
+      "dates": "1869–1954",
+      "nationality": "French",
+      "movement": "Fauvism · Modernism · Decoration",
+      "movement_id": "modernism",
+      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
+      "famous_works": [
+        {
+          "title": "La Joie de vivre",
+          "year": "1906",
+          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
+        },
+        {
+          "title": "Dance (II)",
+          "year": "1910",
+          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
+        },
+        {
+          "title": "The Swimming Pool",
+          "year": "1952",
+          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Moroccans",
+          "year": "1915–16",
+          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
+        },
+        {
+          "title": "Piano Lesson",
+          "year": "1916",
+          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
+        },
+        {
+          "title": "Bathers by a River",
+          "year": "1909–16",
+          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
+        }
+      ],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 3335320,
+        "avg_usd": 476474,
+        "total_label": "$3.34M",
+        "avg_label": "$476k",
+        "top_lot": {
+          "title": "Le Bouquet d'anémones",
+          "hammer_usd": 1300000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Fille assise à table",
+          "ratio": 2.52
+        }
+      }
+    },
+    {
       "norm_name": "AGNES MARTIN",
       "display_name": "Agnes Martin",
       "dates": "1912–2004",
@@ -969,65 +1254,6 @@
         "top_ratio_lot": {
           "title": "Untitled #2",
           "ratio": 1.01
-        }
-      }
-    },
-    {
-      "norm_name": "MARC CHAGALL",
-      "display_name": "Marc Chagall",
-      "dates": "1887–1985",
-      "nationality": "Belarusian-French",
-      "movement": "Modernism · Jewish Folk Tradition",
-      "movement_id": "modernism",
-      "bio": "Born Moishe Shagal in Vitebsk, Belarus, to a Hasidic Jewish family, Chagall absorbed Cubism's spatial fragmentation in Paris (1910–14) while keeping the visual culture of his hometown — floating figures, green-faced fiddlers, lovers suspended above rooftops — as his permanent subject matter. He returned to Russia after WWI, directed the Vitebsk Art School, then fled the Bolshevik purges for Berlin and Paris. The Nazi invasion of France sent him to the United States (1941–48), where he designed sets and costumes for Stravinsky's Firebird. His late Provence years produced the biblical works (the 17 paintings now in the Nice Biblical Message Museum), Paris Opera ceiling (1964), and stained glass commissions for the Hadassah Hospital, Jerusalem and the UN building, New York. His late work shows consistent aesthetic decline but unfailing market strength: the iconic vocabulary — green donkeys, flying couples, Vitebsk rooftops — maintains collector demand regardless of quality.",
-      "famous_works": [
-        {
-          "title": "I and the Village",
-          "year": "1911",
-          "notes": "The great synthesis of Cubist structure and Eastern European folk imagery. A goat and a man face each other across a circular composition containing the memory of Vitebsk."
-        },
-        {
-          "title": "The Birthday",
-          "year": "1915",
-          "notes": "Bella Rosenfeld (his future wife) floats above the floor bearing flowers. The levitation of joy — Chagall's most characteristic formal metaphor — rendered with intimate directness."
-        },
-        {
-          "title": "White Crucifixion",
-          "year": "1938",
-          "notes": "Christ on the cross surrounded by scenes of Nazi persecution. The most politically direct of all Chagall's works and one of the few in which the floating figures serve an explicitly critical function."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Cattle Dealer",
-          "year": "1912",
-          "notes": "A more grounded work than the famous levitating canvases — figures and animals depicted with Fauvist flatness against a winter landscape. Less reproduced but structurally important."
-        },
-        {
-          "title": "Solitude",
-          "year": "1933",
-          "notes": "A rabbi and a cow on a dark ground. Made in the year of Hitler's appointment as Chancellor — the mood is premonitory and the imagery stripped back to essentials."
-        },
-        {
-          "title": "The Tribe of Levi (Hadassah Window)",
-          "year": "1962",
-          "notes": "One of the twelve stained glass windows for the Hadassah Hebrew University Medical Center. The medium (stained glass) suits Chagall's colour sensibility better than oil on canvas."
-        }
-      ],
-      "dataset": {
-        "lot_count": 18,
-        "total_usd": 3192278,
-        "avg_usd": 177349,
-        "total_label": "$3.19M",
-        "avg_label": "$177k",
-        "top_lot": {
-          "title": "Fleurs et fruits",
-          "hammer_usd": 928116,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Panier de fruits ou Le panier de fleurs",
-          "ratio": 10.4
         }
       }
     },
@@ -1141,60 +1367,6 @@
         "top_ratio_lot": {
           "title": "The Scholar",
           "ratio": 2.3
-        }
-      }
-    },
-    {
-      "norm_name": "PABLO PICASSO",
-      "display_name": "Pablo Picasso",
-      "dates": "1881–1973",
-      "nationality": "Spanish",
-      "movement": "Cubism · Modernism",
-      "movement_id": "cubism",
-      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
-      "famous_works": [
-        {
-          "title": "Les Demoiselles d'Avignon",
-          "year": "1907",
-          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
-        },
-        {
-          "title": "Guernica",
-          "year": "1937",
-          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
-        },
-        {
-          "title": "Girl Before a Mirror",
-          "year": "1932",
-          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "La Vie",
-          "year": "1903",
-          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
-        },
-        {
-          "title": "Seated Woman with Wrists Crossed (Françoise)",
-          "year": "1953",
-          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 2946022,
-        "avg_usd": 589204,
-        "total_label": "$2.95M",
-        "avg_label": "$589k",
-        "top_lot": {
-          "title": "Buste d’homme barbu",
-          "hammer_usd": 1900000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Danseuse",
-          "ratio": 2.51
         }
       }
     },
@@ -1641,65 +1813,6 @@
       }
     },
     {
-      "norm_name": "HENRI MATISSE",
-      "display_name": "Henri Matisse",
-      "dates": "1869–1954",
-      "nationality": "French",
-      "movement": "Fauvism · Modernism · Decoration",
-      "movement_id": "modernism",
-      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
-      "famous_works": [
-        {
-          "title": "La Joie de vivre",
-          "year": "1906",
-          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
-        },
-        {
-          "title": "Dance (II)",
-          "year": "1910",
-          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
-        },
-        {
-          "title": "The Swimming Pool",
-          "year": "1952",
-          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Moroccans",
-          "year": "1915–16",
-          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
-        },
-        {
-          "title": "Piano Lesson",
-          "year": "1916",
-          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
-        },
-        {
-          "title": "Bathers by a River",
-          "year": "1909–16",
-          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 2035320,
-        "avg_usd": 339220,
-        "total_label": "$2.04M",
-        "avg_label": "$339k",
-        "top_lot": {
-          "title": "Nu allongé",
-          "hammer_usd": 756000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Fille assise à table",
-          "ratio": 2.52
-        }
-      }
-    },
-    {
       "norm_name": "ALEX KATZ",
       "display_name": "Alex Katz",
       "dates": "b. 1927",
@@ -1750,65 +1863,6 @@
         "top_ratio_lot": {
           "title": "Study for Twilight",
           "ratio": 2.02
-        }
-      }
-    },
-    {
-      "norm_name": "WILLEM DE KOONING",
-      "display_name": "Willem de Kooning",
-      "dates": "1904–1997",
-      "nationality": "Dutch-American",
-      "movement": "Abstract Expressionism · Women Series",
-      "movement_id": "abstract-expressionism",
-      "bio": "Born in Rotterdam, de Kooning trained at the Rotterdam Academy of Fine Arts in the classical European tradition — life drawing, typography, commercial design — before stowing away to the United States in 1926. He worked as a house painter and commercial illustrator while developing his fine art practice in New York. His mature work holds representation and abstraction in perpetual, violent tension: the Women series (1950–53) generated enormous controversy — the aggressively distorted female figures seemed a rejection of both AbEx's non-figurative orthodoxy and conventional beauty. He continued oscillating between abstraction and figuration for decades. He moved to East Hampton in 1963, building a studio where the scale and physicality of his work expanded. Alzheimer's disease developed in his late career; the late ribbons of flowing colour are simpler than earlier work, and their status — made under diminished capacity — remains contested. He worked until 1990.",
-      "famous_works": [
-        {
-          "title": "Woman I",
-          "year": "1950–52",
-          "notes": "Worked on and nearly destroyed multiple times over two years. The most contested American painting of the 1950s — abstract painting's refusal to accommodate the figure, or the figure's refusal to be refused."
-        },
-        {
-          "title": "Excavation",
-          "year": "1950",
-          "notes": "A large vertical canvas of interlocking flesh-coloured forms that contain partial figurative references. Won first prize at the Art Institute of Chicago's 61st American Exhibition."
-        },
-        {
-          "title": "Gotham News",
-          "year": "1955",
-          "notes": "A large abstract work in which newsprint is embedded in the paint surface. The city as gesture, the newspaper as texture."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Pink Angels",
-          "year": "1945",
-          "notes": "A biomorphic work of the pre-Women period — flesh-coloured forms arranged with Surrealist automatism. The figuration is there but not yet confrontational."
-        },
-        {
-          "title": "Saturday Night",
-          "year": "1956",
-          "notes": "A large-scale abstract work in which the energy of the Women series is channelled into pure painterly incident. Less dramatic than the Women paintings but more formally assured."
-        },
-        {
-          "title": "Door to the River",
-          "year": "1960",
-          "notes": "The slap-and-drag technique at its most spatial — the mark simultaneously depicts and is the gate. The landscape is suggested through the quality of the gesture alone."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 1958000,
-        "avg_usd": 979000,
-        "total_label": "$1.96M",
-        "avg_label": "$979k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 1008000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Paging Women",
-          "ratio": 1.58
         }
       }
     },
@@ -2034,60 +2088,6 @@
       }
     },
     {
-      "norm_name": "JEAN DUBUFFET",
-      "display_name": "Jean Dubuffet",
-      "dates": "1901–1985",
-      "nationality": "French",
-      "movement": "Art Brut · Contemporary",
-      "movement_id": "contemporary",
-      "bio": "Jean Dubuffet was born in Le Havre in 1901 and arrived in Paris in 1918, entering the Académie Julian but quickly abandoning formal art education. He spent years working in his family's wine business before committing fully to painting in his forties — a late start that paradoxically gave his practice an independence from contemporary fashions that those trained in art schools often lack. He became the most radical primitivist in twentieth-century art and the theorist and collector of Art Brut.\n\nDubuffet's work, beginning in the mid-1940s, deliberately sought to escape the refinements of Western high culture by working with crude materials — gravel, sand, coal dust, tar — and by developing a drawing style that mimicked the untrained mark-making of children, the mentally ill, and outsider creators. He coined the term 'Art Brut' (raw art) for work made outside cultural conventions, amassing a collection of several thousand works that is now housed at the Collection de l'Art Brut in Lausanne.\n\nDubuffet's own painting moved through numerous phases: the Hautes Pâtes (thick paste) works, the Hourloupe cycle of the 1960s–70s (red, blue, white, and black puzzle-like forms derived from telephone doodles), and late large-scale theatre and sculpture projects. He remains among the most consequential and provocative artists of the post-war period, and his influence on subsequent generations of artists interested in the primitive, the outsider, and the anti-aesthetic is profound.",
-      "famous_works": [
-        {
-          "title": "Corps de Dame",
-          "year": "1950",
-          "notes": "A series of paintings of the female body in which the figure is rendered in thick, crude paste with a deliberate anti-aesthetic brutality that attacks conventional beauty standards."
-        },
-        {
-          "title": "The Busy Life",
-          "year": "1953",
-          "notes": "A dense, primitive urban scene in which Paris pedestrian life is depicted in the flat, graffiti-like manner Dubuffet developed from children's drawing and urban wall art."
-        },
-        {
-          "title": "Pissing Figure (Hourloupe)",
-          "year": "1972",
-          "notes": "A large Hourloupe-cycle painting in which the red, blue, and white puzzle-forms create a complex figure within a visual system that denies both illusion and conventional form."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Minuit Hurlant (Howling Midnight)",
-          "year": "1944",
-          "notes": "An early work demonstrating Dubuffet's initial move toward primitive figuration before the development of the dense material surfaces of his mature Hautes Pâtes period."
-        },
-        {
-          "title": "Coucou Bazar",
-          "year": "1973",
-          "notes": "A theatrical event involving performers in Hourloupe-costumed interaction with Hourloupe stage elements, extending the visual system into time and performance."
-        }
-      ],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 1759000,
-        "avg_usd": 439750,
-        "total_label": "$1.76M",
-        "avg_label": "$440k",
-        "top_lot": {
-          "title": "Tour",
-          "hammer_usd": 900000,
-          "sale_name": "Contemporary Day Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Robinet",
-          "ratio": 7.5
-        }
-      }
-    },
-    {
       "norm_name": "ERNST LUDWIG KIRCHNER",
       "display_name": "Ernst Ludwig Kirchner",
       "dates": "1880–1938",
@@ -2143,6 +2143,65 @@
         "top_ratio_lot": {
           "title": "Sonnentänzerin",
           "ratio": 1.53
+        }
+      }
+    },
+    {
+      "norm_name": "EDGAR DEGAS",
+      "display_name": "Edgar Degas",
+      "dates": "1834–1917",
+      "nationality": "French",
+      "movement": "Impressionism · Realism",
+      "movement_id": "impressionism",
+      "bio": "Born in Paris to a wealthy banking family, Degas trained at the École des Beaux-Arts and in Italy before aligning himself with the Impressionists — though he resisted the plein-air doctrine entirely. His subjects — ballet dancers, café-concert singers, jockeys, women bathing — are depicted from unexpected angles and cropped by the frame in ways derived from photography and Japanese woodblock prints. He was interested in movement and the body in action rather than in light on water. His late pastels, made as his eyesight failed, achieve an atmospheric intensity that exceeds his oil paintings. He was politically reactionary (an anti-Dreyfusard), socially reclusive, and increasingly misanthropic in old age. His sculpture, produced privately and mostly cast after his death from wax models found in his studio, anticipates 20th-century attitudes to the sculptured figure.",
+      "famous_works": [
+        {
+          "title": "The Dance Class",
+          "year": "1874",
+          "notes": "Ballet students in rehearsal, the great dancing master Jules Perrot at centre. The casual spatial organisation — figures turned away, partially visible — is the radical move. Musée d'Orsay."
+        },
+        {
+          "title": "L'Absinthe",
+          "year": "1875–76",
+          "notes": "Two figures in a café, the woman staring into nothing, the glass of absinthe before her. The image of urban solitude and alcoholic depression that the bourgeois public found offensive."
+        },
+        {
+          "title": "Little Dancer Aged Fourteen",
+          "year": "1880–81",
+          "notes": "A wax figure (cast in bronze posthumously) of a young dancer in a real tutu, real hair ribbon, real silk slippers. The inclusion of non-artistic materials scandalised the 1881 exhibition audience."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Miss La La at the Cirque Fernando",
+          "year": "1879",
+          "notes": "A Black circus performer suspended from a rope by her teeth — viewed from below at a vertiginous angle. Race, gender, spectacle, and bodily risk all present simultaneously."
+        },
+        {
+          "title": "At the Milliner's",
+          "year": "1882",
+          "notes": "Women trying on hats — Degas observed from behind and to the side, the faces averted. The shopping excursion depicted with the same formal attention as the rehearsal room."
+        },
+        {
+          "title": "Woman with Chrysanthemums",
+          "year": "1865",
+          "notes": "A woman displaced entirely to the right edge of the canvas by an enormous floral arrangement. The compositional off-centering — unprecedented at the time — makes the painting's interest formal rather than portraiture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 1647076,
+        "avg_usd": 411769,
+        "total_label": "$1.65M",
+        "avg_label": "$412k",
+        "top_lot": {
+          "title": "Danseuse, grande arabesque, deuxième temps",
+          "hammer_usd": 608076,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Danseuse, grande arabesque, deuxième temps",
+          "ratio": 1.35
         }
       }
     },
@@ -2767,65 +2826,6 @@
         "top_ratio_lot": {
           "title": "across the place",
           "ratio": 5.83
-        }
-      }
-    },
-    {
-      "norm_name": "EDGAR DEGAS",
-      "display_name": "Edgar Degas",
-      "dates": "1834–1917",
-      "nationality": "French",
-      "movement": "Impressionism · Realism",
-      "movement_id": "impressionism",
-      "bio": "Born in Paris to a wealthy banking family, Degas trained at the École des Beaux-Arts and in Italy before aligning himself with the Impressionists — though he resisted the plein-air doctrine entirely. His subjects — ballet dancers, café-concert singers, jockeys, women bathing — are depicted from unexpected angles and cropped by the frame in ways derived from photography and Japanese woodblock prints. He was interested in movement and the body in action rather than in light on water. His late pastels, made as his eyesight failed, achieve an atmospheric intensity that exceeds his oil paintings. He was politically reactionary (an anti-Dreyfusard), socially reclusive, and increasingly misanthropic in old age. His sculpture, produced privately and mostly cast after his death from wax models found in his studio, anticipates 20th-century attitudes to the sculptured figure.",
-      "famous_works": [
-        {
-          "title": "The Dance Class",
-          "year": "1874",
-          "notes": "Ballet students in rehearsal, the great dancing master Jules Perrot at centre. The casual spatial organisation — figures turned away, partially visible — is the radical move. Musée d'Orsay."
-        },
-        {
-          "title": "L'Absinthe",
-          "year": "1875–76",
-          "notes": "Two figures in a café, the woman staring into nothing, the glass of absinthe before her. The image of urban solitude and alcoholic depression that the bourgeois public found offensive."
-        },
-        {
-          "title": "Little Dancer Aged Fourteen",
-          "year": "1880–81",
-          "notes": "A wax figure (cast in bronze posthumously) of a young dancer in a real tutu, real hair ribbon, real silk slippers. The inclusion of non-artistic materials scandalised the 1881 exhibition audience."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Miss La La at the Cirque Fernando",
-          "year": "1879",
-          "notes": "A Black circus performer suspended from a rope by her teeth — viewed from below at a vertiginous angle. Race, gender, spectacle, and bodily risk all present simultaneously."
-        },
-        {
-          "title": "At the Milliner's",
-          "year": "1882",
-          "notes": "Women trying on hats — Degas observed from behind and to the side, the faces averted. The shopping excursion depicted with the same formal attention as the rehearsal room."
-        },
-        {
-          "title": "Woman with Chrysanthemums",
-          "year": "1865",
-          "notes": "A woman displaced entirely to the right edge of the canvas by an enormous floral arrangement. The compositional off-centering — unprecedented at the time — makes the painting's interest formal rather than portraiture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 1097076,
-        "avg_usd": 365692,
-        "total_label": "$1.10M",
-        "avg_label": "$366k",
-        "top_lot": {
-          "title": "Danseuse, grande arabesque, deuxième temps",
-          "hammer_usd": 608076,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Danseuse, grande arabesque, deuxième temps",
-          "ratio": 1.35
         }
       }
     },
@@ -3476,7 +3476,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 4,
         "total_usd": 762300,
         "avg_usd": 254100,
         "total_label": "$762k",
@@ -10649,7 +10649,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 5,
         "total_usd": 50400,
         "avg_usd": 50400,
         "total_label": "$50k",
@@ -12053,7 +12053,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 12600,
         "avg_usd": 12600,
         "total_label": "$13k",
@@ -12502,6 +12502,87 @@
       }
     },
     {
+      "norm_name": "GEORGIA O'KEEFFE",
+      "display_name": "Georgia O'Keeffe",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 14770000,
+        "avg_usd": 2954000,
+        "total_label": "$14.77M",
+        "avg_label": "$2.95M",
+        "top_lot": {
+          "title": "Leaves of a Plant",
+          "hammer_usd": 10850000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Yellow House",
+          "ratio": 2.33
+        }
+      }
+    },
+    {
+      "norm_name": "RENÉ MAGRITTE",
+      "display_name": "René Magritte",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 13400000,
+        "avg_usd": 3350000,
+        "total_label": "$13.40M",
+        "avg_label": "$3.35M",
+        "top_lot": {
+          "title": "La Traversée difficile",
+          "hammer_usd": 8250000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Le Calcul mental",
+          "ratio": 1.83
+        }
+      }
+    },
+    {
+      "norm_name": "FRANTIŠEK KUPKA",
+      "display_name": "František Kupka",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 9400000,
+        "avg_usd": 4700000,
+        "total_label": "$9.40M",
+        "avg_label": "$4.70M",
+        "top_lot": {
+          "title": "Flux et reflux",
+          "hammer_usd": 5000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Flux et reflux",
+          "ratio": 1.25
+        }
+      }
+    },
+    {
       "norm_name": "GERHARD RICHTER",
       "display_name": "Gerhard Richter",
       "dates": "",
@@ -12525,6 +12606,195 @@
         "top_ratio_lot": {
           "title": "Ifrit",
           "ratio": 1.71
+        }
+      }
+    },
+    {
+      "norm_name": "FRANK LLOYD WRIGHT",
+      "display_name": "Frank Lloyd Wright",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6200000,
+        "avg_usd": 6200000,
+        "total_label": "$6.20M",
+        "avg_label": "$6.20M",
+        "top_lot": {
+          "title": "An Important Double-Pedestal Lamp for the Susan Lawrence Dan",
+          "hammer_usd": 6200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "An Important Double-Pedestal Lamp for the Susan Lawrence Dan",
+          "ratio": 1.55
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL CÉZANNE",
+      "display_name": "Paul Cézanne",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6100000,
+        "avg_usd": 6100000,
+        "total_label": "$6.10M",
+        "avg_label": "$6.10M",
+        "top_lot": {
+          "title": "Portrait de Madame Cézanne",
+          "hammer_usd": 6100000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait de Madame Cézanne",
+          "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "CLAUDE MONET",
+      "display_name": "Claude Monet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6000000,
+        "avg_usd": 6000000,
+        "total_label": "$6.00M",
+        "avg_label": "$6.00M",
+        "top_lot": {
+          "title": "Église de Vernon, Soleil",
+          "hammer_usd": 6000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Église de Vernon, Soleil",
+          "ratio": 0.86
+        }
+      }
+    },
+    {
+      "norm_name": "EGON SCHIELE",
+      "display_name": "Egon Schiele",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 5840000,
+        "avg_usd": 973333,
+        "total_label": "$5.84M",
+        "avg_label": "$973k",
+        "top_lot": {
+          "title": "Männlicher Akt im Profil nach rechts (Male Nude in Profile F",
+          "hammer_usd": 2000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Gebeugter Frauenakt (Female Nude, Bending Over)",
+          "ratio": 1.28
+        }
+      }
+    },
+    {
+      "norm_name": "ALBERTO GIACOMETTI",
+      "display_name": "Alberto Giacometti",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5700000,
+        "avg_usd": 5700000,
+        "total_label": "$5.70M",
+        "avg_label": "$5.70M",
+        "top_lot": {
+          "title": "Femme debout (Poseuse I)",
+          "hammer_usd": 5700000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Femme debout (Poseuse I)",
+          "ratio": 1.14
+        }
+      }
+    },
+    {
+      "norm_name": "FERNAND LÉGER",
+      "display_name": "Fernand Léger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 4850000,
+        "avg_usd": 1616667,
+        "total_label": "$4.85M",
+        "avg_label": "$1.62M",
+        "top_lot": {
+          "title": "La Jeune fille au bouquet",
+          "hammer_usd": 3200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
+          "ratio": 1.57
+        }
+      }
+    },
+    {
+      "norm_name": "JOAN MIRÓ",
+      "display_name": "Joan Miró",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 4700000,
+        "avg_usd": 1175000,
+        "total_label": "$4.70M",
+        "avg_label": "$1.18M",
+        "top_lot": {
+          "title": "Tête",
+          "hammer_usd": 1750000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 1.55
         }
       }
     },
@@ -12556,6 +12826,114 @@
       }
     },
     {
+      "norm_name": "LYONEL FEININGER",
+      "display_name": "Lyonel Feininger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4300000,
+        "avg_usd": 4300000,
+        "total_label": "$4.30M",
+        "avg_label": "$4.30M",
+        "top_lot": {
+          "title": "Trompetenbläser I (Trumpeters I)",
+          "hammer_usd": 4300000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Trompetenbläser I (Trumpeters I)",
+          "ratio": 0.72
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN ARP",
+      "display_name": "Jean Arp",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 4250000,
+        "avg_usd": 1416667,
+        "total_label": "$4.25M",
+        "avg_label": "$1.42M",
+        "top_lot": {
+          "title": "Figure-germe dite l'après-midinette",
+          "hammer_usd": 2950000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Torse",
+          "ratio": 3.0
+        }
+      }
+    },
+    {
+      "norm_name": "LÁSZLÓ MOHOLY-NAGY",
+      "display_name": "László Moholy-Nagy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4200000,
+        "avg_usd": 4200000,
+        "total_label": "$4.20M",
+        "avg_label": "$4.20M",
+        "top_lot": {
+          "title": "Am 3",
+          "hammer_usd": 4200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Am 3",
+          "ratio": 1.05
+        }
+      }
+    },
+    {
+      "norm_name": "MARK ROTHKO",
+      "display_name": "Mark Rothko",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4200000,
+        "avg_usd": 4200000,
+        "total_label": "$4.20M",
+        "avg_label": "$4.20M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 4200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.99
+        }
+      }
+    },
+    {
       "norm_name": "EDWARD HOPPER",
       "display_name": "Edward Hopper",
       "dates": "",
@@ -12583,8 +12961,8 @@
       }
     },
     {
-      "norm_name": "JOAN MIRÓ",
-      "display_name": "Joan Miró",
+      "norm_name": "THOMAS HART BENTON",
+      "display_name": "Thomas Hart Benton",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -12593,19 +12971,46 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 1,
         "total_usd": 2200000,
-        "avg_usd": 1100000,
+        "avg_usd": 2200000,
         "total_label": "$2.20M",
-        "avg_label": "$1.10M",
+        "avg_label": "$2.20M",
         "top_lot": {
-          "title": "Sans titre",
-          "hammer_usd": 1550000,
-          "sale_name": "Modern Day Auction, NY 2026"
+          "title": "Instruction (The Bible Lesson)",
+          "hammer_usd": 2200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Sans titre",
-          "ratio": 1.55
+          "title": "Instruction (The Bible Lesson)",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "EMIL NOLDE",
+      "display_name": "Emil Nolde",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2200000,
+        "avg_usd": 2200000,
+        "total_label": "$2.20M",
+        "avg_label": "$2.20M",
+        "top_lot": {
+          "title": "Herbstmeer VII (Autumn Sea VII)",
+          "hammer_usd": 2200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Herbstmeer VII (Autumn Sea VII)",
+          "ratio": 0.73
         }
       }
     },
@@ -12637,8 +13042,8 @@
       }
     },
     {
-      "norm_name": "RENÉ MAGRITTE",
-      "display_name": "René Magritte",
+      "norm_name": "REMEDIOS VARO",
+      "display_name": "Remedios Varo",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -12647,46 +13052,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 1950000,
-        "avg_usd": 975000,
-        "total_label": "$1.95M",
-        "avg_label": "$975k",
+        "lot_count": 1,
+        "total_usd": 2000000,
+        "avg_usd": 2000000,
+        "total_label": "$2.00M",
+        "avg_label": "$2.00M",
         "top_lot": {
-          "title": "Le Compotier",
-          "hammer_usd": 1400000,
-          "sale_name": "Modern Day Auction, NY 2026"
+          "title": "Ritos extraños",
+          "hammer_usd": 2000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Le Calcul mental",
-          "ratio": 1.83
-        }
-      }
-    },
-    {
-      "norm_name": "GEORGIA O'KEEFFE",
-      "display_name": "Georgia O'Keeffe",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 1920000,
-        "avg_usd": 640000,
-        "total_label": "$1.92M",
-        "avg_label": "$640k",
-        "top_lot": {
-          "title": "Sunflower",
-          "hammer_usd": 1400000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Yellow House",
-          "ratio": 2.33
+          "title": "Ritos extraños",
+          "ratio": 0.8
         }
       }
     },
@@ -12745,8 +13123,8 @@
       }
     },
     {
-      "norm_name": "FERNAND LÉGER",
-      "display_name": "Fernand Léger",
+      "norm_name": "WASSILY KANDINSKY",
+      "display_name": "Wassily Kandinsky",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -12755,19 +13133,100 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 1650000,
-        "avg_usd": 825000,
-        "total_label": "$1.65M",
-        "avg_label": "$825k",
+        "lot_count": 1,
+        "total_usd": 1800000,
+        "avg_usd": 1800000,
+        "total_label": "$1.80M",
+        "avg_label": "$1.80M",
         "top_lot": {
-          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
-          "hammer_usd": 1100000,
-          "sale_name": "Modern Day Auction, NY 2026"
+          "title": "Anfang (Beginning)",
+          "hammer_usd": 1800000,
+          "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
-          "ratio": 1.57
+          "title": "Anfang (Beginning)",
+          "ratio": 0.72
+        }
+      }
+    },
+    {
+      "norm_name": "ROBERT DELAUNAY",
+      "display_name": "Robert Delaunay",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1700000,
+        "avg_usd": 1700000,
+        "total_label": "$1.70M",
+        "avg_label": "$1.70M",
+        "top_lot": {
+          "title": "Nature morte",
+          "hammer_usd": 1700000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Nature morte",
+          "ratio": 1.36
+        }
+      }
+    },
+    {
+      "norm_name": "LYNN CHADWICK",
+      "display_name": "Lynn Chadwick",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1700000,
+        "avg_usd": 1700000,
+        "total_label": "$1.70M",
+        "avg_label": "$1.70M",
+        "top_lot": {
+          "title": "Three Elektras",
+          "hammer_usd": 1700000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Three Elektras",
+          "ratio": 1.13
+        }
+      }
+    },
+    {
+      "norm_name": "EDVARD MUNCH",
+      "display_name": "Edvard Munch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1600000,
+        "avg_usd": 1600000,
+        "total_label": "$1.60M",
+        "avg_label": "$1.60M",
+        "top_lot": {
+          "title": "Heinrich C. Hudtwalcker",
+          "hammer_usd": 1600000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Heinrich C. Hudtwalcker",
+          "ratio": 1.6
         }
       }
     },
@@ -12799,8 +13258,8 @@
       }
     },
     {
-      "norm_name": "EGON SCHIELE",
-      "display_name": "Egon Schiele",
+      "norm_name": "FAITH RINGGOLD",
+      "display_name": "Faith Ringgold",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -12809,19 +13268,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 3,
-        "total_usd": 1390000,
-        "avg_usd": 463333,
-        "total_label": "$1.39M",
-        "avg_label": "$463k",
+        "lot_count": 2,
+        "total_usd": 1460000,
+        "avg_usd": 730000,
+        "total_label": "$1.46M",
+        "avg_label": "$730k",
         "top_lot": {
-          "title": "Sitzende, Rückenakt (Seated Nude, Back View)",
-          "hammer_usd": 850000,
-          "sale_name": "Modern Day Auction, NY 2026"
+          "title": "Dinner at Gertrude Stein's: The French Collection Part II, #",
+          "hammer_usd": 1300000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Gebeugter Frauenakt (Female Nude, Bending Over)",
-          "ratio": 1.28
+          "title": "Dinner at Gertrude Stein's: The French Collection Part II, #",
+          "ratio": 1.53
         }
       }
     },
@@ -12849,6 +13308,60 @@
         "top_ratio_lot": {
           "title": "Untitled (Cowboy)",
           "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD DIEBENKORN",
+      "display_name": "Richard Diebenkorn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1200000,
+        "avg_usd": 1200000,
+        "total_label": "$1.20M",
+        "avg_label": "$1.20M",
+        "top_lot": {
+          "title": "Berkeley #12",
+          "hammer_usd": 1200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Berkeley #12",
+          "ratio": 0.69
+        }
+      }
+    },
+    {
+      "norm_name": "DAVID HAMMONS",
+      "display_name": "David Hammons",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1200000,
+        "avg_usd": 1200000,
+        "total_label": "$1.20M",
+        "avg_label": "$1.20M",
+        "top_lot": {
+          "title": "Untitled (Body Print)",
+          "hammer_usd": 1200000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Body Print)",
+          "ratio": 0.96
         }
       }
     },
@@ -12961,8 +13474,35 @@
       }
     },
     {
-      "norm_name": "JEAN ARP",
-      "display_name": "Jean Arp",
+      "norm_name": "HENRY MOORE",
+      "display_name": "Henry Moore",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 850000,
+        "avg_usd": 425000,
+        "total_label": "$850k",
+        "avg_label": "$425k",
+        "top_lot": {
+          "title": "Mother and Child on Ladderback Chair",
+          "hammer_usd": 450000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Seated Woman on Bench",
+          "ratio": 0.89
+        }
+      }
+    },
+    {
+      "norm_name": "VINCENT VAN GOGH",
+      "display_name": "Vincent Van Gogh",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -12972,18 +13512,72 @@
       "lesser_known_works": [],
       "dataset": {
         "lot_count": 1,
-        "total_usd": 600000,
-        "avg_usd": 600000,
-        "total_label": "$600k",
-        "avg_label": "$600k",
+        "total_usd": 780000,
+        "avg_usd": 780000,
+        "total_label": "$780k",
+        "avg_label": "$780k",
         "top_lot": {
-          "title": "Torse",
-          "hammer_usd": 600000,
-          "sale_name": "Modern Day Auction, NY 2026"
+          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
+          "hammer_usd": 780000,
+          "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Torse",
-          "ratio": 3.0
+          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
+          "ratio": 1.11
+        }
+      }
+    },
+    {
+      "norm_name": "CAMILLE PISSARRO",
+      "display_name": "Camille Pissarro",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 750000,
+        "avg_usd": 750000,
+        "total_label": "$750k",
+        "avg_label": "$750k",
+        "top_lot": {
+          "title": "Cour de ferme à Eragny",
+          "hammer_usd": 750000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Cour de ferme à Eragny",
+          "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES ENSOR",
+      "display_name": "James Ensor",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 650000,
+        "avg_usd": 650000,
+        "total_label": "$650k",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": "Poissons et coquillages",
+          "hammer_usd": 650000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Poissons et coquillages",
+          "ratio": 0.76
         }
       }
     },
@@ -13038,6 +13632,33 @@
         "top_ratio_lot": {
           "title": "Meditation",
           "ratio": 1.5
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGES SEURAT",
+      "display_name": "Georges Seurat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 500000,
+        "avg_usd": 500000,
+        "total_label": "$500k",
+        "avg_label": "$500k",
+        "top_lot": {
+          "title": "Blé et arbres (Le Champ de blé) (recto); Portrait de Félix F",
+          "hammer_usd": 500000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Blé et arbres (Le Champ de blé) (recto); Portrait de Félix F",
+          "ratio": 0.83
         }
       }
     },
@@ -13605,33 +14226,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 2.29
-        }
-      }
-    },
-    {
-      "norm_name": "FAITH RINGGOLD",
-      "display_name": "Faith Ringgold",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 160000,
-        "avg_usd": 160000,
-        "total_label": "$160k",
-        "avg_label": "$160k",
-        "top_lot": {
-          "title": "Tar Beach 2",
-          "hammer_usd": 160000,
-          "sale_name": "Contemporary Day Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Tar Beach 2",
-          "ratio": 0.8
         }
       }
     },
@@ -16702,29 +17296,6 @@
       }
     },
     {
-      "norm_name": "CAMILLE PISSARRO",
-      "display_name": "Camille Pissarro",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 0,
-        "avg_usd": 0,
-        "total_label": "$0",
-        "avg_label": "$0",
-        "top_lot": {
-          "title": "Trois personnages de dos",
-          "hammer_usd": 0,
-          "sale_name": "Art Moderne 1900-1950"
-        }
-      }
-    },
-    {
       "norm_name": "HENRI BAPTISTE LEBASQUE",
       "display_name": "Henri Baptiste Lebasque",
       "dates": "",
@@ -16790,6 +17361,2306 @@
           "title": "Les tentes, Boghari (Algérie)",
           "hammer_usd": 0,
           "sale_name": "Art Moderne 1900-1950"
+        }
+      }
+    },
+    {
+      "norm_name": "ELLEN LANYON",
+      "display_name": "Ellen Lanyon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Wonder Production � Vol. 1 Title Page\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JUNE LEAF",
+      "display_name": "June Leaf",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled (State I)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PHILIP PEARLSTEIN",
+      "display_name": "Philip Pearlstein",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Male and Female Figure\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "MARTHA MAYER ERLEBACHER",
+      "display_name": "Martha Mayer Erlebacher",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Brocade\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "FATIMA RONQUILLO",
+      "display_name": "Fatima Ronquillo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"The First Jasmines � State I\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "DOTTY ATTIE",
+      "display_name": "Dotty Attie",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"The Forbidden Room\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "SYLVIA SLEIGH",
+      "display_name": "Sylvia Sleigh",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Two Views of Charlene\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ALFRED LESLIE",
+      "display_name": "Alfred Leslie",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Frank Fata\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "TRAVIS SOMERVILLE",
+      "display_name": "Travis Somerville",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Family Reunion\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PATRICK BRUCE OLIPHANT",
+      "display_name": "Patrick Bruce Oliphant",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"A Millennium Story\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "NEAL AMBROSE-SMITH",
+      "display_name": "Neal Ambrose-Smith",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Dear Homemaker\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "RANDY TWADDLE",
+      "display_name": "Randy Twaddle",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ROBERT COTTINGHAM",
+      "display_name": "Robert Cottingham",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Art\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ERICKA WALKER",
+      "display_name": "Ericka Walker",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Have You Seen Heavier Firing?\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "DARRELL WILKS",
+      "display_name": "Darrell Wilks",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"A Jagged Ride To Fame\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "HORACE CLIFFORD WESTERMANN",
+      "display_name": "Horace Clifford Westermann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled (Scarecrow and Cow)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM T. WILEY",
+      "display_name": "William T. Wiley",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Once Upon a Time When All is Flawless\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "TERRY ALLEN",
+      "display_name": "Terry Allen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Debris From the Text -G\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "NANCY DWYER",
+      "display_name": "Nancy Dwyer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Mayhem\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "KAY ROSEN",
+      "display_name": "Kay Rosen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Only the Lonely\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ALLEN RUPPERSBERG",
+      "display_name": "Allen Ruppersberg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Adults Only Please\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JIHA MOON",
+      "display_name": "Jiha Moon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Procession�You are on Your Way!\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "HANS SCHABUS",
+      "display_name": "Hans Schabus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Mobile Home\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM SCHENCK",
+      "display_name": "William Schenck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Border Patrol\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN H. FINCHER",
+      "display_name": "John H. Fincher",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Shave Brush\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM G. BECKMAN",
+      "display_name": "William G. Beckman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Self Portrait, Three-Quarter View\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "FREDDIE BAEHR",
+      "display_name": "Freddie Baehr",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Homecoming\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ERIC BULATOV",
+      "display_name": "Eric Bulatov",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"New York\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXIS SMITH",
+      "display_name": "Alexis Smith",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Montage of Disasters\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "NICKY NODJOUMI",
+      "display_name": "Nicky Nodjoumi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Language of Violence, Version 2\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "DIEGO ROMERO",
+      "display_name": "Diego Romero",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Apocalypto\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JACK TWORKOV",
+      "display_name": "Jack Tworkov",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"L.P.#3 � Q2 -75\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JULES ENGEL",
+      "display_name": "Jules Engel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled (3)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "LADDIE JOHN DILL",
+      "display_name": "Laddie John Dill",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Stage Fright\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "CHARLES ARNOLDI",
+      "display_name": "Charles Arnoldi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Arcs III (Green)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "DENISE GREEN",
+      "display_name": "Denise Green",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Olive Park\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JILL MOSER",
+      "display_name": "Jill Moser",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Mobius\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "DALE PATRICK CHIHULY",
+      "display_name": "Dale Patrick Chihuly",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled Lithograph\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN STUART GIBSON",
+      "display_name": "John Stuart Gibson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Ball\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JEANETTE PASIN SLOAN",
+      "display_name": "Jeanette Pasin Sloan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Wave Cups (State II)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "BOB L. NUGENT",
+      "display_name": "Bob L. Nugent",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Amostra 1\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "KATHRYN LYNCH",
+      "display_name": "Kathryn Lynch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Real Yellow\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "TONY NAPONIC",
+      "display_name": "Tony Naponic",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Back Up Lady\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "EMMANUEL GUIBERT",
+      "display_name": "Emmanuel Guibert",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Alan\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "LEONARD KOSCIANSKI",
+      "display_name": "Leonard Koscianski",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Pleiades\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "GREG MURDOCK",
+      "display_name": "Greg Murdock",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Silhouette\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "HEIDI HAHN",
+      "display_name": "Heidi Hahn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"I Understand Loneliness Through the Memory of My Name 1\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PEREGRINE HONIG",
+      "display_name": "Peregrine Honig",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Confederate\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "HARMONY HAMMOND",
+      "display_name": "Harmony Hammond",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Witness\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "LESLEY DILL",
+      "display_name": "Lesley Dill",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Leave Me Ecstasy\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "GHADA  AMER &AMP; REZA  FARKHONDEH",
+      "display_name": "Ghada  Amer &Amp; Reza  Farkhondeh",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"For Wonder Women\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JUDY CHICAGO",
+      "display_name": "Judy Chicago",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Signing the Dinner Party\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES DRAKE",
+      "display_name": "James Drake",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Red Hands (The Fingers Say We Love You)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "VERNON FISHER",
+      "display_name": "Vernon Fisher",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"End\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "NUSRA LATIF QURESHI",
+      "display_name": "Nusra Latif Qureshi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Three Songs of Devotion\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PETER SAUL",
+      "display_name": "Peter Saul",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JESSICA ABEL",
+      "display_name": "Jessica Abel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"The Frog Prince\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JULIA JACQUETTE",
+      "display_name": "Julia Jacquette",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Lips\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "LAURIE HOGIN",
+      "display_name": "Laurie Hogin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Posse\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "THOMAS M. UTTECH",
+      "display_name": "Thomas M. Uttech",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Kasakogwog\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ROGER BROWN",
+      "display_name": "Roger Brown",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Fear No Evil\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PHYLLIS BRAMSON",
+      "display_name": "Phyllis Bramson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Psychology of Fire, 1 (Woman)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ED PASCHKE",
+      "display_name": "Ed Paschke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Bondo\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "KARL WIRSUM",
+      "display_name": "Karl Wirsum",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Four for You and One for your Friend\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ROBERT LOSTUTTER",
+      "display_name": "Robert Lostutter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Hummingbird\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "TONY FITZPATRICK",
+      "display_name": "Tony Fitzpatrick",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Elston Ave\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN BUCK",
+      "display_name": "John Buck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Avenue of the Americas\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JOSEPH PICCILLO",
+      "display_name": "Joseph Piccillo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"EP I (H)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "T. L. SOLIEN",
+      "display_name": "T. L. Solien",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled (odd face)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JOEL-PETER WITKIN",
+      "display_name": "Joel-Peter Witkin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"La Vie\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "SERGIO SANCHEZ SANTAMARIA",
+      "display_name": "Sergio Sanchez Santamaria",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Coatl en el Cielo\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES HAVARD",
+      "display_name": "James Havard",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Religion Fighter\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PETER DEAN",
+      "display_name": "Peter Dean",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Hear No Evil\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "LEONARD BASKIN",
+      "display_name": "Leonard Baskin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Humpback\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "STEWART HITCH",
+      "display_name": "Stewart Hitch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Slum Goddess\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "DENNIS OPPENHEIM",
+      "display_name": "Dennis Oppenheim",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"A Search for Clues\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ROBERT CARSTON ARNESON",
+      "display_name": "Robert Carston Arneson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Up Against It (for Landfall Press)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "CLAES THURE OLDENBURG",
+      "display_name": "Claes Thure Oldenburg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Bat Spinning at the Speed of Light for the Museum of Contem",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "NICK  CAVE &AMP; BOB  FAUST",
+      "display_name": "Nick  Cave &Amp; Bob  Faust",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Head Dressed (Expo Chicago 2019)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "DEBORAH PASWATERS",
+      "display_name": "Deborah Paswaters",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled #6 - Three Draped Female Figures\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "STEVE KAUFMAN",
+      "display_name": "Steve Kaufman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Elvis I (Silver)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PETER MAX",
+      "display_name": "Peter Max",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Lady in Green\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES ROSENQUIST",
+      "display_name": "James Rosenquist",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Diver's Line\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "CHRISTOPHER BROWN",
+      "display_name": "Christopher Brown",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Sea of Oh\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANCESCO CLEMENTE",
+      "display_name": "Francesco Clemente",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Mother, from Perusa\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-BAPTISTE SECHERET",
+      "display_name": "Jean-Baptiste Secheret",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Trouville-sur-Mer - Contre Jim Dine\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "ERIK DESMAZIERES",
+      "display_name": "Erik Desmazieres",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Paris, Rue de Marignan\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PETER MILTON",
+      "display_name": "Peter Milton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"The First Gate\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES MCGARRELL",
+      "display_name": "James Mcgarrell",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"The Stanza Portfolio\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "WOLFGANG GÄFGEN",
+      "display_name": "Wolfgang Gäfgen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "KRYSTYNA SMIECHOWSKA",
+      "display_name": "Krystyna Smiechowska",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "RONALDO DE JUAN",
+      "display_name": "Ronaldo De Juan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled (Abstraction with black and ochre)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL WUNDERLICH",
+      "display_name": "Paul Wunderlich",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "BRUNO BRUNI",
+      "display_name": "Bruno Bruni",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "JUAN GENOVES",
+      "display_name": "Juan Genoves",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Plate 7, Triangulo (Triangle)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "KARIN SZÉKESSY",
+      "display_name": "Karin Székessy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Modelle\" (Title page for Modelle Portfolio)",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "CAROL SUMMERS",
+      "display_name": "Carol Summers",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Krishna Steals the Gopis Clothes\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "PEGGY MACNAMARA",
+      "display_name": "Peggy Macnamara",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Untitled (Cranes)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "HORST ANTES",
+      "display_name": "Horst Antes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Der Krieger (The Solider)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "RIKIO TAKAHASHI",
+      "display_name": "Rikio Takahashi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Garden in Kyoto (A)\"",
+          "hammer_usd": 0,
+          "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
         }
       }
     }
