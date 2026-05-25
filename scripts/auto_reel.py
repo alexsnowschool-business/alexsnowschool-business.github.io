@@ -1040,7 +1040,7 @@ def main() -> None:
     conn2 = sqlite3.connect(DB_PATH)
     conn2.row_factory = sqlite3.Row
     _ensure_posted_table(conn2)
-    _record_posted(conn2, hook, reel_slug, ["instagram", "tiktok"])
+    _record_posted(conn2, hook, reel_slug, ["instagram", "tiktok", "linkedin"])
     conn2.close()
 
     # ── Summary ────────────────────────────────────────────────
