@@ -1036,6 +1036,13 @@ def main() -> None:
     config_path.write_text(config_src)
     print(f"\n▸ Config written: {config_path}")
 
+    # ── Record in posted_reels ─────────────────────────────────
+    conn2 = sqlite3.connect(DB_PATH)
+    conn2.row_factory = sqlite3.Row
+    _ensure_posted_table(conn2)
+    _record_posted(conn2, hook, reel_slug, ["instagram", "tiktok"])
+    conn2.close()
+
     # ── Summary ────────────────────────────────────────────────
     print("\n" + "═" * 60)
     print("  READY TO RENDER")
