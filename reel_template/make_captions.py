@@ -117,11 +117,14 @@ def make_linkedin_caption(cfg):
     personal = cfg.get("personal_note", "")
     hook = cfg.get("engagement_hook", "")
 
+    # Strip any hashtags already embedded in the hook
+    hook_clean = " ".join(w for w in hook.split() if not w.startswith("#")).strip()
+
     parts = [full_caption]
     if personal:
         parts.append(personal)
-    if hook:
-        parts.append(hook)
+    if hook_clean:
+        parts.append(hook_clean)
     parts.append("#thehammerprice #artmarket #auctionresults #artcollecting #contemporaryart")
     return "\n\n".join(parts)
 
