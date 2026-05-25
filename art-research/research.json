@@ -1,18 +1,82 @@
 {
   "stats": {
-    "total_lots": 978,
-    "total_artists": 524,
-    "median_hammer_usd": 280000,
-    "pct_above_estimate": 47.2,
+    "total_lots": 1228,
+    "total_artists": 657,
+    "median_hammer_usd": 331821,
+    "pct_above_estimate": 44.9,
     "max_ratio": 14.7,
     "sources": [
       "Artprice",
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-05-24"
+    "generated_at": "2026-05-25"
   },
   "artists": [
+    {
+      "norm_name": "JOAN MITCHELL",
+      "display_name": "Joan Mitchell",
+      "dates": "1925–1992",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Second Generation",
+      "movement_id": "abstract-expressionism",
+      "bio": "Born in Chicago to a surgeon father and a poet mother who published in Poetry magazine, Mitchell studied at the Art Institute of Chicago and arrived in New York in 1947. She became part of the Cedar Tavern world but was consistently marginalised in critical accounts centred on the male abstract expressionists — a disparity between her critical standing and her market prices that persisted for decades. She moved to Paris in 1959, later settling in Vétheuil, the village where Monet had painted in the 1870s, a proximity she acknowledged obliquely. Her monumental polyptychs of the 1970s and 1980s — La Grande Vallée (1983–84), Chord (1987) — are among the most sustained achievements of late Abstract Expressionism, combining gestural intensity with a structural rigour that her male contemporaries rarely matched. Market revaluation began seriously in the 2010s and accelerated sharply after her 2021 retrospective at SFMOMA and the Guggenheim.",
+      "famous_works": [
+        {
+          "title": "Hemlock",
+          "year": "1956",
+          "notes": "A dense, agitated early painting named after the tree outside her New York studio. Establishes the memory-of-landscape approach that would define her mature work."
+        },
+        {
+          "title": "George Went Swimming at Barnes Hole, But It Got Too Cold",
+          "year": "1957",
+          "notes": "The title signals her method: paintings encode remembered rather than observed experience. Among the most important second-generation AbEx works."
+        },
+        {
+          "title": "La Grande Vallée XIV",
+          "year": "1983",
+          "notes": "Part of a sustained series named after the valley near Vétheuil. The polyptych format opens the painting to temporal extension — the work takes time to read."
+        },
+        {
+          "title": "Chord",
+          "year": "1987",
+          "notes": "A triptych of extraordinary chromatic control. Yellow and blue fields generate a visual chord — the musical analogy is structural, not decorative."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Bracket",
+          "year": "1989",
+          "notes": "A late diptych that shows the synthesis Mitchell achieved between gestural mark-making and architectural spatial organisation."
+        },
+        {
+          "title": "Sunflowers",
+          "year": "1990–91",
+          "notes": "One of the last major series, made in failing health. The sunflower motif absorbs Van Gogh without quoting him — the yellow-black opposition is structural."
+        },
+        {
+          "title": "Untitled (Black)",
+          "year": "1964",
+          "notes": "A rare near-monochrome work that tests whether the energy of her gesture survives the removal of colour. It does."
+        }
+      ],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 49678400,
+        "avg_usd": 4139867,
+        "total_label": "$49.68M",
+        "avg_label": "$4.14M",
+        "top_lot": {
+          "title": "Noon",
+          "hammer_usd": 20800000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.39
+        }
+      }
+    },
     {
       "norm_name": "ROY LICHTENSTEIN",
       "display_name": "Roy Lichtenstein",
@@ -61,11 +125,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 44,
-        "total_usd": 45475100,
-        "avg_usd": 1033525,
-        "total_label": "$45.48M",
-        "avg_label": "$1.03M",
+        "lot_count": 45,
+        "total_usd": 48675100,
+        "avg_usd": 1081669,
+        "total_label": "$48.68M",
+        "avg_label": "$1.08M",
         "top_lot": {
           "title": "Reflections: Art",
           "hammer_usd": 4500000,
@@ -74,60 +138,6 @@
         "top_ratio_lot": {
           "title": "Setting Sun and Sea",
           "ratio": 5.0
-        }
-      }
-    },
-    {
-      "norm_name": "PABLO PICASSO",
-      "display_name": "Pablo Picasso",
-      "dates": "1881–1973",
-      "nationality": "Spanish",
-      "movement": "Cubism · Modernism",
-      "movement_id": "cubism",
-      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
-      "famous_works": [
-        {
-          "title": "Les Demoiselles d'Avignon",
-          "year": "1907",
-          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
-        },
-        {
-          "title": "Guernica",
-          "year": "1937",
-          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
-        },
-        {
-          "title": "Girl Before a Mirror",
-          "year": "1932",
-          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "La Vie",
-          "year": "1903",
-          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
-        },
-        {
-          "title": "Seated Woman with Wrists Crossed (Françoise)",
-          "year": "1953",
-          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
-        }
-      ],
-      "dataset": {
-        "lot_count": 11,
-        "total_usd": 25446022,
-        "avg_usd": 2313275,
-        "total_label": "$25.45M",
-        "avg_label": "$2.31M",
-        "top_lot": {
-          "title": "Homme assis",
-          "hammer_usd": 12800000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Danseuse",
-          "ratio": 2.51
         }
       }
     },
@@ -174,11 +184,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
-        "total_usd": 19245000,
-        "avg_usd": 6415000,
-        "total_label": "$19.25M",
-        "avg_label": "$6.42M",
+        "lot_count": 5,
+        "total_usd": 35745000,
+        "avg_usd": 7149000,
+        "total_label": "$35.74M",
+        "avg_label": "$7.15M",
         "top_lot": {
           "title": "Untitled",
           "hammer_usd": 13800000,
@@ -187,6 +197,291 @@
         "top_ratio_lot": {
           "title": "Untitled (Cartoon Dog)",
           "ratio": 1.35
+        }
+      }
+    },
+    {
+      "norm_name": "YAYOI KUSAMA",
+      "display_name": "Yayoi Kusama",
+      "dates": "b. 1929",
+      "nationality": "Japanese",
+      "movement": "Avant-Garde · Infinity · Obsessional Art",
+      "movement_id": "contemporary",
+      "bio": "Born in Matsumoto, Nagano, Kusama experienced hallucinatory visions from childhood — flowers speaking, patterns proliferating — which she began to externalise through drawing and painting. She studied at the Kyoto Municipal School of Arts and Crafts before moving to New York in 1957 with encouragement from Georgia O'Keeffe. Her Infinity Net paintings — large canvases covered edge-to-edge with obsessive, repetitive arcs — were among the most radical abstract paintings in New York by 1960, yet she received minimal critical attention compared to her male peers. Her happenings and installation works addressed the body, sexuality, and self-annihilation with a directness that influenced Fluxus, Claes Oldenburg, and others directly. She returned to Japan in 1973, voluntarily entering a psychiatric institution in Tokyo where she has lived and worked since. The late Infinity Mirror Rooms have become cultural phenomena; her pumpkin sculptures command the largest auction prices and the longest museum queues worldwide.",
+      "famous_works": [
+        {
+          "title": "Infinity Nets",
+          "year": "1951–ongoing",
+          "notes": "The foundational series. Large canvases of repetitive arcs creating net-like patterns that extend beyond the picture plane in all directions — the earliest works in this mode predate the New York works."
+        },
+        {
+          "title": "Infinity Mirror Room — Phalli's Field",
+          "year": "1965",
+          "notes": "A room of soft sculptures of white phalli with red dots, reflected in mirrors to apparent infinity. The first Infinity Mirror Room, installed in New York. Body, compulsion, and infinity collapsed into an environment."
+        },
+        {
+          "title": "Pumpkin",
+          "year": "1994",
+          "notes": "The large yellow pumpkin covered in black dots installed on a pier in Naoshima, Japan. The most reproduced image in her late career — domesticity and monumentality fused."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Walking Piece",
+          "year": "1966",
+          "notes": "A happening in Central Park in which Kusama and participants wore polka-dot clothing and moved through the public space. Photography and performance as artistic medium before it was named."
+        },
+        {
+          "title": "Accumulation No. 1",
+          "year": "1962",
+          "notes": "An armchair upholstered entirely in white fabric soft penises. The compulsive proliferation of a single form — the logic of the Infinity Nets translated into three dimensions."
+        },
+        {
+          "title": "Dots Obsession — Infinity Mirrored Room",
+          "year": "1998",
+          "notes": "Polka-dot spheres suspended from the ceiling, reflected to infinity. Less well-known than the LED Infinity Rooms of the 2010s but formally more rigorous."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 25586500,
+        "avg_usd": 2558650,
+        "total_label": "$25.59M",
+        "avg_label": "$2.56M",
+        "top_lot": {
+          "title": "Pumpkin (8) 南瓜（8）",
+          "hammer_usd": 6000000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "The Pacific Ocean",
+          "ratio": 3.2
+        }
+      }
+    },
+    {
+      "norm_name": "PABLO PICASSO",
+      "display_name": "Pablo Picasso",
+      "dates": "1881–1973",
+      "nationality": "Spanish",
+      "movement": "Cubism · Modernism",
+      "movement_id": "cubism",
+      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
+      "famous_works": [
+        {
+          "title": "Les Demoiselles d'Avignon",
+          "year": "1907",
+          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
+        },
+        {
+          "title": "Guernica",
+          "year": "1937",
+          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
+        },
+        {
+          "title": "Girl Before a Mirror",
+          "year": "1932",
+          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "La Vie",
+          "year": "1903",
+          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
+        },
+        {
+          "title": "Seated Woman with Wrists Crossed (Françoise)",
+          "year": "1953",
+          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
+        }
+      ],
+      "dataset": {
+        "lot_count": 29,
+        "total_usd": 25446022,
+        "avg_usd": 2313275,
+        "total_label": "$25.45M",
+        "avg_label": "$2.31M",
+        "top_lot": {
+          "title": "Homme assis",
+          "hammer_usd": 12800000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Danseuse",
+          "ratio": 2.51
+        }
+      }
+    },
+    {
+      "norm_name": "FRANK STELLA",
+      "display_name": "Frank Stella",
+      "dates": "1936–2024",
+      "nationality": "American",
+      "movement": "Minimalism · Hard-Edge · Shaped Canvas",
+      "movement_id": "minimalism",
+      "bio": "Born in Malden, Massachusetts, Stella studied painting at Princeton before arriving in New York in 1958. His Black Paintings (1958–60) — stripes of black enamel separated by thin lines of raw canvas, in formats that make the support's shape a determinant of the interior composition — became the founding works of Minimalist painting. 'What you see is what you see': the tautology as manifesto. He was 23. He subsequently moved through shaped canvases in aluminium and copper, then into polychrome metallic geometries, and eventually into elaborate relief sculptures and three-dimensional assemblages that introduced colour, gesture, and spatial complexity — a trajectory that some critics read as the exhaustion of Minimalism's premises and others as its liberation. He taught at Yale, and his published lectures Working Space (1986) are the most intellectually serious painter's statement of the late 20th century. He died in May 2024.",
+      "famous_works": [
+        {
+          "title": "Die Fahne Hoch!",
+          "year": "1959",
+          "notes": "From the Black Paintings series. The title ('The Flag on High') is the opening phrase of the Nazi Horst-Wessel-Lied — a confrontational acknowledgement of the work's historical moment."
+        },
+        {
+          "title": "Talladega Three I",
+          "year": "1981",
+          "notes": "From the Circuits series — curvilinear shapes derived from a racetrack map. The entry into gesture and spatial complexity that divided critical opinion."
+        },
+        {
+          "title": "Jarama II",
+          "year": "1982",
+          "notes": "Named after the site of a Spanish Civil War battle. The Circuit series works at its most dramatically spatial — painting escaping the flat surface."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Empress of India",
+          "year": "1965",
+          "notes": "A massive V-shaped metallic canvas — four chevron elements that can be arranged in multiple orientations. The shaped canvas at its most radically anti-rectangular."
+        },
+        {
+          "title": "Conway I",
+          "year": "1966",
+          "notes": "From the Irregular Polygon series — flat, colour-saturated, geometrically complex. The moment of transition between Minimalism's austerity and Stella's subsequent chromatic ambition."
+        },
+        {
+          "title": "Guadalupe Island (Caracara)",
+          "year": "1979",
+          "notes": "From the Exotic Bird series — welded metal relief with painted surfaces. The three-dimensional turn that abandoned the flat support entirely."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 23722200,
+        "avg_usd": 4744440,
+        "total_label": "$23.72M",
+        "avg_label": "$4.74M",
+        "top_lot": {
+          "title": "Ifafa I",
+          "hammer_usd": 15000000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Vallelunga",
+          "ratio": 1.89
+        }
+      }
+    },
+    {
+      "norm_name": "ANDY WARHOL",
+      "display_name": "Andy Warhol",
+      "dates": "1928–1987",
+      "nationality": "American",
+      "movement": "Pop Art · Seriality · Factory",
+      "movement_id": "pop-art",
+      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
+      "famous_works": [
+        {
+          "title": "Campbell's Soup Cans",
+          "year": "1962",
+          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
+        },
+        {
+          "title": "Gold Marilyn Monroe",
+          "year": "1962",
+          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
+        },
+        {
+          "title": "Eight Elvises",
+          "year": "1963",
+          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Tunafish Disaster",
+          "year": "1963",
+          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
+        },
+        {
+          "title": "Oxidation Painting",
+          "year": "1978",
+          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
+        },
+        {
+          "title": "Shadows",
+          "year": "1978–79",
+          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
+        }
+      ],
+      "dataset": {
+        "lot_count": 17,
+        "total_usd": 21955700,
+        "avg_usd": 2195570,
+        "total_label": "$21.96M",
+        "avg_label": "$2.20M",
+        "top_lot": {
+          "title": "Late Four-Foot Flowers",
+          "hammer_usd": 10000000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Lobster)",
+          "ratio": 3.78
+        }
+      }
+    },
+    {
+      "norm_name": "YOSHITOMO NARA",
+      "display_name": "Yoshitomo Nara",
+      "dates": "b. 1959",
+      "nationality": "Japanese",
+      "movement": "Contemporary · Pop Art",
+      "movement_id": "pop-art",
+      "bio": "Yoshitomo Nara was born in Hirosaki, Aomori Prefecture, Japan in 1959 and studied at the Aichi Prefectural University of Fine Arts, subsequently spending twelve years in Germany at the Kunstakademie Düsseldorf before returning to Japan. His combination of Japanese manga and pop culture sensibility with a European training in drawing and painting, and his personal experience of being a foreigner in both cultural contexts, has shaped a practice of considerable emotional depth.\n\nNara's signature images are the children: large-headed, small-bodied figures with intense, often hostile or sullen expressions whose apparent cuteness is undercut by an emotional charge that ranges from vulnerability to menace. These figures — painted in flat, saturated colour — occupy simple grounds or minimal environments, their psychological states encoded in expression and posture with a precision that belies the apparent simplicity of the means. The works draw on both Japanese anime aesthetics and Western Pop Art while being reducible to neither.\n\nNara is also a prolific draughtsman, and his drawings maintain the same emotional directness as his paintings in a more intimate and exploratory register. He is represented by Pace Gallery and his work has been exhibited at major institutions worldwide, achieving significant auction prices. His practice connects with audiences who respond to his figures' emotional directness with remarkable immediacy.",
+      "famous_works": [
+        {
+          "title": "Knife Behind Back",
+          "year": "2000",
+          "notes": "A painting of Nara's characteristic child figure whose title — revealed only retrospectively — adds a menacing dimension to the apparent innocence of the depicted form."
+        },
+        {
+          "title": "Little Sprout",
+          "year": "1999",
+          "notes": "A small sculptural figure whose combination of childlike form and sullen expression embodies the emotional ambivalence that characterises Nara's most resonant work."
+        },
+        {
+          "title": "Midnight Rider",
+          "year": "2015",
+          "notes": "A large painting of a figure in nocturnal setting that demonstrates the full development of Nara's pictorial language across multiple decades."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "A to Z (Collaboration)",
+          "year": "2006",
+          "notes": "A collaborative installation project with the graphic design group Graf in which Nara's figures inhabit purpose-built architectural environments."
+        },
+        {
+          "title": "Star Lake series",
+          "year": "2014",
+          "notes": "A group of works in which the outdoor natural setting of the Aomori region is incorporated into Nara's characteristic figuration."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 21000000,
+        "avg_usd": 7000000,
+        "total_label": "$21.00M",
+        "avg_label": "$7.00M",
+        "top_lot": {
+          "title": "Guitar Girl on the Ice 冰上的吉他女孩",
+          "hammer_usd": 16000000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "It's a Cold Day 寒冷的一天",
+          "ratio": 1.52
         }
       }
     },
@@ -250,61 +545,61 @@
       }
     },
     {
-      "norm_name": "YAYOI KUSAMA",
-      "display_name": "Yayoi Kusama",
-      "dates": "b. 1929",
-      "nationality": "Japanese",
-      "movement": "Avant-Garde · Infinity · Obsessional Art",
-      "movement_id": "contemporary",
-      "bio": "Born in Matsumoto, Nagano, Kusama experienced hallucinatory visions from childhood — flowers speaking, patterns proliferating — which she began to externalise through drawing and painting. She studied at the Kyoto Municipal School of Arts and Crafts before moving to New York in 1957 with encouragement from Georgia O'Keeffe. Her Infinity Net paintings — large canvases covered edge-to-edge with obsessive, repetitive arcs — were among the most radical abstract paintings in New York by 1960, yet she received minimal critical attention compared to her male peers. Her happenings and installation works addressed the body, sexuality, and self-annihilation with a directness that influenced Fluxus, Claes Oldenburg, and others directly. She returned to Japan in 1973, voluntarily entering a psychiatric institution in Tokyo where she has lived and worked since. The late Infinity Mirror Rooms have become cultural phenomena; her pumpkin sculptures command the largest auction prices and the longest museum queues worldwide.",
+      "norm_name": "DAVID HOCKNEY",
+      "display_name": "David Hockney",
+      "dates": "b. 1937",
+      "nationality": "British",
+      "movement": "Pop Art · British Painting · Figuration",
+      "movement_id": "pop-art",
+      "bio": "Born in Bradford, Yorkshire, Hockney won every prize at the Royal College of Art (1959–62) before moving to Los Angeles in 1964, drawn by the light, the swimming pools, and the openness. His California paintings of the mid-1960s — the pool series, the portraits of friends and collectors — used flat, clear light and compositional calm to depict a world of pleasure without irony. The domesticity was the content. His Cubist photo collages (the Joiners, 1982–83) were a rigorous investigation of how a moving eye perceives space: hundreds of photographs assembled into composite images that represent time as well as space. His more recent work — iPad drawings of Yorkshire landscapes, the Arrival of Spring in Woldgate (2011) — pursues the same perceptual problem across new media without anxiety. He is the most celebrated living British painter and commands institutional prices across all major formats.",
       "famous_works": [
         {
-          "title": "Infinity Nets",
-          "year": "1951–ongoing",
-          "notes": "The foundational series. Large canvases of repetitive arcs creating net-like patterns that extend beyond the picture plane in all directions — the earliest works in this mode predate the New York works."
+          "title": "A Bigger Splash",
+          "year": "1967",
+          "notes": "Two weeks to paint the palm trees and architecture; thirty minutes to paint the splash. The paradox of depicting instantaneous movement through laborious technique. Tate Modern."
         },
         {
-          "title": "Infinity Mirror Room — Phalli's Field",
-          "year": "1965",
-          "notes": "A room of soft sculptures of white phalli with red dots, reflected in mirrors to apparent infinity. The first Infinity Mirror Room, installed in New York. Body, compulsion, and infinity collapsed into an environment."
+          "title": "Mr and Mrs Clark and Percy",
+          "year": "1970–71",
+          "notes": "A double portrait of the fashion designers Ossie Clark and Celia Birtwell. The compositional inversion — the wife seated, the husband standing — disturbs the conventional power dynamic."
         },
         {
-          "title": "Pumpkin",
-          "year": "1994",
-          "notes": "The large yellow pumpkin covered in black dots installed on a pier in Naoshima, Japan. The most reproduced image in her late career — domesticity and monumentality fused."
+          "title": "Portrait of an Artist (Pool with Two Figures)",
+          "year": "1972",
+          "notes": "A boy looks down at a figure swimming beneath him. Made in a feverish 48-hour session the day before the exhibition opening. Sold for $90.3M in 2018 — the highest price for a living artist at the time."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Walking Piece",
-          "year": "1966",
-          "notes": "A happening in Central Park in which Kusama and participants wore polka-dot clothing and moved through the public space. Photography and performance as artistic medium before it was named."
+          "title": "The Skater (Kasmin)",
+          "year": "1982",
+          "notes": "A photo collage from the Joiners series. The gallery owner Lawrence Kasmin is shown from multiple angles simultaneously — the static photograph made temporally complex."
         },
         {
-          "title": "Accumulation No. 1",
-          "year": "1962",
-          "notes": "An armchair upholstered entirely in white fabric soft penises. The compulsive proliferation of a single form — the logic of the Infinity Nets translated into three dimensions."
+          "title": "Sun on the Pool, Los Angeles April 13, 1982",
+          "year": "1982",
+          "notes": "A pool painting from the later Los Angeles period. The light is more forensic, less atmospheric than the 1960s pool works — a different account of the same subject."
         },
         {
-          "title": "Dots Obsession — Infinity Mirrored Room",
+          "title": "Garrowby Hill",
           "year": "1998",
-          "notes": "Polka-dot spheres suspended from the ceiling, reflected to infinity. Less well-known than the LED Infinity Rooms of the 2010s but formally more rigorous."
+          "notes": "A Yorkshire road winding over the wolds — the return to English landscape before the major Yorkshire series. Less famous than the Arrival of Spring but more quietly remarkable."
         }
       ],
       "dataset": {
-        "lot_count": 7,
-        "total_usd": 14486500,
-        "avg_usd": 2069500,
-        "total_label": "$14.49M",
-        "avg_label": "$2.07M",
+        "lot_count": 8,
+        "total_usd": 12950400,
+        "avg_usd": 1618800,
+        "total_label": "$12.95M",
+        "avg_label": "$1.62M",
         "top_lot": {
-          "title": "Pumpkin (8) 南瓜（8）",
-          "hammer_usd": 6000000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
+          "title": "A Bigger Wave",
+          "hammer_usd": 7500000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "High Heels for Going to Heaven",
-          "ratio": 1.76
+          "title": "Caribbean Tea Time",
+          "ratio": 5.4
         }
       }
     },
@@ -437,129 +732,6 @@
       }
     },
     {
-      "norm_name": "JOAN MITCHELL",
-      "display_name": "Joan Mitchell",
-      "dates": "1925–1992",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Second Generation",
-      "movement_id": "abstract-expressionism",
-      "bio": "Born in Chicago to a surgeon father and a poet mother who published in Poetry magazine, Mitchell studied at the Art Institute of Chicago and arrived in New York in 1947. She became part of the Cedar Tavern world but was consistently marginalised in critical accounts centred on the male abstract expressionists — a disparity between her critical standing and her market prices that persisted for decades. She moved to Paris in 1959, later settling in Vétheuil, the village where Monet had painted in the 1870s, a proximity she acknowledged obliquely. Her monumental polyptychs of the 1970s and 1980s — La Grande Vallée (1983–84), Chord (1987) — are among the most sustained achievements of late Abstract Expressionism, combining gestural intensity with a structural rigour that her male contemporaries rarely matched. Market revaluation began seriously in the 2010s and accelerated sharply after her 2021 retrospective at SFMOMA and the Guggenheim.",
-      "famous_works": [
-        {
-          "title": "Hemlock",
-          "year": "1956",
-          "notes": "A dense, agitated early painting named after the tree outside her New York studio. Establishes the memory-of-landscape approach that would define her mature work."
-        },
-        {
-          "title": "George Went Swimming at Barnes Hole, But It Got Too Cold",
-          "year": "1957",
-          "notes": "The title signals her method: paintings encode remembered rather than observed experience. Among the most important second-generation AbEx works."
-        },
-        {
-          "title": "La Grande Vallée XIV",
-          "year": "1983",
-          "notes": "Part of a sustained series named after the valley near Vétheuil. The polyptych format opens the painting to temporal extension — the work takes time to read."
-        },
-        {
-          "title": "Chord",
-          "year": "1987",
-          "notes": "A triptych of extraordinary chromatic control. Yellow and blue fields generate a visual chord — the musical analogy is structural, not decorative."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Bracket",
-          "year": "1989",
-          "notes": "A late diptych that shows the synthesis Mitchell achieved between gestural mark-making and architectural spatial organisation."
-        },
-        {
-          "title": "Sunflowers",
-          "year": "1990–91",
-          "notes": "One of the last major series, made in failing health. The sunflower motif absorbs Van Gogh without quoting him — the yellow-black opposition is structural."
-        },
-        {
-          "title": "Untitled (Black)",
-          "year": "1964",
-          "notes": "A rare near-monochrome work that tests whether the energy of her gesture survives the removal of colour. It does."
-        }
-      ],
-      "dataset": {
-        "lot_count": 8,
-        "total_usd": 8778400,
-        "avg_usd": 1097300,
-        "total_label": "$8.78M",
-        "avg_label": "$1.10M",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 5132000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 2.39
-        }
-      }
-    },
-    {
-      "norm_name": "FRANK STELLA",
-      "display_name": "Frank Stella",
-      "dates": "1936–2024",
-      "nationality": "American",
-      "movement": "Minimalism · Hard-Edge · Shaped Canvas",
-      "movement_id": "minimalism",
-      "bio": "Born in Malden, Massachusetts, Stella studied painting at Princeton before arriving in New York in 1958. His Black Paintings (1958–60) — stripes of black enamel separated by thin lines of raw canvas, in formats that make the support's shape a determinant of the interior composition — became the founding works of Minimalist painting. 'What you see is what you see': the tautology as manifesto. He was 23. He subsequently moved through shaped canvases in aluminium and copper, then into polychrome metallic geometries, and eventually into elaborate relief sculptures and three-dimensional assemblages that introduced colour, gesture, and spatial complexity — a trajectory that some critics read as the exhaustion of Minimalism's premises and others as its liberation. He taught at Yale, and his published lectures Working Space (1986) are the most intellectually serious painter's statement of the late 20th century. He died in May 2024.",
-      "famous_works": [
-        {
-          "title": "Die Fahne Hoch!",
-          "year": "1959",
-          "notes": "From the Black Paintings series. The title ('The Flag on High') is the opening phrase of the Nazi Horst-Wessel-Lied — a confrontational acknowledgement of the work's historical moment."
-        },
-        {
-          "title": "Talladega Three I",
-          "year": "1981",
-          "notes": "From the Circuits series — curvilinear shapes derived from a racetrack map. The entry into gesture and spatial complexity that divided critical opinion."
-        },
-        {
-          "title": "Jarama II",
-          "year": "1982",
-          "notes": "Named after the site of a Spanish Civil War battle. The Circuit series works at its most dramatically spatial — painting escaping the flat surface."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Empress of India",
-          "year": "1965",
-          "notes": "A massive V-shaped metallic canvas — four chevron elements that can be arranged in multiple orientations. The shaped canvas at its most radically anti-rectangular."
-        },
-        {
-          "title": "Conway I",
-          "year": "1966",
-          "notes": "From the Irregular Polygon series — flat, colour-saturated, geometrically complex. The moment of transition between Minimalism's austerity and Stella's subsequent chromatic ambition."
-        },
-        {
-          "title": "Guadalupe Island (Caracara)",
-          "year": "1979",
-          "notes": "From the Exotic Bird series — welded metal relief with painted surfaces. The three-dimensional turn that abandoned the flat support entirely."
-        }
-      ],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 8722200,
-        "avg_usd": 2180550,
-        "total_label": "$8.72M",
-        "avg_label": "$2.18M",
-        "top_lot": {
-          "title": "Adelante",
-          "hammer_usd": 7000000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Vallelunga",
-          "ratio": 1.89
-        }
-      }
-    },
-    {
       "norm_name": "JACKSON POLLOCK",
       "display_name": "Jackson Pollock",
       "dates": "1912–1956",
@@ -683,174 +855,120 @@
       }
     },
     {
-      "norm_name": "ANDY WARHOL",
-      "display_name": "Andy Warhol",
-      "dates": "1928–1987",
-      "nationality": "American",
-      "movement": "Pop Art · Seriality · Factory",
-      "movement_id": "pop-art",
-      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
+      "norm_name": "AGNES MARTIN",
+      "display_name": "Agnes Martin",
+      "dates": "1912–2004",
+      "nationality": "Canadian-American",
+      "movement": "Minimalism · Abstraction",
+      "movement_id": "minimalism",
+      "bio": "Born in Macklin, Saskatchewan, Canada, Martin moved to New York after studies in Oregon and Columbia University, where she taught. She developed her mature practice in the early 1960s: small-scale canvases of pencil-drawn grids on white or off-white paint, the lines hand-drawn with a ruler, carrying the slight irregularity of the human hand within a rigid structure. She was associated with the first generation of Minimalists at Elsworth Kelly's building on Coenties Slip in Lower Manhattan, though she rejected the Minimalist label, insisting on the emotional and spiritual dimension of her work. She left New York abruptly in 1967 following the death of Ad Reinhardt and a breakdown, and moved to New Mexico, where she lived in self-built adobe houses and did not paint for six years. The late works are horizontal bands of pale colour — pink, blue, grey — of extraordinary refinement.",
       "famous_works": [
         {
-          "title": "Campbell's Soup Cans",
-          "year": "1962",
-          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
+          "title": "The Islands I–XII",
+          "year": "1961",
+          "notes": "A series of small square canvases — the grid at its most intimate and complete. The islands of the title are the canvases themselves."
         },
         {
-          "title": "Gold Marilyn Monroe",
-          "year": "1962",
-          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
+          "title": "With My Back to the World",
+          "year": "1997",
+          "notes": "A late work of pale horizontal bands. The title is a statement of position — withdrawal from the social world as the condition of the work."
         },
         {
-          "title": "Eight Elvises",
+          "title": "Friendship",
           "year": "1963",
-          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
+          "notes": "Gold leaf on canvas crossed by thin pencil grid lines. The warmth of the gold and the severity of the grid — the emotional and structural in productive tension."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Tunafish Disaster",
-          "year": "1963",
-          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
+          "title": "Happy Holiday",
+          "year": "1999",
+          "notes": "A late canvas of yellow bands — an unusually warm, light work for Martin. The title's unironic positivity and the painting's quiet pleasure are matching."
         },
         {
-          "title": "Oxidation Painting",
-          "year": "1978",
-          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
+          "title": "Grass",
+          "year": "1967",
+          "notes": "One of the last works before the New Mexico departure — thin horizontal lines on pale ground. The landscape of the title is implicit in the colour and the horizon."
         },
         {
-          "title": "Shadows",
-          "year": "1978–79",
-          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
+          "title": "Untitled #10",
+          "year": "1990",
+          "notes": "A return to grid format after the horizontal-bands period of the 1970s and 1980s. The grid reinterpreted in softer, more atmospheric terms than the early Manhattan works."
         }
       ],
       "dataset": {
-        "lot_count": 15,
-        "total_usd": 6455700,
-        "avg_usd": 806962,
-        "total_label": "$6.46M",
-        "avg_label": "$807k",
+        "lot_count": 3,
+        "total_usd": 6003200,
+        "avg_usd": 2001067,
+        "total_label": "$6.00M",
+        "avg_label": "$2.00M",
         "top_lot": {
-          "title": "Flowers",
-          "hammer_usd": 3350000,
+          "title": "Untitled #11",
+          "hammer_usd": 2800000,
           "sale_name": "Contemporary Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Untitled (Lobster)",
-          "ratio": 3.78
+          "title": "Untitled #2",
+          "ratio": 1.01
         }
       }
     },
     {
-      "norm_name": "DAVID HOCKNEY",
-      "display_name": "David Hockney",
-      "dates": "b. 1937",
-      "nationality": "British",
-      "movement": "Pop Art · British Painting · Figuration",
+      "norm_name": "WAYNE THIEBAUD",
+      "display_name": "Wayne Thiebaud",
+      "dates": "1920–2021",
+      "nationality": "American",
+      "movement": "Pop Art · California Realism",
       "movement_id": "pop-art",
-      "bio": "Born in Bradford, Yorkshire, Hockney won every prize at the Royal College of Art (1959–62) before moving to Los Angeles in 1964, drawn by the light, the swimming pools, and the openness. His California paintings of the mid-1960s — the pool series, the portraits of friends and collectors — used flat, clear light and compositional calm to depict a world of pleasure without irony. The domesticity was the content. His Cubist photo collages (the Joiners, 1982–83) were a rigorous investigation of how a moving eye perceives space: hundreds of photographs assembled into composite images that represent time as well as space. His more recent work — iPad drawings of Yorkshire landscapes, the Arrival of Spring in Woldgate (2011) — pursues the same perceptual problem across new media without anxiety. He is the most celebrated living British painter and commands institutional prices across all major formats.",
+      "bio": "Born in Mesa, Arizona and raised in Long Beach, California, Thiebaud worked as a commercial illustrator and cartoon animator before studying at San José State and Sacramento State. He began painting food subjects in the late 1950s — cakes, pies, gumball machines, diner counters — with a formally rigorous attention to light, shadow, and the physical materiality of paint that distinguished his work from the cooler irony of East Coast Pop. The frosting on a layer cake is painted with thick, sensuous impasto; the display-case setting is handled with a Hopper-esque attention to commercial loneliness. He taught at UC Davis for decades, building an influential West Coast pedagogical tradition. His San Francisco cityscape paintings — extreme vertiginous perspectives down hillside streets — achieve a formally ambitious spatial organisation that goes well beyond the food work in structural ambition. He continued painting actively into his late nineties.",
       "famous_works": [
         {
-          "title": "A Bigger Splash",
-          "year": "1967",
-          "notes": "Two weeks to paint the palm trees and architecture; thirty minutes to paint the splash. The paradox of depicting instantaneous movement through laborious technique. Tate Modern."
+          "title": "Cakes",
+          "year": "1963",
+          "notes": "A row of identical cakes on a display counter. The seriality anticipates Minimalism; the impasto pleasure of the frosting is the counter-argument. Whitney Museum."
         },
         {
-          "title": "Mr and Mrs Clark and Percy",
-          "year": "1970–71",
-          "notes": "A double portrait of the fashion designers Ossie Clark and Celia Birtwell. The compositional inversion — the wife seated, the husband standing — disturbs the conventional power dynamic."
+          "title": "Two Seated Figures",
+          "year": "1965",
+          "notes": "A departure from food subjects — two figures in folding chairs, the social awkwardness of commercial seating rendered with the same formal attention as the pastries."
         },
         {
-          "title": "Portrait of an Artist (Pool with Two Figures)",
-          "year": "1972",
-          "notes": "A boy looks down at a figure swimming beneath him. Made in a feverish 48-hour session the day before the exhibition opening. Sold for $90.3M in 2018 — the highest price for a living artist at the time."
+          "title": "Steep Street",
+          "year": "1988",
+          "notes": "A San Francisco street plunging almost vertically from the picture plane. The spatial vertigo of the cityscape paintings — less famous than the food works but arguably more formally ambitious."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "The Skater (Kasmin)",
-          "year": "1982",
-          "notes": "A photo collage from the Joiners series. The gallery owner Lawrence Kasmin is shown from multiple angles simultaneously — the static photograph made temporally complex."
+          "title": "Jawbreaker Machine",
+          "year": "1963",
+          "notes": "A candy machine rendered with the same clinical pleasure as the cake displays. The commercial object as still-life subject with a dignity Chardin would have recognised."
         },
         {
-          "title": "Sun on the Pool, Los Angeles April 13, 1982",
-          "year": "1982",
-          "notes": "A pool painting from the later Los Angeles period. The light is more forensic, less atmospheric than the 1960s pool works — a different account of the same subject."
+          "title": "Ponds and Streams",
+          "year": "2001",
+          "notes": "A late aerial landscape — Sacramento valley agricultural terrain viewed from above. The food work and the landscape work are formally related through their common grid-like structure."
         },
         {
-          "title": "Garrowby Hill",
-          "year": "1998",
-          "notes": "A Yorkshire road winding over the wolds — the return to English landscape before the major Yorkshire series. Less famous than the Arrival of Spring but more quietly remarkable."
+          "title": "Candy Counter",
+          "year": "1969",
+          "notes": "A selection of wrapped candies in commercial display. Less reproduced than the cakes but the formal problem — seriality, colour, light — is treated with equal seriousness."
         }
       ],
       "dataset": {
         "lot_count": 7,
-        "total_usd": 5450400,
-        "avg_usd": 778629,
-        "total_label": "$5.45M",
-        "avg_label": "$779k",
+        "total_usd": 5749300,
+        "avg_usd": 821329,
+        "total_label": "$5.75M",
+        "avg_label": "$821k",
         "top_lot": {
-          "title": "Green Pool with Diving Board and Shadow (Paper Pool 3)",
-          "hammer_usd": 2349000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+          "title": "Shadow Streets",
+          "hammer_usd": 2800000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Caribbean Tea Time",
-          "ratio": 5.4
-        }
-      }
-    },
-    {
-      "norm_name": "YOSHITOMO NARA",
-      "display_name": "Yoshitomo Nara",
-      "dates": "b. 1959",
-      "nationality": "Japanese",
-      "movement": "Contemporary · Pop Art",
-      "movement_id": "pop-art",
-      "bio": "Yoshitomo Nara was born in Hirosaki, Aomori Prefecture, Japan in 1959 and studied at the Aichi Prefectural University of Fine Arts, subsequently spending twelve years in Germany at the Kunstakademie Düsseldorf before returning to Japan. His combination of Japanese manga and pop culture sensibility with a European training in drawing and painting, and his personal experience of being a foreigner in both cultural contexts, has shaped a practice of considerable emotional depth.\n\nNara's signature images are the children: large-headed, small-bodied figures with intense, often hostile or sullen expressions whose apparent cuteness is undercut by an emotional charge that ranges from vulnerability to menace. These figures — painted in flat, saturated colour — occupy simple grounds or minimal environments, their psychological states encoded in expression and posture with a precision that belies the apparent simplicity of the means. The works draw on both Japanese anime aesthetics and Western Pop Art while being reducible to neither.\n\nNara is also a prolific draughtsman, and his drawings maintain the same emotional directness as his paintings in a more intimate and exploratory register. He is represented by Pace Gallery and his work has been exhibited at major institutions worldwide, achieving significant auction prices. His practice connects with audiences who respond to his figures' emotional directness with remarkable immediacy.",
-      "famous_works": [
-        {
-          "title": "Knife Behind Back",
-          "year": "2000",
-          "notes": "A painting of Nara's characteristic child figure whose title — revealed only retrospectively — adds a menacing dimension to the apparent innocence of the depicted form."
-        },
-        {
-          "title": "Little Sprout",
-          "year": "1999",
-          "notes": "A small sculptural figure whose combination of childlike form and sullen expression embodies the emotional ambivalence that characterises Nara's most resonant work."
-        },
-        {
-          "title": "Midnight Rider",
-          "year": "2015",
-          "notes": "A large painting of a figure in nocturnal setting that demonstrates the full development of Nara's pictorial language across multiple decades."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "A to Z (Collaboration)",
-          "year": "2006",
-          "notes": "A collaborative installation project with the graphic design group Graf in which Nara's figures inhabit purpose-built architectural environments."
-        },
-        {
-          "title": "Star Lake series",
-          "year": "2014",
-          "notes": "A group of works in which the outdoor natural setting of the Aomori region is incorporated into Nara's characteristic figuration."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 5000000,
-        "avg_usd": 2500000,
-        "total_label": "$5.00M",
-        "avg_label": "$2.50M",
-        "top_lot": {
-          "title": "It's a Cold Day 寒冷的一天",
-          "hammer_usd": 3800000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "It's a Cold Day 寒冷的一天",
-          "ratio": 1.52
+          "title": "The Scholar",
+          "ratio": 2.3
         }
       }
     },
@@ -897,7 +1015,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 19,
+        "lot_count": 21,
         "total_usd": 4992278,
         "avg_usd": 262751,
         "total_label": "$4.99M",
@@ -1023,6 +1141,60 @@
         "top_ratio_lot": {
           "title": "Paging Women",
           "ratio": 1.58
+        }
+      }
+    },
+    {
+      "norm_name": "KEITH HARING",
+      "display_name": "Keith Haring",
+      "dates": "1958–1990",
+      "nationality": "American",
+      "movement": "Street Art · Pop Art",
+      "movement_id": "street-art",
+      "bio": "Keith Haring was born in Reading, Pennsylvania in 1958 and arrived in New York in 1978 to study at the School of Visual Arts. He became one of the defining visual voices of the 1980s through his chalk drawings made on the blank paper panels covering unused advertising spaces in the New York subway system, drawings that were seen daily by millions of commuters and that translated the energy and accessibility of graffiti into a language of simple, almost universal symbolic figures.\n\nHaring's visual vocabulary is immediately recognisable: radiant babies, barking dogs, dancing figures, hearts, flying saucers — outlined in the thick black line that became his signature — rendered in a manner that is simultaneously playful and politically charged. His work addressed the AIDS crisis, apartheid, drugs, nuclear threat, and the Reagan administration's indifference to minority communities with a directness that made art available as political communication without requiring any specialist knowledge. He opened the Pop Shop in 1986, selling merchandise at affordable prices as an extension of his democratic commitment to accessibility.\n\nHaring was diagnosed with HIV in 1988 and died of AIDS-related complications in 1990 at thirty-one. The Keith Haring Foundation, established before his death, continues to support social programmes for children and AIDS research. His work is held by major museums worldwide and his visual language has had an influence on subsequent culture that far exceeds the art world.",
+      "famous_works": [
+        {
+          "title": "Radiant Baby",
+          "year": "1982",
+          "notes": "Haring's most reproduced image — a crawling infant surrounded by radiant lines — which became an emblem of innocence, energy, and creative possibility."
+        },
+        {
+          "title": "Crack Is Wack",
+          "year": "1986",
+          "notes": "A large-scale mural painted on a handball court in New York City addressing the crack cocaine epidemic, demonstrating Haring's commitment to using his public platform for political communication."
+        },
+        {
+          "title": "Once Upon A Time (Cooper Square installation)",
+          "year": "1989",
+          "notes": "An explicit mural painted on the walls of a men's room in the LGBT Community Center in New York, addressing sexuality, desire, and the AIDS crisis with characteristic directness."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "New York Public Library installation",
+          "year": "1982",
+          "notes": "An early gallery-context installation that translated Haring's subway chalk work into a formal institutional setting while maintaining its popular energy."
+        },
+        {
+          "title": "Apocalypse series",
+          "year": "1988",
+          "notes": "A series of prints made in collaboration with William S. Burroughs that extends Haring's symbolic vocabulary into the register of cultural apocalypse."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 4464600,
+        "avg_usd": 1488200,
+        "total_label": "$4.46M",
+        "avg_label": "$1.49M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 4200000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 3.15
         }
       }
     },
@@ -1182,7 +1354,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 7,
+        "lot_count": 8,
         "total_usd": 3335320,
         "avg_usd": 476474,
         "total_label": "$3.34M",
@@ -1199,61 +1371,61 @@
       }
     },
     {
-      "norm_name": "AGNES MARTIN",
-      "display_name": "Agnes Martin",
-      "dates": "1912–2004",
-      "nationality": "Canadian-American",
-      "movement": "Minimalism · Abstraction",
-      "movement_id": "minimalism",
-      "bio": "Born in Macklin, Saskatchewan, Canada, Martin moved to New York after studies in Oregon and Columbia University, where she taught. She developed her mature practice in the early 1960s: small-scale canvases of pencil-drawn grids on white or off-white paint, the lines hand-drawn with a ruler, carrying the slight irregularity of the human hand within a rigid structure. She was associated with the first generation of Minimalists at Elsworth Kelly's building on Coenties Slip in Lower Manhattan, though she rejected the Minimalist label, insisting on the emotional and spiritual dimension of her work. She left New York abruptly in 1967 following the death of Ad Reinhardt and a breakdown, and moved to New Mexico, where she lived in self-built adobe houses and did not paint for six years. The late works are horizontal bands of pale colour — pink, blue, grey — of extraordinary refinement.",
+      "norm_name": "ALICE NEEL",
+      "display_name": "Alice Neel",
+      "dates": "1900–1984",
+      "nationality": "American",
+      "movement": "Figurative Realism · Portrait",
+      "movement_id": "contemporary",
+      "bio": "Born in Merion Square, Pennsylvania, Neel studied at the Philadelphia School of Design for Women and spent decades in relative poverty and obscurity painting the occupants of her Spanish Harlem neighbourhood: her children, lovers, Communist Party friends, pregnant women, the elderly, the recently deceased. She refused the Abstract Expressionist turn away from figuration on principle — human figures, human experience, were the only subjects that interested her — and the mainstream art world ignored her for it. Her portraits refuse to flatter: Andy Warhol is shown post-shooting, corseted and scarred, eyes closed; John Perreault lounges nude in an armchair with complete unselfconsciousness. The Metropolitan Museum of Art gave her a retrospective only in 1974, when she was 74. She received the National Medal of Arts from President Reagan shortly before her death. Posthumous revaluation has been dramatic and accelerating: she is now among the most sought-after American figurative painters.",
       "famous_works": [
         {
-          "title": "The Islands I–XII",
-          "year": "1961",
-          "notes": "A series of small square canvases — the grid at its most intimate and complete. The islands of the title are the canvases themselves."
+          "title": "Andy Warhol",
+          "year": "1970",
+          "notes": "Warhol shown with the corseting and surgical scars from the 1968 shooting. The vulnerability is total; the directness is clinical. Now considered one of the great American portraits."
         },
         {
-          "title": "With My Back to the World",
-          "year": "1997",
-          "notes": "A late work of pale horizontal bands. The title is a statement of position — withdrawal from the social world as the condition of the work."
+          "title": "Pregnant Woman",
+          "year": "1971",
+          "notes": "One of Neel's pregnant nude studies. The medical and the intimate held together without sentimentality — the pregnant body depicted with the attention usually reserved for heroic subjects."
         },
         {
-          "title": "Friendship",
-          "year": "1963",
-          "notes": "Gold leaf on canvas crossed by thin pencil grid lines. The warmth of the gold and the severity of the grid — the emotional and structural in productive tension."
+          "title": "Joe Gould",
+          "year": "1933",
+          "notes": "Three figures of Joe Gould — the bohemian intellectual — each with multiple exposed penises. A compositionally radical portrait of masculine exhibitionism made a decade before Abstract Expressionism existed."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Happy Holiday",
-          "year": "1999",
-          "notes": "A late canvas of yellow bands — an unusually warm, light work for Martin. The title's unironic positivity and the painting's quiet pleasure are matching."
+          "title": "TB Harlem",
+          "year": "1940",
+          "notes": "A Harlem man bedridden with tuberculosis. Neel's engagement with poverty and illness as painterly subjects in a period when American art was dominated by either Social Realism's optimism or burgeoning abstraction."
         },
         {
-          "title": "Grass",
-          "year": "1967",
-          "notes": "One of the last works before the New Mexico departure — thin horizontal lines on pale ground. The landscape of the title is implicit in the colour and the horizon."
+          "title": "Rhoda Myers with Blue Hat",
+          "year": "1930",
+          "notes": "An early portrait showing the psychological penetration that would define her mature work. Already the formula is clear: no flattery, no evasion, direct confrontation with the sitter's specific reality."
         },
         {
-          "title": "Untitled #10",
-          "year": "1990",
-          "notes": "A return to grid format after the horizontal-bands period of the 1970s and 1980s. The grid reinterpreted in softer, more atmospheric terms than the early Manhattan works."
+          "title": "Last Sickness",
+          "year": "1953",
+          "notes": "Neel's mother on her deathbed. The medical precision of the depiction is the form of tenderness Neel permits herself."
         }
       ],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 3203200,
-        "avg_usd": 1601600,
-        "total_label": "$3.20M",
-        "avg_label": "$1.60M",
+        "lot_count": 4,
+        "total_usd": 3314000,
+        "avg_usd": 828500,
+        "total_label": "$3.31M",
+        "avg_label": "$828k",
         "top_lot": {
-          "title": "Untitled #11",
-          "hammer_usd": 2800000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
+          "title": "Gerard Malanga",
+          "hammer_usd": 1900000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Untitled #2",
-          "ratio": 1.01
+          "title": "Gerard Malanga",
+          "ratio": 1.09
         }
       }
     },
@@ -1308,65 +1480,6 @@
         "top_ratio_lot": {
           "title": "Untitled 無題",
           "ratio": 1.0
-        }
-      }
-    },
-    {
-      "norm_name": "WAYNE THIEBAUD",
-      "display_name": "Wayne Thiebaud",
-      "dates": "1920–2021",
-      "nationality": "American",
-      "movement": "Pop Art · California Realism",
-      "movement_id": "pop-art",
-      "bio": "Born in Mesa, Arizona and raised in Long Beach, California, Thiebaud worked as a commercial illustrator and cartoon animator before studying at San José State and Sacramento State. He began painting food subjects in the late 1950s — cakes, pies, gumball machines, diner counters — with a formally rigorous attention to light, shadow, and the physical materiality of paint that distinguished his work from the cooler irony of East Coast Pop. The frosting on a layer cake is painted with thick, sensuous impasto; the display-case setting is handled with a Hopper-esque attention to commercial loneliness. He taught at UC Davis for decades, building an influential West Coast pedagogical tradition. His San Francisco cityscape paintings — extreme vertiginous perspectives down hillside streets — achieve a formally ambitious spatial organisation that goes well beyond the food work in structural ambition. He continued painting actively into his late nineties.",
-      "famous_works": [
-        {
-          "title": "Cakes",
-          "year": "1963",
-          "notes": "A row of identical cakes on a display counter. The seriality anticipates Minimalism; the impasto pleasure of the frosting is the counter-argument. Whitney Museum."
-        },
-        {
-          "title": "Two Seated Figures",
-          "year": "1965",
-          "notes": "A departure from food subjects — two figures in folding chairs, the social awkwardness of commercial seating rendered with the same formal attention as the pastries."
-        },
-        {
-          "title": "Steep Street",
-          "year": "1988",
-          "notes": "A San Francisco street plunging almost vertically from the picture plane. The spatial vertigo of the cityscape paintings — less famous than the food works but arguably more formally ambitious."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Jawbreaker Machine",
-          "year": "1963",
-          "notes": "A candy machine rendered with the same clinical pleasure as the cake displays. The commercial object as still-life subject with a dignity Chardin would have recognised."
-        },
-        {
-          "title": "Ponds and Streams",
-          "year": "2001",
-          "notes": "A late aerial landscape — Sacramento valley agricultural terrain viewed from above. The food work and the landscape work are formally related through their common grid-like structure."
-        },
-        {
-          "title": "Candy Counter",
-          "year": "1969",
-          "notes": "A selection of wrapped candies in commercial display. Less reproduced than the cakes but the formal problem — seriality, colour, light — is treated with equal seriousness."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 2949300,
-        "avg_usd": 491550,
-        "total_label": "$2.95M",
-        "avg_label": "$492k",
-        "top_lot": {
-          "title": "Delta Sloughs",
-          "hammer_usd": 1260000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "The Scholar",
-          "ratio": 2.3
         }
       }
     },
@@ -1588,6 +1701,60 @@
         "top_ratio_lot": {
           "title": "Alpine Retreat 2",
           "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "ZENG FANZHI",
+      "display_name": "Zeng Fanzhi",
+      "dates": "b. 1964",
+      "nationality": "Chinese",
+      "movement": "Neo-Expressionism · Contemporary",
+      "movement_id": "neo-expressionism",
+      "bio": "Zeng Fanzhi was born in Wuhan, Hubei Province in 1964 and studied at the Hubei Institute of Fine Arts before settling in Beijing, where he has been based since the early 1990s. He came to international attention with works from three distinctive series that mark the main phases of his early practice: the Hospital series, the Mask series, and the late landscape and expressionist works.\n\nThe Hospital paintings of 1991–93 — large expressionistic canvases of flesh, medical instruments, and institutional spaces rendered in acidic pinks and yellows — were among the most viscerally affecting Chinese paintings of their decade. The Mask series that followed, in which figures wearing identical white masks inhabit social spaces (dinner parties, streets, public buildings), used this device to express the anxiety of social performance and the concealment of individual identity within a collectivised society. These works, combining European Expressionism with a specifically Chinese social critique, brought Zeng significant international recognition.\n\nHis subsequent large-scale abstract landscape paintings, in which gestural calligraphic marks create complex visual fields that evoke Chinese ink painting while engaging with Western Expressionism, represent a further development of his practice. He is represented by Acquavella Galleries and Gagosian Gallery and his works have achieved major auction records.",
+      "famous_works": [
+        {
+          "title": "Mask Series No. 6",
+          "year": "1996",
+          "notes": "A large painting in which expressionistically rendered figures in identical white masks gather in a social scene whose apparent normality is rendered uncanny by the collective concealment."
+        },
+        {
+          "title": "Hospital Triptych",
+          "year": "1992",
+          "notes": "A three-panel work from the Hospital series in which medical contexts are rendered in acid expressionist colour, making visible the anxiety and vulnerability of bodies under institutional management."
+        },
+        {
+          "title": "Last Supper",
+          "year": "2001",
+          "notes": "A monumental reworking of Leonardo's Last Supper in which the masked figures replace the apostles, creating a meditation on collective identity, betrayal, and Chinese social experience."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Portrait of a Doctor",
+          "year": "1993",
+          "notes": "A single figure from the Hospital series that demonstrates the psychological intensity of Zeng's expressionist approach to the individual subject."
+        },
+        {
+          "title": "Landscape series",
+          "year": "2010s–present",
+          "notes": "Late abstract landscape paintings that extend Zeng's expressionist mark-making into a more purely formal register informed by the tradition of Chinese ink painting."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2350000,
+        "avg_usd": 1175000,
+        "total_label": "$2.35M",
+        "avg_label": "$1.18M",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 1600000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Idealism Drawing 理想主義繪畫",
+          "ratio": 1.88
         }
       }
     },
@@ -2130,7 +2297,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 1692124,
         "avg_usd": 846062,
         "total_label": "$1.69M",
@@ -2260,61 +2427,56 @@
       }
     },
     {
-      "norm_name": "ALICE NEEL",
-      "display_name": "Alice Neel",
-      "dates": "1900–1984",
-      "nationality": "American",
-      "movement": "Figurative Realism · Portrait",
+      "norm_name": "SADAMASA MOTONAGA",
+      "display_name": "Sadamasa Motonaga",
+      "dates": "1922–2011",
+      "nationality": "Japanese",
+      "movement": "Contemporary · Abstract",
       "movement_id": "contemporary",
-      "bio": "Born in Merion Square, Pennsylvania, Neel studied at the Philadelphia School of Design for Women and spent decades in relative poverty and obscurity painting the occupants of her Spanish Harlem neighbourhood: her children, lovers, Communist Party friends, pregnant women, the elderly, the recently deceased. She refused the Abstract Expressionist turn away from figuration on principle — human figures, human experience, were the only subjects that interested her — and the mainstream art world ignored her for it. Her portraits refuse to flatter: Andy Warhol is shown post-shooting, corseted and scarred, eyes closed; John Perreault lounges nude in an armchair with complete unselfconsciousness. The Metropolitan Museum of Art gave her a retrospective only in 1974, when she was 74. She received the National Medal of Arts from President Reagan shortly before her death. Posthumous revaluation has been dramatic and accelerating: she is now among the most sought-after American figurative painters.",
+      "bio": "Sadamasa Motonaga was born in Iga, Mie Prefecture in 1922 and became a founding member of the Gutai Art Association in 1955, the group founded by Jiro Yoshihara that became one of the most significant movements in post-war Japanese art. Gutai's founding principle — 'do what has never been done before' — encouraged artists to engage with materials in unprecedented ways, and Motonaga's contributions to Gutai exhibitions were among the most formally inventive.\n\nMonotaga's best-known work involves coloured liquids: in 1956 he suspended plastic tubes filled with coloured water and oil from the ceiling of the Gutai exhibition space, creating installations in which the movement of the liquid and the transparency of the plastic created colour experiences that were simultaneously painterly and sculptural, optical and physical. His later paintings on canvas maintained the interest in colour as a liquid, atmospheric substance — he poured and dripped oil paint to create surfaces of flowing, pooling colour that recall simultaneously Abstract Expressionism, Colour Field painting, and the specific material investigations of Gutai.\n\nMonotaga's work was exhibited internationally within the Gutai context, including famously in France through Michel Tapié's connections. His contribution to the history of process-based art and environmental installation has been increasingly recognised since the major international reassessment of Gutai from the 1990s onward.",
       "famous_works": [
         {
-          "title": "Andy Warhol",
-          "year": "1970",
-          "notes": "Warhol shown with the corseting and surgical scars from the 1968 shooting. The vulnerability is total; the directness is clinical. Now considered one of the great American portraits."
+          "title": "Work (Tubes)",
+          "year": "1956",
+          "notes": "An installation of plastic tubes filled with coloured liquids suspended from gallery ceiling — a work of revolutionary material and spatial innovation within the Gutai context."
         },
         {
-          "title": "Pregnant Woman",
-          "year": "1971",
-          "notes": "One of Neel's pregnant nude studies. The medical and the intimate held together without sentimentality — the pregnant body depicted with the attention usually reserved for heroic subjects."
+          "title": "Work (Pour Paintings)",
+          "year": "1960s",
+          "notes": "Large canvases in which oil paint is poured and pooled to create surfaces of flowing colour that connect Gutai's material investigation to the global colour abstraction conversation."
         },
         {
-          "title": "Joe Gould",
-          "year": "1933",
-          "notes": "Three figures of Joe Gould — the bohemian intellectual — each with multiple exposed penises. A compositionally radical portrait of masculine exhibitionism made a decade before Abstract Expressionism existed."
+          "title": "Sky Series",
+          "year": "1990s",
+          "notes": "Late paintings of atmospheric colour that demonstrate the sustained development of Motonaga's investigation of colour as liquid and luminous phenomenon."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "TB Harlem",
-          "year": "1940",
-          "notes": "A Harlem man bedridden with tuberculosis. Neel's engagement with poverty and illness as painterly subjects in a period when American art was dominated by either Social Realism's optimism or burgeoning abstraction."
+          "title": "Early Gutai works",
+          "year": "1955–1958",
+          "notes": "Initial works from Motonaga's participation in the foundational Gutai exhibitions that demonstrate his particular material approach within the group's broader programme."
         },
         {
-          "title": "Rhoda Myers with Blue Hat",
-          "year": "1930",
-          "notes": "An early portrait showing the psychological penetration that would define her mature work. Already the formula is clear: no flattery, no evasion, direct confrontation with the sitter's specific reality."
-        },
-        {
-          "title": "Last Sickness",
-          "year": "1953",
-          "notes": "Neel's mother on her deathbed. The medical precision of the depiction is the form of tenderness Neel permits herself."
+          "title": "Outdoor Installation works",
+          "year": "1960s",
+          "notes": "Works created for outdoor settings that extend Motonaga's material investigations into environmental and spatial contexts."
         }
       ],
       "dataset": {
-        "lot_count": 3,
-        "total_usd": 1414000,
-        "avg_usd": 471333,
-        "total_label": "$1.41M",
-        "avg_label": "$471k",
+        "lot_count": 2,
+        "total_usd": 1580000,
+        "avg_usd": 790000,
+        "total_label": "$1.58M",
+        "avg_label": "$790k",
         "top_lot": {
-          "title": "Rachel Zurer",
-          "hammer_usd": 693000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+          "title": "Work - Two Colours 作品 - 兩色",
+          "hammer_usd": 1300000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Still Life with Fruit",
-          "ratio": 0.88
+          "title": "Work - Two Colours 作品 - 兩色",
+          "ratio": 0.87
         }
       }
     },
@@ -3548,60 +3710,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.01
-        }
-      }
-    },
-    {
-      "norm_name": "ZENG FANZHI",
-      "display_name": "Zeng Fanzhi",
-      "dates": "b. 1964",
-      "nationality": "Chinese",
-      "movement": "Neo-Expressionism · Contemporary",
-      "movement_id": "neo-expressionism",
-      "bio": "Zeng Fanzhi was born in Wuhan, Hubei Province in 1964 and studied at the Hubei Institute of Fine Arts before settling in Beijing, where he has been based since the early 1990s. He came to international attention with works from three distinctive series that mark the main phases of his early practice: the Hospital series, the Mask series, and the late landscape and expressionist works.\n\nThe Hospital paintings of 1991–93 — large expressionistic canvases of flesh, medical instruments, and institutional spaces rendered in acidic pinks and yellows — were among the most viscerally affecting Chinese paintings of their decade. The Mask series that followed, in which figures wearing identical white masks inhabit social spaces (dinner parties, streets, public buildings), used this device to express the anxiety of social performance and the concealment of individual identity within a collectivised society. These works, combining European Expressionism with a specifically Chinese social critique, brought Zeng significant international recognition.\n\nHis subsequent large-scale abstract landscape paintings, in which gestural calligraphic marks create complex visual fields that evoke Chinese ink painting while engaging with Western Expressionism, represent a further development of his practice. He is represented by Acquavella Galleries and Gagosian Gallery and his works have achieved major auction records.",
-      "famous_works": [
-        {
-          "title": "Mask Series No. 6",
-          "year": "1996",
-          "notes": "A large painting in which expressionistically rendered figures in identical white masks gather in a social scene whose apparent normality is rendered uncanny by the collective concealment."
-        },
-        {
-          "title": "Hospital Triptych",
-          "year": "1992",
-          "notes": "A three-panel work from the Hospital series in which medical contexts are rendered in acid expressionist colour, making visible the anxiety and vulnerability of bodies under institutional management."
-        },
-        {
-          "title": "Last Supper",
-          "year": "2001",
-          "notes": "A monumental reworking of Leonardo's Last Supper in which the masked figures replace the apostles, creating a meditation on collective identity, betrayal, and Chinese social experience."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Portrait of a Doctor",
-          "year": "1993",
-          "notes": "A single figure from the Hospital series that demonstrates the psychological intensity of Zeng's expressionist approach to the individual subject."
-        },
-        {
-          "title": "Landscape series",
-          "year": "2010s–present",
-          "notes": "Late abstract landscape paintings that extend Zeng's expressionist mark-making into a more purely formal register informed by the tradition of Chinese ink painting."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 750000,
-        "avg_usd": 750000,
-        "total_label": "$750k",
-        "avg_label": "$750k",
-        "top_lot": {
-          "title": "Idealism Drawing 理想主義繪畫",
-          "hammer_usd": 750000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Idealism Drawing 理想主義繪畫",
-          "ratio": 1.88
         }
       }
     },
@@ -5681,7 +5789,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 4,
         "total_usd": 303911,
         "avg_usd": 151956,
         "total_label": "$304k",
@@ -5856,60 +5964,6 @@
         "top_ratio_lot": {
           "title": "Equilibre",
           "ratio": 1.15
-        }
-      }
-    },
-    {
-      "norm_name": "SADAMASA MOTONAGA",
-      "display_name": "Sadamasa Motonaga",
-      "dates": "1922–2011",
-      "nationality": "Japanese",
-      "movement": "Contemporary · Abstract",
-      "movement_id": "contemporary",
-      "bio": "Sadamasa Motonaga was born in Iga, Mie Prefecture in 1922 and became a founding member of the Gutai Art Association in 1955, the group founded by Jiro Yoshihara that became one of the most significant movements in post-war Japanese art. Gutai's founding principle — 'do what has never been done before' — encouraged artists to engage with materials in unprecedented ways, and Motonaga's contributions to Gutai exhibitions were among the most formally inventive.\n\nMonotaga's best-known work involves coloured liquids: in 1956 he suspended plastic tubes filled with coloured water and oil from the ceiling of the Gutai exhibition space, creating installations in which the movement of the liquid and the transparency of the plastic created colour experiences that were simultaneously painterly and sculptural, optical and physical. His later paintings on canvas maintained the interest in colour as a liquid, atmospheric substance — he poured and dripped oil paint to create surfaces of flowing, pooling colour that recall simultaneously Abstract Expressionism, Colour Field painting, and the specific material investigations of Gutai.\n\nMonotaga's work was exhibited internationally within the Gutai context, including famously in France through Michel Tapié's connections. His contribution to the history of process-based art and environmental installation has been increasingly recognised since the major international reassessment of Gutai from the 1990s onward.",
-      "famous_works": [
-        {
-          "title": "Work (Tubes)",
-          "year": "1956",
-          "notes": "An installation of plastic tubes filled with coloured liquids suspended from gallery ceiling — a work of revolutionary material and spatial innovation within the Gutai context."
-        },
-        {
-          "title": "Work (Pour Paintings)",
-          "year": "1960s",
-          "notes": "Large canvases in which oil paint is poured and pooled to create surfaces of flowing colour that connect Gutai's material investigation to the global colour abstraction conversation."
-        },
-        {
-          "title": "Sky Series",
-          "year": "1990s",
-          "notes": "Late paintings of atmospheric colour that demonstrate the sustained development of Motonaga's investigation of colour as liquid and luminous phenomenon."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Early Gutai works",
-          "year": "1955–1958",
-          "notes": "Initial works from Motonaga's participation in the foundational Gutai exhibitions that demonstrate his particular material approach within the group's broader programme."
-        },
-        {
-          "title": "Outdoor Installation works",
-          "year": "1960s",
-          "notes": "Works created for outdoor settings that extend Motonaga's material investigations into environmental and spatial contexts."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 280000,
-        "avg_usd": 280000,
-        "total_label": "$280k",
-        "avg_label": "$280k",
-        "top_lot": {
-          "title": "Vertical and Horizontal Fillet Black White 垂直與水平圓角 - 黑白",
-          "hammer_usd": 280000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Vertical and Horizontal Fillet Black White 垂直與水平圓角 - 黑白",
-          "ratio": 0.7
         }
       }
     },
@@ -6126,60 +6180,6 @@
         "top_ratio_lot": {
           "title": "The Nice Dragon",
           "ratio": 1.76
-        }
-      }
-    },
-    {
-      "norm_name": "KEITH HARING",
-      "display_name": "Keith Haring",
-      "dates": "1958–1990",
-      "nationality": "American",
-      "movement": "Street Art · Pop Art",
-      "movement_id": "street-art",
-      "bio": "Keith Haring was born in Reading, Pennsylvania in 1958 and arrived in New York in 1978 to study at the School of Visual Arts. He became one of the defining visual voices of the 1980s through his chalk drawings made on the blank paper panels covering unused advertising spaces in the New York subway system, drawings that were seen daily by millions of commuters and that translated the energy and accessibility of graffiti into a language of simple, almost universal symbolic figures.\n\nHaring's visual vocabulary is immediately recognisable: radiant babies, barking dogs, dancing figures, hearts, flying saucers — outlined in the thick black line that became his signature — rendered in a manner that is simultaneously playful and politically charged. His work addressed the AIDS crisis, apartheid, drugs, nuclear threat, and the Reagan administration's indifference to minority communities with a directness that made art available as political communication without requiring any specialist knowledge. He opened the Pop Shop in 1986, selling merchandise at affordable prices as an extension of his democratic commitment to accessibility.\n\nHaring was diagnosed with HIV in 1988 and died of AIDS-related complications in 1990 at thirty-one. The Keith Haring Foundation, established before his death, continues to support social programmes for children and AIDS research. His work is held by major museums worldwide and his visual language has had an influence on subsequent culture that far exceeds the art world.",
-      "famous_works": [
-        {
-          "title": "Radiant Baby",
-          "year": "1982",
-          "notes": "Haring's most reproduced image — a crawling infant surrounded by radiant lines — which became an emblem of innocence, energy, and creative possibility."
-        },
-        {
-          "title": "Crack Is Wack",
-          "year": "1986",
-          "notes": "A large-scale mural painted on a handball court in New York City addressing the crack cocaine epidemic, demonstrating Haring's commitment to using his public platform for political communication."
-        },
-        {
-          "title": "Once Upon A Time (Cooper Square installation)",
-          "year": "1989",
-          "notes": "An explicit mural painted on the walls of a men's room in the LGBT Community Center in New York, addressing sexuality, desire, and the AIDS crisis with characteristic directness."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "New York Public Library installation",
-          "year": "1982",
-          "notes": "An early gallery-context installation that translated Haring's subway chalk work into a formal institutional setting while maintaining its popular energy."
-        },
-        {
-          "title": "Apocalypse series",
-          "year": "1988",
-          "notes": "A series of prints made in collaboration with William S. Burroughs that extends Haring's symbolic vocabulary into the register of cultural apocalypse."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 264600,
-        "avg_usd": 132300,
-        "total_label": "$265k",
-        "avg_label": "$132k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 138600,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 3.15
         }
       }
     },
@@ -7193,7 +7193,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 192024,
         "avg_usd": 192024,
         "total_label": "$192k",
@@ -7679,7 +7679,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 6,
         "total_usd": 160020,
         "avg_usd": 160020,
         "total_label": "$160k",
@@ -12502,6 +12502,87 @@
       }
     },
     {
+      "norm_name": "LUCIO FONTANA",
+      "display_name": "Lucio Fontana",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 25282000,
+        "avg_usd": 6320500,
+        "total_label": "$25.28M",
+        "avg_label": "$6.32M",
+        "top_lot": {
+          "title": "Concetto spaziale, La fine di Dio",
+          "hammer_usd": 20000000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Due Cavaglieri)",
+          "ratio": 1.28
+        }
+      }
+    },
+    {
+      "norm_name": "FRANCIS BACON",
+      "display_name": "Francis Bacon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 25000000,
+        "avg_usd": 25000000,
+        "total_label": "$25.00M",
+        "avg_label": "$25.00M",
+        "top_lot": {
+          "title": "Portrait of George Dyer Crouching",
+          "hammer_usd": 25000000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of George Dyer Crouching",
+          "ratio": 0.62
+        }
+      }
+    },
+    {
+      "norm_name": "ANDY WARHOL AND JEAN-MICHEL BASQUIAT",
+      "display_name": "Andy Warhol And Jean-Michel Basquiat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 18000000,
+        "avg_usd": 18000000,
+        "total_label": "$18.00M",
+        "avg_label": "$18.00M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 18000000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.03
+        }
+      }
+    },
+    {
       "norm_name": "GEORGIA O'KEEFFE",
       "display_name": "Georgia O'Keeffe",
       "dates": "",
@@ -12556,6 +12637,33 @@
       }
     },
     {
+      "norm_name": "GERHARD RICHTER",
+      "display_name": "Gerhard Richter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 12100000,
+        "avg_usd": 2420000,
+        "total_label": "$12.10M",
+        "avg_label": "$2.42M",
+        "top_lot": {
+          "title": "Abstraktes Bild",
+          "hammer_usd": 5700000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Ifrit",
+          "ratio": 1.71
+        }
+      }
+    },
+    {
       "norm_name": "FRANTIŠEK KUPKA",
       "display_name": "František Kupka",
       "dates": "",
@@ -12583,8 +12691,8 @@
       }
     },
     {
-      "norm_name": "GERHARD RICHTER",
-      "display_name": "Gerhard Richter",
+      "norm_name": "MATTHEW WONG",
+      "display_name": "Matthew Wong",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -12593,19 +12701,46 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 9,
-        "total_usd": 8100000,
-        "avg_usd": 2025000,
-        "total_label": "$8.10M",
-        "avg_label": "$2.02M",
+        "lot_count": 1,
+        "total_usd": 9000000,
+        "avg_usd": 9000000,
+        "total_label": "$9.00M",
+        "avg_label": "$9.00M",
         "top_lot": {
-          "title": "Abstraktes Bild",
-          "hammer_usd": 5700000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
+          "title": "Another Day  另一天",
+          "hammer_usd": 9000000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Ifrit",
-          "ratio": 1.71
+          "title": "Another Day  另一天",
+          "ratio": 0.9
+        }
+      }
+    },
+    {
+      "norm_name": "CY TWOMBLY",
+      "display_name": "Cy Twombly",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 6300000,
+        "avg_usd": 6300000,
+        "total_label": "$6.30M",
+        "avg_label": "$6.30M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 6300000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.26
         }
       }
     },
@@ -12745,6 +12880,33 @@
       }
     },
     {
+      "norm_name": "LEE UFAN",
+      "display_name": "Lee Ufan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5300000,
+        "avg_usd": 5300000,
+        "total_label": "$5.30M",
+        "avg_label": "$5.30M",
+        "top_lot": {
+          "title": "East Winds No. 839031 東風 No. 839031",
+          "hammer_usd": 5300000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "East Winds No. 839031 東風 No. 839031",
+          "ratio": 2.86
+        }
+      }
+    },
+    {
       "norm_name": "FERNAND LÉGER",
       "display_name": "Fernand Léger",
       "dates": "",
@@ -12755,7 +12917,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 4,
         "total_usd": 4850000,
         "avg_usd": 1616667,
         "total_label": "$4.85M",
@@ -12799,6 +12961,33 @@
       }
     },
     {
+      "norm_name": "KAZUO SHIRAGA",
+      "display_name": "Kazuo Shiraga",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 4650000,
+        "avg_usd": 2325000,
+        "total_label": "$4.65M",
+        "avg_label": "$2.33M",
+        "top_lot": {
+          "title": "Ungen (Interchanging Density and Diffusion) 繧繝",
+          "hammer_usd": 3800000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Ungen (Interchanging Density and Diffusion) 繧繝",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
       "norm_name": "LEE KRASNER",
       "display_name": "Lee Krasner",
       "dates": "",
@@ -12822,6 +13011,33 @@
         "top_ratio_lot": {
           "title": "August Petals",
           "ratio": 0.9
+        }
+      }
+    },
+    {
+      "norm_name": "ZHANG ENLI",
+      "display_name": "Zhang Enli",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4500000,
+        "avg_usd": 4500000,
+        "total_label": "$4.50M",
+        "avg_label": "$4.50M",
+        "top_lot": {
+          "title": "Old Man and Bird 老人與鳥",
+          "hammer_usd": 4500000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Old Man and Bird 老人與鳥",
+          "ratio": 1.32
         }
       }
     },
@@ -12961,6 +13177,33 @@
       }
     },
     {
+      "norm_name": "WAYNE  THIEBAUD",
+      "display_name": "Wayne  Thiebaud",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2700000,
+        "avg_usd": 1350000,
+        "total_label": "$2.70M",
+        "avg_label": "$1.35M",
+        "top_lot": {
+          "title": "Suckers",
+          "hammer_usd": 1400000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Watermelon & Knife",
+          "ratio": 1.04
+        }
+      }
+    },
+    {
       "norm_name": "THOMAS HART BENTON",
       "display_name": "Thomas Hart Benton",
       "dates": "",
@@ -12998,7 +13241,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 2200000,
         "avg_usd": 2200000,
         "total_label": "$2.20M",
@@ -13069,6 +13312,60 @@
       }
     },
     {
+      "norm_name": "CHUNG SANGHWA",
+      "display_name": "Chung Sanghwa",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2000000,
+        "avg_usd": 2000000,
+        "total_label": "$2.00M",
+        "avg_label": "$2.00M",
+        "top_lot": {
+          "title": "Untitled 08-6-12 無題 08－6－12",
+          "hammer_usd": 2000000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 08-6-12 無題 08－6－12",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
+      "norm_name": "CHRISTOPHER WOOL",
+      "display_name": "Christopher Wool",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1910000,
+        "avg_usd": 1910000,
+        "total_label": "$1.91M",
+        "avg_label": "$1.91M",
+        "top_lot": {
+          "title": "Untitled (TRBL)",
+          "hammer_usd": 1910000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (TRBL)",
+          "ratio": 0.95
+        }
+      }
+    },
+    {
       "norm_name": "JEFF KOONS",
       "display_name": "Jeff Koons",
       "dates": "",
@@ -13091,6 +13388,33 @@
         },
         "top_ratio_lot": {
           "title": "Baroque Egg with Bow",
+          "ratio": 0.63
+        }
+      }
+    },
+    {
+      "norm_name": "ED  RUSCHA",
+      "display_name": "Ed  Ruscha",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1900000,
+        "avg_usd": 1900000,
+        "total_label": "$1.90M",
+        "avg_label": "$1.90M",
+        "top_lot": {
+          "title": "Christ Candle",
+          "hammer_usd": 1900000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Christ Candle",
           "ratio": 0.63
         }
       }
@@ -13231,6 +13555,60 @@
       }
     },
     {
+      "norm_name": "AD REINHARDT",
+      "display_name": "Ad Reinhardt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1600000,
+        "avg_usd": 1600000,
+        "total_label": "$1.60M",
+        "avg_label": "$1.60M",
+        "top_lot": {
+          "title": "Abstract Painting",
+          "hammer_usd": 1600000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Abstract Painting",
+          "ratio": 0.91
+        }
+      }
+    },
+    {
+      "norm_name": "SALVO",
+      "display_name": "Salvo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 1600000,
+        "avg_usd": 1600000,
+        "total_label": "$1.60M",
+        "avg_label": "$1.60M",
+        "top_lot": {
+          "title": "Il Villaggio (The Village) 村莊",
+          "hammer_usd": 1600000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Il Villaggio (The Village) 村莊",
+          "ratio": 1.07
+        }
+      }
+    },
+    {
       "norm_name": "LEONORA CARRINGTON",
       "display_name": "Leonora Carrington",
       "dates": "",
@@ -13281,6 +13659,60 @@
         "top_ratio_lot": {
           "title": "Dinner at Gertrude Stein's: The French Collection Part II, #",
           "ratio": 1.53
+        }
+      }
+    },
+    {
+      "norm_name": "ELLSWORTH KELLY",
+      "display_name": "Ellsworth Kelly",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1300000,
+        "avg_usd": 1300000,
+        "total_label": "$1.30M",
+        "avg_label": "$1.30M",
+        "top_lot": {
+          "title": "Yellow Relief with White",
+          "hammer_usd": 1300000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Yellow Relief with White",
+          "ratio": 0.74
+        }
+      }
+    },
+    {
+      "norm_name": "PARK SEOBO",
+      "display_name": "Park Seobo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1300000,
+        "avg_usd": 1300000,
+        "total_label": "$1.30M",
+        "avg_label": "$1.30M",
+        "top_lot": {
+          "title": "Ecriture No. 63-78  描法 NO. 63－78",
+          "hammer_usd": 1300000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Ecriture No. 63-78  描法 NO. 63－78",
+          "ratio": 0.76
         }
       }
     },
@@ -13366,6 +13798,33 @@
       }
     },
     {
+      "norm_name": "HOWARDENA PINDELL",
+      "display_name": "Howardena Pindell",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1200000,
+        "avg_usd": 1200000,
+        "total_label": "$1.20M",
+        "avg_label": "$1.20M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 1200000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.71
+        }
+      }
+    },
+    {
       "norm_name": "OLGA DE AMARAL",
       "display_name": "Olga De Amaral",
       "dates": "",
@@ -13389,6 +13848,33 @@
         "top_ratio_lot": {
           "title": "Imagen Paisaje I",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "CAI GUOQIANG",
+      "display_name": "Cai Guoqiang",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 950000,
+        "avg_usd": 950000,
+        "total_label": "$950k",
+        "avg_label": "$950k",
+        "top_lot": {
+          "title": "Study for Garden No. 1 (Diptych) 花園習作 NO. 1 (雙聯作)",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Study for Garden No. 1 (Diptych) 花園習作 NO. 1 (雙聯作)",
+          "ratio": 0.54
         }
       }
     },
@@ -13420,8 +13906,8 @@
       }
     },
     {
-      "norm_name": "LUCIO FONTANA",
-      "display_name": "Lucio Fontana",
+      "norm_name": "LEE BAE",
+      "display_name": "Lee Bae",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -13430,25 +13916,25 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 5,
-        "total_usd": 882000,
-        "avg_usd": 441000,
-        "total_label": "$882k",
-        "avg_label": "$441k",
+        "lot_count": 1,
+        "total_usd": 900000,
+        "avg_usd": 900000,
+        "total_label": "$900k",
+        "avg_label": "$900k",
         "top_lot": {
-          "title": "Concetto Spaziale",
-          "hammer_usd": 850000,
-          "sale_name": "Contemporary Day Auction, NY 2025"
+          "title": "Issu du Feu (From Fire) (Two Works) 從火（兩幅作品）",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Untitled (Due Cavaglieri)",
-          "ratio": 1.28
+          "title": "Issu du Feu (From Fire) (Two Works) 從火（兩幅作品）",
+          "ratio": 0.9
         }
       }
     },
     {
-      "norm_name": "KAZUO SHIRAGA",
-      "display_name": "Kazuo Shiraga",
+      "norm_name": "HUANG YUXING",
+      "display_name": "Huang Yuxing",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -13463,12 +13949,12 @@
         "total_label": "$850k",
         "avg_label": "$850k",
         "top_lot": {
-          "title": "Untitled",
+          "title": "Water - Flame 水－焰",
           "hammer_usd": 850000,
-          "sale_name": "Contemporary Day Auction, NY 2025"
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Untitled",
+          "title": "Water - Flame 水－焰",
           "ratio": 0.85
         }
       }
@@ -13538,7 +14024,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 4,
         "total_usd": 750000,
         "avg_usd": 750000,
         "total_label": "$750k",
@@ -13551,6 +14037,33 @@
         "top_ratio_lot": {
           "title": "Cour de ferme à Eragny",
           "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "VIVIAN SPRINGFORD",
+      "display_name": "Vivian Springford",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 700000,
+        "avg_usd": 700000,
+        "total_label": "$700k",
+        "avg_label": "$700k",
+        "top_lot": {
+          "title": "Untitled (VSP0025) 無題（VSP0025）",
+          "hammer_usd": 700000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (VSP0025) 無題（VSP0025）",
+          "ratio": 1.0
         }
       }
     },
@@ -13578,6 +14091,87 @@
         "top_ratio_lot": {
           "title": "Poissons et coquillages",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "CHRIS HUEN SIN KAN",
+      "display_name": "Chris Huen Sin Kan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 650000,
+        "avg_usd": 650000,
+        "total_label": "$650k",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": "MuiMui, Balltsz and Doodood Mui Mui, Balltsz 與 Doodood",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "MuiMui, Balltsz and Doodood Mui Mui, Balltsz 與 Doodood",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "KIM WHANKI",
+      "display_name": "Kim Whanki",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 650000,
+        "avg_usd": 650000,
+        "total_label": "$650k",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "SUN YITIAN",
+      "display_name": "Sun Yitian",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 600000,
+        "avg_usd": 600000,
+        "total_label": "$600k",
+        "avg_label": "$600k",
+        "top_lot": {
+          "title": "Peep at Two Worlds With One Eye - 1 (Diptych) 一隻眼睛看兩個世界－1（雙聯",
+          "hammer_usd": 600000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Peep at Two Worlds With One Eye - 1 (Diptych) 一隻眼睛看兩個世界－1（雙聯",
+          "ratio": 0.92
         }
       }
     },
@@ -13794,6 +14388,60 @@
         "top_ratio_lot": {
           "title": "Adriatic Study",
           "ratio": 0.97
+        }
+      }
+    },
+    {
+      "norm_name": "ALEX FOXTON",
+      "display_name": "Alex Foxton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 350000,
+        "avg_usd": 350000,
+        "total_label": "$350k",
+        "avg_label": "$350k",
+        "top_lot": {
+          "title": "Henry With Richard's Hands 擁有理查雙手的亨利",
+          "hammer_usd": 350000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Henry With Richard's Hands 擁有理查雙手的亨利",
+          "ratio": 0.91
+        }
+      }
+    },
+    {
+      "norm_name": "SHOLTO BLISSETT",
+      "display_name": "Sholto Blissett",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 320000,
+        "avg_usd": 320000,
+        "total_label": "$320k",
+        "avg_label": "$320k",
+        "top_lot": {
+          "title": "Ship of Fools XII 愚人船 XII",
+          "hammer_usd": 320000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Ship of Fools XII 愚人船 XII",
+          "ratio": 1.07
         }
       }
     },
@@ -14321,7 +14969,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 3,
         "total_usd": 140000,
         "avg_usd": 140000,
         "total_label": "$140k",
@@ -15098,7 +15746,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -16031,29 +16679,6 @@
       }
     },
     {
-      "norm_name": "SALVO",
-      "display_name": "Salvo",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 0,
-        "avg_usd": 0,
-        "total_label": "$0",
-        "avg_label": "$0",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 0,
-          "sale_name": "Arte Moderna e contemporanea"
-        }
-      }
-    },
-    {
       "norm_name": "ALBERTO GARUTTI",
       "display_name": "Alberto Garutti",
       "dates": "",
@@ -16623,29 +17248,6 @@
         "avg_label": "$0",
         "top_lot": {
           "title": "\"TSE TSE\"",
-          "hammer_usd": 0,
-          "sale_name": "Zeitgenössische Kunst"
-        }
-      }
-    },
-    {
-      "norm_name": "CY TWOMBLY",
-      "display_name": "Cy Twombly",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 0,
-        "avg_usd": 0,
-        "total_label": "$0",
-        "avg_label": "$0",
-        "top_lot": {
-          "title": "Bay of Gaeta",
           "hammer_usd": 0,
           "sale_name": "Zeitgenössische Kunst"
         }
@@ -19661,6 +20263,2559 @@
           "title": "\"Garden in Kyoto (A)\"",
           "hammer_usd": 0,
           "sale_name": "Landfall Press: Chicago Imagists, Pop Art & Postwar Prints"
+        }
+      }
+    },
+    {
+      "norm_name": "OTTO MODERSOHN",
+      "display_name": "Otto Modersohn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Bauerngarten in der Abendsonne",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ADOLF ERBSLÖH",
+      "display_name": "Adolf Erbslöh",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Nähschule (Skizze)/A female half nude study",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MAX LIEBERMANN",
+      "display_name": "Max Liebermann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Meer - Blick auf die Nordsee",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "KARL HAGEMEISTER",
+      "display_name": "Karl Hagemeister",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Seenlandschaft mit Mohnblumen",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "BERNHARD HOETGER",
+      "display_name": "Bernhard Hoetger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mädchen mit Reif (L'Enfant au Cerceau)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "CHRISTIAN ROHLFS",
+      "display_name": "Christian Rohlfs",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Ziege",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ALFRED SISLEY",
+      "display_name": "Alfred Sisley",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Landschaft mit Bauernhaus",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ÉDOUARD CORTES",
+      "display_name": "Édouard Cortes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Paris; Place Saint-Michel",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MAXIMILIEN LUCE",
+      "display_name": "Maximilien Luce",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "La Cure à Bessy, Yonne",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "AUGUST MACKE",
+      "display_name": "August Macke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Drei Knaben am Wasser/ Weibliche Akte, Frauen am Tisch",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANZ MARC",
+      "display_name": "Franz Marc",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Drei Tiere",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ALFRED LÖRCHER",
+      "display_name": "Alfred Lörcher",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Dozent  (1953-1954)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ERICH HECKEL",
+      "display_name": "Erich Heckel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Bewachsene Dünen",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HERMANN MAX PECHSTEIN",
+      "display_name": "Hermann Max Pechstein",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Palau-Mädchen",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "EMIL ORLIK",
+      "display_name": "Emil Orlik",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Gebirgslandschaft  (c.1910-1915)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "OTTO GUTFREUND",
+      "display_name": "Otto Gutfreund",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Konzert  (1912-1913)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FRITS VAN DEN BERGHE",
+      "display_name": "Frits Van Den Berghe",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Boats on the Zuiderzee (Retour des barques sur le Zuiderzee)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MOISSEJ KOGAN",
+      "display_name": "Moissej Kogan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Schmale Stehende mit geneigtem Kopf",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "LOVIS CORINTH",
+      "display_name": "Lovis Corinth",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Walchenseelandschaft",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "KARL CASPAR",
+      "display_name": "Karl Caspar",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Noli me tangere",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MARIA CASPAR-FILSER",
+      "display_name": "Maria Caspar-Filser",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Tulpen und Narzissen (mit Hyazinthen und Osterglocken)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ERNST BARLACH",
+      "display_name": "Ernst Barlach",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Russische Bettlerin II",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANZ HECKENDORF",
+      "display_name": "Franz Heckendorf",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mutter mit Kind (Orientalin mit Kind)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL KLEE",
+      "display_name": "Paul Klee",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Die erhabene Seite",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM WAUER",
+      "display_name": "William Wauer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Eisbär",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "LUDWIG MEIDNER",
+      "display_name": "Ludwig Meidner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Hockender",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GERT HEINRICH WOLLHEIM",
+      "display_name": "Gert Heinrich Wollheim",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait de Pierre Hodé",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GEORG KOLBE",
+      "display_name": "Georg Kolbe",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Nonne (Kleine Nonne)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MARIE MELA MUTER",
+      "display_name": "Marie Mela Muter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mann mit rotem Schal. Verso: Sitzender Jüngling",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "EMILE OTHON FRIESZ",
+      "display_name": "Emile Othon Friesz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Flussufer mit Häusern und Segelschiff",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FRITZ KLIMSCH",
+      "display_name": "Fritz Klimsch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Erwachende  (1922-1923)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "RENÉE SINTENIS",
+      "display_name": "Renée Sintenis",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Stehendes Zebukalb",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "PHILIPP FRANCK",
+      "display_name": "Philipp Franck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Taunuslandschaft",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "CONRAD FELIXMÜLLER",
+      "display_name": "Conrad Felixmüller",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait Else Oswald",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MAX KAUS",
+      "display_name": "Max Kaus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Passau, Innufer",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "KURT WEINHOLD",
+      "display_name": "Kurt Weinhold",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Rheinschlepper \"Rhein I\"",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HEINRICH HOERLE",
+      "display_name": "Heinrich Hoerle",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Frauenportrait",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "CARL LOHSE",
+      "display_name": "Carl Lohse",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Stadtwald",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FÉLIX NUSSBAUM",
+      "display_name": "Félix Nussbaum",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Gehöft in Südfrankreich",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GUSTAV WIETHÜCHTER",
+      "display_name": "Gustav Wiethüchter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Überfahrt  (1929-1936)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HERBERT BEHRENS-HANGELER",
+      "display_name": "Herbert Behrens-Hangeler",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Hyères",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HANS OTTO BAUMANN",
+      "display_name": "Hans Otto Baumann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait einer Dame (Junge Frau auf Balkon)  (c.1920-1930)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HERBERT BÖTTGER",
+      "display_name": "Herbert Böttger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Stillleben mit Amaryllis im Glaskrug und Nüssen",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "RUDOLF LEVY",
+      "display_name": "Rudolf Levy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Studie II zum Bildnis Nanda",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "EBERHARD VIEGENER",
+      "display_name": "Eberhard Viegener",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Selbstbildnis",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "BERNHARD SCHROEDER-WIBORG",
+      "display_name": "Bernhard Schroeder-Wiborg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Harzklippen",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "KARL HARTUNG",
+      "display_name": "Karl Hartung",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Weiblicher Torso  (c.1948-1949)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "CARL HOFER",
+      "display_name": "Carl Hofer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Junge mit Maske",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HANS ARP",
+      "display_name": "Hans Arp",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Homme vue par une fleur (Mensch, von einer Blume betrachtet)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HENRI LAURENS",
+      "display_name": "Henri Laurens",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Der Engel mit dem Schwert (L'ange au glaive)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "OTTO WOLS",
+      "display_name": "Otto Wols",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Composition",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "BORIS HERBERT KLEINT",
+      "display_name": "Boris Herbert Kleint",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mauerbild",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLI BAUMEISTER",
+      "display_name": "Willi Baumeister",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Aufzug der Giganten",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "KURT SCHWITTERS",
+      "display_name": "Kurt Schwitters",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mz x 2",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ERNST WILHELM NAY",
+      "display_name": "Ernst Wilhelm Nay",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GERHARD MARCKS",
+      "display_name": "Gerhard Marcks",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Paar zu Pferde",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GUSTAV SEITZ",
+      "display_name": "Gustav Seitz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Die glückliche Amme",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANZ RADZIWILL",
+      "display_name": "Franz Radziwill",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Stillleben mit gelber Kanne und rosa Krug mit Blumen",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "IDA KERKOVIUS",
+      "display_name": "Ida Kerkovius",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Frühlingsstrauß mit Glasmosaik",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "EDMUND DANIEL KINZINGER",
+      "display_name": "Edmund Daniel Kinzinger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Italienerin mit Fruchtkorb",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "KARL HUBBUCH",
+      "display_name": "Karl Hubbuch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Akt auf Stuhl",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "EDUARD BARGHEER",
+      "display_name": "Eduard Bargheer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Vegetation",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MAX PEIFFER WATENPHUL",
+      "display_name": "Max Peiffer Watenphul",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Salzburg, Kollegienkirche und Dom",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "WERNER GILLES",
+      "display_name": "Werner Gilles",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Figurenkomposition",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GEORG MUCHE",
+      "display_name": "Georg Muche",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Zitrone zum Fisch",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ANTON HILLER",
+      "display_name": "Anton Hiller",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Tera",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "WALDEMAR GRZIMEK",
+      "display_name": "Waldemar Grzimek",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Toilette",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "MARK TOBEY",
+      "display_name": "Mark Tobey",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HELMUT ANDREAS PAUL GRIESHABER",
+      "display_name": "Helmut Andreas Paul Grieshaber",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mittag",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "OTTO DIX",
+      "display_name": "Otto Dix",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Katze im Mohnfeld",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "HOLMEAD PHILLIPS",
+      "display_name": "Holmead Phillips",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mann mit Violine",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GEORG MEISTERMANN",
+      "display_name": "Georg Meistermann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled (Abstrakte Formen)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "ANDRÉ MASSON",
+      "display_name": "André Masson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Féminaire de la rue Saint-Denis VI",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGES BRAQUE",
+      "display_name": "Georges Braque",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Affiche sur fond journal",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FRITZ WINTER",
+      "display_name": "Fritz Winter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "OTTO RITSCHL",
+      "display_name": "Otto Ritschl",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Komposition 65/15",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "XANTI ALEXANDER SCHAWINSKY",
+      "display_name": "Xanti Alexander Schawinsky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mountains (M - 39)",
+          "hammer_usd": 0,
+          "sale_name": "Day Sale - Moderne Kunst"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANÇOIS BOISROND",
+      "display_name": "François Boisrond",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "ERRÖ",
+      "display_name": "Errö",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD DI ROSA",
+      "display_name": "Richard Di Rosa",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "ROBERT COMBAS",
+      "display_name": "Robert Combas",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Cuillère",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "JACQUES VILLEGLÉ",
+      "display_name": "Jacques Villeglé",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Lille retraite",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "CÉSAR",
+      "display_name": "César",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "KENJI YOSHIDA",
+      "display_name": "Kenji Yoshida",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "PANCHO QUILICI",
+      "display_name": "Pancho Quilici",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Incontournable uniformité des choses I",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "MAHJOUB BEN BELLA",
+      "display_name": "Mahjoub Ben Bella",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Composition grise",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "HERVÉ TELEMAQUE",
+      "display_name": "Hervé Telemaque",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "MICHEL TYSZBLAT",
+      "display_name": "Michel Tyszblat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "YANG JIECHANG",
+      "display_name": "Yang Jiechang",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "ANTON HENNING",
+      "display_name": "Anton Henning",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "N°10",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "BENGT LINDSTRÖM",
+      "display_name": "Bengt Lindström",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "PIERRE DMITRIENKO",
+      "display_name": "Pierre Dmitrienko",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Homme d’ailleurs",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "MAX NEUMANN",
+      "display_name": "Max Neumann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Personnage",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "GÜNTER BRUS",
+      "display_name": "Günter Brus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Spanischer Nervenkrieg",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "TOMÁS GOMEZ GASCON",
+      "display_name": "Tomás Gomez Gascon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "VLADIMIR VELICKOVIC",
+      "display_name": "Vladimir Velickovic",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Exit fig. 1",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "ANTONIO SEGUI",
+      "display_name": "Antonio Segui",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Personnage au chapeau",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "LÉON ZACK",
+      "display_name": "Léon Zack",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "SERGE CHARCHOUNE",
+      "display_name": "Serge Charchoune",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "MASAHIRO KANNO",
+      "display_name": "Masahiro Kanno",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM MAC KENDREE",
+      "display_name": "William Mac Kendree",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Flora Carolina",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN CHRISTOFOROU",
+      "display_name": "John Christoforou",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Homme au gilet bleu sur fond blanc",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "CLAUDE VIALLAT",
+      "display_name": "Claude Viallat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"394/1990 \"",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "MAURICE ESTEVE",
+      "display_name": "Maurice Esteve",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "ODE BERTRAND",
+      "display_name": "Ode Bertrand",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "2 miniatures  (2010-2011)",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "ANDRÉ VALENSI",
+      "display_name": "André Valensi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-PIERRE PINCEMIN",
+      "display_name": "Jean-Pierre Pincemin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-PIERRE BERTRAND",
+      "display_name": "Jean-Pierre Bertrand",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "JOE TILSON",
+      "display_name": "Joe Tilson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Labirinthos Ludus Trojae",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "MARC DEVADE",
+      "display_name": "Marc Devade",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "YVARAL",
+      "display_name": "Yvaral",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Quadrature diamant",
+          "hammer_usd": 0,
+          "sale_name": "Art Contemporain de 1950 à nos jours"
         }
       }
     }
