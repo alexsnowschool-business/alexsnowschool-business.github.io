@@ -125,7 +125,6 @@ def make_linkedin_caption(cfg):
         parts.append(personal)
     if hook_clean:
         parts.append(hook_clean)
-    parts.append("#thehammerprice #artmarket #auctionresults #artcollecting #contemporaryart")
     return "\n\n".join(parts)
 
 def make_caption_variations(cfg):

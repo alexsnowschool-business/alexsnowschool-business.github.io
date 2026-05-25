@@ -389,11 +389,15 @@ def main() -> None:
             db_path = BUSINESS_DIR / "data" / "art.db"
             if db_path.exists():
                 conn = sqlite3.connect(db_path)
+                row = conn.execute(
+                    "SELECT hammer_usd FROM art_items WHERE id = ?", (lot_id,)
+                ).fetchone()
+                hammer_usd = row[0] if row else None
                 conn.execute("""
                     INSERT OR REPLACE INTO posted_reels
                         (lot_id, artist, title, hammer_usd, reel_slug, platforms)
                     VALUES (?, ?, ?, ?, ?, ?)
-                """, (lot_id, artist, title, None, reel_slug, ",".join(posted_platforms)))
+                """, (lot_id, artist, title, hammer_usd, reel_slug, ",".join(posted_platforms)))
                 conn.commit()
                 conn.close()
                 print(f"  ✓ Recorded in posted_reels (lot_id={lot_id})")
