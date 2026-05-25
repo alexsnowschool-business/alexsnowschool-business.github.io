@@ -113,6 +113,7 @@ Format (4 short paragraphs, each 1–2 lines):
 1. Hook: one punchy line using the angle — lead with the insight, not the price.
 2. The work: one sentence naming {artist} and "{title}" with context about why this result matters.
 3. Art history: one sentence about {artist} — who they are, what movement or period they belong to, why their work is significant. specific, not generic.
+4. Data source: "data source: {house}"
 
 --- TIKTOK ---
 Format (2 lines max):
@@ -127,6 +128,8 @@ Format (3–4 short paragraphs):
 2. Context — one sentence about {artist} and why this result matters to collectors or the market.
 3. Market signal — what does a result like this tell us about demand or pricing?
 4. Closing — a question or observation that invites professional discussion.
+5. Data source: "data source: {house}"
+
 Rules: all lowercase except proper nouns. Do NOT repeat the full estimate/hammer — reference the gap or the % instead. Under 200 words.
 
 Reply with only the three sections and their labels. Nothing else."""
