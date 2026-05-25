@@ -39,6 +39,7 @@ _HASHTAGS_TT = (
     "#thehammerprice #artmarket #auctionresults #fyp #foryou #foryoupage "
     "#contemporaryart #artcollecting"
 )
+_HASHTAGS_LN = "#artmarket #auctionresults #artcollecting #contemporaryart"
 
 
 def _call(messages: list[dict], max_tokens: int = 400) -> str | None:
@@ -134,7 +135,48 @@ Reply with only the two sections and their labels. Nothing else."""
     if not ig or not tt:
         return None
 
-    return {"instagram": ig, "tiktok": tt}
+    ln = generate_linkedin_caption(lot)
+
+    return {"instagram": ig, "tiktok": tt, "linkedin": ln or ""}
+
+
+def generate_linkedin_caption(lot: dict) -> str | None:
+    """Returns a LinkedIn caption or None if API unavailable."""
+    if not OPENROUTER_KEY:
+        return None
+
+    artist = lot.get("artist", "Unknown")
+    title  = lot.get("title", "Untitled")
+    house  = lot.get("auction_house", "the auction house")
+    hammer = lot.get("hammer_fmt", "unknown")
+    est    = lot.get("estimate_fmt", "unknown")
+    pct    = lot.get("pct_above", 0)
+
+    prompt = f"""You write posts for @thehammerprice — an art market account on LinkedIn. Professional but conversational. No emojis except one at the start.
+
+Lot:
+- Artist: {artist}
+- Work: "{title}"
+- House: {house}
+- Estimate: {est}  →  Hammer: {hammer}  ({pct:.0f}% above estimate)
+
+Write a LinkedIn post (3–4 short paragraphs):
+1. Opening hook — one punchy sentence, lead with the insight (what the gap between estimate and hammer reveals).
+2. Context — one sentence about {artist} and why this result matters to collectors or the market.
+3. The market signal — one sentence: what does a result like this tell us about demand, pricing, or where the market is going?
+4. Closing line — a question or observation that invites professional discussion.
+
+Rules:
+- All lowercase except proper nouns
+- No fluff adjectives
+- Do NOT repeat the full estimate/hammer — reference the gap or the % instead
+- Keep it under 200 words
+- End with exactly: {_HASHTAGS_LN}
+
+Reply with only the post text, nothing else."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=350)
+    return raw.strip() if raw else None
 
 
 def generate_hook_answer(lot: dict, question: str) -> str | None:

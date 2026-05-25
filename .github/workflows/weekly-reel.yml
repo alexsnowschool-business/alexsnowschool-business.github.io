@@ -81,6 +81,7 @@ jobs:
           BUFFER_TOKEN:        ${{ secrets.BUFFER_TOKEN }}
           BUFFER_INSTAGRAM_ID: ${{ secrets.BUFFER_INSTAGRAM_ID }}
           BUFFER_TIKTOK_ID:    ${{ secrets.BUFFER_TIKTOK_ID }}
+          BUFFER_LINKEDIN_ID:  ${{ secrets.BUFFER_LINKEDIN_ID }}
           GH_TOKEN:            ${{ secrets.GITHUB_TOKEN }}
           OPENROUTER_API_KEY:  ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL:    ${{ secrets.OPENROUTER_MODEL }}

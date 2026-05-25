@@ -728,7 +728,18 @@ def _write_ai_captions(captions: dict, reel_dir: Path, lot: dict) -> None:
         f.write(f"**Video:** `output/reel.mp4`\n\n")
         f.write("### Caption\n\n```\n")
         f.write(captions["tiktok"])
-        f.write(f"\n```\n\n---\n*Generated {datetime.now().strftime('%B %d, %Y')} · AI*\n")
+        f.write("\n```\n\n---\n\n")
+
+        if captions.get("linkedin"):
+            ln_times = "Tue–Thu, 8–10am or 12–1pm (your local time)"
+            f.write("## 💼 LinkedIn\n\n")
+            f.write(f"**Best time to post:** {ln_times}\n")
+            f.write(f"**Video:** `output/reel.mp4`\n\n")
+            f.write("### Caption\n\n```\n")
+            f.write(captions["linkedin"])
+            f.write("\n```\n\n---\n\n")
+
+        f.write(f"*Generated {datetime.now().strftime('%B %d, %Y')} · AI*\n")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────

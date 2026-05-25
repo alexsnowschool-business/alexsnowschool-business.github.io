@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Post a generated reel to Instagram and TikTok via Buffer GraphQL API.
+Post a generated reel to Instagram, TikTok, and LinkedIn via Buffer GraphQL API.
 
 Buffer requires the video to be at a public URL — this script uploads the
 MP4 to a GitHub release first, then passes that URL to Buffer.
@@ -14,6 +14,7 @@ Requires in .env:
     BUFFER_TOKEN             — Buffer API access token
     BUFFER_INSTAGRAM_ID      — Buffer channel ID for Instagram
     BUFFER_TIKTOK_ID         — Buffer channel ID for TikTok (optional)
+    BUFFER_LINKEDIN_ID       — Buffer channel ID for LinkedIn (optional)
 """
 
 import argparse
@@ -38,6 +39,7 @@ BUFFER_GRAPHQL = "https://api.buffer.com/graphql"
 TOKEN          = os.getenv("BUFFER_TOKEN")
 IG_CHANNEL     = os.getenv("BUFFER_INSTAGRAM_ID")
 TT_CHANNEL     = os.getenv("BUFFER_TIKTOK_ID")
+LN_CHANNEL     = os.getenv("BUFFER_LINKEDIN_ID")
 
 GITHUB_REPO    = "alexsnowschool-business/alexsnowschool-business.github.io"
 
@@ -101,6 +103,7 @@ def _parse_captions(captions_md: str) -> dict[str, str]:
     return {
         "instagram": _extract("## 📸 Instagram"),
         "tiktok":    _extract("## 🎵 TikTok"),
+        "linkedin":  _extract("## 💼 LinkedIn"),
     }
 
 
@@ -186,6 +189,8 @@ def _post_to_buffer(
         metadata["instagram"] = {"type": "reel", "shouldShareToFeed": True}
     elif platform == "TikTok":
         metadata["tiktok"] = {"title": text[:150]}
+    elif platform == "LinkedIn":
+        metadata["linkedin"] = {}
 
     variables: dict = {
         "input": {
@@ -237,6 +242,7 @@ def main() -> None:
                         help="ISO 8601 datetime to schedule, e.g. 2026-05-24T19:00:00+07:00")
     parser.add_argument("--no-instagram", dest="instagram", action="store_false", default=True)
     parser.add_argument("--no-tiktok",    dest="tiktok",    action="store_false", default=True)
+    parser.add_argument("--no-linkedin",  dest="linkedin",  action="store_false", default=True)
     parser.add_argument("--dry-run",  action="store_true")
     args = parser.parse_args()
 
@@ -340,6 +346,16 @@ def main() -> None:
             results.append(("TikTok", ok))
         elif args.tiktok and not TT_CHANNEL:
             print("  ⚠ BUFFER_TIKTOK_ID not set — skipping")
+
+        ln_caption = captions.get("linkedin", "")
+        if args.linkedin and (LN_CHANNEL or args.dry_run) and ln_caption:
+            ok = _post_to_buffer(client, LN_CHANNEL or "LN_ID", "LinkedIn",
+                                 ln_caption, video_url, args.schedule, args.dry_run)
+            results.append(("LinkedIn", ok))
+        elif args.linkedin and not LN_CHANNEL:
+            print("  ⚠ BUFFER_LINKEDIN_ID not set — skipping")
+        elif args.linkedin and not ln_caption:
+            print("  ⚠ No LinkedIn caption in captions.md — skipping")
 
     print("\n" + "═" * 60)
     for platform, ok in results:
