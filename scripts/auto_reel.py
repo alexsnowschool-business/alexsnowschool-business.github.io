@@ -520,11 +520,15 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
     return "the hammer price tells the real story.", "follow the data."
 
 
+_MAX_REEL_SECONDS = 20.0
+_FRAME_FADE_S     = 0.1
+
+
 def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = None,
                            tts_duration: float = 0.0,
                            question: str | None = None,
                            template_answer: str | None = None) -> list[dict]:
-    """Progressive reveal for a single lot — targets ~25s total.
+    """Progressive reveal for a single lot — hard cap at 22 s total.
 
     Frames:
       1 — estimate + sold price
@@ -579,6 +583,17 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
         # 4 — answer shown as text + narrated by voice
         _data(line1=E, line2=S, line3=P, a=answer, hold=answer_hold),
     ]
+
+    # Trim initial frames first to keep total ≤ 22 s
+    total = sum(f["hold_seconds"] + _FRAME_FADE_S for f in frames)
+    if total > _MAX_REEL_SECONDS:
+        excess = total - _MAX_REEL_SECONDS
+        for i in range(len(frames) - 1):   # leave the answer frame (last) intact
+            if excess <= 0:
+                break
+            cut = min(excess, max(0.0, frames[i]["hold_seconds"] - 0.5))
+            frames[i]["hold_seconds"] = round(frames[i]["hold_seconds"] - cut, 1)
+            excess -= cut
 
     return frames
 
@@ -668,10 +683,10 @@ def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[d
         "",
         "    \"caption_all_frames\": False,",
         "",
-        "    # ── Pacing — 3fps, ~25s (5 frames × 4s + 4 × 0.5s fade) ───",
-        "    \"fps\":          3,",
-        "    \"hold_seconds\": 4.0,",
-        "    \"fade_seconds\": 0.5,",
+        "    # ── Pacing — 6fps, ≤22s (initial frames trimmed to fit) ────",
+        "    \"fps\":          5,",
+        "    \"hold_seconds\": 0.0,",
+        "    \"fade_seconds\": 0.0,",
         "",
         "    # ── Captions metadata ─────────────────────────────────────",
         '    "topic":          "culture",',
