@@ -39,7 +39,7 @@ _HASHTAGS_TT = (
     "#thehammerprice #artmarket #auctionresults #fyp #foryou #foryoupage "
     "#contemporaryart #artcollecting"
 )
-_HASHTAGS_LN = "#artmarket #auctionresults #artcollecting #contemporaryart"
+_HASHTAGS_LN = "#thehammerprice #artmarket #auctionresults #artcollecting #contemporaryart"
 
 
 def _call(messages: list[dict], max_tokens: int = 400) -> str | None:
@@ -78,7 +78,7 @@ _ANGLES = [
 
 
 def generate_captions(lot: dict) -> dict | None:
-    """Returns {instagram, tiktok} captions or None if API unavailable."""
+    """Returns {instagram, tiktok, linkedin} captions or None if API unavailable."""
     import random
     if not OPENROUTER_KEY:
         return None
@@ -120,22 +120,34 @@ Format (2 lines max):
 2. One follow-up line — the so-what.
 3. "📍 {house}"
 
-Reply with only the two sections and their labels. Nothing else."""
+--- LINKEDIN ---
+Professional but conversational. No emojis except one at the very start.
+Format (3–4 short paragraphs):
+1. Opening hook — one punchy sentence: what the gap between estimate and hammer reveals.
+2. Context — one sentence about {artist} and why this result matters to collectors or the market.
+3. Market signal — what does a result like this tell us about demand or pricing?
+4. Closing — a question or observation that invites professional discussion.
+Rules: all lowercase except proper nouns. Do NOT repeat the full estimate/hammer — reference the gap or the % instead. Under 200 words.
 
-    raw = _call([{"role": "user", "content": prompt}], max_tokens=400)
+Reply with only the three sections and their labels. Nothing else."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=700)
     if not raw:
         return None
 
     ig_m = re.search(r"--- INSTAGRAM ---\s*(.*?)(?=--- TIKTOK ---|$)", raw, re.DOTALL)
-    tt_m = re.search(r"--- TIKTOK ---\s*(.*?)$", raw, re.DOTALL)
+    tt_m = re.search(r"--- TIKTOK ---\s*(.*?)(?=--- LINKEDIN ---|$)", raw, re.DOTALL)
+    ln_m = re.search(r"--- LINKEDIN ---\s*(.*?)$", raw, re.DOTALL)
 
     ig = (ig_m.group(1).strip() + f"\n\n{_HASHTAGS_IG}") if ig_m else None
     tt = (tt_m.group(1).strip() + f"\n\n{_HASHTAGS_TT}") if tt_m else None
+    ln = (ln_m.group(1).strip() + f"\n\n{_HASHTAGS_LN}") if ln_m else None
 
     if not ig or not tt:
         return None
 
-    ln = generate_linkedin_caption(lot)
+    if not ln:
+        print("  ⚠ LinkedIn section missing from API response — will be omitted from captions.md")
 
     return {"instagram": ig, "tiktok": tt, "linkedin": ln or ""}
 

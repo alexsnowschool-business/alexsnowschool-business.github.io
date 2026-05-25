@@ -164,6 +164,9 @@ mutation CreatePost($input: CreatePostInput!) {
         dueAt
       }
     }
+    ... on MutationError {
+      message
+    }
   }
 }
 """
@@ -192,12 +195,15 @@ def _post_to_buffer(
     elif platform == "LinkedIn":
         metadata["linkedin"] = {}
 
+    # LinkedIn only supports automatic scheduling, not notification
+    scheduling_type = "automatic" if platform == "LinkedIn" else "notification"
+
     variables: dict = {
         "input": {
             "channelId":      channel_id,
             "text":           text,
             "assets":         [{"video": {"url": video_url}}],
-            "schedulingType": "notification", # notification or automatic (Buffer decides best time)
+            "schedulingType": scheduling_type,
             "metadata":       metadata,
         }
     }
@@ -224,11 +230,19 @@ def _post_to_buffer(
         return False
 
     result = data.get("data", {}).get("createPost", {})
+
+    # Buffer returns PostActionError or MutationError on failure
     if "message" in result:
-        print(f"  ✗ {platform} error: {result['message']}")
+        print(f"  ✗ {platform} Buffer error: {result['message']} (type: {result.get('type', 'unknown')})")
+        print(f"      Full response: {json.dumps(data)[:400]}")
         return False
 
-    post = result.get("post", {})
+    post = result.get("post")
+    if not post:
+        # createPost returned an unrecognised union type — dump raw response for diagnosis
+        print(f"  ✗ {platform} unexpected response (no post object): {json.dumps(data)[:400]}")
+        return False
+
     print(f"  ✓ {platform} queued — id: {post.get('id')}  status: {post.get('status')}  due: {post.get('dueAt', 'queue')}")
     return True
 

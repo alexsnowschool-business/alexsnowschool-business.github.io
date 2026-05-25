@@ -112,6 +112,19 @@ def make_tiktok_caption(cfg, hashtags_tt):
 
 {hashtags_tt}"""
 
+def make_linkedin_caption(cfg):
+    full_caption = cfg["caption_full"]
+    personal = cfg.get("personal_note", "")
+    hook = cfg.get("engagement_hook", "")
+
+    parts = [full_caption]
+    if personal:
+        parts.append(personal)
+    if hook:
+        parts.append(hook)
+    parts.append("#thehammerprice #artmarket #auctionresults #artcollecting #contemporaryart")
+    return "\n\n".join(parts)
+
 def make_caption_variations(cfg):
     loc  = cfg["location"].split(",")[0].lower()
     hero = cfg["caption_hero"].lower()
@@ -164,6 +177,7 @@ def main():
 
     ig_caption = make_instagram_caption(cfg, ig_hashtags)
     tt_caption = make_tiktok_caption(cfg, tt_hashtags)
+    ln_caption = make_linkedin_caption(cfg)
     variations = make_caption_variations(cfg)
 
     # Best posting times
@@ -191,6 +205,15 @@ def main():
         f.write("### Caption\n\n")
         f.write("```\n")
         f.write(tt_caption)
+        f.write("\n```\n\n")
+
+        f.write("---\n\n")
+        f.write("## 💼 LinkedIn\n\n")
+        f.write(f"**Best time to post:** Tue–Thu, 8–10am or 12–1pm (your local time)\n")
+        f.write(f"**Video:** `output/reel.mp4`\n\n")
+        f.write("### Caption\n\n")
+        f.write("```\n")
+        f.write(ln_caption)
         f.write("\n```\n\n")
 
         f.write("---\n\n")
