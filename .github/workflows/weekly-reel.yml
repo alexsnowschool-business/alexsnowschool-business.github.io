@@ -10,9 +10,13 @@ on:
   workflow_dispatch:
     inputs:
       lot_index:
-        description: "Lot index to use (0 = top lot, 1 = 2nd, etc.)"
+        description: "Lot index to use (0 = top lot, 1 = 2nd, etc.) — overrides week_number if set"
         required: false
-        default: "0"
+        default: ""
+      week_number:
+        description: "ISO week number to simulate (e.g. 21) — combined with today's day-of-week"
+        required: false
+        default: ""
 
 jobs:
   reel:
@@ -40,11 +44,14 @@ jobs:
       - name: Determine lot index
         id: lot
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ -n "${{ inputs.lot_index }}" ]; then
             echo "index=${{ inputs.lot_index }}" >> $GITHUB_OUTPUT
           else
             DOW=$(date +%u)         # 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
             WEEK=$(date +%V)        # ISO week number
+            if [ -n "${{ inputs.week_number }}" ]; then
+              WEEK="${{ inputs.week_number }}"
+            fi
             DAY_OFFSET=$(( DOW - 2 ))
             INDEX=$(( (WEEK * 5 + DAY_OFFSET) % 10 ))
             echo "index=$INDEX" >> $GITHUB_OUTPUT
