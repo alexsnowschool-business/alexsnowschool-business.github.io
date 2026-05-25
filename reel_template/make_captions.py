@@ -99,6 +99,7 @@ def make_instagram_caption(cfg, hashtags_ig):
 
 {hook}
 
+data source: {loc} in {season} — what a vibe!
 ---
 {hashtags_ig}"""
 
@@ -116,6 +117,8 @@ def make_linkedin_caption(cfg):
     full_caption = cfg["caption_full"]
     personal = cfg.get("personal_note", "")
     hook = cfg.get("engagement_hook", "")
+    loc = cfg["location"]
+    season = cfg["season"]
 
     # Strip any hashtags already embedded in the hook
     hook_clean = " ".join(w for w in hook.split() if not w.startswith("#")).strip()
@@ -125,6 +128,8 @@ def make_linkedin_caption(cfg):
         parts.append(personal)
     if hook_clean:
         parts.append(hook_clean)
+    if loc:
+        parts.append(f"data source: {loc} in {season} — what a vibe!")
     return "\n\n".join(parts)
 
 def make_caption_variations(cfg):
