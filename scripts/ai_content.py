@@ -112,7 +112,6 @@ Format (4 short paragraphs, each 1–2 lines):
 1. Hook: one punchy line using the angle — lead with the insight, not the price.
 2. The work: one sentence naming {artist} and "{title}" with context about why this result matters.
 3. Art history: one sentence about {artist} — who they are, what movement or period they belong to, why their work is significant. specific, not generic.
-4. The so-what: one sentence zooming out — what this tells us about the market.
 
 --- TIKTOK ---
 Format (2 lines max):

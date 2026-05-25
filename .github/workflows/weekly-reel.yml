@@ -3,7 +3,9 @@ name: Weekly Reel — The Hammer Price
 on:
   schedule:
     - cron: "0 9 * * 2"   # Tuesday   11:00 CET
+    - cron: "0 9 * * 3"   # Wednesday 11:00 CET
     - cron: "0 9 * * 4"   # Thursday  11:00 CET
+    - cron: "0 9 * * 5"   # Friday    11:00 CET
     - cron: "0 9 * * 6"   # Saturday  11:00 CET
   workflow_dispatch:
     inputs:
@@ -33,21 +35,18 @@ jobs:
       - name: Install ffmpeg
         run: sudo apt-get install -y ffmpeg --quiet
 
-      # Rotate lot index: Mon=0, Wed=1, Fri=2
-      # Offset by week-of-year so we don't repeat the same 3 lots every week
+      # Rotate lot index: Tue=0, Wed=1, Thu=2, Fri=3, Sat=4
+      # Offset by week-of-year so we don't repeat the same 5 lots every week
       - name: Determine lot index
         id: lot
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "index=${{ inputs.lot_index }}" >> $GITHUB_OUTPUT
           else
-            DOW=$(date +%u)         # 1=Mon 3=Wed 5=Fri
+            DOW=$(date +%u)         # 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
             WEEK=$(date +%V)        # ISO week number
-            if   [ "$DOW" = "1" ]; then DAY_OFFSET=0
-            elif [ "$DOW" = "3" ]; then DAY_OFFSET=1
-            else                        DAY_OFFSET=2
-            fi
-            INDEX=$(( (WEEK * 3 + DAY_OFFSET) % 10 ))
+            DAY_OFFSET=$(( DOW - 2 ))
+            INDEX=$(( (WEEK * 5 + DAY_OFFSET) % 10 ))
             echo "index=$INDEX" >> $GITHUB_OUTPUT
           fi
 

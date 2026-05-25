@@ -1054,12 +1054,9 @@ def main() -> None:
                     }
                     captions = generate_captions(lot_data)
                     if captions:
-                        # Append art history to the Instagram caption body
-                        art_history = generate_art_history(lot_data)
-                        if art_history:
-                            captions["instagram"] = captions["instagram"].replace(
+                        captions["instagram"] = captions["instagram"].replace(
                                 "\n\n#thehammerprice",
-                                f"\n\n{art_history}\n\n#thehammerprice",
+                                f"\n\n#thehammerprice",
                             )
                         _write_ai_captions(captions, reel_dir, lot_data)
                         ai_done = True
