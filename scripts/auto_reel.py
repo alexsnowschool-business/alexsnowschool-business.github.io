@@ -173,6 +173,18 @@ def _query_random_week_lot(conn: sqlite3.Connection,
     return [dict(r) for r in rows]
 
 
+def _build_notable_artists_set(conn: sqlite3.Connection) -> set[str]:
+    """Artists with ≥2 records OR avg hammer > $50k — signals naratable market depth."""
+    rows = conn.execute("""
+        SELECT artist
+        FROM art_items
+        WHERE hammer_usd IS NOT NULL AND artist IS NOT NULL
+        GROUP BY artist
+        HAVING COUNT(*) >= 2 OR AVG(hammer_usd) > 50000
+    """).fetchall()
+    return {_clean_artist(r[0]) for r in rows if r[0]}
+
+
 def _record_posted(conn: sqlite3.Connection, lot: dict, reel_slug: str,
                    platforms: list[str]) -> None:
     conn.execute("""
@@ -221,6 +233,31 @@ def _download_lot_images(lot: dict, images_dir: Path, max_images: int = 8) -> li
 
 _ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
           "XI", "XII", "XIII", "XIV", "XV", "XVI"]
+
+# ── Known-artist list (curated blue-chip / naratable names) ──────────────────
+
+_KNOWN_ARTISTS: frozenset[str] = frozenset({
+    # Post-war American
+    "Andy Warhol", "Roy Lichtenstein", "Jasper Johns", "Robert Rauschenberg",
+    "Ed Ruscha", "Frank Stella", "Ellsworth Kelly", "Donald Judd",
+    "Cy Twombly", "Joan Mitchell", "Lee Krasner", "Helen Frankenthaler",
+    # Neo-expressionism / street
+    "Jean-Michel Basquiat", "Keith Haring", "George Condo",
+    # YBA / British
+    "Damien Hirst", "Jenny Saville", "Chris Ofili", "Glenn Brown",
+    "Cecily Brown", "Peter Doig", "Lucian Freud", "Francis Bacon",
+    # German / European
+    "Gerhard Richter", "Neo Rauch", "Luc Tuymans", "Marlene Dumas",
+    "Rudolf Stingel", "Albert Oehlen", "Pierre Soulages",
+    # Contemporary market names
+    "Jeff Koons", "Richard Prince", "Christopher Wool", "Mark Bradford",
+    "Kerry James Marshall", "Jonas Wood", "Lisa Yuskavage",
+    "Banksy", "KAWS", "Takashi Murakami", "Yoshitomo Nara", "Yayoi Kusama",
+    "Wolfgang Tillmans", "Andreas Gursky", "Cindy Sherman", "Barbara Kruger",
+    # Post-Impressionist / Modern (auction staples)
+    "Alberto Giacometti", "Jean Dubuffet", "Yves Klein",
+    "Emil Nolde", "Ernst Ludwig Kirchner",
+})
 
 def _roman(n: int) -> str:
     return _ROMAN[n] if n < len(_ROMAN) else str(n + 1)
@@ -520,21 +557,42 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
     return "the hammer price tells the real story.", "follow the data."
 
 
+# ── Lot scoring ───────────────────────────────────────────────────────────────
+
+def _artist_is_notable(artist: str, notable_set: set[str] | None = None) -> bool:
+    """True if the artist is naratable — either in the curated list or has DB market depth."""
+    cleaned = _clean_artist(artist)
+    if notable_set and cleaned in notable_set:
+        return True
+    # Case-insensitive substring match against the curated list
+    cleaned_lower = cleaned.lower()
+    return any(
+        k.lower() in cleaned_lower or cleaned_lower in k.lower()
+        for k in _KNOWN_ARTISTS
+    )
+
+
+def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
+    """Composite score: market shock + visual richness + artist narability."""
+    pct        = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    has_images = len(json.loads(lot.get("image_urls") or "[]")) >= 3
+    is_known   = _artist_is_notable(lot.get("artist") or "", notable_set)
+    return pct * 0.4 + (has_images * 30) + (is_known * 20)
+
+
 _MAX_REEL_SECONDS = 20.0
 _FRAME_FADE_S     = 0.1
 
 
 def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = None,
-                           tts_duration: float = 0.0,
-                           question: str | None = None,
+                           appreciation_duration: float = 0.0,
+                           data_tts_duration: float = 0.0,
                            template_answer: str | None = None) -> list[dict]:
-    """Progressive reveal for a single lot — hard cap at 22 s total.
+    """3-act reveal — painting breathes, context builds, then data lands.
 
-    Frames:
-      1 — estimate + sold price
-      2 — full data box (+ % above estimate)
-      3 — question narrated by voice only (no on-screen text)
-      4 — answer shown as text + narrated by voice
+    Act I  (0–3 s)  : full painting, no data box, just handle — let it breathe
+    Act II (3–8 s)  : detail/alternate view, appreciation VO, artist + title visible
+    Act III (8 s+)  : price stamp + % above estimate hit all at once
     """
     hammer        = lot["hammer_usd"]
     est_low       = lot["estimate_low"]
@@ -548,47 +606,38 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
     S     = f"sold: {_fmt_price(hammer)}."
     P     = f"+{pct:,.0f}% above estimate."
 
-    if question is None or template_answer is None:
-        question, template_answer = _hook_caption(lot, pct)
-    answer  = ai_answer or template_answer
-    phrases = _split_phrases(answer)
-
-    def _data(line1="", line2="", line3="", q=None, a="", hold=4.0):
+    def _data(line1="", line2="", line3="", a="", hold=4.0):
         return {
             "show_caption":  bool(line1 or line2 or line3),
             "tag":           tag,
             "line1":         line1,
             "line2":         line2,
             "line3":         line3,
-            "hook_question": q,
+            "hook_question": None,
             "hook_answer":   a,
             "upper_artist":  artist_name,
             "upper_title":   painting_title,
             "hold_seconds":  hold,
         }
 
-    if tts_duration > 0:
-        answer_hold = round(tts_duration + 2.0, 1)
-    else:
-        n_words = len(answer.split())
-        answer_hold = max(8.0, round((n_words * 2) / 3 + 2, 1))
+    act1_hold = 3.0
+    act2_hold = max(5.0, round(appreciation_duration + 1.5, 1)) if appreciation_duration > 0 else 5.0
+    act3_hold = max(6.0, round(data_tts_duration + 2.5, 1)) if data_tts_duration > 0 else 6.0
 
     frames = [
-        # 1 — estimate + sold price
-        _data(line1=E, line2=S, hold=2.0),
-        # 2 — full data box with %
-        _data(line1=E, line2=S, line3=P),
-        # 3 — question narrated by voice only, no text on screen
-        _data(line1=E, line2=S, line3=P, hold=4.0),
-        # 4 — answer shown as text + narrated by voice
-        _data(line1=E, line2=S, line3=P, a=answer, hold=answer_hold),
+        # Act I — painting only; just the handle visible
+        _data(hold=act1_hold),
+        # Act II — detail / alternate view; context VO plays; no data box
+        _data(hold=act2_hold),
+        # Act III — data lands: price stamp + % above estimate
+        _data(line1=E, line2=S, line3=P, hold=act3_hold),
     ]
 
-    # Trim initial frames first to keep total ≤ 22 s
+    # Trim Act I / II first to keep total ≤ 22 s; leave Act III intact
     total = sum(f["hold_seconds"] + _FRAME_FADE_S for f in frames)
     if total > _MAX_REEL_SECONDS:
         excess = total - _MAX_REEL_SECONDS
-        for i in range(len(frames) - 1):   # leave the answer frame (last) intact
+        for i in range(len(frames) - 1):
             if excess <= 0:
                 break
             cut = min(excess, max(0.0, frames[i]["hold_seconds"] - 0.5))
@@ -795,11 +844,13 @@ def main() -> None:
         print(f"\n  ℹ Skipping {len(skip)} already-posted lot(s).")
 
     top_n = max(args.top_n, args.lot_index + 1)
+    # Pull a wide candidate pool so composite scoring has material to work with
+    _candidate_n = max(top_n * 6, 50)
     if args.all_time:
-        lots = _query_alltime_top(conn, limit=top_n, exclude_ids=skip)
+        lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
         reel_slug = f"weekly-{date.today().isoformat()}-alltime"
     else:
-        lots = _query_top_lots(conn, week_start, week_end, limit=top_n, exclude_ids=skip)
+        lots = _query_top_lots(conn, week_start, week_end, limit=_candidate_n, exclude_ids=skip)
         if not lots:
             print(f"\n  No new data for week {week_label} — trying random unposted week...")
             rand = _query_random_week_lot(conn, exclude_ids=skip)
@@ -807,14 +858,26 @@ def main() -> None:
                 # re-query that week's top lots
                 w = rand[0]["scraped_at"][:10]
                 wb_start, wb_end = _week_bounds(date.fromisoformat(w))
-                lots = _query_top_lots(conn, wb_start, wb_end, limit=top_n, exclude_ids=skip)
+                lots = _query_top_lots(conn, wb_start, wb_end, limit=_candidate_n, exclude_ids=skip)
                 reel_slug = f"weekly-{wb_start}-random"
                 print(f"  Using random week: {wb_start}")
             if not lots:
                 print("  Falling back to all-time top unposted lots.")
-                lots = _query_alltime_top(conn, limit=top_n, exclude_ids=skip)
+                lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
                 reel_slug = f"weekly-{week_start}-fallback"
+
+    # Build notable-artist set from DB before closing, then composite-score and re-rank
+    notable_artists = _build_notable_artists_set(conn)
     conn.close()
+
+    lots = sorted(lots, key=lambda l: _score_lot(l, notable_artists), reverse=True)[:top_n]
+    if lots:
+        print(f"\n  Composite scores (top {min(3, len(lots))}):")
+        for l in lots[:3]:
+            print(f"    {_score_lot(l, notable_artists):.0f}  {_clean_artist(l.get('artist') or '')} "
+                  f"  +{_pct_above(l['hammer_usd'], l['estimate_low']):.0f}%"
+                  f"  imgs={len(json.loads(l.get('image_urls') or '[]'))}"
+                  f"  known={_artist_is_notable(l.get('artist') or '', notable_artists)}")
 
     if not lots:
         print("✗ No suitable lots found in database.")
@@ -891,12 +954,12 @@ def main() -> None:
             ai_hook_answer = _tmpl_answer
 
     # ── Generate full-reel voiceover + sound effects ──────────
-    # Tracks:
-    #   tts_intro.mp3    — artist / title / house (t=0)
-    #   sfx_gavel.mp3    — hammer strike (t=0.3s, at price reveal)
-    #   tts_question.mp3 — hook question (when question frame starts)
-    #   tts_answer.mp3   — hook answer, word-by-word sync (when answer frame starts)
-    # All four are mixed → voiceover.mp3; audio_offset=0 (no global delay).
+    # Tracks (3-act structure):
+    #   tts_intro.mp3        — "This is [Title] by [Artist]." at t=0 (Act I)
+    #   tts_appreciation.mp3 — context / significance of the work (Act II)
+    #   sfx_gavel.mp3        — hammer strike fires at Act III start (when data lands)
+    #   tts_data.mp3         — "estimated at X, sold for Y, +N%" (Act III)
+    # All baked into voiceover.mp3 via silence-padding concat; audio_offset=0.
     print("\n▸ Generating voiceover tracks...")
     try:
         sys.path.insert(0, str(SCRIPT_DIR))
@@ -906,26 +969,44 @@ def main() -> None:
         generate_voiceover = synthesize_gavel = None
 
     word_timings  = []
-    tts_duration  = 0.0
     voiceover_ok  = False
 
     if generate_voiceover and synthesize_gavel:
-        sfx_gavel_path  = str(reel_dir / "sfx_gavel.mp3")
-        tts_answer_path = str(reel_dir / "tts_answer.mp3")
+        sfx_gavel_path        = str(reel_dir / "sfx_gavel.mp3")
+        tts_appreciation_path = str(reel_dir / "tts_appreciation.mp3")
+        tts_data_path         = str(reel_dir / "tts_data.mp3")
 
-        # Step 1 — answer TTS first (need duration to set hold time in reveal sequence)
-        _answer_text = _prices_to_speech(ai_hook_answer or "")
-        _ok_ans, word_timings = generate_voiceover(_answer_text, tts_answer_path)
-        if _ok_ans and word_timings:
-            tts_duration = word_timings[-1]["start"] + 1.5
-            print(f"  ✓ Answer TTS ({tts_duration:.1f}s, {len(word_timings)} words)")
+        _pct_val   = _pct_above(hook["hammer_usd"], hook["estimate_low"])
+        _hammer_s  = _fmt_price_tts(hook["hammer_usd"])
+        _est_s     = (f"{_fmt_price_tts(hook['estimate_low'])} "
+                      f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}")
 
-        # Step 2 — build reveal so we have per-frame hold_seconds to compute timestamps
+        # Step 1 — Act II appreciation TTS (market context / significance of the work)
+        _appreciation_text = _prices_to_speech(ai_hook_answer or _tmpl_answer or "")
+        _ok_appr, word_timings = generate_voiceover(_appreciation_text, tts_appreciation_path)
+        appreciation_duration = 0.0
+        if _ok_appr and word_timings:
+            appreciation_duration = word_timings[-1]["start"] + 1.5
+            print(f"  ✓ Act II appreciation TTS ({appreciation_duration:.1f}s, {len(word_timings)} words)")
+
+        # Step 2 — Act III data TTS — pure numbers, no context; hits like a punch
+        _data_script = (
+            f"estimated at {_est_s}. "
+            f"sold for {_hammer_s}. "
+            f"that's {round(_pct_val)} percent above the low estimate."
+        )
+        _ok_data, _ = generate_voiceover(_data_script, tts_data_path)
+        data_tts_duration = _get_audio_duration(tts_data_path) if _ok_data else 0.0
+        if _ok_data:
+            print(f"  ✓ Act III data TTS ({data_tts_duration:.1f}s): \"{_data_script[:60]}\"")
+
+        # Step 3 — build 3-act reveal with correct per-act durations
         reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
-                                        tts_duration=tts_duration,
-                                        question=_question, template_answer=_tmpl_answer)
+                                        appreciation_duration=appreciation_duration,
+                                        data_tts_duration=data_tts_duration,
+                                        template_answer=_tmpl_answer)
 
-        # Compute video start time for every frame
+        # Step 4 — compute per-frame start times
         _fade_s = 0.5
         _frame_starts: list[float] = []
         _t = 0.0
@@ -933,86 +1014,56 @@ def main() -> None:
             _frame_starts.append(_t)
             _t += _fc["hold_seconds"] + _fade_s
 
-        # Identify the first answer frame index (all prior frames are "pre-answer")
-        _first_ans_idx = next(
-            (i for i, fc in enumerate(reveal) if fc.get("hook_answer")),
-            len(reveal),
-        )
-        answer_offset = _frame_starts[_first_ans_idx] if _first_ans_idx < len(reveal) else _t
+        act2_start = _frame_starts[1] if len(_frame_starts) > 1 else 0.0
+        act3_start = _frame_starts[2] if len(_frame_starts) > 2 else _t
 
-        # Step 3 — intro TTS: artist name + painting title at t=0
+        # Step 5 — Act I intro TTS: "This is [Title] by [Artist]." at t=0
         _artist_s = _clean_artist(hook.get("artist") or "Unknown")
         _title_s  = (hook.get("title") or "Untitled")[:50]
-        _intro_script = f"{_artist_s}. {_title_s}."
+        _intro_script = f"This is {_title_s} by {_artist_s}."
         tts_intro_path = str(reel_dir / "tts_intro.mp3")
         _ok_intro, _ = generate_voiceover(_intro_script, tts_intro_path)
-        _intro_dur = _get_audio_duration(tts_intro_path) if _ok_intro else 0.0
         if _ok_intro:
-            print(f"  ✓ Intro TTS: \"{_intro_script[:60]}\"")
+            print(f"  ✓ Act I intro TTS: \"{_intro_script[:60]}\"")
 
-        # Step 4 — gavel SFX fires right after intro finishes
-        _gavel_offset = round(_intro_dur + 0.1, 3) if _ok_intro else 0.0
+        # Step 6 — gavel SFX fires at Act III start (when data lands)
         _ok_gavel = synthesize_gavel(sfx_gavel_path)
+        _gavel_dur = _get_audio_duration(sfx_gavel_path) if _ok_gavel else 0.0
         if _ok_gavel:
-            print(f"  ✓ Gavel SFX (at {_gavel_offset:.2f}s)")
+            print(f"  ✓ Gavel SFX (fires at Act III, t={act3_start:.2f}s)")
 
-        # Step 5 — narration for each pre-answer frame, timed to its frame start
-        # Scripts: frame 0 = "sold for X", frame 1 = "Y% above estimate", frame 2 = question
-        _pct_val   = _pct_above(hook["hammer_usd"], hook["estimate_low"])
-        _hammer_s  = _fmt_price_tts(hook["hammer_usd"])
-        _est_s     = (f"{_fmt_price_tts(hook['estimate_low'])} "
-                      f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}")
-
-        # Assign narration scripts by frame position, not content:
-        #   0 = price reveal, 1 = percentage, last pre-answer = question
-        _frame_scripts: dict[int, str] = {}
-        for _i in range(_first_ans_idx):
-            if _i == 0:
-                _frame_scripts[_i] = f"estimated at {_est_s}. sold for {_hammer_s}."
-            elif _i == 1:
-                _frame_scripts[_i] = f"{round(_pct_val)} percent above the low estimate."
-            elif _i == _first_ans_idx - 1:
-                _frame_scripts[_i] = _question
-
+        # Step 7 — assemble all tracks with their exact video timestamps
         frame_tracks: list[tuple[str, float]] = []
 
-        # Intro at t=0
         if _ok_intro:
             frame_tracks.append((tts_intro_path, 0.0))
 
-        # Gavel at its computed offset (after intro)
+        if _ok_appr:
+            frame_tracks.append((tts_appreciation_path, act2_start))
+
         if _ok_gavel:
-            frame_tracks.append((sfx_gavel_path, _gavel_offset))
+            frame_tracks.append((sfx_gavel_path, act3_start))
 
-        for _i, _script in _frame_scripts.items():
-            _path = str(reel_dir / f"tts_frame{_i}.mp3")
-            # Price reveal narration starts after gavel has fired
-            _start = _frame_starts[_i] + (_gavel_offset + 0.35 if _i == 0 else 0.0)
-            _ok, _ = generate_voiceover(_script, _path)
-            if _ok:
-                frame_tracks.append((_path, _start))
-                print(f"  ✓ Frame {_i} TTS: \"{_script[:50]}\"")
+        if _ok_data:
+            _data_start = act3_start + (_gavel_dur + 0.2 if _ok_gavel else 0.0)
+            frame_tracks.append((tts_data_path, _data_start))
 
-        # Answer starts 0.3s before its frame boundary to reduce perceived silence gap
-        if _ok_ans:
-            frame_tracks.append((tts_answer_path, max(0.0, answer_offset - 0.3)))
-
-        # Step 6 — build entire voiceover via silence-padding concat (no amix)
+        # Step 8 — bake into voiceover.mp3 via silence-padding concat
         voiceover_ok = _build_sequential_voiceover(
             frame_tracks=frame_tracks,
             output_path=str(reel_dir / "voiceover.mp3"),
         )
         if not voiceover_ok:
             import shutil as _shutil
-            if os.path.exists(tts_answer_path):
-                _shutil.copy2(tts_answer_path, str(reel_dir / "voiceover.mp3"))
+            if os.path.exists(tts_appreciation_path):
+                _shutil.copy2(tts_appreciation_path, str(reel_dir / "voiceover.mp3"))
                 voiceover_ok = True
     else:
         # No TTS available — build reveal without audio timing
         reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
-                                        tts_duration=0.0,
-                                        question=_question, template_answer=_tmpl_answer)
-        answer_offset = 0.0
+                                        appreciation_duration=0.0,
+                                        data_tts_duration=0.0,
+                                        template_answer=_tmpl_answer)
 
     # Save timing data for make_reel.py
     # audio_offset=0 because all tracks are baked into voiceover.mp3 at correct positions;
