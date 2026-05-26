@@ -266,6 +266,58 @@ def _generate_grid_crops(src_paths: list[Path], crops_dir: Path, include_origina
                 result.append(src)
     return result
 
+def _generate_sliding_window_crops(src_paths: list[Path], crops_dir: Path, tile_size: int = 256, stride: int | None = None, include_original: bool = True) -> list[Path]:
+    """Generate overlapping square tiles (sliding window) for each source image.
+    tile_size: size in pixels of each square tile
+    stride: step between tiles in pixels; if None defaults to tile_size // 2
+    """
+    crops_dir.mkdir(parents=True, exist_ok=True)
+    result: list[Path] = []
+    for src in src_paths:
+        try:
+            with Image.open(src) as im:
+                im = im.convert("RGB")
+                w, h = im.size
+                ts = min(tile_size, w, h)
+                st = stride or max(1, ts // 2)
+                # compute x positions
+                xs = []
+                if w <= ts:
+                    xs = [0]
+                else:
+                    x = 0
+                    while x <= w - ts:
+                        xs.append(x)
+                        x += st
+                    if xs[-1] != w - ts:
+                        xs.append(w - ts)
+                # compute y positions
+                ys = []
+                if h <= ts:
+                    ys = [0]
+                else:
+                    y = 0
+                    while y <= h - ts:
+                        ys.append(y)
+                        y += st
+                    if ys[-1] != h - ts:
+                        ys.append(h - ts)
+                if include_original:
+                    result.append(src)
+                for x in xs:
+                    for y in ys:
+                        box = (x, y, x + ts, y + ts)
+                        crop = im.crop(box)
+                        out_name = f"{src.stem}_tile_{ts}_{x}_{y}{src.suffix}"
+                        out_path = crops_dir / out_name
+                        crop.save(out_path, quality=95)
+                        result.append(out_path)
+        except Exception as e:
+            print(f"  ⚠ Sliding crop failed for {src.name}: {e}")
+            if include_original and src not in result:
+                result.append(src)
+    return result
+
 # ── Roman numerals ────────────────────────────────────────────────────────────
 
 _ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
@@ -852,7 +904,9 @@ def main() -> None:
     parser.add_argument("--run",       action="store_true", help="Run make_reel.py + make_captions.py after generation")
     parser.add_argument("--top-n",     type=int, default=8, help="Max lots to query (default: 8)")
     parser.add_argument("--lot-index", type=int, default=0, help="Which lot to use (0 = top, 1 = 2nd, etc.)")
-    parser.add_argument("--crop-size", type=int, default=None, help="Square crop size in pixels (e.g., 640). If set, generated crops will be resized to this size.")
+    parser.add_argument("--crop-method", choices=("grid","sliding"), default="sliding", help="Crop method to use: grid or sliding-window")
+    parser.add_argument("--crop-size", type=int, default=256, help="Square crop/tile size in pixels (e.g., 256).")
+    parser.add_argument("--crop-stride", type=int, default=None, help="Stride in pixels for sliding-window; defaults to half of crop-size.")
     args = parser.parse_args()
 
     # ── Resolve week ───────────────────────────────────────────
@@ -957,7 +1011,12 @@ def main() -> None:
     # Generate center + corner crops for each source image and include originals.
     # Crops saved in <reel>/_crops and used alongside originals for more reveal frames.
     crops_dir = reel_dir / "_crops"
-    cropped_variants = _generate_grid_crops(src_images, crops_dir, include_original=True, target_size=(args.crop_size, args.crop_size) if args.crop_size else None)
+    if args.crop_method == "sliding":
+        stride = args.crop_stride if args.crop_stride is not None else max(1, args.crop_size // 2)
+        cropped_variants = _generate_sliding_window_crops(src_images, crops_dir, tile_size=args.crop_size, stride=stride, include_original=True)
+    else:
+        target_size = (args.crop_size, args.crop_size) if args.crop_size else None
+        cropped_variants = _generate_grid_crops(src_images, crops_dir, include_original=True, target_size=target_size)
     if cropped_variants:
         src_images = cropped_variants
     else:
