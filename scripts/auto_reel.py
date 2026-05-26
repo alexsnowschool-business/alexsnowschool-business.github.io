@@ -676,6 +676,7 @@ _FRAME_FADE_S     = 0.1
 def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = None,
                            appreciation_duration: float = 0.0,
                            data_tts_duration: float = 0.0,
+                           intro_duration: float = 0.0,
                            template_answer: str | None = None) -> list[dict]:
     """3-act reveal — painting breathes, context builds, then data lands.
 
@@ -709,7 +710,9 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
             "hold_seconds":  hold,
         }
 
-    act1_hold = 3.0
+    # Make the initial frame breathe longer. If an intro TTS exists, base the hold
+    # on its duration (+ small buffer); otherwise default to 4s.
+    act1_hold = max(4.0, round(intro_duration + 0.6, 1)) if intro_duration > 0 else 4.0
     act2_hold = max(5.0, round(appreciation_duration + 1.5, 1)) if appreciation_duration > 0 else 5.0
     act3_hold = max(6.0, round(data_tts_duration + 2.5, 1)) if data_tts_duration > 0 else 6.0
 
@@ -905,7 +908,7 @@ def main() -> None:
     parser.add_argument("--top-n",     type=int, default=8, help="Max lots to query (default: 8)")
     parser.add_argument("--lot-index", type=int, default=0, help="Which lot to use (0 = top, 1 = 2nd, etc.)")
     parser.add_argument("--crop-method", choices=("grid","sliding"), default="sliding", help="Crop method to use: grid or sliding-window")
-    parser.add_argument("--crop-size", type=int, default=256, help="Square crop/tile size in pixels (e.g., 256).")
+    parser.add_argument("--crop-size", type=int, default=565, help="Square crop/tile size in pixels (e.g., 256).")
     parser.add_argument("--crop-stride", type=int, default=None, help="Stride in pixels for sliding-window; defaults to half of crop-size.")
     args = parser.parse_args()
 
@@ -1106,13 +1109,24 @@ def main() -> None:
         if _ok_data:
             print(f"  ✓ Act III data TTS ({data_tts_duration:.1f}s): \"{_data_script[:60]}\"")
 
-        # Step 3 — build 3-act reveal with correct per-act durations
+        # Step 3 — Act I intro TTS: "This is [Title] by [Artist]." at t=0
+        _artist_s = _clean_artist(hook.get("artist") or "Unknown")
+        _title_s  = (hook.get("title") or "Untitled")[:50]
+        _intro_script = f"This is {_title_s} by {_artist_s}."
+        tts_intro_path = str(reel_dir / "tts_intro.mp3")
+        _ok_intro, _ = generate_voiceover(_intro_script, tts_intro_path)
+        intro_duration = _get_audio_duration(tts_intro_path) if _ok_intro else 0.0
+        if _ok_intro:
+            print(f"  ✓ Act I intro TTS: \"{_intro_script[:60]}\" ({intro_duration:.2f}s)")
+
+        # Step 4 — build 3-act reveal with correct per-act durations (intro-aware)
         reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
                                         appreciation_duration=appreciation_duration,
                                         data_tts_duration=data_tts_duration,
+                                        intro_duration=intro_duration,
                                         template_answer=_tmpl_answer)
 
-        # Step 4 — compute per-frame start times
+        # Step 5 — compute per-frame start times
         _fade_s = 0.5
         _frame_starts: list[float] = []
         _t = 0.0
@@ -1122,15 +1136,6 @@ def main() -> None:
 
         act2_start = _frame_starts[1] if len(_frame_starts) > 1 else 0.0
         act3_start = _frame_starts[2] if len(_frame_starts) > 2 else _t
-
-        # Step 5 — Act I intro TTS: "This is [Title] by [Artist]." at t=0
-        _artist_s = _clean_artist(hook.get("artist") or "Unknown")
-        _title_s  = (hook.get("title") or "Untitled")[:50]
-        _intro_script = f"This is {_title_s} by {_artist_s}."
-        tts_intro_path = str(reel_dir / "tts_intro.mp3")
-        _ok_intro, _ = generate_voiceover(_intro_script, tts_intro_path)
-        if _ok_intro:
-            print(f"  ✓ Act I intro TTS: \"{_intro_script[:60]}\"")
 
         # Step 6 — gavel SFX fires at Act III start (when data lands)
         _ok_gavel = synthesize_gavel(sfx_gavel_path)
@@ -1175,14 +1180,25 @@ def main() -> None:
     # audio_offset=0 because all tracks are baked into voiceover.mp3 at correct positions;
     # word_timings are 0-based from tts_answer.mp3 (answer frame visual sync unchanged).
     import json as _json
-    timing_data = {"audio_offset": 0.0, "word_timings": word_timings}
+    # Record useful audio event timings so make_reel.py can align visuals to audio.
+    data_start = locals().get("_data_start", None)
+    data_duration = locals().get("data_tts_duration", 0.0)
+    intro_dur = locals().get("intro_duration", 0.0)
+    timing_data = {
+        "audio_offset": 0.0,
+        "word_timings": word_timings,
+        "data_start": data_start,
+        "data_duration": data_duration,
+        "intro_duration": intro_dur,
+    }
     (reel_dir / "voiceover_timing.json").write_text(_json.dumps(timing_data, indent=2))
 
-    # Map each reveal frame to an image file (cycle through available sources)
+    # Map each reveal frame to an image file (cycle through available sources).
+    # Preserve original source filename in the copied file so make_reel.py can detect tiles/crops.
     import shutil
     for i, _ in enumerate(reveal):
         src  = src_images[i % len(src_images)]
-        dest = images_dir / f"frame_{i + 1:02d}{src.suffix}"
+        dest = images_dir / f"{i + 1:02d}_{src.name}"
         shutil.copy2(src, dest)
     n_images = len(reveal)
     print(f"  {len(src_images)} source image(s) → {n_images} frames")
