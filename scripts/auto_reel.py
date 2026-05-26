@@ -22,6 +22,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import httpx
+from PIL import Image
 from dotenv import load_dotenv
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
@@ -228,6 +229,42 @@ def _download_lot_images(lot: dict, images_dir: Path, max_images: int = 8) -> li
 
     return saved
 
+
+def _generate_grid_crops(src_paths: list[Path], crops_dir: Path, include_original: bool = True, target_size: tuple[int,int] | None = None) -> list[Path]:
+    """Generate center + corner square crops for each source image.
+    Returns a list of Paths in order: original, center, top_left, top_right, bottom_left, bottom_right for each source.
+    """
+    crops_dir.mkdir(parents=True, exist_ok=True)
+    result: list[Path] = []
+    for src in src_paths:
+        try:
+            with Image.open(src) as im:
+                im = im.convert("RGB")
+                w, h = im.size
+                side = min(w, h)
+                positions = {
+                    "center": ((w - side) // 2, (h - side) // 2),
+                    "top_left": (0, 0),
+                    "top_right": (w - side, 0),
+                    "bottom_left": (0, h - side),
+                    "bottom_right": (w - side, h - side),
+                }
+                if include_original:
+                    result.append(src)
+                for name, (left, top) in positions.items():
+                    box = (left, top, left + side, top + side)
+                    crop = im.crop(box)
+                    if target_size:
+                        crop = crop.resize(target_size, Image.LANCZOS)
+                    out_name = f"{src.stem}_crop_{name}{src.suffix}"
+                    out_path = crops_dir / out_name
+                    crop.save(out_path, quality=95)
+                    result.append(out_path)
+        except Exception as e:
+            print(f"  ⚠ Crop failed for {src.name}: {e}")
+            if include_original and src not in result:
+                result.append(src)
+    return result
 
 # ── Roman numerals ────────────────────────────────────────────────────────────
 
@@ -915,6 +952,15 @@ def main() -> None:
     # ── Download all images of the single hook lot ─────────────
     print(f"\n▸ Downloading images for hook lot...")
     src_images = _download_lot_images(hook, reel_dir / "_src", max_images=8)
+
+    # Generate center + corner crops for each source image and include originals.
+    # Crops saved in <reel>/_crops and used alongside originals for more reveal frames.
+    crops_dir = reel_dir / "_crops"
+    cropped_variants = _generate_grid_crops(src_images, crops_dir, include_original=True)
+    if cropped_variants:
+        src_images = cropped_variants
+    else:
+        print("  ⚠ No crops generated — using originals only.")
 
     if not src_images:
         print("✗ No images downloaded — cannot generate reel.")
