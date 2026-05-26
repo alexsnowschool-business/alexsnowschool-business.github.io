@@ -502,10 +502,16 @@ def main():
     _timing_path = os.path.join(reel_dir, "voiceover_timing.json")
     _word_timings = None   # [{"word": str, "start": float_secs}]
     _audio_offset = 0.0    # seconds to delay audio track in final MP4
+    _data_start = None
+    _data_duration = 0.0
+    _intro_duration = 0.0
     if os.path.exists(_timing_path):
         _td = _json.load(open(_timing_path))
         _audio_offset  = _td.get("audio_offset", 0.0)
         _word_timings  = _td.get("word_timings") or None
+        _data_start = _td.get("data_start")
+        _data_duration = _td.get("data_duration", 0.0) or 0.0
+        _intro_duration = _td.get("intro_duration", 0.0) or 0.0
 
     print("═" * 60)
     print("REEL GENERATOR")
@@ -642,16 +648,50 @@ def main():
 
         prev_hook_answer_words = []  # track words already revealed in prior frame
 
+        # Precompute frame start times (seconds) so visuals can be aligned to audio events
+        frame_starts: list[float] = []
+        _t = 0.0
+        for idx in range(len(photos)):
+            _fc = per_frame_caps[idx] if per_frame_caps and idx < len(per_frame_caps) else None
+            _hold = _fc.get("hold_seconds") if (_fc and "hold_seconds" in _fc) else cfg["hold_seconds"]
+            frame_starts.append(_t)
+            _t += _hold + cfg.get("fade_seconds", 0.0)
+
         for i, (fname, photo) in enumerate(photos):
             show, fc = _frame_cap(i)
 
-            # Per-frame hold_seconds overrides the global
+            # Determine hold in frames and seconds
             if fc and "hold_seconds" in fc:
-                hold_f = int(fc["hold_seconds"] * FPS)
+                hold_seconds = fc["hold_seconds"]
+                hold_f = int(hold_seconds * FPS)
             else:
+                hold_seconds = cfg["hold_seconds"]
                 hold_f = HOLD_F
 
-            hook_answer_text = (fc or {}).get("hook_answer", "")
+            # If this per-frame caption looks like the Act III data box (estimate/sold),
+            # only show it when the audio-data segment is playing.
+            is_data_frame = False
+            if fc and isinstance(fc.get("line1"), str) and fc.get("line1").lower().startswith("estimate"):
+                is_data_frame = True
+
+            data_overlap = False
+            if is_data_frame and _data_start is not None:
+                frame_start = frame_starts[i]
+                frame_end = frame_start + hold_seconds
+                data_start = _data_start
+                data_end = _data_start + (_data_duration if _data_duration else 0.0)
+                data_overlap = not (frame_end < data_start or frame_start > data_end)
+
+            # Use a per-render copy of fc so we can hide the data box when not overlapping audio
+            fc_to_use = fc
+            if is_data_frame and not data_overlap and fc:
+                fc_to_use = dict(fc)
+                fc_to_use["show_caption"] = False
+                fc_to_use["line1"] = ""
+                fc_to_use["line2"] = ""
+                fc_to_use["line3"] = ""
+
+            hook_answer_text = (fc_to_use or {}).get("hook_answer", "")
             all_words = hook_answer_text.split() if hook_answer_text else []
 
             # Determine which words are genuinely NEW in this frame (continuation detection)
@@ -675,7 +715,7 @@ def main():
                     else:
                         n_new = max(1, min(len(new_words), k // FRAMES_PER_WORD + 1))
                     partial_answer = (carried_text + " " + " ".join(new_words[:n_new])).strip()
-                    partial_fc = dict(fc)
+                    partial_fc = dict(fc_to_use) if fc_to_use else {}
                     partial_fc["hook_answer"] = partial_answer
                     partial_fc["_hook_answer_full"] = hook_answer_text
                     frame = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
