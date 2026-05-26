@@ -1194,44 +1194,47 @@ def main() -> None:
     (reel_dir / "voiceover_timing.json").write_text(_json.dumps(timing_data, indent=2))
 
     # Combine all downloaded originals and generated crops into the images folder
-    # so make_reel.py sees the full set of source images/tiles.
+    # and prefix every copied file sequentially so make_reel.py sees a numbered list.
     import shutil
     src_dir = reel_dir / "_src"
     crops_dir = reel_dir / "_crops"
 
-    def _copy_folder_contents(src_folder: Path, dest_folder: Path) -> int:
-        count = 0
-        if src_folder.exists():
-            for f in sorted(src_folder.iterdir()):
+    # Build ordered, unique list of files to copy. Start with src_images to preserve reveal order.
+    to_copy: list[Path] = []
+    seen_names = set()
+    for p in src_images:
+        if p and p.name not in seen_names and p.exists():
+            to_copy.append(p)
+            seen_names.add(p.name)
+
+    # Add any remaining files from _src and _crops that weren't in src_images
+    for folder in (src_dir, crops_dir):
+        if folder.exists():
+            for f in sorted(folder.iterdir()):
                 if not f.is_file():
                     continue
                 if f.suffix.lower() not in (".jpg", ".jpeg", ".png"):
                     continue
-                dest = dest_folder / f.name
-                try:
-                    shutil.copy2(f, dest)
-                    count += 1
-                except Exception as e:
-                    print(f"  ⚠ Copy failed: {f} → {dest} — {e}")
-        return count
+                if f.name in seen_names:
+                    continue
+                to_copy.append(f)
+                seen_names.add(f.name)
 
-    n_src = _copy_folder_contents(src_dir, images_dir)
-    n_crops = _copy_folder_contents(crops_dir, images_dir)
-
-    # Also preserve the reveal-to-frame mapping by writing prefixed frame files
-    prefixed_count = 0
-    for i, _ in enumerate(reveal):
+    # Copy with numeric prefix
+    copied = 0
+    for idx, src in enumerate(to_copy):
+        dest = images_dir / f"{idx + 1:02d}_{src.name}"
         try:
-            src = src_images[i % len(src_images)]
-            dest = images_dir / f"{i + 1:02d}_{src.name}"
             shutil.copy2(src, dest)
-            prefixed_count += 1
+            copied += 1
         except Exception as e:
-            print(f"  ⚠ Copy frame image failed: {src} -> {dest}: {e}")
+            print(f"  ⚠ Copy failed: {src} → {dest} — {e}")
 
-    # Count images in images_dir
+    # Count images
     n_images = sum(1 for f in images_dir.iterdir() if f.is_file() and f.suffix.lower() in ('.jpg', '.jpeg', '.png'))
-    print(f"  {len(src_images)} source image(s) + {n_crops} crops copied → {n_images} images in {images_dir}")
+    n_src_copied = sum(1 for p in to_copy if p.parent == src_dir)
+    n_crops_copied = sum(1 for p in to_copy if p.parent == crops_dir)
+    print(f"  {len(src_images)} source image(s) + {n_crops_copied} crops copied → {n_images} images in {images_dir}")
 
     # ── Write reel_config.py ───────────────────────────────────
     config_path = reel_dir / "reel_config.py"
