@@ -852,6 +852,7 @@ def main() -> None:
     parser.add_argument("--run",       action="store_true", help="Run make_reel.py + make_captions.py after generation")
     parser.add_argument("--top-n",     type=int, default=8, help="Max lots to query (default: 8)")
     parser.add_argument("--lot-index", type=int, default=0, help="Which lot to use (0 = top, 1 = 2nd, etc.)")
+    parser.add_argument("--crop-size", type=int, default=None, help="Square crop size in pixels (e.g., 640). If set, generated crops will be resized to this size.")
     args = parser.parse_args()
 
     # ── Resolve week ───────────────────────────────────────────
@@ -956,7 +957,7 @@ def main() -> None:
     # Generate center + corner crops for each source image and include originals.
     # Crops saved in <reel>/_crops and used alongside originals for more reveal frames.
     crops_dir = reel_dir / "_crops"
-    cropped_variants = _generate_grid_crops(src_images, crops_dir, include_original=True, target_size=(640, 640))
+    cropped_variants = _generate_grid_crops(src_images, crops_dir, include_original=True, target_size=(args.crop_size, args.crop_size) if args.crop_size else None)
     if cropped_variants:
         src_images = cropped_variants
     else:
