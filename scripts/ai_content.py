@@ -167,7 +167,7 @@ def generate_linkedin_caption(lot: dict) -> str | None:
     est    = lot.get("estimate_fmt", "unknown")
     pct    = lot.get("pct_above", 0)
 
-    prompt = f"""You write posts for @thehammerprice — an art market account on LinkedIn. Professional but conversational. No emojis except one at the start.
+    prompt = f"""You write posts for @thehammerprice — an art market account on LinkedIn. Professional but conversational. No emojis.
 
 Lot:
 - Artist: {artist}
