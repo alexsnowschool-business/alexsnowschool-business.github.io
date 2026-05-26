@@ -956,7 +956,7 @@ def main() -> None:
     # Generate center + corner crops for each source image and include originals.
     # Crops saved in <reel>/_crops and used alongside originals for more reveal frames.
     crops_dir = reel_dir / "_crops"
-    cropped_variants = _generate_grid_crops(src_images, crops_dir, include_original=True)
+    cropped_variants = _generate_grid_crops(src_images, crops_dir, include_original=True, target_size=(640, 640))
     if cropped_variants:
         src_images = cropped_variants
     else:
