@@ -529,9 +529,80 @@ def main():
 
     split = cfg.get("photo_split", False)
     photos = []
+
+    # Group base images with their tiles/crops. Files named like <base>_tile_<size>_x_y or <base>_crop_<name>
+    grouped = {}
+    order = []
     for fname in photo_files:
-        p = load_photo(os.path.join(cfg["input_folder"], fname), split=split)
-        photos.append((fname, grade_photo(p, PALETTES[cfg["vibe"]])))
+        stem, ext = os.path.splitext(fname)
+        if '_tile_' in stem:
+            base = stem.split('_tile_')[0]
+            grouped.setdefault(base, {'base': None, 'tiles': []})
+            grouped[base]['tiles'].append(fname)
+            if base not in order:
+                order.append(base)
+        elif '_crop_' in stem:
+            base = stem.split('_crop_')[0]
+            grouped.setdefault(base, {'base': None, 'tiles': []})
+            grouped[base]['tiles'].append(fname)
+            if base not in order:
+                order.append(base)
+        else:
+            base = stem
+            grouped.setdefault(base, {'base': None, 'tiles': []})
+            grouped[base]['base'] = fname
+            if base not in order:
+                order.append(base)
+
+    pal = PALETTES[cfg["vibe"]]
+    for base in order:
+        base_fname = grouped[base].get('base')
+        tiles = grouped[base]['tiles']
+        if base_fname:
+            base_path = os.path.join(cfg["input_folder"], base_fname)
+            p = load_photo(base_path, split=split)
+            base_photo = grade_photo(p, pal)
+            photos.append((base_fname, base_photo))
+        else:
+            if tiles:
+                tpath = os.path.join(cfg["input_folder"], tiles[0])
+                p = load_photo(tpath, split=split)
+                photos.append((tiles[0], grade_photo(p, pal)))
+                tiles = tiles[1:]
+        for tname in tiles:
+            tpath = os.path.join(cfg["input_folder"], tname)
+            try:
+                tile = Image.open(tpath).convert("RGB")
+            except Exception as e:
+                print(f"  ⚠ Could not open tile {tname}: {e}")
+                continue
+            # Determine inset size: parse tile size if present, else use fraction
+            ts = None
+            stem = os.path.splitext(tname)[0]
+            parts = stem.split('_')
+            if 'tile' in parts:
+                idx = parts.index('tile')
+                if idx + 1 < len(parts):
+                    try:
+                        ts = int(parts[idx+1])
+                    except:
+                        ts = None
+            inset_w = int(W * cfg.get("tile_inset_fraction", 0.55))
+            if ts:
+                inset_w = min(inset_w, ts * 3)
+            tile = tile.resize((inset_w, inset_w), Image.LANCZOS)
+            border = max(6, inset_w // 30)
+            inset_bg = Image.new('RGB', (inset_w + border*2, inset_w + border*2), (255,255,255))
+            inset_bg.paste(tile, (border, border))
+            if base_fname:
+                comp = base_photo.copy()
+            else:
+                comp = Image.new('RGB', (W, H), pal['bg'])
+            margin = 72
+            x = W - inset_bg.width - margin
+            y = margin
+            comp.paste(inset_bg, (x, y))
+            photos.append((tname, comp))
 
     # ── STATIC IMAGE ──────────────────────────────────────────
     if cfg["make_image"]:
