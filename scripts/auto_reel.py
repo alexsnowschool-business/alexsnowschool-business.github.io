@@ -81,6 +81,44 @@ def _week_bounds(ref_date: date) -> tuple[str, str]:
     return monday.isoformat(), sunday.isoformat()
 
 
+# ── Notable-artist index ───────────────────────────────────────────────────────
+
+KNOWN_ARTISTS: frozenset[str] = frozenset({
+    # Post-war American
+    "Andy Warhol", "Roy Lichtenstein", "Jasper Johns", "Robert Rauschenberg",
+    "Ed Ruscha", "Frank Stella", "Ellsworth Kelly", "Donald Judd",
+    "Cy Twombly", "Joan Mitchell", "Lee Krasner", "Helen Frankenthaler",
+    # Neo-expressionism / street
+    "Jean-Michel Basquiat", "Keith Haring", "George Condo",
+    # YBA / British
+    "Damien Hirst", "Jenny Saville", "Chris Ofili", "Glenn Brown",
+    "Cecily Brown", "Peter Doig", "Lucian Freud", "Francis Bacon",
+    # German / European
+    "Gerhard Richter", "Neo Rauch", "Luc Tuymans", "Marlene Dumas",
+    "Rudolf Stingel", "Albert Oehlen", "Pierre Soulages",
+    # Contemporary market names
+    "Jeff Koons", "Richard Prince", "Christopher Wool", "Mark Bradford",
+    "Kerry James Marshall", "Jonas Wood", "Lisa Yuskavage",
+    "Banksy", "Kaws", "Takashi Murakami", "Yoshitomo Nara", "Yayoi Kusama",
+    "Wolfgang Tillmans", "Andreas Gursky", "Cindy Sherman", "Barbara Kruger",
+    # Post-Impressionist / Modern (auction staples)
+    "Alberto Giacometti", "Jean Dubuffet", "Yves Klein",
+    "Emil Nolde", "Ernst Ludwig Kirchner",
+})
+
+
+def _artist_is_notable(name: str, notable_set: frozenset[str] | None = None) -> bool:
+    return _clean_artist(name) in (notable_set or KNOWN_ARTISTS)
+
+
+def _score_lot(lot: dict, notable_set: frozenset[str] | None = None) -> float:
+    """Composite score: market shock (40%) + visual richness + artist notability."""
+    pct        = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    has_images = len(json.loads(lot.get("image_urls") or "[]")) >= 3
+    is_known   = _artist_is_notable(lot.get("artist") or "", notable_set)
+    return pct * 0.4 + (has_images * 30) + (is_known * 20)
+
+
 # ── DB queries ─────────────────────────────────────────────────────────────────
 
 def _ensure_posted_table(conn: sqlite3.Connection) -> None:
@@ -819,6 +857,8 @@ def main() -> None:
     if not lots:
         print("✗ No suitable lots found in database.")
         sys.exit(1)
+
+    lots.sort(key=_score_lot, reverse=True)
 
     if args.lot_index >= len(lots):
         print(f"✗ --lot-index {args.lot_index} out of range (only {len(lots)} lots found)")
