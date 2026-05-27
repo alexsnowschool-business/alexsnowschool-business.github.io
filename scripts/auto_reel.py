@@ -891,7 +891,8 @@ def main() -> None:
     for _stale_dir in (reel_dir / "_src", images_dir):
         if _stale_dir.exists():
             _shutil_pre.rmtree(_stale_dir)
-    del _stale_dir, _shutil_pre
+    del _shutil_pre
+    images_dir.mkdir(parents=True, exist_ok=True)  # recreate after rmtree
 
     print(f"\n▸ Downloading images for hook lot...")
     src_images = _download_lot_images(hook, reel_dir / "_src", max_images=8)
