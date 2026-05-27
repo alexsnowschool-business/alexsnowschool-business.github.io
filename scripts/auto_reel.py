@@ -108,18 +108,6 @@ KNOWN_ARTISTS: frozenset[str] = frozenset({
 })
 
 
-def _artist_is_notable(name: str, notable_set: frozenset[str] | None = None) -> bool:
-    return _clean_artist(name) in (notable_set or KNOWN_ARTISTS)
-
-
-def _score_lot(lot: dict, notable_set: frozenset[str] | None = None) -> float:
-    """Composite score: market shock (40%) + visual richness + artist notability."""
-    pct        = _pct_above(lot["hammer_usd"], lot["estimate_low"])
-    has_images = len(json.loads(lot.get("image_urls") or "[]")) >= 3
-    is_known   = _artist_is_notable(lot.get("artist") or "", notable_set)
-    return pct * 0.4 + (has_images * 30) + (is_known * 20)
-
-
 # ── DB queries ─────────────────────────────────────────────────────────────────
 
 def _ensure_posted_table(conn: sqlite3.Connection) -> None:
@@ -578,7 +566,7 @@ def _artist_is_notable(artist: str, notable_set: set[str] | None = None) -> bool
     cleaned_lower = cleaned.lower()
     return any(
         k.lower() in cleaned_lower or cleaned_lower in k.lower()
-        for k in _KNOWN_ARTISTS
+        for k in KNOWN_ARTISTS
     )
 
 
@@ -592,6 +580,91 @@ def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
 
 _MAX_REEL_SECONDS = 20.0
 _FRAME_FADE_S     = 0.1
+
+
+# ── Image crop helpers ────────────────────────────────────────────────────────
+
+def _generate_grid_crops(src_paths: list[Path], crops_dir: Path, include_original: bool = True, target_size: tuple[int,int] | None = None) -> list[Path]:
+    """Generate center + corner square crops for each source image."""
+    crops_dir.mkdir(parents=True, exist_ok=True)
+    result: list[Path] = []
+    for src in src_paths:
+        try:
+            with Image.open(src) as im:
+                im = im.convert("RGB")
+                w, h = im.size
+                side = min(w, h)
+                positions = {
+                    "center": ((w - side) // 2, (h - side) // 2),
+                    "top_left": (0, 0),
+                    "top_right": (w - side, 0),
+                    "bottom_left": (0, h - side),
+                    "bottom_right": (w - side, h - side),
+                }
+                if include_original:
+                    result.append(src)
+                for name, (left, top) in positions.items():
+                    box = (left, top, left + side, top + side)
+                    crop = im.crop(box)
+                    if target_size:
+                        crop = crop.resize(target_size, Image.LANCZOS)
+                    out_name = f"{src.stem}_crop_{name}{src.suffix}"
+                    out_path = crops_dir / out_name
+                    crop.save(out_path, quality=95)
+                    result.append(out_path)
+        except Exception as e:
+            print(f"  ⚠ Crop failed for {src.name}: {e}")
+            if include_original and src not in result:
+                result.append(src)
+    return result
+
+
+def _generate_sliding_window_crops(src_paths: list[Path], crops_dir: Path, tile_size: int = 256, stride: int | None = None, include_original: bool = True) -> list[Path]:
+    """Generate overlapping square tiles (sliding window) for each source image."""
+    crops_dir.mkdir(parents=True, exist_ok=True)
+    result: list[Path] = []
+    for src in src_paths:
+        try:
+            with Image.open(src) as im:
+                im = im.convert("RGB")
+                w, h = im.size
+                ts = min(tile_size, w, h)
+                st = stride or max(1, ts // 2)
+                xs = []
+                if w <= ts:
+                    xs = [0]
+                else:
+                    x = 0
+                    while x <= w - ts:
+                        xs.append(x)
+                        x += st
+                    if xs[-1] != w - ts:
+                        xs.append(w - ts)
+                ys = []
+                if h <= ts:
+                    ys = [0]
+                else:
+                    y = 0
+                    while y <= h - ts:
+                        ys.append(y)
+                        y += st
+                    if ys[-1] != h - ts:
+                        ys.append(h - ts)
+                if include_original:
+                    result.append(src)
+                for x in xs:
+                    for y in ys:
+                        box = (x, y, x + ts, y + ts)
+                        crop = im.crop(box)
+                        out_name = f"{src.stem}_tile_{ts}_{x}_{y}{src.suffix}"
+                        out_path = crops_dir / out_name
+                        crop.save(out_path, quality=95)
+                        result.append(out_path)
+        except Exception as e:
+            print(f"  ⚠ Sliding crop failed for {src.name}: {e}")
+            if include_original and src not in result:
+                result.append(src)
+    return result
 
 
 def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = None,
