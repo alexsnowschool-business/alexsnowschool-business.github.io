@@ -268,7 +268,7 @@ def apply_grain(img, seed=42, alpha=0.022):
     noise_rgb = noise_rgb.filter(ImageFilter.GaussianBlur(0.3))
     return Image.blend(img, noise_rgb, alpha=alpha)
 
-def load_photo(fpath, split=False):
+def load_photo(fpath, split=False, fit=False, fit_bg=(0, 0, 0)):
     photo = Image.open(fpath)
     try:
         exif = photo._getexif()
@@ -280,8 +280,18 @@ def load_photo(fpath, split=False):
     except: pass
     photo = photo.convert("RGB")
     pw, ph = photo.size
-    # In split mode the photo fills only the bottom 2/3 of the frame
     dest_h = int(H * 2 / 3) if split else H
+
+    if fit:
+        # Fit within frame preserving aspect ratio; pad remaining area with fit_bg
+        scale = min(W / pw, dest_h / ph)
+        nw, nh = int(pw * scale), int(ph * scale)
+        resized = photo.resize((nw, nh), Image.LANCZOS)
+        canvas = Image.new("RGB", (W, dest_h), fit_bg)
+        canvas.paste(resized, ((W - nw) // 2, (dest_h - nh) // 2))
+        return canvas
+
+    # Default: crop-fill to dest size
     target = W / dest_h
     ratio  = pw / ph
     if ratio > target:
@@ -489,6 +499,51 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     return img
 
 
+# Must match _BLOCK_REVEAL_S in scripts/auto_reel.py — both sides use 4.0s for audio timing.
+BLOCK_REVEAL_DURATION = 4.0
+
+
+def _render_block_reveal_frames(photo, cfg, fnt, fc, show,
+                                 frames_dir, frame_i, fps=30,
+                                 grid_cols=3, grid_rows=4,
+                                 reveal_duration=BLOCK_REVEAL_DURATION):
+    """Reveal the full painting block by block after the static Act I hold.
+
+    Starts from a blurred/darkened version of the painting; each block is
+    replaced with the crisp, graded original left-to-right, top-to-bottom.
+    Returns (new frame_i, last rendered frame) so the caller can use it as
+    the base for the next cross-fade.
+    """
+    from PIL import ImageFilter, ImageEnhance
+    pw, ph = photo.size
+    bw = pw // grid_cols
+    bh = ph // grid_rows
+
+    # Scale frames-per-block to hit ~reveal_duration seconds regardless of fps
+    n_blocks = grid_cols * grid_rows
+    frames_per_block = max(1, round(reveal_duration * fps / n_blocks))
+
+    hidden = photo.filter(ImageFilter.GaussianBlur(radius=40))
+    hidden = ImageEnhance.Brightness(hidden).enhance(0.15)
+
+    canvas = hidden.copy()
+    last_frame = None
+    for row in range(grid_rows):
+        for col in range(grid_cols):
+            x = col * bw
+            y = row * bh
+            w = (pw - x) if col == grid_cols - 1 else bw
+            h = (ph - y) if row == grid_rows - 1 else bh
+            canvas = canvas.copy()
+            canvas.paste(photo.crop((x, y, x + w, y + h)), (x, y))
+            last_frame = render_frame(canvas, cfg, fnt, show_caption=show, frame_caption=fc)
+            for _ in range(frames_per_block):
+                last_frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                frame_i += 1
+
+    return frame_i, last_frame
+
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python reel_template/make_reel.py reels/<name>")
@@ -504,8 +559,8 @@ def main():
     _audio_offset = 0.0    # seconds to delay audio track in final MP4
     if os.path.exists(_timing_path):
         _td = _json.load(open(_timing_path))
-        _audio_offset  = _td.get("audio_offset", 0.0)
-        _word_timings  = _td.get("word_timings") or None
+        _audio_offset = _td.get("audio_offset", 0.0)
+        _word_timings = _td.get("word_timings") or None
 
     print("═" * 60)
     print("REEL GENERATOR")
@@ -529,9 +584,83 @@ def main():
 
     split = cfg.get("photo_split", False)
     photos = []
+
+    # Group base images with their tiles/crops. Files named like <base>_tile_<size>_x_y or <base>_crop_<name>
+    grouped = {}
+    order = []
     for fname in photo_files:
-        p = load_photo(os.path.join(cfg["input_folder"], fname), split=split)
-        photos.append((fname, grade_photo(p, PALETTES[cfg["vibe"]])))
+        stem, ext = os.path.splitext(fname)
+        if '_tile_' in stem:
+            base = stem.split('_tile_')[0]
+            grouped.setdefault(base, {'base': None, 'tiles': []})
+            grouped[base]['tiles'].append(fname)
+            if base not in order:
+                order.append(base)
+        elif '_crop_' in stem:
+            base = stem.split('_crop_')[0]
+            grouped.setdefault(base, {'base': None, 'tiles': []})
+            grouped[base]['tiles'].append(fname)
+            if base not in order:
+                order.append(base)
+        else:
+            base = stem
+            grouped.setdefault(base, {'base': None, 'tiles': []})
+            grouped[base]['base'] = fname
+            if base not in order:
+                order.append(base)
+
+    pal = PALETTES[cfg["vibe"]]
+    _first_base_loaded = False  # Act I only: full painting fitted with padding
+    for base in order:
+        base_fname = grouped[base].get('base')
+        tiles = grouped[base]['tiles']
+        if base_fname:
+            base_path = os.path.join(cfg["input_folder"], base_fname)
+            use_fit = not _first_base_loaded
+            p = load_photo(base_path, split=split, fit=use_fit, fit_bg=pal["bg"])
+            _first_base_loaded = True
+            base_photo = grade_photo(p, pal)
+            photos.append((base_fname, base_photo))
+        else:
+            if tiles:
+                tpath = os.path.join(cfg["input_folder"], tiles[0])
+                p = load_photo(tpath, split=split)
+                photos.append((tiles[0], grade_photo(p, pal)))
+                tiles = tiles[1:]
+        for tname in tiles:
+            tpath = os.path.join(cfg["input_folder"], tname)
+            try:
+                tile = Image.open(tpath).convert("RGB")
+            except Exception as e:
+                print(f"  ⚠ Could not open tile {tname}: {e}")
+                continue
+            # Determine inset size: parse tile size if present, else use fraction
+            ts = None
+            stem = os.path.splitext(tname)[0]
+            parts = stem.split('_')
+            if 'tile' in parts:
+                idx = parts.index('tile')
+                if idx + 1 < len(parts):
+                    try:
+                        ts = int(parts[idx+1])
+                    except:
+                        ts = None
+            inset_w = int(W * cfg.get("tile_inset_fraction", 0.55))
+            if ts:
+                inset_w = min(inset_w, ts * 3)
+            tile = tile.resize((inset_w, inset_w), Image.LANCZOS)
+            border = max(6, inset_w // 30)
+            inset_bg = Image.new('RGB', (inset_w + border*2, inset_w + border*2), (255,255,255))
+            inset_bg.paste(tile, (border, border))
+            if base_fname:
+                comp = base_photo.copy()
+            else:
+                comp = Image.new('RGB', (W, H), pal['bg'])
+            margin = 72
+            x = W - inset_bg.width - margin
+            y = margin
+            comp.paste(inset_bg, (x, y))
+            photos.append((tname, comp))
 
     # ── STATIC IMAGE ──────────────────────────────────────────
     if cfg["make_image"]:
@@ -574,48 +703,74 @@ def main():
         for i, (fname, photo) in enumerate(photos):
             show, fc = _frame_cap(i)
 
-            # Per-frame hold_seconds overrides the global
+            # Determine hold in frames and seconds
             if fc and "hold_seconds" in fc:
-                hold_f = int(fc["hold_seconds"] * FPS)
+                hold_seconds = fc["hold_seconds"]
+                hold_f = int(hold_seconds * FPS)
             else:
+                hold_seconds = cfg["hold_seconds"]
                 hold_f = HOLD_F
 
             hook_answer_text = (fc or {}).get("hook_answer", "")
             all_words = hook_answer_text.split() if hook_answer_text else []
+            act2_offset = (fc or {}).get("act2_audio_offset", None)
 
-            # Determine which words are genuinely NEW in this frame (continuation detection)
-            prev_n = len(prev_hook_answer_words)
-            is_continuation = (
-                len(all_words) > prev_n and
-                all_words[:prev_n] == prev_hook_answer_words
-            )
-            new_words = all_words[prev_n:] if is_continuation else all_words
-            carried_text = " ".join(all_words[:prev_n]) if is_continuation else ""
-
-            if new_words and hold_f > 1:
-                # Reveal new words: driven by TTS timestamps when available, else 2 frames/word
-                FRAMES_PER_WORD = 2
-                base = None
+            if act2_offset is not None and all_words and hold_f > 0:
+                # Act II multi-frame: reveal appreciation words by global VO timestamp.
+                # act2_offset = seconds into tts_appreciation.mp3 when this crop starts.
                 for k in range(hold_f):
+                    t_secs = k / FPS + act2_offset
                     if _word_timings:
-                        t_secs = k / FPS
-                        n_new = sum(1 for wt in _word_timings if wt["start"] <= t_secs)
-                        n_new = max(1, min(len(new_words), n_new))
+                        n_shown = max(0, min(len(all_words),
+                                            sum(1 for wt in _word_timings if wt["start"] <= t_secs)))
                     else:
-                        n_new = max(1, min(len(new_words), k // FRAMES_PER_WORD + 1))
-                    partial_answer = (carried_text + " " + " ".join(new_words[:n_new])).strip()
-                    partial_fc = dict(fc)
-                    partial_fc["hook_answer"] = partial_answer
+                        n_shown = len(all_words)
+                    partial_fc = dict(fc) if fc else {}
+                    partial_fc["hook_answer"] = " ".join(all_words[:n_shown])
                     partial_fc["_hook_answer_full"] = hook_answer_text
-                    frame = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
-                    frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
-                    frame_i += 1
-                    base = frame
-            else:
-                base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
-                for _ in range(hold_f):
+                    base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
                     base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
                     frame_i += 1
+            else:
+                # Determine which words are genuinely NEW in this frame (continuation detection)
+                prev_n = len(prev_hook_answer_words)
+                is_continuation = (
+                    len(all_words) > prev_n and
+                    all_words[:prev_n] == prev_hook_answer_words
+                )
+                new_words = all_words[prev_n:] if is_continuation else all_words
+                carried_text = " ".join(all_words[:prev_n]) if is_continuation else ""
+
+                if new_words and hold_f > 1:
+                    # Reveal new words: driven by TTS timestamps when available, else 2 frames/word
+                    FRAMES_PER_WORD = 2
+                    base = None
+                    for k in range(hold_f):
+                        if _word_timings:
+                            t_secs = k / FPS
+                            n_new = sum(1 for wt in _word_timings if wt["start"] <= t_secs)
+                            n_new = max(1, min(len(new_words), n_new))
+                        else:
+                            n_new = max(1, min(len(new_words), k // FRAMES_PER_WORD + 1))
+                        partial_answer = (carried_text + " " + " ".join(new_words[:n_new])).strip()
+                        partial_fc = dict(fc) if fc else {}
+                        partial_fc["hook_answer"] = partial_answer
+                        partial_fc["_hook_answer_full"] = hook_answer_text
+                        frame = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
+                        frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                        frame_i += 1
+                        base = frame
+                else:
+                    base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
+                    for _ in range(hold_f):
+                        base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                        frame_i += 1
+
+            # Act I only: after the static hold, reveal the painting block by block
+            if i == 0:
+                frame_i, base = _render_block_reveal_frames(
+                    photo, cfg, fnt, fc, show, frames_dir, frame_i, fps=FPS
+                )
 
             prev_hook_answer_words = all_words  # advance cursor for next frame
 

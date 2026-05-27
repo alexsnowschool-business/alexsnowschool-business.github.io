@@ -214,22 +214,29 @@ def generate_hook_answer(lot: dict, question: str) -> str | None:
     est    = lot.get("estimate_fmt", "unknown")
     pct    = lot.get("pct_above", 0)
 
-    prompt = f"""You write punchy on-screen text for art auction reels. 1–2 short sentences, all lowercase.
+    system = (
+        "You write short art criticism that ends with a market observation. "
+        "Structure: what the work IS → why it matters art-historically"
+        "The art is the protagonist. "
+        "use easy to understand language but be specific — name a movement, a period, a key influence or context. "
+        "No fluff."
+    )
 
-Auction result:
+    prompt = f"""Write the Act II voiceover for an Instagram reel about this auction lot.
+
+Lot:
 - Artist: {artist}
 - Work: "{title}"
-- House: {house}
-- Estimate: {est} → Hammer: {hammer} ({pct:.0f}% above estimate)
-- Hook question on screen: "{question}"
+- Estimate: {est}  |  Hammer: {hammer}  ({pct:.0f}% above estimate)
 
-Answer that question in the voice of an auction house narrator — talk about the catalogue, the room, the estimate, the gap. Make it feel like insider commentary: why did the room bid this high? what did the specialists miss? Keep it tight, specific to this lot.
+only with 1 sentence, 25 words max. The viewer has just seen the painting for 3 seconds and knows nothing yet.
+Sentence 1: what the work IS and why it matters art-historically. use easy to understand language but be specific — name a movement, a period, a key influence or context. make the art the star.
 
-Rules: all lowercase. no fluff. 1–2 sentences only, under 25 words total.
 
-Reply with only the answer text, nothing else."""
+Reply with only the voiceover text. No more than 25 words."""
 
-    raw = _call([{"role": "user", "content": prompt}], max_tokens=60)
+    raw = _call([{"role": "system", "content": system},
+                 {"role": "user",   "content": prompt}], max_tokens=60)
     return raw.strip() if raw else None
 
 
