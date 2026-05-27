@@ -268,7 +268,7 @@ def apply_grain(img, seed=42, alpha=0.022):
     noise_rgb = noise_rgb.filter(ImageFilter.GaussianBlur(0.3))
     return Image.blend(img, noise_rgb, alpha=alpha)
 
-def load_photo(fpath, split=False):
+def load_photo(fpath, split=False, fit=False, fit_bg=(0, 0, 0)):
     photo = Image.open(fpath)
     try:
         exif = photo._getexif()
@@ -280,8 +280,18 @@ def load_photo(fpath, split=False):
     except: pass
     photo = photo.convert("RGB")
     pw, ph = photo.size
-    # In split mode the photo fills only the bottom 2/3 of the frame
     dest_h = int(H * 2 / 3) if split else H
+
+    if fit:
+        # Fit within frame preserving aspect ratio; pad remaining area with fit_bg
+        scale = min(W / pw, dest_h / ph)
+        nw, nh = int(pw * scale), int(ph * scale)
+        resized = photo.resize((nw, nh), Image.LANCZOS)
+        canvas = Image.new("RGB", (W, dest_h), fit_bg)
+        canvas.paste(resized, ((W - nw) // 2, (dest_h - nh) // 2))
+        return canvas
+
+    # Default: crop-fill to dest size
     target = W / dest_h
     ratio  = pw / ph
     if ratio > target:
@@ -595,12 +605,15 @@ def main():
                 order.append(base)
 
     pal = PALETTES[cfg["vibe"]]
+    _first_base_loaded = False  # Act I only: full painting fitted with padding
     for base in order:
         base_fname = grouped[base].get('base')
         tiles = grouped[base]['tiles']
         if base_fname:
             base_path = os.path.join(cfg["input_folder"], base_fname)
-            p = load_photo(base_path, split=split)
+            use_fit = not _first_base_loaded
+            p = load_photo(base_path, split=split, fit=use_fit, fit_bg=pal["bg"])
+            _first_base_loaded = True
             base_photo = grade_photo(p, pal)
             photos.append((base_fname, base_photo))
         else:
