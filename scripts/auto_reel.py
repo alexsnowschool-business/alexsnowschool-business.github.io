@@ -1127,6 +1127,8 @@ def main() -> None:
                                         template_answer=_tmpl_answer)
 
         # Step 5 — compute per-frame start times
+        # _BLOCK_REVEAL_S must match make_reel.py _render_block_reveal_frames reveal_duration
+        _BLOCK_REVEAL_S = 2.0
         _fade_s = 0.5
         _frame_starts: list[float] = []
         _t = 0.0
@@ -1134,8 +1136,10 @@ def main() -> None:
             _frame_starts.append(_t)
             _t += _fc["hold_seconds"] + _fade_s
 
-        act2_start = _frame_starts[1] if len(_frame_starts) > 1 else 0.0
-        act3_start = _frame_starts[2] if len(_frame_starts) > 2 else _t
+        # Act I's block reveal (~2s) plays before Act II's image appears, so shift
+        # both Act II and Act III audio forward by that amount.
+        act2_start = (_frame_starts[1] if len(_frame_starts) > 1 else 0.0) + _BLOCK_REVEAL_S
+        act3_start = (_frame_starts[2] if len(_frame_starts) > 2 else _t) + _BLOCK_REVEAL_S
 
         # Step 6 — gavel SFX fires at Act III start (when data lands)
         _ok_gavel = synthesize_gavel(sfx_gavel_path)
