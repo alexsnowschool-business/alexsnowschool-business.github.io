@@ -225,13 +225,14 @@ Lot:
 - Work: "{title}"
 - Estimate: {est}  |  Hammer: {hammer}  ({pct:.0f}% above estimate)
 
-1 sentences, 25 words max. The viewer has just seen the painting for 3 seconds and knows nothing yet.
+2 sentences, 25 words max. The viewer has just seen the painting for 3 seconds and knows nothing yet.
 Sentence 1: what the work IS and why it matters art-historically.
+Sentence 2: what the price revealed about how the market values it now.
 
 Reply with only the voiceover text. No more than 25 words."""
 
     raw = _call([{"role": "system", "content": system},
-                 {"role": "user",   "content": prompt}], max_tokens=55)
+                 {"role": "user",   "content": prompt}], max_tokens=60)
     return raw.strip() if raw else None
 
 

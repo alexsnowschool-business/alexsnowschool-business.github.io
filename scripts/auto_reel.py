@@ -1082,8 +1082,11 @@ def main() -> None:
         print(f"  ⚠ Import error: {e}")
         generate_voiceover = synthesize_gavel = None
 
-    word_timings  = []
-    voiceover_ok  = False
+    word_timings      = []
+    voiceover_ok      = False
+    _data_start       = None
+    data_tts_duration = 0.0
+    intro_duration    = 0.0
 
     if generate_voiceover and synthesize_gavel:
         sfx_gavel_path        = str(reel_dir / "sfx_gavel.mp3")
@@ -1147,7 +1150,7 @@ def main() -> None:
                                         appreciation_text=_appreciation_text)
 
         # Step 5 — compute per-frame start times
-        # _BLOCK_REVEAL_S must match make_reel.py _render_block_reveal_frames reveal_duration
+        # Must equal make_reel.BLOCK_REVEAL_DURATION — both drive the same animation.
         _BLOCK_REVEAL_S = 4.0
         _fade_s = 0.5
         _frame_starts: list[float] = []
@@ -1203,12 +1206,11 @@ def main() -> None:
 
     # Save timing data for make_reel.py
     # audio_offset=0 because all tracks are baked into voiceover.mp3 at correct positions;
-    # word_timings are 0-based from tts_answer.mp3 (answer frame visual sync unchanged).
+    # word_timings are 0-based from tts_appreciation.mp3 start (= Act II visual start).
     import json as _json
-    # Record useful audio event timings so make_reel.py can align visuals to audio.
-    data_start = locals().get("_data_start", None)
-    data_duration = locals().get("data_tts_duration", 0.0)
-    intro_dur = locals().get("intro_duration", 0.0)
+    data_start    = _data_start
+    data_duration = data_tts_duration
+    intro_dur     = intro_duration
     timing_data = {
         "audio_offset": 0.0,
         "word_timings": word_timings,

@@ -287,8 +287,8 @@ def main() -> None:
     config_path = reel_dir / "reel_config.py"
     if config_path.exists():
         cfg_text = config_path.read_text()
-        am = re.search(r"'upper_artist'\s*:\s*'([^']+)'", cfg_text)
-        tm = re.search(r"'upper_title'\s*:\s*'([^']+)'", cfg_text)
+        am = re.search(r"""['"]upper_artist['"]\s*:\s*['"]([^'"]+)['"]""", cfg_text)
+        tm = re.search(r"""['"]upper_title['"]\s*:\s*['"]([^'"]+)['"]""", cfg_text)
         hm = re.search(r'"location"\s*:\s*"([^"]+)"', cfg_text)
         fm = re.search(r'"caption_line2"\s*:\s*"([^"]+)"', cfg_text)
         if am: artist     = am.group(1)
