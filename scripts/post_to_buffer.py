@@ -44,52 +44,6 @@ LN_CHANNEL     = os.getenv("BUFFER_LINKEDIN_ID")
 GITHUB_REPO    = "alexsnowschool-business/alexsnowschool-business.github.io"
 
 
-# ── Wikipedia art history blurb ───────────────────────────────────────────────
-
-def _fetch_wiki_blurb(artist: str, title: str) -> str | None:
-    """Return a 2–3 sentence art history blurb for the artist via Wikipedia."""
-    wiki_headers = {"User-Agent": "thehammerprice-reel-bot/1.0 (https://github.com/alexsnowschool-business)"}
-    try:
-        with httpx.Client(timeout=10, headers=wiki_headers, follow_redirects=True) as client:
-            # Step 1: search for the artist page
-            search = client.get(
-                "https://en.wikipedia.org/w/api.php",
-                params={"action": "query", "list": "search", "srsearch": artist,
-                        "format": "json", "srlimit": 1},
-            )
-            results = search.json().get("query", {}).get("search", [])
-            if not results:
-                return None
-
-            page_title = results[0]["title"]
-
-            # Step 2: fetch clean summary extract
-            summary = client.get(
-                f"https://en.wikipedia.org/api/rest_v1/page/summary/{page_title}"
-            )
-            extract = summary.json().get("extract", "")
-            if not extract:
-                return None
-
-            # Take first 2–3 sentences, cap at 400 chars
-            sentences = re.split(r'(?<=\.)\s+', extract.strip())
-            blurb = ""
-            for s in sentences[:3]:
-                candidate = (blurb + " " + s).strip()
-                if len(candidate) > 400:
-                    break
-                blurb = candidate
-
-            if not blurb:
-                return None
-
-            return f"🎨 {blurb}\n\n📖 via Wikipedia"
-
-    except Exception as e:
-        print(f"  ⚠ Wikipedia lookup failed: {e}")
-        return None
-
-
 # ── Caption parser ─────────────────────────────────────────────────────────────
 
 def _parse_captions(captions_md: str) -> dict[str, str]:
@@ -275,20 +229,21 @@ def main() -> None:
         print("✗ BUFFER_TOKEN not set in .env")
         sys.exit(1)
 
-    captions = _parse_captions(captions_path.read_text())
+    captions_text = captions_path.read_text()
+    captions = _parse_captions(captions_text)
 
-    # Parse artist + title from captions header line (*Artist · Year · Topic*)
+    # Parse artist + title — prefer reel_config.py (authoritative), fall back to captions header
     artist, title = "", ""
-    header_m = re.search(r'^\*(.+?)\s+·', captions_path.read_text(), re.MULTILINE)
+    header_m = re.search(r'^\*(.+?)\s+·', captions_text, re.MULTILINE)
     if header_m:
         artist = header_m.group(1).strip()
-    # Also try reel_config.py if present
     house, hammer_fmt = "", ""
     config_path = reel_dir / "reel_config.py"
     if config_path.exists():
         cfg_text = config_path.read_text()
-        am = re.search(r"'upper_artist'\s*:\s*'([^']+)'", cfg_text)
-        tm = re.search(r"'upper_title'\s*:\s*'([^']+)'", cfg_text)
+        # Match both 'value' and "value" forms (repr() uses double quotes for strings with apostrophes)
+        am = re.search(r"'upper_artist'\s*:\s*['\"]([^'\"]+)['\"]", cfg_text)
+        tm = re.search(r"'upper_title'\s*:\s*['\"]([^'\"]+)['\"]", cfg_text)
         hm = re.search(r'"location"\s*:\s*"([^"]+)"', cfg_text)
         fm = re.search(r'"caption_line2"\s*:\s*"([^"]+)"', cfg_text)
         if am: artist     = am.group(1)
@@ -305,34 +260,6 @@ def main() -> None:
     else:
         print(f"  Sched: add to queue")
     print("═" * 60)
-
-    # Fetch art history blurb for Instagram first comment
-    # Prefer AI (OpenRouter) if key is set, fall back to Wikipedia
-    first_comment = None
-    if artist:
-        ai_key = os.getenv("OPENROUTER_API_KEY")
-        if ai_key:
-            print(f"\n▸ Generating art history for '{artist}' via OpenRouter...")
-            try:
-                sys.path.insert(0, str(SCRIPT_DIR))
-                from ai_content import generate_art_history
-                lot_data = {"artist": artist, "title": title,
-                            "auction_house": house, "hammer_fmt": hammer_fmt}
-                first_comment = generate_art_history(lot_data)
-                if first_comment:
-                    print(f"  ✓ AI blurb: {first_comment[:80]}...")
-                else:
-                    print("  ⚠ AI generation failed — falling back to Wikipedia")
-            except Exception as e:
-                print(f"  ⚠ AI error: {e} — falling back to Wikipedia")
-
-        if not first_comment:
-            print(f"\n▸ Fetching art history for '{artist}' via Wikipedia...")
-            first_comment = _fetch_wiki_blurb(artist, title)
-            if first_comment:
-                print(f"  ✓ Wikipedia blurb: {first_comment[:80]}...")
-            else:
-                print(f"  ⚠ No entry found — skipping first comment")
 
     # Step 1 — host the video on GitHub
     print("\n▸ Hosting video on GitHub releases...")

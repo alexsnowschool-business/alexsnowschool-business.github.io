@@ -238,14 +238,19 @@ def _download_lot_images(lot: dict, images_dir: Path, max_images: int = 8) -> li
             seen.add(u)
             urls.append(u)
 
+    _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
+
     saved: list[Path] = []
     with httpx.Client(headers=_HEADERS, follow_redirects=True, timeout=20) as client:
         for i, url in enumerate(urls[:max_images]):
-            ext   = ".jpg" if "jpg" in url.lower() or "jpeg" in url.lower() else ".png"
-            fname = images_dir / f"src_{i + 1:02d}{ext}"
             try:
                 r = client.get(url)
                 r.raise_for_status()
+                ct  = r.headers.get("content-type", "").split(";")[0].strip().lower()
+                ext = _CT_EXT.get(ct) or (
+                    ".jpg" if "jpg" in url.lower() or "jpeg" in url.lower() else ".png"
+                )
+                fname = images_dir / f"src_{i + 1:02d}{ext}"
                 fname.write_bytes(r.content)
                 print(f"  ✓ {fname.name}  (image {i + 1}/{len(urls[:max_images])})")
                 saved.append(fname)
@@ -253,15 +258,6 @@ def _download_lot_images(lot: dict, images_dir: Path, max_images: int = 8) -> li
                 print(f"  ✗ {url[:60]}... — {e}")
 
     return saved
-
-
-# ── Roman numerals ────────────────────────────────────────────────────────────
-
-_ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
-          "XI", "XII", "XIII", "XIV", "XV", "XVI"]
-
-def _roman(n: int) -> str:
-    return _ROMAN[n] if n < len(_ROMAN) else str(n + 1)
 
 
 # ── Per-frame captions ─────────────────────────────────────────────────────────
@@ -890,6 +886,13 @@ def main() -> None:
     print(f"\n▸ Reel folder: {reel_dir}")
 
     # ── Download all images of the single hook lot ─────────────
+    # Clear stale images from any previous run for this slug before downloading.
+    import shutil as _shutil_pre
+    for _stale_dir in (reel_dir / "_src", images_dir):
+        if _stale_dir.exists():
+            _shutil_pre.rmtree(_stale_dir)
+    del _stale_dir, _shutil_pre
+
     print(f"\n▸ Downloading images for hook lot...")
     src_images = _download_lot_images(hook, reel_dir / "_src", max_images=8)
 

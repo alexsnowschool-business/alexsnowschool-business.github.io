@@ -132,6 +132,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Upload a reel as a YouTube Short")
     parser.add_argument("reel_dir", help="Reel folder path relative to project root")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--force",   action="store_true", help="Re-upload even if already marked as uploaded")
     args = parser.parse_args()
 
     if not REFRESH_TOKEN:
@@ -152,6 +153,12 @@ def main() -> None:
     if not captions_path.exists():
         print(f"✗ No captions.md in {reel_dir / 'output'}")
         sys.exit(1)
+
+    # Guard against duplicate uploads for the same reel slug
+    yt_marker = reel_dir / "output" / ".youtube_uploaded"
+    if yt_marker.exists() and not args.dry_run and not args.force:
+        print(f"⚠ YouTube upload already recorded for {reel_slug} — pass --force to override")
+        sys.exit(0)
 
     tiktok_caption = _parse_tiktok_caption(captions_path.read_text())
     if not tiktok_caption:
@@ -188,6 +195,7 @@ def main() -> None:
     print("\n" + "═" * 60)
     if video_id:
         print(f"  ✓ YouTube Short live — https://youtube.com/shorts/{video_id}")
+        yt_marker.write_text(f"https://youtube.com/shorts/{video_id}\n")
     else:
         print("  ✗ YouTube upload failed")
         sys.exit(1)
