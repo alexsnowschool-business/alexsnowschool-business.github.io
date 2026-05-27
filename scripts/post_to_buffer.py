@@ -112,6 +112,12 @@ def _upload_to_github(
             if r2.returncode != 0:
                 print(f"  ✗ GitHub upload failed: {r2.stderr[:200]}")
                 return None, None
+            subprocess.run(
+                ["gh", "release", "edit", tag,
+                 "--repo", GITHUB_REPO,
+                 "--title", release_title or f"Reel {reel_slug}"],
+                capture_output=True, text=True,
+            )
         else:
             print(f"  ✗ GitHub release failed: {result.stderr[:200]}")
             return None, None
