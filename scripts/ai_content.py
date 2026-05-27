@@ -225,13 +225,13 @@ Lot:
 - Work: "{title}"
 - Estimate: {est}  |  Hammer: {hammer}  ({pct:.0f}% above estimate)
 
-3 sentences max, ~40 words total. The viewer has just seen the painting for 3 seconds and knows nothing yet.
-Start with what the work IS and why it matters. End — and only end — with one sentence about what the price revealed.
+1 sentences, 25 words max. The viewer has just seen the painting for 3 seconds and knows nothing yet.
+Sentence 1: what the work IS and why it matters art-historically.
 
-Reply with only the voiceover text."""
+Reply with only the voiceover text. No more than 25 words."""
 
     raw = _call([{"role": "system", "content": system},
-                 {"role": "user",   "content": prompt}], max_tokens=80)
+                 {"role": "user",   "content": prompt}], max_tokens=55)
     return raw.strip() if raw else None
 
 

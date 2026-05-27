@@ -708,40 +708,58 @@ def main():
 
             hook_answer_text = (fc or {}).get("hook_answer", "")
             all_words = hook_answer_text.split() if hook_answer_text else []
+            act2_offset = (fc or {}).get("act2_audio_offset", None)
 
-            # Determine which words are genuinely NEW in this frame (continuation detection)
-            prev_n = len(prev_hook_answer_words)
-            is_continuation = (
-                len(all_words) > prev_n and
-                all_words[:prev_n] == prev_hook_answer_words
-            )
-            new_words = all_words[prev_n:] if is_continuation else all_words
-            carried_text = " ".join(all_words[:prev_n]) if is_continuation else ""
-
-            if new_words and hold_f > 1:
-                # Reveal new words: driven by TTS timestamps when available, else 2 frames/word
-                FRAMES_PER_WORD = 2
-                base = None
+            if act2_offset is not None and all_words and hold_f > 0:
+                # Act II multi-frame: reveal appreciation words by global VO timestamp.
+                # act2_offset = seconds into tts_appreciation.mp3 when this crop starts.
                 for k in range(hold_f):
+                    t_secs = k / FPS + act2_offset
                     if _word_timings:
-                        t_secs = k / FPS
-                        n_new = sum(1 for wt in _word_timings if wt["start"] <= t_secs)
-                        n_new = max(1, min(len(new_words), n_new))
+                        n_shown = max(0, min(len(all_words),
+                                            sum(1 for wt in _word_timings if wt["start"] <= t_secs)))
                     else:
-                        n_new = max(1, min(len(new_words), k // FRAMES_PER_WORD + 1))
-                    partial_answer = (carried_text + " " + " ".join(new_words[:n_new])).strip()
+                        n_shown = len(all_words)
                     partial_fc = dict(fc) if fc else {}
-                    partial_fc["hook_answer"] = partial_answer
+                    partial_fc["hook_answer"] = " ".join(all_words[:n_shown])
                     partial_fc["_hook_answer_full"] = hook_answer_text
-                    frame = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
-                    frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
-                    frame_i += 1
-                    base = frame
-            else:
-                base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
-                for _ in range(hold_f):
+                    base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
                     base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
                     frame_i += 1
+            else:
+                # Determine which words are genuinely NEW in this frame (continuation detection)
+                prev_n = len(prev_hook_answer_words)
+                is_continuation = (
+                    len(all_words) > prev_n and
+                    all_words[:prev_n] == prev_hook_answer_words
+                )
+                new_words = all_words[prev_n:] if is_continuation else all_words
+                carried_text = " ".join(all_words[:prev_n]) if is_continuation else ""
+
+                if new_words and hold_f > 1:
+                    # Reveal new words: driven by TTS timestamps when available, else 2 frames/word
+                    FRAMES_PER_WORD = 2
+                    base = None
+                    for k in range(hold_f):
+                        if _word_timings:
+                            t_secs = k / FPS
+                            n_new = sum(1 for wt in _word_timings if wt["start"] <= t_secs)
+                            n_new = max(1, min(len(new_words), n_new))
+                        else:
+                            n_new = max(1, min(len(new_words), k // FRAMES_PER_WORD + 1))
+                        partial_answer = (carried_text + " " + " ".join(new_words[:n_new])).strip()
+                        partial_fc = dict(fc) if fc else {}
+                        partial_fc["hook_answer"] = partial_answer
+                        partial_fc["_hook_answer_full"] = hook_answer_text
+                        frame = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
+                        frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                        frame_i += 1
+                        base = frame
+                else:
+                    base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
+                    for _ in range(hold_f):
+                        base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                        frame_i += 1
 
             # Act I only: after the static hold, reveal the painting block by block
             if i == 0:

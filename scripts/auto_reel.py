@@ -677,12 +677,14 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
                            appreciation_duration: float = 0.0,
                            data_tts_duration: float = 0.0,
                            intro_duration: float = 0.0,
-                           template_answer: str | None = None) -> list[dict]:
+                           template_answer: str | None = None,
+                           n_act2_images: int = 1,
+                           appreciation_text: str = "") -> list[dict]:
     """3-act reveal — painting breathes, context builds, then data lands.
 
-    Act I  (0–3 s)  : full painting, no data box, just handle — let it breathe
-    Act II (3–8 s)  : detail/alternate view, appreciation VO, artist + title visible
-    Act III (8 s+)  : price stamp + % above estimate hit all at once
+    Act I        : full painting, no data box, just handle — let it breathe
+    Act II (×N)  : one frame per crop image; appreciation VO plays over them
+    Act III      : price stamp + % above estimate hit all at once
     """
     hammer        = lot["hammer_usd"]
     est_low       = lot["estimate_low"]
@@ -710,31 +712,30 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
             "hold_seconds":  hold,
         }
 
-    # Make the initial frame breathe longer. If an intro TTS exists, base the hold
-    # on its duration (+ small buffer); otherwise default to 4s.
     act1_hold = max(4.0, round(intro_duration + 0.6, 1)) if intro_duration > 0 else 4.0
-    act2_hold = max(5.0, round(appreciation_duration + 1.5, 1)) if appreciation_duration > 0 else 5.0
     act3_hold = max(6.0, round(data_tts_duration + 2.5, 1)) if data_tts_duration > 0 else 6.0
 
-    frames = [
-        # Act I — painting only; just the handle visible
-        _data(hold=act1_hold),
-        # Act II — detail / alternate view; context VO plays; no data box
-        _data(hold=act2_hold),
-        # Act III — data lands: price stamp + % above estimate
-        _data(line1=E, line2=S, line3=P, hold=act3_hold),
-    ]
+    # Each Act II crop holds long enough that the appreciation VO finishes before
+    # the last crop ends; minimum 0.3s so fast montages stay watchable.
+    n = max(1, n_act2_images)
+    crop_hold_s = max(0.3, round(appreciation_duration / n, 1)) if appreciation_duration > 0 else max(0.3, round(5.0 / n, 1))
 
-    # Trim Act I / II first to keep total ≤ 22 s; leave Act III intact
+    frames = [_data(hold=act1_hold)]
+    for frame_idx in range(n):
+        # act2_audio_offset = seconds into tts_appreciation.mp3 when this crop starts.
+        # make_reel.py uses it to reveal words at the right timestamp across frames.
+        f = _data(hold=crop_hold_s, a=appreciation_text)
+        if appreciation_text:
+            f["act2_audio_offset"] = round(frame_idx * crop_hold_s, 2)
+        frames.append(f)
+    frames.append(_data(line1=E, line2=S, line3=P, hold=act3_hold))
+
+    # Trim only Act I to keep total ≤ _MAX_REEL_SECONDS; Act II crops and Act III are left intact.
+    act1_floor = max(0.5, round(intro_duration + 0.2, 1))
     total = sum(f["hold_seconds"] + _FRAME_FADE_S for f in frames)
     if total > _MAX_REEL_SECONDS:
-        excess = total - _MAX_REEL_SECONDS
-        for i in range(len(frames) - 1):
-            if excess <= 0:
-                break
-            cut = min(excess, max(0.0, frames[i]["hold_seconds"] - 0.5))
-            frames[i]["hold_seconds"] = round(frames[i]["hold_seconds"] - cut, 1)
-            excess -= cut
+        cut = min(total - _MAX_REEL_SECONDS, max(0.0, frames[0]["hold_seconds"] - act1_floor))
+        frames[0]["hold_seconds"] = round(frames[0]["hold_seconds"] - cut, 1)
 
     return frames
 
@@ -1029,6 +1030,10 @@ def main() -> None:
         print("✗ No images downloaded — cannot generate reel.")
         sys.exit(1)
 
+    # Number of Act II frames = all images except Act I (first) and Act III (last).
+    # At least 1 so the sequence always has an Act II.
+    _n_act2 = max(1, len(src_images) - 2)
+
     # ── Build reveal sequence ──────────────────────────────────
     tag_base = "@thehammerprice  ·  weekly results" if not args.all_time else "@thehammerprice  ·  auction data"
 
@@ -1091,7 +1096,20 @@ def main() -> None:
                       f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}")
 
         # Step 1 — Act II appreciation TTS (market context / significance of the work)
-        _appreciation_text = _prices_to_speech(ai_hook_answer or _tmpl_answer or "")
+        # Hard cap as safety net — AI prompt already targets 25 words.
+        _APPRECIATION_MAX_WORDS = 30
+        _raw_appr = ai_hook_answer or _tmpl_answer or ""
+        _appr_words = _raw_appr.split()
+        if len(_appr_words) > _APPRECIATION_MAX_WORDS:
+            _trimmed = " ".join(_appr_words[:_APPRECIATION_MAX_WORDS])
+            # Prefer ending at a sentence boundary in the second half
+            for _punct in (".", "!", "?"):
+                _pidx = _trimmed.rfind(_punct)
+                if _pidx > len(_trimmed) * 0.5:
+                    _trimmed = _trimmed[:_pidx + 1]
+                    break
+            _raw_appr = _trimmed
+        _appreciation_text = _prices_to_speech(_raw_appr)
         _ok_appr, word_timings = generate_voiceover(_appreciation_text, tts_appreciation_path)
         appreciation_duration = 0.0
         if _ok_appr and word_timings:
@@ -1119,12 +1137,14 @@ def main() -> None:
         if _ok_intro:
             print(f"  ✓ Act I intro TTS: \"{_intro_script[:60]}\" ({intro_duration:.2f}s)")
 
-        # Step 4 — build 3-act reveal with correct per-act durations (intro-aware)
+        # Step 4 — build reveal with correct per-act durations (intro-aware)
         reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
                                         appreciation_duration=appreciation_duration,
                                         data_tts_duration=data_tts_duration,
                                         intro_duration=intro_duration,
-                                        template_answer=_tmpl_answer)
+                                        template_answer=_tmpl_answer,
+                                        n_act2_images=_n_act2,
+                                        appreciation_text=_appreciation_text)
 
         # Step 5 — compute per-frame start times
         # _BLOCK_REVEAL_S must match make_reel.py _render_block_reveal_frames reveal_duration
@@ -1136,10 +1156,10 @@ def main() -> None:
             _frame_starts.append(_t)
             _t += _fc["hold_seconds"] + _fade_s
 
-        # Act I's block reveal (~2s) plays before Act II's image appears, so shift
-        # both Act II and Act III audio forward by that amount.
+        # Act I's block reveal plays before Act II starts; shift all Act II/III audio by that amount.
         act2_start = (_frame_starts[1] if len(_frame_starts) > 1 else 0.0) + _BLOCK_REVEAL_S
-        act3_start = (_frame_starts[2] if len(_frame_starts) > 2 else _t) + _BLOCK_REVEAL_S
+        # Act III is always the last frame in the reveal list.
+        act3_start = (_frame_starts[-1] if _frame_starts else _t) + _BLOCK_REVEAL_S
 
         # Step 6 — gavel SFX fires at Act III start (when data lands)
         _ok_gavel = synthesize_gavel(sfx_gavel_path)
@@ -1178,7 +1198,8 @@ def main() -> None:
         reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
                                         appreciation_duration=0.0,
                                         data_tts_duration=0.0,
-                                        template_answer=_tmpl_answer)
+                                        template_answer=_tmpl_answer,
+                                        n_act2_images=_n_act2)
 
     # Save timing data for make_reel.py
     # audio_offset=0 because all tracks are baked into voiceover.mp3 at correct positions;
@@ -1202,6 +1223,11 @@ def main() -> None:
     import shutil
     src_dir = reel_dir / "_src"
     crops_dir = reel_dir / "_crops"
+
+    # Wipe images/ before repopulating so re-runs don't accumulate stale files.
+    if images_dir.exists():
+        shutil.rmtree(images_dir)
+    images_dir.mkdir(parents=True, exist_ok=True)
 
     # Build ordered, unique list of files to copy. Start with src_images to preserve reveal order.
     to_copy: list[Path] = []
@@ -1239,6 +1265,12 @@ def main() -> None:
     n_src_copied = sum(1 for p in to_copy if p.parent == src_dir)
     n_crops_copied = sum(1 for p in to_copy if p.parent == crops_dir)
     print(f"  {len(src_images)} source image(s) + {n_crops_copied} crops copied → {n_images} images in {images_dir}")
+
+    # Clean up _crops — no longer needed once images/ is populated
+    import shutil as _shutil
+    if crops_dir.exists():
+        _shutil.rmtree(crops_dir)
+        print(f"  ✓ Removed {crops_dir.name}/")
 
     # ── Write reel_config.py ───────────────────────────────────
     config_path = reel_dir / "reel_config.py"
