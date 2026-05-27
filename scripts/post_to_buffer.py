@@ -171,7 +171,8 @@ def _post_to_buffer(
         metadata["linkedin"] = {}
 
     # LinkedIn only supports automatic scheduling, not notification
-    scheduling_type = "automatic" if platform == "LinkedIn" else "notification"
+    # scheduling_type = "automatic" if platform == "LinkedIn" else "notification"
+    scheduling_type = "automatic"
 
     variables: dict = {
         "input": {
