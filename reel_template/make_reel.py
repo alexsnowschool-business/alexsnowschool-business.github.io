@@ -489,6 +489,42 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     return img
 
 
+def _render_block_reveal_frames(photo, cfg, fnt, fc, show,
+                                 frames_dir, frame_i,
+                                 grid_cols=3, grid_rows=4, frames_per_block=4):
+    """Reveal the full painting block by block after the static Act I hold.
+
+    Starts from a blurred/darkened version of the painting; each block is
+    replaced with the crisp, graded original left-to-right, top-to-bottom.
+    Returns (new frame_i, last rendered frame) so the caller can use it as
+    the base for the next cross-fade.
+    """
+    from PIL import ImageFilter, ImageEnhance
+    pw, ph = photo.size
+    bw = pw // grid_cols
+    bh = ph // grid_rows
+
+    hidden = photo.filter(ImageFilter.GaussianBlur(radius=40))
+    hidden = ImageEnhance.Brightness(hidden).enhance(0.15)
+
+    canvas = hidden.copy()
+    last_frame = None
+    for row in range(grid_rows):
+        for col in range(grid_cols):
+            x = col * bw
+            y = row * bh
+            w = (pw - x) if col == grid_cols - 1 else bw
+            h = (ph - y) if row == grid_rows - 1 else bh
+            canvas = canvas.copy()
+            canvas.paste(photo.crop((x, y, x + w, y + h)), (x, y))
+            last_frame = render_frame(canvas, cfg, fnt, show_caption=show, frame_caption=fc)
+            for _ in range(frames_per_block):
+                last_frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                frame_i += 1
+
+    return frame_i, last_frame
+
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python reel_template/make_reel.py reels/<name>")
@@ -689,6 +725,12 @@ def main():
                 for _ in range(hold_f):
                     base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
                     frame_i += 1
+
+            # Act I only: after the static hold, reveal the painting block by block
+            if i == 0:
+                frame_i, base = _render_block_reveal_frames(
+                    photo, cfg, fnt, fc, show, frames_dir, frame_i
+                )
 
             prev_hook_answer_words = all_words  # advance cursor for next frame
 
