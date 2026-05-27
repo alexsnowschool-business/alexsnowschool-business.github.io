@@ -216,10 +216,10 @@ def generate_hook_answer(lot: dict, question: str) -> str | None:
 
     system = (
         "You write short art criticism that ends with a market observation. "
-        "Structure: what the work IS → why it matters art-historically → "
-        "then ONE sentence about what the price revealed. "
-        "The art is the protagonist. The price is the twist. "
-        "Never lead with money. All lowercase. No fluff."
+        "Structure: what the work IS → why it matters art-historically"
+        "The art is the protagonist. "
+        "use easy to understand language but be specific — name a movement, a period, a key influence or context. "
+        "No fluff."
     )
 
     prompt = f"""Write the Act II voiceover for an Instagram reel about this auction lot.
@@ -229,9 +229,9 @@ Lot:
 - Work: "{title}"
 - Estimate: {est}  |  Hammer: {hammer}  ({pct:.0f}% above estimate)
 
-2 sentences, 25 words max. The viewer has just seen the painting for 3 seconds and knows nothing yet.
-Sentence 1: what the work IS and why it matters art-historically.
-Sentence 2: what the price revealed about how the market values it now.
+only with 1 sentence, 25 words max. The viewer has just seen the painting for 3 seconds and knows nothing yet.
+Sentence 1: what the work IS and why it matters art-historically. use easy to understand language but be specific — name a movement, a period, a key influence or context. make the art the star.
+
 
 Reply with only the voiceover text. No more than 25 words."""
 
