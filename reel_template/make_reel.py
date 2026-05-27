@@ -490,8 +490,8 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
 
 def _render_block_reveal_frames(photo, cfg, fnt, fc, show,
-                                 frames_dir, frame_i,
-                                 grid_cols=3, grid_rows=4, frames_per_block=4):
+                                 frames_dir, frame_i, fps=30,
+                                 grid_cols=3, grid_rows=4, reveal_duration=2.0):
     """Reveal the full painting block by block after the static Act I hold.
 
     Starts from a blurred/darkened version of the painting; each block is
@@ -503,6 +503,10 @@ def _render_block_reveal_frames(photo, cfg, fnt, fc, show,
     pw, ph = photo.size
     bw = pw // grid_cols
     bh = ph // grid_rows
+
+    # Scale frames-per-block to hit ~reveal_duration seconds regardless of fps
+    n_blocks = grid_cols * grid_rows
+    frames_per_block = max(1, round(reveal_duration * fps / n_blocks))
 
     hidden = photo.filter(ImageFilter.GaussianBlur(radius=40))
     hidden = ImageEnhance.Brightness(hidden).enhance(0.15)
@@ -729,7 +733,7 @@ def main():
             # Act I only: after the static hold, reveal the painting block by block
             if i == 0:
                 frame_i, base = _render_block_reveal_frames(
-                    photo, cfg, fnt, fc, show, frames_dir, frame_i
+                    photo, cfg, fnt, fc, show, frames_dir, frame_i, fps=FPS
                 )
 
             prev_hook_answer_words = all_words  # advance cursor for next frame
