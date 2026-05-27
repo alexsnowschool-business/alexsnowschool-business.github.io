@@ -501,7 +501,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
 def _render_block_reveal_frames(photo, cfg, fnt, fc, show,
                                  frames_dir, frame_i, fps=30,
-                                 grid_cols=3, grid_rows=4, reveal_duration=2.0):
+                                 grid_cols=3, grid_rows=4, reveal_duration=4.0):
     """Reveal the full painting block by block after the static Act I hold.
 
     Starts from a blurred/darkened version of the painting; each block is

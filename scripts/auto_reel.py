@@ -1128,7 +1128,7 @@ def main() -> None:
 
         # Step 5 — compute per-frame start times
         # _BLOCK_REVEAL_S must match make_reel.py _render_block_reveal_frames reveal_duration
-        _BLOCK_REVEAL_S = 2.0
+        _BLOCK_REVEAL_S = 4.0
         _fade_s = 0.5
         _frame_starts: list[float] = []
         _t = 0.0
