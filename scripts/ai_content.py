@@ -110,6 +110,7 @@ Rules:
 
 --- INSTAGRAM ---
 Format (4 short paragraphs, each 1–2 lines):
+0. {artist} - "{title}" selling for {hammer} at {house}. 
 1. Hook: one punchy line using the angle — lead with the insight, not the price.
 2. The work: one sentence naming {artist} and "{title}" with context about why this result matters.
 3. Art history: one sentence about {artist} — who they are, what movement or period they belong to, why their work is significant. specific, not generic.
@@ -117,13 +118,15 @@ Format (4 short paragraphs, each 1–2 lines):
 
 --- TIKTOK ---
 Format (2 lines max):
+0. {artist} - "{title}" selling for {hammer} at {house}. 
 1. Same hook line as Instagram.
 2. One follow-up line — the so-what.
 3. "📍 {house}"
 
 --- LINKEDIN ---
-Professional but conversational. No emojis except one at the very start.
+Professional but conversational. No emojis.
 Format (3–4 short paragraphs):
+0. {artist} - "{title}" selling for {hammer} at {house}. 
 1. Opening hook — one punchy sentence: what the gap between estimate and hammer reveals.
 2. Context — one sentence about {artist} and why this result matters to collectors or the market.
 3. Market signal — what does a result like this tell us about demand or pricing?
@@ -176,6 +179,7 @@ Lot:
 - Estimate: {est}  →  Hammer: {hammer}  ({pct:.0f}% above estimate)
 
 Write a LinkedIn post (3–4 short paragraphs):
+Start with {artist} - "{title}" selling for {hammer} at {house}. Then cover:
 1. Opening hook — one punchy sentence, lead with the insight (what the gap between estimate and hammer reveals).
 2. Context — one sentence about {artist} and why this result matters to collectors or the market.
 3. The market signal — one sentence: what does a result like this tell us about demand, pricing, or where the market is going?

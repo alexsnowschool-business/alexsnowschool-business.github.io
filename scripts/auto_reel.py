@@ -82,6 +82,44 @@ def _week_bounds(ref_date: date) -> tuple[str, str]:
     return monday.isoformat(), sunday.isoformat()
 
 
+# ── Notable-artist index ───────────────────────────────────────────────────────
+
+KNOWN_ARTISTS: frozenset[str] = frozenset({
+    # Post-war American
+    "Andy Warhol", "Roy Lichtenstein", "Jasper Johns", "Robert Rauschenberg",
+    "Ed Ruscha", "Frank Stella", "Ellsworth Kelly", "Donald Judd",
+    "Cy Twombly", "Joan Mitchell", "Lee Krasner", "Helen Frankenthaler",
+    # Neo-expressionism / street
+    "Jean-Michel Basquiat", "Keith Haring", "George Condo",
+    # YBA / British
+    "Damien Hirst", "Jenny Saville", "Chris Ofili", "Glenn Brown",
+    "Cecily Brown", "Peter Doig", "Lucian Freud", "Francis Bacon",
+    # German / European
+    "Gerhard Richter", "Neo Rauch", "Luc Tuymans", "Marlene Dumas",
+    "Rudolf Stingel", "Albert Oehlen", "Pierre Soulages",
+    # Contemporary market names
+    "Jeff Koons", "Richard Prince", "Christopher Wool", "Mark Bradford",
+    "Kerry James Marshall", "Jonas Wood", "Lisa Yuskavage",
+    "Banksy", "Kaws", "Takashi Murakami", "Yoshitomo Nara", "Yayoi Kusama",
+    "Wolfgang Tillmans", "Andreas Gursky", "Cindy Sherman", "Barbara Kruger",
+    # Post-Impressionist / Modern (auction staples)
+    "Alberto Giacometti", "Jean Dubuffet", "Yves Klein",
+    "Emil Nolde", "Ernst Ludwig Kirchner",
+})
+
+
+def _artist_is_notable(name: str, notable_set: frozenset[str] | None = None) -> bool:
+    return _clean_artist(name) in (notable_set or KNOWN_ARTISTS)
+
+
+def _score_lot(lot: dict, notable_set: frozenset[str] | None = None) -> float:
+    """Composite score: market shock (40%) + visual richness + artist notability."""
+    pct        = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    has_images = len(json.loads(lot.get("image_urls") or "[]")) >= 3
+    is_known   = _artist_is_notable(lot.get("artist") or "", notable_set)
+    return pct * 0.4 + (has_images * 30) + (is_known * 20)
+
+
 # ── DB queries ─────────────────────────────────────────────────────────────────
 
 def _ensure_posted_table(conn: sqlite3.Connection) -> None:
@@ -213,14 +251,19 @@ def _download_lot_images(lot: dict, images_dir: Path, max_images: int = 8) -> li
             seen.add(u)
             urls.append(u)
 
+    _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
+
     saved: list[Path] = []
     with httpx.Client(headers=_HEADERS, follow_redirects=True, timeout=20) as client:
         for i, url in enumerate(urls[:max_images]):
-            ext   = ".jpg" if "jpg" in url.lower() or "jpeg" in url.lower() else ".png"
-            fname = images_dir / f"src_{i + 1:02d}{ext}"
             try:
                 r = client.get(url)
                 r.raise_for_status()
+                ct  = r.headers.get("content-type", "").split(";")[0].strip().lower()
+                ext = _CT_EXT.get(ct) or (
+                    ".jpg" if "jpg" in url.lower() or "jpeg" in url.lower() else ".png"
+                )
+                fname = images_dir / f"src_{i + 1:02d}{ext}"
                 fname.write_bytes(r.content)
                 print(f"  ✓ {fname.name}  (image {i + 1}/{len(urls[:max_images])})")
                 saved.append(fname)
@@ -228,128 +271,6 @@ def _download_lot_images(lot: dict, images_dir: Path, max_images: int = 8) -> li
                 print(f"  ✗ {url[:60]}... — {e}")
 
     return saved
-
-
-def _generate_grid_crops(src_paths: list[Path], crops_dir: Path, include_original: bool = True, target_size: tuple[int,int] | None = None) -> list[Path]:
-    """Generate center + corner square crops for each source image.
-    Returns a list of Paths in order: original, center, top_left, top_right, bottom_left, bottom_right for each source.
-    """
-    crops_dir.mkdir(parents=True, exist_ok=True)
-    result: list[Path] = []
-    for src in src_paths:
-        try:
-            with Image.open(src) as im:
-                im = im.convert("RGB")
-                w, h = im.size
-                side = min(w, h)
-                positions = {
-                    "center": ((w - side) // 2, (h - side) // 2),
-                    "top_left": (0, 0),
-                    "top_right": (w - side, 0),
-                    "bottom_left": (0, h - side),
-                    "bottom_right": (w - side, h - side),
-                }
-                if include_original:
-                    result.append(src)
-                for name, (left, top) in positions.items():
-                    box = (left, top, left + side, top + side)
-                    crop = im.crop(box)
-                    if target_size:
-                        crop = crop.resize(target_size, Image.LANCZOS)
-                    out_name = f"{src.stem}_crop_{name}{src.suffix}"
-                    out_path = crops_dir / out_name
-                    crop.save(out_path, quality=95)
-                    result.append(out_path)
-        except Exception as e:
-            print(f"  ⚠ Crop failed for {src.name}: {e}")
-            if include_original and src not in result:
-                result.append(src)
-    return result
-
-def _generate_sliding_window_crops(src_paths: list[Path], crops_dir: Path, tile_size: int = 256, stride: int | None = None, include_original: bool = True) -> list[Path]:
-    """Generate overlapping square tiles (sliding window) for each source image.
-    tile_size: size in pixels of each square tile
-    stride: step between tiles in pixels; if None defaults to tile_size // 2
-    """
-    crops_dir.mkdir(parents=True, exist_ok=True)
-    result: list[Path] = []
-    for src in src_paths:
-        try:
-            with Image.open(src) as im:
-                im = im.convert("RGB")
-                w, h = im.size
-                ts = min(tile_size, w, h)
-                st = stride or max(1, ts // 2)
-                # compute x positions
-                xs = []
-                if w <= ts:
-                    xs = [0]
-                else:
-                    x = 0
-                    while x <= w - ts:
-                        xs.append(x)
-                        x += st
-                    if xs[-1] != w - ts:
-                        xs.append(w - ts)
-                # compute y positions
-                ys = []
-                if h <= ts:
-                    ys = [0]
-                else:
-                    y = 0
-                    while y <= h - ts:
-                        ys.append(y)
-                        y += st
-                    if ys[-1] != h - ts:
-                        ys.append(h - ts)
-                if include_original:
-                    result.append(src)
-                for x in xs:
-                    for y in ys:
-                        box = (x, y, x + ts, y + ts)
-                        crop = im.crop(box)
-                        out_name = f"{src.stem}_tile_{ts}_{x}_{y}{src.suffix}"
-                        out_path = crops_dir / out_name
-                        crop.save(out_path, quality=95)
-                        result.append(out_path)
-        except Exception as e:
-            print(f"  ⚠ Sliding crop failed for {src.name}: {e}")
-            if include_original and src not in result:
-                result.append(src)
-    return result
-
-# ── Roman numerals ────────────────────────────────────────────────────────────
-
-_ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
-          "XI", "XII", "XIII", "XIV", "XV", "XVI"]
-
-# ── Known-artist list (curated blue-chip / naratable names) ──────────────────
-
-_KNOWN_ARTISTS: frozenset[str] = frozenset({
-    # Post-war American
-    "Andy Warhol", "Roy Lichtenstein", "Jasper Johns", "Robert Rauschenberg",
-    "Ed Ruscha", "Frank Stella", "Ellsworth Kelly", "Donald Judd",
-    "Cy Twombly", "Joan Mitchell", "Lee Krasner", "Helen Frankenthaler",
-    # Neo-expressionism / street
-    "Jean-Michel Basquiat", "Keith Haring", "George Condo",
-    # YBA / British
-    "Damien Hirst", "Jenny Saville", "Chris Ofili", "Glenn Brown",
-    "Cecily Brown", "Peter Doig", "Lucian Freud", "Francis Bacon",
-    # German / European
-    "Gerhard Richter", "Neo Rauch", "Luc Tuymans", "Marlene Dumas",
-    "Rudolf Stingel", "Albert Oehlen", "Pierre Soulages",
-    # Contemporary market names
-    "Jeff Koons", "Richard Prince", "Christopher Wool", "Mark Bradford",
-    "Kerry James Marshall", "Jonas Wood", "Lisa Yuskavage",
-    "Banksy", "KAWS", "Takashi Murakami", "Yoshitomo Nara", "Yayoi Kusama",
-    "Wolfgang Tillmans", "Andreas Gursky", "Cindy Sherman", "Barbara Kruger",
-    # Post-Impressionist / Modern (auction staples)
-    "Alberto Giacometti", "Jean Dubuffet", "Yves Klein",
-    "Emil Nolde", "Ernst Ludwig Kirchner",
-})
-
-def _roman(n: int) -> str:
-    return _ROMAN[n] if n < len(_ROMAN) else str(n + 1)
 
 
 # ── Per-frame captions ─────────────────────────────────────────────────────────
@@ -979,6 +900,8 @@ def main() -> None:
         print("✗ No suitable lots found in database.")
         sys.exit(1)
 
+    lots.sort(key=_score_lot, reverse=True)
+
     if args.lot_index >= len(lots):
         print(f"✗ --lot-index {args.lot_index} out of range (only {len(lots)} lots found)")
         sys.exit(1)
@@ -1009,6 +932,14 @@ def main() -> None:
     print(f"\n▸ Reel folder: {reel_dir}")
 
     # ── Download all images of the single hook lot ─────────────
+    # Clear stale images from any previous run for this slug before downloading.
+    import shutil as _shutil_pre
+    for _stale_dir in (reel_dir / "_src", images_dir):
+        if _stale_dir.exists():
+            _shutil_pre.rmtree(_stale_dir)
+    del _shutil_pre
+    images_dir.mkdir(parents=True, exist_ok=True)  # recreate after rmtree
+
     print(f"\n▸ Downloading images for hook lot...")
     src_images = _download_lot_images(hook, reel_dir / "_src", max_images=8)
 
