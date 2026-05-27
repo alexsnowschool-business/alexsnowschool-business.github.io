@@ -36,8 +36,8 @@ MODEL = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.1-8b-instruct:free")
 
 _HASHTAGS_IG = "#thehammerprice #artmarket #auctionresults"
 _HASHTAGS_TT = (
-    "#thehammerprice #artmarket #auctionresults #fyp #foryou #foryoupage "
-    "#contemporaryart #artcollecting"
+    "#thehammerprice #artmarket #auctionresults #foryou "
+    "#artcollecting"
 )
 _HASHTAGS_LN = "#thehammerprice #artmarket #auctionresults #artcollecting #contemporaryart"
 
