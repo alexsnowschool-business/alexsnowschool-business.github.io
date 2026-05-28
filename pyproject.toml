@@ -10,6 +10,7 @@ dependencies = [
     "edge-tts>=6.1",
     "anthropic>=0.40",
     "tqdm>=4.66",
+    "playwright>=1.40",
 ]
 
 [tool.uv]
