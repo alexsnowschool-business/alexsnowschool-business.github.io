@@ -902,7 +902,7 @@ def main() -> None:
     parser.add_argument("--run",       action="store_true", help="Run make_reel.py + make_captions.py after generation")
     parser.add_argument("--top-n",     type=int, default=8, help="Max lots to query (default: 8)")
     parser.add_argument("--lot-index", type=int, default=0, help="Which lot to use (0 = top, 1 = 2nd, etc.)")
-    parser.add_argument("--crop-method", choices=("grid","sliding"), default="sliding", help="Crop method to use: grid or sliding-window")
+    parser.add_argument("--crop-method", choices=("grid","sliding"), default="grid", help="Crop method to use: grid or sliding-window")
     parser.add_argument("--crop-size", type=int, default=565, help="Square crop/tile size in pixels (e.g., 256).")
     parser.add_argument("--crop-stride", type=int, default=None, help="Stride in pixels for sliding-window; defaults to half of crop-size.")
     args = parser.parse_args()

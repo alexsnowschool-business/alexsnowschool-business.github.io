@@ -162,6 +162,97 @@ PALETTES = {
 
 W, H = 1080, 1920
 
+# ── Unicode fallback fonts ────────────────────────────────────────────────────
+# Two-tier fallback:
+#   1. NotoSans-Regular.ttf (bundled) — Cyrillic, Greek, Arabic, Hebrew, etc.
+#   2. CJK font — Japanese, Chinese, Korean (not bundled due to ~10 MB size)
+#
+# CJK font resolution order (first path that exists wins):
+#   - reel_template/fonts/NotoSansCJK-Regular.ttf  (manually placed, not committed)
+#   - macOS: /Library/Fonts/Arial Unicode.ttf
+#   - Ubuntu/Debian CI: sudo apt-get install -y fonts-noto-cjk
+#
+# No code changes needed for CI — just add the apt install step.
+
+_THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+
+_GENERAL_FALLBACK_PATH = os.path.join(_THIS_DIR, "fonts", "NotoSans-Regular.ttf")
+
+_CJK_FONT_CANDIDATES = [
+    os.path.join(_THIS_DIR, "fonts", "NotoSansCJK-Regular.ttf"),   # manually bundled
+    os.path.join(_THIS_DIR, "fonts", "NotoSansSC-Regular.ttf"),
+    "/Library/Fonts/Arial Unicode.ttf",                             # macOS
+    "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+    "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",       # Ubuntu fonts-noto-cjk
+    "/usr/share/fonts/opentype/noto/NotoSansCJKsc-Regular.otf",
+    "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
+]
+
+_fallback_font_cache: dict = {}
+_cjk_font_cache: dict = {}
+_cjk_font_path: str | None = next((p for p in _CJK_FONT_CANDIDATES if os.path.exists(p)), None)
+
+
+def _get_general_fallback(size: int):
+    if size not in _fallback_font_cache:
+        try:
+            _fallback_font_cache[size] = ImageFont.truetype(_GENERAL_FALLBACK_PATH, size)
+        except Exception:
+            _fallback_font_cache[size] = None
+    return _fallback_font_cache[size]
+
+
+def _get_cjk_fallback(size: int):
+    if not _cjk_font_path:
+        return None
+    if size not in _cjk_font_cache:
+        try:
+            _cjk_font_cache[size] = ImageFont.truetype(_cjk_font_path, size)
+        except Exception:
+            _cjk_font_cache[size] = None
+    return _cjk_font_cache[size]
+
+
+def _char_category(ch: str) -> str:
+    """Return 'latin', 'cjk', or 'other' for font selection."""
+    cp = ord(ch)
+    if cp <= 0x024F:
+        return "latin"
+    if 0x2000 <= cp <= 0x206F:   # General Punctuation (em-dash, ellipsis, smart quotes)
+        return "latin"
+    if (0x3000 <= cp <= 0x9FFF   # CJK symbols, Hiragana, Katakana, unified ideographs
+            or 0xAC00 <= cp <= 0xD7AF    # Hangul syllables
+            or 0xF900 <= cp <= 0xFAFF):  # CJK compatibility ideographs
+        return "cjk"
+    return "other"
+
+
+def _split_runs(text: str, primary):
+    """Return list of (font, run_str) — primary for Latin, fallbacks for other scripts."""
+    if not text:
+        return [(primary, "")]
+
+    def _font_for(cat: str):
+        if cat == "latin":
+            return primary
+        if cat == "cjk":
+            return _get_cjk_fallback(primary.size) or _get_general_fallback(primary.size) or primary
+        return _get_general_fallback(primary.size) or _get_cjk_fallback(primary.size) or primary
+
+    runs, cur_run = [], ""
+    cur_cat = _char_category(text[0])
+    for ch in text:
+        cat = _char_category(ch)
+        if cat != cur_cat:
+            if cur_run:
+                runs.append((_font_for(cur_cat), cur_run))
+            cur_run, cur_cat = "", cat
+        cur_run += ch
+    if cur_run:
+        runs.append((_font_for(cur_cat), cur_run))
+    return runs
+
+
 def load_fonts(fonts_dir, scale=1.0, overrides=None):
     def f(name, size):
         path = os.path.join(fonts_dir, name)
@@ -187,18 +278,31 @@ def load_fonts(fonts_dir, scale=1.0, overrides=None):
 def ctext(draw, y, text, font, fill):
     if not text:
         return
-    bbox = draw.textbbox((0, 0), text, font=font)
-    x = (W - (bbox[2] - bbox[0])) // 2
-    draw.text((x + 2, y + 3), text, font=font, fill=(0, 0, 0))
-    draw.text((x, y), text, font=font, fill=fill, stroke_width=1, stroke_fill=(0, 0, 0))
+    runs = _split_runs(text, font)
+    total_w = sum(draw.textbbox((0, 0), run, font=f)[2] - draw.textbbox((0, 0), run, font=f)[0]
+                  for f, run in runs)
+    x = (W - total_w) // 2
+    sx = x + 2
+    for f, run in runs:
+        draw.text((sx, y + 3), run, font=f, fill=(0, 0, 0))
+        sx += draw.textbbox((0, 0), run, font=f)[2] - draw.textbbox((0, 0), run, font=f)[0]
+    tx = x
+    for f, run in runs:
+        draw.text((tx, y), run, font=f, fill=fill, stroke_width=1, stroke_fill=(0, 0, 0))
+        tx += draw.textbbox((0, 0), run, font=f)[2] - draw.textbbox((0, 0), run, font=f)[0]
 
 def wrap_text(text, font, max_width):
     """Split text into lines that each fit within max_width pixels."""
+    def _width(s):
+        return sum(
+            _MEASURE_DRAW.textbbox((0, 0), run, font=f)[2] - _MEASURE_DRAW.textbbox((0, 0), run, font=f)[0]
+            for f, run in _split_runs(s, font)
+        )
     words = text.split()
     lines, current = [], []
     for word in words:
         test = " ".join(current + [word])
-        if font.getlength(test) <= max_width:
+        if _width(test) <= max_width:
             current.append(word)
         else:
             if current:
