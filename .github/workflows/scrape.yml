@@ -26,14 +26,21 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
-      - name: Cache Playwright browsers
+      - name: Cache Playwright/Patchright browsers
         uses: actions/cache@v4
         with:
-          path: ~/.cache/ms-playwright
-          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+          path: |
+            ~/.cache/ms-playwright
+            ~/.cache/ms-patchright
+          key: browsers-chromium-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
 
       - name: Install Playwright browser
-        run: uv run playwright install chromium
+        run: uv run playwright install chromium --with-deps
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Install Patchright browser
+        run: uv run patchright install chromium --with-deps
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
