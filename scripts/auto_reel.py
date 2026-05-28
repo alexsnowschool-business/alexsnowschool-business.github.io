@@ -1014,7 +1014,7 @@ def main() -> None:
     images_dir.mkdir(parents=True, exist_ok=True)  # recreate after rmtree
 
     print(f"\n▸ Downloading images for hook lot...")
-    src_images = _download_lot_images(hook, reel_dir / "_src", max_images=8)
+    src_images = _download_lot_images(hook, reel_dir / "_src", max_images=1)
 
     # Generate center + corner crops for each source image and include originals.
     # Crops saved in <reel>/_crops and used alongside originals for more reveal frames.
