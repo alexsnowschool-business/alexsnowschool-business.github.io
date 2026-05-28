@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 1228,
-    "total_artists": 657,
-    "median_hammer_usd": 331821,
-    "pct_above_estimate": 44.9,
+    "total_lots": 1478,
+    "total_artists": 762,
+    "median_hammer_usd": 367700,
+    "pct_above_estimate": 44.0,
     "max_ratio": 14.7,
     "sources": [
       "Artprice",
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-05-25"
+    "generated_at": "2026-05-28"
   },
   "artists": [
     {
@@ -125,7 +125,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 45,
+        "lot_count": 46,
         "total_usd": 48675100,
         "avg_usd": 1081669,
         "total_label": "$48.68M",
@@ -201,6 +201,119 @@
       }
     },
     {
+      "norm_name": "ALEXANDER CALDER",
+      "display_name": "Alexander Calder",
+      "dates": "1898–1976",
+      "nationality": "American",
+      "movement": "Modernism · Kinetic Sculpture",
+      "movement_id": "modernism",
+      "bio": "Born into a family of sculptors — his father Alexander Stirling Calder and grandfather Alexander Milne Calder were both prominent — he trained as a mechanical engineer before studying at the Art Students League, New York. In Paris in the late 1920s he constructed his Cirque Calder, a miniature performance of wire figures, to which Mondrian, Léger, and Miró came. A visit to Mondrian's studio in 1930 — the primary colours, the rectangles — was, he said, the turning point. He began making kinetic sculptures driven by motors, then discovered that air itself could provide the motive force: the mobile was born. Duchamp named the moving works; Arp named the static ones 'stabiles.' He worked at every scale from jewellery to monumental public commissions (La Grande Vitesse, Grand Rapids, 1969). The wit and formal clarity of the basic vocabulary — coloured steel elements in balance — never failed him.",
+      "famous_works": [
+        {
+          "title": "Lobster Trap and Fish Tail",
+          "year": "1939",
+          "notes": "The first large mobile commissioned specifically for a museum space (MoMA). Steel wire and metal sheets in biomorphic shapes that move continuously."
+        },
+        {
+          "title": "Big Red",
+          "year": "1959",
+          "notes": "A stabile-mobile in red — Calder's most iconic colour. Demonstrates the synthesis of stability and motion that defines the mature work."
+        },
+        {
+          "title": "La Grande Vitesse",
+          "year": "1969",
+          "notes": "The first public art work commissioned under the US National Endowment for the Arts. Forty-three tons of red-painted steel in Grand Rapids, Michigan — the city adopted it as a symbol."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Calder's Circus",
+          "year": "1926–31",
+          "notes": "The miniature performance work in wire, cork, and found objects. Not quite sculpture, not quite theatre — a proto-performance-art object that Calder performed himself."
+        },
+        {
+          "title": "Fish",
+          "year": "1944",
+          "notes": "A small mobile in which the fish-like biomorphic elements seem genuinely aquatic. One of the most graceful domestic-scale works in the Calder catalogue."
+        },
+        {
+          "title": "The Brass Family",
+          "year": "1929",
+          "notes": "A wire sculpture depicting an acrobatic family — precursor to the mobiles in its demonstration of balance, tension, and form made from line alone."
+        }
+      ],
+      "dataset": {
+        "lot_count": 13,
+        "total_usd": 30560000,
+        "avg_usd": 2350769,
+        "total_label": "$30.56M",
+        "avg_label": "$2.35M",
+        "top_lot": {
+          "title": "Blue Moon",
+          "hammer_usd": 12400000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "The Pub",
+          "ratio": 2.52
+        }
+      }
+    },
+    {
+      "norm_name": "PABLO PICASSO",
+      "display_name": "Pablo Picasso",
+      "dates": "1881–1973",
+      "nationality": "Spanish",
+      "movement": "Cubism · Modernism",
+      "movement_id": "cubism",
+      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
+      "famous_works": [
+        {
+          "title": "Les Demoiselles d'Avignon",
+          "year": "1907",
+          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
+        },
+        {
+          "title": "Guernica",
+          "year": "1937",
+          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
+        },
+        {
+          "title": "Girl Before a Mirror",
+          "year": "1932",
+          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "La Vie",
+          "year": "1903",
+          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
+        },
+        {
+          "title": "Seated Woman with Wrists Crossed (Françoise)",
+          "year": "1953",
+          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
+        }
+      ],
+      "dataset": {
+        "lot_count": 30,
+        "total_usd": 28646022,
+        "avg_usd": 2387168,
+        "total_label": "$28.65M",
+        "avg_label": "$2.39M",
+        "top_lot": {
+          "title": "Homme assis",
+          "hammer_usd": 12800000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Danseuse",
+          "ratio": 2.51
+        }
+      }
+    },
+    {
       "norm_name": "YAYOI KUSAMA",
       "display_name": "Yayoi Kusama",
       "dates": "b. 1929",
@@ -260,56 +373,61 @@
       }
     },
     {
-      "norm_name": "PABLO PICASSO",
-      "display_name": "Pablo Picasso",
-      "dates": "1881–1973",
-      "nationality": "Spanish",
-      "movement": "Cubism · Modernism",
-      "movement_id": "cubism",
-      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
+      "norm_name": "ANDY WARHOL",
+      "display_name": "Andy Warhol",
+      "dates": "1928–1987",
+      "nationality": "American",
+      "movement": "Pop Art · Seriality · Factory",
+      "movement_id": "pop-art",
+      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
       "famous_works": [
         {
-          "title": "Les Demoiselles d'Avignon",
-          "year": "1907",
-          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
+          "title": "Campbell's Soup Cans",
+          "year": "1962",
+          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
         },
         {
-          "title": "Guernica",
-          "year": "1937",
-          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
+          "title": "Gold Marilyn Monroe",
+          "year": "1962",
+          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
         },
         {
-          "title": "Girl Before a Mirror",
-          "year": "1932",
-          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
+          "title": "Eight Elvises",
+          "year": "1963",
+          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "La Vie",
-          "year": "1903",
-          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
+          "title": "Tunafish Disaster",
+          "year": "1963",
+          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
         },
         {
-          "title": "Seated Woman with Wrists Crossed (Françoise)",
-          "year": "1953",
-          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
+          "title": "Oxidation Painting",
+          "year": "1978",
+          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
+        },
+        {
+          "title": "Shadows",
+          "year": "1978–79",
+          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
         }
       ],
       "dataset": {
-        "lot_count": 29,
-        "total_usd": 25446022,
-        "avg_usd": 2313275,
-        "total_label": "$25.45M",
-        "avg_label": "$2.31M",
+        "lot_count": 23,
+        "total_usd": 24440700,
+        "avg_usd": 1629380,
+        "total_label": "$24.44M",
+        "avg_label": "$1.63M",
         "top_lot": {
-          "title": "Homme assis",
-          "hammer_usd": 12800000,
-          "sale_name": "Modern Evening Auction, NY 2025"
+          "title": "Late Four-Foot Flowers",
+          "hammer_usd": 10000000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Danseuse",
-          "ratio": 2.51
+          "title": "Chinese Photographs  中式照片",
+          "ratio": 8.24
         }
       }
     },
@@ -356,7 +474,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 5,
+        "lot_count": 6,
         "total_usd": 23722200,
         "avg_usd": 4744440,
         "total_label": "$23.72M",
@@ -369,65 +487,6 @@
         "top_ratio_lot": {
           "title": "Vallelunga",
           "ratio": 1.89
-        }
-      }
-    },
-    {
-      "norm_name": "ANDY WARHOL",
-      "display_name": "Andy Warhol",
-      "dates": "1928–1987",
-      "nationality": "American",
-      "movement": "Pop Art · Seriality · Factory",
-      "movement_id": "pop-art",
-      "bio": "Born Andrew Warhola in Pittsburgh to Slovak immigrant parents, Warhol studied at Carnegie Mellon before becoming the most successful commercial illustrator in New York (his blotted-line drawings for I. Miller shoes were ubiquitous by the late 1950s). The transition to fine art was a deliberate repudiation of the expressive myth: Campbell's soup cans, Brillo boxes, death-and-disaster car crashes, electric chairs, Marilyn Monroe in Day-Glo series. The silk-screen process removes the artist's hand; the seriality drains the image of expressiveness; the subject matter — celebrity, death, consumer goods — makes the works philosophical propositions about contemporary life. The Factory at 231 East 47th Street employed collaborators ('superstars') who did much of the work. Shot by Valerie Solanas in 1968 and nearly killed. He worked prolifically until his sudden death from a post-surgical complication in 1987. The brand — the name, the signature, the numbered edition — is what the market prices.",
-      "famous_works": [
-        {
-          "title": "Campbell's Soup Cans",
-          "year": "1962",
-          "notes": "Thirty-two canvases displayed in a grid at Ferus Gallery, Los Angeles. The gallery placed them on shelves, as in a supermarket. The installation is the argument."
-        },
-        {
-          "title": "Gold Marilyn Monroe",
-          "year": "1962",
-          "notes": "Marilyn's face centred in a gold field — a devotional object, a Byzantine icon. Made three months after her death. MoMA collection."
-        },
-        {
-          "title": "Eight Elvises",
-          "year": "1963",
-          "notes": "Serial Elvis figures in cowboy posture on silver ground. Sold for $100M in 2008. The repetition that drains and then reinvests the image with uncanny intensity."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Tunafish Disaster",
-          "year": "1963",
-          "notes": "A death-and-disaster work based on a newspaper photograph of women who died from contaminated tuna. Warhol's engagement with anonymous mortality alongside celebrity mortality."
-        },
-        {
-          "title": "Oxidation Painting",
-          "year": "1978",
-          "notes": "Made by urinating (by Warhol and collaborators) onto copper-primed canvas to produce chemical oxidation patterns. The Action Painting parody fully literalised."
-        },
-        {
-          "title": "Shadows",
-          "year": "1978–79",
-          "notes": "A series of 102 canvases meant to be shown together — abstract, near-monochromatic, their source a photograph of a studio shadow. Warhol called them 'disco décor'."
-        }
-      ],
-      "dataset": {
-        "lot_count": 17,
-        "total_usd": 21955700,
-        "avg_usd": 2195570,
-        "total_label": "$21.96M",
-        "avg_label": "$2.20M",
-        "top_lot": {
-          "title": "Late Four-Foot Flowers",
-          "hammer_usd": 10000000,
-          "sale_name": "Contemporary Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (Lobster)",
-          "ratio": 3.78
         }
       }
     },
@@ -482,65 +541,6 @@
         "top_ratio_lot": {
           "title": "It's a Cold Day 寒冷的一天",
           "ratio": 1.52
-        }
-      }
-    },
-    {
-      "norm_name": "ALEXANDER CALDER",
-      "display_name": "Alexander Calder",
-      "dates": "1898–1976",
-      "nationality": "American",
-      "movement": "Modernism · Kinetic Sculpture",
-      "movement_id": "modernism",
-      "bio": "Born into a family of sculptors — his father Alexander Stirling Calder and grandfather Alexander Milne Calder were both prominent — he trained as a mechanical engineer before studying at the Art Students League, New York. In Paris in the late 1920s he constructed his Cirque Calder, a miniature performance of wire figures, to which Mondrian, Léger, and Miró came. A visit to Mondrian's studio in 1930 — the primary colours, the rectangles — was, he said, the turning point. He began making kinetic sculptures driven by motors, then discovered that air itself could provide the motive force: the mobile was born. Duchamp named the moving works; Arp named the static ones 'stabiles.' He worked at every scale from jewellery to monumental public commissions (La Grande Vitesse, Grand Rapids, 1969). The wit and formal clarity of the basic vocabulary — coloured steel elements in balance — never failed him.",
-      "famous_works": [
-        {
-          "title": "Lobster Trap and Fish Tail",
-          "year": "1939",
-          "notes": "The first large mobile commissioned specifically for a museum space (MoMA). Steel wire and metal sheets in biomorphic shapes that move continuously."
-        },
-        {
-          "title": "Big Red",
-          "year": "1959",
-          "notes": "A stabile-mobile in red — Calder's most iconic colour. Demonstrates the synthesis of stability and motion that defines the mature work."
-        },
-        {
-          "title": "La Grande Vitesse",
-          "year": "1969",
-          "notes": "The first public art work commissioned under the US National Endowment for the Arts. Forty-three tons of red-painted steel in Grand Rapids, Michigan — the city adopted it as a symbol."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Calder's Circus",
-          "year": "1926–31",
-          "notes": "The miniature performance work in wire, cork, and found objects. Not quite sculpture, not quite theatre — a proto-performance-art object that Calder performed himself."
-        },
-        {
-          "title": "Fish",
-          "year": "1944",
-          "notes": "A small mobile in which the fish-like biomorphic elements seem genuinely aquatic. One of the most graceful domestic-scale works in the Calder catalogue."
-        },
-        {
-          "title": "The Brass Family",
-          "year": "1929",
-          "notes": "A wire sculpture depicting an acrobatic family — precursor to the mobiles in its demonstration of balance, tension, and form made from line alone."
-        }
-      ],
-      "dataset": {
-        "lot_count": 12,
-        "total_usd": 18160000,
-        "avg_usd": 1513333,
-        "total_label": "$18.16M",
-        "avg_label": "$1.51M",
-        "top_lot": {
-          "title": "Four Big Dots",
-          "hammer_usd": 7000000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "The Pub",
-          "ratio": 2.52
         }
       }
     },
@@ -1015,7 +1015,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 21,
+        "lot_count": 25,
         "total_usd": 4992278,
         "avg_usd": 262751,
         "total_label": "$4.99M",
@@ -1069,7 +1069,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 4,
         "total_usd": 4848000,
         "avg_usd": 2424000,
         "total_label": "$4.85M",
@@ -1182,11 +1182,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 4464600,
-        "avg_usd": 1488200,
-        "total_label": "$4.46M",
-        "avg_label": "$1.49M",
+        "lot_count": 6,
+        "total_usd": 4624600,
+        "avg_usd": 1156150,
+        "total_label": "$4.62M",
+        "avg_label": "$1.16M",
         "top_lot": {
           "title": "Untitled",
           "hammer_usd": 4200000,
@@ -1295,7 +1295,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 5,
+        "lot_count": 6,
         "total_usd": 3709000,
         "avg_usd": 741800,
         "total_label": "$3.71M",
@@ -1308,6 +1308,65 @@
         "top_ratio_lot": {
           "title": "Robinet",
           "ratio": 7.5
+        }
+      }
+    },
+    {
+      "norm_name": "PIERRE-AUGUSTE RENOIR",
+      "display_name": "Pierre-Auguste Renoir",
+      "dates": "1841–1919",
+      "nationality": "French",
+      "movement": "Impressionism · Figure Painting",
+      "movement_id": "impressionism",
+      "bio": "Born in Limoges, Renoir trained as a porcelain painter before entering the École des Beaux-Arts and meeting Monet, Sisley, and Bazille. He was the most socially optimistic of the Impressionists: his paintings depict pleasure — dances, outdoor luncheons, Sunday afternoons on the Seine, women bathing — with a warmth and sensuousness that distinguished him from Monet's more meteorological programme. The dappled light in his outdoor figure paintings is the technique applied to human social life rather than landscape. His late career, dominated by rheumatoid arthritis that eventually left him unable to hold a brush (his assistants strapped it to his wrist), turned toward an increasingly academic and studio-bound treatment of the female figure. Institutional and collector prices remain very strong globally, particularly in the United States and Japan, where his work entered major collections early.",
+      "famous_works": [
+        {
+          "title": "Le Moulin de la Galette",
+          "year": "1876",
+          "notes": "A Sunday afternoon at the outdoor dance hall in Montmartre. The dappled Impressionist light applied to a scene of bourgeois leisure — one of the movement's defining images. Musée d'Orsay."
+        },
+        {
+          "title": "Luncheon of the Boating Party",
+          "year": "1880–81",
+          "notes": "Renoir's friends lunching on a terrace above the Seine at Chatou. The most elaborate of his outdoor figure compositions — Impressionist technique at its most socially immersive."
+        },
+        {
+          "title": "The Large Bathers",
+          "year": "1884–87",
+          "notes": "A monumental outdoor nude composition in a more classical style than the Impressionist period — Renoir's attempt to reconcile plein-air observation with the grand tradition."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Swing",
+          "year": "1876",
+          "notes": "A small painting made in his garden in Montmartre — the same location as Le Moulin. The dappled light effects are even more immediate here than in the larger canvas."
+        },
+        {
+          "title": "Young Women at the Piano",
+          "year": "1892",
+          "notes": "Commissioned by the French state for the Luxembourg Museum. The domestic interior at its most comfortable — Renoir's bourgeois optimism at its least problematically cheerful."
+        },
+        {
+          "title": "The Theatre Box",
+          "year": "1874",
+          "notes": "A woman in a theatre box, the male companion a dark background figure. The woman as spectacle within the spectacle of the theatre — the looking and being-looked-at doubled."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 3372084,
+        "avg_usd": 1686042,
+        "total_label": "$3.37M",
+        "avg_label": "$1.69M",
+        "top_lot": {
+          "title": "Roses dans un vase de cristal",
+          "hammer_usd": 2700000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Vache dans un verger",
+          "ratio": 2.69
         }
       }
     },
@@ -1354,7 +1413,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 8,
+        "lot_count": 11,
         "total_usd": 3335320,
         "avg_usd": 476474,
         "total_label": "$3.34M",
@@ -1480,6 +1539,60 @@
         "top_ratio_lot": {
           "title": "Untitled 無題",
           "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "TAKASHI MURAKAMI",
+      "display_name": "Takashi Murakami",
+      "dates": "b. 1962",
+      "nationality": "Japanese",
+      "movement": "Contemporary · Pop Art",
+      "movement_id": "pop-art",
+      "bio": "Takashi Murakami was born in Tokyo in 1962 and studied at the Tokyo University of the Arts, from which he received a doctorate in nihonga (traditional Japanese painting). His early work engaged the gap between the highly traditional discipline of his academic training and the contemporary popular cultures — manga, anime, video games — that surrounded him, and by the early 1990s he had developed the theoretical framework of 'Superflat' that became both the name of his movement and a philosophical position.\n\nSuperflat posits that Japanese consumer culture — the flat, bright, cute imagery of anime and its associated merchandise — is not merely entertainment but a direct expression of Japan's post-war cultural psychology, the nuclear trauma flattened and made palatable through an aesthetic of extreme cuteness and radical surface-ness. Murakami's paintings, sculptures, and merchandise deploy the conventions of anime and Japanese popular culture with a formal intelligence that simultaneously participates in and critically analyses these conventions.\n\nMurakami operates one of the most ambitious artist-as-industry models in contemporary art: his Kaikai Kiki studio employs dozens of artists and assistants producing paintings, sculptures, prints, and merchandise at a scale that explicitly references the production models of anime and consumer goods. He is represented by Gagosian Gallery and his market has been among the strongest of any living artist. Major retrospectives at the Museum of Contemporary Art Los Angeles and other institutions have confirmed his importance.",
+      "famous_works": [
+        {
+          "title": "DOB series",
+          "year": "1993–present",
+          "notes": "Paintings and sculptures featuring Mr. DOB, Murakami's alter-ego character derived from anime aesthetics, which became the central figure in his early investigation of Superflat."
+        },
+        {
+          "title": "Oval Buddha",
+          "year": "2007–2010",
+          "notes": "Monumental gold and platinum sculptures in which traditional Buddhist imagery is combined with the surface aesthetics of anime and the production values of luxury goods."
+        },
+        {
+          "title": "The 500 Arhats",
+          "year": "2012",
+          "notes": "A one-hundred-metre painting commissioned for the Qatar Museum in which five hundred Buddhist saints are depicted in a synthesis of Japanese classical painting and contemporary pop culture aesthetics."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "My Lonesome Cowboy",
+          "year": "1998",
+          "notes": "A fiberglass sculpture of an anime-style male figure in an explicit sexual pose that extends Murakami's investigation of otaku culture's erotic dimensions."
+        },
+        {
+          "title": "Superflat Museum",
+          "year": "2002",
+          "notes": "A designer collaboration project extending the Superflat concept into consumer product design and demonstrating the deliberate collapse of boundaries between art and commodity."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 2960000,
+        "avg_usd": 986667,
+        "total_label": "$2.96M",
+        "avg_label": "$987k",
+        "top_lot": {
+          "title": "And Then x 6 (Marine Blue: The Superflat Method) 然後 x 6（海洋藍：",
+          "hammer_usd": 2400000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "And Then x 6 (Marine Blue: The Superflat Method) 然後 x 6（海洋藍：",
+          "ratio": 0.84
         }
       }
     },
@@ -1705,6 +1818,60 @@
       }
     },
     {
+      "norm_name": "ANTONY GORMLEY",
+      "display_name": "Antony Gormley",
+      "dates": "b. 1950",
+      "nationality": "British",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
+      "famous_works": [
+        {
+          "title": "Angel of the North",
+          "year": "1998",
+          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
+        },
+        {
+          "title": "Another Place",
+          "year": "1997",
+          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
+        },
+        {
+          "title": "Event Horizon",
+          "year": "2007",
+          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Learning to Think",
+          "year": "1991",
+          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
+        },
+        {
+          "title": "One & Other",
+          "year": "2009",
+          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 2551200,
+        "avg_usd": 1275600,
+        "total_label": "$2.55M",
+        "avg_label": "$1.28M",
+        "top_lot": {
+          "title": "DRESS MODEL II 著裝模特兒 II",
+          "hammer_usd": 2400000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Another Singularity",
+          "ratio": 3.78
+        }
+      }
+    },
+    {
       "norm_name": "ZENG FANZHI",
       "display_name": "Zeng Fanzhi",
       "dates": "b. 1964",
@@ -1796,7 +1963,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 5,
         "total_usd": 2275600,
         "avg_usd": 1137800,
         "total_label": "$2.28M",
@@ -2297,7 +2464,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 7,
         "total_usd": 1692124,
         "avg_usd": 846062,
         "total_label": "$1.69M",
@@ -2356,7 +2523,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 7,
         "total_usd": 1647076,
         "avg_usd": 411769,
         "total_label": "$1.65M",
@@ -3213,6 +3380,60 @@
       }
     },
     {
+      "norm_name": "SALMAN TOOR",
+      "display_name": "Salman Toor",
+      "dates": "b. 1983",
+      "nationality": "Pakistani-American",
+      "movement": "Contemporary · Figurative",
+      "movement_id": "contemporary",
+      "bio": "Salman Toor was born in Lahore, Pakistan in 1983 and studied at the Ohio Wesleyan University and the Pratt Institute in New York. He developed a figurative painting practice centred on the social lives of young South Asian men — drinking, dancing, using phones, navigating public space, existing in states of intimacy and vulnerability — that has attracted widespread critical attention for its combination of formal sophistication and its insistence on representing a community rarely seen in contemporary art.\n\nToor's paintings are executed in a distinctive manner that draws on Indian miniature painting, the intimacy of eighteenth-century genre painting (Watteau, Fragonard), and the gestural expressiveness of contemporary painting. His interiors are lit with a warm, amber-brown light that gives them the quality of memory or firelight, and within these luminous spaces his figures move with an ease that is simultaneously casual and psychologically charged. The paintings address queer South Asian identity — the negotiation between cultural traditions, family expectations, and personal desires — with a warmth and intelligence that refuses both the sensational and the didactic.\n\nToor is represented by Toby Webster's The Modern Institute in Glasgow and Luhring Augustine in New York. A major survey exhibition at the Whitney Museum of American Art in 2021–22 established him as one of the significant figurative painters of his generation.",
+      "famous_works": [
+        {
+          "title": "Hammam I",
+          "year": "2019",
+          "notes": "A painting of South Asian men in a bathhouse that draws on the tradition of the male nude and the hammam as a social space while addressing the specific dimensions of queer South Asian male sociality."
+        },
+        {
+          "title": "How Lovely It All Was",
+          "year": "2018",
+          "notes": "A large figurative work in which a group of young men inhabit a domestic space with the ease of a Watteau fête that is simultaneously a celebration and a melancholy meditation on belonging."
+        },
+        {
+          "title": "Boy with Arms Akimbo",
+          "year": "2019",
+          "notes": "A single-figure portrait in which Toor's characteristic warm light and intimate psychological register create an image of considerable emotional presence."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Early New York works",
+          "year": "2010–2015",
+          "notes": "Paintings from Toor's initial New York period demonstrating the development of his figurative language before the full refinement of his mature manner."
+        },
+        {
+          "title": "Lahore Memory paintings",
+          "year": "2016–2017",
+          "notes": "Works addressing childhood and family memory from Toor's Pakistani background that demonstrate the autobiographical depth underpinning his social subject matter."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 902000,
+        "avg_usd": 451000,
+        "total_label": "$902k",
+        "avg_label": "$451k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "The Happy Servant",
+          "ratio": 1.68
+        }
+      }
+    },
+    {
       "norm_name": "MEHDI GHADYANLOO",
       "display_name": "Mehdi Ghadyanloo",
       "dates": "b. 1981",
@@ -3886,61 +4107,56 @@
       }
     },
     {
-      "norm_name": "PIERRE-AUGUSTE RENOIR",
-      "display_name": "Pierre-Auguste Renoir",
-      "dates": "1841–1919",
-      "nationality": "French",
-      "movement": "Impressionism · Figure Painting",
-      "movement_id": "impressionism",
-      "bio": "Born in Limoges, Renoir trained as a porcelain painter before entering the École des Beaux-Arts and meeting Monet, Sisley, and Bazille. He was the most socially optimistic of the Impressionists: his paintings depict pleasure — dances, outdoor luncheons, Sunday afternoons on the Seine, women bathing — with a warmth and sensuousness that distinguished him from Monet's more meteorological programme. The dappled light in his outdoor figure paintings is the technique applied to human social life rather than landscape. His late career, dominated by rheumatoid arthritis that eventually left him unable to hold a brush (his assistants strapped it to his wrist), turned toward an increasingly academic and studio-bound treatment of the female figure. Institutional and collector prices remain very strong globally, particularly in the United States and Japan, where his work entered major collections early.",
+      "norm_name": "GENIEVE FIGGIS",
+      "display_name": "Genieve Figgis",
+      "dates": "b. 1972",
+      "nationality": "Irish",
+      "movement": "Contemporary · Neo-Expressionism",
+      "movement_id": "neo-expressionism",
+      "bio": "Genieve Figgis was born in Dublin in 1972 and came to painting in her late thirties after a career in other fields, beginning to post her work on Twitter in 2013 where she was discovered by Richard Prince, who purchased her work and brought her to the attention of Almine Rech Gallery. This unconventional entry into the art world has become part of her story, but the work itself needs no biographical crutch: it is immediately identifiable and formally assured.\n\nFiggis paints scenes drawn from eighteenth-century portraiture, aristocratic domestic interiors, and pastoral landscapes, subjecting this material to a process of controlled dissolution. Her figures are rendered in thin, runny paint that causes features to bleed and merge, producing faces and bodies in various states of liquefaction that are simultaneously beautiful and grotesque. The effect evokes decay, intoxication, and psychological dissolution — the decadent underside of the decorative world she invokes — while the basic pictorial structure of the Old Master sources remains legible beneath the ruin.\n\nFiggis has been exhibited at Almine Rech Gallery in Paris, New York, and London, and her work is held by major collections. She represents a particularly original strand in contemporary painting's dialogue with art historical sources, finding in their deliberate corruption a language for exploring the comedy and horror of social aspiration.",
       "famous_works": [
         {
-          "title": "Le Moulin de la Galette",
-          "year": "1876",
-          "notes": "A Sunday afternoon at the outdoor dance hall in Montmartre. The dappled Impressionist light applied to a scene of bourgeois leisure — one of the movement's defining images. Musée d'Orsay."
+          "title": "Tea Party",
+          "year": "2014",
+          "notes": "A group scene derived from eighteenth-century conversation pieces in which the dissolving faces and running paint transform elegant social ritual into something vertiginous and comic."
         },
         {
-          "title": "Luncheon of the Boating Party",
-          "year": "1880–81",
-          "notes": "Renoir's friends lunching on a terrace above the Seine at Chatou. The most elaborate of his outdoor figure compositions — Impressionist technique at its most socially immersive."
+          "title": "Baby Shower",
+          "year": "2016",
+          "notes": "A contemporary domestic subject treated in Figgis's runny, dissolving manner, in which the celebration of new life takes on an unsettling undertow."
         },
         {
-          "title": "The Large Bathers",
-          "year": "1884–87",
-          "notes": "A monumental outdoor nude composition in a more classical style than the Impressionist period — Renoir's attempt to reconcile plein-air observation with the grand tradition."
+          "title": "Portrait of a Family",
+          "year": "2015",
+          "notes": "A group portrait in which the formal conventions of aristocratic family portraiture are undermined by the liquefaction of the faces, suggesting the instability within the social order being depicted."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "The Swing",
-          "year": "1876",
-          "notes": "A small painting made in his garden in Montmartre — the same location as Le Moulin. The dappled light effects are even more immediate here than in the larger canvas."
+          "title": "The Hunt",
+          "year": "2014",
+          "notes": "A hunting scene derived from Old Master sources in which the aristocratic outdoor ritual is rendered in Figgis's corrosive manner, the paint dissolving the social pretension of the genre."
         },
         {
-          "title": "Young Women at the Piano",
-          "year": "1892",
-          "notes": "Commissioned by the French state for the Luxembourg Museum. The domestic interior at its most comfortable — Renoir's bourgeois optimism at its least problematically cheerful."
-        },
-        {
-          "title": "The Theatre Box",
-          "year": "1874",
-          "notes": "A woman in a theatre box, the male companion a dark background figure. The woman as spectacle within the spectacle of the theatre — the looking and being-looked-at doubled."
+          "title": "Landscape with Figures",
+          "year": "2016",
+          "notes": "A pastoral landscape in which the Watteau-derived setting of elegant figures in nature is subjected to the same comic-grotesque transformation as Figgis's interior scenes."
         }
       ],
       "dataset": {
-        "lot_count": 1,
-        "total_usd": 672084,
-        "avg_usd": 672084,
-        "total_label": "$672k",
-        "avg_label": "$672k",
+        "lot_count": 2,
+        "total_usd": 701200,
+        "avg_usd": 350600,
+        "total_label": "$701k",
+        "avg_label": "$351k",
         "top_lot": {
-          "title": "Vache dans un verger",
-          "hammer_usd": 672084,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+          "title": "Way to Nowhere 無處之路",
+          "hammer_usd": 550000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Vache dans un verger",
-          "ratio": 2.69
+          "title": "Madame de Pompadour (after Boucher)",
+          "ratio": 1.78
         }
       }
     },
@@ -4490,60 +4706,6 @@
       }
     },
     {
-      "norm_name": "TAKASHI MURAKAMI",
-      "display_name": "Takashi Murakami",
-      "dates": "b. 1962",
-      "nationality": "Japanese",
-      "movement": "Contemporary · Pop Art",
-      "movement_id": "pop-art",
-      "bio": "Takashi Murakami was born in Tokyo in 1962 and studied at the Tokyo University of the Arts, from which he received a doctorate in nihonga (traditional Japanese painting). His early work engaged the gap between the highly traditional discipline of his academic training and the contemporary popular cultures — manga, anime, video games — that surrounded him, and by the early 1990s he had developed the theoretical framework of 'Superflat' that became both the name of his movement and a philosophical position.\n\nSuperflat posits that Japanese consumer culture — the flat, bright, cute imagery of anime and its associated merchandise — is not merely entertainment but a direct expression of Japan's post-war cultural psychology, the nuclear trauma flattened and made palatable through an aesthetic of extreme cuteness and radical surface-ness. Murakami's paintings, sculptures, and merchandise deploy the conventions of anime and Japanese popular culture with a formal intelligence that simultaneously participates in and critically analyses these conventions.\n\nMurakami operates one of the most ambitious artist-as-industry models in contemporary art: his Kaikai Kiki studio employs dozens of artists and assistants producing paintings, sculptures, prints, and merchandise at a scale that explicitly references the production models of anime and consumer goods. He is represented by Gagosian Gallery and his market has been among the strongest of any living artist. Major retrospectives at the Museum of Contemporary Art Los Angeles and other institutions have confirmed his importance.",
-      "famous_works": [
-        {
-          "title": "DOB series",
-          "year": "1993–present",
-          "notes": "Paintings and sculptures featuring Mr. DOB, Murakami's alter-ego character derived from anime aesthetics, which became the central figure in his early investigation of Superflat."
-        },
-        {
-          "title": "Oval Buddha",
-          "year": "2007–2010",
-          "notes": "Monumental gold and platinum sculptures in which traditional Buddhist imagery is combined with the surface aesthetics of anime and the production values of luxury goods."
-        },
-        {
-          "title": "The 500 Arhats",
-          "year": "2012",
-          "notes": "A one-hundred-metre painting commissioned for the Qatar Museum in which five hundred Buddhist saints are depicted in a synthesis of Japanese classical painting and contemporary pop culture aesthetics."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "My Lonesome Cowboy",
-          "year": "1998",
-          "notes": "A fiberglass sculpture of an anime-style male figure in an explicit sexual pose that extends Murakami's investigation of otaku culture's erotic dimensions."
-        },
-        {
-          "title": "Superflat Museum",
-          "year": "2002",
-          "notes": "A designer collaboration project extending the Superflat concept into consumer product design and demonstrating the deliberate collapse of boundaries between art and commodity."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 560000,
-        "avg_usd": 280000,
-        "total_label": "$560k",
-        "avg_label": "$280k",
-        "top_lot": {
-          "title": "Untitled (Mr. Dob - Multicolour) 無題（Mr. Dob - 彩色）",
-          "hammer_usd": 280000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled (Mr. Dob - Multicolour) 無題（Mr. Dob - 彩色）",
-          "ratio": 0.7
-        }
-      }
-    },
-    {
       "norm_name": "MICKALENE THOMAS",
       "display_name": "Mickalene Thomas",
       "dates": "b. 1971",
@@ -4969,7 +5131,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 3,
         "total_usd": 448056,
         "avg_usd": 448056,
         "total_label": "$448k",
@@ -5252,6 +5414,60 @@
         "top_ratio_lot": {
           "title": "Untitled (After Manet)",
           "ratio": 4.1
+        }
+      }
+    },
+    {
+      "norm_name": "IVY HALDEMAN",
+      "display_name": "Ivy Haldeman",
+      "dates": "b. 1986",
+      "nationality": "American",
+      "movement": "Contemporary · Figurative",
+      "movement_id": "contemporary",
+      "bio": "Ivy Haldeman was born in 1986 and studied at the Pratt Institute and the New York Studio School. She works in oil on canvas, developing a figurative practice centred on an idiosyncratic cast of characters — hot dogs in tuxedos, androgynous human figures in muted interiors, objects and figures in ambiguous social situations — rendered in a style that combines Old Master technical sophistication with a quietly surrealistic sensibility.\n\nHaldeman's paintings resist obvious categorisation. Her anthropomorphised hot dog figures, rendered with the tonal sophistication of academic oil painting, occupy an art-historically serious space while generating a humour that never entirely resolves into irony. The human figures in her paintings — elegant, stylised, often faceless or with simplified features — inhabit ambiguous interiors and social scenarios with a poise that is equally readable as confidence or vacancy. The formal intelligence of her compositions and her technical virtuosity in the manipulation of paint create an unsettling tension between sophistication and absurdity.\n\nShe has been exhibited with JTT Gallery in New York and has attracted critical attention as an original voice within contemporary painting's broad figurative current. Her work suggests that the comic and the serious need not be mutually exclusive in painting, and that absurdist content can be pursued with absolute technical conviction.",
+      "famous_works": [
+        {
+          "title": "Hot Dog (Seated)",
+          "year": "2018",
+          "notes": "A painting of an anthropomorphised hot dog figure seated in a formal pose, in which the technical seriousness of Old Master oil painting is applied to an absurdist subject with straight-faced conviction."
+        },
+        {
+          "title": "Figure in Blue",
+          "year": "2019",
+          "notes": "A human figure in muted interior space rendered in Haldeman's characteristically elegant, simplified manner that hovers between psychological specificity and anonymous type."
+        },
+        {
+          "title": "Dinner Party",
+          "year": "2020",
+          "notes": "A social scene in which human and hot dog figures share a table, combining the tradition of the conversation piece with Haldeman's absurdist dramatis personae."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Still Life with Hot Dog",
+          "year": "2017",
+          "notes": "An early work that established the hot dog as a recurring character within Haldeman's practice by placing it within the genre of the traditional still-life."
+        },
+        {
+          "title": "Standing Figure",
+          "year": "2019",
+          "notes": "A more purely figurative work demonstrating the technical foundation in Old Master oil painting that underlies Haldeman's more idiosyncratic imagery."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 408200,
+        "avg_usd": 204100,
+        "total_label": "$408k",
+        "avg_label": "$204k",
+        "top_lot": {
+          "title": "Full Figure, Lean Back, Foot Tucked Away, Bun Reveals 全身、後靠、",
+          "hammer_usd": 320000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Full Figure, Head Rests on Back of Hand, Knees Akimbo, Thumb",
+          "ratio": 1.26
         }
       }
     },
@@ -6346,60 +6562,6 @@
       }
     },
     {
-      "norm_name": "SALMAN TOOR",
-      "display_name": "Salman Toor",
-      "dates": "b. 1983",
-      "nationality": "Pakistani-American",
-      "movement": "Contemporary · Figurative",
-      "movement_id": "contemporary",
-      "bio": "Salman Toor was born in Lahore, Pakistan in 1983 and studied at the Ohio Wesleyan University and the Pratt Institute in New York. He developed a figurative painting practice centred on the social lives of young South Asian men — drinking, dancing, using phones, navigating public space, existing in states of intimacy and vulnerability — that has attracted widespread critical attention for its combination of formal sophistication and its insistence on representing a community rarely seen in contemporary art.\n\nToor's paintings are executed in a distinctive manner that draws on Indian miniature painting, the intimacy of eighteenth-century genre painting (Watteau, Fragonard), and the gestural expressiveness of contemporary painting. His interiors are lit with a warm, amber-brown light that gives them the quality of memory or firelight, and within these luminous spaces his figures move with an ease that is simultaneously casual and psychologically charged. The paintings address queer South Asian identity — the negotiation between cultural traditions, family expectations, and personal desires — with a warmth and intelligence that refuses both the sensational and the didactic.\n\nToor is represented by Toby Webster's The Modern Institute in Glasgow and Luhring Augustine in New York. A major survey exhibition at the Whitney Museum of American Art in 2021–22 established him as one of the significant figurative painters of his generation.",
-      "famous_works": [
-        {
-          "title": "Hammam I",
-          "year": "2019",
-          "notes": "A painting of South Asian men in a bathhouse that draws on the tradition of the male nude and the hammam as a social space while addressing the specific dimensions of queer South Asian male sociality."
-        },
-        {
-          "title": "How Lovely It All Was",
-          "year": "2018",
-          "notes": "A large figurative work in which a group of young men inhabit a domestic space with the ease of a Watteau fête that is simultaneously a celebration and a melancholy meditation on belonging."
-        },
-        {
-          "title": "Boy with Arms Akimbo",
-          "year": "2019",
-          "notes": "A single-figure portrait in which Toor's characteristic warm light and intimate psychological register create an image of considerable emotional presence."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Early New York works",
-          "year": "2010–2015",
-          "notes": "Paintings from Toor's initial New York period demonstrating the development of his figurative language before the full refinement of his mature manner."
-        },
-        {
-          "title": "Lahore Memory paintings",
-          "year": "2016–2017",
-          "notes": "Works addressing childhood and family memory from Toor's Pakistani background that demonstrate the autobiographical depth underpinning his social subject matter."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 252000,
-        "avg_usd": 252000,
-        "total_label": "$252k",
-        "avg_label": "$252k",
-        "top_lot": {
-          "title": "The Happy Servant",
-          "hammer_usd": 252000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "The Happy Servant",
-          "ratio": 1.68
-        }
-      }
-    },
-    {
       "norm_name": "DANIELLE MCKINNEY",
       "display_name": "Danielle McKinney",
       "dates": "b. 1981",
@@ -6761,7 +6923,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 224028,
         "avg_usd": 224028,
         "total_label": "$224k",
@@ -7139,7 +7301,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 195224,
         "avg_usd": 97612,
         "total_label": "$195k",
@@ -7193,7 +7355,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 192024,
         "avg_usd": 192024,
         "total_label": "$192k",
@@ -7571,7 +7733,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 3,
         "total_usd": 160020,
         "avg_usd": 160020,
         "total_label": "$160k",
@@ -7733,7 +7895,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 160020,
         "avg_usd": 160020,
         "total_label": "$160k",
@@ -7962,114 +8124,6 @@
         "top_ratio_lot": {
           "title": "Study for Training II",
           "ratio": 2.16
-        }
-      }
-    },
-    {
-      "norm_name": "GENIEVE FIGGIS",
-      "display_name": "Genieve Figgis",
-      "dates": "b. 1972",
-      "nationality": "Irish",
-      "movement": "Contemporary · Neo-Expressionism",
-      "movement_id": "neo-expressionism",
-      "bio": "Genieve Figgis was born in Dublin in 1972 and came to painting in her late thirties after a career in other fields, beginning to post her work on Twitter in 2013 where she was discovered by Richard Prince, who purchased her work and brought her to the attention of Almine Rech Gallery. This unconventional entry into the art world has become part of her story, but the work itself needs no biographical crutch: it is immediately identifiable and formally assured.\n\nFiggis paints scenes drawn from eighteenth-century portraiture, aristocratic domestic interiors, and pastoral landscapes, subjecting this material to a process of controlled dissolution. Her figures are rendered in thin, runny paint that causes features to bleed and merge, producing faces and bodies in various states of liquefaction that are simultaneously beautiful and grotesque. The effect evokes decay, intoxication, and psychological dissolution — the decadent underside of the decorative world she invokes — while the basic pictorial structure of the Old Master sources remains legible beneath the ruin.\n\nFiggis has been exhibited at Almine Rech Gallery in Paris, New York, and London, and her work is held by major collections. She represents a particularly original strand in contemporary painting's dialogue with art historical sources, finding in their deliberate corruption a language for exploring the comedy and horror of social aspiration.",
-      "famous_works": [
-        {
-          "title": "Tea Party",
-          "year": "2014",
-          "notes": "A group scene derived from eighteenth-century conversation pieces in which the dissolving faces and running paint transform elegant social ritual into something vertiginous and comic."
-        },
-        {
-          "title": "Baby Shower",
-          "year": "2016",
-          "notes": "A contemporary domestic subject treated in Figgis's runny, dissolving manner, in which the celebration of new life takes on an unsettling undertow."
-        },
-        {
-          "title": "Portrait of a Family",
-          "year": "2015",
-          "notes": "A group portrait in which the formal conventions of aristocratic family portraiture are undermined by the liquefaction of the faces, suggesting the instability within the social order being depicted."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Hunt",
-          "year": "2014",
-          "notes": "A hunting scene derived from Old Master sources in which the aristocratic outdoor ritual is rendered in Figgis's corrosive manner, the paint dissolving the social pretension of the genre."
-        },
-        {
-          "title": "Landscape with Figures",
-          "year": "2016",
-          "notes": "A pastoral landscape in which the Watteau-derived setting of elegant figures in nature is subjected to the same comic-grotesque transformation as Figgis's interior scenes."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 151200,
-        "avg_usd": 151200,
-        "total_label": "$151k",
-        "avg_label": "$151k",
-        "top_lot": {
-          "title": "Madame de Pompadour (after Boucher)",
-          "hammer_usd": 151200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Madame de Pompadour (after Boucher)",
-          "ratio": 1.78
-        }
-      }
-    },
-    {
-      "norm_name": "ANTONY GORMLEY",
-      "display_name": "Antony Gormley",
-      "dates": "b. 1950",
-      "nationality": "British",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
-      "famous_works": [
-        {
-          "title": "Angel of the North",
-          "year": "1998",
-          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
-        },
-        {
-          "title": "Another Place",
-          "year": "1997",
-          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
-        },
-        {
-          "title": "Event Horizon",
-          "year": "2007",
-          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Learning to Think",
-          "year": "1991",
-          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
-        },
-        {
-          "title": "One & Other",
-          "year": "2009",
-          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 151200,
-        "avg_usd": 151200,
-        "total_label": "$151k",
-        "avg_label": "$151k",
-        "top_lot": {
-          "title": "Another Singularity",
-          "hammer_usd": 151200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Another Singularity",
-          "ratio": 3.78
         }
       }
     },
@@ -8597,7 +8651,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 120015,
         "avg_usd": 120015,
         "total_label": "$120k",
@@ -9528,60 +9582,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 0.71
-        }
-      }
-    },
-    {
-      "norm_name": "IVY HALDEMAN",
-      "display_name": "Ivy Haldeman",
-      "dates": "b. 1986",
-      "nationality": "American",
-      "movement": "Contemporary · Figurative",
-      "movement_id": "contemporary",
-      "bio": "Ivy Haldeman was born in 1986 and studied at the Pratt Institute and the New York Studio School. She works in oil on canvas, developing a figurative practice centred on an idiosyncratic cast of characters — hot dogs in tuxedos, androgynous human figures in muted interiors, objects and figures in ambiguous social situations — rendered in a style that combines Old Master technical sophistication with a quietly surrealistic sensibility.\n\nHaldeman's paintings resist obvious categorisation. Her anthropomorphised hot dog figures, rendered with the tonal sophistication of academic oil painting, occupy an art-historically serious space while generating a humour that never entirely resolves into irony. The human figures in her paintings — elegant, stylised, often faceless or with simplified features — inhabit ambiguous interiors and social scenarios with a poise that is equally readable as confidence or vacancy. The formal intelligence of her compositions and her technical virtuosity in the manipulation of paint create an unsettling tension between sophistication and absurdity.\n\nShe has been exhibited with JTT Gallery in New York and has attracted critical attention as an original voice within contemporary painting's broad figurative current. Her work suggests that the comic and the serious need not be mutually exclusive in painting, and that absurdist content can be pursued with absolute technical conviction.",
-      "famous_works": [
-        {
-          "title": "Hot Dog (Seated)",
-          "year": "2018",
-          "notes": "A painting of an anthropomorphised hot dog figure seated in a formal pose, in which the technical seriousness of Old Master oil painting is applied to an absurdist subject with straight-faced conviction."
-        },
-        {
-          "title": "Figure in Blue",
-          "year": "2019",
-          "notes": "A human figure in muted interior space rendered in Haldeman's characteristically elegant, simplified manner that hovers between psychological specificity and anonymous type."
-        },
-        {
-          "title": "Dinner Party",
-          "year": "2020",
-          "notes": "A social scene in which human and hot dog figures share a table, combining the tradition of the conversation piece with Haldeman's absurdist dramatis personae."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Still Life with Hot Dog",
-          "year": "2017",
-          "notes": "An early work that established the hot dog as a recurring character within Haldeman's practice by placing it within the genre of the traditional still-life."
-        },
-        {
-          "title": "Standing Figure",
-          "year": "2019",
-          "notes": "A more purely figurative work demonstrating the technical foundation in Old Master oil painting that underlies Haldeman's more idiosyncratic imagery."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 88200,
-        "avg_usd": 88200,
-        "total_label": "$88k",
-        "avg_label": "$88k",
-        "top_lot": {
-          "title": "Full Figure, Head Rests on Back of Hand, Knees Akimbo, Thumb",
-          "hammer_usd": 88200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Full Figure, Head Rests on Back of Hand, Knees Akimbo, Thumb",
-          "ratio": 1.26
         }
       }
     },
@@ -12502,6 +12502,60 @@
       }
     },
     {
+      "norm_name": "CLAUDE MONET",
+      "display_name": "Claude Monet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 42000000,
+        "avg_usd": 14000000,
+        "total_label": "$42.00M",
+        "avg_label": "$14.00M",
+        "top_lot": {
+          "title": "Meules à Giverny",
+          "hammer_usd": 30200000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Église de Vernon, Soleil",
+          "ratio": 0.86
+        }
+      }
+    },
+    {
+      "norm_name": "LEONORA CARRINGTON",
+      "display_name": "Leonora Carrington",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 28700000,
+        "avg_usd": 5740000,
+        "total_label": "$28.70M",
+        "avg_label": "$5.74M",
+        "top_lot": {
+          "title": "Les Distractions de Dagobert",
+          "hammer_usd": 25000000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Sin título",
+          "ratio": 5.0
+        }
+      }
+    },
+    {
       "norm_name": "LUCIO FONTANA",
       "display_name": "Lucio Fontana",
       "dates": "",
@@ -12610,6 +12664,33 @@
       }
     },
     {
+      "norm_name": "MARK ROTHKO",
+      "display_name": "Mark Rothko",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 14200000,
+        "avg_usd": 7100000,
+        "total_label": "$14.20M",
+        "avg_label": "$7.10M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 10000000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.99
+        }
+      }
+    },
+    {
       "norm_name": "RENÉ MAGRITTE",
       "display_name": "René Magritte",
       "dates": "",
@@ -12620,7 +12701,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 5,
         "total_usd": 13400000,
         "avg_usd": 3350000,
         "total_label": "$13.40M",
@@ -12647,7 +12728,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 10,
+        "lot_count": 11,
         "total_usd": 12100000,
         "avg_usd": 2420000,
         "total_label": "$12.10M",
@@ -12714,6 +12795,33 @@
         "top_ratio_lot": {
           "title": "Another Day  另一天",
           "ratio": 0.9
+        }
+      }
+    },
+    {
+      "norm_name": "LÁSZLÓ MOHOLY-NAGY",
+      "display_name": "László Moholy-Nagy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 6450000,
+        "avg_usd": 2150000,
+        "total_label": "$6.45M",
+        "avg_label": "$2.15M",
+        "top_lot": {
+          "title": "Am 3",
+          "hammer_usd": 4200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "CH For R1, Space Modulator, Scene from My Lightplay",
+          "ratio": 2.24
         }
       }
     },
@@ -12799,8 +12907,8 @@
       }
     },
     {
-      "norm_name": "CLAUDE MONET",
-      "display_name": "Claude Monet",
+      "norm_name": "FERNAND LÉGER",
+      "display_name": "Fernand Léger",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -12809,19 +12917,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
-        "total_usd": 6000000,
-        "avg_usd": 6000000,
-        "total_label": "$6.00M",
-        "avg_label": "$6.00M",
+        "lot_count": 5,
+        "total_usd": 5950000,
+        "avg_usd": 1487500,
+        "total_label": "$5.95M",
+        "avg_label": "$1.49M",
         "top_lot": {
-          "title": "Église de Vernon, Soleil",
-          "hammer_usd": 6000000,
+          "title": "La Jeune fille au bouquet",
+          "hammer_usd": 3200000,
           "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Église de Vernon, Soleil",
-          "ratio": 0.86
+          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
+          "ratio": 1.57
         }
       }
     },
@@ -12880,6 +12988,33 @@
       }
     },
     {
+      "norm_name": "REMEDIOS VARO",
+      "display_name": "Remedios Varo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 5500000,
+        "avg_usd": 2750000,
+        "total_label": "$5.50M",
+        "avg_label": "$2.75M",
+        "top_lot": {
+          "title": "Esquiador (Viajero)",
+          "hammer_usd": 3500000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Esquiador (Viajero)",
+          "ratio": 2.8
+        }
+      }
+    },
+    {
       "norm_name": "LEE UFAN",
       "display_name": "Lee Ufan",
       "dates": "",
@@ -12903,33 +13038,6 @@
         "top_ratio_lot": {
           "title": "East Winds No. 839031 東風 No. 839031",
           "ratio": 2.86
-        }
-      }
-    },
-    {
-      "norm_name": "FERNAND LÉGER",
-      "display_name": "Fernand Léger",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 4850000,
-        "avg_usd": 1616667,
-        "total_label": "$4.85M",
-        "avg_label": "$1.62M",
-        "top_lot": {
-          "title": "La Jeune fille au bouquet",
-          "hammer_usd": 3200000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
-          "ratio": 1.57
         }
       }
     },
@@ -13096,8 +13204,8 @@
       }
     },
     {
-      "norm_name": "LÁSZLÓ MOHOLY-NAGY",
-      "display_name": "László Moholy-Nagy",
+      "norm_name": "ADRIANA VAREJÃO",
+      "display_name": "Adriana Varejão",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -13107,45 +13215,18 @@
       "lesser_known_works": [],
       "dataset": {
         "lot_count": 1,
-        "total_usd": 4200000,
-        "avg_usd": 4200000,
-        "total_label": "$4.20M",
-        "avg_label": "$4.20M",
+        "total_usd": 3500000,
+        "avg_usd": 3500000,
+        "total_label": "$3.50M",
+        "avg_label": "$3.50M",
         "top_lot": {
-          "title": "Am 3",
-          "hammer_usd": 4200000,
-          "sale_name": "Modern Evening Auction, NY 2025"
+          "title": "A Grande Curva 宏大的弧線",
+          "hammer_usd": 3500000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Am 3",
-          "ratio": 1.05
-        }
-      }
-    },
-    {
-      "norm_name": "MARK ROTHKO",
-      "display_name": "Mark Rothko",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 4200000,
-        "avg_usd": 4200000,
-        "total_label": "$4.20M",
-        "avg_label": "$4.20M",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 4200000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 0.99
+          "title": "A Grande Curva 宏大的弧線",
+          "ratio": 1.75
         }
       }
     },
@@ -13173,6 +13254,33 @@
         "top_ratio_lot": {
           "title": "Monhegan Lighthouse",
           "ratio": 2.27
+        }
+      }
+    },
+    {
+      "norm_name": "STUART DAVIS",
+      "display_name": "Stuart Davis",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3200000,
+        "avg_usd": 3200000,
+        "total_label": "$3.20M",
+        "avg_label": "$3.20M",
+        "top_lot": {
+          "title": "New York – Paris No. 3",
+          "hammer_usd": 3200000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "New York – Paris No. 3",
+          "ratio": 0.64
         }
       }
     },
@@ -13241,7 +13349,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 5,
         "total_usd": 2200000,
         "avg_usd": 2200000,
         "total_label": "$2.20M",
@@ -13258,6 +13366,33 @@
       }
     },
     {
+      "norm_name": "MARLENE DUMAS",
+      "display_name": "Marlene Dumas",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2200000,
+        "avg_usd": 2200000,
+        "total_label": "$2.20M",
+        "avg_label": "$2.20M",
+        "top_lot": {
+          "title": "The Edge 邊緣",
+          "hammer_usd": 2200000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "The Edge 邊緣",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "FRANÇOIS-XAVIER LALANNE",
       "display_name": "François-Xavier Lalanne",
       "dates": "",
@@ -13268,7 +13403,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 2000000,
         "avg_usd": 2000000,
         "total_label": "$2.00M",
@@ -13281,33 +13416,6 @@
         "top_ratio_lot": {
           "title": "Troupeau de Moutons de Laine",
           "ratio": 1.14
-        }
-      }
-    },
-    {
-      "norm_name": "REMEDIOS VARO",
-      "display_name": "Remedios Varo",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 2000000,
-        "avg_usd": 2000000,
-        "total_label": "$2.00M",
-        "avg_label": "$2.00M",
-        "top_lot": {
-          "title": "Ritos extraños",
-          "hammer_usd": 2000000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Ritos extraños",
-          "ratio": 0.8
         }
       }
     },
@@ -13420,6 +13528,33 @@
       }
     },
     {
+      "norm_name": "HAJIME SORAYAMA",
+      "display_name": "Hajime Sorayama",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1900000,
+        "avg_usd": 1900000,
+        "total_label": "$1.90M",
+        "avg_label": "$1.90M",
+        "top_lot": {
+          "title": "Sexy Robot_life size standing model_B 性感機器人_真人大小站立型號_B",
+          "hammer_usd": 1900000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Sexy Robot_life size standing model_B 性感機器人_真人大小站立型號_B",
+          "ratio": 0.81
+        }
+      }
+    },
+    {
       "norm_name": "TOM WESSELMANN",
       "display_name": "Tom Wesselmann",
       "dates": "",
@@ -13457,7 +13592,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 7,
         "total_usd": 1800000,
         "avg_usd": 1800000,
         "total_label": "$1.80M",
@@ -13528,6 +13663,87 @@
       }
     },
     {
+      "norm_name": "YUE MINJUN",
+      "display_name": "Yue Minjun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1700000,
+        "avg_usd": 1700000,
+        "total_label": "$1.70M",
+        "avg_label": "$1.70M",
+        "top_lot": {
+          "title": "Three Beauties 三美圖",
+          "hammer_usd": 1700000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Three Beauties 三美圖",
+          "ratio": 1.21
+        }
+      }
+    },
+    {
+      "norm_name": "RAGHAV BABBAR",
+      "display_name": "Raghav Babbar",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1700000,
+        "avg_usd": 1700000,
+        "total_label": "$1.70M",
+        "avg_label": "$1.70M",
+        "top_lot": {
+          "title": "Listener 聆聽者",
+          "hammer_usd": 1700000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Listener 聆聽者",
+          "ratio": 6.8
+        }
+      }
+    },
+    {
+      "norm_name": "JACQUES LIPCHITZ",
+      "display_name": "Jacques Lipchitz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1650000,
+        "avg_usd": 825000,
+        "total_label": "$1.65M",
+        "avg_label": "$825k",
+        "top_lot": {
+          "title": "Marin à la guitare",
+          "hammer_usd": 1450000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Marin à la guitare",
+          "ratio": 1.16
+        }
+      }
+    },
+    {
       "norm_name": "EDVARD MUNCH",
       "display_name": "Edvard Munch",
       "dates": "",
@@ -13538,7 +13754,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 3,
         "total_usd": 1600000,
         "avg_usd": 1600000,
         "total_label": "$1.60M",
@@ -13609,33 +13825,6 @@
       }
     },
     {
-      "norm_name": "LEONORA CARRINGTON",
-      "display_name": "Leonora Carrington",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 1500000,
-        "avg_usd": 500000,
-        "total_label": "$1.50M",
-        "avg_label": "$500k",
-        "top_lot": {
-          "title": "La naguala",
-          "hammer_usd": 750000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Sin título",
-          "ratio": 5.0
-        }
-      }
-    },
-    {
       "norm_name": "FAITH RINGGOLD",
       "display_name": "Faith Ringgold",
       "dates": "",
@@ -13659,6 +13848,33 @@
         "top_ratio_lot": {
           "title": "Dinner at Gertrude Stein's: The French Collection Part II, #",
           "ratio": 1.53
+        }
+      }
+    },
+    {
+      "norm_name": "CAMILLE PISSARRO",
+      "display_name": "Camille Pissarro",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 1450000,
+        "avg_usd": 725000,
+        "total_label": "$1.45M",
+        "avg_label": "$725k",
+        "top_lot": {
+          "title": "Cour de ferme à Eragny",
+          "hammer_usd": 750000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "La Batterie à Montfoucault",
+          "ratio": 0.82
         }
       }
     },
@@ -13825,6 +14041,33 @@
       }
     },
     {
+      "norm_name": "HENRI  LE SIDANER",
+      "display_name": "Henri  Le Sidaner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1200000,
+        "avg_usd": 1200000,
+        "total_label": "$1.20M",
+        "avg_label": "$1.20M",
+        "top_lot": {
+          "title": "La Table sous la tonnelle",
+          "hammer_usd": 1200000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "La Table sous la tonnelle",
+          "ratio": 0.96
+        }
+      }
+    },
+    {
       "norm_name": "OLGA DE AMARAL",
       "display_name": "Olga De Amaral",
       "dates": "",
@@ -13879,6 +14122,33 @@
       }
     },
     {
+      "norm_name": "GIORGIO MORANDI",
+      "display_name": "Giorgio Morandi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 950000,
+        "avg_usd": 950000,
+        "total_label": "$950k",
+        "avg_label": "$950k",
+        "top_lot": {
+          "title": "Natura morta",
+          "hammer_usd": 950000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Natura morta",
+          "ratio": 0.95
+        }
+      }
+    },
+    {
       "norm_name": "MORRIS LOUIS",
       "display_name": "Morris Louis",
       "dates": "",
@@ -13928,6 +14198,33 @@
         },
         "top_ratio_lot": {
           "title": "Issu du Feu (From Fire) (Two Works) 從火（兩幅作品）",
+          "ratio": 0.9
+        }
+      }
+    },
+    {
+      "norm_name": "CHILDE HASSAM",
+      "display_name": "Childe Hassam",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 900000,
+        "avg_usd": 900000,
+        "total_label": "$900k",
+        "avg_label": "$900k",
+        "top_lot": {
+          "title": "View of Broadway and Fifth Avenue",
+          "hammer_usd": 900000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "View of Broadway and Fifth Avenue",
           "ratio": 0.9
         }
       }
@@ -14014,8 +14311,8 @@
       }
     },
     {
-      "norm_name": "CAMILLE PISSARRO",
-      "display_name": "Camille Pissarro",
+      "norm_name": "TOMOO GOKITA",
+      "display_name": "Tomoo Gokita",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -14024,19 +14321,46 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 1,
         "total_usd": 750000,
         "avg_usd": 750000,
         "total_label": "$750k",
         "avg_label": "$750k",
         "top_lot": {
-          "title": "Cour de ferme à Eragny",
+          "title": "Hello Stranger 你好陌生人",
           "hammer_usd": 750000,
-          "sale_name": "Modern Evening Auction, NY 2025"
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Cour de ferme à Eragny",
+          "title": "Hello Stranger 你好陌生人",
           "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "SOPHIE TAEUBER-ARP",
+      "display_name": "Sophie Taeuber-Arp",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 750000,
+        "avg_usd": 750000,
+        "total_label": "$750k",
+        "avg_label": "$750k",
+        "top_lot": {
+          "title": "Relief rectangulaire, cercles découpés, carrés peints et déc",
+          "hammer_usd": 750000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Relief rectangulaire, cercles découpés, carrés peints et déc",
+          "ratio": 1.25
         }
       }
     },
@@ -14064,6 +14388,33 @@
         "top_ratio_lot": {
           "title": "Untitled (VSP0025) 無題（VSP0025）",
           "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "MAYUKA YAMAMOTO",
+      "display_name": "Mayuka Yamamoto",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 700000,
+        "avg_usd": 700000,
+        "total_label": "$700k",
+        "avg_label": "$700k",
+        "top_lot": {
+          "title": "Kitty Boy 吉蒂男孩",
+          "hammer_usd": 700000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Kitty Boy 吉蒂男孩",
+          "ratio": 1.47
         }
       }
     },
@@ -14149,6 +14500,60 @@
       }
     },
     {
+      "norm_name": "DANIELLE ORCHARD",
+      "display_name": "Danielle Orchard",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 650000,
+        "avg_usd": 650000,
+        "total_label": "$650k",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": "The Pool in Palm Springs 棕櫚泉的泳池",
+          "hammer_usd": 650000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "The Pool in Palm Springs 棕櫚泉的泳池",
+          "ratio": 1.18
+        }
+      }
+    },
+    {
+      "norm_name": "NORMAN LEWIS",
+      "display_name": "Norman Lewis",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 650000,
+        "avg_usd": 650000,
+        "total_label": "$650k",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": "White on Beige",
+          "hammer_usd": 650000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "White on Beige",
+          "ratio": 0.76
+        }
+      }
+    },
+    {
       "norm_name": "SUN YITIAN",
       "display_name": "Sun Yitian",
       "dates": "",
@@ -14213,7 +14618,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 5,
         "total_usd": 545000,
         "avg_usd": 181667,
         "total_label": "$545k",
@@ -14365,6 +14770,33 @@
       }
     },
     {
+      "norm_name": "LEONOR FINI",
+      "display_name": "Leonor Fini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 400000,
+        "avg_usd": 400000,
+        "total_label": "$400k",
+        "avg_label": "$400k",
+        "top_lot": {
+          "title": "Le Train",
+          "hammer_usd": 400000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Le Train",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "BRICE MARDEN",
       "display_name": "Brice Marden",
       "dates": "",
@@ -14388,6 +14820,33 @@
         "top_ratio_lot": {
           "title": "Adriatic Study",
           "ratio": 0.97
+        }
+      }
+    },
+    {
+      "norm_name": "HARLAND MILLER",
+      "display_name": "Harland Miller",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 380000,
+        "avg_usd": 380000,
+        "total_label": "$380k",
+        "avg_label": "$380k",
+        "top_lot": {
+          "title": "In Shadows I Boogie  我在影子中跳舞",
+          "hammer_usd": 380000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "In Shadows I Boogie  我在影子中跳舞",
+          "ratio": 0.76
         }
       }
     },
@@ -14442,6 +14901,33 @@
         "top_ratio_lot": {
           "title": "Ship of Fools XII 愚人船 XII",
           "ratio": 1.07
+        }
+      }
+    },
+    {
+      "norm_name": "ZHANG YINGNAN",
+      "display_name": "Zhang Yingnan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 320000,
+        "avg_usd": 320000,
+        "total_label": "$320k",
+        "avg_label": "$320k",
+        "top_lot": {
+          "title": "River 河流",
+          "hammer_usd": 320000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "River 河流",
+          "ratio": 0.93
         }
       }
     },
@@ -14564,7 +15050,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 280000,
         "avg_usd": 280000,
         "total_label": "$280k",
@@ -14672,7 +15158,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 280000,
         "avg_usd": 280000,
         "total_label": "$280k",
@@ -14689,6 +15175,60 @@
       }
     },
     {
+      "norm_name": "ANNA PARK",
+      "display_name": "Anna Park",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "BBQ 燒烤",
+          "hammer_usd": 280000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "BBQ 燒烤",
+          "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "YANG HYUN JUN",
+      "display_name": "Yang Hyun Jun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 260000,
+        "avg_usd": 260000,
+        "total_label": "$260k",
+        "avg_label": "$260k",
+        "top_lot": {
+          "title": "Adult Child (Daft Punk I) 大孩子（DAFT PUNK I）",
+          "hammer_usd": 260000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Adult Child (Daft Punk I) 大孩子（DAFT PUNK I）",
+          "ratio": 2.26
+        }
+      }
+    },
+    {
       "norm_name": "ALEXANDER ARCHIPENKO",
       "display_name": "Alexander Archipenko",
       "dates": "",
@@ -14699,7 +15239,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 4,
         "total_usd": 250000,
         "avg_usd": 250000,
         "total_label": "$250k",
@@ -14770,6 +15310,60 @@
       }
     },
     {
+      "norm_name": "BLAIR WHITEFORD",
+      "display_name": "Blair Whiteford",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 220000,
+        "avg_usd": 220000,
+        "total_label": "$220k",
+        "avg_label": "$220k",
+        "top_lot": {
+          "title": "Blossom Flowers on the Ocean of Ash 灰洋中綻放的花朵",
+          "hammer_usd": 220000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Blossom Flowers on the Ocean of Ash 灰洋中綻放的花朵",
+          "ratio": 1.1
+        }
+      }
+    },
+    {
+      "norm_name": "SONG KUN",
+      "display_name": "Song Kun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 220000,
+        "avg_usd": 220000,
+        "total_label": "$220k",
+        "avg_label": "$220k",
+        "top_lot": {
+          "title": "The Body in Bondage No. 3 被束縛的身體 NO. 3",
+          "hammer_usd": 220000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "The Body in Bondage No. 3 被束縛的身體 NO. 3",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "GUSTAV KLIMT",
       "display_name": "Gustav Klimt",
       "dates": "",
@@ -14797,8 +15391,8 @@
       }
     },
     {
-      "norm_name": "JACQUES LIPCHITZ",
-      "display_name": "Jacques Lipchitz",
+      "norm_name": "KATHERINE BERNHARDT",
+      "display_name": "Katherine Bernhardt",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -14813,13 +15407,13 @@
         "total_label": "$200k",
         "avg_label": "$200k",
         "top_lot": {
-          "title": "Sculpture",
+          "title": "Untitled 無題",
           "hammer_usd": 200000,
-          "sale_name": "Modern Day Auction, NY 2026"
+          "sale_name": "Contemporary Day Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Sculpture",
-          "ratio": 0.67
+          "title": "Untitled 無題",
+          "ratio": 1.14
         }
       }
     },
@@ -15013,6 +15607,33 @@
       }
     },
     {
+      "norm_name": "JORDI RIBES",
+      "display_name": "Jordi Ribes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 130000,
+        "avg_usd": 130000,
+        "total_label": "$130k",
+        "avg_label": "$130k",
+        "top_lot": {
+          "title": "The Guide  嚮導",
+          "hammer_usd": 130000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "The Guide  嚮導",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
       "norm_name": "EMMI WHITEHORSE",
       "display_name": "Emmi Whitehorse",
       "dates": "",
@@ -15040,6 +15661,33 @@
       }
     },
     {
+      "norm_name": "JAMIAN JULIANO-VILLANI",
+      "display_name": "Jamian Juliano-Villani",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 120000,
+        "avg_usd": 120000,
+        "total_label": "$120k",
+        "avg_label": "$120k",
+        "top_lot": {
+          "title": "West End Girls 西區女孩",
+          "hammer_usd": 120000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "West End Girls 西區女孩",
+          "ratio": 0.17
+        }
+      }
+    },
+    {
       "norm_name": "BEAUFORD DELANEY",
       "display_name": "Beauford Delaney",
       "dates": "",
@@ -15063,6 +15711,33 @@
         "top_ratio_lot": {
           "title": "Anita Berliawsky Weinstein",
           "ratio": 0.63
+        }
+      }
+    },
+    {
+      "norm_name": "LIU JIANHUA",
+      "display_name": "Liu Jianhua",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 110000,
+        "avg_usd": 110000,
+        "total_label": "$110k",
+        "avg_label": "$110k",
+        "top_lot": {
+          "title": "Untitled (Colored Sculpture - Merriment series) 無題（彩塑－嬉戲系列）",
+          "hammer_usd": 110000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Colored Sculpture - Merriment series) 無題（彩塑－嬉戲系列）",
+          "ratio": 0.73
         }
       }
     },
@@ -15437,29 +16112,6 @@
       }
     },
     {
-      "norm_name": "LEONOR FINI",
-      "display_name": "Leonor Fini",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 0,
-        "avg_usd": 0,
-        "total_label": "$0",
-        "avg_label": "$0",
-        "top_lot": {
-          "title": "Portrait d'Italo Svevo",
-          "hammer_usd": 0,
-          "sale_name": "Arte Moderna e contemporanea"
-        }
-      }
-    },
-    {
       "norm_name": "MARIO SIRONI",
       "display_name": "Mario Sironi",
       "dates": "",
@@ -15592,29 +16244,6 @@
         "avg_label": "$0",
         "top_lot": {
           "title": "Untitled (Incuneandosi nell'abitato)",
-          "hammer_usd": 0,
-          "sale_name": "Arte Moderna e contemporanea"
-        }
-      }
-    },
-    {
-      "norm_name": "GIORGIO MORANDI",
-      "display_name": "Giorgio Morandi",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 0,
-        "avg_usd": 0,
-        "total_label": "$0",
-        "avg_label": "$0",
-        "top_lot": {
-          "title": "Natura morta",
           "hammer_usd": 0,
           "sale_name": "Arte Moderna e contemporanea"
         }
@@ -16114,7 +16743,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -16850,7 +17479,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17241,7 +17870,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17287,7 +17916,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17678,7 +18307,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17839,7 +18468,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 4,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -20323,7 +20952,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -20484,7 +21113,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -20576,7 +21205,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 4,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -20898,7 +21527,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21036,7 +21665,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21473,7 +22102,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 4,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21519,7 +22148,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 5,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21864,7 +22493,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 6,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21956,7 +22585,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -22071,7 +22700,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -22117,7 +22746,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 4,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -22816,6 +23445,1892 @@
           "title": "Quadrature diamant",
           "hammer_usd": 0,
           "sale_name": "Art Contemporain de 1950 à nos jours"
+        }
+      }
+    },
+    {
+      "norm_name": "EWALD MATARÉ",
+      "display_name": "Ewald Mataré",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Stehende Kuh ‚Windkuh‘“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "PAULA MODERSOHN-BECKER",
+      "display_name": "Paula Modersohn-Becker",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Brustbild Elsbeth mit Margeriten im Haar“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "WILHELM LEHMBRUCK",
+      "display_name": "Wilhelm Lehmbruck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Büste der Großen Sinnenden“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "HELMAR LERSKI",
+      "display_name": "Helmar Lerski",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Verwandlungen durch Licht. Tel-Aviv  (1935/36)",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "OSKAR SCHLEMMER",
+      "display_name": "Oskar Schlemmer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Szene am Tisch II“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "EDUARD GÄRTNER",
+      "display_name": "Eduard Gärtner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Das Joachimsthalsche Gymnasium an der Burgstraße“ (Berlin)",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "MAX BECKMANN",
+      "display_name": "Max Beckmann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Springbrunnen in Baden-Baden“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "EDOUARD MAGNUS",
+      "display_name": "Edouard Magnus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Porträt des 28-jährigen Adolph Menzel",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLY JAECKEL",
+      "display_name": "Willy Jaeckel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Bildnis Charlotte Jaeckel“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM NELSON COPLEY",
+      "display_name": "William Nelson Copley",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„The Kids No Trooper“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "SHALOM SIEGFRIED SEBBA",
+      "display_name": "Shalom Siegfried Sebba",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Selbstporträt mit Bierglas",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "CINDY SHERMAN",
+      "display_name": "Cindy Sherman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled #415",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "KONRAD KLAPHECK",
+      "display_name": "Konrad Klapheck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Doppelhochzeit“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "GERHARD ALTENBOURG",
+      "display_name": "Gerhard Altenbourg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Garten an der Spinnbahn“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "NEO RAUCH",
+      "display_name": "Neo Rauch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Die Leiter",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "KATHARINA FRITSCH",
+      "display_name": "Katharina Fritsch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Doktor“  (1997/99)",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "EUGEN SCHÖNEBECK",
+      "display_name": "Eugen Schönebeck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Figur mit Vogel I“  (1963/64)",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "HANS UHLMANN",
+      "display_name": "Hans Uhlmann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Arbeitsmodell zur Plastik vor der Deutschen Oper in Berlin  ",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "MAX KLINGER",
+      "display_name": "Max Klinger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Brustbild einer jungen Frau",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "VICTOR SERVRANCKX",
+      "display_name": "Victor Servranckx",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "„Opus 5 (‘Les Croisades’ or ‘Poème épique’)“",
+          "hammer_usd": 0,
+          "sale_name": "Selected Works"
+        }
+      }
+    },
+    {
+      "norm_name": "VICTOR BRAUNER",
+      "display_name": "Victor Brauner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Surrealist Figure with Bird and Snake",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "VLADIMIR DAVIDOVIC BARANOV-ROSSINÉ",
+      "display_name": "Vladimir Davidovic Baranov-Rossiné",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Reclining Figure\"",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO PAUL GAUGUIN",
+      "display_name": "Attributed To Paul Gauguin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Etude Feminine",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "IVAN VASILIEVITCH KLIUN",
+      "display_name": "Ivan Vasilievitch Kliun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Composition with Geometric Forms",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "SALVADOR DALI",
+      "display_name": "Salvador Dali",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Surrealist Figure",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN POUGNY",
+      "display_name": "Jean Pougny",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Cubist Composition",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "NATHALIE GONTCHAROVA",
+      "display_name": "Nathalie Gontcharova",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 9,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Espagnole a la Mantille",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "IL'IA EFIMOVICH REPIN",
+      "display_name": "Il'Ia Efimovich Repin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "“Rustem and Sohrab”",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "SIGALIT LANDAU",
+      "display_name": "Sigalit Landau",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Salt Bride III",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "MARIE LAURENCIN",
+      "display_name": "Marie Laurencin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Vase de Fleurs",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "BALTHUS",
+      "display_name": "Balthus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Reclining Female Figure Reading",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANCISCO JOSÉ DE GOYA Y LUCIENTES",
+      "display_name": "Francisco José De Goya Y Lucientes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Abuso comun from the series Los Caprichos",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "HANS BALDUNG",
+      "display_name": "Hans Baldung",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait of an Elderly Man in a Cap",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "MOÏSE KISLING",
+      "display_name": "Moïse Kisling",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "\"Still Life with Flowers\"",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD BILAN",
+      "display_name": "Richard Bilan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Figures on a Bench",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "LALO HAGIT",
+      "display_name": "Lalo Hagit",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Abstract Composition",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "SAYED HAIDER RAZA",
+      "display_name": "Sayed Haider Raza",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "“Naga”",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO REMBRANDT VAN RIJN",
+      "display_name": "Attributed To Rembrandt Van Rijn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Study of Three Figures",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "JOZEF ISRAELS",
+      "display_name": "Jozef Israels",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "19th century",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "KASIMIR SEVRINOVITCH MALEVICH",
+      "display_name": "Kasimir Sevrinovitch Malevich",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Cubo-Futurist Figure",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXANDER RODCHENKO",
+      "display_name": "Alexander Rodchenko",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Suprematist Construction",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXANDRA EXTER",
+      "display_name": "Alexandra Exter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Vase of Flowers",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES WILSON MORRICE",
+      "display_name": "James Wilson Morrice",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "La Coupole",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "OSSIP ZADKINE",
+      "display_name": "Ossip Zadkine",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "“Femme”",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "EUGÈNE DELACROIX",
+      "display_name": "Eugène Delacroix",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Horseman in Battle",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "MARY CASSATT",
+      "display_name": "Mary Cassatt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait of a Young Girl",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO PAUL KLEE",
+      "display_name": "Attributed To Paul Klee",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Abstract Composition",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO LUCIO FONTANA",
+      "display_name": "Attributed To Lucio Fontana",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Concetto Spaziale, Attesa",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO EDGAR DEGAS",
+      "display_name": "Attributed To Edgar Degas",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Studies of Horses",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "DIEGO RIVERA",
+      "display_name": "Diego Rivera",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait of a Young Girl",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "NIKOLAI MIKHAYLOVICH SUETIN",
+      "display_name": "Nikolai Mikhaylovich Suetin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Suprematist Composition",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ARISTARKH VASILIEVIC LENTULOV",
+      "display_name": "Aristarkh Vasilievic Lentulov",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Church Domes",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "SERGEI YUR'EVICH SUDEIKIN",
+      "display_name": "Sergei Yur'Evich Sudeikin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Theatrical Costume Design",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "AVRAHAM NATON",
+      "display_name": "Avraham Naton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Musicians Composition",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "TSUGUHARU FOUJITA",
+      "display_name": "Tsuguharu Foujita",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Girl with a Kitten",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "TAMARA DE LEMPICKA",
+      "display_name": "Tamara De Lempicka",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Reclining Female Figure",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "MARCEL JANCO",
+      "display_name": "Marcel Janco",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Seated Figure with Pipe",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ANDRÉ LHOTE",
+      "display_name": "André Lhote",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Cubist Female Figure",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO CAMILLE PISSARRO",
+      "display_name": "Attributed To Camille Pissarro",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Harvesters in a Field",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ANTOINE VOLLON",
+      "display_name": "Antoine Vollon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Still Life with Silver Tureen",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ANTOINE LOUIS BARYE",
+      "display_name": "Antoine Louis Barye",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Lions",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "LÉON VICTOR DUPRÉ",
+      "display_name": "Léon Victor Dupré",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "River Landscape at Dusk",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "CAMILLE JEAN-BAPTISTE COROT",
+      "display_name": "Camille Jean-Baptiste Corot",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Woodland Stream",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO SALVADOR DALI",
+      "display_name": "Attributed To Salvador Dali",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Surrealist Composition with Biomorphic Forms",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO JEAN AUGUSTE DOMINIQUE INGRES",
+      "display_name": "Attributed To Jean Auguste Dominique Ingres",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Profile Study",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO MARIE LAURENCIN",
+      "display_name": "Attributed To Marie Laurencin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Two Female Figures",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO HENRI MATISSE",
+      "display_name": "Attributed To Henri Matisse",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Reclining Female Figure",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO PETER PAUL RUBENS",
+      "display_name": "Attributed To Peter Paul Rubens",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Mother and Child",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO HENRI DE TOULOUSE-LAUTREC",
+      "display_name": "Attributed To Henri De Toulouse-Lautrec",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Standing Woman",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO VINCENT VAN GOGH",
+      "display_name": "Attributed To Vincent Van Gogh",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Warrior in a Helmet",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO FRANCIS BACON",
+      "display_name": "Attributed To Francis Bacon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Seated Figure in Interior",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO KEES VAN DONGEN",
+      "display_name": "Attributed To Kees Van Dongen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Cafe Scene",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO GIOVANNI BOLDINI",
+      "display_name": "Attributed To Giovanni Boldini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Standing Gentleman",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "KEES VAN DONGEN",
+      "display_name": "Kees Van Dongen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait of a Young Woman",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "FÉLIX VALLOTTON",
+      "display_name": "Félix Vallotton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Reclining Woman in Bed",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO GEORGES-LOUIS LECLERC DE BUFFON",
+      "display_name": "Attributed To Georges-Louis Leclerc De Buffon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Study of a Barbary Macaque",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ADRIAEN VAN OSTADE",
+      "display_name": "Adriaen Van Ostade",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Peasant Couple in an Interior",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO EUGÈNE DELACROIX",
+      "display_name": "Attributed To Eugène Delacroix",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Lion Study",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "NICOLAJ DMITRIEVIC KUZNECOV",
+      "display_name": "Nicolaj Dmitrievic Kuznecov",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Study of a Woman’s Head",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "JULIO GONZALEZ",
+      "display_name": "Julio Gonzalez",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Abstract Constructivist Figure",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO GUSTAV KLIMT",
+      "display_name": "Attributed To Gustav Klimt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Standing Woman in Patterned Dress",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "PIERRE ALECHINSKY",
+      "display_name": "Pierre Alechinsky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait de Femme",
+          "hammer_usd": 0,
+          "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
         }
       }
     }
