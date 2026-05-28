@@ -110,28 +110,28 @@ Rules:
 
 --- INSTAGRAM ---
 Format (4 short paragraphs, each 1–2 lines):
-0. {artist} - "{title}" selling for {hammer} at {house}. 
-1. Hook: one punchy line using the angle — lead with the insight, not the price.
-2. The work: one sentence naming {artist} and "{title}" with context about why this result matters.
-3. Art history: one sentence about {artist} — who they are, what movement or period they belong to, why their work is significant. specific, not generic.
-4. Data source: "data source: {house}"
+- {artist} - "{title}" selling for {hammer} at {house}. 
+- Hook: one punchy line using the angle — lead with the insight, not the price.
+- The work: one sentence naming {artist} and "{title}" with context about why this result matters.
+- Art history: one sentence about {artist} — who they are, what movement or period they belong to, why their work is significant. specific, not generic.
+- Data source: "data source: {house}"
 
 --- TIKTOK ---
 Format (2 lines max):
-0. {artist} - "{title}" selling for {hammer} at {house}. 
-1. Same hook line as Instagram.
-2. One follow-up line — the so-what.
-3. "📍 {house}"
+- {artist} - "{title}" selling for {hammer} at {house}. 
+- Same hook line as Instagram.
+- One follow-up line — the so-what.
+ "📍 {house}"
 
 --- LINKEDIN ---
 Professional but conversational. No emojis.
 Format (3–4 short paragraphs):
-0. {artist} - "{title}" selling for {hammer} at {house}. 
-1. Opening hook — one punchy sentence: what the gap between estimate and hammer reveals.
-2. Context — one sentence about {artist} and why this result matters to collectors or the market.
-3. Market signal — what does a result like this tell us about demand or pricing?
-4. Closing — a question or observation that invites professional discussion.
-5. Data source: "data source: {house}"
+- {artist} - "{title}" selling for {hammer} at {house}. 
+- Opening hook — one punchy sentence: what the gap between estimate and hammer reveals.
+- Context — one sentence about {artist} and why this result matters to collectors or the market.
+- Market signal — what does a result like this tell us about demand or pricing?
+- Closing — a question or observation that invites professional discussion.
+- Data source: "data source: {house}"
 
 Rules: all lowercase except proper nouns. Do NOT repeat the full estimate/hammer — reference the gap or the % instead. Under 200 words.
 
@@ -180,10 +180,10 @@ Lot:
 
 Write a LinkedIn post (3–4 short paragraphs):
 Start with {artist} - "{title}" selling for {hammer} at {house}. Then cover:
-1. Opening hook — one punchy sentence, lead with the insight (what the gap between estimate and hammer reveals).
-2. Context — one sentence about {artist} and why this result matters to collectors or the market.
-3. The market signal — one sentence: what does a result like this tell us about demand, pricing, or where the market is going?
-4. Closing line — a question or observation that invites professional discussion.
+- Opening hook — one punchy sentence, lead with the insight (what the gap between estimate and hammer reveals).
+- Context — one sentence about {artist} and why this result matters to collectors or the market.
+- The market signal — one sentence: what does a result like this tell us about demand, pricing, or where the market is going?
+- Closing line — a question or observation that invites professional discussion.
 
 Rules:
 - All lowercase except proper nouns
@@ -303,8 +303,8 @@ Auction result:
 {_lot_context(lot)}
 
 Write:
-1. TITLE: one punchy headline (~8 words). Not clickbait. Factual but intriguing. Can use a colon. Should name the artist or work.
-2. SUBTITLE: one sentence (~20 words). Sets up the question this post will answer — what does this result tell us about the market, the artist, or the collector?
+TITLE: one punchy headline (~8 words). Not clickbait. Factual but intriguing. Can use a colon. Should name the artist or work.
+SUBTITLE: one sentence (~20 words). Sets up the question this post will answer — what does this result tell us about the market, the artist, or the collector?
 
 Rules: sentence case (not title case). No quotes around the title. No emojis.
 
