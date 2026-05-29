@@ -14,7 +14,9 @@ Usage (run from alexsnowschool-business/):
 import argparse
 import json
 import os
+import random
 import re
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -28,6 +30,7 @@ from dotenv import load_dotenv
 # ── Paths ──────────────────────────────────────────────────────────────────────
 SCRIPT_DIR    = Path(__file__).resolve().parent
 BUSINESS_DIR  = SCRIPT_DIR.parent
+sys.path.insert(0, str(SCRIPT_DIR))
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
 DB_PATH       = BUSINESS_DIR / "data" / "art.db"
@@ -59,11 +62,10 @@ def _fmt_price_tts(usd: float) -> str:
 
 def _prices_to_speech(text: str) -> str:
     """Replace $X,XXX-style price tokens in arbitrary text with their spoken form."""
-    import re as _re
-    def _sub(m: "_re.Match") -> str:
+    def _sub(m: re.Match) -> str:
         digits = m.group(1).replace(",", "")
         return _fmt_price_tts(float(digits))
-    return _re.sub(r"\$([0-9][0-9,]*)", _sub, text)
+    return re.sub(r"\$([0-9][0-9,]*)", _sub, text)
 
 
 def _pct_above(hammer: float, low: float) -> float:
@@ -441,8 +443,7 @@ def _get_audio_duration(path: str) -> float:
     if r.returncode != 0:
         return 0.0
     try:
-        import json as _json
-        for s in _json.loads(r.stdout).get("streams", []):
+        for s in json.loads(r.stdout).get("streams", []):
             if s.get("duration"):
                 return float(s["duration"])
     except Exception:
@@ -526,7 +527,6 @@ def _split_phrases(text: str) -> list[str]:
 
 def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
     """Return (question, answer) — randomly selected from per-tier variants."""
-    import random
     mult     = round(pct / 100 + 1, 1)
     artist   = _clean_artist(lot.get("artist") or "Unknown")
     title    = (lot.get("title") or "Untitled")[:40]
@@ -578,7 +578,7 @@ def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
     return pct * 0.4 + (has_images * 30) + (is_known * 20)
 
 
-_MAX_REEL_SECONDS = 20.0
+_MAX_REEL_SECONDS = 65.0
 _FRAME_FADE_S     = 0.1
 
 
@@ -671,6 +671,7 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
                            appreciation_duration: float = 0.0,
                            data_tts_duration: float = 0.0,
                            intro_duration: float = 0.0,
+                           cta_duration: float = 0.0,
                            template_answer: str | None = None,
                            n_act2_images: int = 1,
                            appreciation_text: str = "") -> list[dict]:
@@ -706,8 +707,8 @@ def _build_reveal_sequence(lot: dict, tag_base: str, ai_answer: str | None = Non
             "hold_seconds":  hold,
         }
 
-    act1_hold = max(4.0, round(intro_duration + 0.6, 1)) if intro_duration > 0 else 4.0
-    act3_hold = max(6.0, round(data_tts_duration + 2.5, 1)) if data_tts_duration > 0 else 6.0
+    act1_hold = max(8.0, round(intro_duration + 0.6, 1)) if intro_duration > 0 else 8.0
+    act3_hold = max(10.0, round(data_tts_duration + cta_duration + 3.0, 1)) if (data_tts_duration > 0 or cta_duration > 0) else 10.0
 
     # Each Act II crop holds long enough that the appreciation VO finishes before
     # the last crop ends; minimum 0.3s so fast montages stay watchable.
@@ -819,7 +820,7 @@ def _generate_config(hook: dict, week_label: str, all_time: bool, reveal: list[d
         "",
         "    \"caption_all_frames\": False,",
         "",
-        "    # ── Pacing — 6fps, ≤22s (initial frames trimmed to fit) ────",
+        "    # ── Pacing — 5fps, ≤65s (Act I trimmed to fit if needed) ────",
         "    \"fps\":          5,",
         "    \"hold_seconds\": 0.0,",
         "    \"fade_seconds\": 0.0,",
@@ -973,8 +974,6 @@ def main() -> None:
         print("✗ No suitable lots found in database.")
         sys.exit(1)
 
-    lots.sort(key=_score_lot, reverse=True)
-
     if args.lot_index >= len(lots):
         print(f"✗ --lot-index {args.lot_index} out of range (only {len(lots)} lots found)")
         sys.exit(1)
@@ -1006,11 +1005,9 @@ def main() -> None:
 
     # ── Download all images of the single hook lot ─────────────
     # Clear stale images from any previous run for this slug before downloading.
-    import shutil as _shutil_pre
     for _stale_dir in (reel_dir / "_src", images_dir):
         if _stale_dir.exists():
-            _shutil_pre.rmtree(_stale_dir)
-    del _shutil_pre
+            shutil.rmtree(_stale_dir)
     images_dir.mkdir(parents=True, exist_ok=True)  # recreate after rmtree
 
     print(f"\n▸ Downloading images for hook lot...")
@@ -1058,7 +1055,6 @@ def main() -> None:
     ai_hook_answer = None
     if os.getenv("OPENROUTER_API_KEY"):
         try:
-            sys.path.insert(0, str(SCRIPT_DIR))
             from ai_content import generate_hook_answer
             print("\n▸ Generating AI hook answer...")
             ai_hook_answer = generate_hook_answer(_lot_preview, _question)
@@ -1080,7 +1076,6 @@ def main() -> None:
     # All baked into voiceover.mp3 via silence-padding concat; audio_offset=0.
     print("\n▸ Generating voiceover tracks...")
     try:
-        sys.path.insert(0, str(SCRIPT_DIR))
         from ai_content import generate_voiceover, synthesize_gavel
     except Exception as e:
         print(f"  ⚠ Import error: {e}")
@@ -1091,6 +1086,9 @@ def main() -> None:
     _data_start       = None
     data_tts_duration = 0.0
     intro_duration    = 0.0
+    cta_duration      = 0.0
+    _ok_cta           = False
+    tts_cta_path      = ""
 
     if generate_voiceover and synthesize_gavel:
         sfx_gavel_path        = str(reel_dir / "sfx_gavel.mp3")
@@ -1103,8 +1101,8 @@ def main() -> None:
                       f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}")
 
         # Step 1 — Act II appreciation TTS (market context / significance of the work)
-        # Hard cap as safety net — AI prompt already targets 25 words.
-        _APPRECIATION_MAX_WORDS = 30
+        # Hard cap as safety net — AI prompt targets ~80 words for a 65s reel.
+        _APPRECIATION_MAX_WORDS = 90
         _raw_appr = ai_hook_answer or _tmpl_answer or ""
         _appr_words = _raw_appr.split()
         if len(_appr_words) > _APPRECIATION_MAX_WORDS:
@@ -1144,11 +1142,20 @@ def main() -> None:
         if _ok_intro:
             print(f"  ✓ Act I intro TTS: \"{_intro_script[:60]}\" ({intro_duration:.2f}s)")
 
+        # Step 3.5 — CTA TTS: fires at the tail of Act III
+        tts_cta_path = str(reel_dir / "tts_cta.mp3")
+        _cta_script = "Follow at the hammer price for weekly auction results."
+        _ok_cta, _ = generate_voiceover(_cta_script, tts_cta_path)
+        cta_duration = _get_audio_duration(tts_cta_path) if _ok_cta else 0.0
+        if _ok_cta:
+            print(f"  ✓ CTA TTS ({cta_duration:.1f}s): \"{_cta_script}\"")
+
         # Step 4 — build reveal with correct per-act durations (intro-aware)
         reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
                                         appreciation_duration=appreciation_duration,
                                         data_tts_duration=data_tts_duration,
                                         intro_duration=intro_duration,
+                                        cta_duration=cta_duration,
                                         template_answer=_tmpl_answer,
                                         n_act2_images=_n_act2,
                                         appreciation_text=_appreciation_text)
@@ -1190,28 +1197,36 @@ def main() -> None:
             _data_start = act3_start + (_gavel_dur + 0.2 if _ok_gavel else 0.0)
             frame_tracks.append((tts_data_path, _data_start))
 
+        if _ok_cta:
+            _cta_start = (
+                _data_start + data_tts_duration + 0.5
+                if _data_start is not None
+                else act3_start + 1.0
+            )
+            frame_tracks.append((tts_cta_path, _cta_start))
+            print(f"  ✓ CTA fires at t={_cta_start:.2f}s")
+
         # Step 8 — bake into voiceover.mp3 via silence-padding concat
         voiceover_ok = _build_sequential_voiceover(
             frame_tracks=frame_tracks,
             output_path=str(reel_dir / "voiceover.mp3"),
         )
         if not voiceover_ok:
-            import shutil as _shutil
             if os.path.exists(tts_appreciation_path):
-                _shutil.copy2(tts_appreciation_path, str(reel_dir / "voiceover.mp3"))
+                shutil.copy2(tts_appreciation_path, str(reel_dir / "voiceover.mp3"))
                 voiceover_ok = True
     else:
         # No TTS available — build reveal without audio timing
         reveal = _build_reveal_sequence(hook, tag_base, ai_answer=ai_hook_answer,
                                         appreciation_duration=0.0,
                                         data_tts_duration=0.0,
+                                        cta_duration=0.0,
                                         template_answer=_tmpl_answer,
                                         n_act2_images=_n_act2)
 
     # Save timing data for make_reel.py
     # audio_offset=0 because all tracks are baked into voiceover.mp3 at correct positions;
     # word_timings are 0-based from tts_appreciation.mp3 start (= Act II visual start).
-    import json as _json
     data_start    = _data_start
     data_duration = data_tts_duration
     intro_dur     = intro_duration
@@ -1222,11 +1237,10 @@ def main() -> None:
         "data_duration": data_duration,
         "intro_duration": intro_dur,
     }
-    (reel_dir / "voiceover_timing.json").write_text(_json.dumps(timing_data, indent=2))
+    (reel_dir / "voiceover_timing.json").write_text(json.dumps(timing_data, indent=2))
 
     # Combine all downloaded originals and generated crops into the images folder
     # and prefix every copied file sequentially so make_reel.py sees a numbered list.
-    import shutil
     src_dir = reel_dir / "_src"
     crops_dir = reel_dir / "_crops"
 
@@ -1273,9 +1287,8 @@ def main() -> None:
     print(f"  {len(src_images)} source image(s) + {n_crops_copied} crops copied → {n_images} images in {images_dir}")
 
     # Clean up _crops — no longer needed once images/ is populated
-    import shutil as _shutil
     if crops_dir.exists():
-        _shutil.rmtree(crops_dir)
+        shutil.rmtree(crops_dir)
         print(f"  ✓ Removed {crops_dir.name}/")
 
     # ── Write reel_config.py ───────────────────────────────────
@@ -1317,8 +1330,7 @@ def main() -> None:
             if os.getenv("OPENROUTER_API_KEY"):
                 print("\n▸ Generating AI captions via OpenRouter...")
                 try:
-                    sys.path.insert(0, str(SCRIPT_DIR))
-                    from ai_content import generate_captions, generate_art_history
+                    from ai_content import generate_captions
                     hammer   = hook["hammer_usd"]
                     est_low  = hook["estimate_low"]
                     est_high = hook.get("estimate_high") or est_low
@@ -1335,10 +1347,6 @@ def main() -> None:
                     }
                     captions = generate_captions(lot_data)
                     if captions:
-                        captions["instagram"] = captions["instagram"].replace(
-                                "\n\n#thehammerprice",
-                                f"\n\n#thehammerprice",
-                            )
                         _write_ai_captions(captions, reel_dir, lot_data)
                         ai_done = True
                         print("  ✓ AI captions saved")

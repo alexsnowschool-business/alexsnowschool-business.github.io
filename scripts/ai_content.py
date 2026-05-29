@@ -200,8 +200,8 @@ Reply with only the post text, nothing else."""
 
 def generate_hook_answer(lot: dict, question: str) -> str | None:
     """
-    Generate a 2–3 sentence art-history explanation for the reel hook answer.
-    Specific to the artist and work — replaces hardcoded _HOOK_TEMPLATES answers.
+    Generate a 4-sentence Act II voiceover: art description → art history → artist significance → market signal.
+    Targets ~80 words / ~35s of speech for a 65s reel.
     Returns plain lowercase text or None if API unavailable.
     """
     if not OPENROUTER_KEY:
@@ -215,28 +215,41 @@ def generate_hook_answer(lot: dict, question: str) -> str | None:
     pct    = lot.get("pct_above", 0)
 
     system = (
-        "You write short art criticism that ends with a market observation. "
-        "Structure: what the work IS → why it matters art-historically"
-        "The art is the protagonist. "
-        "use easy to understand language but be specific — name a movement, a period, a key influence or context. "
-        "No fluff."
+        "You write Act II voiceovers for short-form art auction videos. "
+        "Tone: informed, editorial, unhurried — like a knowledgeable friend explaining a painting, not a lecture. "
+        "Lowercase throughout. No emojis. No filler adjectives like 'stunning' or 'remarkable'. "
+        "Be specific: name movements, decades, contemporaries, or institutional moments. "
+        "The viewer has just seen the painting for the first time and knows nothing about it yet."
     )
 
-    prompt = f"""Write the Act II voiceover for an Instagram reel about this auction lot.
+    prompt = f"""Write the Act II voiceover for an Instagram reel about this auction result.
 
 Lot:
 - Artist: {artist}
 - Work: "{title}"
 - Estimate: {est}  |  Hammer: {hammer}  ({pct:.0f}% above estimate)
 
-only with 1 sentence, 25 words max. The viewer has just seen the painting for 3 seconds and knows nothing yet.
-Sentence 1: what the work IS and why it matters art-historically. use easy to understand language but be specific — name a movement, a period, a key influence or context. make the art the star.
+Write exactly 4 sentences, each doing one job:
 
+Sentence 1 — THE WORK: describe what the painting looks like and what it depicts. Be visual and specific. No art jargon yet.
 
-Reply with only the voiceover text. No more than 25 words."""
+Sentence 2 — ART HISTORY: place the work in its movement, period, and context. Name the movement or school, the decade it belongs to, and one key influence or contemporaneous force that shaped it.
+
+Sentence 3 — ARTIST SIGNIFICANCE: say one concrete, specific thing that explains why {artist} matters — a major institutional moment, a critical turning point, a generation they defined, or a collector category they anchored.
+
+Sentence 4 — MARKET SIGNAL: connect the art history to the auction result. Why did the room value this above what the specialists predicted? Ground it in the work itself, not just the numbers.
+
+Rules:
+- 70–90 words total across all 4 sentences
+- All lowercase
+- No bullet points — write as flowing prose (4 sentences, paragraph style)
+- Do NOT use the words "stunning", "remarkable", "incredible", "masterpiece"
+- Do NOT repeat the estimate or hammer price — the video shows the numbers separately
+
+Reply with only the 4-sentence voiceover text. Nothing else."""
 
     raw = _call([{"role": "system", "content": system},
-                 {"role": "user",   "content": prompt}], max_tokens=60)
+                 {"role": "user",   "content": prompt}], max_tokens=300)
     return raw.strip() if raw else None
 
 
