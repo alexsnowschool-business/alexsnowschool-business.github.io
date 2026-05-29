@@ -36,7 +36,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python dependencies
-        run: pip install pillow httpx python-dotenv elevenlabs playwright
+        run: pip install pillow httpx python-dotenv elevenlabs playwright edge-tts
 
       - name: Install ffmpeg + Playwright browser
         run: |

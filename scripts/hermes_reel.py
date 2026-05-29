@@ -621,38 +621,59 @@ Speak directly to the viewer. Short sentences. No filler phrases. Output only th
         return None
 
 
-# ── Voiceover: ElevenLabs TTS ─────────────────────────────────────────────────
+# ── Voiceover: ElevenLabs TTS (with Edge TTS fallback) ────────────────────────
+
+EDGE_TTS_VOICE = os.getenv("EDGE_TTS_VOICE", "en-US-AriaNeural")
+
+
+def _synthesise_via_edge_tts(text: str, output_path: Path) -> bool:
+    """Free fallback TTS via Microsoft Edge TTS (no API key required)."""
+    try:
+        import asyncio
+        import edge_tts
+
+        async def _run():
+            communicate = edge_tts.Communicate(text, EDGE_TTS_VOICE)
+            await communicate.save(str(output_path))
+
+        asyncio.run(_run())
+        print(f"  ✓ Edge TTS (voice={EDGE_TTS_VOICE}) → {output_path.name}")
+        return True
+    except ImportError:
+        print("  ✗ edge-tts not installed (pip install edge-tts)")
+        return False
+    except Exception as e:
+        print(f"  ✗ Edge TTS error: {e}")
+        return False
+
 
 def _synthesise_voiceover(text: str, output_path: Path) -> bool:
     """
-    Synthesise text to MP3 via ElevenLabs. Returns True on success.
+    Synthesise text to MP3. Tries ElevenLabs first; falls back to Edge TTS.
     Uses HERMES_ELEVENLABS_API_KEY (separate account from the main pipeline).
     """
-    if not ELEVENLABS_KEY:
-        print("  ✗ HERMES_ELEVENLABS_API_KEY (or ELEVENLABS_API_KEY) not set")
-        return False
-    if not ELEVENLABS_VOICE:
-        print("  ✗ HERMES_ELEVENLABS_VOICE_ID (or ELEVENLABS_VOICE_ID) not set")
-        return False
-    try:
-        import base64
-        from elevenlabs import VoiceSettings
-        from elevenlabs.client import ElevenLabs
+    if ELEVENLABS_KEY and ELEVENLABS_VOICE:
+        try:
+            import base64
+            from elevenlabs import VoiceSettings
+            from elevenlabs.client import ElevenLabs
 
-        client   = ElevenLabs(api_key=ELEVENLABS_KEY)
-        response = client.text_to_speech.convert_with_timestamps(
-            voice_id=ELEVENLABS_VOICE,
-            text=text,
-            model_id=ELEVENLABS_MODEL,
-            output_format="mp3_44100_128",
-            voice_settings=VoiceSettings(stability=0.45, similarity_boost=0.80, style=0.2),
-        )
-        output_path.write_bytes(base64.b64decode(response.audio_base_64))
-        print(f"  ✓ ElevenLabs TTS (voice={ELEVENLABS_VOICE}) → {output_path.name}")
-        return True
-    except Exception as e:
-        print(f"  ✗ ElevenLabs error: {e}")
-        return False
+            client   = ElevenLabs(api_key=ELEVENLABS_KEY)
+            response = client.text_to_speech.convert_with_timestamps(
+                voice_id=ELEVENLABS_VOICE,
+                text=text,
+                model_id=ELEVENLABS_MODEL,
+                output_format="mp3_44100_128",
+                voice_settings=VoiceSettings(stability=0.45, similarity_boost=0.80, style=0.2),
+            )
+            output_path.write_bytes(base64.b64decode(response.audio_base_64))
+            print(f"  ✓ ElevenLabs TTS (voice={ELEVENLABS_VOICE}) → {output_path.name}")
+            return True
+        except Exception as e:
+            print(f"  ✗ ElevenLabs error: {e} — falling back to Edge TTS")
+
+    print("  ▸ Using Edge TTS fallback")
+    return _synthesise_via_edge_tts(text, output_path)
 
 
 def _audio_duration(path: Path) -> float:
