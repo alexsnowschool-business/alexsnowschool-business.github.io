@@ -134,6 +134,27 @@ PALETTES = {
         "blue_lift":    -3,
     },
 
+    # ── Warm Dark — high-contrast gold on near-black ─────────
+    # Contemporary luxury for short-form social: vivid gold,
+    # deep warm shadows, desaturated product so typography pops.
+    "warm_dark": {
+        "bg":           (14, 10, 6),
+        "top_gradient": (14, 10, 6),
+        "bot_gradient": (8,  5,  2),
+        "rule_dim":     (95, 72, 38),
+        "rule_bright":  (228, 188, 90),    # vivid warm gold
+        "text_bright":  (255, 250, 238),   # near-white warm
+        "text_dim":     (165, 130, 70),
+        "text_ghost":   (82,  64,  32),
+        "text_whisper": (215, 192, 145),
+        "text_close":   (182, 158, 112),
+        "color_sat":    0.72,              # product desaturated — type dominates
+        "color_con":    1.18,              # punchy contrast
+        "red_shift":    1.06,
+        "blue_shift":   0.86,
+        "blue_lift":    -8,
+    },
+
     # ── Museum Calm — warm parchment tones, hushed light ──────
     # Inspired by the quiet of great museum halls: aged stone,
     # brass fittings, diffused skylight. Relaxing & contemplative.
@@ -372,7 +393,7 @@ def apply_grain(img, seed=42, alpha=0.022):
     noise_rgb = noise_rgb.filter(ImageFilter.GaussianBlur(0.3))
     return Image.blend(img, noise_rgb, alpha=alpha)
 
-def load_photo(fpath, split=False, fit=False, fit_bg=(0, 0, 0)):
+def load_photo(fpath, split=False, fit=False, fit_bg=(0, 0, 0), center_crop=False):
     photo = Image.open(fpath)
     try:
         exif = photo._getexif()
@@ -403,7 +424,7 @@ def load_photo(fpath, split=False, fit=False, fit_bg=(0, 0, 0)):
         photo = photo.crop(((pw - nw) // 2, 0, (pw - nw) // 2 + nw, ph))
     else:
         nh = int(pw / target)
-        top = max(0, (ph - nh) // 4)
+        top = (ph - nh) // 2 if center_crop else max(0, (ph - nh) // 4)
         photo = photo.crop((0, top, pw, top + nh))
     return photo.resize((W, dest_h), Image.LANCZOS)
 
@@ -420,6 +441,7 @@ def get_caption_y(position):
     if position == "upper_third":      return 82
     elif position == "upper_third_low": return 200   # nudged down ~120px — good for museum/indoor shots
     elif position == "center":          return H // 2 - 160
+    elif position == "lower_safe":      return H - 560  # BB=1608, clears bottom chrome at H-220=1700
     elif position == "lower_third":     return H - 420
     return 82
 
@@ -447,10 +469,20 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
         bot_gradient_overlay(img, pal["bot_gradient"], bot_px=180, strength=140)
     else:
         img = photo.copy()
-        top_px = 420 if show_caption else 200
-        gradient_overlay(img, pal["top_gradient"], top_px,
-                         strength=235 if show_caption else 180)
-        bot_gradient_overlay(img, pal["bot_gradient"])
+        _fc_early = frame_caption or {}
+        cap_pos = _fc_early.get("caption_position", cfg.get("caption_position", "upper_third"))
+        bottom_cap = cap_pos in ("lower_safe", "lower_third")
+        # Reduce top gradient when captions live at the bottom — let the product breathe
+        if bottom_cap:
+            top_px     = 180 if show_caption else 140
+            top_str    = 140 if show_caption else 100
+        else:
+            top_px     = 420 if show_caption else 200
+            top_str    = 235 if show_caption else 180
+        gradient_overlay(img, pal["top_gradient"], top_px, strength=top_str)
+        bot_gradient_overlay(img, pal["bot_gradient"],
+                             bot_px=420 if bottom_cap else 320,
+                             strength=200 if bottom_cap else 170)
         apply_vignette(img)
 
     # Frame caption dict can override show_caption per frame
@@ -465,6 +497,8 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     # col2 (sold price colour) is also used for the answer text and tag — pull it out early
     col2 = tuple(fc.get("color_line2", cfg.get("color_line2", pal["text_bright"])))
 
+    no_box = cfg.get("caption_no_box", False)
+
     BT = BB = 0
     if show_caption:
         tag   = fc.get("tag",   cfg.get("caption_tag",   ""))
@@ -475,16 +509,18 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
         col1 = tuple(fc.get("color_line1", cfg.get("color_line1", pal["text_whisper"])))
         col3 = tuple(fc.get("color_line3", cfg.get("color_line3", pal["text_close"])))
 
-        BT = get_caption_y(cfg["caption_position"])
+        cap_pos = fc.get("caption_position", cfg.get("caption_position", "upper_third"))
+        BT = get_caption_y(cap_pos)
         BB = BT + 288
 
-        backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
-        backdrop_mask = Image.new("L", (W, H), 0)
-        ImageDraw.Draw(backdrop_mask).rectangle(
-            [(56, BT - 22), (W - 56, BB + 22)], fill=190
-        )
-        backdrop_mask = backdrop_mask.filter(ImageFilter.GaussianBlur(16))
-        img = Image.composite(backdrop, img, backdrop_mask)
+        if not no_box:
+            backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
+            backdrop_mask = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(backdrop_mask).rectangle(
+                [(56, BT - 22), (W - 56, BB + 22)], fill=190
+            )
+            backdrop_mask = backdrop_mask.filter(ImageFilter.GaussianBlur(16))
+            img = Image.composite(backdrop, img, backdrop_mask)
 
     # Hook box: question only / question+answer / answer only
     HBT = HBB = 0
@@ -499,26 +535,28 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
             HBH = 24 + _q_h + 24
         HBT = (BB + 28) if show_caption else (H // 2 - HBH // 2)
         HBB = HBT + HBH
-        hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
-        hk_backdrop_mask = Image.new("L", (W, H), 0)
-        ImageDraw.Draw(hk_backdrop_mask).rectangle(
-            [(56, HBT - 18), (W - 56, HBB + 18)], fill=188
-        )
-        hk_backdrop_mask = hk_backdrop_mask.filter(ImageFilter.GaussianBlur(14))
-        img = Image.composite(hk_backdrop, img, hk_backdrop_mask)
+        if not no_box:
+            hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
+            hk_backdrop_mask = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(hk_backdrop_mask).rectangle(
+                [(56, HBT - 18), (W - 56, HBB + 18)], fill=188
+            )
+            hk_backdrop_mask = hk_backdrop_mask.filter(ImageFilter.GaussianBlur(14))
+            img = Image.composite(hk_backdrop, img, hk_backdrop_mask)
     elif hook_answer:
         # Answer only — no question label, answer fills the box
         _ans_h = measure_wrapped_height(_hook_answer_full, fnt["serif_med"], max_width=W - 200, line_gap=10)
         HBH = 24 + _ans_h + 24
         HBT = (BB + 28) if show_caption else (H // 2 - HBH // 2)
         HBB = HBT + HBH
-        hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
-        hk_backdrop_mask = Image.new("L", (W, H), 0)
-        ImageDraw.Draw(hk_backdrop_mask).rectangle(
-            [(56, HBT - 18), (W - 56, HBB + 18)], fill=188
-        )
-        hk_backdrop_mask = hk_backdrop_mask.filter(ImageFilter.GaussianBlur(14))
-        img = Image.composite(hk_backdrop, img, hk_backdrop_mask)
+        if not no_box:
+            hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
+            hk_backdrop_mask = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(hk_backdrop_mask).rectangle(
+                [(56, HBT - 18), (W - 56, HBB + 18)], fill=188
+            )
+            hk_backdrop_mask = hk_backdrop_mask.filter(ImageFilter.GaussianBlur(14))
+            img = Image.composite(hk_backdrop, img, hk_backdrop_mask)
 
     # Upper box: artist name + painting title — height expands to fit content
     if upper_artist or upper_title:
@@ -528,26 +566,28 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
         _gap = 18 if (upper_artist and upper_title) else 0
         UBH  = 24 + _a_h + _gap + _t_h + 24
         UBB  = UBT + UBH
-        ub_back      = Image.new("RGB", (W, H), (6, 5, 4))
-        ub_back_mask = Image.new("L", (W, H), 0)
-        ImageDraw.Draw(ub_back_mask).rectangle(
-            [(56, UBT - 16), (W - 56, UBB + 16)], fill=185
-        )
-        ub_back_mask = ub_back_mask.filter(ImageFilter.GaussianBlur(14))
-        img = Image.composite(ub_back, img, ub_back_mask)
+        if not no_box:
+            ub_back      = Image.new("RGB", (W, H), (6, 5, 4))
+            ub_back_mask = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(ub_back_mask).rectangle(
+                [(56, UBT - 16), (W - 56, UBB + 16)], fill=185
+            )
+            ub_back_mask = ub_back_mask.filter(ImageFilter.GaussianBlur(14))
+            img = Image.composite(ub_back, img, ub_back_mask)
 
     draw = ImageDraw.Draw(img)
 
     if upper_artist or upper_title:
-        RD = pal["rule_dim"]
-        RB = pal["rule_bright"]
-        draw.line([(72, UBT), (W-72, UBT)], fill=RD, width=1)
-        draw.line([(72, UBB), (W-72, UBB)], fill=RD, width=1)
-        draw.line([(72, UBT), (72, UBB)],   fill=RD, width=1)
-        draw.line([(W-72, UBT), (W-72, UBB)], fill=RD, width=1)
-        for (bx, by, dx, dy) in [(72,UBT,1,1),(W-72,UBT,-1,1),(72,UBB,1,-1),(W-72,UBB,-1,-1)]:
-            draw.line([(bx,by),(bx+dx*20,by)], fill=RB, width=2)
-            draw.line([(bx,by),(bx,by+dy*20)], fill=RB, width=2)
+        if not no_box:
+            RD = pal["rule_dim"]
+            RB = pal["rule_bright"]
+            draw.line([(72, UBT), (W-72, UBT)], fill=RD, width=1)
+            draw.line([(72, UBB), (W-72, UBB)], fill=RD, width=1)
+            draw.line([(72, UBT), (72, UBB)],   fill=RD, width=1)
+            draw.line([(W-72, UBT), (W-72, UBB)], fill=RD, width=1)
+            for (bx, by, dx, dy) in [(72,UBT,1,1),(W-72,UBT,-1,1),(72,UBB,1,-1),(W-72,UBB,-1,-1)]:
+                draw.line([(bx,by),(bx+dx*20,by)], fill=RB, width=2)
+                draw.line([(bx,by),(bx,by+dy*20)], fill=RB, width=2)
         _uy = UBT + 24
         if upper_artist:
             ctext_wrapped(draw, _uy, upper_artist, fnt["italic_med"], pal["text_bright"], max_width=W - 200)
@@ -556,26 +596,24 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
             ctext_wrapped(draw, _uy, upper_title, fnt["italic_med"], col2, max_width=W - 200)
 
     if show_caption:
-        RD = pal["rule_dim"]
-        RB = pal["rule_bright"]
-
-        draw.line([(72, BT), (W-72, BT)], fill=RD, width=1)
-        draw.line([(72, BB), (W-72, BB)], fill=RD, width=1)
-        draw.line([(72, BT), (72, BB)],   fill=RD, width=1)
-        draw.line([(W-72, BT), (W-72, BB)], fill=RD, width=1)
-
-        for (bx, by, dx, dy) in [(72,BT,1,1),(W-72,BT,-1,1),(72,BB,1,-1),(W-72,BB,-1,-1)]:
-            draw.line([(bx,by),(bx+dx*28,by)], fill=RB, width=2)
-            draw.line([(bx,by),(bx,by+dy*28)], fill=RB, width=2)
-
-        for x in range(72, W-71, 36):
-            draw.line([(x, BB-4), (x, BB+4)], fill=RD, width=1)
+        if not no_box:
+            RD = pal["rule_dim"]
+            RB = pal["rule_bright"]
+            draw.line([(72, BT), (W-72, BT)], fill=RD, width=1)
+            draw.line([(72, BB), (W-72, BB)], fill=RD, width=1)
+            draw.line([(72, BT), (72, BB)],   fill=RD, width=1)
+            draw.line([(W-72, BT), (W-72, BB)], fill=RD, width=1)
+            for (bx, by, dx, dy) in [(72,BT,1,1),(W-72,BT,-1,1),(72,BB,1,-1),(W-72,BB,-1,-1)]:
+                draw.line([(bx,by),(bx+dx*28,by)], fill=RB, width=2)
+                draw.line([(bx,by),(bx,by+dy*28)], fill=RB, width=2)
+            for x in range(72, W-71, 36):
+                draw.line([(x, BB-4), (x, BB+4)], fill=RD, width=1)
+            draw.line([(200, BB-28), (W-200, BB-28)], fill=RD, width=1)
 
         ctext(draw, BT+18,  tag,   fnt["jura_light"], col2)
-        ctext(draw, BT+56,  line1, fnt["italic_med"], col1)
-        ctext(draw, BT+106, line2, fnt["serif_lg"],   col2)
-        ctext(draw, BT+210, line3, fnt["italic_med"], col3)
-        draw.line([(200, BB-28), (W-200, BB-28)], fill=RD, width=1)
+        ctext_wrapped(draw, BT+56,  line1, fnt["italic_med"], col1, max_width=W - 120)
+        ctext_wrapped(draw, BT+106, line2, fnt["serif_lg"],   col2, max_width=W - 120)
+        ctext_wrapped(draw, BT+210, line3, fnt["italic_med"], col3, max_width=W - 120)
 
     if hook_question:
         if not has_answer:
@@ -593,11 +631,12 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
                       pal["text_bright"], max_width=W - 200, line_gap=10)
 
     # Bottom coordinate labels
-    draw.line([(72, H-220), (W-72, H-220)], fill=pal["rule_dim"], width=1)
-    draw.text((86, H-200), cfg["location_coords"], font=fnt["mono"],    fill=pal["text_dim"])
-    draw.text((86, H-182), cfg["location_name"],   font=fnt["mono_sm"], fill=pal["text_ghost"])
-    draw.text((W-232, H-200), cfg["location_season"], font=fnt["mono"],    fill=pal["text_dim"])
-    draw.text((W-200, H-182), cfg["frame_label"],     font=fnt["mono_sm"], fill=pal["text_ghost"])
+    if not cfg.get("hide_chrome", False):
+        draw.line([(72, H-220), (W-72, H-220)], fill=pal["rule_dim"], width=1)
+        draw.text((86, H-200), cfg["location_coords"], font=fnt["mono"],    fill=pal["text_dim"])
+        draw.text((86, H-182), cfg["location_name"],   font=fnt["mono_sm"], fill=pal["text_ghost"])
+        draw.text((W-232, H-200), cfg["location_season"], font=fnt["mono"],    fill=pal["text_dim"])
+        draw.text((W-200, H-182), cfg["frame_label"],     font=fnt["mono_sm"], fill=pal["text_ghost"])
 
     img = apply_grain(img)
     return img
@@ -720,8 +759,9 @@ def main():
         tiles = grouped[base]['tiles']
         if base_fname:
             base_path = os.path.join(cfg["input_folder"], base_fname)
-            use_fit = not _first_base_loaded
-            p = load_photo(base_path, split=split, fit=use_fit, fit_bg=pal["bg"])
+            use_fit = (not _first_base_loaded) and cfg.get("photo_fit_first", True)
+            p = load_photo(base_path, split=split, fit=use_fit, fit_bg=pal["bg"],
+                           center_crop=cfg.get("photo_center_crop", False))
             _first_base_loaded = True
             base_photo = grade_photo(p, pal)
             photos.append((base_fname, base_photo))
@@ -870,8 +910,8 @@ def main():
                         base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
                         frame_i += 1
 
-            # Act I only: after the static hold, reveal the painting block by block
-            if i == 0:
+            # Act I only: block-by-block reveal (disable with block_reveal: False in config)
+            if i == 0 and cfg.get("block_reveal", True):
                 frame_i, base = _render_block_reveal_frames(
                     photo, cfg, fnt, fc, show, frames_dir, frame_i, fps=FPS
                 )
