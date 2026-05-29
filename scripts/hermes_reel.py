@@ -53,10 +53,12 @@ OPENROUTER_MODEL  = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.1-8b-instr
 OPENROUTER_URL    = "https://openrouter.ai/api/v1/chat/completions"
 
 ELEVENLABS_KEY    = os.getenv("HERMES_ELEVENLABS_API_KEY") or os.getenv("ELEVENLABS_API_KEY")
-ELEVENLABS_VOICE  = os.getenv("HERMES_ELEVENLABS_VOICE_ID",
-                               os.getenv("ELEVENLABS_VOICE_ID", "LXu5MIFyvPZCxBst8fPP"))
-ELEVENLABS_MODEL  = os.getenv("HERMES_ELEVENLABS_MODEL_ID",
-                               os.getenv("ELEVENLABS_MODEL_ID", "eleven_turbo_v2_5"))
+ELEVENLABS_VOICE  = (os.getenv("HERMES_ELEVENLABS_VOICE_ID") or
+                     os.getenv("ELEVENLABS_VOICE_ID") or
+                     "LXu5MIFyvPZCxBst8fPP")
+ELEVENLABS_MODEL  = (os.getenv("HERMES_ELEVENLABS_MODEL_ID") or
+                     os.getenv("ELEVENLABS_MODEL_ID") or
+                     "eleven_turbo_v2_5")
 
 _HEADERS = {
     "User-Agent": (
@@ -628,6 +630,9 @@ def _synthesise_voiceover(text: str, output_path: Path) -> bool:
     """
     if not ELEVENLABS_KEY:
         print("  ✗ HERMES_ELEVENLABS_API_KEY (or ELEVENLABS_API_KEY) not set")
+        return False
+    if not ELEVENLABS_VOICE:
+        print("  ✗ HERMES_ELEVENLABS_VOICE_ID (or ELEVENLABS_VOICE_ID) not set")
         return False
     try:
         import base64
