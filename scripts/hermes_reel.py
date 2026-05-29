@@ -377,9 +377,12 @@ def _download_images_playwright(urls: list[str], dest_dir: Path, max_images: int
                         async (url) => {
                             const resp = await fetch(url);
                             if (!resp.ok) return null;
-                            const buf = await resp.arrayBuffer();
-                            const b64 = btoa(String.fromCharCode(...new Uint8Array(buf)));
-                            return { b64, ct: resp.headers.get('content-type') || '' };
+                            const bytes = new Uint8Array(await resp.arrayBuffer());
+                            let binary = '';
+                            for (let i = 0; i < bytes.length; i += 8192) {
+                                binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
+                            }
+                            return { b64: btoa(binary), ct: resp.headers.get('content-type') || '' };
                         }
                     """, url)
                     if not result:
