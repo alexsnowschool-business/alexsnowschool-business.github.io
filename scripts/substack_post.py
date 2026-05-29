@@ -166,8 +166,10 @@ def main() -> None:
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    slug      = (lot.get("artist") or "unknown").lower().replace(" ", "-").replace("/", "-")[:30]
-    filename  = f"{date.today().isoformat()}-{slug}.md"
+    artist_slug  = (lot.get("artist") or "unknown").lower().replace(" ", "-").replace("/", "-")[:30]
+    title_slug   = (lot.get("title") or "untitled").lower().replace(" ", "-").replace("/", "-")[:40]
+    slug         = f"{artist_slug}-{title_slug}"
+    filename     = f"{date.today().isoformat()}-{slug}.md"
     out_path  = out_dir / filename
 
     out_path.write_text(draft_md, encoding="utf-8")
