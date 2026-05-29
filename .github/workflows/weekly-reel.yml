@@ -37,7 +37,9 @@ jobs:
         run: pip install pillow httpx python-dotenv elevenlabs edge-tts
 
       - name: Install ffmpeg
-        run: sudo apt-get install -y --fix-missing ffmpeg fonts-noto-cjk --quiet
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-noto-cjk --quiet
 
       # Rotate lot index: Tue=0, Wed=1, Thu=2, Fri=3, Sat=4
       # Offset by week-of-year so we don't repeat the same 5 lots every week
