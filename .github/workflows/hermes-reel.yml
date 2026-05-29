@@ -36,12 +36,13 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python dependencies
-        run: pip install pillow httpx python-dotenv elevenlabs
+        run: pip install pillow httpx python-dotenv elevenlabs playwright
 
-      - name: Install ffmpeg
+      - name: Install ffmpeg + Playwright browser
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg fonts-noto-cjk --quiet
+          playwright install chromium --with-deps
 
       - name: Generate reel
         env:

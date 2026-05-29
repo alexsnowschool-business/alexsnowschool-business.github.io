@@ -354,8 +354,61 @@ def _find_resale_key(model: str, resale: dict) -> str | None:
 
 # ── Image downloading ──────────────────────────────────────────────────────────
 
+def _download_images_playwright(urls: list[str], dest_dir: Path, max_images: int = 6) -> list[Path]:
+    """Download images via a real Chromium browser to bypass CDN bot-protection."""
+    import asyncio, base64
+    from playwright.async_api import async_playwright
+
+    async def _fetch_all():
+        saved = []
+        async with async_playwright() as p:
+            browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
+            context = await browser.new_context(
+                user_agent=_HEADERS["User-Agent"],
+                locale="en-US",
+            )
+            # Prime the session with a real page load so Cloudflare cookies are set.
+            page = await context.new_page()
+            await page.goto("https://www.vestiairecollective.com/", wait_until="domcontentloaded", timeout=30_000)
+
+            for i, url in enumerate(urls[:max_images]):
+                try:
+                    result = await page.evaluate("""
+                        async (url) => {
+                            const resp = await fetch(url);
+                            if (!resp.ok) return null;
+                            const buf = await resp.arrayBuffer();
+                            const b64 = btoa(String.fromCharCode(...new Uint8Array(buf)));
+                            return { b64, ct: resp.headers.get('content-type') || '' };
+                        }
+                    """, url)
+                    if not result:
+                        print(f"  ✗ {url[:70]}... — fetch returned null (blocked or 404)")
+                        continue
+                    ext = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}.get(
+                        result["ct"].split(";")[0].strip().lower()
+                    ) or (".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png")
+                    fname = dest_dir / f"{i + 1:02d}{ext}"
+                    fname.write_bytes(base64.b64decode(result["b64"]))
+                    print(f"  ✓ {fname.name}")
+                    saved.append(fname)
+                except Exception as e:
+                    print(f"  ✗ {url[:70]}... — {e}")
+            await browser.close()
+        return saved
+
+    return asyncio.run(_fetch_all())
+
+
 def _download_images(urls: list[str], dest_dir: Path, max_images: int = 6) -> list[Path]:
     dest_dir.mkdir(parents=True, exist_ok=True)
+
+    # Try Playwright first — bypasses CDN bot-protection that blocks httpx in CI.
+    import importlib.util
+    if importlib.util.find_spec("playwright") is not None:
+        return _download_images_playwright(urls, dest_dir, max_images)
+
+    # Fallback: plain httpx (works locally if not IP-blocked).
     _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
     saved = []
     with httpx.Client(headers=_HEADERS, follow_redirects=True, timeout=20) as client:
