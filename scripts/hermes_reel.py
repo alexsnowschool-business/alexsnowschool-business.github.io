@@ -726,12 +726,10 @@ def _build_reveal(row: dict, brand: str, n_images: int, voice_duration: float = 
         mid_each = round(4.0 / n_mid, 1)
         act3_s   = 10.0
 
-    # Act I: hook statement dominates the top — stops the scroll in < 2 seconds.
-    #        caption_position override pushes the box to upper_third regardless of
-    #        the config default (lower_safe). line2 renders at serif_lg (96px).
+    # Act I: hook statement — stops the scroll in < 2 seconds.
     act1: dict = {
         "show_caption":     True,
-        "caption_position": "upper_third",
+        "caption_position": "upper_third_low",
         "tag":              "",
         "line1":            "",
         "line2":            hook_q,
