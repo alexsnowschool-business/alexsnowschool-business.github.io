@@ -455,7 +455,8 @@ def _esc(s: str) -> str:
     return str(s).replace("\\", "\\\\").replace('"', '\\"')
 
 
-def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict]) -> str:
+def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
+                     narration_captions: list[dict] | None = None) -> str:
     model     = row["model"]
     retail    = _fmt_eur(row["retail_eur"])
     resale    = _fmt_usd(row["resale_usd"])
@@ -512,16 +513,17 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict]) 
         '    "fonts_override": {',
         '        "serif_lg":   ("InstrumentSerif-Regular.ttf", 120),',
         '        "serif_med":  ("InstrumentSerif-Regular.ttf",  68),',
-        '        "italic_med": ("InstrumentSerif-Italic.ttf",  40),',
+        '        "italic_med": ("InstrumentSerif-Italic.ttf",  72),',
         '        "jura_light": ("Jura-Light.ttf",              22),',
         '        "mono":       ("IBMPlexMono-Regular.ttf",      20),',
         '        "mono_sm":    ("IBMPlexMono-Regular.ttf",      16),',
         "    },",
         "",
         "    # ── Colours ───────────────────────────────────────────────",
-        "    \"color_line1\": (165, 150, 118),",   # subdued label
-        "    \"color_line2\": (228, 188, 90),",    # vivid gold — price dominates
-        "    \"color_line3\": (245, 232, 200),",   # warm bright premium %
+        "    \"color_tag\":   (245, 242, 235),",           # near-white — matches retail label
+        "    \"color_line1\": (245, 242, 235),",          # near-white retail label
+        "    \"color_line2\": (196, 158, 40),",           # rich gold — resale price dominates
+        "    \"color_line3\": (245, 242, 235),",          # near-white premium %
         "",
         "    \"caption_all_frames\": False,",
         "",
@@ -553,6 +555,17 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict]) 
             lines.append("        },")
         lines.append("    ],")
 
+    if narration_captions:
+        lines.append("")
+        lines.append("    # ── Word-by-word narration captions ───────────────────────")
+        lines.append("    \"narration_captions\": [")
+        for cap in narration_captions:
+            lines.append(
+                f"        {{\"start\": {cap['start']:.3f}, "
+                f"\"end\": {cap['end']:.3f}, "
+                f"\"text\": {repr(cap['text'])}}},")
+        lines.append("    ],")
+
     lines.append("}")
     return "\n".join(lines) + "\n"
 
@@ -574,7 +587,10 @@ def _generate_narration(row: dict) -> str | None:
     pct     = row["premium_pct"]
     count   = row["resale_count"]
 
-    prompt = f"""Write a 160-180 word voiceover script for a TikTok reel about Hermès resale prices. It must read naturally when spoken aloud at a calm pace — exactly 60 to 70 seconds.
+    prompt = f"""Write a 160-180 word voiceover script for a TikTok reel about Hermès resale prices. It must read naturally when spoken aloud at a calm pace — exactly 60 to 70 seconds. and don't include here is your script or any other preamble.
+      The script should be editorial and informative, like something a luxury finance journalist would say — no hype, no emojis, no hashtags.
+      Use the following data points about the bag to craft a compelling narrative that explains the price gap between retail and resale,
+      and what it signals about Hermès as a store of value.
 
 Bag: {model}
 Hermès retail price: {retail} (boutique only, requires a client relationship)
@@ -608,6 +624,9 @@ Speak directly to the viewer. Short sentences. No filler phrases. Output only th
         )
         r.raise_for_status()
         text = r.json()["choices"][0]["message"]["content"].strip()
+        # Strip common LLM preamble labels the model adds despite instructions.
+        import re
+        text = re.sub(r"(?i)^(here'?s?( is)?( your)?( the)? script:?\s*)+", "", text).strip()
         print(f"  ✓ Narration generated ({len(text.split())} words)")
         return text
     except Exception as e:
@@ -641,10 +660,11 @@ def _synthesise_via_edge_tts(text: str, output_path: Path) -> bool:
         return False
 
 
-def _synthesise_voiceover(text: str, output_path: Path) -> bool:
+def _synthesise_voiceover(text: str, output_path: Path) -> tuple[bool, list[dict]]:
     """
     Synthesise text to MP3. Tries ElevenLabs first; falls back to Edge TTS.
-    Uses HERMES_ELEVENLABS_API_KEY (separate account from the main pipeline).
+    Returns (success, word_timestamps). Word timestamps are populated only when
+    ElevenLabs is used (it returns character-level alignment); Edge TTS returns [].
     """
     if ELEVENLABS_KEY and ELEVENLABS_VOICE:
         try:
@@ -662,12 +682,16 @@ def _synthesise_voiceover(text: str, output_path: Path) -> bool:
             )
             output_path.write_bytes(base64.b64decode(response.audio_base_64))
             print(f"  ✓ ElevenLabs TTS (voice={ELEVENLABS_VOICE}) → {output_path.name}")
-            return True
+            raw = response.alignment
+            alignment = raw.__dict__ if hasattr(raw, "__dict__") else (raw or {})
+            words = _alignment_to_words(alignment)
+            return True, words
         except Exception as e:
             print(f"  ✗ ElevenLabs error: {e} — falling back to Edge TTS")
 
     print("  ▸ Using Edge TTS fallback")
-    return _synthesise_via_edge_tts(text, output_path)
+    ok = _synthesise_via_edge_tts(text, output_path)
+    return ok, []
 
 
 def _audio_duration(path: Path) -> float:
@@ -681,6 +705,107 @@ def _audio_duration(path: Path) -> float:
         return float(result.stdout.strip())
     except Exception:
         return 0.0
+
+
+# ── Word-level caption helpers ─────────────────────────────────────────────────
+
+def _alignment_to_words(alignment: dict) -> list[dict]:
+    """Convert ElevenLabs character-level alignment into word-level timestamps."""
+    chars  = alignment.get("characters", [])
+    starts = alignment.get("character_start_times_seconds", [])
+    ends   = alignment.get("character_end_times_seconds", [])
+
+    words: list[dict] = []
+    buf: list[str] = []
+    buf_start = buf_end = None
+
+    for ch, s, e in zip(chars, starts, ends):
+        if ch in (" ", "\n", "\t"):
+            if buf:
+                words.append({"word": "".join(buf), "start": buf_start, "end": buf_end})
+                buf, buf_start, buf_end = [], None, None
+        else:
+            if buf_start is None:
+                buf_start = s
+            buf_end = e
+            buf.append(ch)
+
+    if buf:
+        words.append({"word": "".join(buf), "start": buf_start, "end": buf_end})
+    return words
+
+
+def _evenly_spaced_words(text: str, duration: float) -> list[dict]:
+    """Fallback: distribute words evenly across the audio duration."""
+    tokens = text.split()
+    if not tokens or duration <= 0:
+        return []
+    step = duration / len(tokens)
+    return [{"word": w, "start": i * step, "end": (i + 1) * step}
+            for i, w in enumerate(tokens)]
+
+
+def _srt_ts(seconds: float) -> str:
+    h  = int(seconds // 3600)
+    m  = int((seconds % 3600) // 60)
+    s  = int(seconds % 60)
+    ms = int(round((seconds % 1) * 1000))
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+
+
+def _words_to_captions(words: list[dict], group: int = 3) -> list[dict]:
+    """Group word timestamps into caption cues (uppercase) for the config."""
+    captions = []
+    for i in range(0, len(words), group):
+        chunk = words[i : i + group]
+        captions.append({
+            "start": chunk[0]["start"],
+            "end":   chunk[-1]["end"],
+            "text":  " ".join(w["word"] for w in chunk).lower(),
+        })
+    return captions
+
+
+def _write_srt(words: list[dict], path: Path, group: int = 3) -> None:
+    """Write word-level captions as SRT, grouping `group` words per cue (uppercase)."""
+    lines = []
+    for idx, i in enumerate(range(0, len(words), group), start=1):
+        chunk = words[i : i + group]
+        text  = " ".join(w["word"] for w in chunk).lower()
+        lines += [
+            str(idx),
+            f"{_srt_ts(chunk[0]['start'])} --> {_srt_ts(chunk[-1]['end'])}",
+            text,
+            "",
+        ]
+    path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"  ✓ Captions SRT: {path.name}  ({(len(words) + group - 1) // group} cues)")
+
+
+def _burn_captions(video_path: Path, srt_path: Path) -> Path | None:
+    """Burn SRT subtitles into a video with ffmpeg. Returns the output path or None."""
+    out = video_path.with_stem(video_path.stem + "_captioned")
+    style = (
+        "FontName=Arial,FontSize=20,Bold=1,Alignment=2,"
+        "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,Outline=2,Shadow=1"
+    )
+    cmd = [
+        "ffmpeg", "-y",
+        "-i", str(video_path),
+        "-vf", f"subtitles={srt_path}:force_style='{style}'",
+        "-c:a", "copy",
+        str(out),
+    ]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode == 0:
+            print(f"  ✓ Captioned video: {out.name}")
+            return out
+        print(f"  ✗ ffmpeg subtitles error: {result.stderr[-400:]}")
+        return None
+    except FileNotFoundError:
+        print("  ✗ ffmpeg not found — install it to burn captions into the video")
+        return None
 
 
 # ── Reveal sequence ───────────────────────────────────────────────────────────
@@ -720,31 +845,24 @@ def _build_reveal(row: dict, brand: str, n_images: int, voice_duration: float = 
         mid_each = round(4.0 / n_mid, 1)
         act3_s   = 10.0
 
-    # Act I: brand + prices upfront — hook question sits below as the teaser line.
+    # Act I: retail and resale prices only — clean, no hook teaser line.
     act1: dict = {
         "show_caption":     True,
         "caption_position": "center",
         "tag":              tag,
         "line1":            f"retail  ·  {retail}",
         "line2":            resale,
-        "line3":            hook_q,
+        "line3":            "",
         "hook_question":    None,
         "hook_answer":      "",
-        "upper_artist":     brand,
+        "upper_artist":     "",
         "upper_title":      model,
         "hold_seconds":     act1_s,
     }
     frames = [act1]
-    # Act II: bag alone — the hook hangs, tension builds
-    for _ in range(n_mid):
+    # Act II + III: clean images only — no caption overlay
+    for _ in range(n_mid + 1):
         frames.append(_f(hold=mid_each))
-    # Act III: price answer at bottom — the reveal
-    frames.append(_f(
-        line1=f"retail  ·  {retail}",
-        line2=resale,
-        line3=f"+{pct:,.0f}% above retail",
-        hold=act3_s,
-    ))
     return frames
 
 
@@ -890,21 +1008,30 @@ def main() -> None:
     print(f"  {n_images} image(s) ready")
 
     # ── Voiceover (optional) ───────────────────────────────────
-    voice_duration = 0.0
+    voice_duration  = 0.0
+    srt_path: Path | None = None
+    narr_captions:  list[dict] = []
     if args.voice:
         print("\n▸ Generating voiceover narration...")
         narration = _generate_narration(chosen)
         if narration:
             print(f"  Script preview: {narration[:120]}...")
             vo_path = reel_dir / "voiceover.mp3"
-            ok = _synthesise_voiceover(narration, vo_path)
+            ok, word_timestamps = _synthesise_voiceover(narration, vo_path)
             if ok:
                 voice_duration = _audio_duration(vo_path)
                 print(f"  Audio duration: {voice_duration:.1f}s")
+                if not word_timestamps and voice_duration > 0:
+                    word_timestamps = _evenly_spaced_words(narration, voice_duration)
+                if word_timestamps:
+                    srt_path      = reel_dir / "captions.srt"
+                    narr_captions = _words_to_captions(word_timestamps)
+                    _write_srt(word_timestamps, srt_path)
 
     # ── Build reveal + config ──────────────────────────────────
     reveal      = _build_reveal(chosen, args.brand, n_images, voice_duration=voice_duration)
-    config_src  = _generate_config(chosen, slug, args.brand, reveal)
+    config_src  = _generate_config(chosen, slug, args.brand, reveal,
+                                   narration_captions=narr_captions or None)
     config_path = reel_dir / "reel_config.py"
     config_path.write_text(config_src)
     print(f"\n▸ Config written: {config_path.relative_to(BUSINESS_DIR)}")
@@ -924,6 +1051,10 @@ def main() -> None:
     print("  To render:")
     print(f"    python reel_template/make_reel.py reels/{slug}")
     print(f"    python reel_template/make_captions.py reels/{slug}")
+    if srt_path:
+        print()
+        print("  To burn word captions manually:")
+        print(f"    ffmpeg -i <video.mp4> -vf subtitles={srt_path.name} -c:a copy captioned.mp4")
     print("═" * 62)
 
     if args.run:
@@ -932,6 +1063,18 @@ def main() -> None:
             [sys.executable, str(REEL_TEMPLATE / "make_reel.py"), str(reel_dir)],
             cwd=str(BUSINESS_DIR),
         )
+
+    # Always burn captions when voice was used — runs after --run or against any
+    # video already present in output/ from a prior render.
+    if srt_path and srt_path.exists():
+        videos = sorted(out_dir.glob("*.mp4"))
+        # Skip files that are already captioned to avoid re-burning.
+        videos = [v for v in videos if "_captioned" not in v.stem]
+        if videos:
+            print("\n▸ Burning word captions into video...")
+            _burn_captions(videos[0], srt_path)
+        else:
+            print(f"\n  ℹ No rendered video found yet — run make_reel.py first, captions will burn automatically on next run.")
 
 
 if __name__ == "__main__":

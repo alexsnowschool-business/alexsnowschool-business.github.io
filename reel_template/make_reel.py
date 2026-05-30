@@ -7,7 +7,7 @@
 """
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
-import importlib.util, math, os, random, subprocess, sys
+import glob, importlib.util, math, os, random, subprocess, sys
 
 # ══════════════════════════════════════════════════════════════
 # CONFIG LOADER — reads reel_config.py from the reel folder
@@ -182,6 +182,43 @@ PALETTES = {
 # ══════════════════════════════════════════════════════════════
 
 W, H = 1080, 1920
+
+
+# ── Word-caption overlay helpers ──────────────────────────────────────────────
+
+def _active_narration_caption(t_secs: float, captions: list) -> str | None:
+    """Return the caption text active at t_secs, or None."""
+    for cap in captions:
+        if cap["start"] <= t_secs < cap["end"]:
+            return cap["text"]
+    return None
+
+
+def _overlay_word_caption(img: Image.Image, text: str, caption_font) -> Image.Image:
+    """Draw a word-caption box (white text, black outline) near the bottom of img."""
+    out  = img.copy()
+    draw = ImageDraw.Draw(out)
+    bbox = caption_font.getbbox(text)
+    tw   = bbox[2] - bbox[0]
+    th   = bbox[3] - bbox[1]
+    x    = (W - tw) // 2
+    y    = H - 480          # safe-area bottom, above location chrome
+    pad  = 18
+    # Semi-transparent backdrop
+    bg = Image.new("RGBA", out.size, (0, 0, 0, 0))
+    ImageDraw.Draw(bg).rounded_rectangle(
+        [x - pad, y - pad, x + tw + pad, y + th + pad],
+        radius=12, fill=(0, 0, 0, 160),
+    )
+    out = Image.alpha_composite(out.convert("RGBA"), bg).convert("RGB")
+    draw = ImageDraw.Draw(out)
+    # Outline
+    for dx, dy in [(-2,0),(2,0),(0,-2),(0,2),(-2,-2),(2,-2),(-2,2),(2,2)]:
+        draw.text((x + dx, y + dy), text, font=caption_font, fill=(0, 0, 0))
+    # Fill
+    draw.text((x, y), text, font=caption_font, fill=(255, 255, 255))
+    return out
+
 
 # ── Unicode fallback fonts ────────────────────────────────────────────────────
 # Two-tier fallback:
@@ -508,6 +545,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
         col1 = tuple(fc.get("color_line1", cfg.get("color_line1", pal["text_whisper"])))
         col3 = tuple(fc.get("color_line3", cfg.get("color_line3", pal["text_close"])))
+        col_tag = tuple(fc.get("color_tag", cfg.get("color_tag", col2)))
 
         cap_pos = fc.get("caption_position", cfg.get("caption_position", "upper_third"))
         BT = get_caption_y(cap_pos)
@@ -610,7 +648,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
                 draw.line([(x, BB-4), (x, BB+4)], fill=RD, width=1)
             draw.line([(200, BB-28), (W-200, BB-28)], fill=RD, width=1)
 
-        ctext(draw, BT+18,  tag,   fnt["jura_light"], col2)
+        ctext(draw, BT+18,  tag,   fnt["jura_light"], col_tag)
         ctext_wrapped(draw, BT+56,  line1, fnt["italic_med"], col1, max_width=W - 120)
         ctext_wrapped(draw, BT+106, line2, fnt["serif_lg"],   col2, max_width=W - 120)
         ctext_wrapped(draw, BT+210, line3, fnt["italic_med"], col3, max_width=W - 120)
@@ -928,6 +966,24 @@ def main():
                     frame_i += 1
 
             print(f"  {i+1}/{len(photos)}: {fname} → {frame_i} frames")
+
+        # ── Narration caption overlay ──────────────────────────
+        narration_captions = cfg.get("narration_captions", [])
+        if narration_captions:
+            print("\n▸ Overlaying word-by-word captions on frames...")
+            cap_fnt = fnt.get("serif_med") or fnt.get("italic_med") or fnt.get("jura_light")
+            frame_files = sorted(glob.glob(os.path.join(frames_dir, "f*.png")))
+            overlaid = 0
+            for fpath in frame_files:
+                num    = int(os.path.splitext(os.path.basename(fpath))[0][1:])
+                t_secs = num / FPS
+                text   = _active_narration_caption(t_secs, narration_captions)
+                if text:
+                    img = Image.open(fpath)
+                    img = _overlay_word_caption(img, text, cap_fnt)
+                    img.save(fpath)
+                    overlaid += 1
+            print(f"  ✓ Captioned {overlaid}/{len(frame_files)} frames")
 
         # Output at 30fps minimum for platform compatibility (TikTok requires 23–60fps).
         # Internal render fps can stay low; ffmpeg duplicates frames to reach output_fps.
