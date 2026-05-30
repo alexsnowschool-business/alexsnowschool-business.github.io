@@ -726,18 +726,18 @@ def _build_reveal(row: dict, brand: str, n_images: int, voice_duration: float = 
         mid_each = round(4.0 / n_mid, 1)
         act3_s   = 10.0
 
-    # Act I: hook statement — stops the scroll in < 2 seconds.
+    # Act I: brand + prices upfront — hook question sits below as the teaser line.
     act1: dict = {
         "show_caption":     True,
-        "caption_position": "upper_third_low",
-        "tag":              "",
-        "line1":            "",
-        "line2":            hook_q,
-        "line3":            "",
+        "caption_position": "lower_safe",
+        "tag":              tag,
+        "line1":            f"retail  ·  {retail}",
+        "line2":            resale,
+        "line3":            hook_q,
         "hook_question":    None,
         "hook_answer":      "",
-        "upper_artist":     "",
-        "upper_title":      "",
+        "upper_artist":     brand,
+        "upper_title":      model,
         "hold_seconds":     act1_s,
     }
     frames = [act1]
