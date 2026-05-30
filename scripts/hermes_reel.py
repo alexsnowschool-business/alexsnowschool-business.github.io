@@ -369,26 +369,19 @@ def _download_images_playwright(urls: list[str], dest_dir: Path, max_images: int
                 user_agent=_HEADERS["User-Agent"],
                 locale="en-US",
             )
-            # Prime the session so Cloudflare cookies are set before image requests.
             page = await context.new_page()
+            # Prime Cloudflare cookies with a real page visit first.
             await page.goto("https://www.vestiairecollective.com/", wait_until="domcontentloaded", timeout=30_000)
-            await page.close()
 
             _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
             for i, url in enumerate(urls[:max_images]):
                 try:
-                    # Use Playwright's request context — bypasses page CSP, keeps cookies.
-                    resp = await context.request.get(
-                        url,
-                        headers={
-                            "Referer":          "https://www.vestiairecollective.com/",
-                            "Accept":           "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
-                            "Accept-Language":  "en-US,en;q=0.9",
-                        },
-                        timeout=20_000,
-                    )
-                    if not resp.ok:
-                        print(f"  ✗ {url[:70]}... — HTTP {resp.status}")
+                    # Navigate directly to the image URL — Cloudflare sees a real browser
+                    # navigation, not a fetch(), so TLS/header fingerprints pass inspection.
+                    resp = await page.goto(url, wait_until="load", timeout=20_000)
+                    if not resp or not resp.ok:
+                        status = resp.status if resp else "no response"
+                        print(f"  ✗ {url[:70]}... — HTTP {status}")
                         continue
                     ct  = (resp.headers.get("content-type") or "").split(";")[0].strip().lower()
                     ext = _CT_EXT.get(ct) or (
