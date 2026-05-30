@@ -358,7 +358,7 @@ def _find_resale_key(model: str, resale: dict) -> str | None:
 
 def _download_images_playwright(urls: list[str], dest_dir: Path, max_images: int = 6) -> list[Path]:
     """Download images via a real Chromium browser to bypass CDN bot-protection."""
-    import asyncio, base64
+    import asyncio
     from playwright.async_api import async_playwright
 
     async def _fetch_all():
@@ -369,32 +369,33 @@ def _download_images_playwright(urls: list[str], dest_dir: Path, max_images: int
                 user_agent=_HEADERS["User-Agent"],
                 locale="en-US",
             )
-            # Prime the session with a real page load so Cloudflare cookies are set.
+            # Prime the session so Cloudflare cookies are set before image requests.
             page = await context.new_page()
             await page.goto("https://www.vestiairecollective.com/", wait_until="domcontentloaded", timeout=30_000)
+            await page.close()
 
+            _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
             for i, url in enumerate(urls[:max_images]):
                 try:
-                    result = await page.evaluate("""
-                        async (url) => {
-                            const resp = await fetch(url);
-                            if (!resp.ok) return null;
-                            const bytes = new Uint8Array(await resp.arrayBuffer());
-                            let binary = '';
-                            for (let i = 0; i < bytes.length; i += 8192) {
-                                binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
-                            }
-                            return { b64: btoa(binary), ct: resp.headers.get('content-type') || '' };
-                        }
-                    """, url)
-                    if not result:
-                        print(f"  ✗ {url[:70]}... — fetch returned null (blocked or 404)")
+                    # Use Playwright's request context — bypasses page CSP, keeps cookies.
+                    resp = await context.request.get(
+                        url,
+                        headers={
+                            "Referer":          "https://www.vestiairecollective.com/",
+                            "Accept":           "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+                            "Accept-Language":  "en-US,en;q=0.9",
+                        },
+                        timeout=20_000,
+                    )
+                    if not resp.ok:
+                        print(f"  ✗ {url[:70]}... — HTTP {resp.status}")
                         continue
-                    ext = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}.get(
-                        result["ct"].split(";")[0].strip().lower()
-                    ) or (".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png")
+                    ct  = (resp.headers.get("content-type") or "").split(";")[0].strip().lower()
+                    ext = _CT_EXT.get(ct) or (
+                        ".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png"
+                    )
                     fname = dest_dir / f"{i + 1:02d}{ext}"
-                    fname.write_bytes(base64.b64decode(result["b64"]))
+                    fname.write_bytes(await resp.body())
                     print(f"  ✓ {fname.name}")
                     saved.append(fname)
                 except Exception as e:
