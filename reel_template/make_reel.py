@@ -477,7 +477,7 @@ def get_caption_y(position):
     """Return the BOX_TOP y-coordinate based on caption position."""
     if position == "upper_third":      return 82
     elif position == "upper_third_low": return 200   # nudged down ~120px — good for museum/indoor shots
-    elif position == "center":          return H // 2 - 160
+    elif position == "center":          return H // 2
     elif position == "lower_safe":      return H - 560  # BB=1608, clears bottom chrome at H-220=1700
     elif position == "lower_third":     return H - 420
     return 82
@@ -547,11 +547,22 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
         col3 = tuple(fc.get("color_line3", cfg.get("color_line3", pal["text_close"])))
         col_tag = tuple(fc.get("color_tag", cfg.get("color_tag", col2)))
 
+        line2_label = fc.get("line2_label", cfg.get("caption_line2_label", ""))
+
         cap_pos = fc.get("caption_position", cfg.get("caption_position", "upper_third"))
         BT = get_caption_y(cap_pos)
-        BB = BT + 288
+        BB = BT + (380 if line2_label else 288)
 
         if not no_box:
+            # Drop shadow — offset rect, heavily blurred
+            _SD = 10
+            shadow_mask = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(shadow_mask).rectangle(
+                [(56 + _SD, BT - 22 + _SD), (W - 56 + _SD, BB + 22 + _SD)], fill=160
+            )
+            shadow_mask = shadow_mask.filter(ImageFilter.GaussianBlur(28))
+            img = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), img, shadow_mask)
+            # Backdrop box
             backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
             backdrop_mask = Image.new("L", (W, H), 0)
             ImageDraw.Draw(backdrop_mask).rectangle(
@@ -650,8 +661,13 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
         ctext(draw, BT+18,  tag,   fnt["jura_light"], col_tag)
         ctext_wrapped(draw, BT+56,  line1, fnt["italic_med"], col1, max_width=W - 120)
-        ctext_wrapped(draw, BT+106, line2, fnt["serif_lg"],   col2, max_width=W - 120)
-        ctext_wrapped(draw, BT+210, line3, fnt["italic_med"], col3, max_width=W - 120)
+        if line2_label:
+            ctext_wrapped(draw, BT+118, line2_label, fnt["italic_med"], col1, max_width=W - 120)
+            ctext_wrapped(draw, BT+196, line2, fnt["serif_lg"], col2, max_width=W - 120)
+            ctext_wrapped(draw, BT+312, line3, fnt["italic_med"], col3, max_width=W - 120)
+        else:
+            ctext_wrapped(draw, BT+106, line2, fnt["serif_lg"],   col2, max_width=W - 120)
+            ctext_wrapped(draw, BT+210, line3, fnt["italic_med"], col3, max_width=W - 120)
 
     if hook_question:
         if not has_answer:
