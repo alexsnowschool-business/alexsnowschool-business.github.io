@@ -506,16 +506,16 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict]) 
         "",
         "    # ── Style ─────────────────────────────────────────────────",
         '    "vibe":             "warm_dark",',
-        '    "caption_position": "lower_safe",',
+        '    "caption_position": "center",',
         "",
         "    # ── Font overrides ─────────────────────────────────────────",
         '    "fonts_override": {',
-        '        "serif_lg":   ("InstrumentSerif-Regular.ttf", 96),',
-        '        "serif_med":  ("InstrumentSerif-Regular.ttf",  54),',
-        '        "italic_med": ("InstrumentSerif-Italic.ttf",  32),',
-        '        "jura_light": ("Jura-Light.ttf",              18),',
-        '        "mono":       ("IBMPlexMono-Regular.ttf",      16),',
-        '        "mono_sm":    ("IBMPlexMono-Regular.ttf",      13),',
+        '        "serif_lg":   ("InstrumentSerif-Regular.ttf", 120),',
+        '        "serif_med":  ("InstrumentSerif-Regular.ttf",  68),',
+        '        "italic_med": ("InstrumentSerif-Italic.ttf",  40),',
+        '        "jura_light": ("Jura-Light.ttf",              22),',
+        '        "mono":       ("IBMPlexMono-Regular.ttf",      20),',
+        '        "mono_sm":    ("IBMPlexMono-Regular.ttf",      16),',
         "    },",
         "",
         "    # ── Colours ───────────────────────────────────────────────",
@@ -723,7 +723,7 @@ def _build_reveal(row: dict, brand: str, n_images: int, voice_duration: float = 
     # Act I: brand + prices upfront — hook question sits below as the teaser line.
     act1: dict = {
         "show_caption":     True,
-        "caption_position": "lower_safe",
+        "caption_position": "center",
         "tag":              tag,
         "line1":            f"retail  ·  {retail}",
         "line2":            resale,
@@ -801,10 +801,10 @@ def main() -> None:
     parser.add_argument("--model",   default=None, help="Specific model name (e.g. 'Birkin 30')")
     parser.add_argument("--list",    action="store_true", help="Print premium table and exit")
     parser.add_argument("--run",     action="store_true", help="Render reel after generation")
-    parser.add_argument("--brand",   default="@provenance", help="Brand handle for captions")
+    parser.add_argument("--brand",   default="@provenance.resale", help="Brand handle for captions")
     parser.add_argument("--all",     action="store_true", help="Ignore already-posted models")
     parser.add_argument("--voice",   action="store_true",
-                        help="Generate ~1 min AI narration and synthesise via ElevenLabs")
+                        help="Generate ~1.1 min AI narration and synthesise via ElevenLabs")
     args = parser.parse_args()
 
     print("═" * 62)
