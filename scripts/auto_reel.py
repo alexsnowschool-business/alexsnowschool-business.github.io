@@ -728,15 +728,6 @@ def _words_to_captions(words: list[dict], group: int = 3) -> list[dict]:
         })
     return captions
 
-
-def _srt_ts(seconds: float) -> str:
-    h  = int(seconds // 3600)
-    m  = int((seconds % 3600) // 60)
-    s  = int(seconds % 60)
-    ms = int(round((seconds % 1) * 1000))
-    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
-
-
 def _burn_captions(video_path: Path, srt_path: Path) -> Path | None:
     """Burn SRT subtitles into a video with ffmpeg."""
     out   = video_path.with_stem(video_path.stem + "_captioned")
