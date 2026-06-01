@@ -296,38 +296,36 @@ async def _scrape_sale(
     while url and saved_ref[0] < max_lots:
         lot_id = url.rstrip("/").rsplit("-", 1)[-1]
 
-        # Already in DB?
+        lot, next_url, sale_num = await _fetch_lot(client, url)
+
+        # Stop if we've crossed into a different sale
+        if sale_num and expected_sale and sale_num != expected_sale:
+            tqdm.write(f"  Sale changed: {expected_sale} → {sale_num}. Stopping.")
+            return None
+
+        # Already in DB — advance URL but count toward consecutive-existing limit
         if lot_exists(conn, lot_id, AUCTION_HOUSE):
             consecutive_skips += 1
             if consecutive_skips > 30:
                 tqdm.write("  30 consecutive existing lots — sale likely fully scraped")
                 return None
+        elif lot:
+            upsert_lot(conn, lot)
+            saved_ref[0] += 1
+            pbar.update(1)
+            artist = lot.get("artist") or "Unknown"
+            title  = (lot.get("title") or "")[:40]
+            price  = (
+                f"${lot['hammer_usd']:,.0f}" if lot.get("hammer_usd") else
+                (f"{lot['hammer_price']:,.0f}" if lot.get("hammer_price") else "—")
+            )
+            tqdm.write(f"  saved: {artist} — {title} ({price})")
+            consecutive_skips = 0
         else:
-            lot, next_url, sale_num = await _fetch_lot(client, url)
+            consecutive_skips += 1
+            tqdm.write(f"  skipped: lot {lot_id}")
 
-            # Stop if we've crossed into a different sale
-            if sale_num and expected_sale and sale_num != expected_sale:
-                tqdm.write(f"  Sale changed: {expected_sale} → {sale_num}. Stopping.")
-                return None
-
-            if lot:
-                upsert_lot(conn, lot)
-                saved_ref[0] += 1
-                pbar.update(1)
-                artist = lot.get("artist") or "Unknown"
-                title  = (lot.get("title") or "")[:40]
-                price  = (
-                    f"${lot['hammer_usd']:,.0f}" if lot.get("hammer_usd") else
-                    (f"{lot['hammer_price']:,.0f}" if lot.get("hammer_price") else "—")
-                )
-                tqdm.write(f"  saved: {artist} — {title} ({price})")
-                consecutive_skips = 0
-            else:
-                consecutive_skips += 1
-                tqdm.write(f"  skipped: lot {lot_id}")
-
-            url = next_url  # always advance, even on skips
-
+        url = next_url  # always advance, even on existing/skipped lots
         await asyncio.sleep(0.5)
 
     return None
