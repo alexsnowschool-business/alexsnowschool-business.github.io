@@ -9,17 +9,19 @@ Each lot page embeds window.chrComponents.lotHeader_* with structured JSON:
 The page accordion section contains: artist, title, medium, dimensions in plain text.
 
 Strategy:
-  1. Start from known art lot IDs (hardcoded below, grouped by sale).
-  2. Navigate forward through the sale using next_lot_url.
-  3. Stop when next_lot_url leads outside the current sale number.
-  4. Skip non-art lots (wine/jewelry/watches) via blocklist.
+  1. Discover art Day Sales via the Christie's auction-results calendar API
+     (api/discoverywebsite/auctioncalendar/auctionresults), filtering by name.
+  2. Resolve the first lot ID for each sale from its landing page.
+  3. Navigate forward through the sale using next_lot_url.
+  4. Stop when next_lot_url leads outside the current sale number.
+  5. Skip non-art lots (wine/jewelry/watches) via blocklist.
 """
 
 import argparse
 import asyncio
 import json
 import re
-from datetime import datetime, timezone
+from datetime import date, timedelta
 
 import httpx
 from tqdm import tqdm
@@ -38,9 +40,18 @@ _HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-# Sale starting points: (sale_number, first_lot_id, sale_name_hint)
-# Add new sales here. lot_id = first known lot in the sale.
-SALE_STARTS: list[tuple[str, int, str]] = [
+_CALENDAR_API       = f"{BASE_URL}/api/discoverywebsite/auctioncalendar/auctionresults"
+_CALENDAR_COMPONENT = "e7d92272-7bcc-4dba-ae5b-28e4f3729ae8"
+
+# Sale names that match our target departments
+_TARGET_SALE_RE = re.compile(
+    r"(post.war and contemporary art day sale"
+    r"|impressionist and modern art day (sale|and works on paper sale))",
+    re.IGNORECASE,
+)
+
+# Fallback hardcoded starts used when discovery fails
+_FALLBACK_STARTS: list[tuple[str, int, str]] = [
     ("22044", 6425000, "Post-War & Contemporary Art Day Sale, NY 2023"),
     ("22658", 6470000, "Impressionist & Modern Art Day Sale, London 2024"),
     ("23740", 6549978, "Post-War & Contemporary Art Day Sale, NY 2025"),
@@ -102,6 +113,92 @@ def _medium_category(medium: str | None) -> str:
         if keyword in m:
             return "painting"
     return "other"
+
+
+async def _first_lot_from_landing(client: httpx.AsyncClient, landing_url: str) -> int | None:
+    """Fetch a sale landing page and return the lowest embedded lot ID."""
+    try:
+        r = await client.get(landing_url, timeout=20)
+        ids = re.findall(r"/en/lot/lot-(\d+)", r.text)
+        return min(int(i) for i in ids) if ids else None
+    except Exception:
+        return None
+
+
+async def discover_day_sales(
+    client: httpx.AsyncClient,
+    lookback_months: int = 18,
+) -> list[tuple[str, int, str]]:
+    """Query the Christie's results calendar API and return sale_starts tuples
+    for all closed Post-War & Contemporary / Impressionist & Modern Day Sales
+    within the last `lookback_months` months.
+
+    Returns list of (sale_number, first_lot_id, sale_name) sorted oldest-first.
+    """
+    today      = date.today()
+    cal_headers = {**_HEADERS, "Accept": "application/json, */*",
+                   "Referer": f"{BASE_URL}/en/results"}
+    found: dict[str, tuple[str, int, str]] = {}  # keyed by sale_number
+
+    months_to_check = []
+    for delta in range(lookback_months + 1):
+        d = today - timedelta(days=delta * 30)
+        months_to_check.append((d.year, d.month))
+    # Deduplicate while preserving order
+    seen: set = set()
+    unique_months = []
+    for ym in months_to_check:
+        if ym not in seen:
+            seen.add(ym)
+            unique_months.append(ym)
+
+    for year, month in unique_months:
+        try:
+            r = await client.get(
+                _CALENDAR_API,
+                params={"language": "en", "month": str(month),
+                        "year": str(year), "component": _CALENDAR_COMPONENT},
+                headers=cal_headers,
+                timeout=15,
+            )
+            if r.status_code != 200:
+                continue
+            data = r.json()
+        except Exception:
+            continue
+
+        for ev in data.get("events", []):
+            title = ev.get("title_txt", "")
+            if not _TARGET_SALE_RE.search(title):
+                continue
+            # Only closed (results available) sales
+            if "CLOSED" not in ev.get("subtitle_txt", ""):
+                continue
+
+            sub = ev.get("subtitle_txt", "")
+            sale_num_m = re.search(r"\b(\d{5})\b", sub)
+            if not sale_num_m:
+                continue
+            sale_num = sale_num_m.group(1)
+            if sale_num in found:
+                continue
+
+            landing = ev.get("landing_url", "")
+            if not landing:
+                continue
+
+            first_lot = await _first_lot_from_landing(client, landing)
+            if not first_lot:
+                continue
+
+            location = ev.get("location_txt", "")
+            label    = f"{title.strip()}, {location} {year}"
+            found[sale_num] = (sale_num, first_lot, label)
+            tqdm.write(f"  discovered sale {sale_num}: {label} (first lot {first_lot})")
+            await asyncio.sleep(0.3)
+
+    # Return sorted by first_lot_id (chronological)
+    return sorted(found.values(), key=lambda t: t[1])
 
 
 def _extract_navigation(body: str) -> tuple[str | None, str | None]:
@@ -336,14 +433,22 @@ async def _scrape_sale(
     return None
 
 
-async def scrape(max_lots: int = 300, sale_starts: list[tuple] | None = None) -> None:
-    if sale_starts is None:
-        sale_starts = SALE_STARTS
-
+async def scrape(
+    max_lots: int = 300,
+    sale_starts: list[tuple] | None = None,
+    lookback_months: int = 18,
+) -> None:
     conn      = connect()
     saved_ref = [0]
 
     async with httpx.AsyncClient(headers=_HEADERS, follow_redirects=True) as client:
+        if sale_starts is None:
+            tqdm.write("Discovering art Day Sales from christies.com/en/results ...")
+            sale_starts = await discover_day_sales(client, lookback_months)
+            if not sale_starts:
+                tqdm.write("Discovery returned no sales — falling back to hardcoded list")
+                sale_starts = _FALLBACK_STARTS
+
         with tqdm(total=max_lots, desc="Lots") as pbar:
             for sale_number, first_lot_id, sale_hint in sale_starts:
                 if saved_ref[0] >= max_lots:
@@ -363,5 +468,7 @@ async def scrape(max_lots: int = 300, sale_starts: list[tuple] | None = None) ->
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrape sold art lots from Christie's")
     parser.add_argument("--max-lots", type=int, default=50)
+    parser.add_argument("--lookback-months", type=int, default=18,
+                        help="How many months back to search for sales (default: 18)")
     args = parser.parse_args()
-    asyncio.run(scrape(max_lots=args.max_lots))
+    asyncio.run(scrape(max_lots=args.max_lots, lookback_months=args.lookback_months))

@@ -32,7 +32,7 @@ jobs:
           UV_INDEX_URL: https://pypi.org/simple/
 
       - name: Run Christie's scraper
-        run: uv run python -m scraper.christies --max-lots 50
+        run: uv run python -m scraper.christies --max-lots 300 --lookback-months 18
         env:
           UV_INDEX_URL: https://pypi.org/simple/
           PYTHONPATH: .
