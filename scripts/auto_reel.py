@@ -58,7 +58,7 @@ _HEADERS = {
 # ── Pacing constants ───────────────────────────────────────────────────────────
 _MAX_REEL_SECONDS  = 65.0
 _FRAME_FADE_S      = 0.1
-_APPRECIATION_MAX_WORDS = 90
+_APPRECIATION_MAX_WORDS = 200
 
 
 # ── Notable-artist index ───────────────────────────────────────────────────────
@@ -437,34 +437,52 @@ def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
 
 def _download_images_playwright(urls: list[str], dest_dir: Path,
                                 max_images: int = 8) -> list[Path]:
-    """Download images via a real Chromium browser to bypass CDN bot-protection."""
+    """Download images via a real Chromium browser context to bypass CDN bot-protection."""
     import asyncio
+    from urllib.parse import urlparse
     from playwright.async_api import async_playwright
 
     async def _fetch_all():
         saved = []
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
-            context = await browser.new_context(user_agent=_HEADERS["User-Agent"],
-                                                locale="en-US")
-            page = await context.new_page()
+            context = await browser.new_context(
+                user_agent=_HEADERS["User-Agent"],
+                locale="en-US",
+                extra_http_headers={
+                    "Accept":          "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "Accept-Encoding": "gzip, deflate, br",
+                },
+            )
             _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
             for i, url in enumerate(urls[:max_images]):
-                try:
-                    resp = await page.goto(url, wait_until="load", timeout=20_000)
-                    if not resp or not resp.ok:
-                        print(f"  ✗ {url[:70]}... — HTTP {resp.status if resp else 'no response'}")
-                        continue
-                    ct  = (resp.headers.get("content-type") or "").split(";")[0].strip().lower()
-                    ext = _CT_EXT.get(ct) or (
-                        ".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png"
-                    )
-                    fname = dest_dir / f"src_{i + 1:02d}{ext}"
-                    fname.write_bytes(await resp.body())
-                    print(f"  ✓ {fname.name}")
-                    saved.append(fname)
-                except Exception as e:
-                    print(f"  ✗ {url[:70]}... — {e}")
+                # Derive referer from origin so CDNs that require it don't block
+                parsed   = urlparse(url)
+                referer  = f"{parsed.scheme}://{parsed.netloc}/"
+                for attempt in range(3):
+                    try:
+                        resp = await context.request.get(
+                            url,
+                            headers={"Referer": referer},
+                            timeout=30_000,
+                        )
+                        if not resp.ok:
+                            print(f"  ✗ {url[:70]}... — HTTP {resp.status}")
+                            break
+                        body = await resp.body()
+                        ct   = (resp.headers.get("content-type") or "").split(";")[0].strip().lower()
+                        ext  = _CT_EXT.get(ct) or (
+                            ".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png"
+                        )
+                        fname = dest_dir / f"src_{i + 1:02d}{ext}"
+                        fname.write_bytes(body)
+                        print(f"  ✓ {fname.name}")
+                        saved.append(fname)
+                        break
+                    except Exception as e:
+                        if attempt == 2:
+                            print(f"  ✗ {url[:70]}... — {e}")
             await browser.close()
         return saved
 
@@ -661,58 +679,71 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
 # ── Reveal sequence ────────────────────────────────────────────────────────────
 
 def _build_reveal_sequence(lot: dict, tag_base: str,
-                           appreciation_text: str = "",
-                           n_act2_images: int = 1) -> list[dict]:
+                           n_act2_images: int = 1,
+                           voice_duration: float = 0.0,
+                           act1_words: int = 0,
+                           narr_words: int = 0,
+                           data_words: int = 0) -> list[dict]:
     """
-    3-act reveal:
-      Act I   — full painting, no data box, just handle — let it breathe
-      Act II  — one frame per crop; appreciation VO plays over them
-      Act III — price stamp + % above estimate hit all at once
+    3-act reveal — all frames are clean (no text box); voice carries all data.
+      Act I   — full painting; voice opens the piece (hook question)
+      Act II  — crop sequence; voice narrates (art/history/significance)
+      Act III — final crop; timed to word proportion so data voice lands in sync
     """
-    hammer         = lot["hammer_usd"]
-    est_low        = lot["estimate_low"]
-    est_high       = lot.get("estimate_high") or est_low
-    pct            = _pct_above(hammer, est_low)
     artist_name    = _clean_artist(lot.get("artist") or "Unknown")
     painting_title = lot.get("title") or "Untitled"
-
     tag = f"{tag_base}  ·  lot I"
-    E   = f"estimate: {_fmt_price(est_low)}–{_fmt_price(est_high)}"
-    S   = f"sold: {_fmt_price(hammer)}."
-    P   = f"+{pct:,.0f}% above estimate."
 
-    def _frame(line1="", line2="", line3="", a="", hold=4.0):
+    # Act III data caption
+    est_low  = lot.get("estimate_low") or 0
+    est_high = lot.get("estimate_high") or est_low
+    hammer   = lot.get("hammer_usd") or 0
+    pct      = _pct_above(hammer, est_low) if est_low > 0 else 0
+    _line1   = f"estimate: {_fmt_price(est_low)}–{_fmt_price(est_high)}"
+    _line2   = f"sold: {_fmt_price(hammer)}."
+    _line3   = f"+{pct:,.0f}% above estimate."
+
+    def _frame(hold=4.0, show_data=False):
         return {
-            "show_caption":  bool(line1 or line2 or line3),
+            "show_caption":  show_data,
             "tag":           tag,
-            "line1":         line1,
-            "line2":         line2,
-            "line3":         line3,
+            "line1":         _line1 if show_data else "",
+            "line2":         _line2 if show_data else "",
+            "line3":         _line3 if show_data else "",
             "hook_question": None,
-            "hook_answer":   a,
+            "hook_answer":   "",
             "upper_artist":  artist_name,
             "upper_title":   painting_title,
             "hold_seconds":  hold,
         }
-    intro_duration = 4.0
-    act1_hold = 8.0
-    act3_hold = 10.0
-    crop_hold_s = max(0.3, round(5.0 / max(1, n_act2_images), 1))
-    frames = [_frame(hold=act1_hold)]
-    for frame_idx in range(n_act2_images):
-        f = _frame(hold=crop_hold_s, a=appreciation_text)
-        if appreciation_text:
-            f["act2_audio_offset"] = round(frame_idx * crop_hold_s, 2)
-        frames.append(f)
-    frames.append(_frame(line1=E, line2=S, line3=P, hold=act3_hold))
 
-    # Trim only Act I to keep total ≤ _MAX_REEL_SECONDS
-    act1_floor = max(0.5, round(intro_duration + 0.2, 1))
-    total = sum(f["hold_seconds"] + _FRAME_FADE_S for f in frames)
-    if total > _MAX_REEL_SECONDS:
-        cut = min(total - _MAX_REEL_SECONDS,
-                  max(0.0, frames[0]["hold_seconds"] - act1_floor))
-        frames[0]["hold_seconds"] = round(frames[0]["hold_seconds"] - cut, 1)
+    if voice_duration > 0:
+        total_w     = max(1, act1_words + narr_words + data_words)
+        act1_ratio  = act1_words / total_w if act1_words > 0 else 0.12
+        act3_ratio  = data_words / total_w if data_words > 0 else 0.15
+        act1_hold   = max(2.0, round(voice_duration * act1_ratio, 1))
+        act3_hold   = max(3.0, round(voice_duration * act3_ratio, 1))
+        crop_hold_s = max(0.3, round(
+            (voice_duration - act1_hold - act3_hold) / max(1, n_act2_images), 1
+        ))
+    else:
+        act1_hold   = 8.0
+        act3_hold   = 10.0
+        crop_hold_s = max(0.3, round(5.0 / max(1, n_act2_images), 1))
+
+    frames = [_frame(hold=act1_hold)]
+    for _ in range(n_act2_images):
+        frames.append(_frame(hold=crop_hold_s))
+    frames.append(_frame(hold=act3_hold, show_data=True))
+
+    # Trim Act I only when no voice — with voice, duration is already correct
+    if voice_duration <= 0:
+        act1_floor = 4.2
+        total = sum(f["hold_seconds"] + _FRAME_FADE_S for f in frames)
+        if total > _MAX_REEL_SECONDS:
+            cut = min(total - _MAX_REEL_SECONDS,
+                      max(0.0, frames[0]["hold_seconds"] - act1_floor))
+            frames[0]["hold_seconds"] = round(frames[0]["hold_seconds"] - cut, 1)
 
     return frames
 
@@ -1118,7 +1149,20 @@ def main() -> None:
                         trimmed = trimmed[:idx + 1]
                         break
                 raw_appr = trimmed
-            appreciation_text = _prices_to_speech(raw_appr)
+            _data_suffix = (
+                f"the estimate was {_fmt_price_tts(hook['estimate_low'])} "
+                f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}. "
+                f"it sold for {_fmt_price_tts(hook['hammer_usd'])}. "
+                f"that's plus {_pct:.0f} percent above estimate."
+            )
+            _intro           = f"this is {hook.get('title') or 'untitled'}, by {artist}."
+            _act1_spoken     = _intro + "  " + _prices_to_speech(_question)
+            _narr_spoken     = _prices_to_speech(raw_appr)
+            _act1_word_count = len(_act1_spoken.split())
+            _narr_word_count = len(_narr_spoken.split())
+            _data_word_count = len(_data_suffix.split())
+            # Full script: Act I (intro + hook question) → Act II (narration) → Act III (price data)
+            appreciation_text = _act1_spoken + "  " + _narr_spoken + "  " + _data_suffix
 
             vo_path = reel_dir / "voiceover.mp3"
             _ok_appr, word_timings = generate_voiceover(appreciation_text, str(vo_path))
@@ -1127,6 +1171,14 @@ def main() -> None:
                 narr_captions = _words_to_captions(word_timings)
                 appreciation_duration = word_timings[-1]["end"] + 0.5
                 print(f"  ✓ Voiceover ({appreciation_duration:.1f}s, {len(word_timings)} words, {len(narr_captions)} cues)")
+                reveal = _build_reveal_sequence(
+                    hook, tag_base,
+                    n_act2_images=_n_act2,
+                    voice_duration=appreciation_duration,
+                    act1_words=_act1_word_count,
+                    narr_words=_narr_word_count,
+                    data_words=_data_word_count,
+                )
     # ── Write reel_config.py ───────────────────────────────────
     config_path = reel_dir / "reel_config.py"
     config_path.write_text(_generate_config(hook, week_label, args.all_time, reveal=reveal, narration_captions=narr_captions or None))
