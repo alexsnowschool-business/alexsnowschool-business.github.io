@@ -973,7 +973,8 @@ def main() -> None:
     print(f"  Premium:       +{chosen['premium_pct']:,.0f}%")
 
     # ── Create reel folder ─────────────────────────────────────
-    slug      = f"hermes-{chosen['model'].lower().replace(' ', '-')}-{date.today().isoformat()}"
+    _model_slug = re.sub(r"-{2,}", "-", re.sub(r"[^a-z0-9-]", "-", chosen['model'].lower())).strip("-")
+    slug      = f"hermes-{_model_slug}-{date.today().isoformat()}"
     reel_dir  = REELS_DIR / slug
     img_dir   = reel_dir / "images"
     out_dir   = reel_dir / "output"
