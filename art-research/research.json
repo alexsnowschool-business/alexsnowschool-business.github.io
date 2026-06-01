@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 1478,
-    "total_artists": 762,
-    "median_hammer_usd": 367700,
-    "pct_above_estimate": 44.0,
+    "total_lots": 1728,
+    "total_artists": 863,
+    "median_hammer_usd": 403200,
+    "pct_above_estimate": 42.0,
     "max_ratio": 14.7,
     "sources": [
       "Artprice",
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-05-28"
+    "generated_at": "2026-06-01"
   },
   "artists": [
     {
@@ -125,7 +125,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 46,
+        "lot_count": 47,
         "total_usd": 48675100,
         "avg_usd": 1081669,
         "total_label": "$48.68M",
@@ -138,6 +138,60 @@
         "top_ratio_lot": {
           "title": "Setting Sun and Sea",
           "ratio": 5.0
+        }
+      }
+    },
+    {
+      "norm_name": "PABLO PICASSO",
+      "display_name": "Pablo Picasso",
+      "dates": "1881–1973",
+      "nationality": "Spanish",
+      "movement": "Cubism · Modernism",
+      "movement_id": "cubism",
+      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
+      "famous_works": [
+        {
+          "title": "Les Demoiselles d'Avignon",
+          "year": "1907",
+          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
+        },
+        {
+          "title": "Guernica",
+          "year": "1937",
+          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
+        },
+        {
+          "title": "Girl Before a Mirror",
+          "year": "1932",
+          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "La Vie",
+          "year": "1903",
+          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
+        },
+        {
+          "title": "Seated Woman with Wrists Crossed (Françoise)",
+          "year": "1953",
+          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
+        }
+      ],
+      "dataset": {
+        "lot_count": 35,
+        "total_usd": 43346022,
+        "avg_usd": 2709126,
+        "total_label": "$43.35M",
+        "avg_label": "$2.71M",
+        "top_lot": {
+          "title": "Homme assis",
+          "hammer_usd": 12800000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Danseuse",
+          "ratio": 2.51
         }
       }
     },
@@ -260,60 +314,6 @@
       }
     },
     {
-      "norm_name": "PABLO PICASSO",
-      "display_name": "Pablo Picasso",
-      "dates": "1881–1973",
-      "nationality": "Spanish",
-      "movement": "Cubism · Modernism",
-      "movement_id": "cubism",
-      "bio": "Pablo Ruiz Picasso was born in Málaga, Spain in 1881, the son of an art teacher from whom he received formal instruction from childhood. His technical precocity was evident by his early teens, when he produced academic figure paintings of a quality that few trained adults could match. Arriving in Paris at the turn of the twentieth century, he absorbed the city's extraordinary artistic ferment — post-Impressionism, primitive and Iberian sculpture, Cézanne's structural analysis — and by 1907 produced Les Demoiselles d'Avignon, a painting so radical in its fragmentation of pictorial space and its synthesis of African and Iberian visual sources that it effectively inaugurated modern art.\n\nWith Georges Braque, Picasso developed the two phases of Cubism (Analytic and Synthetic) between 1908 and 1914, transforming the fundamental premises of Western pictorial representation that had governed it since the Renaissance. These are among the most consequential formal innovations in the history of painting. But Picasso's career is not reducible to Cubism: his Classical period of the 1920s, his savage Neo-Expressionist Guernica of 1937, his late autobiographical works of the 1960s and 1970s, his ceramics at Vallauris — the range and energy of his production over seven decades has no parallel in modern art history.\n\nPicasso died at Mougins in 1973. His work is held by every major museum in the world. The Musée Picasso in Paris and the Museu Picasso in Barcelona hold the most comprehensive collections of his work, documenting a career that fundamentally changed the possibilities of visual art.",
-      "famous_works": [
-        {
-          "title": "Les Demoiselles d'Avignon",
-          "year": "1907",
-          "notes": "The foundational painting of modern art, in which five female figures are rendered in a style that fuses Iberian and African sculptural sources with Cézannist spatial analysis to destroy the conventions of Western pictorial representation."
-        },
-        {
-          "title": "Guernica",
-          "year": "1937",
-          "notes": "A monumental response to the bombing of the Basque town by Nazi aircraft, in which Cubist fragmentation is combined with the imagery of screaming horses, weeping women, and dismembered bodies to produce the most powerful anti-war painting in Western art."
-        },
-        {
-          "title": "Girl Before a Mirror",
-          "year": "1932",
-          "notes": "A painting of his lover Marie-Thérèse Walter in which the mirror simultaneously shows and transforms its subject, creating a meditation on female identity, sexuality, and self-knowledge."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "La Vie",
-          "year": "1903",
-          "notes": "A major Blue Period painting depicting two couples that meditates on the relationships between love, poverty, and mortality with a melancholy that recalls the great Spanish painters."
-        },
-        {
-          "title": "Seated Woman with Wrists Crossed (Françoise)",
-          "year": "1953",
-          "notes": "A late painting of his partner Françoise Gilot that demonstrates the sustained intensity of Picasso's engagement with portraiture across all periods of his career."
-        }
-      ],
-      "dataset": {
-        "lot_count": 30,
-        "total_usd": 28646022,
-        "avg_usd": 2387168,
-        "total_label": "$28.65M",
-        "avg_label": "$2.39M",
-        "top_lot": {
-          "title": "Homme assis",
-          "hammer_usd": 12800000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Danseuse",
-          "ratio": 2.51
-        }
-      }
-    },
-    {
       "norm_name": "YAYOI KUSAMA",
       "display_name": "Yayoi Kusama",
       "dates": "b. 1929",
@@ -415,7 +415,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 23,
+        "lot_count": 25,
         "total_usd": 24440700,
         "avg_usd": 1629380,
         "total_label": "$24.44M",
@@ -664,6 +664,65 @@
         "top_ratio_lot": {
           "title": "Hollywood",
           "ratio": 4.62
+        }
+      }
+    },
+    {
+      "norm_name": "MARC CHAGALL",
+      "display_name": "Marc Chagall",
+      "dates": "1887–1985",
+      "nationality": "Belarusian-French",
+      "movement": "Modernism · Jewish Folk Tradition",
+      "movement_id": "modernism",
+      "bio": "Born Moishe Shagal in Vitebsk, Belarus, to a Hasidic Jewish family, Chagall absorbed Cubism's spatial fragmentation in Paris (1910–14) while keeping the visual culture of his hometown — floating figures, green-faced fiddlers, lovers suspended above rooftops — as his permanent subject matter. He returned to Russia after WWI, directed the Vitebsk Art School, then fled the Bolshevik purges for Berlin and Paris. The Nazi invasion of France sent him to the United States (1941–48), where he designed sets and costumes for Stravinsky's Firebird. His late Provence years produced the biblical works (the 17 paintings now in the Nice Biblical Message Museum), Paris Opera ceiling (1964), and stained glass commissions for the Hadassah Hospital, Jerusalem and the UN building, New York. His late work shows consistent aesthetic decline but unfailing market strength: the iconic vocabulary — green donkeys, flying couples, Vitebsk rooftops — maintains collector demand regardless of quality.",
+      "famous_works": [
+        {
+          "title": "I and the Village",
+          "year": "1911",
+          "notes": "The great synthesis of Cubist structure and Eastern European folk imagery. A goat and a man face each other across a circular composition containing the memory of Vitebsk."
+        },
+        {
+          "title": "The Birthday",
+          "year": "1915",
+          "notes": "Bella Rosenfeld (his future wife) floats above the floor bearing flowers. The levitation of joy — Chagall's most characteristic formal metaphor — rendered with intimate directness."
+        },
+        {
+          "title": "White Crucifixion",
+          "year": "1938",
+          "notes": "Christ on the cross surrounded by scenes of Nazi persecution. The most politically direct of all Chagall's works and one of the few in which the floating figures serve an explicitly critical function."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Cattle Dealer",
+          "year": "1912",
+          "notes": "A more grounded work than the famous levitating canvases — figures and animals depicted with Fauvist flatness against a winter landscape. Less reproduced but structurally important."
+        },
+        {
+          "title": "Solitude",
+          "year": "1933",
+          "notes": "A rabbi and a cow on a dark ground. Made in the year of Hitler's appointment as Chancellor — the mood is premonitory and the imagery stripped back to essentials."
+        },
+        {
+          "title": "The Tribe of Levi (Hadassah Window)",
+          "year": "1962",
+          "notes": "One of the twelve stained glass windows for the Hadassah Hebrew University Medical Center. The medium (stained glass) suits Chagall's colour sensibility better than oil on canvas."
+        }
+      ],
+      "dataset": {
+        "lot_count": 27,
+        "total_usd": 11192278,
+        "avg_usd": 532966,
+        "total_label": "$11.19M",
+        "avg_label": "$533k",
+        "top_lot": {
+          "title": "Bethsabée",
+          "hammer_usd": 4500000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Panier de fruits ou Le panier de fleurs",
+          "ratio": 10.4
         }
       }
     },
@@ -973,61 +1032,61 @@
       }
     },
     {
-      "norm_name": "MARC CHAGALL",
-      "display_name": "Marc Chagall",
-      "dates": "1887–1985",
-      "nationality": "Belarusian-French",
-      "movement": "Modernism · Jewish Folk Tradition",
-      "movement_id": "modernism",
-      "bio": "Born Moishe Shagal in Vitebsk, Belarus, to a Hasidic Jewish family, Chagall absorbed Cubism's spatial fragmentation in Paris (1910–14) while keeping the visual culture of his hometown — floating figures, green-faced fiddlers, lovers suspended above rooftops — as his permanent subject matter. He returned to Russia after WWI, directed the Vitebsk Art School, then fled the Bolshevik purges for Berlin and Paris. The Nazi invasion of France sent him to the United States (1941–48), where he designed sets and costumes for Stravinsky's Firebird. His late Provence years produced the biblical works (the 17 paintings now in the Nice Biblical Message Museum), Paris Opera ceiling (1964), and stained glass commissions for the Hadassah Hospital, Jerusalem and the UN building, New York. His late work shows consistent aesthetic decline but unfailing market strength: the iconic vocabulary — green donkeys, flying couples, Vitebsk rooftops — maintains collector demand regardless of quality.",
+      "norm_name": "PIERRE-AUGUSTE RENOIR",
+      "display_name": "Pierre-Auguste Renoir",
+      "dates": "1841–1919",
+      "nationality": "French",
+      "movement": "Impressionism · Figure Painting",
+      "movement_id": "impressionism",
+      "bio": "Born in Limoges, Renoir trained as a porcelain painter before entering the École des Beaux-Arts and meeting Monet, Sisley, and Bazille. He was the most socially optimistic of the Impressionists: his paintings depict pleasure — dances, outdoor luncheons, Sunday afternoons on the Seine, women bathing — with a warmth and sensuousness that distinguished him from Monet's more meteorological programme. The dappled light in his outdoor figure paintings is the technique applied to human social life rather than landscape. His late career, dominated by rheumatoid arthritis that eventually left him unable to hold a brush (his assistants strapped it to his wrist), turned toward an increasingly academic and studio-bound treatment of the female figure. Institutional and collector prices remain very strong globally, particularly in the United States and Japan, where his work entered major collections early.",
       "famous_works": [
         {
-          "title": "I and the Village",
-          "year": "1911",
-          "notes": "The great synthesis of Cubist structure and Eastern European folk imagery. A goat and a man face each other across a circular composition containing the memory of Vitebsk."
+          "title": "Le Moulin de la Galette",
+          "year": "1876",
+          "notes": "A Sunday afternoon at the outdoor dance hall in Montmartre. The dappled Impressionist light applied to a scene of bourgeois leisure — one of the movement's defining images. Musée d'Orsay."
         },
         {
-          "title": "The Birthday",
-          "year": "1915",
-          "notes": "Bella Rosenfeld (his future wife) floats above the floor bearing flowers. The levitation of joy — Chagall's most characteristic formal metaphor — rendered with intimate directness."
+          "title": "Luncheon of the Boating Party",
+          "year": "1880–81",
+          "notes": "Renoir's friends lunching on a terrace above the Seine at Chatou. The most elaborate of his outdoor figure compositions — Impressionist technique at its most socially immersive."
         },
         {
-          "title": "White Crucifixion",
-          "year": "1938",
-          "notes": "Christ on the cross surrounded by scenes of Nazi persecution. The most politically direct of all Chagall's works and one of the few in which the floating figures serve an explicitly critical function."
+          "title": "The Large Bathers",
+          "year": "1884–87",
+          "notes": "A monumental outdoor nude composition in a more classical style than the Impressionist period — Renoir's attempt to reconcile plein-air observation with the grand tradition."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "The Cattle Dealer",
-          "year": "1912",
-          "notes": "A more grounded work than the famous levitating canvases — figures and animals depicted with Fauvist flatness against a winter landscape. Less reproduced but structurally important."
+          "title": "The Swing",
+          "year": "1876",
+          "notes": "A small painting made in his garden in Montmartre — the same location as Le Moulin. The dappled light effects are even more immediate here than in the larger canvas."
         },
         {
-          "title": "Solitude",
-          "year": "1933",
-          "notes": "A rabbi and a cow on a dark ground. Made in the year of Hitler's appointment as Chancellor — the mood is premonitory and the imagery stripped back to essentials."
+          "title": "Young Women at the Piano",
+          "year": "1892",
+          "notes": "Commissioned by the French state for the Luxembourg Museum. The domestic interior at its most comfortable — Renoir's bourgeois optimism at its least problematically cheerful."
         },
         {
-          "title": "The Tribe of Levi (Hadassah Window)",
-          "year": "1962",
-          "notes": "One of the twelve stained glass windows for the Hadassah Hebrew University Medical Center. The medium (stained glass) suits Chagall's colour sensibility better than oil on canvas."
+          "title": "The Theatre Box",
+          "year": "1874",
+          "notes": "A woman in a theatre box, the male companion a dark background figure. The woman as spectacle within the spectacle of the theatre — the looking and being-looked-at doubled."
         }
       ],
       "dataset": {
-        "lot_count": 25,
-        "total_usd": 4992278,
-        "avg_usd": 262751,
-        "total_label": "$4.99M",
-        "avg_label": "$263k",
+        "lot_count": 3,
+        "total_usd": 5572084,
+        "avg_usd": 1857361,
+        "total_label": "$5.57M",
+        "avg_label": "$1.86M",
         "top_lot": {
-          "title": "Le Baou de Saint-Jeannet",
-          "hammer_usd": 1800000,
-          "sale_name": "Modern Evening Auction, NY 2025"
+          "title": "Roses dans un vase de cristal",
+          "hammer_usd": 2700000,
+          "sale_name": "Modern Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Panier de fruits ou Le panier de fleurs",
-          "ratio": 10.4
+          "title": "Vache dans un verger",
+          "ratio": 2.69
         }
       }
     },
@@ -1069,7 +1128,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 5,
         "total_usd": 4848000,
         "avg_usd": 2424000,
         "total_label": "$4.85M",
@@ -1182,7 +1241,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 6,
+        "lot_count": 7,
         "total_usd": 4624600,
         "avg_usd": 1156150,
         "total_label": "$4.62M",
@@ -1308,65 +1367,6 @@
         "top_ratio_lot": {
           "title": "Robinet",
           "ratio": 7.5
-        }
-      }
-    },
-    {
-      "norm_name": "PIERRE-AUGUSTE RENOIR",
-      "display_name": "Pierre-Auguste Renoir",
-      "dates": "1841–1919",
-      "nationality": "French",
-      "movement": "Impressionism · Figure Painting",
-      "movement_id": "impressionism",
-      "bio": "Born in Limoges, Renoir trained as a porcelain painter before entering the École des Beaux-Arts and meeting Monet, Sisley, and Bazille. He was the most socially optimistic of the Impressionists: his paintings depict pleasure — dances, outdoor luncheons, Sunday afternoons on the Seine, women bathing — with a warmth and sensuousness that distinguished him from Monet's more meteorological programme. The dappled light in his outdoor figure paintings is the technique applied to human social life rather than landscape. His late career, dominated by rheumatoid arthritis that eventually left him unable to hold a brush (his assistants strapped it to his wrist), turned toward an increasingly academic and studio-bound treatment of the female figure. Institutional and collector prices remain very strong globally, particularly in the United States and Japan, where his work entered major collections early.",
-      "famous_works": [
-        {
-          "title": "Le Moulin de la Galette",
-          "year": "1876",
-          "notes": "A Sunday afternoon at the outdoor dance hall in Montmartre. The dappled Impressionist light applied to a scene of bourgeois leisure — one of the movement's defining images. Musée d'Orsay."
-        },
-        {
-          "title": "Luncheon of the Boating Party",
-          "year": "1880–81",
-          "notes": "Renoir's friends lunching on a terrace above the Seine at Chatou. The most elaborate of his outdoor figure compositions — Impressionist technique at its most socially immersive."
-        },
-        {
-          "title": "The Large Bathers",
-          "year": "1884–87",
-          "notes": "A monumental outdoor nude composition in a more classical style than the Impressionist period — Renoir's attempt to reconcile plein-air observation with the grand tradition."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Swing",
-          "year": "1876",
-          "notes": "A small painting made in his garden in Montmartre — the same location as Le Moulin. The dappled light effects are even more immediate here than in the larger canvas."
-        },
-        {
-          "title": "Young Women at the Piano",
-          "year": "1892",
-          "notes": "Commissioned by the French state for the Luxembourg Museum. The domestic interior at its most comfortable — Renoir's bourgeois optimism at its least problematically cheerful."
-        },
-        {
-          "title": "The Theatre Box",
-          "year": "1874",
-          "notes": "A woman in a theatre box, the male companion a dark background figure. The woman as spectacle within the spectacle of the theatre — the looking and being-looked-at doubled."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 3372084,
-        "avg_usd": 1686042,
-        "total_label": "$3.37M",
-        "avg_label": "$1.69M",
-        "top_lot": {
-          "title": "Roses dans un vase de cristal",
-          "hammer_usd": 2700000,
-          "sale_name": "Modern Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Vache dans un verger",
-          "ratio": 2.69
         }
       }
     },
@@ -1539,6 +1539,60 @@
         "top_ratio_lot": {
           "title": "Untitled 無題",
           "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "PIERRE BONNARD",
+      "display_name": "Pierre Bonnard",
+      "dates": "1867–1947",
+      "nationality": "French",
+      "movement": "Post-Impressionism",
+      "movement_id": "post-impressionism",
+      "bio": "Pierre Bonnard was born in Fontenay-aux-Roses near Paris in 1867 and studied at the École des Beaux-Arts and the Académie Julian, where he met Paul Sérusier, Maurice Denis, and other members of what became the Nabis — a group of painters who, inspired by Gauguin's flat, symbolic use of colour, developed an approach to painting as a two-dimensional arrangement of colour and form that led Bonnard toward the particular vision he maintained for the rest of his life.\n\nBonnard's mature paintings are among the most chromatically extraordinary in Western art. Working from memory and from colour notes rather than direct observation, he constructed domestic interiors, garden scenes, and nudes of his companion Marthe (whom he eventually married) in colour combinations of seemingly arbitrary intensity — oranges next to purples, greens next to reds — that are somehow always precisely right, the colour creating the space and the emotion simultaneously. Marthe, who bathed compulsively due to a health condition, appears in numerous canvases floating in bathtubs of purple and gold — images of domestic intimacy that are simultaneously quotidian and transcendent.\n\nBonnard worked largely apart from the major movements of twentieth-century art — Cubism, Surrealism, Abstract Expressionism passed him by — maintaining a domestic, intimate subject matter that many critics long dismissed as minor. The rehabilitation of his reputation has been substantial, and major retrospectives at the Tate, MoMA, and the Fondation Beyeler have confirmed his standing as one of the great colourists in the history of painting.",
+      "famous_works": [
+        {
+          "title": "The Bath",
+          "year": "1925",
+          "notes": "A painting of Marthe in the bathtub in which the body, the water, and the warm-tiled room are dissolved into a single chromatic field of extraordinary radiance."
+        },
+        {
+          "title": "The Dining Room in the Country",
+          "year": "1913",
+          "notes": "A large interior painting in which domestic space, garden, and figure are united by the chromatic logic that makes every spatial distinction simultaneously a colour decision."
+        },
+        {
+          "title": "Nude in the Bath and Small Dog",
+          "year": "1941–1946",
+          "notes": "A late painting of Marthe, from which she has recently died, in which her form in the tub is suffused with a luminosity that has the quality of memory rather than observation."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Almond Tree in Blossom",
+          "year": "1946",
+          "notes": "A late landscape from Bonnard's Le Cannet studio in which the almond tree's flowering is rendered with the trembling chromatic precision of his final years."
+        },
+        {
+          "title": "The Breakfast Table",
+          "year": "1936",
+          "notes": "A domestic scene in which the still-life arrangement of breakfast objects and the morning light create a composition of characteristic chromatic intimacy."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 2960020,
+        "avg_usd": 1480010,
+        "total_label": "$2.96M",
+        "avg_label": "$1.48M",
+        "top_lot": {
+          "title": "Nu s'habillant",
+          "hammer_usd": 2800000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Nu s'habillant",
+          "ratio": 2.8
         }
       }
     },
@@ -1963,7 +2017,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 5,
+        "lot_count": 7,
         "total_usd": 2275600,
         "avg_usd": 1137800,
         "total_label": "$2.28M",
@@ -2464,7 +2518,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 7,
+        "lot_count": 9,
         "total_usd": 1692124,
         "avg_usd": 846062,
         "total_label": "$1.69M",
@@ -3746,7 +3800,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 6,
         "total_usd": 802800,
         "avg_usd": 401400,
         "total_label": "$803k",
@@ -4689,7 +4743,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 560700,
         "avg_usd": 280350,
         "total_label": "$561k",
@@ -5735,7 +5789,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 365400,
         "avg_usd": 365400,
         "total_label": "$365k",
@@ -6005,7 +6059,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 5,
         "total_usd": 303911,
         "avg_usd": 151956,
         "total_label": "$304k",
@@ -6221,7 +6275,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 5,
         "total_usd": 277200,
         "avg_usd": 277200,
         "total_label": "$277k",
@@ -6653,7 +6707,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 6,
         "total_usd": 248220,
         "avg_usd": 82740,
         "total_label": "$248k",
@@ -7085,7 +7139,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 201600,
         "avg_usd": 201600,
         "total_label": "$202k",
@@ -7696,60 +7750,6 @@
       }
     },
     {
-      "norm_name": "PIERRE BONNARD",
-      "display_name": "Pierre Bonnard",
-      "dates": "1867–1947",
-      "nationality": "French",
-      "movement": "Post-Impressionism",
-      "movement_id": "post-impressionism",
-      "bio": "Pierre Bonnard was born in Fontenay-aux-Roses near Paris in 1867 and studied at the École des Beaux-Arts and the Académie Julian, where he met Paul Sérusier, Maurice Denis, and other members of what became the Nabis — a group of painters who, inspired by Gauguin's flat, symbolic use of colour, developed an approach to painting as a two-dimensional arrangement of colour and form that led Bonnard toward the particular vision he maintained for the rest of his life.\n\nBonnard's mature paintings are among the most chromatically extraordinary in Western art. Working from memory and from colour notes rather than direct observation, he constructed domestic interiors, garden scenes, and nudes of his companion Marthe (whom he eventually married) in colour combinations of seemingly arbitrary intensity — oranges next to purples, greens next to reds — that are somehow always precisely right, the colour creating the space and the emotion simultaneously. Marthe, who bathed compulsively due to a health condition, appears in numerous canvases floating in bathtubs of purple and gold — images of domestic intimacy that are simultaneously quotidian and transcendent.\n\nBonnard worked largely apart from the major movements of twentieth-century art — Cubism, Surrealism, Abstract Expressionism passed him by — maintaining a domestic, intimate subject matter that many critics long dismissed as minor. The rehabilitation of his reputation has been substantial, and major retrospectives at the Tate, MoMA, and the Fondation Beyeler have confirmed his standing as one of the great colourists in the history of painting.",
-      "famous_works": [
-        {
-          "title": "The Bath",
-          "year": "1925",
-          "notes": "A painting of Marthe in the bathtub in which the body, the water, and the warm-tiled room are dissolved into a single chromatic field of extraordinary radiance."
-        },
-        {
-          "title": "The Dining Room in the Country",
-          "year": "1913",
-          "notes": "A large interior painting in which domestic space, garden, and figure are united by the chromatic logic that makes every spatial distinction simultaneously a colour decision."
-        },
-        {
-          "title": "Nude in the Bath and Small Dog",
-          "year": "1941–1946",
-          "notes": "A late painting of Marthe, from which she has recently died, in which her form in the tub is suffused with a luminosity that has the quality of memory rather than observation."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Almond Tree in Blossom",
-          "year": "1946",
-          "notes": "A late landscape from Bonnard's Le Cannet studio in which the almond tree's flowering is rendered with the trembling chromatic precision of his final years."
-        },
-        {
-          "title": "The Breakfast Table",
-          "year": "1936",
-          "notes": "A domestic scene in which the still-life arrangement of breakfast objects and the morning light create a composition of characteristic chromatic intimacy."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 160020,
-        "avg_usd": 160020,
-        "total_label": "$160k",
-        "avg_label": "$160k",
-        "top_lot": {
-          "title": "Paysage, arbres fruitiers",
-          "hammer_usd": 160020,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Paysage, arbres fruitiers",
-          "ratio": 1.28
-        }
-      }
-    },
-    {
       "norm_name": "HENRI EDMOND CROSS",
       "display_name": "Henri-Edmond Cross",
       "dates": "1856–1910",
@@ -7841,7 +7841,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 6,
+        "lot_count": 8,
         "total_usd": 160020,
         "avg_usd": 160020,
         "total_label": "$160k",
@@ -8057,7 +8057,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 5,
         "total_usd": 151200,
         "avg_usd": 151200,
         "total_label": "$151k",
@@ -11729,7 +11729,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 4,
         "total_usd": 15750,
         "avg_usd": 7875,
         "total_label": "$16k",
@@ -12377,7 +12377,7 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 6930,
         "avg_usd": 6930,
         "total_label": "$7k",
@@ -12512,19 +12512,46 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 6,
-        "total_usd": 42000000,
-        "avg_usd": 14000000,
-        "total_label": "$42.00M",
-        "avg_label": "$14.00M",
+        "lot_count": 8,
+        "total_usd": 59000000,
+        "avg_usd": 11800000,
+        "total_label": "$59.00M",
+        "avg_label": "$11.80M",
         "top_lot": {
           "title": "Meules à Giverny",
           "hammer_usd": 30200000,
           "sale_name": "Modern Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Église de Vernon, Soleil",
-          "ratio": 0.86
+          "title": "Antibes vue de la Salis",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "RENÉ MAGRITTE",
+      "display_name": "René Magritte",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 34100000,
+        "avg_usd": 4871429,
+        "total_label": "$34.10M",
+        "avg_label": "$4.87M",
+        "top_lot": {
+          "title": "Le Banquet",
+          "hammer_usd": 16000000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Le Calcul mental",
+          "ratio": 1.83
         }
       }
     },
@@ -12647,11 +12674,11 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 5,
-        "total_usd": 14770000,
-        "avg_usd": 2954000,
-        "total_label": "$14.77M",
-        "avg_label": "$2.95M",
+        "lot_count": 6,
+        "total_usd": 16670000,
+        "avg_usd": 2778333,
+        "total_label": "$16.67M",
+        "avg_label": "$2.78M",
         "top_lot": {
           "title": "Leaves of a Plant",
           "hammer_usd": 10850000,
@@ -12691,33 +12718,6 @@
       }
     },
     {
-      "norm_name": "RENÉ MAGRITTE",
-      "display_name": "René Magritte",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 13400000,
-        "avg_usd": 3350000,
-        "total_label": "$13.40M",
-        "avg_label": "$3.35M",
-        "top_lot": {
-          "title": "La Traversée difficile",
-          "hammer_usd": 8250000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Le Calcul mental",
-          "ratio": 1.83
-        }
-      }
-    },
-    {
       "norm_name": "GERHARD RICHTER",
       "display_name": "Gerhard Richter",
       "dates": "",
@@ -12728,7 +12728,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 11,
+        "lot_count": 12,
         "total_usd": 12100000,
         "avg_usd": 2420000,
         "total_label": "$12.10M",
@@ -12741,6 +12741,33 @@
         "top_ratio_lot": {
           "title": "Ifrit",
           "ratio": 1.71
+        }
+      }
+    },
+    {
+      "norm_name": "ZAO WOU-KI",
+      "display_name": "Zao Wou-Ki",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 10350000,
+        "avg_usd": 5175000,
+        "total_label": "$10.35M",
+        "avg_label": "$5.17M",
+        "top_lot": {
+          "title": "Zao Wou-Ki 趙無極 | 27.12.00",
+          "hammer_usd": 8700000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Zao Wou-Ki 趙無極 | Sans titre 無題",
+          "ratio": 2.06
         }
       }
     },
@@ -12799,6 +12826,114 @@
       }
     },
     {
+      "norm_name": "JOAN MIRÓ",
+      "display_name": "Joan Miró",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 8700000,
+        "avg_usd": 1740000,
+        "total_label": "$8.70M",
+        "avg_label": "$1.74M",
+        "top_lot": {
+          "title": "Personnage gothique, oiseau éclair",
+          "hammer_usd": 4000000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 1.55
+        }
+      }
+    },
+    {
+      "norm_name": "ÉDOUARD MANET",
+      "display_name": "Édouard Manet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8600000,
+        "avg_usd": 8600000,
+        "total_label": "$8.60M",
+        "avg_label": "$8.60M",
+        "top_lot": {
+          "title": "Vase de fleurs, roses et lilas",
+          "hammer_usd": 8600000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Vase de fleurs, roses et lilas",
+          "ratio": 1.01
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL CÉZANNE",
+      "display_name": "Paul Cézanne",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 6850000,
+        "avg_usd": 3425000,
+        "total_label": "$6.85M",
+        "avg_label": "$3.42M",
+        "top_lot": {
+          "title": "Portrait de Madame Cézanne",
+          "hammer_usd": 6100000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait de Madame Cézanne",
+          "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "FERNAND LÉGER",
+      "display_name": "Fernand Léger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 6800000,
+        "avg_usd": 1360000,
+        "total_label": "$6.80M",
+        "avg_label": "$1.36M",
+        "top_lot": {
+          "title": "La Jeune fille au bouquet",
+          "hammer_usd": 3200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
+          "ratio": 1.57
+        }
+      }
+    },
+    {
       "norm_name": "LÁSZLÓ MOHOLY-NAGY",
       "display_name": "László Moholy-Nagy",
       "dates": "",
@@ -12836,7 +12971,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 6300000,
         "avg_usd": 6300000,
         "total_label": "$6.30M",
@@ -12876,60 +13011,6 @@
         "top_ratio_lot": {
           "title": "An Important Double-Pedestal Lamp for the Susan Lawrence Dan",
           "ratio": 1.55
-        }
-      }
-    },
-    {
-      "norm_name": "PAUL CÉZANNE",
-      "display_name": "Paul Cézanne",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 6100000,
-        "avg_usd": 6100000,
-        "total_label": "$6.10M",
-        "avg_label": "$6.10M",
-        "top_lot": {
-          "title": "Portrait de Madame Cézanne",
-          "hammer_usd": 6100000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Portrait de Madame Cézanne",
-          "ratio": 1.02
-        }
-      }
-    },
-    {
-      "norm_name": "FERNAND LÉGER",
-      "display_name": "Fernand Léger",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 5950000,
-        "avg_usd": 1487500,
-        "total_label": "$5.95M",
-        "avg_label": "$1.49M",
-        "top_lot": {
-          "title": "La Jeune fille au bouquet",
-          "hammer_usd": 3200000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
-          "ratio": 1.57
         }
       }
     },
@@ -13042,33 +13123,6 @@
       }
     },
     {
-      "norm_name": "JOAN MIRÓ",
-      "display_name": "Joan Miró",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 4700000,
-        "avg_usd": 1175000,
-        "total_label": "$4.70M",
-        "avg_label": "$1.18M",
-        "top_lot": {
-          "title": "Tête",
-          "hammer_usd": 1750000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Sans titre",
-          "ratio": 1.55
-        }
-      }
-    },
-    {
       "norm_name": "KAZUO SHIRAGA",
       "display_name": "Kazuo Shiraga",
       "dates": "",
@@ -13160,7 +13214,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 6,
         "total_usd": 4300000,
         "avg_usd": 4300000,
         "total_label": "$4.30M",
@@ -13173,6 +13227,33 @@
         "top_ratio_lot": {
           "title": "Trompetenbläser I (Trumpeters I)",
           "ratio": 0.72
+        }
+      }
+    },
+    {
+      "norm_name": "HANS HARTUNG",
+      "display_name": "Hans Hartung",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 4280000,
+        "avg_usd": 1426667,
+        "total_label": "$4.28M",
+        "avg_label": "$1.43M",
+        "top_lot": {
+          "title": "Hans Hartung 漢斯・哈同 | T1975-R25",
+          "hammer_usd": 2400000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "T1949-21",
+          "ratio": 1.6
         }
       }
     },
@@ -13204,6 +13285,33 @@
       }
     },
     {
+      "norm_name": "MAURICE DE VLAMINCK",
+      "display_name": "Maurice De Vlaminck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 3780000,
+        "avg_usd": 1890000,
+        "total_label": "$3.78M",
+        "avg_label": "$1.89M",
+        "top_lot": {
+          "title": "Pêcheur à Chatou",
+          "hammer_usd": 3500000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Maisons au bord de l'eau",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
       "norm_name": "ADRIANA VAREJÃO",
       "display_name": "Adriana Varejão",
       "dates": "",
@@ -13227,6 +13335,33 @@
         "top_ratio_lot": {
           "title": "A Grande Curva 宏大的弧線",
           "ratio": 1.75
+        }
+      }
+    },
+    {
+      "norm_name": "CAMILLE PISSARRO",
+      "display_name": "Camille Pissarro",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 3450000,
+        "avg_usd": 1150000,
+        "total_label": "$3.45M",
+        "avg_label": "$1.15M",
+        "top_lot": {
+          "title": "Le Jardin des Tuileries et le pavillon de Flore, gelée blanc",
+          "hammer_usd": 2000000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Le Jardin des Tuileries et le pavillon de Flore, gelée blanc",
+          "ratio": 1.0
         }
       }
     },
@@ -13285,6 +13420,87 @@
       }
     },
     {
+      "norm_name": "HANS  HOFMANN",
+      "display_name": "Hans  Hofmann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3200000,
+        "avg_usd": 3200000,
+        "total_label": "$3.20M",
+        "avg_label": "$3.20M",
+        "top_lot": {
+          "title": "Lava",
+          "hammer_usd": 3200000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Lava",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
+      "norm_name": "ANDREW WYETH",
+      "display_name": "Andrew Wyeth",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3000000,
+        "avg_usd": 3000000,
+        "total_label": "$3.00M",
+        "avg_label": "$3.00M",
+        "top_lot": {
+          "title": "Rum Runner (To the Westward)",
+          "hammer_usd": 3000000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Rum Runner (To the Westward)",
+          "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "EDVARD MUNCH",
+      "display_name": "Edvard Munch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 2700000,
+        "avg_usd": 1350000,
+        "total_label": "$2.70M",
+        "avg_label": "$1.35M",
+        "top_lot": {
+          "title": "Heinrich C. Hudtwalcker",
+          "hammer_usd": 1600000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Heinrich C. Hudtwalcker",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "WAYNE  THIEBAUD",
       "display_name": "Wayne  Thiebaud",
       "dates": "",
@@ -13308,6 +13524,60 @@
         "top_ratio_lot": {
           "title": "Watermelon & Knife",
           "ratio": 1.04
+        }
+      }
+    },
+    {
+      "norm_name": "SHI HU",
+      "display_name": "Shi Hu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2400000,
+        "avg_usd": 2400000,
+        "total_label": "$2.40M",
+        "avg_label": "$2.40M",
+        "top_lot": {
+          "title": "Shi Hu 石虎 | Horse in the forest 森馬",
+          "hammer_usd": 2400000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Shi Hu 石虎 | Horse in the forest 森馬",
+          "ratio": 8.0
+        }
+      }
+    },
+    {
+      "norm_name": "FENG XIAOMIN",
+      "display_name": "Feng Xiaomin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2400000,
+        "avg_usd": 2400000,
+        "total_label": "$2.40M",
+        "avg_label": "$2.40M",
+        "top_lot": {
+          "title": "Feng Xiaomin 馮驍鳴 | Composition N°22.07.19 構圖N°22.07.19",
+          "hammer_usd": 2400000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Feng Xiaomin 馮驍鳴 | Composition N°22.07.19 構圖N°22.07.19",
+          "ratio": 5.33
         }
       }
     },
@@ -13349,7 +13619,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 5,
+        "lot_count": 7,
         "total_usd": 2200000,
         "avg_usd": 2200000,
         "total_label": "$2.20M",
@@ -13388,6 +13658,33 @@
         },
         "top_ratio_lot": {
           "title": "The Edge 邊緣",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "CHU TEH-CHUN",
+      "display_name": "Chu Teh-Chun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2200000,
+        "avg_usd": 2200000,
+        "total_label": "$2.20M",
+        "avg_label": "$2.20M",
+        "top_lot": {
+          "title": "Chu Teh-Chun 朱德群 | De toutes parts 綠野",
+          "hammer_usd": 2200000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Chu Teh-Chun 朱德群 | De toutes parts 綠野",
           "ratio": 0.88
         }
       }
@@ -13443,6 +13740,33 @@
         "top_ratio_lot": {
           "title": "Untitled 08-6-12 無題 08－6－12",
           "ratio": 1.6
+        }
+      }
+    },
+    {
+      "norm_name": "MYONGHI KANG",
+      "display_name": "Myonghi Kang",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2000000,
+        "avg_usd": 2000000,
+        "total_label": "$2.00M",
+        "avg_label": "$2.00M",
+        "top_lot": {
+          "title": "Myonghi Kang 姜明姬 | Canna et camelia 曇華與山茶",
+          "hammer_usd": 2000000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Myonghi Kang 姜明姬 | Canna et camelia 曇華與山茶",
+          "ratio": 1.0
         }
       }
     },
@@ -13592,7 +13916,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 7,
+        "lot_count": 10,
         "total_usd": 1800000,
         "avg_usd": 1800000,
         "total_label": "$1.80M",
@@ -13744,8 +14068,8 @@
       }
     },
     {
-      "norm_name": "EDVARD MUNCH",
-      "display_name": "Edvard Munch",
+      "norm_name": "HENRY MOORE",
+      "display_name": "Henry Moore",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -13755,18 +14079,18 @@
       "lesser_known_works": [],
       "dataset": {
         "lot_count": 3,
-        "total_usd": 1600000,
-        "avg_usd": 1600000,
-        "total_label": "$1.60M",
-        "avg_label": "$1.60M",
+        "total_usd": 1650000,
+        "avg_usd": 550000,
+        "total_label": "$1.65M",
+        "avg_label": "$550k",
         "top_lot": {
-          "title": "Heinrich C. Hudtwalcker",
-          "hammer_usd": 1600000,
-          "sale_name": "Modern Evening Auction, NY 2025"
+          "title": "Reclining Figure: Umbilicus",
+          "hammer_usd": 800000,
+          "sale_name": "Modern Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Heinrich C. Hudtwalcker",
-          "ratio": 1.6
+          "title": "Seated Woman on Bench",
+          "ratio": 0.89
         }
       }
     },
@@ -13825,6 +14149,33 @@
       }
     },
     {
+      "norm_name": "LEE MAN FONG",
+      "display_name": "Lee Man Fong",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1500000,
+        "avg_usd": 1500000,
+        "total_label": "$1.50M",
+        "avg_label": "$1.50M",
+        "top_lot": {
+          "title": "Lee Man Fong 李曼峰 | Snack stall in Bali 峇里零食攤",
+          "hammer_usd": 1500000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Lee Man Fong 李曼峰 | Snack stall in Bali 峇里零食攤",
+          "ratio": 2.0
+        }
+      }
+    },
+    {
       "norm_name": "FAITH RINGGOLD",
       "display_name": "Faith Ringgold",
       "dates": "",
@@ -13852,8 +14203,8 @@
       }
     },
     {
-      "norm_name": "CAMILLE PISSARRO",
-      "display_name": "Camille Pissarro",
+      "norm_name": "VINCENT VAN GOGH",
+      "display_name": "Vincent Van Gogh",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -13862,19 +14213,46 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 5,
-        "total_usd": 1450000,
-        "avg_usd": 725000,
-        "total_label": "$1.45M",
-        "avg_label": "$725k",
+        "lot_count": 2,
+        "total_usd": 1430000,
+        "avg_usd": 715000,
+        "total_label": "$1.43M",
+        "avg_label": "$715k",
         "top_lot": {
-          "title": "Cour de ferme à Eragny",
-          "hammer_usd": 750000,
+          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
+          "hammer_usd": 780000,
           "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "La Batterie à Montfoucault",
-          "ratio": 0.82
+          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
+          "ratio": 1.11
+        }
+      }
+    },
+    {
+      "norm_name": "ANDRÉ BRASILIER",
+      "display_name": "André Brasilier",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1400000,
+        "avg_usd": 1400000,
+        "total_label": "$1.40M",
+        "avg_label": "$1.40M",
+        "top_lot": {
+          "title": "André Brasilier 安德烈・布拉吉利 | Hiver à Loupeigne 盧佩涅的冬天",
+          "hammer_usd": 1400000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "André Brasilier 安德烈・布拉吉利 | Hiver à Loupeigne 盧佩涅的冬天",
+          "ratio": 1.22
         }
       }
     },
@@ -13929,6 +14307,87 @@
         "top_ratio_lot": {
           "title": "Ecriture No. 63-78  描法 NO. 63－78",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "BERNARD BUFFET",
+      "display_name": "Bernard Buffet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1300000,
+        "avg_usd": 1300000,
+        "total_label": "$1.30M",
+        "avg_label": "$1.30M",
+        "top_lot": {
+          "title": "Bernard Buffet 貝爾納・布菲 | Le Steamer 蒸汽輪船",
+          "hammer_usd": 1300000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Bernard Buffet 貝爾納・布菲 | Le Steamer 蒸汽輪船",
+          "ratio": 0.81
+        }
+      }
+    },
+    {
+      "norm_name": "FERNANDO ZÓBEL",
+      "display_name": "Fernando Zóbel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1300000,
+        "avg_usd": 1300000,
+        "total_label": "$1.30M",
+        "avg_label": "$1.30M",
+        "top_lot": {
+          "title": "Fernando Zóbel 費南度·索培爾 | La Terraza III",
+          "hammer_usd": 1300000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Fernando Zóbel 費南度·索培爾 | La Terraza III",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "LE PHO",
+      "display_name": "Le Pho",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1300000,
+        "avg_usd": 650000,
+        "total_label": "$1.30M",
+        "avg_label": "$650k",
+        "top_lot": {
+          "title": "Le Pho 黎譜 | Fleurs 花卉",
+          "hammer_usd": 800000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Le Pho 黎譜 | Fleurs 花卉",
+          "ratio": 1.6
         }
       }
     },
@@ -14159,7 +14618,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 900000,
         "avg_usd": 900000,
         "total_label": "$900k",
@@ -14253,60 +14712,6 @@
         "top_ratio_lot": {
           "title": "Water - Flame 水－焰",
           "ratio": 0.85
-        }
-      }
-    },
-    {
-      "norm_name": "HENRY MOORE",
-      "display_name": "Henry Moore",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 850000,
-        "avg_usd": 425000,
-        "total_label": "$850k",
-        "avg_label": "$425k",
-        "top_lot": {
-          "title": "Mother and Child on Ladderback Chair",
-          "hammer_usd": 450000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Seated Woman on Bench",
-          "ratio": 0.89
-        }
-      }
-    },
-    {
-      "norm_name": "VINCENT VAN GOGH",
-      "display_name": "Vincent Van Gogh",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 780000,
-        "avg_usd": 780000,
-        "total_label": "$780k",
-        "avg_label": "$780k",
-        "top_lot": {
-          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
-          "hammer_usd": 780000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
-          "ratio": 1.11
         }
       }
     },
@@ -14415,6 +14820,33 @@
         "top_ratio_lot": {
           "title": "Kitty Boy 吉蒂男孩",
           "ratio": 1.47
+        }
+      }
+    },
+    {
+      "norm_name": "RAOUL DUFY",
+      "display_name": "Raoul Dufy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 700000,
+        "avg_usd": 700000,
+        "total_label": "$700k",
+        "avg_label": "$700k",
+        "top_lot": {
+          "title": "L'Estacade à Sainte-Adresse",
+          "hammer_usd": 700000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "L'Estacade à Sainte-Adresse",
+          "ratio": 0.7
         }
       }
     },
@@ -14554,6 +14986,33 @@
       }
     },
     {
+      "norm_name": "CHEONG SOO PIENG",
+      "display_name": "Cheong Soo Pieng",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 650000,
+        "avg_usd": 325000,
+        "total_label": "$650k",
+        "avg_label": "$325k",
+        "top_lot": {
+          "title": "Cheong Soo Pieng 鍾泗濱 | Ferry Crossing 渡頭",
+          "hammer_usd": 350000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Cheong Soo Pieng 鍾泗濱 | Ferry Crossing 渡頭",
+          "ratio": 0.7
+        }
+      }
+    },
+    {
       "norm_name": "SUN YITIAN",
       "display_name": "Sun Yitian",
       "dates": "",
@@ -14608,6 +15067,60 @@
       }
     },
     {
+      "norm_name": "WALASSE TING",
+      "display_name": "Walasse Ting",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 550000,
+        "avg_usd": 550000,
+        "total_label": "$550k",
+        "avg_label": "$550k",
+        "top_lot": {
+          "title": "Walasse Ting 丁雄泉 | Lazy afternoon 慵懶的午後",
+          "hammer_usd": 550000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Walasse Ting 丁雄泉 | Lazy afternoon 慵懶的午後",
+          "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "JOSEPH INGUIMBERTY",
+      "display_name": "Joseph Inguimberty",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 550000,
+        "avg_usd": 550000,
+        "total_label": "$550k",
+        "avg_label": "$550k",
+        "top_lot": {
+          "title": "Joseph Inguimberty 約瑟夫·恩桂波提 | Padi fields 稻田",
+          "hammer_usd": 550000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Joseph Inguimberty 約瑟夫·恩桂波提 | Padi fields 稻田",
+          "ratio": 0.92
+        }
+      }
+    },
+    {
       "norm_name": "ALEXEJ VON JAWLENSKY",
       "display_name": "Alexej Von Jawlensky",
       "dates": "",
@@ -14618,7 +15131,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 5,
+        "lot_count": 8,
         "total_usd": 545000,
         "avg_usd": 181667,
         "total_label": "$545k",
@@ -14685,6 +15198,33 @@
         "top_ratio_lot": {
           "title": "8 JAN. 1973",
           "ratio": 1.29
+        }
+      }
+    },
+    {
+      "norm_name": "SANYU",
+      "display_name": "Sanyu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 450000,
+        "avg_usd": 450000,
+        "total_label": "$450k",
+        "avg_label": "$450k",
+        "top_lot": {
+          "title": "Sanyu 常玉 | Figures 人物",
+          "hammer_usd": 450000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Sanyu 常玉 | Figures 人物",
+          "ratio": 0.75
         }
       }
     },
@@ -14932,6 +15472,33 @@
       }
     },
     {
+      "norm_name": "LALAN",
+      "display_name": "Lalan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 320000,
+        "avg_usd": 320000,
+        "total_label": "$320k",
+        "avg_label": "$320k",
+        "top_lot": {
+          "title": "Lalan 謝景蘭 | Untitled 無題",
+          "hammer_usd": 320000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Lalan 謝景蘭 | Untitled 無題",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
       "norm_name": "GIORGIO DE CHIRICO",
       "display_name": "Giorgio De Chirico",
       "dates": "",
@@ -15040,33 +15607,6 @@
       }
     },
     {
-      "norm_name": "HANS HARTUNG",
-      "display_name": "Hans Hartung",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 280000,
-        "avg_usd": 280000,
-        "total_label": "$280k",
-        "avg_label": "$280k",
-        "top_lot": {
-          "title": "T1949-21",
-          "hammer_usd": 280000,
-          "sale_name": "Contemporary Day Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "T1949-21",
-          "ratio": 1.6
-        }
-      }
-    },
-    {
       "norm_name": "CARMEN HERRERA",
       "display_name": "Carmen Herrera",
       "dates": "",
@@ -15148,33 +15688,6 @@
       }
     },
     {
-      "norm_name": "MAURICE DE VLAMINCK",
-      "display_name": "Maurice De Vlaminck",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 280000,
-        "avg_usd": 280000,
-        "total_label": "$280k",
-        "avg_label": "$280k",
-        "top_lot": {
-          "title": "Maisons au bord de l'eau",
-          "hammer_usd": 280000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Maisons au bord de l'eau",
-          "ratio": 1.12
-        }
-      }
-    },
-    {
       "norm_name": "ANNA PARK",
       "display_name": "Anna Park",
       "dates": "",
@@ -15198,6 +15711,60 @@
         "top_ratio_lot": {
           "title": "BBQ 燒烤",
           "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "MAI TRUNG THU",
+      "display_name": "Mai Trung Thu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "Mai Trung Thu 枚中栨 （梅忠恕）| Enfant couché, veste rouge 熟睡的紅衣孩童",
+          "hammer_usd": 280000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Mai Trung Thu 枚中栨 （梅忠恕）| Enfant couché, veste rouge 熟睡的紅衣孩童",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "VU CAO DAM",
+      "display_name": "Vu Cao Dam",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 280000,
+        "avg_usd": 280000,
+        "total_label": "$280k",
+        "avg_label": "$280k",
+        "top_lot": {
+          "title": "Vu Cao Dam 武高談 | Untitled 無題",
+          "hammer_usd": 280000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Vu Cao Dam 武高談 | Untitled 無題",
+          "ratio": 0.9
         }
       }
     },
@@ -15580,6 +16147,33 @@
       }
     },
     {
+      "norm_name": "SHIY DE-JINN",
+      "display_name": "Shiy De-Jinn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 140000,
+        "avg_usd": 140000,
+        "total_label": "$140k",
+        "avg_label": "$140k",
+        "top_lot": {
+          "title": "Shiy De-Jinn 席德進 | Taipei streetscape 台北街景",
+          "hammer_usd": 140000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Shiy De-Jinn 席德進 | Taipei streetscape 台北街景",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
       "norm_name": "MANOUCHER YEKTAI",
       "display_name": "Manoucher Yektai",
       "dates": "",
@@ -15737,6 +16331,33 @@
         },
         "top_ratio_lot": {
           "title": "Untitled (Colored Sculpture - Merriment series) 無題（彩塑－嬉戲系列）",
+          "ratio": 0.73
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD LIN",
+      "display_name": "Richard Lin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 110000,
+        "avg_usd": 110000,
+        "total_label": "$110k",
+        "avg_label": "$110k",
+        "top_lot": {
+          "title": "Richard Lin 林壽宇 | May 1, May 2, May 3, May 4 五月一日，五月二日，五月三日，",
+          "hammer_usd": 110000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Richard Lin 林壽宇 | May 1, May 2, May 3, May 4 五月一日，五月二日，五月三日，",
           "ratio": 0.73
         }
       }
@@ -16766,7 +17387,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17778,7 +18399,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 4,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17916,7 +18537,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17962,7 +18583,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -17985,7 +18606,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -18169,7 +18790,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -18445,7 +19066,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 3,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21182,7 +21803,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 3,
+        "lot_count": 4,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21205,7 +21826,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 7,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -21435,7 +22056,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 6,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -22102,7 +22723,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 5,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -22148,7 +22769,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 5,
+        "lot_count": 8,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -22654,7 +23275,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 4,
+        "lot_count": 5,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -23482,7 +24103,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
+        "lot_count": 4,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -23666,7 +24287,7 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
+        "lot_count": 2,
         "total_usd": 0,
         "avg_usd": 0,
         "total_label": "$0",
@@ -25331,6 +25952,1800 @@
           "title": "Portrait de Femme",
           "hammer_usd": 0,
           "sale_name": "Masterpieces of Constructivism and Suprematism alongside Sculpture"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANCIS PICABIA",
+      "display_name": "Francis Picabia",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Manucode",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "EMILIO VEDOVA",
+      "display_name": "Emilio Vedova",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Tensione, N 4 V",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "ALBERT OEHLEN",
+      "display_name": "Albert Oehlen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Am Wasser",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "FRITZ KÖNIG",
+      "display_name": "Fritz König",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Großes Bodenkreuz I",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "JACK GOLDSTEIN",
+      "display_name": "Jack Goldstein",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "KONRAD LUEG",
+      "display_name": "Konrad Lueg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Ohne Titel",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "STEVEN PARRINO",
+      "display_name": "Steven Parrino",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Blunt Barnby's Hole  (1997/98)",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "CHARLINE VON HEYL",
+      "display_name": "Charline Von Heyl",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Spanish Fly",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "PIERRE SOULAGES",
+      "display_name": "Pierre Soulages",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Brou de noix sur papier",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD ARTSCHWAGER",
+      "display_name": "Richard Artschwager",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Pastoral V",
+          "hammer_usd": 0,
+          "sale_name": "Evening Sale"
+        }
+      }
+    },
+    {
+      "norm_name": "WILHELM VON GLOEDEN",
+      "display_name": "Wilhelm Von Gloeden",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Portrait of a boy, Taormina",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HEINRICH KÜHN",
+      "display_name": "Heinrich Kühn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Hans",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL STRAND",
+      "display_name": "Paul Strand",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "New York",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "LEWIS W. HINE",
+      "display_name": "Lewis W. Hine",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "A Thirteen Year old Grocery Boy, Maryland",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "EVERT MARINUS VAN OJEN",
+      "display_name": "Evert Marinus Van Ojen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Café De Unie, Rotterdam",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "WALTER A. PETERHANS",
+      "display_name": "Walter A. Peterhans",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Football",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ERNST SCHEEL",
+      "display_name": "Ernst Scheel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Baublock der Selbsthilfe Friedensallee, Waschhaus, Hamburg  ",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ADOLF LAZI",
+      "display_name": "Adolf Lazi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Bekleidungsgeschäft Breuninger, Stuttgart  (1930')",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "OTTO UMBEHR",
+      "display_name": "Otto Umbehr",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Tea for Two",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HANS FINSLER",
+      "display_name": "Hans Finsler",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled (Milk bottles)",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "EVA BESNYÖ",
+      "display_name": "Eva Besnyö",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Budapest",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ANNELISE KRETSCHMER",
+      "display_name": "Annelise Kretschmer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Michael and Tatjana",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ALBERT RENGER-PATZSCH",
+      "display_name": "Albert Renger-Patzsch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 9,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Parklandschaft, Hamburg-Blankenese",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "BERENICE ABBOTT",
+      "display_name": "Berenice Abbott",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Isamu Noguchi with 'Glad Day'",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGE PLATT LYNES",
+      "display_name": "George Platt Lynes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Isamu Noguchi  (1930')",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HERBERT BAYER",
+      "display_name": "Herbert Bayer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "In Search of Times Past",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HORST P. HORST",
+      "display_name": "Horst P. Horst",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Sleepy Lion at the Necropolis, Greece",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HERBERT LIST",
+      "display_name": "Herbert List",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Gewandtorso, Altkorinth",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "LENI  RIEFENSTAHL  &AMP; WILLY OTTO  ZIELKE",
+      "display_name": "Leni  Riefenstahl  &Amp; Willy Otto  Zielke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Akropolis",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "LENI RIEFENSTAHL",
+      "display_name": "Leni Riefenstahl",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Vor dem Wind",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HEINZ HAJEK-HALKE",
+      "display_name": "Heinz Hajek-Halke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Weiterer Versuch körperlicher Abstraktion",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "BRASSAÏ",
+      "display_name": "Brassaï",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Gilberte dans son bain",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ROMAN VISHNIAC",
+      "display_name": "Roman Vishniac",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Come Celebrate Chanukah', Kazimierz, Kraków  (1935-1938)",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "WOLFGANG SUSCHITZKY",
+      "display_name": "Wolfgang Suschitzky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "East End, London",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ROBERT CAPA",
+      "display_name": "Robert Capa",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "The Falling Soldier",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "WALKER EVANS",
+      "display_name": "Walker Evans",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Washstand in Floyd Burroughs' Cabin, Hale County, Alabama  (",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HELEN LEVITT",
+      "display_name": "Helen Levitt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "New York  (1936-1941)",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "WALTER ROSENBLUM",
+      "display_name": "Walter Rosenblum",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Girl on a Swing, Pitt Street, New York",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN ALBOK",
+      "display_name": "John Albok",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "97th Street Corner, New York City",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "TODD WEBB",
+      "display_name": "Todd Webb",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "The Circle, LaSalle St. at Amsterdam Ave., New York",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ARNOLD EAGLE",
+      "display_name": "Arnold Eagle",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "42nd street. Third Avenue El, New York",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN GUTMANN",
+      "display_name": "John Gutmann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Double Bingo, Market Street, San Francisco",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ARTHUR KÖSTER",
+      "display_name": "Arthur Köster",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Ausstellung Berlin plant. Dokumentation der Ausstellung im B",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "RUTH BERNHARD",
+      "display_name": "Ruth Bernhard",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Silk",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HEINRICH HEIDERSBERGER",
+      "display_name": "Heinrich Heidersberger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "JOSEF SUDEK",
+      "display_name": "Josef Sudek",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Still life after Caravaggio, Ivancice",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "WALDE HUTH",
+      "display_name": "Walde Huth",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANK HORVAT",
+      "display_name": "Frank Horvat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Couple, Paris",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL WOLFF",
+      "display_name": "Paul Wolff",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled  (1930')",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "TED CRONER",
+      "display_name": "Ted Croner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled (Clowns)",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ALBERTO KORDA",
+      "display_name": "Alberto Korda",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "El Quijote de la Farola, Havanna",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "IRVING PENN",
+      "display_name": "Irving Penn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Father kneeling with seated child, Cuzco, Peru",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "AARON SISKIND",
+      "display_name": "Aaron Siskind",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Acolman",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "FRITZ PITZ",
+      "display_name": "Fritz Pitz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled (Fotoexperiment)",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "CHRISTER STRÖMHOLM",
+      "display_name": "Christer Strömholm",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Hotel Central, Paris",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "PETER KEETMAN",
+      "display_name": "Peter Keetman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Pendel-Schwingung",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "LUDWIG WINDSTOSSER",
+      "display_name": "Ludwig Windstosser",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Zeche Friedrich-Heinrich, Kamp-Lintfort",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "TONI SCHNEIDERS",
+      "display_name": "Toni Schneiders",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Weichen",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "SIEGFRIED LAUTERWASSER",
+      "display_name": "Siegfried Lauterwasser",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ELLEN ROSENBERG AUERBACH",
+      "display_name": "Ellen Rosenberg Auerbach",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Olive Orchard, Mallorca",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "HANS TRUÖL",
+      "display_name": "Hans Truöl",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Agip-Tankstelle",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "KARL HUGO SCHMÖLZ",
+      "display_name": "Karl Hugo Schmölz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled (lecture hall)  (1950')",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "GABRIELE BASILICO",
+      "display_name": "Gabriele Basilico",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Via Giuseppe Ferrari, Milano (from the series: Ritratti di f",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "CHARLES PRATT",
+      "display_name": "Charles Pratt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "New Jersey Marshlands (from the series: The Edge of the City",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "CHARGESHEIMER",
+      "display_name": "Chargesheimer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Untitled  (1950')",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "LUCIEN CLERGUE",
+      "display_name": "Lucien Clergue",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Le Marais d'Arles: Riz",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "WALTER VOGEL",
+      "display_name": "Walter Vogel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Pina Bausch",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "SAM HASKINS",
+      "display_name": "Sam Haskins",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Cowboy Kate",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "FRANZ CHRISTIAN GUNDLACH",
+      "display_name": "Franz Christian Gundlach",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Denise Sarrault in Persianer-Mantel, Frankfurt",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "CHARLOTTE MARCH",
+      "display_name": "Charlotte March",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Gloria, Portugal",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ROBERT LEBECK",
+      "display_name": "Robert Lebeck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Elvis in Deutschland",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ARNO FISCHER",
+      "display_name": "Arno Fischer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "New York, Staten Island Ferry",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "BARBARA KLEMM",
+      "display_name": "Barbara Klemm",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Blick über die Mauer, Berlin-Kreuzberg",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "BRUCE DAVIDSON",
+      "display_name": "Bruce Davidson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Welsh Boy with Stroller",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "W. EUGENE SMITH",
+      "display_name": "W. Eugene Smith",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "6th Ave at 28th Street During Snowstorm",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "MALICK SIDIBÉ",
+      "display_name": "Malick Sidibé",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Les Salopards",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "ELLIOTT ERWITT",
+      "display_name": "Elliott Erwitt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Tokyo, Japan",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
+        }
+      }
+    },
+    {
+      "norm_name": "STEPHEN SHORE",
+      "display_name": "Stephen Shore",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 0,
+        "avg_usd": 0,
+        "total_label": "$0",
+        "avg_label": "$0",
+        "top_lot": {
+          "title": "Winnipeg, Manitobe, August 16",
+          "hammer_usd": 0,
+          "sale_name": "Photographie - The Margulies Collection, Teil II"
         }
       }
     }
