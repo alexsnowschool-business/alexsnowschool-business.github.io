@@ -240,7 +240,7 @@ Sentence 3 — ARTIST SIGNIFICANCE: say one concrete, specific thing that explai
 Sentence 4 — MARKET SIGNAL: connect the art history to the auction result. Why did the room value this above what the specialists predicted? Ground it in the work itself, not just the numbers.
 
 Rules:
-- 70–90 words total across all 4 sentences
+- 80–100 words total across all 4 sentences
 - All lowercase
 - No bullet points — write as flowing prose (4 sentences, paragraph style)
 - Do NOT use the words "stunning", "remarkable", "incredible", "masterpiece"
@@ -249,7 +249,7 @@ Rules:
 Reply with only the 4-sentence voiceover text. Nothing else."""
 
     raw = _call([{"role": "system", "content": system},
-                 {"role": "user",   "content": prompt}], max_tokens=300)
+                 {"role": "user",   "content": prompt}], max_tokens=400)
     return raw.strip() if raw else None
 
 
