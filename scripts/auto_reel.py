@@ -64,26 +64,244 @@ _APPRECIATION_MAX_WORDS = 200
 # ── Notable-artist index ───────────────────────────────────────────────────────
 
 KNOWN_ARTISTS: frozenset[str] = frozenset({
-    # Post-war American
-    "Andy Warhol", "Roy Lichtenstein", "Jasper Johns", "Robert Rauschenberg",
-    "Ed Ruscha", "Frank Stella", "Ellsworth Kelly", "Donald Judd",
-    "Cy Twombly", "Joan Mitchell", "Lee Krasner", "Helen Frankenthaler",
-    # Neo-expressionism / street
-    "Jean-Michel Basquiat", "Keith Haring", "George Condo",
-    # YBA / British
-    "Damien Hirst", "Jenny Saville", "Chris Ofili", "Glenn Brown",
-    "Cecily Brown", "Peter Doig", "Lucian Freud", "Francis Bacon",
-    # German / European
-    "Gerhard Richter", "Neo Rauch", "Luc Tuymans", "Marlene Dumas",
-    "Rudolf Stingel", "Albert Oehlen", "Pierre Soulages",
-    # Contemporary market names
-    "Jeff Koons", "Richard Prince", "Christopher Wool", "Mark Bradford",
-    "Kerry James Marshall", "Jonas Wood", "Lisa Yuskavage",
-    "Banksy", "Kaws", "Takashi Murakami", "Yoshitomo Nara", "Yayoi Kusama",
-    "Wolfgang Tillmans", "Andreas Gursky", "Cindy Sherman", "Barbara Kruger",
-    # Post-Impressionist / Modern (auction staples)
-    "Alberto Giacometti", "Jean Dubuffet", "Yves Klein",
-    "Emil Nolde", "Ernst Ludwig Kirchner",
+    # Abstract Expressionism
+    'Franz Kline', 'Hans Hofmann',
+    # Abstract Expressionism · Action Painting
+    'Jackson Pollock',
+    # Abstract Expressionism · Biomorphic Abstraction
+    'Arshile Gorky',
+    # Abstract Expressionism · Colour Field
+    'Helen Frankenthaler', 'Kenneth Noland', 'Sam Francis',
+    # Abstract Expressionism · Colour-Field
+    'Ed Clark',
+    # Abstract Expressionism · Contemporary
+    'Jack Whitten', 'Louise Fishman',
+    # Abstract Expressionism · Elegy Series
+    'Robert Motherwell',
+    # Abstract Expressionism · Hard-Edge Abstraction
+    'Al Held',
+    # Abstract Expressionism · Minimalism
+    'Alexander Liberman',
+    # Abstract Expressionism · Pictograph
+    'Adolph Gottlieb',
+    # Abstract Expressionism · Sculpture
+    'David Smith', 'John Chamberlain', 'Louise Nevelson',
+    # Abstract Expressionism · Second Generation
+    'Joan Mitchell',
+    # Abstract Expressionism · Women Series
+    'Willem de Kooning',
+    # Abstract · Colour-Field
+    'Piero Dorazio',
+    # Abstract · Lyrical Abstraction
+    'Rhee Seundja',
+    # Abstract · Modernism
+    'Rudolf Bauer',
+    # Abstract · Stripe Painting
+    'Sean Scully',
+    # Abstract · Waterfall Paintings
+    'Pat Steir',
+    # Abstraction · Expressionism
+    'Otto Freundlich',
+    # Abstraction · Figurative Modernism
+    'Jean Hélion',
+    # American Illustration · Social Realism
+    'Norman Rockwell',
+    # Art Brut · Contemporary
+    'Jean Dubuffet',
+    # Arte Povera · Contemporary
+    'Marisa Merz',
+    # Avant-Garde · Infinity · Obsessional Art
+    'Yayoi Kusama',
+    # Colour Field · Abstract
+    'Stanley Whitney',
+    # Colour-Field · Abstract Expressionism
+    'Lynne Drexler', 'Sam Gilliam',
+    # Conceptual Art · Minimalism
+    'Sol LeWitt',
+    # Conceptual Figuration · Postmodernism
+    'Mark Tansey',
+    # Conceptual · Contemporary
+    'Adam Pendleton', 'Barbara Kruger', 'Cheyney Thompson', 'R.H. Quaytman',
+    # Conceptual · Minimalism
+    'Bernar Venet',
+    # Conceptual · Neo-Conceptual
+    'Adam McEwen',
+    # Conceptual · Postmodernism
+    'Sherrie Levine',
+    # Contemporary Figuration · Intimacy
+    'Jenna Gribbon',
+    # Contemporary · Abstract
+    'Günther Förg', 'Jennifer Guidi', 'Katherine Bradford', 'Kei Imazu', 'Loie Hollowell',
+    'Lucy Bull', 'Mark Bradford', 'Mark Grotjahn', 'Maysha Mohamedi', 'Sadamasa Motonaga',
+    'Sarah Crowner', 'Spencer Lewis',
+    # Contemporary · Black American Identity
+    'Rashid Johnson',
+    # Contemporary · Conceptual
+    'Damien Hirst', 'Hank Willis Thomas', 'Jaune Quick-to-See Smith', 'Tracey Emin',
+    # Contemporary · Figurative
+    'Alvin Armstrong', 'Angela Heisch', 'Asuka Anastacia Ogawa', 'Brian Calvin',
+    'Caroline Walker', 'Chantal Joffe', 'Cristina de Miguel', 'Danielle McKinney',
+    'Doron Langberg', 'Emmanuel Taku', 'Firenze Lai', 'Grant Yun', 'Hilary Pecis',
+    'Huang Yishan', 'Ivy Haldeman', 'Izumi Kato', 'Jesse Mockrin', 'Ji Xin',
+    'Joel Mesler', 'John Currin', 'Jonas Wood', 'Jonathan Lyndon Chase', 'Kehinde Wiley',
+    'Ksenia Dermenzhi', 'Lisa Yuskavage', 'Liu Ye', 'María Berrío', 'Michaela Yearwood-Dan',
+    'Mickalene Thomas', 'Minoru Nomata', 'Mohammed Sami', 'Philip Tsiàras', 'Qin Qi',
+    'Rebecca Ness', 'Salman Toor', 'Scott Kahn', 'Shona McAndrew', 'Tyler Ballon',
+    'Yu Nishimura', 'Yuan Yuan', 'Zhang Xiaogang',
+    # Contemporary · Installation
+    'Jim Hodges', 'Juan Muñoz', 'Katharina Grosse', 'Leonardo Drew', 'Sterling Ruby',
+    # Contemporary · Minimalism
+    'Maria Taniguchi',
+    # Contemporary · Modernism
+    'Etel Adnan',
+    # Contemporary · Neo-Conceptual
+    'Avery Singer',
+    # Contemporary · Neo-Expressionism
+    'Angel Otero', 'Genieve Figgis',
+    # Contemporary · New Media
+    'Christian Marclay',
+    # Contemporary · Pop Art
+    'Mr.', 'Takashi Murakami', 'Yoshitomo Nara',
+    # Contemporary · Sculpture
+    'Anish Kapoor', 'Annie Morris', 'Antony Gormley', 'Conrad Shawcross',
+    'Deborah Butterfield', 'Franz West', 'Katsura Funakoshi', 'Ken Price',
+    'Kohei Nawa', 'Santiago Calatrava', 'The Haas Brothers',
+    # Cubism
+    'Albert Gleizes', 'Jean Metzinger',
+    # Cubism · Modernism
+    'Pablo Picasso',
+    # Cubism · Post-Impressionism
+    'Henri Hayden',
+    # Dada
+    'Hannah Höch',
+    # Dada · Surrealism
+    'Man Ray',
+    # Dansaekhwa · Abstract
+    'Ha Chong-Hyun', 'Yun Hyong-Keun',
+    # Expressionism · Der Blaue Reiter
+    'Gabriele Münter',
+    # Expressionism · Die Brücke
+    'Karl Schmidt-Rottluff', 'Otto Mueller',
+    # Expressionism · Figurative Modernism
+    'Bob Thompson',
+    # Fauvism · Expressionism
+    'André Derain',
+    # Fauvism · Modernism · Decoration
+    'Henri Matisse',
+    # Figurative Expressionism
+    'David Park',
+    # Figurative Expressionism · Bay Area Figurative
+    'Joan Brown',
+    # Figurative Modernism · Contemporary
+    'Alex Katz',
+    # Figurative Realism · Portrait
+    'Alice Neel',
+    # Figurative · African-American Narrative
+    'Ernie Barnes',
+    # German Expressionism · Die Brücke
+    'Ernst Ludwig Kirchner',
+    # Gutai · Contemporary
+    'Takesada Matsutani',
+    # Impressionism
+    'Berthe Morisot',
+    # Impressionism · Figure Painting
+    'Pierre-Auguste Renoir',
+    # Impressionism · Post-Impressionism
+    'Blanche Hoschedé-Monet',
+    # Impressionism · Realism
+    'Edgar Degas',
+    # Minimalism
+    'Donald Judd',
+    # Minimalism · Abstraction
+    'Agnes Martin',
+    # Minimalism · Contemporary
+    'Blinky Palermo', 'Joel Shapiro', 'Robert Mangold', 'Robert Ryman',
+    # Minimalism · Hard-Edge · Shaped Canvas
+    'Frank Stella',
+    # Minimalism · Process Art
+    'Richard Serra',
+    # Modernism · Constructivism
+    'László Moholy-Nagy',
+    # Modernism · Jewish Folk Tradition
+    'Marc Chagall',
+    # Modernism · Kinetic Sculpture
+    'Alexander Calder',
+    # Modernism · Minimalism
+    'Josef Albers',
+    # Modernism · Sculpture
+    'Anthony Caro', 'Auguste Rodin', 'Camille Claudel', 'Chana Orloff',
+    'Constantin Brâncuși', 'Diego Giacometti', 'Rembrandt Bugatti',
+    # Neo-Conceptual · Contemporary
+    'Ashley Bickerton',
+    # Neo-Dada · Combines
+    'Robert Rauschenberg',
+    # Neo-Dada · Pop Art
+    'Jim Dine',
+    # Neo-Expressionism
+    'Georg Baselitz',
+    # Neo-Expressionism · Artificial Realism
+    'George Condo',
+    # Neo-Expressionism · British Figuration
+    'Cecily Brown',
+    # Neo-Expressionism · Contemporary
+    'Adrian Ghenie', 'Anselm Kiefer', 'David Wojnarowicz', 'Eddie Martinez',
+    'Rita Ackermann', 'Robert Colescott', 'Robert Nava', 'Ross Bleckner',
+    'Sigmar Polke', 'Zeng Fanzhi', 'Zhou Chunya',
+    # Neo-Expressionism · Figurative Drawing
+    'Robert Longo',
+    # Neo-Expressionism · Postmodernism
+    'David Salle',
+    # Neo-Expressionism · Street Art
+    'Aboudia', 'Jean-Michel Basquiat',
+    # Neo-Expressionism · Transavanguardia
+    'Sandro Chia',
+    # New Media · Contemporary
+    'Wang Yuyang',
+    # Op Art · Modernism
+    'Victor Vasarely',
+    # Photography
+    'Diane Arbus', 'Garry Winogrand', 'Henri Cartier-Bresson', 'Nan Goldin',
+    'Philip-Lorca diCorcia', 'Robert Frank', 'Robert Mapplethorpe', 'William Eggleston',
+    # Photography · Conceptual
+    'Anne Collier',
+    # Photography · Contemporary
+    'Francesca Woodman', 'Peter Beard',
+    # Photorealism
+    'Richard Estes',
+    # Photorealism · Contemporary
+    'Chuck Close',
+    # Pop Art · Ben-Day Dots · Comic Book
+    'Roy Lichtenstein',
+    # Pop Art · British Painting · Figuration
+    'David Hockney',
+    # Pop Art · California Realism
+    'Wayne Thiebaud',
+    # Pop Art · Seriality · Factory
+    'Andy Warhol',
+    # Pop Art · Street Art
+    'Kenny Scharf',
+    # Pop Art · West Coast · Language in Painting
+    'Ed Ruscha',
+    # Post-Impressionism
+    'Henri de Toulouse-Lautrec', 'Pierre Bonnard',
+    # Post-Impressionism · Fauvism
+    'Albert Marquet',
+    # Post-Impressionism · Impressionism
+    'Johan Barthold Jongkind',
+    # Post-Impressionism · Neo-Dada
+    'Yves Klein',
+    # Post-Impressionism · Neo-Impressionism
+    'Henri-Edmond Cross',
+    # Post-Minimalism · Contemporary
+    'Lynda Benglis',
+    # Pre-Impressionism · Marine Painting
+    'Eugène Boudin',
+    # Street Art · Contemporary
+    'Futura 2000', 'Invader', 'José Parlá', 'Mehdi Ghadyanloo',
+    # Street Art · Pop Art
+    'Keith Haring',
+    # Street Art · Post-Pop
+    'KAWS',
 })
 
 
@@ -426,11 +644,15 @@ def _artist_is_notable(artist: str, notable_set: set[str] | None = None) -> bool
 
 
 def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
-    """Composite score: market shock + visual richness + artist narability."""
-    pct        = _pct_above(lot["hammer_usd"], lot["estimate_low"])
-    has_images = len(json.loads(lot.get("image_urls") or "[]")) >= 3
-    is_known   = _artist_is_notable(lot.get("artist") or "", notable_set)
-    return pct * 0.4 + (has_images * 30) + (is_known * 20)
+    """Composite score: market shock + visual richness + artist narability + sale magnitude."""
+    import math
+    pct          = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    has_images   = len(json.loads(lot.get("image_urls") or "[]")) >= 3
+    is_known     = _artist_is_notable(lot.get("artist") or "", notable_set)
+    hammer_usd   = lot["hammer_usd"] or 0
+    # log-scale bonus only for lots above $100k — preserves underdog stories below that
+    hammer_bonus = math.log10(hammer_usd) * 5 if hammer_usd >= 100_000 else 0
+    return pct * 0.4 + (has_images * 30) + (is_known * 20) + hammer_bonus
 
 
 # ── Image downloading ──────────────────────────────────────────────────────────
