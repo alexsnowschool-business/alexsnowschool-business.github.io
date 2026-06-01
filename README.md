@@ -1,33 +1,59 @@
-# AlexSnow School — Business Portfolio
+# alexsnowschool-business.github.io
 
 [![Daily Scrape](https://github.com/alexsnowschool-business/alexsnowschool-business.github.io/actions/workflows/scrape.yml/badge.svg)](https://github.com/alexsnowschool-business/alexsnowschool-business.github.io/actions/workflows/scrape.yml)
 
-A multi-venture project hub. Each business idea lives in its own directory.
+Two things in one repo: a static portfolio site and an automated data/content pipeline.
+
+## Ventures
+
+| Directory | Status | Description |
+|---|---|---|
+| `provenance/` | Live | Heritage luxury resale platform |
+| `studentroadtogermany/` | In Development | Myanmar → Germany study consultation |
+
+## Automation Workflows
+
+| Workflow | Schedule | What it does |
+|---|---|---|
+| `scrape.yml` | Daily midnight UTC | Scrapes Hermès, eBay, Vinted, Vestiaire → `data/hermes.db`; rebuilds `hermes-archive/catalogue.json` |
+| `scrape-art.yml` | Weekly | Scrapes auction lots → `data/art.db` |
+| `weekly-reel.yml` | Tue–Sat 11:00 UTC | Generates "The Hammer Price" reel, posts to Instagram/TikTok/LinkedIn/YouTube, drafts Substack post |
+| `hermes-reel.yml` | Scheduled | Generates Hermès product reel, posts to Buffer |
+| `substack-post.yml` | On demand | Publishes a Substack draft for a given lot ID |
+| `static.yml` | On push / triggered | Deploys site to GitHub Pages |
 
 ## Structure
 
 ```
-alexsnowschool-business/
-├── index.html                  ← Root dashboard (open this to navigate all ventures)
-├── provenance/                 ← Heritage luxury resale platform
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-│   └── (images)
-└── studentroadtogermany/       ← Myanmar → Germany study consultation
-    └── index.html
+/
+├── index.html                   ← Root dashboard
+├── provenance/                  ← Venture: luxury resale
+├── studentroadtogermany/        ← Venture: study consultation
+├── scripts/                     ← Python automation (reel gen, posting, scrape helpers)
+├── scraper/                     ← Scraper modules (hermes, ebay, vinted, vestiaire)
+├── data/                        ← SQLite databases (hermes.db, art.db)
+├── hermes-archive/              ← catalogue.json + analysis.json (built by scrape)
+├── art-archive/                 ← Art lot data
+├── reels/                       ← Generated reel folders (weekly-*, hermes-*)
+├── output/substack/             ← Generated Substack drafts
+├── reel_template/               ← Assets for reel generation
+└── pyproject.toml               ← Python deps (managed with uv)
 ```
-
-## Adding a New Business Idea
-
-1. Create a new folder: `mkdir my-new-idea/`
-2. Add your `index.html`, `styles.css`, `script.js` inside it
-3. Add a card in the root `index.html` pointing to `./my-new-idea/index.html`
 
 ## Running Locally
 
-Open `index.html` in a browser, or serve with:
+```bash
+python3 -m http.server 3001
+# open http://localhost:3001
+```
+
+No build step. Plain HTML/CSS/JS.
+
+## Python Setup
 
 ```bash
-npx serve .
+uv sync
+uv run python scripts/auto_reel.py --help
 ```
+
+Secrets for CI (eBay, ElevenLabs, OpenRouter, Buffer, YouTube) live in GitHub Actions secrets — not needed for local site dev.
