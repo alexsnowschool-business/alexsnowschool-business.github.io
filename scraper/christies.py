@@ -43,6 +43,11 @@ _HEADERS = {
 SALE_STARTS: list[tuple[str, int, str]] = [
     ("22044", 6425000, "Post-War & Contemporary Art Day Sale, NY 2023"),
     ("22658", 6470000, "Impressionist & Modern Art Day Sale, London 2024"),
+    ("23740", 6549978, "Post-War & Contemporary Art Day Sale, NY 2025"),
+    ("23486", 6559641, "Post-War & Contemporary Art Day Sale, NY 2025"),
+    ("23488", 6560017, "Impressionist & Modern Art Day Sale, NY 2025"),
+    ("24183", 6574487, "Impressionist & Modern Art Day Sale, London 2025"),
+    ("24182", 6575080, "Post-War & Contemporary Art Day Sale, London 2025"),
 ]
 
 # Titles containing these words are NOT art — skip them
