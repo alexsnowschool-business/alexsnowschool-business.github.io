@@ -67,7 +67,7 @@ jobs:
           ELEVENLABS_API_KEY:    ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID:   ${{ secrets.ELEVENLABS_VOICE_ID }}
           ELEVENLABS_MODEL_ID:   ${{ secrets.ELEVENLABS_MODEL_ID }}
-        run: python -u scripts/auto_reel.py --all-time --lot-index ${{ steps.lot.outputs.index }} --run
+        run: python -u scripts/auto_reel.py --all-time --lot-index ${{ steps.lot.outputs.index }} --run --voice
 
       - name: Commit updated database
         run: |
