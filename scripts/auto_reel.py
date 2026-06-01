@@ -505,6 +505,16 @@ def _esc(s: str) -> str:
     return str(s).replace("\\", "\\\\").replace('"', '\\"')
 
 
+def _make_slug(text: str, max_len: int = 25) -> str:
+    """Lowercase filesystem-safe slug: strip accents, collapse spaces to hyphens."""
+    import unicodedata
+    text = unicodedata.normalize("NFKD", text)
+    text = text.encode("ascii", "ignore").decode("ascii")
+    text = re.sub(r"[^\w\s-]", "", text.lower())
+    text = re.sub(r"[\s_]+", "-", text).strip("-")
+    return text[:max_len].rstrip("-")
+
+
 def _week_bounds(ref_date: date) -> tuple[str, str]:
     """Return (monday, sunday) as ISO strings for the week containing ref_date."""
     monday = ref_date - timedelta(days=ref_date.weekday())
@@ -1021,7 +1031,8 @@ def _generate_config(hook: dict, week_label: str, all_time: bool,
     sold_str = f"sold: {_fmt_price(hammer)}."
     pct_str  = f"+{pct:,.0f}% above estimate."
 
-    tag_line     = "@thehammerprice  ·  weekly results" if not all_time else "@thehammerprice  ·  auction data"
+    year         = scraped[:4] if scraped else str(date.today().year)
+    tag_line     = f"@thehammerprice  ·  {artist.lower()}  ·  {year}"
     house_upper  = house.upper()
     sale_upper   = sale_name.upper()
 
@@ -1198,7 +1209,8 @@ def main() -> None:
     ref_date             = date.fromisoformat(args.week) if args.week else date.today()
     week_start, week_end = _week_bounds(ref_date)
     week_label           = f"{week_start} / {week_end}"
-    reel_slug            = f"weekly-{week_start}"
+    _slug_date           = week_start
+    _slug_mode           = ""
 
     print("═" * 60)
     print("  AUTO-REEL GENERATOR — The Hammer Price")
@@ -1219,8 +1231,9 @@ def main() -> None:
 
     _candidate_n = max(args.top_n * 6, 50)
     if args.all_time:
-        lots      = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
-        reel_slug = f"weekly-{date.today().isoformat()}-alltime"
+        lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
+        _slug_date = date.today().isoformat()
+        _slug_mode = "alltime"
     else:
         lots = _query_top_lots(conn, week_start, week_end,
                                limit=_candidate_n, exclude_ids=skip)
@@ -1230,14 +1243,15 @@ def main() -> None:
             if rand:
                 w = rand[0]["scraped_at"][:10]
                 wb_start, wb_end = _week_bounds(date.fromisoformat(w))
-                lots      = _query_top_lots(conn, wb_start, wb_end,
-                                            limit=_candidate_n, exclude_ids=skip)
-                reel_slug = f"weekly-{wb_start}-random"
+                lots       = _query_top_lots(conn, wb_start, wb_end,
+                                             limit=_candidate_n, exclude_ids=skip)
+                _slug_date = wb_start
+                _slug_mode = "random"
                 print(f"  Using random week: {wb_start}")
             if not lots:
                 print("  Falling back to all-time top unposted lots.")
-                lots      = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
-                reel_slug = f"weekly-{week_start}-fallback"
+                lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
+                _slug_mode = "fallback"
 
     notable_artists = _build_notable_artists_set(conn)
     conn.close()
@@ -1259,14 +1273,18 @@ def main() -> None:
         print(f"✗ --lot-index {args.lot_index} out of range ({len(lots)} lots found)")
         sys.exit(1)
 
-    if args.lot_index > 0:
-        for suffix in ("alltime", "fallback"):
-            reel_slug = reel_slug.replace(suffix, f"{suffix}-lot{args.lot_index + 1}")
-        if not any(s in reel_slug for s in ("alltime", "fallback")):
-            reel_slug += f"-lot{args.lot_index + 1}"
-
     hook   = lots[args.lot_index]
     artist = _clean_artist(hook.get("artist") or "Unknown")
+
+    # Build descriptive slug: {date}_{artist-slug}_{title-slug}[_{mode}][_lot{n}]
+    _artist_slug = _make_slug(artist)
+    _title_slug  = _make_slug(hook.get("title") or "untitled", max_len=20)
+    _parts       = [_slug_date, _artist_slug, _title_slug]
+    if _slug_mode:
+        _parts.append(_slug_mode)
+    if args.lot_index > 0:
+        _parts.append(f"lot{args.lot_index + 1}")
+    reel_slug = "_".join(_parts)
     print(f"\n▸ Hook lot: {artist} — {hook.get('title', 'Untitled')[:50]}")
     print(f"  Estimate: {_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}")
     print(f"  Hammer:   {_fmt_price(hook['hammer_usd'])}")
@@ -1322,7 +1340,8 @@ def main() -> None:
     _n_act2 = max(1, len(src_images) - 2)
 
     # ── Hook question + template answer ───────────────────────
-    tag_base         = "@thehammerprice  ·  weekly results" if not args.all_time else "@thehammerprice  ·  auction data"
+    _sale_year       = (hook.get("scraped_at") or str(date.today()))[:4]
+    tag_base         = f"@thehammerprice  ·  {artist.lower()}  ·  {_sale_year}"
     _pct             = _pct_above(hook["hammer_usd"], hook["estimate_low"])
     _question, _tmpl_answer = _hook_caption(hook, _pct)
     
