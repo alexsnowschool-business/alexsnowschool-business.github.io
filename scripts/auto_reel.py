@@ -657,12 +657,11 @@ def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
     """Composite score: market shock + visual richness + artist narability + sale magnitude."""
     import math
     pct          = _pct_above(lot["hammer_usd"], lot["estimate_low"])
-    has_images   = len(json.loads(lot.get("image_urls") or "[]")) >= 3
     is_known     = _artist_is_notable(lot.get("artist") or "", notable_set)
     hammer_usd   = lot["hammer_usd"] or 0
     # log-scale bonus only for lots above $100k — preserves underdog stories below that
     hammer_bonus = math.log10(hammer_usd) * 5 if hammer_usd >= 100_000 else 0
-    return pct * 0.4 + (has_images * 30) + (is_known * 20) + hammer_bonus
+    return pct * 0.4 + (is_known * 20) + hammer_bonus
 
 
 # ── Image downloading ──────────────────────────────────────────────────────────
