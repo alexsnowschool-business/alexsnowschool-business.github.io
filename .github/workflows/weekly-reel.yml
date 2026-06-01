@@ -81,7 +81,7 @@ jobs:
       - name: Find reel folder
         id: reel
         run: |
-          FOLDER=$(ls -dt reels/weekly-* 2>/dev/null | head -1)
+          FOLDER=$(ls -dt reels/*/ 2>/dev/null | head -1 | sed 's|/$||')
           echo "folder=$FOLDER" >> $GITHUB_OUTPUT
           echo "Reel folder: $FOLDER"
 
