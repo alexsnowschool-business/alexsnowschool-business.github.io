@@ -665,7 +665,7 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
         "    ),",
         f'    "caption_hero":   "the boutique has one price.",',
         '    "personal_note":  "the hermès secondary market is one of the most liquid luxury resale markets in the world.",',
-        '    "engagement_hook": "what\'s the biggest resale premium you\'ve ever seen? #hermès #luxuryresale #hermesbirkin",',
+        '    "engagement_hook": "what\'s the biggest resale premium you\'ve ever seen?',
     ]
 
     if reveal:
