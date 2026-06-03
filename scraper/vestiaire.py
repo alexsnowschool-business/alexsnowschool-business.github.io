@@ -92,8 +92,8 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
         page = await context.new_page()
 
         print(f"Loading Vestiaire Collective (obtaining CF clearance)... query='{query}'")
-        await page.goto(BASE_URL, wait_until="domcontentloaded", timeout=30000)
-        await asyncio.sleep(3)
+        await page.goto(BASE_URL, wait_until="networkidle", timeout=60000)
+        await asyncio.sleep(5)
 
         conn  = connect()
         saved = 0
@@ -105,24 +105,20 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
                 payload = _build_payload(offset, limit, query)
                 payload_json = json.dumps(payload)
 
-                result = await page.evaluate(f"""
-                    async () => {{
-                        const resp = await fetch('{SEARCH_API}', {{
-                            method: 'POST',
-                            headers: {{
-                                'accept': 'application/json',
-                                'content-type': 'application/json',
-                                'x-usecase': 'plpStandard',
-                                'x-deviceid': '{uuid.uuid4()}',
-                                'x-search-query-id': '{uuid.uuid4()}',
-                                'x-search-session-id': '{uuid.uuid4()}',
-                                'x-userid': '',
-                            }},
-                            body: JSON.stringify({payload_json})
-                        }});
-                        return await resp.json();
-                    }}
-                """)
+                api_response = await page.request.post(
+                    SEARCH_API,
+                    headers={
+                        "accept": "application/json",
+                        "content-type": "application/json",
+                        "x-usecase": "plpStandard",
+                        "x-deviceid": str(uuid.uuid4()),
+                        "x-search-query-id": str(uuid.uuid4()),
+                        "x-search-session-id": str(uuid.uuid4()),
+                        "x-userid": "",
+                    },
+                    data=payload_json,
+                )
+                result = await api_response.json()
 
                 items = result.get("items", [])
                 if not items:
