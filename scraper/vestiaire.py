@@ -92,8 +92,8 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
         page = await context.new_page()
 
         print(f"Loading Vestiaire Collective (obtaining CF clearance)... query='{query}'")
-        await page.goto(BASE_URL, wait_until="load", timeout=60000)
-        await asyncio.sleep(8)
+        await page.goto(BASE_URL, wait_until="domcontentloaded", timeout=30000)
+        await asyncio.sleep(4)
 
         conn  = connect()
         saved = 0
@@ -105,28 +105,41 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
                 payload = _build_payload(offset, limit, query)
                 payload_json = json.dumps(payload)
 
-                api_response = await page.request.post(
-                    SEARCH_API,
-                    headers={
-                        "accept": "application/json",
-                        "content-type": "application/json",
-                        "x-usecase": "plpStandard",
-                        "x-deviceid": str(uuid.uuid4()),
-                        "x-search-query-id": str(uuid.uuid4()),
-                        "x-search-session-id": str(uuid.uuid4()),
-                        "x-userid": "",
-                    },
-                    data=payload_json,
-                )
-                if not api_response.ok:
-                    body = await api_response.text()
-                    print(f"API error {api_response.status}: {body[:500]}")
+                result = None
+                for attempt in range(3):
+                    result = await page.evaluate(f"""
+                        async () => {{
+                            try {{
+                                const resp = await fetch('{SEARCH_API}', {{
+                                    method: 'POST',
+                                    headers: {{
+                                        'accept': 'application/json',
+                                        'content-type': 'application/json',
+                                        'x-usecase': 'plpStandard',
+                                        'x-deviceid': '{uuid.uuid4()}',
+                                        'x-search-query-id': '{uuid.uuid4()}',
+                                        'x-search-session-id': '{uuid.uuid4()}',
+                                        'x-userid': '',
+                                    }},
+                                    body: JSON.stringify({payload_json})
+                                }});
+                                if (!resp.ok) {{
+                                    return {{ __error: resp.status, __body: (await resp.text()).slice(0, 300) }};
+                                }}
+                                return await resp.json();
+                            }} catch (e) {{
+                                return {{ __error: e.message }};
+                            }}
+                        }}
+                    """)
+                    if "__error" not in result:
+                        break
+                    print(f"  attempt {attempt + 1} failed: {result['__error']} {result.get('__body', '')} — retrying in 10s...")
+                    await asyncio.sleep(10)
+
+                if "__error" in result:
+                    print(f"All fetch attempts failed, stopping.")
                     break
-                body_text = await api_response.text()
-                if not body_text.strip():
-                    print(f"Empty response from API (status {api_response.status}) — Cloudflare may be blocking.")
-                    break
-                result = json.loads(body_text)
 
                 items = result.get("items", [])
                 if not items:
