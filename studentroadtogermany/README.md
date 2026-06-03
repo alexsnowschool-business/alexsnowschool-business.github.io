@@ -54,17 +54,23 @@ Go to: `github.com/settings/personal-access-tokens/new`
 | Repository access | Only `alexsnowschool-business.github.io` |
 | Permissions → Contents | Read and write |
 
-Copy the token and paste it into `script.js`:
+### 2. Store it as a repo secret
 
-```js
-const GITHUB_TOKEN = 'github_pat_your_token_here';
-```
+`Repository → Settings → Secrets and variables → Actions → New repository secret`
 
-### 2. Push to GitHub
+| Name | Value |
+|---|---|
+| `GITHUB_DISPATCH_TOKEN` | the PAT from step 1 |
 
-The workflow at `.github/workflows/store-submission.yml` takes effect on the next push. It only runs on `repository_dispatch` events with type `contact-form` — regular git pushes skip it entirely.
+The token is **never committed to the repository**. The deployment workflow (`static.yml`) injects it into `script.js` at build time before uploading to GitHub Pages.
 
-No additional secrets or variables are needed. The workflow uses the built-in `GITHUB_TOKEN` (with `contents: write` permission declared in the workflow file) to push the CSV back to the repo.
+### 3. Push to GitHub
+
+On the next push to `main`, `static.yml` will:
+1. Replace the `YOUR_FINE_GRAINED_PAT` placeholder in `script.js` with the real token from the secret
+2. Deploy the patched file to GitHub Pages
+
+The `store-submission` workflow only runs on `repository_dispatch` events with type `contact-form` — regular git pushes skip it entirely. It uses the built-in `GITHUB_TOKEN` (with `contents: write`) to push the CSV back.
 
 ## Reading submissions
 
@@ -82,7 +88,7 @@ for r in rows:
 
 ## Security note
 
-The fine-grained PAT is visible in the JavaScript source. It is scoped to this one repository with `Contents: Read and write` only — it cannot access any other repo or GitHub resource. The worst case is someone triggering extra workflow runs (which consume Actions minutes). For higher-traffic use, wrap the dispatch call in a Cloudflare Worker to keep the token server-side.
+The fine-grained PAT is **not stored in the repository** — it lives only in GitHub Secrets and is injected at deploy time. It is still visible in the deployed `script.js` on GitHub Pages, scoped to this one repository with `Contents: Read and write` only. The worst case is someone triggering extra workflow runs (which consume Actions minutes). For higher-traffic use, wrap the dispatch call in a Cloudflare Worker to keep the token out of the browser entirely.
 
 ## File structure
 
