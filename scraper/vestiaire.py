@@ -92,8 +92,8 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
         page = await context.new_page()
 
         print(f"Loading Vestiaire Collective (obtaining CF clearance)... query='{query}'")
-        await page.goto(BASE_URL, wait_until="networkidle", timeout=60000)
-        await asyncio.sleep(5)
+        await page.goto(BASE_URL, wait_until="load", timeout=60000)
+        await asyncio.sleep(8)
 
         conn  = connect()
         saved = 0
