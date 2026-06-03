@@ -102,6 +102,9 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
 
         with tqdm(total=max_products, desc="Products") as pbar:
             while saved < max_products:
+                if offset >= 1000:
+                    print("Reached API offset limit (1000), stopping.")
+                    break
                 payload = _build_payload(offset, limit, query)
                 payload_json = json.dumps(payload)
 
