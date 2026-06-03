@@ -33,7 +33,7 @@ document.querySelectorAll('.nav-link, .nav-btn').forEach(link => {
 
 // ===== SCROLL REVEAL ANIMATION =====
 const revealElements = document.querySelectorAll(
-  '.package-card, .step, .why-point, .testi-card, .faq-item, .channel, .why-image-col, .why-content'
+  '.package-card, .step, .why-point, .testi-card, .faq-item, .channel, .why-image-col, .why-content, .parent-card, .parents-cta'
 );
 
 revealElements.forEach(el => el.classList.add('reveal'));
@@ -112,35 +112,66 @@ document.querySelectorAll('.faq-question').forEach(button => {
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
+// GitHub repository_dispatch — replace with your repo details and a fine-grained PAT.
+// Create at: github.com/settings/personal-access-tokens/new
+// Scope: this repo only · Permission: Contents → Read and write
+const GITHUB_OWNER = 'alexsnowschool-business';
+const GITHUB_REPO  = 'alexsnowschool-business.github.io';
+const GITHUB_TOKEN = 'YOUR_FINE_GRAINED_PAT';
+const GITHUB_DISPATCH_URL = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`;
+
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('nameInput').value.trim();
     const email = document.getElementById('emailInput').value.trim();
 
     if (!name || !email) {
-      // Simple validation shake
       if (!name) shakeElement(document.getElementById('nameInput'));
       if (!email) shakeElement(document.getElementById('emailInput'));
       return;
     }
 
-    // Simulate form submission
     const submitBtn = document.getElementById('submitBtn');
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      formSuccess.style.display = 'block';
-      contactForm.reset();
-      submitBtn.textContent = 'Send Message 🚀';
-      submitBtn.disabled = false;
+    const payload = {
+      event_type: 'contact-form',
+      client_payload: {
+        submitted_at: new Date().toISOString(),
+        name,
+        email,
+        who:     document.getElementById('whoSelect')?.value || '',
+        package: document.getElementById('packageSelect')?.value || '',
+        message: document.getElementById('messageInput')?.value.trim() || '',
+      },
+    };
 
-      // Hide success message after 5s
-      setTimeout(() => {
-        formSuccess.style.display = 'none';
-      }, 5000);
-    }, 1200);
+    try {
+      const res = await fetch(GITHUB_DISPATCH_URL, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${GITHUB_TOKEN}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github.v3+json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        formSuccess.style.display = 'block';
+        contactForm.reset();
+        setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
+      } else {
+        alert('Something went wrong (' + res.status + '). Please contact us via WhatsApp.');
+      }
+    } catch {
+      alert('Could not send your message. Please contact us via WhatsApp or email.');
+    } finally {
+      submitBtn.textContent = 'Send Message';
+      submitBtn.disabled = false;
+    }
   });
 }
 

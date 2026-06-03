@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Sans+Myanmar:wght@300;400&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -30,7 +30,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#packages" class="nav-link">Packages</a></li>
                 <li><a href="#process" class="nav-link">How It Works</a></li>
-                <li><a href="#why-us" class="nav-link">Why Us</a></li>
+                <li><a href="#parents" class="nav-link">For Parents</a></li>
                 <li><a href="#testimonials" class="nav-link">Stories</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-btn">Get Started</a></li>
@@ -48,13 +48,14 @@
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-badge">🇲🇲 Myanmar → 🇩🇪 Germany</div>
+            <div class="hero-badge">Myanmar — Deutschland &nbsp;·&nbsp; <span class="myanmar-text" lang="my">မြန်မာမှ ဂျာမနီသို့</span></div>
             <h1 class="hero-title">Your Journey to <br><span class="gradient-text">Germany Starts Here</span></h1>
-            <p class="hero-subtitle">Professional consultation services tailored for Myanmar students. From university
+            <p class="hero-subtitle-mm myanmar-text" lang="my">မြန်မာကျောင်းသားများနှင့် မိဘများအတွက် ကျွမ်းကျင်သော လမ်းညွှန်မှုဝန်ဆောင်မှု</p>
+            <p class="hero-subtitle">Professional consultation services tailored for Myanmar students and their families. From university
                 selection to visa approval — we guide every step of your path to Deutschland.</p>
             <div class="hero-actions">
                 <a href="#packages" class="btn btn-primary" id="heroCtaBtn">Explore Our Packages</a>
-                <a href="#contact" class="btn btn-ghost">Free Consultation</a>
+                <a href="#parents" class="btn btn-ghost">Parent Information</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
@@ -68,8 +69,8 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat">
-                    <span class="stat-num" data-target="6">0</span><span>+</span>
-                    <span class="stat-label">Years Experience</span>
+                    <span class="stat-num" data-target="300">0</span><span>+</span>
+                    <span class="stat-label">Families Supported</span>
                 </div>
             </div>
         </div>
@@ -85,8 +86,7 @@
             <div class="section-header">
                 <div class="section-tag">Our Services</div>
                 <h2 class="section-title">Choose Your <span class="gradient-text">Package</span></h2>
-                <p class="section-desc">We offer three tailored consultation packages to meet every student's needs and
-                    budget.</p>
+                <p class="section-desc">Three tailored consultation packages to meet every student's needs and budget.</p>
             </div>
 
             <div class="packages-grid">
@@ -95,21 +95,21 @@
                 <div class="package-card" id="pkg-university">
                     <div class="pkg-badge">Starter</div>
                     <div class="pkg-icon-wrap">
-                        <div class="pkg-icon">🎓</div>
+                        <div class="pkg-icon pkg-icon--roman">I</div>
                     </div>
                     <h3 class="pkg-title">University Selection</h3>
                     <p class="pkg-price"><span class="price-currency">€</span><span class="price-amount">299</span></p>
                     <p class="pkg-tagline">Find your perfect German university match</p>
                     <ul class="pkg-features">
-                        <li><span class="feat-check">✓</span> Profile assessment & evaluation</li>
-                        <li><span class="feat-check">✓</span> Top 10 university recommendations</li>
-                        <li><span class="feat-check">✓</span> Program matching (Bachelor/Master)</li>
-                        <li><span class="feat-check">✓</span> Application deadline calendar</li>
-                        <li><span class="feat-check">✓</span> SOP / motivation letter guidance</li>
-                        <li><span class="feat-check">✓</span> Document checklist & review</li>
-                        <li><span class="feat-check">✓</span> 3 revision rounds on documents</li>
-                        <li><span class="feat-dim">✗</span> Blocked account assistance</li>
-                        <li><span class="feat-dim">✗</span> Visa appointment scheduling</li>
+                        <li><span class="feat-check">&#10003;</span> Profile assessment & evaluation</li>
+                        <li><span class="feat-check">&#10003;</span> Top 10 university recommendations</li>
+                        <li><span class="feat-check">&#10003;</span> Program matching (Bachelor/Master)</li>
+                        <li><span class="feat-check">&#10003;</span> Application deadline calendar</li>
+                        <li><span class="feat-check">&#10003;</span> SOP / motivation letter guidance</li>
+                        <li><span class="feat-check">&#10003;</span> Document checklist & review</li>
+                        <li><span class="feat-check">&#10003;</span> 3 revision rounds on documents</li>
+                        <li><span class="feat-dim">&#10007;</span> Blocked account assistance</li>
+                        <li><span class="feat-dim">&#10007;</span> Visa appointment scheduling</li>
                     </ul>
                     <a href="#contact" class="pkg-btn" id="pkg1Btn">Get Started</a>
                 </div>
@@ -118,21 +118,21 @@
                 <div class="package-card package-popular" id="pkg-blocked">
                     <div class="pkg-badge popular-badge">Most Popular</div>
                     <div class="pkg-icon-wrap">
-                        <div class="pkg-icon">🏦</div>
+                        <div class="pkg-icon pkg-icon--roman">II</div>
                     </div>
                     <h3 class="pkg-title">Blocked Bank Account</h3>
                     <p class="pkg-price"><span class="price-currency">€</span><span class="price-amount">199</span></p>
                     <p class="pkg-tagline">Hassle-free Sperrkonto setup & consultation</p>
                     <ul class="pkg-features">
-                        <li><span class="feat-check">✓</span> Blocked account eligibility check</li>
-                        <li><span class="feat-check">✓</span> Bank selection advice (Fintiba, Expatrio, etc.)</li>
-                        <li><span class="feat-check">✓</span> Step-by-step account opening guidance</li>
-                        <li><span class="feat-check">✓</span> Required documents preparation</li>
-                        <li><span class="feat-check">✓</span> Transfer & fund verification support</li>
-                        <li><span class="feat-check">✓</span> Consulate document cross-check</li>
-                        <li><span class="feat-check">✓</span> 2 weeks WhatsApp support</li>
-                        <li><span class="feat-dim">✗</span> University selection</li>
-                        <li><span class="feat-dim">✗</span> Full visa processing</li>
+                        <li><span class="feat-check">&#10003;</span> Blocked account eligibility check</li>
+                        <li><span class="feat-check">&#10003;</span> Bank selection advice (Fintiba, Expatrio, etc.)</li>
+                        <li><span class="feat-check">&#10003;</span> Step-by-step account opening guidance</li>
+                        <li><span class="feat-check">&#10003;</span> Required documents preparation</li>
+                        <li><span class="feat-check">&#10003;</span> Transfer & fund verification support</li>
+                        <li><span class="feat-check">&#10003;</span> Consulate document cross-check</li>
+                        <li><span class="feat-check">&#10003;</span> 2 weeks WhatsApp support</li>
+                        <li><span class="feat-dim">&#10007;</span> University selection</li>
+                        <li><span class="feat-dim">&#10007;</span> Full visa processing</li>
                     </ul>
                     <a href="#contact" class="pkg-btn pkg-btn-popular" id="pkg2Btn">Get Started</a>
                 </div>
@@ -141,29 +141,28 @@
                 <div class="package-card package-premium" id="pkg-full">
                     <div class="pkg-badge premium-badge">Best Value</div>
                     <div class="pkg-icon-wrap">
-                        <div class="pkg-icon">🚀</div>
+                        <div class="pkg-icon pkg-icon--roman">III</div>
                     </div>
                     <h3 class="pkg-title">Full Service Package</h3>
                     <p class="pkg-price"><span class="price-currency">€</span><span class="price-amount">699</span></p>
                     <p class="pkg-tagline">End-to-end support from Myanmar to Germany</p>
                     <ul class="pkg-features">
-                        <li><span class="feat-check">✓</span> <strong>Everything in University Selection</strong></li>
-                        <li><span class="feat-check">✓</span> <strong>Everything in Blocked Account</strong></li>
-                        <li><span class="feat-check">✓</span> Student visa application support</li>
-                        <li><span class="feat-check">✓</span> Embassy appointment scheduling</li>
-                        <li><span class="feat-check">✓</span> Health insurance guidance (TK/AOK)</li>
-                        <li><span class="feat-check">✓</span> Accommodation search assistance</li>
-                        <li><span class="feat-check">✓</span> Pre-departure orientation session</li>
-                        <li><span class="feat-check">✓</span> Airport pickup coordination</li>
-                        <li><span class="feat-check">✓</span> 3 months post-arrival support</li>
+                        <li><span class="feat-check">&#10003;</span> <strong>Everything in University Selection</strong></li>
+                        <li><span class="feat-check">&#10003;</span> <strong>Everything in Blocked Account</strong></li>
+                        <li><span class="feat-check">&#10003;</span> Student visa application support</li>
+                        <li><span class="feat-check">&#10003;</span> Embassy appointment scheduling</li>
+                        <li><span class="feat-check">&#10003;</span> Health insurance guidance (TK/AOK)</li>
+                        <li><span class="feat-check">&#10003;</span> Accommodation search assistance</li>
+                        <li><span class="feat-check">&#10003;</span> Pre-departure orientation session</li>
+                        <li><span class="feat-check">&#10003;</span> Airport pickup coordination</li>
+                        <li><span class="feat-check">&#10003;</span> 3 months post-arrival support</li>
                     </ul>
                     <a href="#contact" class="pkg-btn pkg-btn-premium" id="pkg3Btn">Get Started</a>
                 </div>
 
             </div>
 
-            <p class="packages-note">💡 All prices are one-time fees. No hidden charges. Custom packages available — <a
-                    href="#contact">contact us.</a></p>
+            <p class="packages-note">All prices are one-time fees. No hidden charges. Custom packages available — <a href="#contact">contact us.</a></p>
         </div>
     </section>
 
@@ -173,40 +172,35 @@
             <div class="section-header">
                 <div class="section-tag">Our Process</div>
                 <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
-                <p class="section-desc">A simple, transparent process to get you from application to arrival in Germany.
-                </p>
+                <p class="section-desc">A simple, transparent process to get you from application to arrival in Germany.</p>
             </div>
             <div class="process-steps">
                 <div class="step" data-step="1">
                     <div class="step-num">01</div>
-                    <div class="step-icon">💬</div>
+                    <div class="step-icon step-icon--roman">I</div>
                     <h3>Free Consultation</h3>
-                    <p>Book a free 30-minute call. We assess your profile, goals, and recommend the best package for
-                        you.</p>
+                    <p>Book a free 30-minute call. We assess your profile, goals, and recommend the best package for you.</p>
                 </div>
-                <div class="step-arrow">→</div>
+                <div class="step-arrow">&#8594;</div>
                 <div class="step" data-step="2">
                     <div class="step-num">02</div>
-                    <div class="step-icon">📋</div>
+                    <div class="step-icon step-icon--roman">II</div>
                     <h3>Document Review</h3>
-                    <p>We review all your academic certificates, language scores, and financial documents for
-                        completeness.</p>
+                    <p>We review all your academic certificates, language scores, and financial documents for completeness.</p>
                 </div>
-                <div class="step-arrow">→</div>
+                <div class="step-arrow">&#8594;</div>
                 <div class="step" data-step="3">
                     <div class="step-num">03</div>
-                    <div class="step-icon">🎯</div>
+                    <div class="step-icon step-icon--roman">III</div>
                     <h3>Application Support</h3>
-                    <p>We guide your university applications, blocked account setup, and visa documentation
-                        simultaneously.</p>
+                    <p>We guide your university applications, blocked account setup, and visa documentation simultaneously.</p>
                 </div>
-                <div class="step-arrow">→</div>
+                <div class="step-arrow">&#8594;</div>
                 <div class="step" data-step="4">
                     <div class="step-num">04</div>
-                    <div class="step-icon">✈️</div>
+                    <div class="step-icon step-icon--roman">IV</div>
                     <h3>Fly to Germany</h3>
-                    <p>Visa approved! Pre-departure briefing, accommodation sorted, and a warm welcome awaits you in
-                        Germany.</p>
+                    <p>Visa approved. Pre-departure briefing, accommodation sorted, and a warm welcome awaits in Deutschland.</p>
                 </div>
             </div>
         </div>
@@ -219,45 +213,41 @@
                 <div class="why-image-col">
                     <img src="campus.png" alt="German university campus" class="why-img" />
                     <div class="why-img-badge">
-                        <span class="badge-icon">🏆</span>
+                        <div class="badge-roman">I</div>
                         <div>
                             <strong>Top Ranked</strong>
-                            <span>Myanmar-Germany Consultant</span>
+                            <span>Myanmar–Germany Consultant</span>
                         </div>
                     </div>
                 </div>
                 <div class="why-content">
                     <div class="section-tag">Why Choose Us</div>
-                    <h2 class="section-title">We Know the <span class="gradient-text">Myanmar & German</span> System
-                        Inside Out</h2>
-                    <p class="why-desc">Born from firsthand experience of the same journey you're about to take, Student
-                        Road to Germany was founded by Myanmar alumni studying in Deutschland. We speak your language —
-                        literally and figuratively.</p>
+                    <h2 class="section-title">We Know the <span class="gradient-text">Myanmar & German</span> System Inside Out</h2>
+                    <p class="why-desc">Born from firsthand experience of the same journey you're about to take, Student Road to Germany was founded by Myanmar alumni studying in Deutschland. We speak your language — literally and figuratively.</p>
                     <div class="why-points">
                         <div class="why-point">
-                            <div class="point-icon">🎓</div>
+                            <div class="point-marker">I.</div>
                             <div>
                                 <h4>Myanmar Alumni Network</h4>
                                 <p>Our team consists of Myanmar graduates from TU Munich, Heidelberg, and TU Berlin.</p>
                             </div>
                         </div>
                         <div class="why-point">
-                            <div class="point-icon">🔒</div>
+                            <div class="point-marker">II.</div>
                             <div>
                                 <h4>Transparent & Trustworthy</h4>
-                                <p>No hidden fees. Fixed prices. 100% money-back guarantee if visa is rejected due to
-                                    our error.</p>
+                                <p>No hidden fees. Fixed prices. 100% money-back guarantee if visa is rejected due to our error.</p>
                             </div>
                         </div>
                         <div class="why-point">
-                            <div class="point-icon">⚡</div>
+                            <div class="point-marker">III.</div>
                             <div>
                                 <h4>Fast Response</h4>
-                                <p>24-hour response guarantee via WhatsApp and email throughout your consultation.</p>
+                                <p>24-hour response guarantee via WhatsApp and Viber throughout your consultation.</p>
                             </div>
                         </div>
                         <div class="why-point">
-                            <div class="point-icon">🌐</div>
+                            <div class="point-marker">IV.</div>
                             <div>
                                 <h4>Burmese & English Support</h4>
                                 <p>We communicate fluently in Myanmar language so nothing gets lost in translation.</p>
@@ -269,19 +259,74 @@
         </div>
     </section>
 
+    <!-- ====== FOR PARENTS ====== -->
+    <section class="parents" id="parents">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">For Parents &nbsp;·&nbsp; <span class="myanmar-text" lang="my">မိဘများသို့</span></div>
+                <h2 class="section-title">Your Child's Future, <span class="gradient-text">Our Shared Responsibility</span></h2>
+                <p class="section-desc">Sending your child abroad is one of the most significant decisions your family will make. Here is what every Myanmar parent needs to know.</p>
+            </div>
+
+            <div class="parents-grid">
+
+                <div class="parent-card">
+                    <div class="parent-card__numeral">I</div>
+                    <h3 class="parent-card__title">
+                        Safety & Well-being
+                        <span class="parent-card__title-mm myanmar-text" lang="my">လုံခြုံရေးနှင့် ကျန်းမာရေး</span>
+                    </h3>
+                    <p class="parent-card__body">Germany consistently ranks among the world's 10 safest countries, with universal healthcare and strong rule of law. Your child will also be supported by a growing Myanmar student community in every major German city.</p>
+                </div>
+
+                <div class="parent-card">
+                    <div class="parent-card__numeral">II</div>
+                    <h3 class="parent-card__title">
+                        Financial Transparency
+                        <span class="parent-card__title-mm myanmar-text" lang="my">ငွေကြေးပွင့်လင်းမြင်သာမှု</span>
+                    </h3>
+                    <p class="parent-card__body">We provide a complete cost breakdown before you commit: tuition (free at public universities), blocked account (€11,208/year), accommodation (€400–600/month), and living expenses. There are no surprises.</p>
+                </div>
+
+                <div class="parent-card">
+                    <div class="parent-card__numeral">III</div>
+                    <h3 class="parent-card__title">
+                        Career Outcomes
+                        <span class="parent-card__title-mm myanmar-text" lang="my">အလုပ်အကိုင် အနာဂတ်</span>
+                    </h3>
+                    <p class="parent-card__body">A German degree is recognised globally. 92% of our graduates secure employment within 6 months. Many return to Myanmar to lead multinational companies — or build their own ventures.</p>
+                </div>
+
+                <div class="parent-card">
+                    <div class="parent-card__numeral">IV</div>
+                    <h3 class="parent-card__title">
+                        Stay Connected
+                        <span class="parent-card__title-mm myanmar-text" lang="my">ဆက်သွယ်နေပါ</span>
+                    </h3>
+                    <p class="parent-card__body">We maintain a dedicated Viber group for parents of our students. You receive milestone updates — visa approval, safe arrival, semester start. You are never out of the loop.</p>
+                </div>
+
+            </div>
+
+            <div class="parents-cta">
+                <p class="parents-cta__text">We connect you with Myanmar parents whose children are currently studying in Germany. Hear their story before you decide.</p>
+                <a href="#contact" class="btn btn-primary">Speak With a Parent</a>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ====== TESTIMONIALS ====== -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Student Stories</div>
+                <div class="section-tag">Student & Family Stories</div>
                 <h2 class="section-title">They Made It. <span class="gradient-text">So Can You.</span></h2>
             </div>
             <div class="testi-grid">
                 <div class="testi-card" id="testi1">
-                    <div class="testi-stars">★★★★★</div>
-                    <p class="testi-text">"Student Road to Germany made the entire process so much less stressful. From
-                        choosing TU Munich to getting my Fintiba account approved — they guided every step. I'm now in
-                        my second semester!"</p>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"Student Road to Germany made the entire process so much less stressful. From choosing TU Munich to getting my Fintiba account approved — they guided every step. I'm now in my second semester!"</p>
                     <div class="testi-author">
                         <div class="testi-avatar">AK</div>
                         <div>
@@ -291,10 +336,8 @@
                     </div>
                 </div>
                 <div class="testi-card" id="testi2">
-                    <div class="testi-stars">★★★★★</div>
-                    <p class="testi-text">"I only needed the blocked account package but their support was incredible.
-                        They know every detail about Fintiba and Expatrio. My Sperrkonto was opened in 3 days and my
-                        visa was approved within a month!"</p>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"I only needed the blocked account package but their support was incredible. They know every detail about Fintiba and Expatrio. My Sperrkonto was opened in 3 days and my visa was approved within a month!"</p>
                     <div class="testi-author">
                         <div class="testi-avatar">TM</div>
                         <div>
@@ -303,16 +346,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="testi-card" id="testi3">
-                    <div class="testi-stars">★★★★★</div>
-                    <p class="testi-text">"The Full Service Package was worth every cent. I came from Mandalay with no
-                        idea how any of this works. They handled everything — university, visa, even helped me find my
-                        first apartment in Berlin. Amazing team!"</p>
+                <div class="testi-card testi-card--parent" id="testi3">
+                    <div class="testi-tag">Parent Voice &nbsp;·&nbsp; <span class="myanmar-text" lang="my">မိဘ၏ အသံ</span></div>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"As a parent, I was very worried about my daughter going so far alone. The team answered every question — about safety, costs, and how she would manage — in Burmese so I could understand everything. She is thriving in Berlin now."</p>
                     <div class="testi-author">
-                        <div class="testi-avatar">MM</div>
+                        <div class="testi-avatar">DM</div>
                         <div>
-                            <strong>Min Min</strong>
-                            <span>M.Sc. Business Administration, HU Berlin</span>
+                            <strong>Daw Mya Mya</strong>
+                            <span>Parent — daughter studying B.Sc. Economics, FU Berlin</span>
                         </div>
                     </div>
                 </div>
@@ -330,66 +372,64 @@
             <div class="faq-list">
 
                 <div class="faq-item" id="faq1">
-                    <button class="faq-question">What GPA/grades do I need to study in Germany?<span
-                            class="faq-arrow">▼</span></button>
+                    <button class="faq-question">What GPA/grades do I need to study in Germany?<span class="faq-arrow">&#9660;</span></button>
                     <div class="faq-answer">
-                        <p>Most German universities require a minimum GPA of 3.0/4.0 or equivalent. However,
-                            requirements vary by university and program. we evaluate your specific profile and find
-                            universities that match your academic background during the free consultation.</p>
+                        <p>Most German universities require a minimum GPA of 3.0/4.0 or equivalent. However, requirements vary by university and program. We evaluate your specific profile and find universities that match your academic background during the free consultation.</p>
                     </div>
                 </div>
 
                 <div class="faq-item" id="faq2">
-                    <button class="faq-question">What is a blocked bank account (Sperrkonto)?<span
-                            class="faq-arrow">▼</span></button>
+                    <button class="faq-question">What is a blocked bank account (Sperrkonto)?<span class="faq-arrow">&#9660;</span></button>
                     <div class="faq-answer">
-                        <p>A Sperrkonto is a blocked bank account required by the German embassy/consulate to prove you
-                            have sufficient funds (€11,208/year as of 2024) to support yourself during your studies.
-                            Popular providers include Fintiba and Expatrio. Our blocked account package guides you
-                            through the entire setup process.</p>
+                        <p>A Sperrkonto is a blocked bank account required by the German embassy/consulate to prove you have sufficient funds (€11,208/year as of 2024) to support yourself during your studies. Popular providers include Fintiba and Expatrio. Our blocked account package guides you through the entire setup process.</p>
                     </div>
                 </div>
 
                 <div class="faq-item" id="faq3">
-                    <button class="faq-question">How long does the entire process take?<span
-                            class="faq-arrow">▼</span></button>
+                    <button class="faq-question">How long does the entire process take?<span class="faq-arrow">&#9660;</span></button>
                     <div class="faq-answer">
-                        <p>The typical timeline from starting your application to arriving in Germany is 6–12 months.
-                            University applications usually have deadlines 6 months in advance. Visa processing takes
-                            6–12 weeks after submission. We help you plan and track all deadlines to stay on schedule.
-                        </p>
+                        <p>The typical timeline from starting your application to arriving in Germany is 6–12 months. University applications usually have deadlines 6 months in advance. Visa processing takes 6–12 weeks after submission. We help you plan and track all deadlines to stay on schedule.</p>
                     </div>
                 </div>
 
                 <div class="faq-item" id="faq4">
-                    <button class="faq-question">Do I need to know German to study in Germany?<span
-                            class="faq-arrow">▼</span></button>
+                    <button class="faq-question">Do I need to know German to study in Germany?<span class="faq-arrow">&#9660;</span></button>
                     <div class="faq-answer">
-                        <p>Not necessarily! There are over 1,500 English-taught Master's programs in Germany. For
-                            German-taught programs, you'll need at least B2 level (TestDaF or DSH exam). We help you
-                            identify programs that match your current language level and advise on language courses if
-                            needed.</p>
+                        <p>Not necessarily. There are over 1,500 English-taught Master's programs in Germany. For German-taught programs, you'll need at least B2 level (TestDaF or DSH exam). We help you identify programs that match your current language level and advise on language courses if needed.</p>
                     </div>
                 </div>
 
                 <div class="faq-item" id="faq5">
-                    <button class="faq-question">Is tuition free in Germany for international students?<span
-                            class="faq-arrow">▼</span></button>
+                    <button class="faq-question">Is tuition free in Germany for international students?<span class="faq-arrow">&#9660;</span></button>
                     <div class="faq-answer">
-                        <p>Most public German universities have no tuition fees for international students! You only pay
-                            a semester contribution of approx. €150–€350 per semester which usually includes a public
-                            transport pass. Private universities do charge tuition. We always prioritize public
-                            universities to minimize your costs.</p>
+                        <p>Most public German universities have no tuition fees for international students. You only pay a semester contribution of approximately €150–€350 per semester, which usually includes a public transport pass. Private universities do charge tuition. We always prioritise public universities to minimise your costs.</p>
                     </div>
                 </div>
 
                 <div class="faq-item" id="faq6">
-                    <button class="faq-question">What if my visa application is rejected?<span
-                            class="faq-arrow">▼</span></button>
+                    <button class="faq-question">What if my visa application is rejected?<span class="faq-arrow">&#9660;</span></button>
                     <div class="faq-answer">
-                        <p>Visa rejection is rare with proper preparation. If a rejection occurs due to document issues
-                            on our end, our Full Service Package includes a full refund guarantee. We also support the
-                            re-application or appeal process at no additional charge.</p>
+                        <p>Visa rejection is rare with proper preparation. If a rejection occurs due to document issues on our end, our Full Service Package includes a full refund guarantee. We also support the re-application or appeal process at no additional charge.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item--parent" id="faq7">
+                    <button class="faq-question">
+                        <span class="faq-parent-label">For Parents</span>
+                        Is Germany safe for my child to live alone?<span class="faq-arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Germany is one of the safest countries in the world for international students. German cities have low crime rates, excellent public transport, and well-resourced student services. Your child will also have access to free healthcare under student health insurance. We connect every student with the local Myanmar student association upon arrival so they are never isolated.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item--parent" id="faq8">
+                    <button class="faq-question">
+                        <span class="faq-parent-label">For Parents</span>
+                        What is the total cost our family needs to prepare?<span class="faq-arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A realistic first-year budget includes: blocked account deposit (€11,208), student health insurance (approx. €120/month), accommodation (€400–600/month), and daily living (€300–400/month). Tuition at public universities is free. We prepare a personalised cost plan for every family during the free consultation so you can plan ahead with full clarity.</p>
                     </div>
                 </div>
 
@@ -402,21 +442,24 @@
         <div class="container">
             <div class="contact-inner">
                 <div class="contact-info">
-                    <div class="section-tag">Get In Touch</div>
+                    <div class="section-tag">Get In Touch &nbsp;·&nbsp; <span class="myanmar-text" lang="my">ဆက်သွယ်ရန်</span></div>
                     <h2 class="section-title">Start Your <span class="gradient-text">German Journey</span> Today</h2>
-                    <p class="contact-desc">Book a free 30-minute consultation. No commitment. We'll answer all your
-                        questions and recommend the perfect package for your situation.</p>
+                    <p class="contact-desc">Book a free 30-minute consultation. No commitment. We will answer all your questions — in Burmese or English — and recommend the perfect package for your situation.</p>
                     <div class="contact-channels">
                         <a href="https://wa.me/+959xxxxxxxxx" class="channel whatsapp-channel" id="whatsappBtn">
-                            <span class="ch-icon">💬</span>
+                            <div class="ch-label">WA</div>
                             <div><strong>WhatsApp</strong><span>Message us directly</span></div>
                         </a>
+                        <a href="viber://chat?number=+959xxxxxxxxx" class="channel viber-channel" id="viberBtn">
+                            <div class="ch-label">VB</div>
+                            <div><strong>Viber</strong><span>Chat in Myanmar</span></div>
+                        </a>
                         <a href="mailto:info@studentroadtogermany.com" class="channel email-channel" id="emailBtn">
-                            <span class="ch-icon">📧</span>
+                            <div class="ch-label">EM</div>
                             <div><strong>Email</strong><span>info@studentroadtogermany.com</span></div>
                         </a>
                         <a href="#" class="channel fb-channel" id="facebookBtn">
-                            <span class="ch-icon">📘</span>
+                            <div class="ch-label">FB</div>
                             <div><strong>Facebook</strong><span>Student Road to Germany</span></div>
                         </a>
                     </div>
@@ -431,21 +474,28 @@
                             <input type="email" id="emailInput" placeholder="Your Email Address" required />
                         </div>
                         <div class="form-group">
+                            <select id="whoSelect">
+                                <option value="" disabled selected>I am a...</option>
+                                <option value="student">Student</option>
+                                <option value="parent">Parent / Guardian</option>
+                                <option value="both">Student with parent support</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <select id="packageSelect">
                                 <option value="" disabled selected>Which package interests you?</option>
                                 <option value="university">University Selection (€299)</option>
                                 <option value="blocked">Blocked Bank Account (€199)</option>
                                 <option value="full">Full Service Package (€699)</option>
+                                <option value="parents">Parent Information Session (Free)</option>
                                 <option value="unsure">Not sure yet — need advice</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea id="messageInput" placeholder="Tell us about yourself and your goals..."
-                                rows="4"></textarea>
+                            <textarea id="messageInput" placeholder="Tell us about yourself and your goals..." rows="4"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send Message
-                            🚀</button>
-                        <div class="form-success" id="formSuccess">✅ Thank you! We'll contact you within 24 hours.</div>
+                        <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send Message</button>
+                        <div class="form-success" id="formSuccess">Thank you — we will contact you within 24 hours.</div>
                     </form>
                 </div>
             </div>
@@ -464,7 +514,7 @@
                             <span class="logo-sub">to Germany</span>
                         </div>
                     </a>
-                    <p>Empowering Myanmar students to achieve their dream of studying in Germany since 2018.</p>
+                    <p>Empowering Myanmar students and families to achieve their dream of studying in Germany since 2018.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Services</h4>
@@ -478,6 +528,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#process">How It Works</a></li>
+                        <li><a href="#parents">For Parents</a></li>
                         <li><a href="#testimonials">Student Stories</a></li>
                         <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">Contact Us</a></li>
@@ -487,21 +538,21 @@
                     <h4>Follow Us</h4>
                     <ul>
                         <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">Viber</a></li>
                         <li><a href="#">YouTube</a></li>
-                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Telegram</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 Student Road to Germany from Myanmar. All rights reserved.</p>
-                <p>Built with ❤️ for Myanmar students dreaming of Germany.</p>
+                <p>&#169; 2025 Student Road to Germany from Myanmar. All rights reserved.</p>
+                <p>Built for Myanmar students and their families dreaming of Germany.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scroll to top button -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8593;</button>
 
     <script src="script.js"></script>
 </body>
