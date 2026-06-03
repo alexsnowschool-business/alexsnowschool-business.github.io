@@ -112,22 +112,14 @@ document.querySelectorAll('.faq-question').forEach(button => {
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
-// GitHub repository_dispatch — replace with your repo details and a fine-grained PAT.
-// Create at: github.com/settings/personal-access-tokens/new
-// Scope: this repo only · Permission: Contents → Read and write
-const GITHUB_OWNER = 'alexsnowschool-business';
-const GITHUB_REPO  = 'alexsnowschool-business.github.io';
-const GITHUB_TOKEN = 'YOUR_FINE_GRAINED_PAT';
-const GITHUB_DISPATCH_URL = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`;
-
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('nameInput').value.trim();
+    const name  = document.getElementById('nameInput').value.trim();
     const email = document.getElementById('emailInput').value.trim();
 
     if (!name || !email) {
-      if (!name) shakeElement(document.getElementById('nameInput'));
+      if (!name)  shakeElement(document.getElementById('nameInput'));
       if (!email) shakeElement(document.getElementById('emailInput'));
       return;
     }
@@ -136,27 +128,26 @@ if (contactForm) {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    const payload = {
-      event_type: 'contact-form',
-      client_payload: {
-        submitted_at: new Date().toISOString(),
-        name,
-        email,
-        who:     document.getElementById('whoSelect')?.value || '',
-        package: document.getElementById('packageSelect')?.value || '',
-        message: document.getElementById('messageInput')?.value.trim() || '',
-      },
-    };
+    const who     = document.getElementById('whoSelect')?.value || '';
+    const pkg     = document.getElementById('packageSelect')?.value || '';
+    const message = document.getElementById('messageInput')?.value.trim() || '';
 
     try {
-      const res = await fetch(GITHUB_DISPATCH_URL, {
+      const res = await fetch('https://formsubmit.co/ajax/info@studentroadtogermany.com', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${GITHUB_TOKEN}`,
           'Content-Type': 'application/json',
-          'Accept': 'application/vnd.github.v3+json',
+          'Accept': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          name,
+          email,
+          who,
+          package: pkg,
+          message,
+          _subject: `New Enquiry — ${name}`,
+          _captcha: 'false',
+        }),
       });
 
       if (res.ok) {
@@ -164,7 +155,7 @@ if (contactForm) {
         contactForm.reset();
         setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
       } else {
-        alert('Something went wrong (' + res.status + '). Please contact us via WhatsApp.');
+        alert('Something went wrong. Please contact us via WhatsApp or email.');
       }
     } catch {
       alert('Could not send your message. Please contact us via WhatsApp or email.');

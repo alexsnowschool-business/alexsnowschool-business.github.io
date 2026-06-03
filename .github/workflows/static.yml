@@ -31,10 +31,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Inject dispatch token
-        env:
-          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
-        run: sed -i "s/YOUR_FINE_GRAINED_PAT/${DISPATCH_TOKEN}/" studentroadtogermany/script.js
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

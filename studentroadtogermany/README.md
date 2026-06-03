@@ -16,89 +16,42 @@ Open `http://localhost:3001/studentroadtogermany/` in your browser.
 
 ## Contact form — how submissions are stored
 
-In **production**, form submissions are stored via GitHub Actions. When a visitor submits the contact form the browser POSTs directly to the GitHub repository dispatch API. A workflow runs, appends one row to `submissions.csv`, and commits the file back to the repository.
+Form submissions are handled by [Formsubmit.co](https://formsubmit.co) — no tokens, no backend, no configuration required. Every submission is emailed to `info@studentroadtogermany.com` instantly.
 
 ```mermaid
 sequenceDiagram
     actor Visitor
     participant JS as script.js<br/>(browser)
-    participant API as GitHub API
-    participant Actions as GitHub Actions
-    participant Repo as submissions.csv<br/>(main branch)
+    participant FS as Formsubmit.co
+    participant Email as info@studentroadtogermany.com
 
     Visitor->>JS: Submit contact form
-    JS->>API: POST /repos/.../dispatches<br/>event_type: contact-form
-    API-->>JS: 204 No Content
+    JS->>FS: POST /ajax/info@studentroadtogermany.com
+    FS-->>JS: 200 OK
     JS-->>Visitor: Show success message
-
-    Note over API,Actions: Asynchronous — visitor does not wait for this
-    API->>Actions: Trigger store-submission workflow
-    Actions->>Repo: git checkout main
-    Actions->>Actions: store_submission.py<br/>appends one CSV row
-    Actions->>Repo: git commit + push
+    FS->>Email: Deliver submission email
 ```
 
-> The visitor sees the success message as soon as GitHub acknowledges the dispatch (204). The CSV is written asynchronously — typically within 30–60 seconds.
+In **local development**, `api.py` handles form submissions and writes to `submissions.db` (SQLite, gitignored).
 
-In **local development**, `api.py` handles the same endpoint and writes to `submissions.db` (SQLite, gitignored).
+## Formsubmit.co one-time activation
 
-## GitHub Actions one-time setup
+The first submission to a new email address triggers an activation email from Formsubmit.co. Click the confirmation link in that email — all subsequent submissions will be delivered without any further setup.
 
-### 1. Create a fine-grained Personal Access Token
-
-Go to: `github.com/settings/personal-access-tokens/new`
-
-| Field | Value |
-|---|---|
-| Resource owner | `alexsnowschool-business` |
-| Repository access | Only `alexsnowschool-business.github.io` |
-| Permissions → Contents | Read and write |
-
-### 2. Store it as a repo secret
-
-`Repository → Settings → Secrets and variables → Actions → New repository secret`
-
-| Name | Value |
-|---|---|
-| `GITHUB_DISPATCH_TOKEN` | the PAT from step 1 |
-
-The token is **never committed to the repository**. The deployment workflow (`static.yml`) injects it into `script.js` at build time before uploading to GitHub Pages.
-
-### 3. Push to GitHub
-
-On the next push to `main`, `static.yml` will:
-1. Replace the `YOUR_FINE_GRAINED_PAT` placeholder in `script.js` with the real token from the secret
-2. Deploy the patched file to GitHub Pages
-
-The `store-submission` workflow only runs on `repository_dispatch` events with type `contact-form` — regular git pushes skip it entirely. It uses the built-in `GITHUB_TOKEN` (with `contents: write`) to push the CSV back.
-
-## Reading submissions
-
-`submissions.csv` in this directory is appended to by every form submission and committed to the repo. Open it directly or query it:
-
-```bash
-python3 -c "
-import csv
-rows = list(csv.DictReader(open('studentroadtogermany/submissions.csv')))
-print(f'{len(rows)} submission(s)')
-for r in rows:
-    print(f\"  {r['submitted_at']}  {r['name']} <{r['email']}>  [{r['package']}]\")
-"
-```
+That is the only step required. No account, no API keys, no secrets.
 
 ## Security note
 
-The fine-grained PAT is **not stored in the repository** — it lives only in GitHub Secrets and is injected at deploy time. It is still visible in the deployed `script.js` on GitHub Pages, scoped to this one repository with `Contents: Read and write` only. The worst case is someone triggering extra workflow runs (which consume Actions minutes). For higher-traffic use, wrap the dispatch call in a Cloudflare Worker to keep the token out of the browser entirely.
+No tokens or secrets are stored in the codebase or exposed in the browser. Formsubmit.co acts as a serverless proxy — the browser POSTs to their endpoint and they forward the data by email.
 
 ## File structure
 
 ```
 studentroadtogermany/
-├── index.html              # Main page
+├── index.html        # Main page
 ├── styles.css
-├── script.js               # Form → GitHub repository_dispatch
-├── api.py                  # Local dev API server (SQLite)
-├── store_submission.py     # Workflow script — appends to submissions.csv
-├── submissions.csv         # Stored submissions (git-tracked)
+├── script.js         # Form → Formsubmit.co AJAX
+├── api.py            # Local dev API server (SQLite)
+├── submissions.csv   # Seed file (headers only — git-tracked)
 └── README.md
 ```
