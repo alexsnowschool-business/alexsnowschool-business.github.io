@@ -2,9 +2,9 @@ name: Hermès Reel — Provenance
 
 on:
   schedule:
-    - cron: "0 10 * * 1"     # Monday    11:00 CET / 12:00 CEST
-    - cron: "0 10 * * 3"     # Wednesday 11:00 CET / 12:00 CEST
-    - cron: "0 10 * * 5"     # Friday    11:00 CET / 12:00 CEST
+    - cron: "0 1 * * 1"     # Monday    11:00 CET / 12:00 CEST
+    - cron: "0 1 * * 3"     # Wednesday 11:00 CET / 12:00 CEST
+    - cron: "0 1 * * 5"     # Friday    11:00 CET / 12:00 CEST
   workflow_dispatch:
     inputs:
       model:
