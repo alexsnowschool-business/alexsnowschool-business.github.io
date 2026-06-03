@@ -73,6 +73,9 @@ _HEADERS = {
 # ── Minimum resale premium to qualify for a reel (resale must exceed retail by at least this %) ─
 MIN_PREMIUM_PCT: float = 50.0
 
+# ── How many days before a posted model becomes eligible again ────────────────
+POSTED_COOLDOWN_DAYS: int = 30
+
 # ── Fallback retail prices — used only if hermes.db retail_prices table is empty ─
 # Birkin/Kelly are in-store only and never appear on hermes.com.
 # These are seeded into hermes.db on first run; thereafter the DB copy is used.
@@ -1120,16 +1123,21 @@ def _ensure_posted_table(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
-def _posted_models(conn: sqlite3.Connection) -> set[str]:
-    rows = conn.execute("SELECT model FROM posted_hermes_reels").fetchall()
-    return {r[0] for r in rows}
+def _posted_models(conn: sqlite3.Connection) -> dict[str, str]:
+    """Return {model: posted_at} for models posted within POSTED_COOLDOWN_DAYS."""
+    rows = conn.execute(
+        "SELECT model, posted_at FROM posted_hermes_reels "
+        "WHERE posted_at >= datetime('now', ?)",
+        (f"-{POSTED_COOLDOWN_DAYS} days",),
+    ).fetchall()
+    return {r["model"]: r["posted_at"] for r in rows}
 
 
 def _record_posted(conn: sqlite3.Connection, row: dict, reel_slug: str) -> None:
     conn.execute("""
         INSERT OR REPLACE INTO posted_hermes_reels
-            (model, retail_eur, resale_usd, premium_pct, reel_slug)
-        VALUES (?, ?, ?, ?, ?)
+            (model, retail_eur, resale_usd, premium_pct, reel_slug, posted_at)
+        VALUES (?, ?, ?, ?, ?, datetime('now'))
     """, (row["model"], row["retail_eur"], row["resale_usd"],
           row["premium_pct"], reel_slug))
     conn.commit()
@@ -1183,7 +1191,7 @@ def main() -> None:
     conn = sqlite3.connect(HERMES_DB)
     conn.row_factory = sqlite3.Row
     _ensure_posted_table(conn)
-    posted = _posted_models(conn) if not args.all else set()
+    posted = _posted_models(conn) if not args.all else {}
     conn.close()
 
     if args.model:
@@ -1198,8 +1206,10 @@ def main() -> None:
     else:
         unposted = [r for r in premiums if r["model"] not in posted]
         if not unposted:
-            print("  ℹ All models have been posted — re-using top model.")
-            unposted = premiums
+            # All qualifying models were posted within the cooldown window —
+            # pick the least recently posted so rotation continues.
+            print(f"  ℹ All models posted within {POSTED_COOLDOWN_DAYS}d cooldown — picking least-recently posted.")
+            unposted = sorted(premiums, key=lambda r: posted.get(r["model"], ""))
         # Prefer models with images
         with_imgs = [r for r in unposted if r["images"]]
         chosen = with_imgs[0] if with_imgs else unposted[0]
