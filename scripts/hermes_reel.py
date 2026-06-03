@@ -70,36 +70,50 @@ _HEADERS = {
     "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
 }
 
-# ── Known retail prices (EUR) for allocation-only bags not sold on hermes.com ─
-# Source: publicly documented Hermès Europe price lists (2024–2025)
-KNOWN_RETAIL_EUR: dict[str, float] = {
-    "Birkin 25": 8_350,
-    "Birkin 30": 9_900,
-    "Birkin 35": 10_850,
-    "Birkin 40": 11_650,
-    "Kelly 25":  7_650,
-    "Kelly 28":  8_750,
-    "Kelly 32":  9_450,
-    "Kelly 35":  10_250,
-    "Kelly Mini": 7_000,
-    "Kelly Moove": 5_150,
-    "Constance":  10_200,
-    "Constance Elan": 9_100,
-    "Lindy 26":  5_250,
-    "Lindy 30":  5_750,
+# ── Minimum resale premium to qualify for a reel (resale must exceed retail by at least this %) ─
+MIN_PREMIUM_PCT: float = 50.0
+
+# ── Fallback retail prices — used only if hermes.db retail_prices table is empty ─
+# Birkin/Kelly are in-store only and never appear on hermes.com.
+# These are seeded into hermes.db on first run; thereafter the DB copy is used.
+# Prices in EUR — Hermès Europe, January 2026 increase.
+_RETAIL_SEED: dict[str, float] = {
+    "Birkin 25":   9_600,
+    "Birkin 30":  10_600,
+    "Birkin 35":  11_600,
+    "Birkin 40":  12_700,
+    "Kelly 25":    9_600,
+    "Kelly 28":   10_100,
+    "Kelly 32":   11_100,
+    "Kelly Mini":  8_700,
 }
 
-# ── Keyword mapping: bag model name → keywords found in hermes.db German names ─
-# Used to extract retail prices for models that DO appear on hermes.com
+# Refresh DB prices if they are older than this many days.
+_RETAIL_PRICE_TTL_DAYS = 30
+
+# ── Keyword mapping: bag model name → substrings found in hermes.db German names ─
+# Retail prices are read live from hermes.db (hermes.com scrape).
+# Birkin/Kelly are handled separately via _load_known_retail() (cached in hermes.db).
 MODEL_KEYWORDS: dict[str, list[str]] = {
-    "Evelyne":     ["evelyne", "évelyne"],
-    "Herbag":      ["herbag"],
-    "Garden Party": ["garden party"],
-    "Bolide":      ["bolide"],
-    "Picotin":     ["picotin"],
-    "Lindy":       ["lindy", "halzan"],
-    "Jypsiere":    ["jypsière", "jypsiere"],
-    "24/24":       ["24/24"],
+    "Evelyne":              ["evelyne", "évelyne"],
+    "Herbag":               ["herbag"],
+    "Garden Party":         ["garden party"],
+    "Bolide":               ["bolide"],
+    "Picotin":              ["picotin"],
+    "Lindy":                ["lindy", "halzan"],
+    "Jypsiere":             ["jypsière", "jypsiere"],
+    "24/24":                ["24/24"],
+    "Kelly Messenger":      ["kelly messenger"],
+    "HAC":                  ["hac à dos"],
+    "Collier d'Attelage":   ["collier d'attelage"],
+    "In-the-Loop":          ["in-the-loop"],
+    "Steeple":              ["steeple"],
+    "Neo Garden":           ["néo garden"],
+    "Medor":                ["médor", "medór", "medor"],
+    "Sabot":                ["tasche sabot"],
+    "Cab H":                ["cab'h", "cabh"],
+    "Double Longe":         ["double longe"],
+    "Faubourg Express":     ["faubourg express"],
 }
 
 # ── Hook templates: (min_premium_pct, [question variants], [answer variants]) ─
@@ -233,6 +247,112 @@ def _load_db_retail() -> dict[str, tuple[float, list[str]]]:
     return result
 
 
+# ── Birkin / Kelly retail prices (auto-refreshed in hermes.db) ────────────────
+
+def _ensure_retail_prices_table(conn: sqlite3.Connection) -> None:
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS retail_prices (
+            model       TEXT PRIMARY KEY,
+            retail_eur  REAL NOT NULL,
+            source      TEXT,
+            updated_at  TEXT DEFAULT (datetime('now'))
+        )
+    """)
+    conn.commit()
+
+
+def _fetch_birkin_kelly_prices() -> dict[str, float]:
+    """
+    Scrape current EUR retail prices from PurseBop price guides.
+    Returns a {model: eur_price} dict, or empty dict on any failure.
+    """
+    import re
+
+    results: dict[str, float] = {}
+    pages = [
+        ("https://www.pursebop.com/the-hermes-birkin-price-guide-2026/", "Birkin"),
+        ("https://www.pursebop.com/the-hermes-kelly-price-guide-2026/",  "Kelly"),
+    ]
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; hermes-reel-bot/1.0)"}
+
+    for url, family in pages:
+        try:
+            r = httpx.get(url, headers=headers, follow_redirects=True, timeout=15)
+            r.raise_for_status()
+            # Find rows like: Birkin 25 | Togo | €9,600  or  Kelly 28 | … | €10,100
+            for m in re.finditer(
+                rf"{family}\s+(\d{{2}}|Mini|Elan|Moove)[^\n]*?€([\d,]+)",
+                r.text,
+            ):
+                size_raw, price_raw = m.group(1), m.group(2).replace(",", "")
+                model = f"{family} {size_raw}"
+                price = float(price_raw)
+                # Keep the lowest (most common Togo/Epsom) price per model
+                if model not in results or price < results[model]:
+                    results[model] = price
+        except Exception:
+            pass  # silently fall back to DB / seed values
+
+    return results
+
+
+def _load_known_retail() -> dict[str, float]:
+    """
+    Return {model: retail_eur} for Birkin and Kelly, reading from hermes.db.
+    Refreshes from web if the prices are older than _RETAIL_PRICE_TTL_DAYS.
+    Falls back to _RETAIL_SEED if the DB is missing or the fetch fails.
+    """
+    if not HERMES_DB.exists():
+        return _RETAIL_SEED.copy()
+
+    conn = sqlite3.connect(HERMES_DB)
+    conn.row_factory = sqlite3.Row
+    _ensure_retail_prices_table(conn)
+
+    rows = conn.execute("SELECT model, retail_eur, updated_at FROM retail_prices").fetchall()
+    cached = {r["model"]: r["retail_eur"] for r in rows}
+
+    stale = True
+    if rows:
+        from datetime import datetime, timezone
+        oldest = min(r["updated_at"] for r in rows)
+        try:
+            age = (datetime.now(timezone.utc) - datetime.fromisoformat(oldest.replace("Z", "+00:00"))).days
+            stale = age >= _RETAIL_PRICE_TTL_DAYS
+        except Exception:
+            pass
+
+    if stale:
+        print("  ↻ Refreshing Birkin/Kelly retail prices from web…", end=" ", flush=True)
+        fresh = _fetch_birkin_kelly_prices()
+        if fresh:
+            for model, price in fresh.items():
+                conn.execute(
+                    "INSERT INTO retail_prices (model, retail_eur, source, updated_at) "
+                    "VALUES (?, ?, 'pursebop.com', datetime('now')) "
+                    "ON CONFLICT(model) DO UPDATE SET retail_eur=excluded.retail_eur, "
+                    "source=excluded.source, updated_at=excluded.updated_at",
+                    (model, price),
+                )
+            conn.commit()
+            cached.update(fresh)
+            print(f"updated {len(fresh)} prices.")
+        else:
+            # Seed from hardcoded values if table is empty
+            if not cached:
+                for model, price in _RETAIL_SEED.items():
+                    conn.execute(
+                        "INSERT OR IGNORE INTO retail_prices (model, retail_eur, source) VALUES (?, ?, 'seed')",
+                        (model, price),
+                    )
+                conn.commit()
+                cached = _RETAIL_SEED.copy()
+            print("fetch failed, using cached values.")
+
+    conn.close()
+    return cached
+
+
 # ── Load resale stats from catalogue.json ─────────────────────────────────────
 
 def _load_resale_stats() -> dict[str, dict]:
@@ -292,46 +412,48 @@ def _build_premiums(
     """
     rows = []
 
-    # Models with retail price in hermes.db
     for model, (retail_eur, images) in db_retail.items():
-        # Find matching Vestiaire model (exact or substring)
         resale_key = _find_resale_key(model, resale)
         if not resale_key:
             continue
         stats = resale[resale_key]
         pct   = _premium_pct(retail_eur, stats["median_usd"])
+        if pct < MIN_PREMIUM_PCT:
+            continue
         rows.append({
-            "model":       model,
-            "resale_key":  resale_key,
-            "retail_eur":  retail_eur,
-            "resale_usd":  stats["median_usd"],
-            "resale_count": stats["count"],
-            "premium_pct": pct,
-            "images":      images or stats["images"],
-            "source_url":  stats["source_url"],
+            "model":         model,
+            "resale_key":    resale_key,
+            "retail_eur":    retail_eur,
+            "resale_usd":    stats["median_usd"],
+            "resale_count":  stats["count"],
+            "premium_pct":   pct,
+            "images":        images or stats["images"],
+            "source_url":    stats["source_url"],
             "retail_source": "hermes.db",
         })
 
-    # Hero bags from KNOWN_RETAIL
-    for model, retail_eur in KNOWN_RETAIL_EUR.items():
-        # skip if already in db_retail
-        if model in db_retail:
+    # Birkin / Kelly: not sold on hermes.com, prices fetched from web and cached in hermes.db.
+    db_models = {r["model"] for r in rows}
+    for model, retail_eur in _load_known_retail().items():
+        if model in db_models:
             continue
         resale_key = _find_resale_key(model, resale)
         if not resale_key:
             continue
         stats = resale[resale_key]
         pct   = _premium_pct(retail_eur, stats["median_usd"])
+        if pct < MIN_PREMIUM_PCT:
+            continue
         rows.append({
-            "model":       model,
-            "resale_key":  resale_key,
-            "retail_eur":  retail_eur,
-            "resale_usd":  stats["median_usd"],
-            "resale_count": stats["count"],
-            "premium_pct": pct,
-            "images":      stats["images"],
-            "source_url":  stats["source_url"],
-            "retail_source": "reference",
+            "model":         model,
+            "resale_key":    resale_key,
+            "retail_eur":    retail_eur,
+            "resale_usd":    stats["median_usd"],
+            "resale_count":  stats["count"],
+            "premium_pct":   pct,
+            "images":        stats["images"],
+            "source_url":    stats["source_url"],
+            "retail_source": "retail_prices",
         })
 
     rows.sort(key=lambda r: -r["premium_pct"])
@@ -543,7 +665,7 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
         "    ),",
         f'    "caption_hero":   "the boutique has one price.",',
         '    "personal_note":  "the hermès secondary market is one of the most liquid luxury resale markets in the world.",',
-        '    "engagement_hook": "what\'s the biggest resale premium you\'ve ever seen? #hermès #luxuryresale #hermesbirkin",',
+        '    "engagement_hook": "what\'s the biggest resale premium you\'ve ever seen?',
     ]
 
     if reveal:
@@ -589,22 +711,119 @@ def _generate_narration(row: dict) -> str | None:
     pct     = row["premium_pct"]
     count   = row["resale_count"]
 
-    prompt = f"""Write a 160-180 word voiceover script for a TikTok reel about Hermès resale prices. It must read naturally when spoken aloud at a calm pace — exactly 60 to 70 seconds. and don't include here is your script or any other preamble.
-      The script should be editorial and informative, like something a luxury finance journalist would say — no hype, no emojis, no hashtags.
-      Use the following data points about the bag to craft a compelling narrative that explains the price gap between retail and resale,
-      and what it signals about Hermès as a store of value.
+    import random
+
+    # Each angle: (name, instruction, signal_tags)
+    # signal_tags keys: high_premium (pct>80), extreme_premium (pct>130),
+    #                   scarce_market (count<20), liquid_market (count>50)
+    # Absence of a key = neutral (angle fits regardless of that signal)
+    _ANGLES = [
+        ("the waitlist paradox",
+         "Open by revealing that buying this bag at retail is nearly impossible — not because of price, but because of access. "
+         "Then show how that manufactured scarcity is precisely what drives the resale premium. "
+         "Close by asking what it means when a brand's distribution model is the product.",
+         {"scarce_market": True}),
+        ("the store of value lens",
+         "Open by framing this as an asset allocation question, not a fashion one. "
+         "Compare the resale premium to a conventional yield. "
+         "Close by noting what the secondary market's depth signals about long-term demand.",
+         {"high_premium": True}),
+        ("the arbitrage gap",
+         f"Open with a simple question: what happens when retail price and market price diverge by {pct:.0f}%. "
+         "Walk through who captures that spread and why. "
+         "Close by explaining why this gap has persisted rather than corrected.",
+         {"high_premium": True, "liquid_market": True}),
+        ("the brand as gatekeeper",
+         "Open by describing Hermès' quota system — the reason most clients never reach the counter. "
+         "Show how gatekeeping directly inflates the resale floor. "
+         "Close with what this model says about scarcity as a deliberate strategy.",
+         {"scarce_market": True}),
+        ("the second market as price discovery",
+         "Open by noting that Vestiaire Collective, not Hermès, sets the real market price. "
+         "Explain why the secondary market is a more honest signal of demand than boutique retail. "
+         f"Close with what {count} active listings reveal about liquidity for this model.",
+         {"liquid_market": True}),
+        ("the myth of depreciation",
+         "Open by challenging the conventional wisdom that luxury goods lose value the moment you buy them. "
+         "Use the resale premium as evidence that this bag defies that rule. "
+         "Close by distinguishing between luxury consumption and luxury ownership.",
+         {"high_premium": True}),
+        ("the currency hedge angle",
+         "Open by noting that hard assets — art, watches, Hermès — tend to hold value when currency does not. "
+         "Frame the resale premium as a real-world inflation test this bag has passed. "
+         "Close by asking what it says about fiat when leather trades at a premium to the price tag.",
+         {"extreme_premium": True}),
+        ("the buyer psychology",
+         f"Open by describing the person paying {pct:.0f}% above retail — not reckless, but informed. "
+         "Explain what they are actually buying: certainty of access, no boutique politics, immediate ownership. "
+         "Close with what willingness to overpay reveals about the perceived cost of waiting.",
+         {"high_premium": True, "scarce_market": False}),
+        ("the supply ceiling",
+         "Open by explaining that Hermès controls production volume as tightly as it controls distribution. "
+         "Show how a fixed supply ceiling under rising demand is a mathematical guarantee of premium pricing. "
+         f"Close by asking whether {count} listings represent abundance or evidence of how rarely these surface.",
+         {"scarce_market": True, "extreme_premium": False}),
+        ("the inheritance play",
+         "Open by reframing this bag not as a purchase but as a transfer of wealth across generations. "
+         "Note that the resale market provides a floor — a price the market will not go below. "
+         "Close by contrasting this with other luxury categories where resale is an afterthought.",
+         {"extreme_premium": True, "liquid_market": False}),
+        ("the authenticity premium",
+         "Open by pointing out that on the secondary market, provenance matters as much as the object itself. "
+         "Explain how Hermès' tight distribution actually makes authentication easier and fraud rarer. "
+         "Close with why that trust infrastructure is part of what the buyer is paying for.",
+         {"liquid_market": True}),
+        ("cultural capital made tangible",
+         "Open through Bourdieu's lens: this bag is not just an object — it is cultural capital made physical. "
+         "Explain how owning it signals membership in a field where the rules of entry are unwritten and unequal. "
+         "Close by asking whether the resale premium is really a price for leather, or a price for belonging.",
+         {"high_premium": True}),
+        ("distinction and the field",
+         "Open by invoking Bourdieu's concept of distinction — the social logic that makes taste a form of power. "
+         "Show how Hermès operates at the top of the luxury field precisely because it cannot be bought by money alone. "
+         "Close with what the secondary market reveals: that distinction, once acquired, is transferable.",
+         {"extreme_premium": True}),
+        ("symbolic violence of the waitlist",
+         "Open by naming what the Hermès quota system actually is: a soft mechanism that sorts people without ever saying so. "
+         "Draw on Bourdieu's idea of symbolic violence — dominance that feels like a natural order. "
+         "Close by noting that the resale premium is what happens when people pay to skip a hierarchy they were never invited into.",
+         {"scarce_market": True}),
+        ("habitus and the luxury consumer",
+         "Open by describing the Hermès buyer not as someone who wants this bag, but as someone for whom wanting it is already natural — Bourdieu's habitus at work. "
+         "Explain how the brand has shaped the dispositions of its clientele over generations. "
+         "Close with why the secondary market exists: for those with the economic capital but not yet the social capital to reach the counter.",
+         {}),
+        ("the field of luxury as a closed game",
+         "Open with Bourdieu's insight that every social field has its own rules, stakes, and gatekeepers. "
+         "Show how Hermès has structured its field so that money is necessary but not sufficient. "
+         "Close by asking what it means that the secondary market has become the only open door — and what it costs to walk through it.",
+         {"scarce_market": True, "high_premium": True}),
+    ]
+
+    _signals = {
+        "high_premium":    pct > 80,
+        "extreme_premium": pct > 130,
+        "scarce_market":   count < 20,
+        "liquid_market":   count > 50,
+    }
+
+    def _score(tags: dict) -> float:
+        return sum(1 for k, v in tags.items() if _signals.get(k) == v) + random.uniform(0, 0.4)
+
+    angle_name, angle_instruction, _ = max(_ANGLES, key=lambda a: _score(a[2]))
+
+    prompt = f"""Write a 160-180 word voiceover script for a TikTok reel about Hermès resale prices.
+It must read naturally when spoken aloud at a calm pace — exactly 60 to 70 seconds.
+Do not include any preamble, label, or title — output only the script text.
 
 Bag: {model}
-Hermès retail price: {retail} (boutique only, requires a client relationship)
+Hermès retail price: {retail}
 Vestiaire Collective resale median: {resale} (based on {count} listings)
 Premium above retail: +{pct:.0f}%
 
 Tone: calm, editorial, luxury finance journalist — no hype, no emojis, no hashtags.
-Structure:
-- Open with the price gap as the hook (first 2 sentences)
-- Explain WHY the secondary market commands this premium (access, scarcity, waitlist)
-- Give the raw numbers clearly
-- Close with what this signals about the Hermès market as a store of value
+Angle — {angle_name}:
+{angle_instruction}
 
 Speak directly to the viewer. Short sentences. No filler phrases. Output only the script text, nothing else."""
 
@@ -784,17 +1003,34 @@ def _write_srt(words: list[dict], path: Path, group: int = 3) -> None:
     print(f"  ✓ Captions SRT: {path.name}  ({(len(words) + group - 1) // group} cues)")
 
 
+def _ffmpeg_has_libass() -> bool:
+    """Return True if the local ffmpeg was compiled with libass (needed for subtitles filter)."""
+    try:
+        r = subprocess.run(["ffmpeg", "-filters"], capture_output=True, text=True)
+        return "subtitles" in r.stdout or "subtitles" in r.stderr
+    except FileNotFoundError:
+        return False
+
+
 def _burn_captions(video_path: Path, srt_path: Path) -> Path | None:
     """Burn SRT subtitles into a video with ffmpeg. Returns the output path or None."""
+    if not _ffmpeg_has_libass():
+        print("  ✗ ffmpeg on this machine was compiled without libass — subtitles filter unavailable.")
+        print("    Fix: brew uninstall ffmpeg && brew install ffmpeg")
+        print(f"    Then re-run and the captions will burn automatically.")
+        return None
+
     out = video_path.with_stem(video_path.stem + "_captioned")
     style = (
         "FontName=Arial,FontSize=20,Bold=1,Alignment=2,"
         "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,Outline=2,Shadow=1"
     )
+    # Use absolute path and escape colons/backslashes for ffmpeg's filter parser.
+    srt_abs = str(srt_path.resolve()).replace("\\", "\\\\").replace(":", "\\:")
     cmd = [
         "ffmpeg", "-y",
         "-i", str(video_path),
-        "-vf", f"subtitles={srt_path}:force_style='{style}'",
+        "-vf", f"subtitles='{srt_abs}':force_style='{style}'",
         "-c:a", "copy",
         str(out),
     ]

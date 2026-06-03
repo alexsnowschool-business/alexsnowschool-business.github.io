@@ -16,6 +16,7 @@ dependencies = [
     "curl-cffi>=0.7",
     "msgspec>=0.18",
     "browserforge>=0.4",
+    "elevenlabs>=2.51.0",
 ]
 
 [tool.uv]

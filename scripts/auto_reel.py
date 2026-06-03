@@ -1397,7 +1397,7 @@ def main() -> None:
                 f"that's plus {_pct:.0f} percent above estimate."
             )
             _intro           = f"this is {hook.get('title') or 'untitled'}, by {artist}."
-            _act1_spoken     = _intro + "  " + _prices_to_speech(_question)
+            _act1_spoken     = _intro # + "  " + _prices_to_speech(_question)
             _narr_spoken     = _prices_to_speech(raw_appr)
             _act1_word_count = len(_act1_spoken.split())
             _narr_word_count = len(_narr_spoken.split())
