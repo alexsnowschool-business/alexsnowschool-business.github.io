@@ -118,7 +118,15 @@ async def scrape(max_products: int = 200, query: str = "hermes bag") -> None:
                     },
                     data=payload_json,
                 )
-                result = await api_response.json()
+                if not api_response.ok:
+                    body = await api_response.text()
+                    print(f"API error {api_response.status}: {body[:500]}")
+                    break
+                body_text = await api_response.text()
+                if not body_text.strip():
+                    print(f"Empty response from API (status {api_response.status}) — Cloudflare may be blocking.")
+                    break
+                result = json.loads(body_text)
 
                 items = result.get("items", [])
                 if not items:
