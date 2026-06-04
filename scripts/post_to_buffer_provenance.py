@@ -209,7 +209,7 @@ def _post_to_buffer(
             "channelId":      channel_id,
             "text":           text,
             "assets":         [{"video": {"url": video_url}}],
-            "schedulingType": "notification",  # default to notification; will override to customScheduled if scheduled_at is provided
+            "schedulingType": "automatic",  # default to notification; will override to customScheduled if scheduled_at is provided
             "metadata":       metadata,
         }
     }
