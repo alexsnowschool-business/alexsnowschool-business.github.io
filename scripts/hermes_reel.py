@@ -977,28 +977,34 @@ def _srt_ts(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
 
 
-def _words_to_captions(words: list[dict], group: int = 3) -> list[dict]:
+def _words_to_captions(words: list[dict], group: int = 4,
+                        min_duration: float = 1.2, tail: float = 0.25) -> list[dict]:
     """Group word timestamps into caption cues (uppercase) for the config."""
     captions = []
     for i in range(0, len(words), group):
         chunk = words[i : i + group]
+        start = chunk[0]["start"]
+        end   = max(chunk[-1]["end"] + tail, start + min_duration)
         captions.append({
-            "start": chunk[0]["start"],
-            "end":   chunk[-1]["end"],
+            "start": start,
+            "end":   end,
             "text":  " ".join(w["word"] for w in chunk).lower(),
         })
     return captions
 
 
-def _write_srt(words: list[dict], path: Path, group: int = 3) -> None:
+def _write_srt(words: list[dict], path: Path, group: int = 4,
+               min_duration: float = 1.2, tail: float = 0.25) -> None:
     """Write word-level captions as SRT, grouping `group` words per cue (uppercase)."""
     lines = []
     for idx, i in enumerate(range(0, len(words), group), start=1):
         chunk = words[i : i + group]
+        start = chunk[0]["start"]
+        end   = max(chunk[-1]["end"] + tail, start + min_duration)
         text  = " ".join(w["word"] for w in chunk).lower()
         lines += [
             str(idx),
-            f"{_srt_ts(chunk[0]['start'])} --> {_srt_ts(chunk[-1]['end'])}",
+            f"{_srt_ts(start)} --> {_srt_ts(end)}",
             text,
             "",
         ]

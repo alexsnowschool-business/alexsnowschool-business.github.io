@@ -980,13 +980,16 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
     return frames
 
 
-def _words_to_captions(words: list[dict], group: int = 3) -> list[dict]:
+def _words_to_captions(words: list[dict], group: int = 4,
+                        min_duration: float = 1.2, tail: float = 0.25) -> list[dict]:
     captions = []
     for i in range(0, len(words), group):
         chunk = words[i : i + group]
+        start = chunk[0]["start"]
+        end   = max(chunk[-1]["end"] + tail, start + min_duration)
         captions.append({
-            "start": chunk[0]["start"],
-            "end":   chunk[-1]["end"],
+            "start": start,
+            "end":   end,
             "text":  " ".join(w["word"] for w in chunk).lower(),
         })
     return captions
