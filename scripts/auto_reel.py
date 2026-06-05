@@ -544,11 +544,20 @@ def _posted_ids(conn: sqlite3.Connection) -> set[str]:
     return {r[0] for r in rows}
 
 
+def _artist_clause(artist: str | None) -> tuple[str, list]:
+    """Return (sql_fragment, params) for an optional artist LIKE filter."""
+    if not artist:
+        return "", []
+    return "AND artist LIKE ?", [f"%{artist}%"]
+
+
 def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
-                    limit: int = 8, exclude_ids: set | None = None) -> list[dict]:
+                    limit: int = 8, exclude_ids: set | None = None,
+                    artist: str | None = None) -> list[dict]:
     """Top outperforming lots scraped in the given week, excluding already-posted ones."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
+    art_sql, art_params = _artist_clause(artist)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
@@ -560,18 +569,21 @@ def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
           AND substr(scraped_at, 1, 10) BETWEEN ? AND ?
+          {art_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         ORDER BY pct_above DESC
         LIMIT ?
-    """, (week_start, week_end, *exclude, limit)).fetchall()
+    """, (week_start, week_end, *art_params, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
 
 
 def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
-                       exclude_ids: set | None = None) -> list[dict]:
+                       exclude_ids: set | None = None,
+                       artist: str | None = None) -> list[dict]:
     """All-time top outperforming lots, excluding already-posted ones."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
+    art_sql, art_params = _artist_clause(artist)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
@@ -582,18 +594,21 @@ def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
           AND hammer_usd IS NOT NULL
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
+          {art_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         ORDER BY pct_above DESC
         LIMIT ?
-    """, (*exclude, limit)).fetchall()
+    """, (*art_params, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
 
 
 def _query_random_week_lot(conn: sqlite3.Connection,
-                           exclude_ids: set | None = None) -> list[dict]:
+                           exclude_ids: set | None = None,
+                           artist: str | None = None) -> list[dict]:
     """Pick top lot from a random week that has unposted content."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
+    art_sql, art_params = _artist_clause(artist)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
@@ -605,13 +620,41 @@ def _query_random_week_lot(conn: sqlite3.Connection,
           AND hammer_usd IS NOT NULL
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
+          {art_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         GROUP BY week_key
         HAVING MAX(pct_above)
         ORDER BY RANDOM()
         LIMIT 1
-    """, (*exclude,)).fetchall()
+    """, (*art_params, *exclude)).fetchall()
     return [dict(r) for r in rows]
+
+
+def _list_artists(conn: sqlite3.Connection) -> None:
+    """Print all artists in the DB ranked by record count and avg hammer price."""
+    rows = conn.execute("""
+        SELECT artist,
+               COUNT(*)                          AS lots,
+               ROUND(AVG(hammer_usd))            AS avg_hammer,
+               ROUND(MAX(hammer_usd))            AS max_hammer,
+               ROUND(AVG((hammer_usd * 1.0 / NULLIF(estimate_low, 0) - 1) * 100), 1) AS avg_pct
+        FROM art_items
+        WHERE hammer_usd IS NOT NULL AND artist IS NOT NULL
+        GROUP BY artist
+        ORDER BY lots DESC, avg_hammer DESC
+    """).fetchall()
+    if not rows:
+        print("No artists found in database.")
+        return
+    print(f"\n{'#':<5} {'Artist':<40} {'Lots':>5} {'Avg $':>10} {'Max $':>10} {'Avg %+':>7}")
+    print("─" * 80)
+    for i, r in enumerate(rows, 1):
+        name = _clean_artist(r["artist"] or "Unknown")
+        avg  = f"${int(r['avg_hammer']):,}"  if r["avg_hammer"] else "—"
+        mx   = f"${int(r['max_hammer']):,}"  if r["max_hammer"] else "—"
+        pct  = f"+{r['avg_pct']:.1f}%"       if r["avg_pct"]    else "—"
+        print(f"{i:<5} {name:<40} {r['lots']:>5} {avg:>10} {mx:>10} {pct:>7}")
+    print(f"\n  {len(rows)} artists total. Use --artist \"<name>\" to filter.")
 
 
 def _build_notable_artists_set(conn: sqlite3.Connection) -> set[str]:
@@ -980,13 +1023,39 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
     return frames
 
 
-def _words_to_captions(words: list[dict], group: int = 4,
+def _split_sentences(words: list[dict]) -> list[list[dict]]:
+    """Group word dicts into sentence-level chunks by terminal punctuation."""
+    sentences, current = [], []
+    for w in words:
+        current.append(w)
+        if re.search(r'[.?!]\s*$', w["word"]):
+            sentences.append(current)
+            current = []
+    if current:
+        sentences.append(current)
+    return sentences
+
+
+def _words_to_captions(words: list[dict], sentences_per_cue: int = 2,
                         min_duration: float = 1.2, tail: float = 0.25) -> list[dict]:
-    captions = []
-    for i in range(0, len(words), group):
-        chunk = words[i : i + group]
-        start = chunk[0]["start"]
-        end   = max(chunk[-1]["end"] + tail, start + min_duration)
+    sentences = _split_sentences(words)
+    captions  = []
+    # Fall back to word-based grouping when no sentence boundaries are detected
+    if len(sentences) <= 1:
+        for i in range(0, len(words), 8):
+            chunk = words[i : i + 8]
+            start = chunk[0]["start"]
+            end   = max(chunk[-1]["end"] + tail, start + min_duration)
+            captions.append({
+                "start": start,
+                "end":   end,
+                "text":  " ".join(w["word"] for w in chunk).lower(),
+            })
+        return captions
+    for i in range(0, len(sentences), sentences_per_cue):
+        chunk     = [w for s in sentences[i : i + sentences_per_cue] for w in s]
+        start     = chunk[0]["start"]
+        end       = max(chunk[-1]["end"] + tail, start + min_duration)
         captions.append({
             "start": start,
             "end":   end,
@@ -1206,7 +1275,19 @@ def main() -> None:
     parser.add_argument("--crop-method",  choices=("grid", "sliding"), default="grid")
     parser.add_argument("--crop-size",    type=int, default=565,  help="Square crop/tile size in pixels")
     parser.add_argument("--crop-stride",  type=int, default=None, help="Stride for sliding-window crops")
+    parser.add_argument("--artist",       default=None, help="Filter lots by artist name (substring match)")
+    parser.add_argument("--list-artists", action="store_true", help="List all artists in the DB and exit")
     args = parser.parse_args()
+
+    if args.list_artists:
+        if not DB_PATH.exists():
+            print(f"✗ Database not found: {DB_PATH}")
+            sys.exit(1)
+        conn = sqlite3.connect(DB_PATH)
+        conn.row_factory = sqlite3.Row
+        _list_artists(conn)
+        conn.close()
+        sys.exit(0)
 
     # ── Resolve week ───────────────────────────────────────────
     ref_date             = date.fromisoformat(args.week) if args.week else date.today()
@@ -1218,6 +1299,8 @@ def main() -> None:
     print("═" * 60)
     print("  AUTO-REEL GENERATOR — The Hammer Price")
     print(f"  Mode: {'all-time top outperformers' if args.all_time else f'week {week_label}'}")
+    if args.artist:
+        print(f"  Artist filter: \"{args.artist}\"")
     print("═" * 60)
 
     if not DB_PATH.exists():
@@ -1234,26 +1317,26 @@ def main() -> None:
 
     _candidate_n = max(args.top_n * 6, 50)
     if args.all_time:
-        lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
+        lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip, artist=args.artist)
         _slug_date = date.today().isoformat()
         _slug_mode = "alltime"
     else:
         lots = _query_top_lots(conn, week_start, week_end,
-                               limit=_candidate_n, exclude_ids=skip)
+                               limit=_candidate_n, exclude_ids=skip, artist=args.artist)
         if not lots:
             print(f"\n  No new data for week {week_label} — trying random unposted week...")
-            rand = _query_random_week_lot(conn, exclude_ids=skip)
+            rand = _query_random_week_lot(conn, exclude_ids=skip, artist=args.artist)
             if rand:
                 w = rand[0]["scraped_at"][:10]
                 wb_start, wb_end = _week_bounds(date.fromisoformat(w))
                 lots       = _query_top_lots(conn, wb_start, wb_end,
-                                             limit=_candidate_n, exclude_ids=skip)
+                                             limit=_candidate_n, exclude_ids=skip, artist=args.artist)
                 _slug_date = wb_start
                 _slug_mode = "random"
                 print(f"  Using random week: {wb_start}")
             if not lots:
                 print("  Falling back to all-time top unposted lots.")
-                lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip)
+                lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip, artist=args.artist)
                 _slug_mode = "fallback"
 
     notable_artists = _build_notable_artists_set(conn)

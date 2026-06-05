@@ -977,12 +977,37 @@ def _srt_ts(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
 
 
-def _words_to_captions(words: list[dict], group: int = 4,
+def _split_sentences(words: list[dict]) -> list[list[dict]]:
+    """Group word dicts into sentence-level chunks by terminal punctuation."""
+    sentences, current = [], []
+    for w in words:
+        current.append(w)
+        if re.search(r'[.?!]\s*$', w["word"]):
+            sentences.append(current)
+            current = []
+    if current:
+        sentences.append(current)
+    return sentences
+
+
+def _words_to_captions(words: list[dict], sentences_per_cue: int = 2,
                         min_duration: float = 1.2, tail: float = 0.25) -> list[dict]:
-    """Group word timestamps into caption cues (uppercase) for the config."""
-    captions = []
-    for i in range(0, len(words), group):
-        chunk = words[i : i + group]
+    """Group word timestamps into caption cues for the config."""
+    sentences = _split_sentences(words)
+    captions  = []
+    if len(sentences) <= 1:
+        for i in range(0, len(words), 8):
+            chunk = words[i : i + 8]
+            start = chunk[0]["start"]
+            end   = max(chunk[-1]["end"] + tail, start + min_duration)
+            captions.append({
+                "start": start,
+                "end":   end,
+                "text":  " ".join(w["word"] for w in chunk).lower(),
+            })
+        return captions
+    for i in range(0, len(sentences), sentences_per_cue):
+        chunk = [w for s in sentences[i : i + sentences_per_cue] for w in s]
         start = chunk[0]["start"]
         end   = max(chunk[-1]["end"] + tail, start + min_duration)
         captions.append({
@@ -993,23 +1018,26 @@ def _words_to_captions(words: list[dict], group: int = 4,
     return captions
 
 
-def _write_srt(words: list[dict], path: Path, group: int = 4,
+def _write_srt(words: list[dict], path: Path,
                min_duration: float = 1.2, tail: float = 0.25) -> None:
-    """Write word-level captions as SRT, grouping `group` words per cue (uppercase)."""
+    """Write sentence-grouped captions as SRT (2 sentences per cue)."""
+    sentences = _split_sentences(words)
+    groups: list[list[dict]]
+    if len(sentences) <= 1:
+        groups = [words[i : i + 8] for i in range(0, len(words), 8)]
+    else:
+        groups = [
+            [w for s in sentences[i : i + 2] for w in s]
+            for i in range(0, len(sentences), 2)
+        ]
     lines = []
-    for idx, i in enumerate(range(0, len(words), group), start=1):
-        chunk = words[i : i + group]
+    for idx, chunk in enumerate(groups, start=1):
         start = chunk[0]["start"]
         end   = max(chunk[-1]["end"] + tail, start + min_duration)
         text  = " ".join(w["word"] for w in chunk).lower()
-        lines += [
-            str(idx),
-            f"{_srt_ts(start)} --> {_srt_ts(end)}",
-            text,
-            "",
-        ]
+        lines += [str(idx), f"{_srt_ts(start)} --> {_srt_ts(end)}", text, ""]
     path.write_text("\n".join(lines), encoding="utf-8")
-    print(f"  ✓ Captions SRT: {path.name}  ({(len(words) + group - 1) // group} cues)")
+    print(f"  ✓ Captions SRT: {path.name}  ({len(groups)} cues)")
 
 
 def _ffmpeg_has_libass() -> bool:
