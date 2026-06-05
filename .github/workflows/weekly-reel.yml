@@ -21,6 +21,10 @@ on:
         description: "Filter by artist name, e.g. 'Basquiat' (leave blank for auto)"
         required: false
         default: ""
+      title:
+        description: "Filter by painting title, e.g. 'Infinity Nets' (leave blank for auto)"
+        required: false
+        default: ""
 
 jobs:
   reel:
@@ -75,6 +79,9 @@ jobs:
           ARGS="--all-time --lot-index ${{ steps.lot.outputs.index }} --top-n 10 --run --voice"
           if [ -n "${{ inputs.artist }}" ]; then
             ARGS="$ARGS --artist '${{ inputs.artist }}'"
+          fi
+          if [ -n "${{ inputs.title }}" ]; then
+            ARGS="$ARGS --title '${{ inputs.title }}'"
           fi
           eval python -u scripts/auto_reel.py $ARGS
 

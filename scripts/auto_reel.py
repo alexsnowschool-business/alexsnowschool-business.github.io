@@ -544,20 +544,25 @@ def _posted_ids(conn: sqlite3.Connection) -> set[str]:
     return {r[0] for r in rows}
 
 
-def _artist_clause(artist: str | None) -> tuple[str, list]:
-    """Return (sql_fragment, params) for an optional artist LIKE filter."""
-    if not artist:
-        return "", []
-    return "AND artist LIKE ?", [f"%{artist}%"]
+def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
+    """Return combined (sql_fragment, params) for optional artist and title LIKE filters."""
+    parts, params = [], []
+    if artist:
+        parts.append("AND artist LIKE ?")
+        params.append(f"%{artist}%")
+    if title:
+        parts.append("AND title LIKE ?")
+        params.append(f"%{title}%")
+    return " ".join(parts), params
 
 
 def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
                     limit: int = 8, exclude_ids: set | None = None,
-                    artist: str | None = None) -> list[dict]:
+                    artist: str | None = None, title: str | None = None) -> list[dict]:
     """Top outperforming lots scraped in the given week, excluding already-posted ones."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
-    art_sql, art_params = _artist_clause(artist)
+    flt_sql, flt_params = _like_clauses(artist, title)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
@@ -569,21 +574,21 @@ def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
           AND substr(scraped_at, 1, 10) BETWEEN ? AND ?
-          {art_sql}
+          {flt_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         ORDER BY pct_above DESC
         LIMIT ?
-    """, (week_start, week_end, *art_params, *exclude, limit)).fetchall()
+    """, (week_start, week_end, *flt_params, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
 
 
 def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
                        exclude_ids: set | None = None,
-                       artist: str | None = None) -> list[dict]:
+                       artist: str | None = None, title: str | None = None) -> list[dict]:
     """All-time top outperforming lots, excluding already-posted ones."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
-    art_sql, art_params = _artist_clause(artist)
+    flt_sql, flt_params = _like_clauses(artist, title)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
@@ -594,21 +599,21 @@ def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
           AND hammer_usd IS NOT NULL
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
-          {art_sql}
+          {flt_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         ORDER BY pct_above DESC
         LIMIT ?
-    """, (*art_params, *exclude, limit)).fetchall()
+    """, (*flt_params, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
 
 
 def _query_random_week_lot(conn: sqlite3.Connection,
                            exclude_ids: set | None = None,
-                           artist: str | None = None) -> list[dict]:
+                           artist: str | None = None, title: str | None = None) -> list[dict]:
     """Pick top lot from a random week that has unposted content."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
-    art_sql, art_params = _artist_clause(artist)
+    flt_sql, flt_params = _like_clauses(artist, title)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
@@ -620,13 +625,13 @@ def _query_random_week_lot(conn: sqlite3.Connection,
           AND hammer_usd IS NOT NULL
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
-          {art_sql}
+          {flt_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         GROUP BY week_key
         HAVING MAX(pct_above)
         ORDER BY RANDOM()
         LIMIT 1
-    """, (*art_params, *exclude)).fetchall()
+    """, (*flt_params, *exclude)).fetchall()
     return [dict(r) for r in rows]
 
 
@@ -1276,6 +1281,7 @@ def main() -> None:
     parser.add_argument("--crop-size",    type=int, default=565,  help="Square crop/tile size in pixels")
     parser.add_argument("--crop-stride",  type=int, default=None, help="Stride for sliding-window crops")
     parser.add_argument("--artist",       default=None, help="Filter lots by artist name (substring match)")
+    parser.add_argument("--title",        default=None, help="Filter lots by painting title (substring match)")
     parser.add_argument("--list-artists", action="store_true", help="List all artists in the DB and exit")
     args = parser.parse_args()
 
@@ -1301,6 +1307,8 @@ def main() -> None:
     print(f"  Mode: {'all-time top outperformers' if args.all_time else f'week {week_label}'}")
     if args.artist:
         print(f"  Artist filter: \"{args.artist}\"")
+    if args.title:
+        print(f"  Title filter:  \"{args.title}\"")
     print("═" * 60)
 
     if not DB_PATH.exists():
@@ -1317,26 +1325,31 @@ def main() -> None:
 
     _candidate_n = max(args.top_n * 6, 50)
     if args.all_time:
-        lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip, artist=args.artist)
+        lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
+                                        artist=args.artist, title=args.title)
         _slug_date = date.today().isoformat()
         _slug_mode = "alltime"
     else:
         lots = _query_top_lots(conn, week_start, week_end,
-                               limit=_candidate_n, exclude_ids=skip, artist=args.artist)
+                               limit=_candidate_n, exclude_ids=skip,
+                               artist=args.artist, title=args.title)
         if not lots:
             print(f"\n  No new data for week {week_label} — trying random unposted week...")
-            rand = _query_random_week_lot(conn, exclude_ids=skip, artist=args.artist)
+            rand = _query_random_week_lot(conn, exclude_ids=skip,
+                                          artist=args.artist, title=args.title)
             if rand:
                 w = rand[0]["scraped_at"][:10]
                 wb_start, wb_end = _week_bounds(date.fromisoformat(w))
                 lots       = _query_top_lots(conn, wb_start, wb_end,
-                                             limit=_candidate_n, exclude_ids=skip, artist=args.artist)
+                                             limit=_candidate_n, exclude_ids=skip,
+                                             artist=args.artist, title=args.title)
                 _slug_date = wb_start
                 _slug_mode = "random"
                 print(f"  Using random week: {wb_start}")
             if not lots:
                 print("  Falling back to all-time top unposted lots.")
-                lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip, artist=args.artist)
+                lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
+                                                artist=args.artist, title=args.title)
                 _slug_mode = "fallback"
 
     notable_artists = _build_notable_artists_set(conn)
@@ -1356,8 +1369,9 @@ def main() -> None:
         print("✗ No suitable lots found in database.")
         sys.exit(1)
     if args.lot_index >= len(lots):
-        print(f"✗ --lot-index {args.lot_index} out of range ({len(lots)} lots found)")
-        sys.exit(1)
+        clamped = len(lots) - 1
+        print(f"  ⚠ --lot-index {args.lot_index} out of range ({len(lots)} lots found) — using index {clamped}")
+        args.lot_index = clamped
 
     hook   = lots[args.lot_index]
     artist = _clean_artist(hook.get("artist") or "Unknown")
