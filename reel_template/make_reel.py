@@ -195,28 +195,41 @@ def _active_narration_caption(t_secs: float, captions: list) -> str | None:
 
 
 def _overlay_word_caption(img: Image.Image, text: str, caption_font) -> Image.Image:
-    """Draw a word-caption box (white text, black outline) near the bottom of img."""
-    out  = img.copy()
-    draw = ImageDraw.Draw(out)
-    bbox = caption_font.getbbox(text)
-    tw   = bbox[2] - bbox[0]
-    th   = bbox[3] - bbox[1]
-    x    = (W - tw) // 2
-    y    = H - 480          # safe-area bottom, above location chrome
-    pad  = 18
-    # Semi-transparent backdrop
+    """Draw a word-caption box (white text, multi-script) near the bottom of img, wrapped to 2 lines."""
+    out   = img.copy()
+    pad   = 18
+    max_w = W - 160  # 80px margin each side
+
+    lines = wrap_text(text, caption_font, max_w)[:2]  # hard cap at 2 lines
+
+    def _run_width(s):
+        return sum(
+            _MEASURE_DRAW.textbbox((0, 0), run, font=f)[2] - _MEASURE_DRAW.textbbox((0, 0), run, font=f)[0]
+            for f, run in _split_runs(s, caption_font)
+        )
+
+    line_gap    = 8
+    line_heights = [caption_font.getbbox(ln)[3] - caption_font.getbbox(ln)[1] for ln in lines]
+    line_widths  = [_run_width(ln) for ln in lines]
+    block_w = max(line_widths)
+    block_h = sum(line_heights) + line_gap * (len(lines) - 1)
+
+    box_x = (W - block_w) // 2
+    box_y = H - 480
+
     bg = Image.new("RGBA", out.size, (0, 0, 0, 0))
     ImageDraw.Draw(bg).rounded_rectangle(
-        [x - pad, y - pad, x + tw + pad, y + th + pad],
+        [box_x - pad, box_y - pad, box_x + block_w + pad, box_y + block_h + pad],
         radius=12, fill=(0, 0, 0, 160),
     )
-    out = Image.alpha_composite(out.convert("RGBA"), bg).convert("RGB")
+    out  = Image.alpha_composite(out.convert("RGBA"), bg).convert("RGB")
     draw = ImageDraw.Draw(out)
-    # Outline
-    for dx, dy in [(-2,0),(2,0),(0,-2),(0,2),(-2,-2),(2,-2),(-2,2),(2,2)]:
-        draw.text((x + dx, y + dy), text, font=caption_font, fill=(0, 0, 0))
-    # Fill
-    draw.text((x, y), text, font=caption_font, fill=(255, 255, 255))
+
+    y = box_y
+    for ln, lh in zip(lines, line_heights):
+        ctext(draw, y, ln, caption_font, (255, 255, 255))
+        y += lh + line_gap
+
     return out
 
 

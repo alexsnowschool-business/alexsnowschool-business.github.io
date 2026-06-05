@@ -1041,26 +1041,13 @@ def _split_sentences(words: list[dict]) -> list[list[dict]]:
     return sentences
 
 
-def _words_to_captions(words: list[dict], sentences_per_cue: int = 2,
-                        min_duration: float = 1.2, tail: float = 0.25) -> list[dict]:
-    sentences = _split_sentences(words)
-    captions  = []
-    # Fall back to word-based grouping when no sentence boundaries are detected
-    if len(sentences) <= 1:
-        for i in range(0, len(words), 8):
-            chunk = words[i : i + 8]
-            start = chunk[0]["start"]
-            end   = max(chunk[-1]["end"] + tail, start + min_duration)
-            captions.append({
-                "start": start,
-                "end":   end,
-                "text":  " ".join(w["word"] for w in chunk).lower(),
-            })
-        return captions
-    for i in range(0, len(sentences), sentences_per_cue):
-        chunk     = [w for s in sentences[i : i + sentences_per_cue] for w in s]
-        start     = chunk[0]["start"]
-        end       = max(chunk[-1]["end"] + tail, start + min_duration)
+def _words_to_captions(words: list[dict], words_per_cue: int = 12,
+                        min_duration: float = 0.6, tail: float = 0.1) -> list[dict]:
+    captions = []
+    for i in range(0, len(words), words_per_cue):
+        chunk = words[i : i + words_per_cue]
+        start = chunk[0]["start"]
+        end   = max(chunk[-1]["end"] + tail, start + min_duration)
         captions.append({
             "start": start,
             "end":   end,
@@ -1072,7 +1059,8 @@ def _burn_captions(video_path: Path, srt_path: Path) -> Path | None:
     """Burn SRT subtitles into a video with ffmpeg."""
     out   = video_path.with_stem(video_path.stem + "_captioned")
     style = (
-        "FontName=Arial,FontSize=20,Bold=1,Alignment=2,"
+        "FontName=Arial,FontSize=55,Bold=1,Alignment=2,WrapStyle=2,"
+        "MarginL=40,MarginR=40,MarginV=60,"
         "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,Outline=2,Shadow=1"
     )
     cmd = ["ffmpeg", "-y", "-i", str(video_path),
