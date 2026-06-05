@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kant — Critique of the Power of Judgement</title>
+    <meta name="description" content="A close reading of Immanuel Kant's third Critique (1790) — disinterested pleasure, free beauty, the sublime, and the antinomy of taste." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .page-hero {
+            background: var(--slate);
+            min-height: 72vh;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+            padding-top: 72px;
+        }
+        .page-hero .hero-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(168,134,74,0.025) 60px, rgba(168,134,74,0.025) 61px);
+        }
+        .page-hero .hero-vert {
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(168,134,74,0.18) 30%, rgba(168,134,74,0.18) 70%, transparent);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 80px 40px 100px;
+        }
+        .page-hero-breadcrumb {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold-warm);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .page-hero-breadcrumb::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+        .page-hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 4.8rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.08;
+            color: var(--ivory);
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+            max-width: 700px;
+        }
+        .page-hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1rem, 1.8vw, 1.45rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold-warm);
+            margin-bottom: 40px;
+            opacity: 0.72;
+        }
+        .page-hero-meta { display: flex; gap: 48px; flex-wrap: wrap; }
+        .page-hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+        .page-hero-meta-label {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(244,239,230,0.30);
+        }
+        .page-hero-meta-value {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(244,239,230,0.75);
+        }
+
+        /* PROSE */
+        .intro-section { background: var(--ivory-pure); }
+        .prose-block { max-width: 760px; }
+        .prose-block p {
+            font-family: var(--font-sans);
+            font-size: 1.08rem;
+            font-weight: 300;
+            line-height: 2.1;
+            color: var(--slate-soft);
+            margin-bottom: 28px;
+            letter-spacing: 0.008em;
+        }
+        .prose-block p:last-child { margin-bottom: 0; }
+        .pull-quote {
+            border-left: 1px solid var(--gold);
+            padding: 24px 32px;
+            margin: 52px 0;
+            background: rgba(168,134,74,0.04);
+        }
+        .pull-quote-text {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--slate);
+            margin-bottom: 12px;
+        }
+        .pull-quote-source {
+            font-family: var(--font-sans);
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--stone);
+        }
+
+        /* CONCEPTS GRID */
+        .concepts-section { background: var(--ivory); }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+            margin-top: 72px;
+        }
+        .concept-card {
+            background: var(--ivory-card);
+            padding: 44px 36px;
+            transition: background var(--transition);
+        }
+        .concept-card:hover { background: var(--ivory-pure); }
+        .concept-number {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+        .concept-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+        .concept-lang {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--stone-light);
+            margin-bottom: 20px;
+        }
+        .concept-body {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--slate-soft);
+        }
+        .concept-example {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--rule);
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.85;
+            color: var(--stone);
+            font-style: italic;
+        }
+
+        /* THREE SATISFACTIONS (dark section) */
+        .satisfactions-section {
+            background: var(--slate);
+            position: relative;
+            overflow: hidden;
+        }
+        .satisfactions-section .bg-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(168,134,74,0.025) 60px, rgba(168,134,74,0.025) 61px);
+            pointer-events: none;
+        }
+        .satisfactions-section .section-tag { color: var(--gold-warm); }
+        .satisfactions-section .section-title { color: var(--ivory); }
+        .satisfactions-section .section-desc { color: rgba(244,239,230,0.45); }
+        .satisfactions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(244,239,230,0.07);
+            border: 1px solid rgba(244,239,230,0.07);
+            margin-top: 72px;
+        }
+        .satisfaction-card {
+            padding: 52px 44px;
+            background: rgba(26,25,22,0.5);
+            transition: background var(--transition);
+        }
+        .satisfaction-card:hover { background: rgba(26,25,22,0.3); }
+        .satisfaction-type {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .satisfaction-name {
+            font-family: var(--font-serif);
+            font-size: 1.65rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ivory);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        .satisfaction-body {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 2;
+            color: rgba(244,239,230,0.52);
+            margin-bottom: 24px;
+        }
+        .satisfaction-example {
+            padding-top: 20px;
+            border-top: 1px solid rgba(244,239,230,0.08);
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.85;
+            color: rgba(168,134,74,0.7);
+            font-style: italic;
+        }
+
+        /* TEXTS */
+        .texts-section { background: var(--ivory-pure); }
+        .text-list { margin-top: 72px; display: flex; flex-direction: column; }
+        .text-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            border-top: 1px solid var(--rule);
+            padding: 48px 0;
+        }
+        .text-item:last-child { border-bottom: 1px solid var(--rule); }
+        .text-label { padding-right: 48px; }
+        .text-part {
+            font-family: var(--font-sans);
+            font-size: 0.56rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .text-title {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.3;
+        }
+        .text-body {
+            font-family: var(--font-sans);
+            font-size: 0.97rem;
+            font-weight: 300;
+            line-height: 2;
+            color: var(--slate-soft);
+        }
+        .text-body p { margin-bottom: 20px; }
+        .text-body p:last-child { margin-bottom: 0; }
+        .text-quote {
+            margin-top: 24px;
+            padding: 20px 24px;
+            border-left: 1px solid var(--rule-gold);
+            background: rgba(168,134,74,0.03);
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.65;
+        }
+
+        /* APPLICATION */
+        .market-application-section { background: var(--ivory-card); }
+        .application-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+        }
+        .application-card { background: var(--ivory-pure); padding: 44px 36px; }
+        .application-number {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold);
+            opacity: 0.35;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+        .application-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 16px;
+            line-height: 1.35;
+        }
+        .application-body {
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--slate-soft);
+        }
+
+        /* CITATIONS */
+        .citations-section { background: var(--ivory); }
+        .citations-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .citations-column-title {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--rule-gold);
+            margin-bottom: 28px;
+        }
+        .citation-list { list-style: none; display: flex; flex-direction: column; }
+        .citation-item { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+        .citation-item:last-child { border-bottom: none; }
+        .citation-author {
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--stone);
+            margin-bottom: 4px;
+        }
+        .citation-title {
+            font-family: var(--font-serif);
+            font-size: 1.08rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        .citation-detail {
+            font-family: var(--font-sans);
+            font-size: 0.80rem;
+            font-weight: 300;
+            color: var(--stone);
+            line-height: 1.7;
+        }
+        .citation-note {
+            margin-top: 6px;
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--stone-light);
+            line-height: 1.65;
+        }
+
+        /* FOOTER */
+        .page-footer {
+            background: var(--slate);
+            padding: 64px 0;
+            border-top: 1px solid rgba(244,239,230,0.06);
+        }
+        .page-footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-back {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(244,239,230,0.45);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color var(--transition);
+        }
+        .footer-back:hover { color: var(--gold-warm); }
+        .footer-ref {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 300;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(244,239,230,0.22);
+            text-align: right;
+            line-height: 2;
+        }
+
+        @media (max-width: 900px) {
+            .concepts-grid { grid-template-columns: 1fr; }
+            .satisfactions-grid { grid-template-columns: 1fr; }
+            .application-grid { grid-template-columns: 1fr; }
+            .citations-grid { grid-template-columns: 1fr; }
+            .text-item { grid-template-columns: 1fr; }
+            .text-label { padding-right: 0; margin-bottom: 24px; }
+            .page-hero-meta { gap: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-home">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5H12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 6 5)"/></svg>
+            Art Research
+        </a>
+        <div class="nav-title">Kant — Critique of Judgement</div>
+        <nav class="nav-links">
+            <a href="#argument">Argument</a>
+            <a href="#concepts">Concepts</a>
+            <a href="#satisfactions">Satisfactions</a>
+            <a href="#texts">The Critique</a>
+            <a href="#application">Market</a>
+            <a href="#citations">Citations</a>
+        </nav>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero" id="top">
+    <div class="hero-texture"></div>
+    <div class="hero-vert"></div>
+    <div class="page-hero-content">
+        <div class="page-hero-breadcrumb">Philosophy — Framework I</div>
+        <h1 class="page-hero-title">Critique of the Power of Judgement</h1>
+        <p class="page-hero-subtitle">Immanuel Kant · 1790</p>
+        <div class="page-hero-meta">
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Author</span>
+                <span class="page-hero-meta-value">Immanuel Kant</span>
+            </div>
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Published</span>
+                <span class="page-hero-meta-value">1790 (Kritik der Urteilskraft)</span>
+            </div>
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Field</span>
+                <span class="page-hero-meta-value">Aesthetics · Transcendental Philosophy</span>
+            </div>
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Position in System</span>
+                <span class="page-hero-meta-value">Third Critique · Bridge between nature and freedom</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ARGUMENT -->
+<section class="intro-section" id="argument">
+    <div class="container">
+        <div class="section-tag reveal">The Central Argument</div>
+        <h2 class="section-title reveal">Beauty is not in the object.<br>It is not in the eye either.</h2>
+
+        <div class="prose-block reveal">
+            <p>Kant's <em>Critique of the Power of Judgement</em> (1790) is the founding text of modern aesthetics. Its central problem is deceptively simple: when we say something is beautiful, what exactly are we claiming? We are clearly not merely reporting a private sensation — like "this wine tastes good to me." But we are also not making an objective verifiable claim like "this triangle has three sides." Beauty occupies a third position that Kant is the first philosopher to describe with precision.</p>
+
+            <p>His answer: a judgement of taste claims that something is beautiful without being founded on a concept, and yet it demands the agreement of everyone. You do not say "this is beautiful for me" — you say "this is beautiful," and in doing so you implicitly address everyone else and expect their agreement. But you cannot force this agreement by presenting reasons or definitions, as you would in a geometry argument. The agreement, if it comes, must come freely. This "universal communicability without a concept" is what Kant calls the aesthetic.</p>
+
+            <p>The specific mode of engagement that produces this judgement Kant calls <em>disinterested pleasure</em>. To appreciate something as beautiful, you must set aside all interest in whether the object exists — you must not want to own it, eat it, use it, or derive benefit from it. The pleasure comes purely from the free play of your cognitive faculties — imagination and understanding — as they contemplate the object's form without fixing a determinate concept. This "free play" produces a feeling of harmonious animation that is the basis of aesthetic pleasure.</p>
+
+            <div class="pull-quote">
+                <p class="pull-quote-text">"Taste is the faculty of estimating an object or a mode of representation by means of a delight or an aversion apart from any interest. The object of such a delight is called beautiful."</p>
+                <span class="pull-quote-source">Immanuel Kant, Critique of the Power of Judgement (1790), §5</span>
+            </div>
+
+            <p>The stakes go beyond aesthetics. Kant's first two Critiques had split reality into two domains: nature (governed by causal laws, analysed by theoretical reason) and freedom (the moral will, governed by practical reason). Between them is, Kant admits, an "immense gulf." The third Critique is his attempt to bridge it. In experiencing beauty, we feel that nature is, as if intentionally, accommodating our mental faculties. This feeling is the closest we can come to the unity of nature and freedom.</p>
+
+            <p>For art theory and the market, two consequences follow. First: Kant produces the vocabulary of modern critical discourse — the idea that aesthetic judgement is distinct from economic, moral, or cognitive judgement, that it involves a special "pure" attention claiming universal validity. This vocabulary still structures how auction houses and museum labels talk about art. Second: Bourdieu's entire sociological project is a direct attack on this framework, arguing that "disinterested pleasure" is in fact a class-specific disposition universalised as nature. The Kant–Bourdieu confrontation is the central intellectual tension of modern art discourse.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCEPTS -->
+<section class="concepts-section" id="concepts">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">Core Vocabulary</div>
+            <h2 class="section-title">Six Concepts That Structure the Argument</h2>
+            <p class="section-desc">Kant builds a new vocabulary because existing philosophical terms cannot capture the distinctive character of aesthetic experience. Each concept marks a precise and necessary distinction.</p>
+        </div>
+
+        <div class="concepts-grid">
+
+            <div class="concept-card reveal">
+                <div class="concept-number">I.</div>
+                <div class="concept-title">Disinterested Pleasure</div>
+                <div class="concept-lang">Uninteressiertes Wohlgefallen</div>
+                <p class="concept-body">The defining feature of aesthetic pleasure is that it is <em>disinterested</em> — free from all practical interest in the existence of the object. This does not mean indifferent; it means the pleasure does not depend on whether the object satisfies any need, desire, or purpose. You are pleased by the <em>form</em> of the object, not by what it can do for you. Kant distinguishes this sharply from the pleasure of the agreeable (tied to sensation and desire) and the pleasure of the good (tied to concepts of purpose or morality). The disinterestedness condition is what allows aesthetic judgements to claim universal validity: freed from personal desire, the pleasure can aspire to be shared by all.</p>
+                <div class="concept-example">In the auction room: the person who looks at a Rothko and thinks "I want to own that" is, by Kant's definition, not making a pure aesthetic judgement. Pure aesthetic response must precede and be independent of any thought of possession. The auction is structurally anti-Kantian — yet it speaks entirely in Kantian vocabulary.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">II.</div>
+                <div class="concept-title">Free Beauty</div>
+                <div class="concept-lang">Freie Schönheit · pulchritudo vaga</div>
+                <p class="concept-body">Free beauty (<em>pulchritudo vaga</em>, "vagrant beauty") is beauty apprehended without any concept of what the object is <em>for</em>. Abstract patterns, birdsong (when you don't know the species), a purely formal design — these are free beauties because the judgement does not depend on any idea of their purpose. Kant contrasts this with <em>dependent beauty</em> (<em>pulchritudo adhaerens</em>): the beauty of a horse or a building, where your concept of its proper form constrains and conditions your aesthetic response.</p>
+                <p class="concept-body" style="margin-top:16px;">Abstract painting is, by Kant's schema, closer to free beauty than figurative painting — which is why formalist critics found in Kant a philosophical foundation for their preference for abstraction.</p>
+                <div class="concept-example">A Frankenthaler colour-field canvas — pure stained pigment, no representational content — is the closest the Western fine art tradition has come to Kant's free beauty in practice. Its market performance ($9.3M total in the Christie's dataset) confirms that institutional consecration outweighs the philosophical category.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">III.</div>
+                <div class="concept-title">The Sublime</div>
+                <div class="concept-lang">das Erhabene</div>
+                <p class="concept-body">The sublime is Kant's second major aesthetic category, distinct from the beautiful. Where beauty involves harmonious free play of the cognitive faculties, the sublime involves their rupture: the absolutely great overwhelms the imagination, producing first displeasure and then — crucially — a feeling of our own rational superiority over nature. The <em>mathematical sublime</em> (the starry sky, geological scales) defeats our capacity to measure and compare; the <em>dynamical sublime</em> (the storm, the volcano) defeats our physical power. Both reveal that we have a rational faculty that exceeds nature entirely.</p>
+                <div class="concept-example">Newman's <em>Vir Heroicus Sublimis</em> (1950–51) — over five metres wide, pure cadmium red — literally exceeds the viewer's visual field. Newman read Kant directly and intended viewers to stand close enough to be overwhelmed. The work enacts the Kantian structure of the dynamical sublime.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">IV.</div>
+                <div class="concept-title">Purposiveness Without Purpose</div>
+                <div class="concept-lang">Zweckmäßigkeit ohne Zweck</div>
+                <p class="concept-body">The third "moment" of the judgement of taste — its most influential and most difficult idea. When we find something beautiful, it looks as if it was designed to please us, as if it has a purpose — but we cannot specify what that purpose is. The object appears organised without our being able to say what it is organised <em>for</em>. This is the formal structure of beauty: it looks intentional without being for any intention. It is not the chaos of mere sensation, nor the determinacy of a functional object — it sits precisely in between.</p>
+                <div class="concept-example">The moment a price is attached to an abstract painting, a purpose is retrospectively specified: it exists to be purchased, to store financial value, to display social capital. Kant's "without purpose" condition has been cancelled. The auction performs this cancellation in public, in real time.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">V.</div>
+                <div class="concept-title">Universal Communicability</div>
+                <div class="concept-lang">allgemeine Mitteilbarkeit</div>
+                <p class="concept-body">When we make an aesthetic judgement, we are not merely reporting a private feeling — we are claiming, implicitly, that others ought to share our response. Kant calls this the "demand for universal assent" (<em>Ansinnen allgemeiner Beistimmung</em>). It does not mean that everyone will agree, but that your judgement addresses everyone as if they should. This claim cannot be founded on a concept or a rule — you cannot argue someone into finding something beautiful by citing its properties — but neither can it be dismissed as mere personal preference.</p>
+                <div class="concept-example">The critical consensus that forms around a major artist — in catalogue essays, museum labels, scholarly monographs — is an attempt to produce universal communicability by institutional means. Kant's point is that genuine aesthetic agreement cannot be manufactured this way; the market's point is that it doesn't matter.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">VI.</div>
+                <div class="concept-title">The Antinomy of Taste</div>
+                <div class="concept-lang">Antinomie des Geschmacks</div>
+                <p class="concept-body">Kant identifies a contradiction at the heart of aesthetic judgement. Thesis: aesthetic judgements cannot be disputed (they are not based on concepts, so there is no criterion to appeal to). Antithesis: aesthetic judgements can be disputed (we expect agreement and treat disagreement as a failure, not merely a difference). Both are true; the contradiction is apparent, not real. His resolution: aesthetic judgements are based on an <em>indeterminate</em> concept — the idea of the supersensible substrate common to all rational beings — which grounds the claim to universal agreement without providing a determinable rule.</p>
+                <div class="concept-example">Every critical debate — over whether Hirst's spot paintings constitute serious art, or whether Koons is kitsch or consecrated — is an enactment of Kant's antinomy. The market resolves it financially. The philosophical problem remains.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- THREE SATISFACTIONS -->
+<section class="satisfactions-section" id="satisfactions">
+    <div class="bg-texture"></div>
+    <div class="container" style="position:relative;z-index:2;">
+        <div class="reveal">
+            <div class="section-tag">Theory</div>
+            <h2 class="section-title">The Three Modes of Satisfaction</h2>
+            <p class="section-desc">Kant distinguishes three fundamentally different ways something can please us. Only the second — the Beautiful — is aesthetic in the strict sense. The distinctions map onto three different relations between the subject and the object.</p>
+        </div>
+
+        <div class="satisfactions-grid">
+            <div class="satisfaction-card reveal">
+                <div class="satisfaction-type">First Mode</div>
+                <div class="satisfaction-name">The Agreeable</div>
+                <p class="satisfaction-body">That which pleases the senses — taste, smell, warmth, sound experienced as sensation. Entirely subjective, it makes no claim on others: "this wine is pleasant to me" does not imply it should be pleasant to you. It is tied to desire: I want more of what is agreeable. Animals share this kind of pleasure. There is nothing wrong with it — Kant simply notes it is not what we mean by beauty.</p>
+                <div class="satisfaction-example">The pleasure of a warm room, a good meal, or music experienced as pure sensory comfort. In art contexts: the purely decorative, the merely pleasing. Not condemned by Kant — just not aesthetics.</div>
+            </div>
+
+            <div class="satisfaction-card reveal">
+                <div class="satisfaction-type">Second Mode</div>
+                <div class="satisfaction-name">The Beautiful</div>
+                <p class="satisfaction-body">That which pleases through the free play of the cognitive faculties, without interest in the object's existence, and without being founded on a determinate concept. Subjective in origin (a feeling, not a property of the object), but universal in its claim (the pleasure arises from conditions common to all rational beings). It involves no desire — you can appreciate the beauty of a rose without wanting to pick it. This is the only mode of satisfaction that is properly aesthetic.</p>
+                <div class="satisfaction-example">The pure aesthetic response to a Mondrian grid, a Bach fugue, or a Japanese rock garden — apprehending the form without interest in possession, function, or moral content. The paradigm of aesthetic experience for Kant.</div>
+            </div>
+
+            <div class="satisfaction-card reveal">
+                <div class="satisfaction-type">Third Mode</div>
+                <div class="satisfaction-name">The Good</div>
+                <p class="satisfaction-body">That which pleases by means of reason — either as means (the instrumentally good: a useful tool) or as ends in themselves (the morally good: a virtuous act). The pleasure of the good is objective and conceptual: it depends on a concept of what the thing is supposed to be or do. It necessarily involves interest — we care that good things exist. Its universality is stronger than the beautiful's: it can be demonstrated through reason. But this dependence on concepts and interest removes it from the domain of the purely aesthetic.</p>
+                <div class="satisfaction-example">Political art, art with an explicit moral programme, commissioned portraiture (the sitter is good as a likeness). Not condemned by Kant — but placed in a different category from pure aesthetic experience.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEXTS -->
+<section class="texts-section" id="texts">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">The Book</div>
+            <h2 class="section-title">The Critique, Section by Section</h2>
+            <p class="section-desc">The third Critique is in two parts: the Critique of Aesthetic Judgement and the Critique of Teleological Judgement. The aesthetic part moves from the analysis of taste through the theory of the sublime to art, genius, and the relation between aesthetics and morality.</p>
+        </div>
+
+        <div class="text-list">
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">Analytic of the Beautiful</div>
+                    <div class="text-title">§§1–22 · The Four Moments of Taste</div>
+                </div>
+                <div class="text-body">
+                    <p>Kant analyses the judgement of taste through four "moments" following the logical table of categories from the first Critique. In terms of <em>quality</em>: pleasure in the beautiful is disinterested. In terms of <em>quantity</em>: the beautiful pleases universally without a concept. In terms of <em>relation</em>: the beautiful has the form of purposiveness without a determinate purpose. In terms of <em>modality</em>: the beautiful is judged with necessity — not logical necessity but the necessity of a common sense (<em>sensus communis</em>) attributed to all rational beings. Each moment eliminates one possible misunderstanding of what aesthetic judgement is.</p>
+                    <div class="text-quote">"Beauty is the form of the purposiveness of an object, so far as this is perceived in it without any representation of a purpose." — §17</div>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">Analytic of the Sublime</div>
+                    <div class="text-title">§§23–29 · Mathematical and Dynamical</div>
+                </div>
+                <div class="text-body">
+                    <p>The sublime involves a momentary blocking and then surpassing of the cognitive faculties. The <em>mathematical sublime</em> arises from the absolutely great — that which is great beyond all comparison (the starry sky, geological scales of time). The <em>dynamical sublime</em> arises from nature as a terrifying power. Physically we are overwhelmed; but morally and rationally we are not, because we have a will that is independent of nature. The feeling of the sublime is thus a feeling of our own moral vocation. It is this concept that will later ground the Romantic and avant-garde ideas of art as a form of productive crisis.</p>
+                    <div class="text-quote">"Sublimity is contained not in any thing of nature, but only in our mind, insofar as we can become conscious of being superior to nature within us." — §28</div>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">Deduction of Taste</div>
+                    <div class="text-title">§§30–40 · The Sensus Communis</div>
+                </div>
+                <div class="text-body">
+                    <p>Kant's justification for aesthetic judgements' claim to universal assent hinges on <em>sensus communis aestheticus</em>: not a shared body of cultural knowledge, but a shared capacity for reflective feeling belonging to all rational beings by virtue of their having imagination and understanding. This is Kant's most vulnerable move. He is trying to show that the universality we feel when judging something beautiful is grounded in a real shared faculty — not merely in cultural convention. Bourdieu's counter is that this "faculty" is itself a culturally produced disposition that requires capital-intensive socialisation to develop.</p>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">Theory of Genius</div>
+                    <div class="text-title">§§43–54 · Art, Craft, and Spirit</div>
+                </div>
+                <div class="text-body">
+                    <p>Fine art (<em>schöne Kunst</em>) is specifically the art of genius — works that exhibit "spirit" (<em>Geist</em>), the animating principle of the mind. Genius gives the rule to art, but this rule cannot be transmitted as instructions: it can only be transmitted by example, through creative imitation. This explains why academic art — which follows rules — produces technically accomplished work but not genuine beauty; and why genuine works open possibilities that cannot be derived from existing rules. The irreducibility of aesthetic value to technical specification is built into Kant's framework from the beginning.</p>
+                    <div class="text-quote">"Genius is the innate mental aptitude (ingenium) through which nature gives the rule to art." — §46</div>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">Dialectic of Taste</div>
+                    <div class="text-title">§§55–60 · The Antinomy and Beauty as Symbol</div>
+                </div>
+                <div class="text-body">
+                    <p>Kant formulates the antinomy of taste and resolves it by distinguishing determinate from indeterminate concepts. The beautiful is the symbol of the morally good (§59): our sense that beauty makes a universal claim reflects — however indirectly — our sense that moral goodness also makes universal claims on all rational beings. This linkage between beauty and morality is one of the most contested moves in the text. For Schiller it became the basis of aesthetic education as moral education; for Bourdieu it is precisely the move that makes Kantian aesthetics politically dangerous — it raises class taste to the status of moral nature.</p>
+                    <div class="text-quote">"The beautiful is the symbol of the morally good; and only in this light does it give us pleasure with an attendant claim to the agreement of everyone else." — §59</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MARKET APPLICATION -->
+<section class="market-application-section" id="application">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">Applied Analysis</div>
+            <h2 class="section-title">Kant and the Auction Market</h2>
+            <p class="section-desc">The Christie's auction is the institution most explicitly organised around a Kantian vocabulary of disinterested aesthetic value — and most structurally committed to violating every condition that vocabulary requires.</p>
+        </div>
+
+        <div class="application-grid">
+
+            <div class="application-card reveal">
+                <div class="application-number">I.</div>
+                <div class="application-title">The Language of Disinterest in an Interested Room</div>
+                <p class="application-body">Christie's catalogue essays deploy Kantian vocabulary precisely: "timeless," "significant," "of consummate formal beauty." This language claims to report disinterested aesthetic value — the work's quality as art, independent of price. But the same document carries a pre-sale estimate, a provenance, and a financial history. The Kantian aesthetic and the financial instrument coexist, each pretending the other is not there. The auction room performs the contradiction live: the disinterested aesthetic response and the bid paddle in the same body, at the same moment.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">II.</div>
+                <div class="application-title">Purposiveness Without Purpose — Then a Price</div>
+                <p class="application-body">Kant's "purposiveness without purpose" describes an experience in which the object seems to have been made for us without our being able to specify what it was made for. Abstract painting approximates this most directly: no representational content, no legible purpose, pure organisation. The moment a price is attached, a determinate purpose is retrospectively specified — the painting exists to be purchased, to store financial value, to display social capital. Kant's "without purpose" condition is cancelled at the moment of sale.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">III.</div>
+                <div class="application-title">The Antinomy Resolved Financially</div>
+                <p class="application-body">Kant's antinomy of taste — you cannot dispute taste, and yet you must — is endemic to every conversation about art. The market offers a resolution: the hammer price settles the dispute financially, if not philosophically. A Longo selling at 14.7× estimate means that in this room, on this day, this many agents assigned this much financial value. The market converts the antinomy from a philosophical problem into a pricing problem: disagreement resolved by competition, not argument.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">IV.</div>
+                <div class="application-title">Genius and the Artist's Name as Brand</div>
+                <p class="application-body">Kant's theory of genius — the rule given to art that cannot be formulated as a rule — is the philosophical basis for the premium placed on the artist's hand, signature, and attribution. You are not buying a square of pigmented canvas; you are buying evidence of genius: an unrepeatable contact with a creative principle that cannot be reduced to a formula. Attribution disputes destroy financial value not because they change the physical object but because they dissolve the evidence of genius. The artist's name is the market's symbol for Kantian spirit.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">V.</div>
+                <div class="application-title">Free vs Dependent Beauty in Medium Hierarchy</div>
+                <p class="application-body">The market hierarchy — painting outperforms works on paper, which outperform prints — maps onto Kant's distinction between free and dependent beauty. A unique painting is apprehended partly as beautiful in itself; a print is apprehended as a print, with a concept of what a print is relative to an original. This dependence on concept pushes prints toward dependent beauty, and the market prices the distinction accordingly. The premium for uniqueness is partly a Kantian premium.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">VI.</div>
+                <div class="application-title">Bourdieu's Correction: Disinterest as Privilege</div>
+                <p class="application-body">The ability to engage in "disinterested" aesthetic contemplation — to look at a Rothko purely for its formal qualities, bracketing price, function, and social significance — is not a universal human faculty. It is a trained disposition, available to those with sufficient cultural capital. The collector who genuinely experiences disinterested pleasure has spent years developing that capacity through expensive education and cultural exposure. The disinterest is real; its conditions are class. Kant describes what the experience feels like; Bourdieu explains who can afford to have it.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CITATIONS -->
+<section class="citations-section" id="citations">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">Further Reading</div>
+            <h2 class="section-title">Primary Sources &amp; Secondary Literature</h2>
+            <p class="section-desc">Start with the Guyer–Matthews translation, then Allison for rigorous commentary, Crawford for the art-world application, and Crowther for the sublime's connection to contemporary practice.</p>
+        </div>
+
+        <div class="citations-grid">
+
+            <div class="reveal">
+                <div class="citations-column-title">Primary Sources</div>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <div class="citation-author">Kant, Immanuel</div>
+                        <div class="citation-title">Critique of the Power of Judgement</div>
+                        <div class="citation-detail">Trans. Paul Guyer &amp; Eric Matthews. Cambridge University Press, 2000.<br>Originally: <em>Kritik der Urteilskraft</em>. Berlin: Johann Friedrich Unger, 1790.</div>
+                        <div class="citation-note">The standard scholarly English edition. Guyer's introduction is essential. §§1–54 cover aesthetics; §§55–60 cover the dialectic of taste and beauty as symbol of the good.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Kant, Immanuel</div>
+                        <div class="citation-title">Observations on the Feeling of the Beautiful and Sublime</div>
+                        <div class="citation-detail">Trans. Paul Guyer. Cambridge University Press, 2011. Originally 1764.</div>
+                        <div class="citation-note">Kant's pre-critical aesthetics — readable, less technical, useful for understanding what the third Critique departs from. Includes Kant's embarrassing anthropological asides on race and gender.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Kant, Immanuel</div>
+                        <div class="citation-title">Critique of Pure Reason</div>
+                        <div class="citation-detail">Trans. Paul Guyer &amp; Allen W. Wood. Cambridge University Press, 1998. Originally 1781/1787.</div>
+                        <div class="citation-note">The first Critique — required context for understanding why Kant needs the third. The table of categories and the transcendental framework underlie the analysis of taste.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="reveal">
+                <div class="citations-column-title">Secondary Literature</div>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <div class="citation-author">Allison, Henry E.</div>
+                        <div class="citation-title">Kant's Theory of Taste: A Reading of the Critique of Aesthetic Judgement</div>
+                        <div class="citation-detail">Cambridge University Press, 2001.</div>
+                        <div class="citation-note">The most rigorous analytic commentary. Dense but authoritative on the four moments, the deduction, and the resolution of the antinomy. Essential for serious study.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Guyer, Paul</div>
+                        <div class="citation-title">Kant and the Claims of Taste</div>
+                        <div class="citation-detail">Harvard University Press, 1979. Second ed. Cambridge University Press, 1997.</div>
+                        <div class="citation-note">Influential earlier study by the best English-language Kant scholar. Argues the key to the third Critique is the concept of free play — the harmonious interaction of imagination and understanding.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Crawford, Donald W.</div>
+                        <div class="citation-title">Kant's Aesthetic Theory</div>
+                        <div class="citation-detail">University of Wisconsin Press, 1974.</div>
+                        <div class="citation-note">An accessible overview connecting Kant's aesthetics to the practice of art criticism and art history. Good entry point before the heavier commentaries.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Crowther, Paul</div>
+                        <div class="citation-title">The Kantian Sublime: From Morality to Art</div>
+                        <div class="citation-detail">Oxford University Press, 1989.</div>
+                        <div class="citation-note">The best study of the sublime and its relevance to Abstract Expressionism and contemporary art practice. Connects Newman, Rothko, and the Abstract Expressionist project directly to the Kantian analysis.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Lyotard, Jean-François</div>
+                        <div class="citation-title">Lessons on the Analytic of the Sublime</div>
+                        <div class="citation-detail">Trans. Elizabeth Rottenberg. Stanford University Press, 1994. Originally 1991.</div>
+                        <div class="citation-note">Lyotard's postmodern reading of Kant's sublime — argues that the sublime is the condition of possibility for avant-garde art, which always bears witness to the unpresentable. Essential for understanding the Kant–contemporary art connection.</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <div class="page-footer-inner">
+        <a href="index.html#philosophy" class="footer-back">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5H12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 6 5)"/></svg>
+            Return to Philosophy Frameworks
+        </a>
+        <div class="footer-ref">
+            Kant, Immanuel. <em>Kritik der Urteilskraft.</em> Berlin: Johann Friedrich Unger, 1790.<br>
+            Trans. Paul Guyer &amp; Eric Matthews. Cambridge University Press, 2000.
+        </div>
+    </div>
+</footer>
+
+<script>
+    'use strict';
+    const progressBar = document.getElementById('progressBar');
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+    }
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+        navLinks.forEach(l => {
+            l.classList.remove('active');
+            if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+        });
+    }
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    window.addEventListener('scroll', () => { updateProgress(); updateActiveNav(); }, { passive: true });
+</script>
+
+</body>
+</html>

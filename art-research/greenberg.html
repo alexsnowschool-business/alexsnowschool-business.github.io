@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greenberg — Avant-Garde and Kitsch</title>
+    <meta name="description" content="A close reading of Clement Greenberg's key essays (1939–1962) — avant-garde vs kitsch, medium specificity, flatness, and the colour field." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .page-hero {
+            background: var(--slate);
+            min-height: 72vh;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+            padding-top: 72px;
+        }
+        .page-hero .hero-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(168,134,74,0.025) 60px, rgba(168,134,74,0.025) 61px);
+        }
+        .page-hero .hero-vert {
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(168,134,74,0.18) 30%, rgba(168,134,74,0.18) 70%, transparent);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 80px 40px 100px;
+        }
+        .page-hero-breadcrumb {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold-warm);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .page-hero-breadcrumb::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+        .page-hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 4.8rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.08;
+            color: var(--ivory);
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+            max-width: 700px;
+        }
+        .page-hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1rem, 1.8vw, 1.45rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold-warm);
+            margin-bottom: 40px;
+            opacity: 0.72;
+        }
+        .page-hero-meta { display: flex; gap: 48px; flex-wrap: wrap; }
+        .page-hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+        .page-hero-meta-label {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(244,239,230,0.30);
+        }
+        .page-hero-meta-value {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(244,239,230,0.75);
+        }
+
+        /* PROSE */
+        .intro-section { background: var(--ivory-pure); }
+        .prose-block { max-width: 760px; }
+        .prose-block p {
+            font-family: var(--font-sans);
+            font-size: 1.08rem;
+            font-weight: 300;
+            line-height: 2.1;
+            color: var(--slate-soft);
+            margin-bottom: 28px;
+            letter-spacing: 0.008em;
+        }
+        .prose-block p:last-child { margin-bottom: 0; }
+        .pull-quote {
+            border-left: 1px solid var(--gold);
+            padding: 24px 32px;
+            margin: 52px 0;
+            background: rgba(168,134,74,0.04);
+        }
+        .pull-quote-text {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--slate);
+            margin-bottom: 12px;
+        }
+        .pull-quote-source {
+            font-family: var(--font-sans);
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--stone);
+        }
+
+        /* CONCEPTS GRID */
+        .concepts-section { background: var(--ivory); }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+            margin-top: 72px;
+        }
+        .concept-card {
+            background: var(--ivory-card);
+            padding: 44px 36px;
+            transition: background var(--transition);
+        }
+        .concept-card:hover { background: var(--ivory-pure); }
+        .concept-number {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+        .concept-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+        .concept-lang {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--stone-light);
+            margin-bottom: 20px;
+        }
+        .concept-body {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--slate-soft);
+        }
+        .concept-example {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--rule);
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.85;
+            color: var(--stone);
+            font-style: italic;
+        }
+
+        /* AVANT-GARDE VS KITSCH (dark section) */
+        .avk-section {
+            background: var(--slate);
+            position: relative;
+            overflow: hidden;
+        }
+        .avk-section .bg-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(168,134,74,0.025) 60px, rgba(168,134,74,0.025) 61px);
+            pointer-events: none;
+        }
+        .avk-section .section-tag { color: var(--gold-warm); }
+        .avk-section .section-title { color: var(--ivory); }
+        .avk-section .section-desc { color: rgba(244,239,230,0.45); }
+        .avk-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: rgba(244,239,230,0.07);
+            border: 1px solid rgba(244,239,230,0.07);
+            margin-top: 72px;
+        }
+        .avk-card {
+            padding: 60px 52px;
+            background: rgba(26,25,22,0.5);
+            transition: background var(--transition);
+        }
+        .avk-card:hover { background: rgba(26,25,22,0.3); }
+        .avk-label {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .avk-name {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ivory);
+            margin-bottom: 28px;
+            line-height: 1.2;
+        }
+        .avk-body {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 2;
+            color: rgba(244,239,230,0.52);
+            margin-bottom: 28px;
+        }
+        .avk-body p { margin-bottom: 18px; }
+        .avk-body p:last-child { margin-bottom: 0; }
+        .avk-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(244,239,230,0.08);
+        }
+        .avk-list li {
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.75;
+            color: rgba(168,134,74,0.7);
+            font-style: italic;
+            padding-left: 16px;
+            position: relative;
+        }
+        .avk-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: rgba(168,134,74,0.4);
+        }
+
+        /* TEXTS */
+        .texts-section { background: var(--ivory-pure); }
+        .text-list { margin-top: 72px; display: flex; flex-direction: column; }
+        .text-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            border-top: 1px solid var(--rule);
+            padding: 48px 0;
+        }
+        .text-item:last-child { border-bottom: 1px solid var(--rule); }
+        .text-label { padding-right: 48px; }
+        .text-part {
+            font-family: var(--font-sans);
+            font-size: 0.56rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .text-title {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.3;
+        }
+        .text-body {
+            font-family: var(--font-sans);
+            font-size: 0.97rem;
+            font-weight: 300;
+            line-height: 2;
+            color: var(--slate-soft);
+        }
+        .text-body p { margin-bottom: 20px; }
+        .text-body p:last-child { margin-bottom: 0; }
+        .text-quote {
+            margin-top: 24px;
+            padding: 20px 24px;
+            border-left: 1px solid var(--rule-gold);
+            background: rgba(168,134,74,0.03);
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.65;
+        }
+
+        /* APPLICATION */
+        .market-application-section { background: var(--ivory-card); }
+        .application-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+        }
+        .application-card { background: var(--ivory-pure); padding: 44px 36px; }
+        .application-number {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold);
+            opacity: 0.35;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+        .application-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 16px;
+            line-height: 1.35;
+        }
+        .application-body {
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--slate-soft);
+        }
+
+        /* CITATIONS */
+        .citations-section { background: var(--ivory); }
+        .citations-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .citations-column-title {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--rule-gold);
+            margin-bottom: 28px;
+        }
+        .citation-list { list-style: none; display: flex; flex-direction: column; }
+        .citation-item { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+        .citation-item:last-child { border-bottom: none; }
+        .citation-author {
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 4px;
+        }
+        .citation-title {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        .citation-detail {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--stone);
+            line-height: 1.7;
+        }
+        .citation-note {
+            margin-top: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--stone-light);
+            line-height: 1.7;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .concepts-grid { grid-template-columns: 1fr 1fr; }
+            .avk-grid { grid-template-columns: 1fr; }
+            .application-grid { grid-template-columns: 1fr 1fr; }
+            .citations-grid { grid-template-columns: 1fr; }
+            .text-item { grid-template-columns: 1fr; gap: 20px; }
+            .text-label { padding-right: 0; }
+        }
+        @media (max-width: 600px) {
+            .concepts-grid { grid-template-columns: 1fr; }
+            .application-grid { grid-template-columns: 1fr; }
+            .page-hero-content { padding: 60px 24px 80px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-home">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5H12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 6 5)"/></svg>
+            Art Research
+        </a>
+        <div class="nav-title">Greenberg — Avant-Garde and Kitsch</div>
+        <nav class="nav-links">
+            <a href="#argument">Argument</a>
+            <a href="#concepts">Concepts</a>
+            <a href="#avk">Avant-Garde / Kitsch</a>
+            <a href="#texts">The Essays</a>
+            <a href="#application">Market</a>
+            <a href="#citations">Citations</a>
+        </nav>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero" id="top">
+    <div class="hero-texture"></div>
+    <div class="hero-vert"></div>
+    <div class="page-hero-content">
+        <div class="page-hero-breadcrumb">Philosophy — Framework III</div>
+        <h1 class="page-hero-title">Avant-Garde and Kitsch</h1>
+        <p class="page-hero-subtitle">Clement Greenberg · 1939–1962</p>
+        <div class="page-hero-meta">
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Author</span>
+                <span class="page-hero-meta-value">Clement Greenberg</span>
+            </div>
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Key Essays</span>
+                <span class="page-hero-meta-value">1939 · 1940 · 1955 · 1960 · 1961</span>
+            </div>
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Field</span>
+                <span class="page-hero-meta-value">Formalist Criticism · Aesthetics</span>
+            </div>
+            <div class="page-hero-meta-item">
+                <span class="page-hero-meta-label">Position in System</span>
+                <span class="page-hero-meta-value">Theoretical architect of Abstract Expressionism</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ARGUMENT -->
+<section class="intro-section" id="argument">
+    <div class="container">
+        <div class="section-tag reveal">The Central Argument</div>
+        <h2 class="section-title reveal">The only honest painting<br>is about painting.</h2>
+
+        <div class="prose-block reveal">
+            <p>Clement Greenberg is the most influential — and most contested — art critic of the twentieth century. His intervention is simple in its structure and radical in its implications: each art form should restrict itself exclusively to what is uniquely its own. Painting, therefore, must be about what is specific to painting — and what is specific to painting is its two-dimensionality, its flatness, the literal surface of the canvas. Any illusion of depth, any reference to the world beyond the picture plane, is a borrowing from other arts and a retreat from what painting uniquely can do.</p>
+
+            <p>This argument, called <em>medium specificity</em>, begins in "Avant-Garde and Kitsch" (1939) as a sociological and political claim. The avant-garde exists, Greenberg argues, to preserve the standards of genuine culture against the industrialised mass production of "simulated" aesthetic experience — kitsch — which borrows the external effects of genuine art without its internal discipline. But by "Modernist Painting" (1960), the argument has become purely formal: the historical trajectory of Western painting since Manet is a progressive elimination of everything that is not essential to painting. The endpoint, in Greenberg's view, is the Colour Field — Frankenthaler's stained canvases, Morris Louis's veils — where colour floats without drawing, without depth, on the literal surface of the fabric.</p>
+
+            <p>The argument has extraordinary explanatory power and extraordinary blind spots. It explains why Greenberg championed Abstract Expressionism (Pollock's all-over drip paintings eliminate figure/ground, treat the surface as literal) and dismissed Pop Art (Warhol reinstates representational reference and cultural content — precisely what modernism had overcome). But the framework cannot account for art that does important work through impurity, reference, and genre-mixing — which is most of the art made after 1960. Greenberg's critical authority peaked with Abstract Expressionism and collapsed with its market success: once an avant-garde movement becomes institutionally dominant, its claim to critical adversarialism evaporates.</p>
+
+            <div class="pull-quote">
+                <p class="pull-quote-text">"The avant-garde poet or artist tries in effect to imitate God by creating something valid solely on its own terms, in the way nature itself is valid, in the way a landscape — not its picture — is aesthetically valid."</p>
+                <span class="pull-quote-source">Clement Greenberg, "Avant-Garde and Kitsch" (1939), Partisan Review</span>
+            </div>
+
+            <p>For the art market, Greenberg matters because he created the critical vocabulary through which Abstract Expressionism was consecrated — and that consecration has become permanent institutional capital. Artists he championed (Pollock, de Kooning, Frankenthaler, Louis, Noland) dominate the top of the market in exactly the medium hierarchy he prescribed: oil on canvas at the apex, works on paper below, prints beneath that. That hierarchy is not aesthetic — it is Greenbergian critical history sedimented into price.</p>
+
+            <p>His legacy is also the template for the critic-as-taste-maker: the figure who translates studio practice into critical discourse and institutional legitimacy. Bourdieu would read Greenberg as a field agent accumulating symbolic capital by attaching his name to the movements he consecrated. The Greenberg–Bourdieu confrontation is the argument between the critic who believes in the autonomous logic of art history and the sociologist who shows that logic to be a euphemised account of institutional power.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCEPTS -->
+<section class="concepts-section" id="concepts">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">Core Vocabulary</div>
+            <h2 class="section-title">Six Concepts That Structure the Argument</h2>
+            <p class="section-desc">Greenberg builds a critical vocabulary that is simultaneously historical, formal, and evaluative. These are not neutral descriptive terms — each one carries a ranking.</p>
+        </div>
+
+        <div class="concepts-grid">
+
+            <div class="concept-card reveal">
+                <div class="concept-number">I.</div>
+                <div class="concept-title">The Avant-Garde</div>
+                <div class="concept-lang">Cultural vanguard · Self-critical practice</div>
+                <p class="concept-body">For Greenberg, the avant-garde is not simply new or experimental art — it is art that takes as its primary subject the conditions of its own production. An avant-garde painting is <em>about</em> painting: about what painting can and cannot do, about the medium's specific properties, about the history of choices that produced the current moment. This self-criticism is, in Greenberg's account, what saves culture from degenerating into kitsch. The avant-garde is a survival strategy for genuine aesthetic standards in a mass market that would otherwise dissolve them into entertainment.</p>
+                <div class="concept-example">Pollock's drip paintings are avant-garde in Greenberg's sense because they interrogate the act of painting itself — the relationship between the artist's body, gravity, and the literal surface. There is no representational content to distract from this self-examination.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">II.</div>
+                <div class="concept-title">Kitsch</div>
+                <div class="concept-lang">Simulated culture · Academicised effects</div>
+                <p class="concept-body">Kitsch is not simply bad art or popular art — it is the industrialised simulation of aesthetic experience. Kitsch takes the external effects of genuine art (the emotional response, the sense of depth and significance) and reproduces them by formula, without the internal discipline that generated them. "Kitsch is vicarious experience and faked sensations," Greenberg writes. It is the product of the avant-garde's victories being absorbed and codified into an academy, then mass-produced. The danger of kitsch is not that it is ugly but that it produces the feeling of genuine aesthetic satisfaction without requiring genuine aesthetic attention.</p>
+                <div class="concept-example">Greenberg's examples include Victorian narrative painting, magazine illustration, commercial cinema. His implicit target in 1939 is Stalinist socialist realism — easily legible representational painting produced to state formula. His later target is Pop Art: Warhol makes the kitsch gesture and calls it art, which Greenberg could not accept.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">III.</div>
+                <div class="concept-title">Medium Specificity</div>
+                <div class="concept-lang">Flatness · The picture plane · Optical purity</div>
+                <p class="concept-body">Each art form must be purified of everything that is not intrinsic to it. For painting, the irreducible properties are flatness (the two-dimensional surface), the delimitation of the surface (the edge of the canvas), and — Greenberg adds — purely optical colour experience, uncontaminated by tactile associations. The trajectory of modernist painting since Manet is understood as a progressive revelation of these properties: Impressionism flattens depth; Cézanne reveals the picture plane as construction; Cubism shatters spatial illusion; Abstract Expressionism arrives at literal flatness. The endpoint, historically inevitable in this account, is the Colour Field.</p>
+                <div class="concept-example">Frankenthaler's <em>Mountains and Sea</em> (1952) stained raw unprimed canvas so that colour became literally part of the fabric — not on the surface but in it. This eliminates the distinction between painted mark and support that had structured Western painting since the Renaissance. For Greenberg, it was a discovery of the medium's own logic.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">IV.</div>
+                <div class="concept-title">Optical vs Tactile Space</div>
+                <div class="concept-lang">Purely retinal · Anti-sculptural</div>
+                <p class="concept-body">Greenberg argues that the great error of traditional painting was to create an illusion of space that simulates tactile, three-dimensional experience — space you feel as if you could enter and touch. This is a borrowing from sculpture. Modernist painting must instead create a purely optical space: an experience of colour relationships that is apprehended by the eye alone, with no reference to touch, depth, or bodily navigation. This is why Abstract Expressionism and Colour Field painting suppress modelling, texture, and spatial illusion — they aspire to a purely optical field in which colour acts directly on the retina without activating the other senses.</p>
+                <div class="concept-example">Morris Louis's <em>Unfurled</em> series (1960–61) — raw canvas with rivulets of acrylic colour on either side of a bare expanse — is the purest realisation of this programme. There is no space, no ground, no modelling. Colour flows in time as the eye tracks it. Greenberg saw this as the logical conclusion of the modernist project.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">V.</div>
+                <div class="concept-title">Colour Field</div>
+                <div class="concept-lang">Post-Painterly Abstraction · Stain painting</div>
+                <p class="concept-body">Greenberg's term "Post-Painterly Abstraction" (the title of his 1964 Los Angeles County Museum exhibition) names the development beyond Abstract Expressionism that he considered the most advanced painting of its moment. Where the Abstract Expressionists retained the gestural mark — the painter's hand, the drip, the loaded brush — the Colour Field painters eliminated all handwriting in favour of pure, optically active colour spread across large surfaces. Frankenthaler, Louis, Noland, Olitski, Poons. The mark is gone; colour acts directly. This is the endpoint of Greenberg's historical narrative — though history did not cooperate, and the movement was quickly marginalised by Minimalism and then Conceptual Art.</p>
+                <div class="concept-example">In the Christie's dataset, Frankenthaler leads the dataset with $9.3M across 6 lots — the formalist champion is also the market's top performer. But the data also shows Ruscha ($4.6M, 9 lots) performing strongly — an artist Greenberg would have dismissed as retrograde.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">VI.</div>
+                <div class="concept-title">Canon Formation</div>
+                <div class="concept-lang">Critical consecration · The taste hierarchy</div>
+                <p class="concept-body">Greenberg did not merely describe the history of modernist art — he made it. His critical essays in <em>Partisan Review</em> and <em>The Nation</em>, his catalogue essays, his championing of specific artists, his institutional relationships with the Art of This Century gallery and later with the major New York dealers — all constituted an act of field-formation in Bourdieu's sense. He was not reporting the evolution of art; he was constructing a narrative that justified specific aesthetic preferences and excluded others. The hierarchy he established (painting over sculpture, abstraction over figuration, flatness over depth) became the market hierarchy.</p>
+                <div class="concept-example">The medium hierarchy in the Christie's dataset — paintings outperforming works on paper, prints trading at a fraction — directly descends from Greenberg's critical priorities, mediated through institutional consecration at MoMA, the Guggenheim, and the major auction houses whose specialist departments formed their taste in the shadow of this criticism.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- AVANT-GARDE VS KITSCH (dark section) -->
+<section class="avk-section" id="avk">
+    <div class="bg-texture"></div>
+    <div class="container" style="position:relative;z-index:2;">
+        <div class="reveal">
+            <div class="section-tag">The Opposition</div>
+            <h2 class="section-title">Avant-Garde vs Kitsch</h2>
+            <p class="section-desc">Greenberg's founding distinction is between two responses to the conditions of industrial capitalism. They are not simply different tastes — they are different relationships to the history of culture and the conditions of aesthetic attention.</p>
+        </div>
+
+        <div class="avk-grid">
+            <div class="avk-card reveal">
+                <div class="avk-label">Genuine Culture</div>
+                <div class="avk-name">The Avant-Garde</div>
+                <div class="avk-body">
+                    <p>The avant-garde emerged in the mid-nineteenth century as culture's response to the industrialisation of both production and taste. It is constitutively self-critical: it takes the conditions of its own practice as its primary subject. Where traditional art produced content — images, stories, ideals — the avant-garde produces reflection on the act of producing. Manet paints the fact of painting; Cézanne reveals the constructedness of the picture plane; Pollock makes the physical act of mark-making the subject of the mark. This reflexive turn is not a retreat from content — it is the only honest content available once the old shared symbolic systems have collapsed.</p>
+                    <p>The avant-garde does not seek an audience beyond those capable of the attention it requires. It is, Greenberg admits, an "umbilical cord of gold" connecting the artist to the ruling class — which provides the economic conditions for disinterested cultural production. He is aware of this contradiction and cannot resolve it.</p>
+                </div>
+                <ul class="avk-list">
+                    <li>Self-criticism: the medium examined by the medium</li>
+                    <li>Difficulty as integrity — resists easy appropriation</li>
+                    <li>Historical necessity: each move responds to the previous</li>
+                    <li>Limited audience: those educated in the tradition</li>
+                    <li>Economic dependence on patronage, institutional support</li>
+                </ul>
+            </div>
+
+            <div class="avk-card reveal">
+                <div class="avk-label">Simulated Culture</div>
+                <div class="avk-name">Kitsch</div>
+                <div class="avk-body">
+                    <p>Kitsch is not the absence of culture — it is the industrialised reproduction of culture's effects without its substance. It is "the epitome of all that is spurious in the life of our times." Kitsch exploits the discoveries of the avant-garde, translating them into formulae that can be reproduced and consumed without the attention they required to produce. The avant-garde makes something genuinely new, at the cost of difficulty; kitsch packages that novelty as entertainment, at the cost of honesty. The result is a simulation of aesthetic experience — the feeling of significance without the encounter with what generates it.</p>
+                    <p>Kitsch is not evil and its consumers are not stupid — they simply have not had access to the cultural training that would make genuine art accessible. Greenberg is clear that kitsch is the product of capitalism's need to find cultural content that crosses all educational and class lines. It is a structural feature of mass culture, not a moral failing of individuals.</p>
+                </div>
+                <ul class="avk-list">
+                    <li>Borrowed effects — the surface of avant-garde without the process</li>
+                    <li>Formula-driven: the rules are derivable and teachable</li>
+                    <li>Immediately legible: no prior education required</li>
+                    <li>Mass audience: accessible to all regardless of cultural capital</li>
+                    <li>Academicised: the avant-garde's victories institutionalised and emptied</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEXTS -->
+<section class="texts-section" id="texts">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">The Essays</div>
+            <h2 class="section-title">The Corpus, Essay by Essay</h2>
+            <p class="section-desc">Greenberg's argument evolves across a series of periodical essays published over two decades. Each text marks a development in the theoretical project — from political to purely formal — and a different relationship to the art being made.</p>
+        </div>
+
+        <div class="text-list">
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">1939 · Founding Essay</div>
+                    <div class="text-title">Avant-Garde and Kitsch</div>
+                </div>
+                <div class="text-body">
+                    <p>The inaugural essay, published in <em>Partisan Review</em> in the autumn of 1939, establishes the fundamental opposition. Greenberg's argument is sociological and political as much as aesthetic: the avant-garde exists to preserve genuine culture against the mass-produced simulacra of kitsch, which the culture industry produces to keep the masses politically passive. The essay is partly a response to the crisis of the 1930s — fascism's instrumentalisation of aesthetic experience (Benjamin's aestheticisation of politics), Stalinism's socialist realism. The avant-garde, for Greenberg, is the last line of cultural defence.</p>
+                    <p>The essay also introduces the "umbilical cord of gold" argument: the avant-garde depends on the ruling class for its economic support, which creates a structural complicity even as avant-garde art maintains critical distance from bourgeois ideology. Greenberg never fully resolves this tension.</p>
+                    <div class="text-quote">"Kitsch is mechanical and operates by formulas. Kitsch is vicarious experience and faked sensations. Kitsch changes according to style, but remains always the same." — "Avant-Garde and Kitsch," 1939</div>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">1940 · Medium Theory</div>
+                    <div class="text-title">Towards a Newer Laocoon</div>
+                </div>
+                <div class="text-body">
+                    <p>Where "Avant-Garde and Kitsch" is sociological, "Towards a Newer Laocoon" is formal. The reference is to Lessing's 1766 <em>Laocoon</em>, which distinguished the proper subjects and means of poetry from those of painting. Greenberg updates this argument for modernism: each art form must be "purified" of everything borrowed from other arts, and what remains after purification is the art form's specific and irreducible content. For painting, this means flatness, the literal two-dimensional surface, and purely optical colour. The essay directly establishes the logic that will generate medium specificity as the master criterion of Greenberg's subsequent criticism.</p>
+                    <div class="text-quote">"The arts, then, have been hunted back to their mediums, and there they have been isolated, concentrated and defined." — "Towards a Newer Laocoon," 1940</div>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">1955 · Historical Thesis</div>
+                    <div class="text-title">American-Type Painting</div>
+                </div>
+                <div class="text-body">
+                    <p>By 1955, Abstract Expressionism has established itself in New York. This essay consolidates Greenberg's historical narrative: American painting has taken the lead from School of Paris precisely because it has pursued medium specificity without compromise. The Abstract Expressionists — Pollock, de Kooning, Kline, Motherwell — are the logical successors to Manet, Cézanne, the Cubists, Matisse. The argument involves a significant revision of de Kooning, whom Greenberg respects but who reintroduces figuration and gesture in ways that complicate the purely formalist reading. The essay also marks the beginning of Greenberg's preference for Pollock's drip paintings over his other work — the period, 1947–50, that he later calls "Pollock's best."</p>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">1960 · The Thesis Purified</div>
+                    <div class="text-title">Modernist Painting</div>
+                </div>
+                <div class="text-body">
+                    <p>This essay, originally a radio lecture for the Voice of America, is Greenberg's most systematic formulation. The political and sociological framing of 1939 has been entirely dropped. The argument is now purely immanent: modernism is the process by which each art form uses its characteristic methods to criticise itself. The self-critical tendency is what distinguishes modernist art from pre-modernist art. And what painting has discovered through this self-criticism is its irreducible condition — flatness. This is now not a political or sociological claim but a historical-logical one: it is what the internal development of painting has revealed about itself.</p>
+                    <p>The essay's intellectual confidence is remarkable — and its closure is its flaw. It produces a teleological account of art history that cannot incorporate any practice that does not fit the narrative of progressive flattening. Minimalism, which follows almost immediately, does fit — and then Conceptual Art, which challenges the object-specificity of the medium, does not.</p>
+                    <div class="text-quote">"Manet's became the first Modernist pictures by virtue of the frankness with which they declared the surfaces on which they were painted." — "Modernist Painting," 1960</div>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">1961 · The Collected Argument</div>
+                    <div class="text-title">Art and Culture</div>
+                </div>
+                <div class="text-body">
+                    <p><em>Art and Culture: Critical Essays</em> (Beacon Press, 1961) is Greenberg's only book — a selection of essays revised from periodical publication. It is the text through which his argument has been most widely read and taught. The revision process is significant: Greenberg consistently softened the political framing of the 1939 essays, removing the Trotskyist vocabulary and emphasising the purely formal logic. This revision has been analysed as a Cold War accommodation — the radical political argument was made to disappear into a purely aesthetic one that was less ideologically exposed. The book is simultaneously Greenberg's greatest achievement and the site of his greatest self-concealment.</p>
+                </div>
+            </div>
+
+            <div class="text-item reveal">
+                <div class="text-label">
+                    <div class="text-part">1964 · The Exhibition</div>
+                    <div class="text-title">Post-Painterly Abstraction</div>
+                </div>
+                <div class="text-body">
+                    <p>The catalogue essay for the exhibition of the same name at the Los Angeles County Museum of Art coins the term "Post-Painterly Abstraction" for the generation after the Abstract Expressionists. Frankenthaler, Louis, Noland, Olitski, Poons — artists who share "openness or clarity, and the elimination of tactile associations." The gesture, the loaded brush, the expressionist mark have been purged. What remains is pure optical colour on literal canvas. Greenberg presents this as the continuation of the modernist project, but it is also the beginning of the end of his critical authority: within a year, Minimalism will make the Colour Field look like a late-romantic indulgence, and Greenberg will have no critical vocabulary to respond.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MARKET APPLICATION -->
+<section class="market-application-section" id="application">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">Applied to the Dataset</div>
+            <h2 class="section-title">Greenberg in the Auction Room</h2>
+            <p class="section-desc">The Christie's Post-War and Contemporary dataset is the market record of what Greenberg consecrated. The hierarchy he established in criticism has become a hierarchy of price — with predictable confirmations and instructive exceptions.</p>
+        </div>
+
+        <div class="application-grid">
+
+            <div class="application-card reveal">
+                <div class="application-number">I.</div>
+                <div class="application-title">Frankenthaler Leads — The Formalist at the Top</div>
+                <p class="application-body">Helen Frankenthaler is the formalist champion in the Christie's dataset: $9.3M across 6 lots, the highest total by any single artist. Greenberg championed her early, writing about <em>Mountains and Sea</em> in 1952 as a technical discovery of the first order. Her market performance is a direct index of Greenbergian consecration: the artist he identified as opening the next phase of painting has become the most expensive artist in the dataset. But note that the mechanism is institutional reputation, not formal purity — the market does not evaluate flatness. It evaluates what institutions have already judged significant.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">II.</div>
+                <div class="application-title">Ruscha at $4.6M — Kitsch in the Front Row</div>
+                <p class="application-body">Ed Ruscha is the artist Greenberg would have dismissed most decisively. His paintings use commercial lettering, vernacular imagery, and explicit cultural reference — everything that medium specificity is supposed to eliminate. Yet Ruscha commands $4.6M across 9 lots in the dataset. This is not the market correcting Greenberg — it is the market operating on a different logic entirely. Ruscha's value derives from institutional consecration (MoMA retrospective, Getty acquisitions, Venice Biennale representation) that is structurally independent of Greenbergian formalist criteria. The market does not know the difference between avant-garde and kitsch. It knows the difference between consecrated and unconsecrated.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">III.</div>
+                <div class="application-title">The Medium Hierarchy in Practice</div>
+                <p class="application-body">Within individual artists' markets, the medium hierarchy Greenberg established is rigorously enforced: paintings outperform works on paper, which outperform prints, at all price levels. This hierarchy has nothing to do with aesthetic quality — many works on paper and prints are formally more interesting than mediocre paintings by the same artists. It reflects the inherited critical vocabulary (the "original," the "unique," the bearer of the artist's hand in its fullest form) that Greenberg's criticism shaped. The hierarchy is Greenbergian in origin and is now so deeply embedded in market structure that it operates without anyone consciously invoking it.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">IV.</div>
+                <div class="application-title">Abstract Expressionism's Premium</div>
+                <p class="application-body">The movement Greenberg established as the apex of modernist painting retains a market premium that has nothing to do with current critical consensus. Abstract Expressionist works consistently outperform comparable works by later movements on a per-lot basis in the Christie's dataset. This premium is historical sediment: the moment of Greenberg's maximum critical authority (1945–1965) is the moment when the movement was being actively consecrated by MoMA, the major critics, and the first generation of serious collectors. That consecration is now permanent — it is embedded in auction house specialist expertise, in the investment strategies of institutions, and in the cultural capital of the major private collections.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">V.</div>
+                <div class="application-title">Pop Art's Irony — Kitsch Outsells Purity</div>
+                <p class="application-body">The dataset includes Warhol's market successors (Ruscha, Lichtenstein, Rosenquist) performing strongly alongside and sometimes above the Colour Field painters Greenberg championed. This would have been incomprehensible to him — a market failure, or rather, a failure of the institutions he trusted to maintain discriminations. Bourdieu's analysis is more useful here: Pop Art succeeded institutionally because it served the interests of the dominant fraction of the dominant class (collectors who preferred legible imagery and cultural reference) better than Colour Field's demands on pure optical attention. The market follows institutional prestige; institutional prestige follows the tastes of the most powerful agents in the field.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">VI.</div>
+                <div class="application-title">Greenberg's Horizon — What the Framework Cannot See</div>
+                <p class="application-body">The Christie's dataset contains no Conceptual Art, no Minimalism, no Performance documentation, no video — not because these practices are uncommon, but because they perform poorly at auction and are therefore underrepresented in the day sale structure. This absence is a Greenbergian legacy: the market for object-based, canvas-based painting that Greenberg's criticism helped construct is the market that still dominates the mid-market auction. Practices that challenge object-specificity (Conceptual, video, installation) have a different market infrastructure — private sales, institutional acquisition, artist-directed pricing — that is less visible in the hammer-and-estimate public record.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CITATIONS -->
+<section class="citations-section" id="citations">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">Further Reading</div>
+            <h2 class="section-title">Citations and Sources</h2>
+            <p class="section-desc">Greenberg is most productively read alongside his critics — particularly the October journal critics who dismantled his formalism — and in parallel with Bourdieu, whose field theory provides the sociological account Greenberg refused to give.</p>
+        </div>
+
+        <div class="citations-grid">
+            <div>
+                <div class="citations-column-title">Primary Sources</div>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <div class="citation-author">Greenberg, Clement</div>
+                        <div class="citation-title">Art and Culture: Critical Essays</div>
+                        <div class="citation-detail">Beacon Press, Boston, 1961. The collected and revised essays — the primary text through which Greenberg's argument has been read and taught.</div>
+                        <div class="citation-note">Start here. Essays reprinted with significant revisions from periodical originals — compare with The Collected Essays for the differences.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Greenberg, Clement</div>
+                        <div class="citation-title">The Collected Essays and Criticism (4 vols.)</div>
+                        <div class="citation-detail">Ed. John O'Brian. University of Chicago Press, 1986–1993. The complete unrevised periodical texts — essential for understanding how the argument developed and was later sanitised.</div>
+                        <div class="citation-note">Vol. 1 (1939–44) contains the original "Avant-Garde and Kitsch"; Vol. 4 (1969–78) covers the late period and the Colour Field criticism.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Greenberg, Clement</div>
+                        <div class="citation-title">"Avant-Garde and Kitsch"</div>
+                        <div class="citation-detail">Partisan Review, Vol. 6, No. 5, Fall 1939, pp. 34–49. The founding essay — widely reprinted, available via JSTOR.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Greenberg, Clement</div>
+                        <div class="citation-title">"Modernist Painting"</div>
+                        <div class="citation-detail">Forum Lectures (Voice of America), Washington D.C., 1960. Reprinted in Art in Theory 1900–2000, ed. Harrison and Wood. The most systematic formulation of the medium specificity argument.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Greenberg, Clement</div>
+                        <div class="citation-title">"Towards a Newer Laocoon"</div>
+                        <div class="citation-detail">Partisan Review, Vol. 7, No. 4, July–August 1940, pp. 296–310. The formal theoretical complement to the 1939 essay.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="citations-column-title">Secondary Literature</div>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <div class="citation-author">Krauss, Rosalind</div>
+                        <div class="citation-title">The Originality of the Avant-Garde and Other Modernist Myths</div>
+                        <div class="citation-detail">MIT Press, Cambridge MA, 1985. The definitive post-structuralist critique of Greenbergian modernism — dismantles the originality thesis using Duchamp and the grid.</div>
+                        <div class="citation-note">The most important single response to Greenberg — reads him as the theorist of an ideology of originality that his own practice contradicts.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Buchloh, Benjamin H.D.</div>
+                        <div class="citation-title">Neo-Avantgarde and Culture Industry</div>
+                        <div class="citation-detail">MIT Press, Cambridge MA, 2000. Essays on art from 1955 to 1975. Develops the Frankfurt School critique of the culture industry against Greenberg's apolitical formalism.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Foster, Hal</div>
+                        <div class="citation-title">The Return of the Real</div>
+                        <div class="citation-detail">MIT Press, Cambridge MA, 1996. Positions the neo-avant-garde against Greenberg's narrative of modernist teleology — argues for a deferred, repetitive model of avant-garde history that Greenberg cannot accommodate.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">O'Brian, John</div>
+                        <div class="citation-title">Clement Greenberg: A Life</div>
+                        <div class="citation-detail">University of Chicago Press, 2019. The standard biography — essential for understanding the institutional contexts and personal relationships that shaped his criticism.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Guilbaut, Serge</div>
+                        <div class="citation-title">How New York Stole the Idea of Modern Art</div>
+                        <div class="citation-detail">University of Chicago Press, 1983. A political and institutional history of Abstract Expressionism's rise — the account Greenberg was unable or unwilling to give of his own criticism's cultural-political function during the Cold War.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <div class="page-footer-inner">
+        <a href="index.html#philosophy" class="footer-back">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5H12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 6 5)"/></svg>
+            Return to Philosophy Frameworks
+        </a>
+        <div class="footer-ref">
+            Greenberg, Clement. "Avant-Garde and Kitsch." <em>Partisan Review,</em> Vol. 6, No. 5, 1939.<br>
+            Collected in <em>Art and Culture: Critical Essays.</em> Beacon Press, 1961.
+        </div>
+    </div>
+</footer>
+
+<script>
+    'use strict';
+
+    const progressBar = document.getElementById('progressBar');
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+    }
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 100;
+            if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    window.addEventListener('scroll', () => {
+        updateProgress();
+        updateActiveNav();
+    }, { passive: true });
+</script>
+
+</body>
+</html>

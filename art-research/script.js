@@ -167,34 +167,107 @@ async function loadArtworkImages(card) {
     }));
 }
 
-function wireFilters() {
-    const btns        = document.querySelectorAll('.movement-btn');
+const MOVEMENTS = [
+    { id: 'impressionism',          label: 'Impressionism',          period: 'c. 1870–1900' },
+    { id: 'post-impressionism',     label: 'Post-Impressionism',     period: 'c. 1886–1910' },
+    { id: 'expressionism',          label: 'Expressionism',          period: 'c. 1905–1930' },
+    { id: 'cubism',                 label: 'Cubism',                 period: 'c. 1907–1930' },
+    { id: 'dada',                   label: 'Dada',                   period: 'c. 1916–1924' },
+    { id: 'surrealism',             label: 'Surrealism',             period: 'c. 1924–1945' },
+    { id: 'modernism',              label: 'Modernism',              period: 'c. 1910–1950' },
+    { id: 'abstract-expressionism', label: 'Abstract Expressionism', period: 'c. 1943–1965' },
+    { id: 'colour-field',           label: 'Colour Field',           period: 'c. 1950–1970' },
+    { id: 'pop-art',                label: 'Pop Art',                period: 'c. 1955–1975' },
+    { id: 'minimalism',             label: 'Minimalism',             period: 'c. 1960–1975' },
+    { id: 'conceptual',             label: 'Conceptual Art',         period: 'c. 1966–present' },
+    { id: 'neo-expressionism',      label: 'Neo-Expressionism',      period: 'c. 1980–1990' },
+    { id: 'photography',            label: 'Photography',            period: 'medium' },
+    { id: 'sculpture',              label: 'Sculpture',              period: 'medium' },
+    { id: 'installation',           label: 'Installation',           period: 'c. 1960–present' },
+    { id: 'street-art',             label: 'Street Art',             period: 'c. 1970–present' },
+    { id: 'new-media',              label: 'New Media',              period: 'c. 1990–present' },
+    { id: 'contemporary',           label: 'Contemporary',           period: 'c. 1970–present' },
+];
+
+const CLUSTER_PREVIEW = 8;
+
+function buildTimeline(artists) {
+    const byMovement = {};
+    artists.forEach(a => {
+        const id = a.movement_id || 'contemporary';
+        if (!byMovement[id]) byMovement[id] = [];
+        byMovement[id].push(a);
+    });
+
+    return MOVEMENTS
+        .filter(m => byMovement[m.id] && byMovement[m.id].length > 0)
+        .map(m => {
+            const group = byMovement[m.id];
+            const visible = group.slice(0, CLUSTER_PREVIEW);
+            const hidden  = group.slice(CLUSTER_PREVIEW);
+
+            const visibleHtml = visible.map((a, i) => buildArtistCard(a, i)).join('');
+            const overflowHtml = hidden.length
+                ? `<div class="cluster-overflow" hidden>${hidden.map((a, i) => buildArtistCard(a, visible.length + i)).join('')}</div>
+                   <button class="cluster-show-more" data-hidden="${hidden.length}">Show ${hidden.length} more →</button>`
+                : '';
+
+            return `<div class="movement-cluster" data-movement="${m.id}">
+                <div class="movement-node">
+                    <div class="movement-node__label">${m.label}</div>
+                    <div class="movement-node__period">${m.period}</div>
+                    <div class="movement-node__count">${group.length} artist${group.length !== 1 ? 's' : ''}</div>
+                </div>
+                <div class="cluster-cards">${visibleHtml}${overflowHtml}</div>
+            </div>`;
+        })
+        .join('');
+}
+
+function wireTimeline() {
     const searchInput = document.getElementById('artistSearch');
-    const grid        = document.getElementById('artistsGrid');
+    const timeline    = document.getElementById('movementTimeline');
 
-    function applyFilters() {
-        const movement = document.querySelector('.movement-btn.active')?.dataset.movement || 'all';
-        const query    = (searchInput?.value || '').trim().toLowerCase();
-
-        grid.querySelectorAll('.artist-card').forEach(card => {
-            const matchMovement = movement === 'all' || card.dataset.movement === movement;
-            const matchName     = !query || card.dataset.name.includes(query);
-            card.classList.toggle('hidden', !(matchMovement && matchName));
+    function resetClusters() {
+        timeline.querySelectorAll('.movement-cluster').forEach(cluster => {
+            cluster.hidden = false;
+            cluster.querySelectorAll('.artist-card').forEach(c => c.classList.remove('hidden'));
+            cluster.querySelectorAll('.cluster-overflow').forEach(ov => { ov.hidden = true; });
+            cluster.querySelectorAll('.cluster-show-more').forEach(btn => { btn.hidden = false; });
         });
     }
 
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            applyFilters();
+    searchInput?.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) { resetClusters(); return; }
+
+        timeline.querySelectorAll('.movement-cluster').forEach(cluster => {
+            cluster.querySelectorAll('.cluster-overflow').forEach(ov => { ov.hidden = false; });
+            cluster.querySelectorAll('.cluster-show-more').forEach(btn => { btn.hidden = true; });
+
+            let anyVisible = false;
+            cluster.querySelectorAll('.artist-card').forEach(card => {
+                const match = card.dataset.name.includes(query);
+                card.classList.toggle('hidden', !match);
+                if (match) anyVisible = true;
+            });
+            cluster.hidden = !anyVisible;
         });
     });
 
-    searchInput?.addEventListener('input', applyFilters);
+    timeline.addEventListener('click', e => {
+        const showMoreBtn = e.target.closest('.cluster-show-more');
+        if (showMoreBtn) {
+            const cluster = showMoreBtn.closest('.movement-cluster');
+            const overflow = cluster.querySelector('.cluster-overflow');
+            if (overflow) {
+                overflow.hidden = false;
+                overflow.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            }
+            showMoreBtn.remove();
+            return;
+        }
 
-    // Accordion toggles — delegate from grid
-    grid.addEventListener('click', e => {
         const header = e.target.closest('.artist-card__header');
         if (!header) return;
         const card = header.closest('.artist-card');
@@ -236,18 +309,14 @@ async function loadResearch() {
         desc.textContent = `Profiles drawn from ${stats.total_lots.toLocaleString()} auction lots across ${(stats.sources || []).join(', ')} — biography, key works, and market performance. Synced ${stats.generated_at}. All prices are hammer in USD.`;
     }
 
-    // Render artist grid
-    const grid = document.getElementById('artistsGrid');
-    const profiled  = artists.filter(a => a.bio);
-    const stubs     = artists.filter(a => !a.bio);
+    // Render movement timeline
+    const timeline = document.getElementById('movementTimeline');
+    timeline.innerHTML = buildTimeline(artists);
 
-    grid.innerHTML = profiled.map((a, i) => buildArtistCard(a, i)).join('') +
-                     stubs.map((a, i) => buildArtistCard(a, profiled.length + i)).join('');
+    // Observe visible cards (overflow cards are hidden until "Show more")
+    timeline.querySelectorAll('.cluster-cards > .artist-card.reveal').forEach(el => revealObserver.observe(el));
 
-    // Observe new cards
-    grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    wireFilters();
+    wireTimeline();
 }
 
 loadResearch();

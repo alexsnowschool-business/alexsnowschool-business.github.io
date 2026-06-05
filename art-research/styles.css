@@ -549,17 +549,8 @@ section { padding: 120px 0; }
     margin-bottom: 64px;
 }
 
-.artists-filter-row {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.artists-search-row {
     margin-top: 32px;
-}
-
-.movement-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
 }
 
 .artist-search-wrap {
@@ -600,26 +591,110 @@ section { padding: 120px 0; }
     cursor: pointer;
 }
 
-.movement-btn {
+/* ── MOVEMENT TIMELINE ──────────────── */
+
+.movement-timeline {
+    position: relative;
+    padding-left: 68px;
+    margin-top: 16px;
+}
+
+.movement-timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 16px;
+    bottom: 40px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 4%, var(--rule-gold) 96%, transparent);
+}
+
+.movement-cluster {
+    position: relative;
+    margin-bottom: 72px;
+}
+
+.movement-cluster[hidden] { display: none; }
+
+.movement-node {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0;
+}
+
+.movement-node::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 10px;
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    background: var(--ivory-deep);
+}
+
+.movement-node__label {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--slate);
+    line-height: 1.2;
+}
+
+.movement-node__period {
     font-family: var(--font-sans);
     font-size: 0.60rem;
     font-weight: 400;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--stone);
-    background: transparent;
-    border: 1px solid var(--rule);
-    padding: 7px 16px;
-    cursor: pointer;
-    transition: all var(--transition);
+    align-self: center;
 }
 
-.movement-btn:hover,
-.movement-btn.active {
-    background: var(--slate);
-    color: var(--ivory);
-    border-color: var(--slate);
+.movement-node__count {
+    margin-left: auto;
+    font-family: var(--font-sans);
+    font-size: 0.60rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    align-self: center;
 }
+
+.cluster-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.cluster-overflow { display: flex; flex-direction: column; }
+
+.cluster-show-more {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 18px 0;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    cursor: pointer;
+    transition: color var(--transition);
+}
+
+.cluster-show-more:hover { color: var(--slate); }
 
 /* ── ARTIST ACCORDION LIST ──────────── */
 
@@ -1193,6 +1268,9 @@ footer {
     .artist-card__header-right { gap: 16px; }
     .artist-dates { display: none; }
     .artist-card__body-content { grid-template-columns: 1fr; gap: 24px; }
+    .movement-timeline { padding-left: 32px; }
+    .movement-timeline::before { left: 6px; }
+    .movement-node::before { left: -26px; }
 }
 
 @media (max-width: 600px) {
@@ -1202,4 +1280,8 @@ footer {
     section { padding: 80px 0; }
     .artist-auction-value { display: none; }
     .artist-search { width: 100%; }
+    .movement-timeline { padding-left: 20px; }
+    .movement-timeline::before { display: none; }
+    .movement-node::before { display: none; }
+    .movement-node__count { margin-left: 0; width: 100%; }
 }

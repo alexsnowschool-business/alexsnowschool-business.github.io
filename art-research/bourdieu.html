@@ -618,6 +618,63 @@
             line-height: 2;
         }
 
+        /* CITATIONS */
+        .citations-section { background: var(--ivory); }
+        .citations-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .citations-column-title {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--rule-gold);
+            margin-bottom: 28px;
+        }
+        .citation-list { list-style: none; display: flex; flex-direction: column; }
+        .citation-item { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+        .citation-item:last-child { border-bottom: none; }
+        .citation-author {
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 4px;
+        }
+        .citation-title {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        .citation-detail {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--stone);
+            line-height: 1.7;
+        }
+        .citation-note {
+            margin-top: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--stone-light);
+            line-height: 1.7;
+        }
+
         /* ── RESPONSIVE ──────────────────── */
         @media (max-width: 900px) {
             .concepts-grid { grid-template-columns: 1fr; }
@@ -629,6 +686,7 @@
             .class-row { grid-template-columns: 1fr; }
             .class-label-col { border-right: none; border-bottom: 1px solid var(--rule); }
             .bourdieu-hero-meta { gap: 28px; }
+            .citations-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -650,6 +708,7 @@
             <a href="#capital">Capital</a>
             <a href="#classes">Classes</a>
             <a href="#application">Market</a>
+            <a href="#citations">Citations</a>
         </nav>
     </div>
 </nav>
@@ -1072,6 +1131,80 @@
                 <p class="application-body">Critical consecration (museum exhibition, scholarly monograph, major retrospective) typically precedes market consecration by a decade or more. This lag is Bourdieuian: the market is the heteronomous pole of the artistic field, responsive to signals from the autonomous (critical, institutional) pole but with a delay determined by the conversion time of symbolic into economic capital. Artists who receive major institutional attention (MoMA acquisition, Venice Biennale selection) typically see auction performance rise significantly 10–15 years later — the lag is the time required for symbolic capital to accumulate enough density to crystallise as market value.</p>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- CITATIONS -->
+<section class="citations-section" id="citations">
+    <div class="container">
+        <div class="reveal">
+            <div class="section-tag">Further Reading</div>
+            <h2 class="section-title">Citations and Sources</h2>
+            <p class="section-desc">Bourdieu is most productively read alongside the empirical sociology of cultural consumption and in conjunction with the art-historical debates he directly engages — particularly those around the social conditions of aesthetic judgement.</p>
+        </div>
+
+        <div class="citations-grid">
+            <div>
+                <div class="citations-column-title">Primary Sources</div>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <div class="citation-author">Bourdieu, Pierre</div>
+                        <div class="citation-title">Distinction: A Social Critique of the Judgement of Taste</div>
+                        <div class="citation-detail">Trans. Richard Nice. Harvard University Press, Cambridge MA, 1984. Originally La distinction: Critique sociale du jugement, Les Éditions de Minuit, Paris, 1979.</div>
+                        <div class="citation-note">Start here. The central text — Parts I and II for the theory; Part III for the empirical class fractions and their taste profiles.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Bourdieu, Pierre</div>
+                        <div class="citation-title">The Rules of Art: Genesis and Structure of the Literary Field</div>
+                        <div class="citation-detail">Trans. Susan Emanuel. Stanford University Press, 1996. Originally Les règles de l'art, Editions du Seuil, Paris, 1992. A field-theory analysis of nineteenth-century French literature (Flaubert, Baudelaire) as a model for understanding the autonomous cultural field.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Bourdieu, Pierre</div>
+                        <div class="citation-title">The Field of Cultural Production</div>
+                        <div class="citation-detail">Ed. Randal Johnson. Columbia University Press, New York, 1993. A collection of essays applying field theory to literature and art — the clearest single-volume introduction to Bourdieu's cultural sociology.</div>
+                        <div class="citation-note">The essay "The Production of Belief" (1977) is essential for understanding how the art market functions as a field of symbolic capital conversion.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Bourdieu, Pierre</div>
+                        <div class="citation-title">The Logic of Practice</div>
+                        <div class="citation-detail">Trans. Richard Nice. Stanford University Press, 1990. Originally Le sens pratique, Les Éditions de Minuit, 1980. The most rigorous treatment of habitus and the relationship between structure and practical action.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="citations-column-title">Secondary Literature</div>
+                <ul class="citation-list">
+                    <li class="citation-item">
+                        <div class="citation-author">Wacquant, Loïc</div>
+                        <div class="citation-title">Toward a Social Praxeology (introduction to An Invitation to Reflexive Sociology)</div>
+                        <div class="citation-detail">In: Bourdieu, Pierre and Wacquant, Loïc. An Invitation to Reflexive Sociology. University of Chicago Press, 1992. The clearest single-chapter introduction to Bourdieu's theoretical vocabulary — field, capital, habitus, doxa.</div>
+                        <div class="citation-note">If you read nothing else, read this. Wacquant reconstructs the conceptual architecture with unusual clarity.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Lahire, Bernard</div>
+                        <div class="citation-title">The Plural Actor</div>
+                        <div class="citation-detail">Trans. David Fernbach. Polity Press, Cambridge, 2011. Originally L'homme pluriel, Nathan, Paris, 1998. The most sustained sociological critique of Bourdieu's habitus concept — argues that individuals carry multiple, contradictory dispositions across different fields.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Savage, Mike</div>
+                        <div class="citation-title">Social Class in the 21st Century</div>
+                        <div class="citation-detail">Pelican Books / Penguin, London, 2015. Empirical update of Bourdieu's class analysis for contemporary Britain — the Great British Class Survey data, using Bourdieu's capital framework to map seven contemporary class positions.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Peterson, Richard A.</div>
+                        <div class="citation-title">Understanding Audience Segmentation: From Elite and Mass to Omnivore and Univore</div>
+                        <div class="citation-detail">Poetics, Vol. 21, No. 4, August 1992, pp. 243–258. The empirical challenge to Bourdieu's taste hierarchy — argues that high-status individuals in contemporary societies are cultural omnivores rather than highbrow exclusivists.</div>
+                        <div class="citation-note">The "omnivore thesis" is the most important empirical challenge to Distinction's taste hierarchy — and points toward post-Bourdieusian cultural sociology.</div>
+                    </li>
+                    <li class="citation-item">
+                        <div class="citation-author">Swartz, David</div>
+                        <div class="citation-title">Culture and Power: The Sociology of Pierre Bourdieu</div>
+                        <div class="citation-detail">University of Chicago Press, 1997. The most comprehensive secondary account of Bourdieu's theoretical system — essential for understanding the relationship between field theory, capital, and symbolic power.</div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
