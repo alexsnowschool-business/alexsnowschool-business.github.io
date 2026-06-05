@@ -990,7 +990,7 @@ def _split_sentences(words: list[dict]) -> list[list[dict]]:
     return sentences
 
 
-def _words_to_captions(words: list[dict], words_per_cue: int = 12,
+def _words_to_captions(words: list[dict], words_per_cue: int = 8,
                         min_duration: float = 0.6, tail: float = 0.1) -> list[dict]:
     """Group word timestamps into 8-word caption cues (2 lines of ~4 words)."""
     captions = []
