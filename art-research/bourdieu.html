@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bourdieu — Distinction: A Social Critique of the Judgement of Taste</title>
+    <meta name="description" content="A close reading of Pierre Bourdieu's Distinction (1979) — habitus, cultural capital, field theory, and the sociology of aesthetic taste." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* ── PAGE-SPECIFIC OVERRIDES ─────── */
+
+        .bourdieu-hero {
+            background: var(--slate);
+            min-height: 72vh;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+            padding-top: 72px;
+        }
+
+        .bourdieu-hero .hero-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 60px,
+                rgba(168, 134, 74, 0.025) 60px,
+                rgba(168, 134, 74, 0.025) 61px
+            );
+        }
+
+        .bourdieu-hero .hero-vert {
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(168, 134, 74, 0.18) 30%, rgba(168, 134, 74, 0.18) 70%, transparent);
+        }
+
+        .bourdieu-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 80px 40px 100px;
+        }
+
+        .bourdieu-hero-breadcrumb {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold-warm);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bourdieu-hero-breadcrumb::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+
+        .bourdieu-hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 4.8rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.08;
+            color: var(--ivory);
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+            max-width: 700px;
+        }
+
+        .bourdieu-hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1rem, 1.8vw, 1.45rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold-warm);
+            margin-bottom: 40px;
+            opacity: 0.72;
+        }
+
+        .bourdieu-hero-meta {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .bourdieu-hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bourdieu-hero-meta-label {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(244, 239, 230, 0.30);
+        }
+
+        .bourdieu-hero-meta-value {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(244, 239, 230, 0.75);
+        }
+
+        /* ── INTRO PROSE ─────────────────── */
+        .intro-section {
+            background: var(--ivory-pure);
+        }
+
+        .prose-block {
+            max-width: 760px;
+        }
+
+        .prose-block p {
+            font-family: var(--font-sans);
+            font-size: 1.08rem;
+            font-weight: 300;
+            line-height: 2.1;
+            color: var(--slate-soft);
+            margin-bottom: 28px;
+            letter-spacing: 0.008em;
+        }
+
+        .prose-block p:last-child { margin-bottom: 0; }
+
+        .pull-quote {
+            border-left: 1px solid var(--gold);
+            padding: 24px 32px;
+            margin: 52px 0;
+            background: rgba(168, 134, 74, 0.04);
+        }
+
+        .pull-quote-text {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--slate);
+            margin-bottom: 12px;
+        }
+
+        .pull-quote-source {
+            font-family: var(--font-sans);
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--stone);
+        }
+
+        /* ── CONCEPTS GRID ───────────────── */
+        .concepts-section {
+            background: var(--ivory);
+        }
+
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+            margin-top: 72px;
+        }
+
+        .concept-card {
+            background: var(--ivory-card);
+            padding: 44px 36px;
+            transition: background var(--transition);
+        }
+
+        .concept-card:hover { background: var(--ivory-pure); }
+
+        .concept-number {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .concept-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+
+        .concept-french {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--stone-light);
+            margin-bottom: 20px;
+        }
+
+        .concept-body {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--slate-soft);
+        }
+
+        .concept-example {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--rule);
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.85;
+            color: var(--stone);
+            font-style: italic;
+        }
+
+        /* ── CHAPTERS ────────────────────── */
+        .chapters-section {
+            background: var(--ivory-pure);
+        }
+
+        .chapter-list {
+            margin-top: 72px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .chapter-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 0;
+            border-top: 1px solid var(--rule);
+            padding: 48px 0;
+        }
+
+        .chapter-item:last-child { border-bottom: 1px solid var(--rule); }
+
+        .chapter-label {
+            padding-right: 48px;
+        }
+
+        .chapter-part {
+            font-family: var(--font-sans);
+            font-size: 0.56rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .chapter-title {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.3;
+        }
+
+        .chapter-body {
+            font-family: var(--font-sans);
+            font-size: 0.97rem;
+            font-weight: 300;
+            line-height: 2;
+            color: var(--slate-soft);
+        }
+
+        .chapter-body p { margin-bottom: 20px; }
+        .chapter-body p:last-child { margin-bottom: 0; }
+
+        .chapter-quote {
+            margin-top: 24px;
+            padding: 20px 24px;
+            border-left: 1px solid var(--rule-gold);
+            background: rgba(168, 134, 74, 0.03);
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            line-height: 1.65;
+        }
+
+        /* ── CAPITAL TABLE ───────────────── */
+        .capital-section {
+            background: var(--slate);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .capital-section .hero-texture {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 60px,
+                rgba(168, 134, 74, 0.025) 60px,
+                rgba(168, 134, 74, 0.025) 61px
+            );
+            pointer-events: none;
+        }
+
+        .capital-section .section-tag { color: var(--gold-warm); }
+        .capital-section .section-title { color: var(--ivory); }
+        .capital-section .section-desc { color: rgba(244, 239, 230, 0.45); }
+
+        .capital-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: rgba(244, 239, 230, 0.07);
+            border: 1px solid rgba(244, 239, 230, 0.07);
+            margin-top: 72px;
+        }
+
+        .capital-card {
+            padding: 52px 44px;
+            background: rgba(26, 25, 22, 0.5);
+            transition: background var(--transition);
+        }
+
+        .capital-card:hover { background: rgba(26, 25, 22, 0.3); }
+
+        .capital-type {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .capital-name {
+            font-family: var(--font-serif);
+            font-size: 1.65rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ivory);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .capital-body {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 2;
+            color: rgba(244, 239, 230, 0.52);
+            margin-bottom: 24px;
+        }
+
+        .capital-art-example {
+            padding-top: 20px;
+            border-top: 1px solid rgba(244, 239, 230, 0.08);
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.85;
+            color: rgba(168, 134, 74, 0.7);
+            font-style: italic;
+        }
+
+        /* ── CLASS DIAGRAM ───────────────── */
+        .classes-section {
+            background: var(--ivory-card);
+        }
+
+        .class-stack {
+            margin-top: 72px;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+        }
+
+        .class-row {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 0;
+            background: var(--ivory-pure);
+            transition: background var(--transition);
+        }
+
+        .class-row:hover { background: var(--ivory-card); }
+
+        .class-label-col {
+            padding: 44px 36px;
+            border-right: 1px solid var(--rule);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .class-name {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 6px;
+        }
+
+        .class-fr {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--stone-light);
+        }
+
+        .class-content-col {
+            padding: 44px 44px;
+        }
+
+        .class-taste {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .class-body {
+            font-family: var(--font-sans);
+            font-size: 0.97rem;
+            font-weight: 300;
+            line-height: 2;
+            color: var(--slate-soft);
+        }
+
+        .class-examples {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .class-tag {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--stone);
+            padding: 4px 10px;
+            border: 1px solid var(--rule);
+        }
+
+        /* ── CRITIQUES ───────────────────── */
+        .critiques-section {
+            background: var(--ivory);
+        }
+
+        .critique-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .critique-card {
+            padding: 44px;
+            border: 1px solid var(--rule);
+        }
+
+        .critique-header {
+            font-family: var(--font-sans);
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .critique-card--against .critique-header { color: var(--burgundy); }
+        .critique-card--for .critique-header { color: var(--gold); }
+
+        .critique-title {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .critique-body {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 2;
+            color: var(--slate-soft);
+        }
+
+        /* ── MARKET APPLICATION ──────────── */
+        .market-application-section {
+            background: var(--ivory-pure);
+        }
+
+        .application-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--rule);
+            border: 1px solid var(--rule);
+        }
+
+        .application-card {
+            background: var(--ivory-card);
+            padding: 44px 36px;
+        }
+
+        .application-number {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--gold);
+            opacity: 0.35;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .application-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--slate);
+            margin-bottom: 16px;
+            line-height: 1.35;
+        }
+
+        .application-body {
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--slate-soft);
+        }
+
+        /* ── FOOTER NAV ──────────────────── */
+        .page-footer {
+            background: var(--slate);
+            padding: 64px 0;
+            border-top: 1px solid rgba(244, 239, 230, 0.06);
+        }
+
+        .page-footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-back {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(244, 239, 230, 0.45);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color var(--transition);
+        }
+
+        .footer-back:hover { color: var(--gold-warm); }
+
+        .footer-ref {
+            font-family: var(--font-sans);
+            font-size: 0.60rem;
+            font-weight: 300;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(244, 239, 230, 0.22);
+            text-align: right;
+            line-height: 2;
+        }
+
+        /* ── RESPONSIVE ──────────────────── */
+        @media (max-width: 900px) {
+            .concepts-grid { grid-template-columns: 1fr; }
+            .capital-grid { grid-template-columns: 1fr; }
+            .critique-grid { grid-template-columns: 1fr; }
+            .application-grid { grid-template-columns: 1fr; }
+            .chapter-item { grid-template-columns: 1fr; }
+            .chapter-label { padding-right: 0; margin-bottom: 24px; }
+            .class-row { grid-template-columns: 1fr; }
+            .class-label-col { border-right: none; border-bottom: 1px solid var(--rule); }
+            .bourdieu-hero-meta { gap: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-home">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5H12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 6 5)"/></svg>
+            Art Research
+        </a>
+        <div class="nav-title">Bourdieu — Distinction</div>
+        <nav class="nav-links">
+            <a href="#argument">Argument</a>
+            <a href="#concepts">Concepts</a>
+            <a href="#chapters">Chapters</a>
+            <a href="#capital">Capital</a>
+            <a href="#classes">Classes</a>
+            <a href="#application">Market</a>
+        </nav>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="bourdieu-hero" id="top">
+    <div class="hero-texture"></div>
+    <div class="hero-vert"></div>
+    <div class="bourdieu-hero-content">
+        <div class="bourdieu-hero-breadcrumb">Philosophy — Framework IV</div>
+        <h1 class="bourdieu-hero-title">Distinction: A Social Critique of the Judgement of Taste</h1>
+        <p class="bourdieu-hero-subtitle">Pierre Bourdieu · 1979</p>
+        <div class="bourdieu-hero-meta">
+            <div class="bourdieu-hero-meta-item">
+                <span class="bourdieu-hero-meta-label">Author</span>
+                <span class="bourdieu-hero-meta-value">Pierre Bourdieu</span>
+            </div>
+            <div class="bourdieu-hero-meta-item">
+                <span class="bourdieu-hero-meta-label">Published</span>
+                <span class="bourdieu-hero-meta-value">1979 (Fr) · 1984 (Eng)</span>
+            </div>
+            <div class="bourdieu-hero-meta-item">
+                <span class="bourdieu-hero-meta-label">Field</span>
+                <span class="bourdieu-hero-meta-value">Sociology of Culture</span>
+            </div>
+            <div class="bourdieu-hero-meta-item">
+                <span class="bourdieu-hero-meta-label">Method</span>
+                <span class="bourdieu-hero-meta-value">Survey data · 1,217 respondents</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ARGUMENT -->
+<section class="intro-section" id="argument">
+    <div class="container">
+        <div class="section-tag reveal">The Central Argument</div>
+        <h2 class="section-title reveal">Taste is not natural.<br>It is a political act.</h2>
+
+        <div class="prose-block reveal">
+            <p>Bourdieu opens <em>Distinction</em> with a direct challenge to Kant. Kant argued that aesthetic judgement — the experience of beauty — is "disinterested": it is universal, independent of personal preference, economic interest, or social position. Bourdieu's response, backed by survey data gathered across France in the 1960s, is that this is empirically false. What people find beautiful, what music they prefer, what furniture they own, what they eat — all of these correlate almost perfectly with their class position and the quantity and type of education they have received.</p>
+
+            <p>This is not a trivial sociological observation. If Kant is right, then aesthetic experience is one of the few domains where social inequality is irrelevant — anyone, regardless of class, can experience beauty. If Bourdieu is right, then the claim that aesthetic taste is universal is itself an ideology: it mystifies class privilege by presenting it as natural sensitivity. The person who appreciates Schoenberg over Strauss is not more spiritually advanced — they are more educated in the specific way that their class position allowed and required.</p>
+
+            <p>The book has three interlocking arguments. First, that taste is the product of the <em>habitus</em> — a set of internalized dispositions that structures perception and action. Second, that these dispositions are shaped by the different volumes and compositions of <em>capital</em> — economic, cultural, and social — that different class fractions possess. Third, that the function of taste is <em>distinction</em>: the drawing of social boundaries through aesthetic preference, which naturalises class hierarchy by making it appear to be a hierarchy of sensibility rather than of privilege.</p>
+
+            <div class="pull-quote">
+                <p class="pull-quote-text">"Taste classifies, and it classifies the classifier. Social subjects, classified by their classifications, distinguish themselves by the distinctions they make."</p>
+                <span class="pull-quote-source">Pierre Bourdieu, Distinction (1979), Introduction</span>
+            </div>
+
+            <p>The book's method is unusual for philosophy: Bourdieu deploys correspondence analysis on survey responses about cultural preferences across 1,217 respondents (later expanded), then maps the resulting structures onto class positions. The argument is not that class determines taste mechanically — it is that there is a structural <em>homology</em> between the space of social positions and the space of life-styles. The two spaces mirror each other because both are produced by the same underlying principles of differentiation.</p>
+
+            <p>For the art world, this reframes everything. The "pure gaze" — the ability to appreciate a work of art for its formal qualities alone, independent of what it represents or what social world it came from — is not a faculty. It is a <em>competence</em>, acquired through prolonged exposure to legitimate culture, conferred by the educational system, and distributed unequally along class lines. It can be measured. It can be predicted. And it serves power, even when it feels like freedom.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCEPTS -->
+<section class="concepts-section" id="concepts">
+    <div class="container">
+        <div class="concepts-header reveal">
+            <div class="section-tag">Core Vocabulary</div>
+            <h2 class="section-title">Six Concepts That Structure the Argument</h2>
+            <p class="section-desc">Bourdieu builds a new theoretical language because existing sociological vocabulary cannot capture what he is trying to show. Each concept is a tool, not a label.</p>
+        </div>
+
+        <div class="concepts-grid">
+
+            <div class="concept-card reveal">
+                <div class="concept-number">I.</div>
+                <div class="concept-title">Habitus</div>
+                <div class="concept-french">habitus</div>
+                <p class="concept-body">The habitus is the system of durable, transposable dispositions that individuals acquire through their social trajectory — their class of origin, their educational experience, their family. It is not a set of rules that agents consciously follow; it operates below the level of conscious deliberation, as a structured "feel for the game." The habitus generates perceptions, judgements, and practices that are adapted to the social world the agent inhabits, without being the result of conscious calculation.</p>
+                <p class="concept-body" style="margin-top: 16px;">For taste: the person raised in a household with books, classical music, and regular museum visits develops an art habitus that makes the appreciation of certain forms feel natural and effortless. This is not talent — it is embodied class history.</p>
+                <div class="concept-example">In the auction room: the experienced collector who "just knows" that a lot is underestimated is exercising habitus, not instinct. The knowledge is real — it is the accumulated residue of years of market exposure.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">II.</div>
+                <div class="concept-title">Field</div>
+                <div class="concept-french">champ</div>
+                <p class="concept-body">A field is a structured social space in which agents hold positions and compete for resources — but the resources at stake are specific to that field. The artistic field has its own stakes (recognition, consecration, critical prestige), its own logic (the "pure" pole versus the "commercial" pole), and its own rules about what counts as legitimate entry and what constitutes success. Fields are relatively autonomous: what counts as success in the artistic field is not directly reducible to economic success — often it is defined in opposition to it.</p>
+                <p class="concept-body" style="margin-top: 16px;">Fields are nested: the artistic field exists within the field of cultural production, which exists within the broader field of power. The autonomy of any field is always partial and contested.</p>
+                <div class="concept-example">Christie's is a field intersection: the artistic field (symbolic value) meets the economic field (financial value). The tension produces the auction's distinctive language — "important," "significant," "fresh to market" — which translates symbolic into financial capital.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">III.</div>
+                <div class="concept-title">Capital</div>
+                <div class="concept-french">capital</div>
+                <p class="concept-body">Bourdieu extends the economic concept of capital to cover all resources that can be accumulated and converted. He identifies three primary types, plus a fourth that mediates the others. Capital is what is at stake in the struggles within a field — agents compete to accumulate it, preserve it, and convert it from one type to another. The relative weight of economic versus cultural capital in an agent's portfolio shapes their class fraction and their aesthetic dispositions.</p>
+                <p class="concept-body" style="margin-top: 16px;">The conversion rates between types of capital are a central mechanism of class reproduction: cultural capital can be converted into economic capital (the art dealer), and economic capital can be converted into cultural capital (the collector's philanthropy).</p>
+                <div class="concept-example">See the Capital section below for a full breakdown of all four types and their operation in the art world.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">IV.</div>
+                <div class="concept-title">Distinction</div>
+                <div class="concept-french">la distinction</div>
+                <p class="concept-body">Distinction is the social function of taste: through aesthetic preferences, social actors mark themselves off from other groups. This is not necessarily a conscious or cynical process — the person who genuinely finds commercial pop music unpleasant is not performing disgust, they are experiencing it. But the disgust is socially produced and socially functional: it maintains the boundary between those with legitimate cultural competence and those without it.</p>
+                <p class="concept-body" style="margin-top: 16px;">Bourdieu is careful to note that distinction operates at all levels: the working class has its own tastes, which are adapted to their conditions of existence and which they defend against both below and above. The logic of distinction is not simply the top looking down — it is a field of mutual differentiation at all positions.</p>
+                <div class="concept-example">The collector who dismisses "investment-grade" art buyers as nouveau riche is performing distinction against an adjacent class fraction — not from above, but from within the dominant class.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">V.</div>
+                <div class="concept-title">Symbolic Violence</div>
+                <div class="concept-french">violence symbolique</div>
+                <p class="concept-body">Symbolic violence is the imposition of meanings and classifications as legitimate when they serve the interests of dominant groups — and crucially, this imposition is accomplished with the complicity of those who submit to it. It is not physical violence or even conscious coercion: it operates through misrecognition (<em>méconnaissance</em>), the tendency of dominated agents to experience the social world in the categories provided by the dominant. The person who says "I just don't understand modern art" is applying a dominant taxonomy in which understanding modern art is a mark of cultural legitimacy — and accepting their own subordinate position within it.</p>
+                <div class="concept-example">The anxiety felt by new money collectors around established gallerists is symbolic violence in action: the social hierarchy of the art world is experienced as a hierarchy of knowledge and sensitivity, not as a hierarchy of accumulated privilege.</div>
+            </div>
+
+            <div class="concept-card reveal">
+                <div class="concept-number">VI.</div>
+                <div class="concept-title">Consecration</div>
+                <div class="concept-french">consécration</div>
+                <p class="concept-body">Consecration is the process by which a work or an artist acquires legitimate status within the cultural field. It is performed by institutions with the power to define the legitimate: museums, academies, critics with critical prestige, auction houses with market authority. An artist who appears in the permanent collection of MoMA has been consecrated — their work now carries symbolic capital that is transferable into economic capital at auction. Consecration is not automatic; it is contested, and the history of modern art is largely a history of struggles over who has the authority to consecrate.</p>
+                <p class="concept-body" style="margin-top: 16px;">Bourdieu distinguishes between short-cycle and long-cycle consecration: the former is fast (fashion, celebrity) but volatile; the latter is slow (the canonical artist recognised across generations) but durable.</p>
+                <div class="concept-example">The appearance of Basquiat's work at Christie's in 1984 was not consecration — that came slowly, through museum acquisitions, critical essays, and retrospectives. By 2017, <em>Untitled</em> selling at $110.5M was the market registering accumulated symbolic capital, not creating it.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters-section" id="chapters">
+    <div class="container">
+        <div class="chapters-header reveal">
+            <div class="section-tag">The Book</div>
+            <h2 class="section-title">Chapter by Chapter</h2>
+            <p class="section-desc">Distinction is structured in three parts, each approaching the same problem from a different angle — the objective structures of the social space, the incorporated structures of the habitus, and the contested domain of legitimate culture.</p>
+        </div>
+
+        <div class="chapter-list">
+
+            <div class="chapter-item reveal">
+                <div class="chapter-label">
+                    <div class="chapter-part">Introduction</div>
+                    <div class="chapter-title">The Aristocracy of Culture</div>
+                </div>
+                <div class="chapter-body">
+                    <p>Bourdieu opens with a direct confrontation with Kantian aesthetics. Kant's "pure" aesthetic judgement — disinterested, universal, free from sensory pleasure or practical interest — is revealed to be a class-specific mode of perception: the "pure gaze" that brackets off the content of an image to attend to its form alone is not a faculty of human consciousness, it is a competence laboriously acquired through an education that is available to very few. The introduction establishes the core polemical structure of the book: every claim to pure, disinterested aesthetics is simultaneously a claim to social distinction.</p>
+                    <p>The analysis of the photographs used in the opening survey is telling: when shown images of an old woman's hands, a car crash, a pregnant woman, and a sunset, respondents sort themselves by class with near-perfect consistency — the working class finding the hands and the pregnant woman "beautiful" (natural subjects), the dominant class finding only the sunset acceptable as photographic subject while dismissing the others as too direct, too functional, insufficiently distant.</p>
+                    <div class="chapter-quote">"Nothing more clearly affirms one's class, nothing more infallibly classifies, than tastes in music."</div>
+                </div>
+            </div>
+
+            <div class="chapter-item reveal">
+                <div class="chapter-label">
+                    <div class="chapter-part">Part I · Chapter 1</div>
+                    <div class="chapter-title">Titles and Quarters: The Space of Social Positions</div>
+                </div>
+                <div class="chapter-body">
+                    <p>Bourdieu maps French social space along two axes: total volume of capital and composition of capital (the ratio of economic to cultural capital). This produces a two-dimensional space in which class fractions occupy distinct regions. The upper right quadrant — high economic capital, high cultural capital — is occupied by the established bourgeoisie. The upper left — high cultural capital, lower economic capital — by the dominated fraction of the dominant class: academics, artists, intellectuals. The working class occupies the lower left, with low volumes of both.</p>
+                    <p>This mapping is not merely descriptive: each position in social space corresponds systematically to a position in taste space. The homology between the two spaces is the book's central empirical claim. It allows Bourdieu to predict aesthetic preferences from class position with a precision that scandalized many readers — and still does.</p>
+                </div>
+            </div>
+
+            <div class="chapter-item reveal">
+                <div class="chapter-label">
+                    <div class="chapter-part">Part I · Chapter 2</div>
+                    <div class="chapter-title">The Economy of Practices</div>
+                </div>
+                <div class="chapter-body">
+                    <p>Here Bourdieu develops the concept of habitus most fully. The habitus is a system of durable, transposable dispositions produced by the conditions of existence and in turn producing practices adapted to those conditions. It is neither a mere habit (fixed, mechanical) nor a conscious strategy (calculated, deliberate) — it is a feel for the game that operates at the level of the body and generates practices that are "objectively adjusted to the situation without presupposing a conscious aiming at ends."</p>
+                    <p>The analysis of "economic" behaviour is central here: Bourdieu argues that the working-class orientation toward immediate material satisfaction and the bourgeois orientation toward deferred gratification are not moral differences — they are rational adaptations to different objective conditions of existence. The person who can afford to wait has been in a condition where waiting is consistently rewarded. The person who cannot afford to wait has not. Their respective tastes for immediate pleasure versus long-term refinement are shaped by these conditions.</p>
+                    <div class="chapter-quote">"The habitus is necessity internalized and converted into a disposition that generates meaningful practices and meaning-giving perceptions."</div>
+                </div>
+            </div>
+
+            <div class="chapter-item reveal">
+                <div class="chapter-label">
+                    <div class="chapter-part">Part II · Chapter 3</div>
+                    <div class="chapter-title">The Sense of Distinction</div>
+                </div>
+                <div class="chapter-body">
+                    <p>This is the empirical core of the book. Bourdieu analyses survey data on cultural preferences across music, painting, photography, cinema, literature, and home furnishing. The results are mapped using correspondence analysis and overlaid on the social space. The structural homology is clear: tastes in each domain cluster in patterns that closely reproduce the structure of class positions.</p>
+                    <p>The key finding about music is illustrative: the working class prefer "popular" music and music with direct emotional content; the middle class aspire to "safe" classical repertoire (Strauss, Grieg, light classical); the dominant class prefer either the established canonical repertoire (Bach, Beethoven) or the avant-garde (Boulez, Webern). Within the dominant class, the intellectuals prefer the avant-garde; the established bourgeoisie prefer the canonical. The music itself is almost irrelevant — what matters is the structural position of each genre within the musical field's hierarchy, and how that maps onto social position.</p>
+                    <div class="chapter-quote">"The interest in art, and in the work of art which expresses that interest, is a function of the social conditions which have produced that interest."</div>
+                </div>
+            </div>
+
+            <div class="chapter-item reveal">
+                <div class="chapter-label">
+                    <div class="chapter-part">Part II · Chapter 4–5</div>
+                    <div class="chapter-title">Class Tastes and Life-Styles</div>
+                </div>
+                <div class="chapter-body">
+                    <p>These chapters analyse each class fraction's life-style in detail — food, clothing, sport, interior decoration, and aesthetic preferences — showing how each domain of practice encodes the same structural principles. The working class aesthetic is one of functionality: the body is an instrument to be maintained for work, and expenditure on the superfluous is wasteful. The petite bourgeoisie are defined by their aspiration: they copy the dominant class but lack the ease that only habitus confers, producing a "cultivated disposition" that is visibly effortful. The dominant class aesthetic is one of ease, restraint, understatement — conspicuous luxury is vulgar; the truly dominant can afford not to display.</p>
+                    <p>The "new petite bourgeoisie" — advertising executives, media professionals, therapists — receive particularly sustained analysis. They are the agents of the "new economy" of symbolic goods, selling lifestyles and desires; their cultural intermediary role makes them central to the circulation of legitimate culture.</p>
+                </div>
+            </div>
+
+            <div class="chapter-item reveal">
+                <div class="chapter-label">
+                    <div class="chapter-part">Part III · Chapters 6–8</div>
+                    <div class="chapter-title">The Dynamics of the Literary Field / The Field of Cultural Production</div>
+                </div>
+                <div class="chapter-body">
+                    <p>The final section analyses the mechanisms by which cultural value is produced and reproduced. The literary and artistic fields are structured along a fundamental opposition between the "autonomous" pole (art for art's sake, prestige among peers, indifference to commercial success) and the "heteronomous" pole (success measured by sales, popular recognition, commercial reward). This opposition is not neutral: the autonomous pole claims — and the field endorses — a higher form of legitimacy. The artist who rejects commercialism consecrates themselves as serious; the artist who courts popular success must work to convert that success into cultural legitimacy through other means.</p>
+                    <p>Bourdieu traces the history of how this field structure emerged in France through the nineteenth century, with Flaubert and Baudelaire as key figures in establishing the "pure" literary field. The emergence of the avant-garde is thus not a story of artistic freedom — it is a story of field formation, in which a group of producers establish a position of "negative consecration" against both the market and the academy.</p>
+                    <div class="chapter-quote">"The work of art is an object which exists as such only by virtue of the (collective) belief which knows and acknowledges it as a work of art."</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CAPITAL TYPES -->
+<section class="capital-section" id="capital">
+    <div class="hero-texture"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="concepts-header reveal">
+            <div class="section-tag">Theory</div>
+            <h2 class="section-title">The Four Forms of Capital</h2>
+            <p class="section-desc">Bourdieu extends Marx's economic capital into a broader theory of social resources. Capital in any form can be accumulated, transmitted, and — crucially — converted from one type to another.</p>
+        </div>
+
+        <div class="capital-grid">
+
+            <div class="capital-card reveal">
+                <div class="capital-type">Economic Capital</div>
+                <div class="capital-name">Money, property,<br>financial assets</div>
+                <p class="capital-body">The most visible form: directly convertible into money and institutionalized as property rights. It provides the material conditions for the acquisition of other forms of capital — the family that can afford private schooling is investing economic capital in cultural capital accumulation. It also provides the time required for cultural acquisition: the habitus of legitimate culture requires sustained exposure, which is bought with economic security.</p>
+                <div class="capital-art-example">In the art field: the collector's purchasing power is economic capital. But the social legitimacy of the collection — the recognition by galleries and museums — requires its conversion into cultural and social capital. Money alone does not make a significant collection; money plus connections plus competence does.</div>
+            </div>
+
+            <div class="capital-card reveal">
+                <div class="capital-type">Cultural Capital</div>
+                <div class="capital-name">Knowledge, skills,<br>aesthetic competence</div>
+                <p class="capital-body">Cultural capital exists in three states. In its <em>embodied</em> state it is the dispositions, skills, and tastes incorporated through early socialisation — the habitus itself. In its <em>objectified</em> state it is cultural goods: books, paintings, instruments, dictionaries. In its <em>institutionalized</em> state it is educational qualifications: degrees, diplomas, and certificates that confer a socially guaranteed value on their holder. The embodied form is the most important and the hardest to fake — it requires time and cannot simply be purchased.</p>
+                <div class="capital-art-example">An art history degree is institutionalized cultural capital. The connoisseur's eye — the ability to attribute a work by handling it — is embodied cultural capital. Owning a Basquiat is objectified cultural capital. The three work together but are not identical: the dealer may have the eye without the degree; the inheritor may have the painting without either.</div>
+            </div>
+
+            <div class="capital-card reveal">
+                <div class="capital-type">Social Capital</div>
+                <div class="capital-name">Networks, connections,<br>group membership</div>
+                <p class="capital-body">Social capital is the aggregate of actual or potential resources linked to possession of a durable network of relationships of mutual acquaintance and recognition. It is not the relationships themselves but the capital that they make accessible — the dealer who can place a call to a museum director, the collector who is invited to preview sales before they open. Social capital requires ongoing maintenance: social connections depreciate if not regularly renewed through exchanges, gifts, and mutual recognition.</p>
+                <div class="capital-art-example">Access to a private gallery preview, an introduction to a young artist before they are shown publicly, membership on a museum acquisition committee — these are all social capital in operation. The art world's opacity (private sales, relationship pricing) is partly a mechanism for converting social capital into economic advantage.</div>
+            </div>
+
+            <div class="capital-card reveal">
+                <div class="capital-type">Symbolic Capital</div>
+                <div class="capital-name">Prestige, reputation,<br>legitimacy</div>
+                <p class="capital-body">Symbolic capital is any form of capital when it is perceived and recognised as legitimate — when the social mechanisms of recognition convert it from its material form into prestige or authority. It is the most powerful because it is the least visible: symbolic capital is the form in which other capitals appear when they are misrecognized as natural. The artist's reputation, the critic's authority, the collector's taste — all of these are symbolic capital. It is accumulated through acts of consecration: the prestigious exhibition, the major review, the definitive monograph.</p>
+                <div class="capital-art-example">Gerhard Richter's market position is not only economic — it is a structure of symbolic capital accumulated over decades of institutional recognition, critical consecration, and sustained auction performance. The market price is the financial shadow of symbolic capital. When symbolic capital collapses (the artist's reputation is revised downward), market prices follow.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CLASS FRACTIONS -->
+<section class="classes-section" id="classes">
+    <div class="container">
+        <div class="classes-header reveal">
+            <div class="section-tag">Sociology</div>
+            <h2 class="section-title">Three Classes and Their Aesthetics</h2>
+            <p class="section-desc">Bourdieu's empirical data maps taste onto class position with structural precision. Each class fraction has a characteristic aesthetic disposition — not a fixed taste, but a principle of taste-generation.</p>
+        </div>
+
+        <div class="class-stack">
+
+            <div class="class-row reveal">
+                <div class="class-label-col">
+                    <div class="class-name">The Dominant Class</div>
+                    <div class="class-fr">classe dominante</div>
+                </div>
+                <div class="class-content-col">
+                    <div class="class-taste">Aesthetic of Ease and Restraint</div>
+                    <p class="class-body">The dominant class is internally differentiated between a fraction high in economic capital (industrialists, senior executives) and a fraction high in cultural capital (academics, intellectuals, artists). Both share the "pure gaze" — the ability to bracket content and attend to form — but deploy it differently. The culturally dominant prefer the avant-garde, the austere, the formally demanding. The economically dominant prefer the canonical and the established. Both share a fundamental orientation of aesthetic <em>ease</em>: the work of culture does not show, because it has been done so early and so completely that it has been converted into second nature. Conspicuous display is vulgar — the truly dominant understate.</p>
+                    <div class="class-examples">
+                        <span class="class-tag">Atonal music</span>
+                        <span class="class-tag">Abstract painting</span>
+                        <span class="class-tag">Conceptual art</span>
+                        <span class="class-tag">Antique furniture</span>
+                        <span class="class-tag">Understatement</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="class-row reveal">
+                <div class="class-label-col">
+                    <div class="class-name">The Middle Class</div>
+                    <div class="class-fr">petite bourgeoisie</div>
+                </div>
+                <div class="class-content-col">
+                    <div class="class-taste">Aesthetic of Pretension and Aspiration</div>
+                    <p class="class-body">The petite bourgeoisie is defined by its aspiration toward the dominant aesthetic and its structural inability to achieve it with ease. The "cultivated disposition" they display is visibly effortful — the enjoyment is real but the ease is not. Bourdieu calls this the "allodoxia": mistaking the middle for the top of the cultural hierarchy. The middle-class listener who loves Ravel or Gershwin is genuinely enjoying the music, but it is not the music the dominant class would choose, and the choice reveals the position. The new petite bourgeoisie — media workers, advertising, therapists — introduce a new variant: they legitimate the abandonment of traditional aspirations in favour of self-expression, life-style, and consumer culture. They are the producers of the dominant culture's popular face.</p>
+                    <div class="class-examples">
+                        <span class="class-tag">Light classical</span>
+                        <span class="class-tag">Impressionist prints</span>
+                        <span class="class-tag">Safe figurative art</span>
+                        <span class="class-tag">Design objects</span>
+                        <span class="class-tag">Self-improvement</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="class-row reveal">
+                <div class="class-label-col">
+                    <div class="class-name">The Working Class</div>
+                    <div class="class-fr">classe populaire</div>
+                </div>
+                <div class="class-content-col">
+                    <div class="class-taste">Aesthetic of Function and Substance</div>
+                    <p class="class-body">The working-class aesthetic is not an absence of taste — it is a coherent orientation structured by the conditions of material necessity. Where the dominant class can afford to treat the body as a project of self-cultivation, the working class treats it as an instrument to be maintained. Food is nourishing; clothes are functional; art (when engaged with at all) is approached through its content rather than its form — the painting is interesting because of what it depicts, not because of how it handles its medium. Bourdieu is careful not to condescend: he calls this a "choice of the necessary," a rational adaptation to objective conditions, not a failure of sensibility. But he is equally clear that the dominant class's taxonomy — which reads this functional aesthetic as the mark of limited culture — is the dominant one, and that working-class agents often partly accept it.</p>
+                    <div class="class-examples">
+                        <span class="class-tag">Content over form</span>
+                        <span class="class-tag">Immediate pleasure</span>
+                        <span class="class-tag">Representational art</span>
+                        <span class="class-tag">Functional objects</span>
+                        <span class="class-tag">Participatory culture</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CRITIQUES -->
+<section class="critiques-section">
+    <div class="container">
+        <div class="critiques-header reveal">
+            <div class="section-tag">Critical Reception</div>
+            <h2 class="section-title">Against and For</h2>
+            <p class="section-desc">Distinction was received as both a major theoretical achievement and a deeply troubling argument. The critiques illuminate the book's limits; the defences show why it remains indispensable.</p>
+        </div>
+
+        <div class="critique-grid">
+
+            <div class="critique-card critique-card--against reveal">
+                <div class="critique-header">Critique I</div>
+                <div class="critique-title">Sociological Reductionism</div>
+                <p class="critique-body">The most common charge: Bourdieu reduces aesthetic experience to class performance, leaving no room for genuine emotional or intellectual response to art. If taste is entirely explained by class position, then what the person actually experiences in front of a Rothko is irrelevant — it is only the social positioning function that counts. Critics including Bernard Lahire argue that Bourdieu's structural model cannot account for individual variation within class fractions, the experience of aesthetic conversion (being genuinely transformed by a work), or the existence of "omnivores" whose tastes cross class boundaries — a pattern well-documented in subsequent empirical work.</p>
+            </div>
+
+            <div class="critique-card critique-card--for reveal">
+                <div class="critique-header">Defence I</div>
+                <div class="critique-title">The Experience is Real; The Conditions are Social</div>
+                <p class="critique-body">Bourdieu never claims that aesthetic experience is fake or that class position mechanically determines responses. His point is subtler: the conditions that make certain aesthetic experiences possible — the trained eye, the competence to decode formal structure, the ease with which one inhabits the gallery or concert hall — are socially produced and unequally distributed. The Rothko can genuinely move a viewer; what Bourdieu shows is that the capacity to be moved in that specific way, by that specific kind of work, is not a universal human faculty but a cultivated disposition. The experience and its social conditions are both real.</p>
+            </div>
+
+            <div class="critique-card critique-card--against reveal">
+                <div class="critique-header">Critique II</div>
+                <div class="critique-title">French Exceptionalism</div>
+                <p class="critique-body">Distinction's data is drawn from France in the 1960s — a highly centralised, academically-oriented culture with a particularly rigid class structure and a specific form of state-sanctioned cultural legitimacy (the grandes écoles, the Académie française). Critics question whether the structural homology Bourdieu finds is generalisable to other societies — particularly the United States, where the relationship between class and culture is mediated differently, or to post-industrial societies where the class structure has shifted significantly since the 1960s. Mike Savage's subsequent UK studies suggest the picture is more complex but the basic structure holds.</p>
+            </div>
+
+            <div class="critique-card critique-card--for reveal">
+                <div class="critique-header">Defence II</div>
+                <div class="critique-title">The Structure Holds, Even If the Content Varies</div>
+                <p class="critique-body">Subsequent studies in the US, UK, Sweden, and elsewhere have largely confirmed the structural argument even where the specific content differs. The principle — that aesthetic taste correlates with class position and educational capital — replicates across contexts; what changes is which tastes occupy which positions. In the United States, the relevant distinction may be between different kinds of popular culture rather than between classical and popular. The omnivore thesis (Peterson) modifies rather than refutes Bourdieu: the dominant class now demonstrates its distinction through the breadth of its tastes rather than their restriction to the legitimate — which is itself a structural move.</p>
+            </div>
+
+            <div class="critique-card critique-card--against reveal">
+                <div class="critique-header">Critique III</div>
+                <div class="critique-title">No Exit: A Determinism Without Agency</div>
+                <p class="critique-body">If the habitus is so determining, if symbolic violence operates through misrecognition, if even the dominated internalise the dominant taxonomy — then what space is left for resistance, transformation, or the emancipatory potential of art? Feminist critics noted that gender is largely absent from Bourdieu's class analysis; postcolonial critics that race is treated as derivative of class. The book's structural determinism seems to foreclose the possibility of genuine aesthetic encounter across class lines — and with it, the democratic promise of public art education and universal museum access.</p>
+            </div>
+
+            <div class="critique-card critique-card--for reveal">
+                <div class="critique-header">Defence III</div>
+                <div class="critique-title">Naming the Game Begins to Change It</div>
+                <p class="critique-body">Bourdieu himself argued that sociological analysis has an emancipatory function: naming the mechanisms of symbolic violence is the first step toward weakening them. <em>Distinction</em> was not written to prove that nothing can be done, but to show precisely what must be done — and what the obstacles are. His later work, particularly <em>The Rules of Art</em> (1992) and his public interventions on television and education, extended this political project. The point is not that the habitus is unchangeable — it is that it changes slowly, through deliberate institutional intervention, and that the rate and direction of change is itself a political question.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MARKET APPLICATION -->
+<section class="market-application-section" id="application">
+    <div class="container">
+        <div class="application-header reveal">
+            <div class="section-tag">Applied Analysis</div>
+            <h2 class="section-title">Bourdieu and the Auction Market</h2>
+            <p class="section-desc">Reading the Christie's Post-War &amp; Contemporary dataset through Bourdieu's framework reveals mechanisms that the market's own vocabulary — "important," "significant," "fresh to market" — consistently obscures.</p>
+        </div>
+
+        <div class="application-grid">
+
+            <div class="application-card reveal">
+                <div class="application-number">I.</div>
+                <div class="application-title">The Estimate as Field Position</div>
+                <p class="application-body">The pre-sale estimate is not a prediction — it is a social act. Christie's specialist departments set estimates that position lots within the field's hierarchy: an estimate at $200–300k signals that the lot belongs to a certain register of seriousness. When a lot significantly exceeds its estimate (the 14.7× Longo in the dataset), it is not the estimate that was wrong — it is that competing bidders, motivated by social positioning as much as aesthetic conviction, drove the price above the field-sanctioned range. The estimate is a Bourdieuian statement about legitimate value; the hammer price is what the field's agents actually believed at that moment.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">II.</div>
+                <div class="application-title">Provenance as Symbolic Capital Accretion</div>
+                <p class="application-body">The Christie's catalogue entry for a major lot typically includes: exhibition history, bibliography, institutional collection notes, and "property from" attribution. Each element adds a layer of consecration — each institution that exhibited or collected the work transfers some of its symbolic capital to the lot. "Property from a Distinguished Private Collection" does not add information; it adds aura. Bourdieu's concept of symbolic capital explains why provenance can add 20–40% to a hammer price even when the work is visually identical: the work carries accumulated social recognition, and buyers are purchasing that recognition as much as the object.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">III.</div>
+                <div class="application-title">The Collector as Field Agent</div>
+                <p class="application-body">The major collector — the buyer of record at an important sale — is not simply a wealthy consumer. They are a field agent accumulating symbolic capital through their acquisition choices. Buying a Basquiat in 1983 was a consecrating act; buying one in 2023 is a confirmation act. The collector who builds a collection that is subsequently donated to a museum converts economic capital into symbolic capital (the museum wing, the catalogue raisonné, the permanent attribution) and social capital (board membership, institutional relationships). This chain of conversion is legible in the provenance of almost every lot in the dataset.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">IV.</div>
+                <div class="application-title">The 55% Above-Estimate Rate</div>
+                <p class="application-body">If the Christie's dataset shows 55% of lots selling above estimate, this is not evidence of underestimating — it is evidence of an expanding field. Bourdieu's field theory predicts that when the dominant class is growing (more high-capital agents competing for the same positions), prices at the legitimate pole of the field will rise. The 2020s art market has seen significant entry of new capital — tech wealth, global collectors — into a field whose symbolic hierarchies were established by a smaller group. The 55% above-estimate rate registers this pressure: more agents competing for the same Bourdieuian positions, driving prices above the field's established calibration points.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">V.</div>
+                <div class="application-title">Medium-Specificity Hierarchy in Market Performance</div>
+                <p class="application-body">The dataset shows that paintings significantly outperform works on paper, which outperform prints, at equivalent artist levels. Bourdieu explains this as a hierarchy of symbolic capital: the painting is the "original," the bearer of the artist's hand in its fullest form; the print is mechanically multiplied and therefore lower in aura (Benjamin would agree). This hierarchy is not determined by aesthetic value — many prints are more aesthetically significant than mediocre paintings by the same artist — but by the field's taxonomy of legitimate media, which dates to the Renaissance hierarchy of the arts. The market does not create this hierarchy; it inherits and reinforces it.</p>
+            </div>
+
+            <div class="application-card reveal">
+                <div class="application-number">VI.</div>
+                <div class="application-title">Why Market Taste Lags Critical Taste by Fifteen Years</div>
+                <p class="application-body">Critical consecration (museum exhibition, scholarly monograph, major retrospective) typically precedes market consecration by a decade or more. This lag is Bourdieuian: the market is the heteronomous pole of the artistic field, responsive to signals from the autonomous (critical, institutional) pole but with a delay determined by the conversion time of symbolic into economic capital. Artists who receive major institutional attention (MoMA acquisition, Venice Biennale selection) typically see auction performance rise significantly 10–15 years later — the lag is the time required for symbolic capital to accumulate enough density to crystallise as market value.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <div class="page-footer-inner">
+        <a href="index.html#philosophy" class="footer-back">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5H12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 6 5)"/></svg>
+            Return to Philosophy Frameworks
+        </a>
+        <div class="footer-ref">
+            Bourdieu, Pierre. <em>La distinction: Critique sociale du jugement.</em><br>
+            Les Éditions de Minuit, 1979. Translated Richard Nice, Harvard UP, 1984.
+        </div>
+    </div>
+</footer>
+
+<script>
+    'use strict';
+
+    const progressBar = document.getElementById('progressBar');
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+    }
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 100;
+            if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    window.addEventListener('scroll', () => {
+        updateProgress();
+        updateActiveNav();
+    }, { passive: true });
+</script>
+
+</body>
+</html>

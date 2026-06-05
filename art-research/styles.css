@@ -521,6 +521,25 @@ section { padding: 120px 0; }
     line-height: 1.8;
 }
 
+.thinker-deep-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    border-bottom: 1px solid var(--rule-gold);
+    padding-bottom: 2px;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.thinker-deep-link:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
 /* ── ARTIST PROFILES ────────────────── */
 .artists-section {
     background: var(--ivory-deep);
