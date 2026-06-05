@@ -675,6 +675,7 @@ section { padding: 120px 0; }
 }
 
 .cluster-overflow { display: flex; flex-direction: column; }
+.cluster-overflow[hidden] { display: none; }
 
 .cluster-show-more {
     display: block;
