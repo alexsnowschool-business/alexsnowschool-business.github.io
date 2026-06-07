@@ -38,8 +38,20 @@ BLOG_NAME       = os.getenv("TUMBLR_BLOG_NAME")
 
 # ── Caption parser ─────────────────────────────────────────────────────────────
 
+def _parse_tumblr_section(captions_md: str) -> tuple[str, str, list[str]]:
+    """Extract title, body, and tags from the Tumblr section of captions.md."""
+    title_m = re.search(r"##\s+📓 Tumblr.*?###\s+Title\s+```(.*?)```", captions_md, re.DOTALL)
+    body_m  = re.search(r"###\s+Caption\s+```(.*?)```.*?###\s+Tags",     captions_md, re.DOTALL)
+    tags_m  = re.search(r"###\s+Tags\s+```(.*?)```",                      captions_md, re.DOTALL)
+
+    title = title_m.group(1).strip() if title_m else ""
+    body  = body_m.group(1).strip()  if body_m  else ""
+    tags  = [t.strip() for t in tags_m.group(1).split(",")] if tags_m else []
+    return title, body, tags
+
+
 def _parse_instagram_caption(captions_md: str) -> str:
-    """Extract the Instagram caption block — most complete for Tumblr's blog format."""
+    """Fallback: extract the Instagram caption block."""
     pattern = r"##\s+📸 Instagram.*?###\s+Caption\s+```(.*?)```"
     m = re.search(pattern, captions_md, re.DOTALL | re.IGNORECASE)
     return m.group(1).strip() if m else ""
@@ -50,7 +62,6 @@ def _extract_hashtags(text: str) -> list[str]:
 
 
 def _caption_without_hashtags(text: str) -> str:
-    """Return caption body with hashtag lines stripped (Tumblr uses the tags field)."""
     lines = [l for l in text.splitlines() if not re.match(r"^#\w+", l.strip())]
     return "\n".join(lines).strip()
 
@@ -92,13 +103,18 @@ def main() -> None:
         print(f"⚠ Tumblr post already recorded for {reel_slug} — pass --force to override")
         sys.exit(0)
 
-    caption_raw = _parse_instagram_caption(captions_path.read_text())
-    if not caption_raw:
-        print("✗ Could not parse Instagram caption from captions.md")
-        sys.exit(1)
-
-    caption_body = _caption_without_hashtags(caption_raw)
-    tags         = _extract_hashtags(caption_raw)
+    captions_text = captions_path.read_text()
+    tb_title, caption_body, tags = _parse_tumblr_section(captions_text)
+    if not caption_body:
+        # Fallback to Instagram caption if Tumblr section is absent (older captions.md)
+        caption_raw  = _parse_instagram_caption(captions_text)
+        if not caption_raw:
+            print("✗ Could not parse caption from captions.md")
+            sys.exit(1)
+        caption_body = _caption_without_hashtags(caption_raw)
+        tags         = _extract_hashtags(caption_raw)
+        tb_title     = ""
+        print("  ⚠ No Tumblr section found — falling back to Instagram caption")
 
     print("═" * 60)
     print("  TUMBLR POSTER — The Hammer Price")
@@ -106,8 +122,10 @@ def main() -> None:
     print(f"  Blog:  {BLOG_NAME}.tumblr.com")
     print(f"  Mode:  {'DRY RUN' if args.dry_run else 'LIVE'}")
     print("═" * 60)
+    if tb_title:
+        print(f"\n  Title:   {tb_title}")
     print(f"\n  Caption:\n{caption_body[:200]}...")
-    print(f"  Tags:  {', '.join(tags[:8])}")
+    print(f"  Tags:    {', '.join(tags[:8])}")
 
     if args.dry_run:
         print("\n  [dry-run] would post video to Tumblr")
@@ -133,12 +151,10 @@ def main() -> None:
         print(f"    blog: {b['name']}  url: {b['url']}")
 
     print(f"\n▸ Posting to {BLOG_NAME}.tumblr.com...")
-    response = client.create_video(
-        BLOG_NAME,
-        caption=caption_body,
-        data=str(video_path),
-        tags=tags,
-    )
+    create_kwargs = dict(caption=caption_body, data=str(video_path), tags=tags)
+    if tb_title:
+        create_kwargs["title"] = tb_title
+    response = client.create_video(BLOG_NAME, **create_kwargs)
 
     print(f"  API response: {response}")
 

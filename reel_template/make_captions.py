@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║         CAPTION GENERATOR — Instagram & TikTok              ║
+║      CAPTION GENERATOR — Instagram, TikTok & Tumblr         ║
 ║  Usage: python reel_template/make_captions.py reels/<name>   ║
 ║  Each reel folder needs a reel_config.py with CONFIG dict.   ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -28,6 +28,47 @@ def load_config(reel_dir):
 # ══════════════════════════════════════════════════════════════
 # HASHTAG LIBRARY — edit or extend as needed
 # ══════════════════════════════════════════════════════════════
+
+TUMBLR_TAG_POOLS = {
+    "luxury": [
+        "luxury resale", "investment piece", "secondary market", "fashion finance",
+        "luxury goods", "resale premium", "vintage luxury", "luxury market",
+        "fashion economics", "collector's item",
+    ],
+    "travel": [
+        "travel photography", "cinematic travel", "analog vibes", "film photography",
+        "wanderlust", "solo travel", "travel diary", "european travel", "moody photography",
+    ],
+    "food": [
+        "food photography", "gastronomy", "food styling", "culinary art",
+        "food diary", "restaurant culture", "chef's table",
+    ],
+    "architecture": [
+        "architecture photography", "brutalist architecture", "modernist design",
+        "built environment", "urban exploration", "historic buildings", "city photography",
+    ],
+    "nature": [
+        "landscape photography", "nature photography", "wilderness", "outdoor photography",
+        "mountain photography", "earth tones", "slow travel",
+    ],
+    "street": [
+        "street photography", "documentary photography", "candid photography",
+        "urban life", "black and white photography", "humanist photography",
+    ],
+    "culture": [
+        "cultural heritage", "art history", "museum photography",
+        "travel culture", "historic places", "visual anthropology",
+    ],
+}
+
+TUMBLR_VIBE_TAGS = {
+    "cinematic":  ["cinematic video", "dark aesthetic", "moody visuals"],
+    "golden":     ["golden hour", "warm tones", "soft light"],
+    "minimal":    ["minimalist", "clean aesthetic", "negative space"],
+    "moody":      ["dark and moody", "moody aesthetic", "atmospheric"],
+    "vibrant":    ["color photography", "vibrant palette", "bold visuals"],
+    "warm_dark":  ["dark aesthetic", "warm palette", "editorial"],
+}
 
 HASHTAG_POOLS = {
     "travel": {
@@ -132,6 +173,26 @@ def make_linkedin_caption(cfg):
         parts.append(f"data source: {loc} in {season} — what a vibe!")
     return "\n\n".join(parts)
 
+def make_tumblr_caption(cfg, tumblr_tags: list[str]) -> tuple[str, str, str]:
+    """Return (title, body, tags_csv) for a Tumblr video post."""
+    hero   = cfg.get("caption_hero", "").rstrip(".")
+    full   = cfg["caption_full"]
+    note   = cfg.get("personal_note", "")
+    loc    = cfg["location"]
+    season = cfg["season"]
+
+    title = hero if hero else full.split(".")[0].strip()
+
+    body_parts = [full]
+    if note:
+        body_parts.append(note)
+    body_parts.append(f"{loc} · {season}")
+    body = "\n\n".join(body_parts)
+
+    tags_csv = ", ".join(tumblr_tags)
+    return title, body, tags_csv
+
+
 def make_caption_variations(cfg):
     loc  = cfg["location"].split(",")[0].lower()
     hero = cfg["caption_hero"].lower()
@@ -182,9 +243,16 @@ def main():
     )[:15]
     tt_hashtags = " ".join(f"#{t}" for t in tt_tags)
 
+    # Tumblr tags (phrase-based, no # prefix)
+    tb_pool      = TUMBLR_TAG_POOLS.get(topic, TUMBLR_TAG_POOLS.get("travel", []))
+    tb_vibe_tags = TUMBLR_VIBE_TAGS.get(vibe, [])
+    tb_loc_tags  = [loc.lower(), loc.split(",")[0].strip().lower()] if "," in loc else [loc.lower()]
+    tumblr_tags  = (tb_pool[:6] + tb_vibe_tags[:2] + tb_loc_tags[:2])[:12]
+
     ig_caption = make_instagram_caption(cfg, ig_hashtags)
     tt_caption = make_tiktok_caption(cfg, tt_hashtags)
     ln_caption = make_linkedin_caption(cfg)
+    tb_title, tb_body, tb_tags_csv = make_tumblr_caption(cfg, tumblr_tags)
     variations = make_caption_variations(cfg)
 
     # Best posting times
@@ -221,6 +289,23 @@ def main():
         f.write("### Caption\n\n")
         f.write("```\n")
         f.write(ln_caption)
+        f.write("\n```\n\n")
+
+        f.write("---\n\n")
+        f.write("## 📓 Tumblr\n\n")
+        f.write(f"**Best time to post:** Fri–Sun, 9pm–midnight (your local time)\n")
+        f.write(f"**Video:** `output/reel.mp4`\n\n")
+        f.write("### Title\n\n")
+        f.write("```\n")
+        f.write(tb_title)
+        f.write("\n```\n\n")
+        f.write("### Caption\n\n")
+        f.write("```\n")
+        f.write(tb_body)
+        f.write("\n```\n\n")
+        f.write("### Tags\n\n")
+        f.write("```\n")
+        f.write(tb_tags_csv)
         f.write("\n```\n\n")
 
         f.write("---\n\n")
