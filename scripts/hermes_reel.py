@@ -990,7 +990,7 @@ def _split_sentences(words: list[dict]) -> list[list[dict]]:
     return sentences
 
 
-def _words_to_captions(words: list[dict], words_per_cue: int = 8,
+def _words_to_captions(words: list[dict], words_per_cue: int = 6,
                         min_duration: float = 0.6, tail: float = 0.1) -> list[dict]:
     """Group word timestamps into 8-word caption cues (2 lines of ~4 words)."""
     captions = []
@@ -1007,7 +1007,7 @@ def _words_to_captions(words: list[dict], words_per_cue: int = 8,
 
 
 def _write_srt(words: list[dict], path: Path,
-               words_per_cue: int = 12,
+               words_per_cue: int = 6,
                min_duration: float = 0.6, tail: float = 0.1) -> None:
     """Write word-by-word captions as SRT (3 words per cue)."""
     groups = [words[i : i + words_per_cue] for i in range(0, len(words), words_per_cue)]
