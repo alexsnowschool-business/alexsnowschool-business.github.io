@@ -1041,39 +1041,100 @@ def main():
         voiceover_path = os.path.join(reel_dir, "voiceover.mp3")
         has_audio = os.path.exists(voiceover_path)
 
-        if has_audio:
+        # ── Background music ──────────────────────────────────
+        # Pick a random track from reel_template/music/*.mp3
+        # Loops to fill the video, ducked under voiceover when present.
+        _music_dir   = os.path.join(_THIS_DIR, "music")
+        _music_files = sorted(
+            glob.glob(os.path.join(_music_dir, "*.mp3")) +
+            glob.glob(os.path.join(_music_dir, "*.m4a")) +
+            glob.glob(os.path.join(_music_dir, "*.wav"))
+        )
+        _bg_track = None
+        if _music_files and cfg.get("bg_music", True):
+            random.seed(os.path.basename(reel_dir))   # deterministic per reel
+            _bg_track = random.choice(_music_files)
+            print(f"  ♪ Background music: {os.path.basename(_bg_track)}")
+
+        # Volume: music sits lower when voiceover is present
+        _bg_vol     = cfg.get("bg_music_volume", 0.12 if has_audio else 0.22)
+        _video_dur  = frame_i / FPS  # total video duration in seconds
+        _fade_start = max(0.0, _video_dur - 2.5)
+
+        def _build_cmd(extra_audio_inputs: list, audio_filter: str, audio_map: str) -> list:
+            return [
+                "ffmpeg", "-y",
+                "-framerate", str(FPS),
+                "-i", os.path.join(frames_dir, "f%05d.png"),
+                *extra_audio_inputs,
+                "-r", str(OUTPUT_FPS),
+                "-c:v", "libx264",
+                "-preset", "slow",
+                "-crf", "18",
+                *(["-filter_complex", audio_filter, "-map", "0:v", "-map", audio_map,
+                   "-c:a", "aac", "-b:a", "192k"] if audio_filter else []),
+                "-pix_fmt", "yuv420p",
+                "-movflags", "+faststart",
+                "-vf", f"scale={W}:{H}",
+                out_mp4,
+            ]
+
+        if has_audio and _bg_track:
+            # Voiceover + background music
+            af = (
+                f"[1:a]adelay={int(_audio_offset*1000)}|{int(_audio_offset*1000)},"
+                f"volume=1.0[vo];"
+                f"[2:a]aloop=loop=-1:size=2e+09,volume={_bg_vol},"
+                f"atrim=duration={_video_dur:.2f},"
+                f"afade=t=out:st={_fade_start:.2f}:d=2.5[bg];"
+                f"[vo][bg]amix=inputs=2:duration=first:dropout_transition=2[aout]"
+            )
+            cmd = _build_cmd(
+                ["-itsoffset", str(_audio_offset), "-i", voiceover_path,
+                 "-stream_loop", "-1", "-i", _bg_track],
+                af, "[aout]"
+            )
+            print(f"  ♪ Mixing voiceover + background music (vo={_audio_offset:.1f}s offset)")
+
+        elif has_audio:
+            # Voiceover only (no music files found)
+            af = (
+                f"[1:a]adelay={int(_audio_offset*1000)}|{int(_audio_offset*1000)},"
+                f"volume=1.0[aout]"
+            )
+            cmd = _build_cmd(
+                ["-itsoffset", str(_audio_offset), "-i", voiceover_path],
+                af, "[aout]"
+            )
             print(f"  ♪ Mixing voiceover (offset {_audio_offset:.1f}s): voiceover.mp3")
-            cmd = [
-                "ffmpeg", "-y",
-                "-framerate", str(FPS),
-                "-i", os.path.join(frames_dir, "f%05d.png"),
-                "-itsoffset", str(_audio_offset),
-                "-i", voiceover_path,
-                "-r", str(OUTPUT_FPS),
-                "-c:v", "libx264",
-                "-preset", "slow",
-                "-crf", "18",
-                "-c:a", "aac",
-                "-b:a", "192k",
-                "-pix_fmt", "yuv420p",
-                "-movflags", "+faststart",
-                "-vf", f"scale={W}:{H}",
-                out_mp4
-            ]
+
+        elif _bg_track:
+            # Background music only (no voiceover)
+            af = (
+                f"[1:a]aloop=loop=-1:size=2e+09,volume={_bg_vol},"
+                f"atrim=duration={_video_dur:.2f},"
+                f"afade=t=out:st={_fade_start:.2f}:d=2.5[aout]"
+            )
+            cmd = _build_cmd(
+                ["-stream_loop", "-1", "-i", _bg_track],
+                af, "[aout]"
+            )
+
         else:
+            # No audio at all
+            cmd = _build_cmd([], "", "")
+            # Strip the empty filter args added by _build_cmd
             cmd = [
                 "ffmpeg", "-y",
                 "-framerate", str(FPS),
                 "-i", os.path.join(frames_dir, "f%05d.png"),
                 "-r", str(OUTPUT_FPS),
-                "-c:v", "libx264",
-                "-preset", "slow",
-                "-crf", "18",
-                "-pix_fmt", "yuv420p",
-                "-movflags", "+faststart",
+                "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+                "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                 "-vf", f"scale={W}:{H}",
-                out_mp4
+                out_mp4,
             ]
+
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode == 0:
             size_mb = os.path.getsize(out_mp4) / 1024 / 1024

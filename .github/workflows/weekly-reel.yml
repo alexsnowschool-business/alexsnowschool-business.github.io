@@ -2,13 +2,22 @@ name: Weekly Reel — The Hammer Price
 
 on:
   schedule:
-    - cron: "0 11 * * 0"   # Sunday   11:00 CET / 13:00 CEST
-    - cron: "0 11 * * 1"   # Monday   11:00 CET / 13:00 CEST
-    - cron: "0 11 * * 2"     # Tuesday   11:00 CET / 13:00 CEST
-    - cron: "0 11 * * 3"     # Wednesday 11:00 CET / 13:00 CEST
-    - cron: "0 11 * * 4"     # Thursday  11:00 CET / 13:00 CEST
-    - cron: "0 11 * * 5"     # Friday    11:00 CET / 13:00 CEST
-    - cron: "0 11 * * 6"     # Saturday  11:00 CET / 13:00 CEST
+    # Morning slot — 4:00 UTC = 12:00 CET / 13:00 CEST
+    - cron: "0 4 * * 0"
+    - cron: "0 4 * * 1"
+    - cron: "0 4 * * 2"
+    - cron: "0 4 * * 3"
+    - cron: "0 4 * * 4"
+    - cron: "0 4 * * 5"
+    - cron: "0 4 * * 6"
+    # Evening slot — 12:00 UTC = 19:00 CET / 20:00 CEST
+    - cron: "0 12 * * 0"
+    - cron: "0 12 * * 1"
+    - cron: "0 12 * * 2"
+    - cron: "0 12 * * 3"
+    - cron: "0 12 * * 4"
+    - cron: "0 12 * * 5"
+    - cron: "0 12 * * 6"
    
   workflow_dispatch:
     inputs:
@@ -52,22 +61,44 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg fonts-noto-cjk --quiet
 
-      # Rotate lot index: Tue=0, Wed=1, Thu=2, Fri=3, Sat=4
-      # Offset by week-of-year so we don't repeat the same 5 lots every week
+      # Lot index rotates across a pool of 20 so each run picks a unique lot.
+      # Morning (UTC hour 11) uses indices 0–9; evening (UTC hour 18) uses 10–19.
+      # Offset by week-of-year so the same slot never repeats week-to-week.
       - name: Determine lot index
         id: lot
         run: |
           if [ -n "${{ inputs.lot_index }}" ]; then
             echo "index=${{ inputs.lot_index }}" >> $GITHUB_OUTPUT
           else
-            DOW=$(date +%u)         # 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
-            WEEK=$(date +%V)        # ISO week number
+            DOW=$(date +%u)          # 1=Mon … 7=Sun
+            WEEK=$(date +%V)         # ISO week number
+            HOUR=$(date +%H)         # 11 = morning, 18 = evening
             if [ -n "${{ inputs.week_number }}" ]; then
               WEEK="${{ inputs.week_number }}"
             fi
-            DAY_OFFSET=$(( DOW - 2 ))
-            INDEX=$(( (WEEK * 5 + DAY_OFFSET) % 10 ))
+            DAY_OFFSET=$(( (DOW - 1) % 7 ))
+            BASE=$(( (WEEK * 7 + DAY_OFFSET) % 10 ))
+            # Evening runs are offset by 10 so they never collide with morning
+            if [ "$HOUR" -ge 15 ]; then
+              INDEX=$(( BASE + 10 ))
+            else
+              INDEX=$BASE
+            fi
             echo "index=$INDEX" >> $GITHUB_OUTPUT
+          fi
+
+      # Campaign artist: manual input wins; otherwise today's rotation
+      - name: Determine campaign artist
+        id: campaign
+        run: |
+          if [ -n "${{ inputs.artist }}" ]; then
+            echo "artist=${{ inputs.artist }}" >> $GITHUB_OUTPUT
+          else
+            CAMPAIGN=$(python scripts/campaign_artist.py 2>/dev/null || true)
+            echo "artist=$CAMPAIGN" >> $GITHUB_OUTPUT
+            if [ -n "$CAMPAIGN" ]; then
+              echo "  ▸ Campaign artist: $CAMPAIGN"
+            fi
           fi
 
       - name: Generate reel
@@ -79,9 +110,9 @@ jobs:
           ELEVENLABS_VOICE_ID:   ${{ secrets.ELEVENLABS_VOICE_ID }}
           ELEVENLABS_MODEL_ID:   ${{ secrets.ELEVENLABS_MODEL_ID }}
         run: |
-          ARGS="--all-time --lot-index ${{ steps.lot.outputs.index }} --top-n 10 --run --voice"
-          if [ -n "${{ inputs.artist }}" ]; then
-            ARGS="$ARGS --artist '${{ inputs.artist }}'"
+          ARGS="--all-time --lot-index ${{ steps.lot.outputs.index }} --top-n 20 --run --voice"
+          if [ -n "${{ steps.campaign.outputs.artist }}" ]; then
+            ARGS="$ARGS --artist '${{ steps.campaign.outputs.artist }}'"
           fi
           if [ -n "${{ inputs.title }}" ]; then
             ARGS="$ARGS --title '${{ inputs.title }}'"
