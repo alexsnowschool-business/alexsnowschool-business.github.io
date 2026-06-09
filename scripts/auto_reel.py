@@ -1041,7 +1041,7 @@ def _split_sentences(words: list[dict]) -> list[list[dict]]:
     return sentences
 
 
-def _words_to_captions(words: list[dict], words_per_cue: int = 8,
+def _words_to_captions(words: list[dict], words_per_cue: int = 6,
                         min_duration: float = 0.6, tail: float = 0.1) -> list[dict]:
     captions = []
     for i in range(0, len(words), words_per_cue):
