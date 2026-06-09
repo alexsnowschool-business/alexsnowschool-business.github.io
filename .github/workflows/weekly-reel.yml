@@ -2,8 +2,8 @@ name: Weekly Reel — The Hammer Price
 
 on:
   schedule:
-    - cron: "0 11 * * 0"  # Tuesday   11:00 CET / 13:00 CEST
-    - cron: "0 11 * * 1" # Tuesday   11:00 CET / 13:00 CEST
+    - cron: "0 11 * * 0"   # Sunday   11:00 CET / 13:00 CEST
+    - cron: "0 11 * * 1"   # Monday   11:00 CET / 13:00 CEST
     - cron: "0 11 * * 2"     # Tuesday   11:00 CET / 13:00 CEST
     - cron: "0 11 * * 3"     # Wednesday 11:00 CET / 13:00 CEST
     - cron: "0 11 * * 4"     # Thursday  11:00 CET / 13:00 CEST
