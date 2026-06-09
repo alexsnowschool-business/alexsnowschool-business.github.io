@@ -878,7 +878,10 @@ def main():
         print("\n▸ Generating static reel image...")
         hero_file = cfg["hero_photo"] or photo_files[0]
         hero_photo = dict(photos)[hero_file] if cfg["hero_photo"] else photos[0][1]
-        frame = render_frame(hero_photo, cfg, fnt, show_caption=True)
+        # Use the last per-frame caption (Act III) so the static image shows
+        # both the price data box and the upper artist/title block.
+        _static_fc = (cfg.get("per_frame_captions") or [None])[-1]
+        frame = render_frame(hero_photo, cfg, fnt, show_caption=True, frame_caption=_static_fc)
         out_img = os.path.join(cfg["output_folder"], "reel.png")
         frame.save(out_img, "PNG", dpi=(300, 300))
         print(f"  ✓ Saved: {out_img}")
@@ -896,6 +899,20 @@ def main():
 
         always_caption  = cfg.get("caption_all_frames", False)
         per_frame_caps  = cfg.get("per_frame_captions")   # list of dicts, one per photo
+
+        # ── Cover frame (thumbnail bait) ──────────────────────
+        # Holds the Act III reveal frame at the very start so platforms
+        # (TikTok, YouTube Shorts, Instagram) auto-select it as the thumbnail.
+        _cover_hold = cfg.get("cover_hold_seconds", 0.0)
+        if _cover_hold > 0 and photos:
+            _cover_fc = (per_frame_caps or [None])[-1]
+            _cover_f  = render_frame(photos[0][1], cfg, fnt, show_caption=True,
+                                     frame_caption=_cover_fc)
+            _cover_frames = int(_cover_hold * FPS)
+            for _ in range(_cover_frames):
+                _cover_f.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                frame_i += 1
+            print(f"  ✓ Cover frame: {_cover_frames} frames ({_cover_hold}s) prepended")
 
         def _frame_cap(i):
             """Return (show_caption, frame_caption_dict) for photo index i."""
