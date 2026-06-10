@@ -1052,9 +1052,10 @@ def main():
         )
         _bg_track = None
         if _music_files and cfg.get("bg_music", True):
-            random.seed(os.path.basename(reel_dir))   # deterministic per reel
-            _bg_track = random.choice(_music_files)
-            print(f"  ♪ Background music: {os.path.basename(_bg_track)}")
+            # Rotate across all tracks: hash(reel_name) % n distributes evenly
+            # so every track gets used before any repeats at scale.
+            _bg_track = _music_files[abs(hash(os.path.basename(reel_dir))) % len(_music_files)]
+            print(f"  ♪ Background music: {os.path.basename(_bg_track)}  ({_music_files.index(_bg_track) + 1}/{len(_music_files)})")
 
         # Volume: music sits lower when voiceover is present
         _bg_vol     = cfg.get("bg_music_volume", 0.12 if has_audio else 0.22)

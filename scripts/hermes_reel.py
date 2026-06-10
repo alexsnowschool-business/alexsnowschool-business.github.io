@@ -20,6 +20,7 @@ import argparse
 import json
 import os
 import re
+import random
 import shutil
 import sqlite3
 import statistics
@@ -35,6 +36,10 @@ from dotenv import load_dotenv
 
 SCRIPT_DIR   = Path(__file__).resolve().parent
 BUSINESS_DIR = SCRIPT_DIR.parent
+
+# Allow sibling scripts/ modules to be imported directly
+sys.path.insert(0, str(SCRIPT_DIR))
+import reel_utils
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
 
@@ -60,8 +65,10 @@ ELEVENLABS_VOICE  = (os.getenv("HERMES_ELEVENLABS_VOICE_ID") or
 ELEVENLABS_MODEL  = (os.getenv("HERMES_ELEVENLABS_MODEL_ID") or
                      os.getenv("ELEVENLABS_MODEL_ID") or
                      "eleven_turbo_v2_5")
+EDGE_TTS_VOICE    = os.getenv("EDGE_TTS_VOICE", "en-US-AriaNeural")
 
-_HEADERS = {
+# Vestiaire Collective headers (for httpx fallback; Playwright uses native headers)
+_VC_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
@@ -243,7 +250,7 @@ def _load_db_retail() -> dict[str, tuple[float, list[str]]]:
     result = {}
     for model, entries in groups.items():
         prices = [e[0] for e in entries]
-        all_images = []
+        all_images: list[str] = []
         for _, urls in entries:
             all_images.extend(urls)
         result[model] = (statistics.median(prices), all_images[:8])
@@ -269,8 +276,6 @@ def _fetch_birkin_kelly_prices() -> dict[str, float]:
     Scrape current EUR retail prices from PurseBop price guides.
     Returns a {model: eur_price} dict, or empty dict on any failure.
     """
-    import re
-
     results: dict[str, float] = {}
     pages = [
         ("https://www.pursebop.com/the-hermes-birkin-price-guide-2026/", "Birkin"),
@@ -282,7 +287,6 @@ def _fetch_birkin_kelly_prices() -> dict[str, float]:
         try:
             r = httpx.get(url, headers=headers, follow_redirects=True, timeout=15)
             r.raise_for_status()
-            # Find rows like: Birkin 25 | Togo | €9,600  or  Kelly 28 | … | €10,100
             for m in re.finditer(
                 rf"{family}\s+(\d{{2}}|Mini|Elan|Moove)[^\n]*?€([\d,]+)",
                 r.text,
@@ -290,12 +294,10 @@ def _fetch_birkin_kelly_prices() -> dict[str, float]:
                 size_raw, price_raw = m.group(1), m.group(2).replace(",", "")
                 model = f"{family} {size_raw}"
                 price = float(price_raw)
-                # Keep the lowest (most common Togo/Epsom) price per model
                 if model not in results or price < results[model]:
                     results[model] = price
         except Exception:
-            pass  # silently fall back to DB / seed values
-
+            pass
     return results
 
 
@@ -312,7 +314,7 @@ def _load_known_retail() -> dict[str, float]:
     conn.row_factory = sqlite3.Row
     _ensure_retail_prices_table(conn)
 
-    rows = conn.execute("SELECT model, retail_eur, updated_at FROM retail_prices").fetchall()
+    rows   = conn.execute("SELECT model, retail_eur, updated_at FROM retail_prices").fetchall()
     cached = {r["model"]: r["retail_eur"] for r in rows}
 
     stale = True
@@ -320,7 +322,7 @@ def _load_known_retail() -> dict[str, float]:
         from datetime import datetime, timezone
         oldest = min(r["updated_at"] for r in rows)
         try:
-            age = (datetime.now(timezone.utc) - datetime.fromisoformat(oldest.replace("Z", "+00:00"))).days
+            age   = (datetime.now(timezone.utc) - datetime.fromisoformat(oldest.replace("Z", "+00:00"))).days
             stale = age >= _RETAIL_PRICE_TTL_DAYS
         except Exception:
             pass
@@ -341,7 +343,6 @@ def _load_known_retail() -> dict[str, float]:
             cached.update(fresh)
             print(f"updated {len(fresh)} prices.")
         else:
-            # Seed from hardcoded values if table is empty
             if not cached:
                 for model, price in _RETAIL_SEED.items():
                     conn.execute(
@@ -384,8 +385,7 @@ def _load_resale_stats() -> dict[str, dict]:
 
     stats = {}
     for model, entries in groups.items():
-        prices = [e["price_value"] for e in entries]
-        # Collect images from the item closest to the median price
+        prices   = [e["price_value"] for e in entries]
         median_p = statistics.median(prices)
         best     = min(entries, key=lambda e: abs(e["price_value"] - median_p))
         urls = best.get("image_urls") or []
@@ -410,9 +410,6 @@ def _build_premiums(
     db_retail: dict[str, tuple[float, list[str]]],
     resale:    dict[str, dict],
 ) -> list[dict]:
-    """
-    Merge retail + resale into a premium table, sorted by premium descending.
-    """
     rows = []
 
     for model, (retail_eur, images) in db_retail.items():
@@ -435,7 +432,6 @@ def _build_premiums(
             "retail_source": "hermes.db",
         })
 
-    # Birkin / Kelly: not sold on hermes.com, prices fetched from web and cached in hermes.db.
     db_models = {r["model"] for r in rows}
     for model, retail_eur in _load_known_retail().items():
         if model in db_models:
@@ -465,106 +461,26 @@ def _build_premiums(
 
 def _find_resale_key(model: str, resale: dict) -> str | None:
     """Find the best matching key in the resale stats dict for a given model name."""
-    # Exact match first
     if model in resale:
         return model
-    # Case-insensitive exact
     model_low = model.lower()
     for key in resale:
         if key.lower() == model_low:
             return key
-    # Substring: model name contained in key or key contained in model
     for key in resale:
         if model_low in key.lower() or key.lower() in model_low:
             return key
     return None
 
 
-# ── Image downloading ──────────────────────────────────────────────────────────
-
-def _download_images_playwright(urls: list[str], dest_dir: Path, max_images: int = 6) -> list[Path]:
-    """Download images via a real Chromium browser to bypass CDN bot-protection."""
-    import asyncio
-    from playwright.async_api import async_playwright
-
-    async def _fetch_all():
-        saved = []
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
-            context = await browser.new_context(
-                user_agent=_HEADERS["User-Agent"],
-                locale="en-US",
-            )
-            page = await context.new_page()
-            # Prime Cloudflare cookies with a real page visit first.
-            await page.goto("https://www.vestiairecollective.com/", wait_until="domcontentloaded", timeout=30_000)
-
-            _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
-            for i, url in enumerate(urls[:max_images]):
-                try:
-                    # Navigate directly to the image URL — Cloudflare sees a real browser
-                    # navigation, not a fetch(), so TLS/header fingerprints pass inspection.
-                    resp = await page.goto(url, wait_until="load", timeout=20_000)
-                    if not resp or not resp.ok:
-                        status = resp.status if resp else "no response"
-                        print(f"  ✗ {url[:70]}... — HTTP {status}")
-                        continue
-                    ct  = (resp.headers.get("content-type") or "").split(";")[0].strip().lower()
-                    ext = _CT_EXT.get(ct) or (
-                        ".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png"
-                    )
-                    fname = dest_dir / f"{i + 1:02d}{ext}"
-                    fname.write_bytes(await resp.body())
-                    print(f"  ✓ {fname.name}")
-                    saved.append(fname)
-                except Exception as e:
-                    print(f"  ✗ {url[:70]}... — {e}")
-            await browser.close()
-        return saved
-
-    return asyncio.run(_fetch_all())
-
-
-def _download_images(urls: list[str], dest_dir: Path, max_images: int = 6) -> list[Path]:
-    dest_dir.mkdir(parents=True, exist_ok=True)
-
-    # Try Playwright first — bypasses CDN bot-protection that blocks httpx in CI.
-    import importlib.util
-    if importlib.util.find_spec("playwright") is not None:
-        return _download_images_playwright(urls, dest_dir, max_images)
-
-    # Fallback: plain httpx (works locally if not IP-blocked).
-    _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
-    saved = []
-    with httpx.Client(headers=_HEADERS, follow_redirects=True, timeout=20) as client:
-        for i, url in enumerate(urls[:max_images]):
-            try:
-                r = client.get(url)
-                r.raise_for_status()
-                ct  = r.headers.get("content-type", "").split(";")[0].strip().lower()
-                ext = _CT_EXT.get(ct) or (
-                    ".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png"
-                )
-                fname = dest_dir / f"{i + 1:02d}{ext}"
-                fname.write_bytes(r.content)
-                print(f"  ✓ {fname.name}")
-                saved.append(fname)
-            except Exception as e:
-                print(f"  ✗ {url[:70]}... — {e}")
-    return saved
-
-
 # ── Hook text ─────────────────────────────────────────────────────────────────
 
-import random
-
-
 def _hook(row: dict) -> tuple[str, str]:
-    pct      = row["premium_pct"]
-    retail   = _fmt_eur(row["retail_eur"])
-    resale   = _fmt_usd(row["resale_usd"])
-    model    = row["model"]
-    fmt      = dict(retail=retail, resale=resale, pct=f"+{pct:,.0f}%", model=model)
+    pct    = row["premium_pct"]
+    retail = _fmt_eur(row["retail_eur"])
+    resale = _fmt_usd(row["resale_usd"])
+    model  = row["model"]
+    fmt    = dict(retail=retail, resale=resale, pct=f"+{pct:,.0f}%", model=model)
 
     for threshold, q_variants, a_variants in _HOOKS:
         if pct >= threshold:
@@ -577,17 +493,12 @@ def _hook(row: dict) -> tuple[str, str]:
 
 # ── Config generation ──────────────────────────────────────────────────────────
 
-def _esc(s: str) -> str:
-    return str(s).replace("\\", "\\\\").replace('"', '\\"')
-
-
 def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
                      narration_captions: list[dict] | None = None) -> str:
-    model     = row["model"]
-    retail    = _fmt_eur(row["retail_eur"])
-    resale    = _fmt_usd(row["resale_usd"])
-    pct       = row["premium_pct"]
-    count     = row["resale_count"]
+    model  = row["model"]
+    retail = _fmt_eur(row["retail_eur"])
+    resale = _fmt_usd(row["resale_usd"])
+    pct    = row["premium_pct"]
 
     line1 = f"retail  ·  {retail}"
     line2 = resale
@@ -600,6 +511,7 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
         f"the secondary market prices what the boutique won't."
     )
 
+    _e = reel_utils.esc
     lines = [
         '"""',
         f"╔══════════════════════════════════════════════════════════════╗",
@@ -609,20 +521,20 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
         '"""',
         "",
         "CONFIG = {",
-        f'    "lot_id":         "{_esc(reel_slug)}",',
+        f'    "lot_id":         "{_e(reel_slug)}",',
         "",
         "    # ── Caption ────────────────────────────────────────────────",
-        f'    "caption_tag":    "{_esc(brand)}  ·  retail vs resale",',
-        f'    "caption_line1":        "{_esc(line1)}",',
+        f'    "caption_tag":    "{_e(brand)}  ·  retail vs resale",',
+        f'    "caption_line1":        "{_e(line1)}",',
         f'    "caption_line2_label":  "secondary market",',
-        f'    "caption_line2":        "{_esc(line2)}",',
-        f'    "caption_line3":        "{_esc(line3)}",',
+        f'    "caption_line2":        "{_e(line2)}",',
+        f'    "caption_line3":        "{_e(line3)}",',
         "",
         "    # ── Location metadata ─────────────────────────────────────",
         f'    "location_coords": "HERMÈS",',
-        f'    "location_name":   "{_esc(model.upper())}",',
+        f'    "location_name":   "{_e(model.upper())}",',
         f'    "location_season": "{date.today().year}  ·  RESALE PREMIUM",',
-        f'    "frame_label":     "{_esc(brand)}",',
+        f'    "frame_label":     "{_e(brand)}",',
         "",
         "    # ── Layout ────────────────────────────────────────────────",
         '    "photo_split":        False,',
@@ -647,12 +559,13 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
         "    },",
         "",
         "    # ── Colours ───────────────────────────────────────────────",
-        "    \"color_tag\":   (245, 242, 235),",           # near-white — matches retail label
-        "    \"color_line1\": (245, 242, 235),",          # near-white retail label
-        "    \"color_line2\": (196, 158, 40),",           # rich gold — resale price dominates
-        "    \"color_line3\": (245, 242, 235),",          # near-white premium %
+        "    \"color_tag\":   (245, 242, 235),",
+        "    \"color_line1\": (245, 242, 235),",
+        "    \"color_line2\": (196, 158, 40),",
+        "    \"color_line3\": (245, 242, 235),",
         "",
         "    \"caption_all_frames\": False,",
+        "    \"cover_hold_seconds\": 2.0,   # held at start for platform thumbnail auto-selection",
         "",
         "    # ── Pacing ────────────────────────────────────────────────",
         '    "fps":          5,',
@@ -664,7 +577,7 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
         f'    "location":       "hermès",',
         f'    "season":         "{date.today().year}",',
         '    "caption_full":   (',
-        f'        "{_esc(caption_full)}"',
+        f'        "{_e(caption_full)}"',
         "    ),",
         f'    "caption_hero":   "the boutique has one price.",',
         '    "personal_note":  "the hermès secondary market is one of the most liquid luxury resale markets in the world.",',
@@ -674,7 +587,7 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
     if reveal:
         lines.append("")
         lines.append("    # ── Per-frame reveal ──────────────────────────────────────")
-        lines.append("    \"per_frame_captions\": [")
+        lines.append('    "per_frame_captions": [')
         for fc in reveal:
             lines.append("        {")
             for key, val in fc.items():
@@ -685,7 +598,7 @@ def _generate_config(row: dict, reel_slug: str, brand: str, reveal: list[dict],
     if narration_captions:
         lines.append("")
         lines.append("    # ── Word-by-word narration captions ───────────────────────")
-        lines.append("    \"narration_captions\": [")
+        lines.append('    "narration_captions": [')
         for cap in narration_captions:
             lines.append(
                 f"        {{\"start\": {cap['start']:.3f}, "
@@ -708,18 +621,12 @@ def _generate_narration(row: dict) -> str | None:
         print("  ✗ OPENROUTER_API_KEY not set — cannot generate narration")
         return None
 
-    model   = row["model"]
-    retail  = _fmt_eur(row["retail_eur"])
-    resale  = _fmt_usd(row["resale_usd"])
-    pct     = row["premium_pct"]
-    count   = row["resale_count"]
+    model  = row["model"]
+    retail = _fmt_eur(row["retail_eur"])
+    resale = _fmt_usd(row["resale_usd"])
+    pct    = row["premium_pct"]
+    count  = row["resale_count"]
 
-    import random
-
-    # Each angle: (name, instruction, signal_tags)
-    # signal_tags keys: high_premium (pct>80), extreme_premium (pct>130),
-    #                   scarce_market (count<20), liquid_market (count>50)
-    # Absence of a key = neutral (angle fits regardless of that signal)
     _ANGLES = [
         ("the waitlist paradox",
          "Open by revealing that buying this bag at retail is nearly impossible — not because of price, but because of access. "
@@ -848,8 +755,6 @@ Speak directly to the viewer. Short sentences. No filler phrases. Output only th
         )
         r.raise_for_status()
         text = r.json()["choices"][0]["message"]["content"].strip()
-        # Strip common LLM preamble labels the model adds despite instructions.
-        import re
         text = re.sub(r"(?i)^(here'?s?( is)?( your)?( the)? script:?\s*)+", "", text).strip()
         print(f"  ✓ Narration generated ({len(text.split())} words)")
         return text
@@ -858,241 +763,27 @@ Speak directly to the viewer. Short sentences. No filler phrases. Output only th
         return None
 
 
-# ── Voiceover: ElevenLabs TTS (with Edge TTS fallback) ────────────────────────
-
-EDGE_TTS_VOICE = os.getenv("EDGE_TTS_VOICE", "en-US-AriaNeural")
-
-
-def _synthesise_via_edge_tts(text: str, output_path: Path) -> bool:
-    """Free fallback TTS via Microsoft Edge TTS (no API key required)."""
-    try:
-        import asyncio
-        import edge_tts
-
-        async def _run():
-            communicate = edge_tts.Communicate(text, EDGE_TTS_VOICE)
-            await communicate.save(str(output_path))
-
-        asyncio.run(_run())
-        print(f"  ✓ Edge TTS (voice={EDGE_TTS_VOICE}) → {output_path.name}")
-        return True
-    except ImportError:
-        print("  ✗ edge-tts not installed (pip install edge-tts)")
-        return False
-    except Exception as e:
-        print(f"  ✗ Edge TTS error: {e}")
-        return False
-
-
-def _synthesise_voiceover(text: str, output_path: Path) -> tuple[bool, list[dict]]:
-    """
-    Synthesise text to MP3. Tries ElevenLabs first; falls back to Edge TTS.
-    Returns (success, word_timestamps). Word timestamps are populated only when
-    ElevenLabs is used (it returns character-level alignment); Edge TTS returns [].
-    """
-    if ELEVENLABS_KEY and ELEVENLABS_VOICE:
-        try:
-            import base64
-            from elevenlabs import VoiceSettings
-            from elevenlabs.client import ElevenLabs
-
-            client   = ElevenLabs(api_key=ELEVENLABS_KEY)
-            response = client.text_to_speech.convert_with_timestamps(
-                voice_id=ELEVENLABS_VOICE,
-                text=text,
-                model_id=ELEVENLABS_MODEL,
-                output_format="mp3_44100_128",
-                voice_settings=VoiceSettings(stability=0.45, similarity_boost=0.80, style=0.2),
-            )
-            output_path.write_bytes(base64.b64decode(response.audio_base_64))
-            print(f"  ✓ ElevenLabs TTS (voice={ELEVENLABS_VOICE}) → {output_path.name}")
-            raw = response.alignment
-            alignment = raw.__dict__ if hasattr(raw, "__dict__") else (raw or {})
-            words = _alignment_to_words(alignment)
-            return True, words
-        except Exception as e:
-            print(f"  ✗ ElevenLabs error: {e} — falling back to Edge TTS")
-
-    print("  ▸ Using Edge TTS fallback")
-    ok = _synthesise_via_edge_tts(text, output_path)
-    return ok, []
-
-
-def _audio_duration(path: Path) -> float:
-    """Return MP3 duration in seconds via ffprobe."""
-    try:
-        result = subprocess.run(
-            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-             "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
-            capture_output=True, text=True,
-        )
-        return float(result.stdout.strip())
-    except Exception:
-        return 0.0
-
-
-# ── Word-level caption helpers ─────────────────────────────────────────────────
-
-def _alignment_to_words(alignment: dict) -> list[dict]:
-    """Convert ElevenLabs character-level alignment into word-level timestamps."""
-    chars  = alignment.get("characters", [])
-    starts = alignment.get("character_start_times_seconds", [])
-    ends   = alignment.get("character_end_times_seconds", [])
-
-    words: list[dict] = []
-    buf: list[str] = []
-    buf_start = buf_end = None
-
-    for ch, s, e in zip(chars, starts, ends):
-        if ch in (" ", "\n", "\t"):
-            if buf:
-                words.append({"word": "".join(buf), "start": buf_start, "end": buf_end})
-                buf, buf_start, buf_end = [], None, None
-        else:
-            if buf_start is None:
-                buf_start = s
-            buf_end = e
-            buf.append(ch)
-
-    if buf:
-        words.append({"word": "".join(buf), "start": buf_start, "end": buf_end})
-    return words
-
-
-def _evenly_spaced_words(text: str, duration: float) -> list[dict]:
-    """Fallback: distribute words evenly across the audio duration."""
-    tokens = text.split()
-    if not tokens or duration <= 0:
-        return []
-    step = duration / len(tokens)
-    return [{"word": w, "start": i * step, "end": (i + 1) * step}
-            for i, w in enumerate(tokens)]
-
-
-def _srt_ts(seconds: float) -> str:
-    h  = int(seconds // 3600)
-    m  = int((seconds % 3600) // 60)
-    s  = int(seconds % 60)
-    ms = int(round((seconds % 1) * 1000))
-    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
-
-
-def _split_sentences(words: list[dict]) -> list[list[dict]]:
-    """Group word dicts into sentence-level chunks by terminal punctuation."""
-    sentences, current = [], []
-    for w in words:
-        current.append(w)
-        if re.search(r'[.?!]\s*$', w["word"]):
-            sentences.append(current)
-            current = []
-    if current:
-        sentences.append(current)
-    return sentences
-
-
-def _words_to_captions(words: list[dict], words_per_cue: int = 6,
-                        min_duration: float = 0.6, tail: float = 0.1) -> list[dict]:
-    """Group word timestamps into 8-word caption cues (2 lines of ~4 words)."""
-    captions = []
-    for i in range(0, len(words), words_per_cue):
-        chunk = words[i : i + words_per_cue]
-        start = chunk[0]["start"]
-        end   = max(chunk[-1]["end"] + tail, start + min_duration)
-        captions.append({
-            "start": start,
-            "end":   end,
-            "text":  " ".join(w["word"] for w in chunk).lower(),
-        })
-    return captions
-
-
-def _write_srt(words: list[dict], path: Path,
-               words_per_cue: int = 6,
-               min_duration: float = 0.6, tail: float = 0.1) -> None:
-    """Write word-by-word captions as SRT (3 words per cue)."""
-    groups = [words[i : i + words_per_cue] for i in range(0, len(words), words_per_cue)]
-    lines = []
-    for idx, chunk in enumerate(groups, start=1):
-        start = chunk[0]["start"]
-        end   = max(chunk[-1]["end"] + tail, start + min_duration)
-        text  = " ".join(w["word"] for w in chunk).lower()
-        lines += [str(idx), f"{_srt_ts(start)} --> {_srt_ts(end)}", text, ""]
-    path.write_text("\n".join(lines), encoding="utf-8")
-    print(f"  ✓ Captions SRT: {path.name}  ({len(groups)} cues)")
-
-
-def _ffmpeg_has_libass() -> bool:
-    """Return True if the local ffmpeg was compiled with libass (needed for subtitles filter)."""
-    try:
-        r = subprocess.run(["ffmpeg", "-filters"], capture_output=True, text=True)
-        return "subtitles" in r.stdout or "subtitles" in r.stderr
-    except FileNotFoundError:
-        return False
-
-
-def _burn_captions(video_path: Path, srt_path: Path) -> Path | None:
-    """Burn SRT subtitles into a video with ffmpeg. Returns the output path or None."""
-    if not _ffmpeg_has_libass():
-        print("  ✗ ffmpeg on this machine was compiled without libass — subtitles filter unavailable.")
-        print("    Fix: brew uninstall ffmpeg && brew install ffmpeg")
-        print(f"    Then re-run and the captions will burn automatically.")
-        return None
-
-    out = video_path.with_stem(video_path.stem + "_captioned")
-    style = (
-        "FontName=Arial,FontSize=55,Bold=1,Alignment=2,WrapStyle=2,"
-        "MarginL=40,MarginR=40,MarginV=60,"
-        "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,Outline=2,Shadow=1"
-    )
-    # Use absolute path and escape colons/backslashes for ffmpeg's filter parser.
-    srt_abs = str(srt_path.resolve()).replace("\\", "\\\\").replace(":", "\\:")
-    cmd = [
-        "ffmpeg", "-y",
-        "-i", str(video_path),
-        "-vf", f"subtitles='{srt_abs}':force_style='{style}'",
-        "-c:a", "copy",
-        str(out),
-    ]
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode == 0:
-            print(f"  ✓ Captioned video: {out.name}")
-            return out
-        print(f"  ✗ ffmpeg subtitles error: {result.stderr[-400:]}")
-        return None
-    except FileNotFoundError:
-        print("  ✗ ffmpeg not found — install it to burn captions into the video")
-        return None
-
-
 # ── Reveal sequence ───────────────────────────────────────────────────────────
 
 def _build_reveal(row: dict, brand: str, n_images: int, voice_duration: float = 0.0) -> list[dict]:
-    model   = row["model"]
-    retail  = _fmt_eur(row["retail_eur"])
-    resale  = _fmt_usd(row["resale_usd"])
-    pct     = row["premium_pct"]
+    """
+    3-act reveal matching auto_reel.py's structure:
+      Act I   — product image; hook question displayed prominently (title frame)
+      Act II  — clean product images; voice narrates
+      Act III — price reveal: retail / resale / premium %
+
+    make_reel.py's cover_hold_seconds prepends Act III as the thumbnail bait.
+    """
+    model  = row["model"]
+    retail = _fmt_eur(row["retail_eur"])
+    resale = _fmt_usd(row["resale_usd"])
+    pct    = row["premium_pct"]
     hook_q, _ = _hook(row)
 
     tag = f"{brand}  ·  retail vs resale"
 
-    def _f(line1="", line2="", line3="", hold=5.0, ua="", ut=""):
-        return {
-            "show_caption":  bool(line1 or line2 or line3),
-            "tag":           tag,
-            "line1":         line1,
-            "line2":         line2,
-            "line3":         line3,
-            "hook_question": None,
-            "hook_answer":   "",
-            "upper_artist":  ua,
-            "upper_title":   ut,
-            "hold_seconds":  hold,
-        }
-
+    # Timing — scale to voiceover length when available
     n_mid = max(1, n_images - 2)
-
-    # Scale hold times to fit the voiceover; fall back to short defaults otherwise.
     if voice_duration > 0:
         act1_s   = round(voice_duration * 0.20, 1)
         act3_s   = round(voice_duration * 0.25, 1)
@@ -1102,24 +793,55 @@ def _build_reveal(row: dict, brand: str, n_images: int, voice_duration: float = 
         mid_each = round(4.0 / n_mid, 1)
         act3_s   = 10.0
 
-    # Act I: retail and resale prices only — clean, no hook teaser line.
+    def _clean_frame(hold: float) -> dict:
+        return {
+            "show_caption":  False,
+            "tag":           tag,
+            "line1":         "",
+            "line2":         "",
+            "line3":         "",
+            "hook_question": None,
+            "hook_answer":   "",
+            "upper_artist":  "",
+            "upper_title":   "",
+            "hold_seconds":  hold,
+        }
+
+    # Act I: hook question + model name (title frame — no price data yet)
     act1: dict = {
-        "show_caption":     True,
-        "caption_position": "center",
+        "show_caption":     False,
         "tag":              tag,
-        "line1":            f"retail  ·  {retail}",
-        "line2":            resale,
+        "line1":            "",
+        "line2":            "",
         "line3":            "",
-        "hook_question":    None,
+        "hook_question":    hook_q,
         "hook_answer":      "",
         "upper_artist":     "",
         "upper_title":      model,
         "hold_seconds":     act1_s,
     }
-    frames = [act1]
-    # Act II + III: clean images only — no caption overlay
-    for _ in range(n_mid + 1):
-        frames.append(_f(hold=mid_each))
+
+    # Act II: clean frames
+    frames: list[dict] = [act1]
+    for _ in range(n_mid):
+        frames.append(_clean_frame(hold=mid_each))
+
+    # Act III: price reveal (also used as cover thumbnail by make_reel.py)
+    act3: dict = {
+        "show_caption":     True,
+        "caption_position": "center",
+        "tag":              tag,
+        "line1":            f"retail  ·  {retail}",
+        "line2":            resale,
+        "line3":            f"+{pct:,.0f}%  above retail",
+        "hook_question":    None,
+        "hook_answer":      "",
+        "upper_artist":     "",
+        "upper_title":      model,
+        "hold_seconds":     act3_s,
+    }
+    frames.append(act3)
+
     return frames
 
 
@@ -1213,7 +935,6 @@ def main() -> None:
     if args.model:
         candidates = [r for r in premiums if r["model"].lower() == args.model.lower()]
         if not candidates:
-            # Fuzzy fallback
             candidates = [r for r in premiums if args.model.lower() in r["model"].lower()]
         if not candidates:
             print(f"✗ Model '{args.model}' not found. Use --list to see available models.")
@@ -1222,11 +943,8 @@ def main() -> None:
     else:
         unposted = [r for r in premiums if r["model"] not in posted]
         if not unposted:
-            # All qualifying models were posted within the cooldown window —
-            # pick the least recently posted so rotation continues.
             print(f"  ℹ All models posted within {POSTED_COOLDOWN_DAYS}d cooldown — picking least-recently posted.")
             unposted = sorted(premiums, key=lambda r: posted.get(r["model"], ""))
-        # Prefer models with images
         with_imgs = [r for r in unposted if r["images"]]
         chosen = with_imgs[0] if with_imgs else unposted[0]
 
@@ -1249,13 +967,18 @@ def main() -> None:
 
     # ── Download images ────────────────────────────────────────
     print("\n▸ Downloading images...")
-    saved = _download_images(chosen["images"], reel_dir / "_src")
+    saved = reel_utils.download_images(
+        chosen["images"],
+        reel_dir / "_src",
+        headers=_VC_HEADERS,
+        prime_url="https://www.vestiairecollective.com/",
+    )
 
     if not saved:
         print("✗ No images downloaded.")
         sys.exit(1)
 
-    # Copy with numeric prefix into images/, converting WebP → JPEG for make_reel.py
+    # Copy into images/, converting WebP → JPEG
     n_images = 0
     for idx, src in enumerate(saved):
         if src.suffix.lower() == ".webp":
@@ -1282,16 +1005,22 @@ def main() -> None:
         if narration:
             print(f"  Script preview: {narration[:120]}...")
             vo_path = reel_dir / "voiceover.mp3"
-            ok, word_timestamps = _synthesise_voiceover(narration, vo_path)
+            ok, word_timestamps = reel_utils.synthesise_voiceover(
+                narration, vo_path,
+                elevenlabs_key=ELEVENLABS_KEY,
+                voice_id=ELEVENLABS_VOICE,
+                model_id=ELEVENLABS_MODEL,
+                edge_voice=EDGE_TTS_VOICE,
+            )
             if ok:
-                voice_duration = _audio_duration(vo_path)
+                voice_duration = reel_utils.audio_duration(vo_path)
                 print(f"  Audio duration: {voice_duration:.1f}s")
                 if not word_timestamps and voice_duration > 0:
-                    word_timestamps = _evenly_spaced_words(narration, voice_duration)
+                    word_timestamps = reel_utils.evenly_spaced_words(narration, voice_duration)
                 if word_timestamps:
                     srt_path      = reel_dir / "captions.srt"
-                    narr_captions = _words_to_captions(word_timestamps)
-                    _write_srt(word_timestamps, srt_path)
+                    narr_captions = reel_utils.words_to_captions(word_timestamps)
+                    reel_utils.write_srt(word_timestamps, srt_path)
 
     # ── Build reveal + config ──────────────────────────────────
     reveal      = _build_reveal(chosen, args.brand, n_images, voice_duration=voice_duration)
@@ -1329,15 +1058,12 @@ def main() -> None:
             cwd=str(BUSINESS_DIR),
         )
 
-    # Always burn captions when voice was used — runs after --run or against any
-    # video already present in output/ from a prior render.
     if srt_path and srt_path.exists():
         videos = sorted(out_dir.glob("*.mp4"))
-        # Skip files that are already captioned to avoid re-burning.
         videos = [v for v in videos if "_captioned" not in v.stem]
         if videos:
             print("\n▸ Burning word captions into video...")
-            _burn_captions(videos[0], srt_path)
+            reel_utils.burn_captions(videos[0], srt_path)
         else:
             print(f"\n  ℹ No rendered video found yet — run make_reel.py first, captions will burn automatically on next run.")
 

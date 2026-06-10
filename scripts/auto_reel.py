@@ -33,6 +33,7 @@ from dotenv import load_dotenv
 SCRIPT_DIR   = Path(__file__).resolve().parent
 BUSINESS_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(SCRIPT_DIR))
+import reel_utils
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
 
@@ -500,19 +501,8 @@ def _clean_artist(name: str) -> str:
     return re.sub(r"\s*\([^)]+\)\s*$", "", name).strip().title()
 
 
-def _esc(s: str) -> str:
-    """Escape a value for safe embedding inside a double-quoted Python string literal."""
-    return str(s).replace("\\", "\\\\").replace('"', '\\"')
-
-
-def _make_slug(text: str, max_len: int = 25) -> str:
-    """Lowercase filesystem-safe slug: strip accents, collapse spaces to hyphens."""
-    import unicodedata
-    text = unicodedata.normalize("NFKD", text)
-    text = text.encode("ascii", "ignore").decode("ascii")
-    text = re.sub(r"[^\w\s-]", "", text.lower())
-    text = re.sub(r"[\s_]+", "-", text).strip("-")
-    return text[:max_len].rstrip("-")
+_esc      = reel_utils.esc
+_make_slug = reel_utils.make_slug
 
 
 def _week_bounds(ref_date: date) -> tuple[str, str]:
@@ -715,94 +705,17 @@ def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
 
 # ── Image downloading ──────────────────────────────────────────────────────────
 
-def _download_images_playwright(urls: list[str], dest_dir: Path,
-                                max_images: int = 8) -> list[Path]:
-    """Download images via a real Chromium browser context to bypass CDN bot-protection."""
-    import asyncio
-    from urllib.parse import urlparse
-    from playwright.async_api import async_playwright
-
-    async def _fetch_all():
-        saved = []
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True, args=["--no-sandbox"])
-            context = await browser.new_context(
-                user_agent=_HEADERS["User-Agent"],
-                locale="en-US",
-                extra_http_headers={
-                    "Accept":          "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
-                    "Accept-Language": "en-US,en;q=0.9",
-                    "Accept-Encoding": "gzip, deflate, br",
-                },
-            )
-            _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
-            for i, url in enumerate(urls[:max_images]):
-                # Derive referer from origin so CDNs that require it don't block
-                parsed   = urlparse(url)
-                referer  = f"{parsed.scheme}://{parsed.netloc}/"
-                for attempt in range(3):
-                    try:
-                        resp = await context.request.get(
-                            url,
-                            headers={"Referer": referer},
-                            timeout=30_000,
-                        )
-                        if not resp.ok:
-                            print(f"  ✗ {url[:70]}... — HTTP {resp.status}")
-                            break
-                        body = await resp.body()
-                        ct   = (resp.headers.get("content-type") or "").split(";")[0].strip().lower()
-                        ext  = _CT_EXT.get(ct) or (
-                            ".jpg" if ("jpg" in url.lower() or "jpeg" in url.lower()) else ".png"
-                        )
-                        fname = dest_dir / f"src_{i + 1:02d}{ext}"
-                        fname.write_bytes(body)
-                        print(f"  ✓ {fname.name}")
-                        saved.append(fname)
-                        break
-                    except Exception as e:
-                        if attempt == 2:
-                            print(f"  ✗ {url[:70]}... — {e}")
-            await browser.close()
-        return saved
-
-    return asyncio.run(_fetch_all())
-
-
 def _download_lot_images(lot: dict, dest_dir: Path, max_images: int = 8) -> list[Path]:
     """Download all unique images for a single lot. Returns list of saved paths."""
-    dest_dir.mkdir(parents=True, exist_ok=True)
     raw_urls = json.loads(lot.get("image_urls") or "[]")
-
     seen, urls = set(), []
     for u in raw_urls:
         if u not in seen:
             seen.add(u)
             urls.append(u)
-
-    # Try Playwright first — bypasses CDN bot-protection that blocks httpx.
-    if importlib.util.find_spec("playwright") is not None:
-        return _download_images_playwright(urls, dest_dir, max_images)
-
-    # Fallback: plain httpx.
-    _CT_EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}
-    saved: list[Path] = []
-    with httpx.Client(headers=_HEADERS, follow_redirects=True, timeout=20) as client:
-        for i, url in enumerate(urls[:max_images]):
-            try:
-                r = client.get(url)
-                r.raise_for_status()
-                ct  = r.headers.get("content-type", "").split(";")[0].strip().lower()
-                ext = _CT_EXT.get(ct) or (
-                    ".jpg" if "jpg" in url.lower() or "jpeg" in url.lower() else ".png"
-                )
-                fname = dest_dir / f"src_{i + 1:02d}{ext}"
-                fname.write_bytes(r.content)
-                print(f"  ✓ {fname.name}  ({i + 1}/{len(urls[:max_images])})")
-                saved.append(fname)
-            except Exception as e:
-                print(f"  ✗ {url[:60]}... — {e}")
-    return saved
+    return reel_utils.download_images(
+        urls, dest_dir, max_images, headers=_HEADERS
+    )
 
 
 # ── Image crop helpers ─────────────────────────────────────────────────────────
@@ -963,7 +876,8 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
                            voice_duration: float = 0.0,
                            act1_words: int = 0,
                            narr_words: int = 0,
-                           data_words: int = 0) -> list[dict]:
+                           data_words: int = 0,
+                           hook_question: str | None = None) -> list[dict]:
     """
     3-act reveal — all frames are clean (no text box); voice carries all data.
       Act I   — full painting; voice opens the piece (hook question)
@@ -983,14 +897,14 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
     _line2   = f"sold: {_fmt_price(hammer)}."
     _line3   = f"+{pct:,.0f}% above estimate."
 
-    def _frame(hold=4.0, show_data=False):
+    def _frame(hold=4.0, show_data=False, show_hook=False):
         return {
             "show_caption":  show_data,
             "tag":           tag,
             "line1":         _line1 if show_data else "",
             "line2":         _line2 if show_data else "",
             "line3":         _line3 if show_data else "",
-            "hook_question": None,
+            "hook_question": hook_question if show_hook else None,
             "hook_answer":   "",
             "upper_artist":  artist_name,
             "upper_title":   painting_title,
@@ -1011,7 +925,7 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
         act3_hold   = 10.0
         crop_hold_s = max(0.3, round(5.0 / max(1, n_act2_images), 1))
 
-    frames = [_frame(hold=act1_hold)]
+    frames = [_frame(hold=act1_hold, show_hook=True)]
     for _ in range(n_act2_images):
         frames.append(_frame(hold=crop_hold_s))
     frames.append(_frame(hold=act3_hold, show_data=True))
@@ -1028,54 +942,9 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
     return frames
 
 
-def _split_sentences(words: list[dict]) -> list[list[dict]]:
-    """Group word dicts into sentence-level chunks by terminal punctuation."""
-    sentences, current = [], []
-    for w in words:
-        current.append(w)
-        if re.search(r'[.?!]\s*$', w["word"]):
-            sentences.append(current)
-            current = []
-    if current:
-        sentences.append(current)
-    return sentences
-
-
-def _words_to_captions(words: list[dict], words_per_cue: int = 6,
-                        min_duration: float = 0.6, tail: float = 0.1) -> list[dict]:
-    captions = []
-    for i in range(0, len(words), words_per_cue):
-        chunk = words[i : i + words_per_cue]
-        start = chunk[0]["start"]
-        end   = max(chunk[-1]["end"] + tail, start + min_duration)
-        captions.append({
-            "start": start,
-            "end":   end,
-            "text":  " ".join(w["word"] for w in chunk).lower(),
-        })
-    return captions
-
-def _burn_captions(video_path: Path, srt_path: Path) -> Path | None:
-    """Burn SRT subtitles into a video with ffmpeg."""
-    out   = video_path.with_stem(video_path.stem + "_captioned")
-    style = (
-        "FontName=Arial,FontSize=55,Bold=1,Alignment=2,WrapStyle=2,"
-        "MarginL=40,MarginR=40,MarginV=60,"
-        "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,Outline=2,Shadow=1"
-    )
-    cmd = ["ffmpeg", "-y", "-i", str(video_path),
-           "-vf", f"subtitles={srt_path}:force_style='{style}'",
-           "-c:a", "copy", str(out)]
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode == 0:
-            print(f"  ✓ Captioned video: {out.name}")
-            return out
-        print(f"  ✗ ffmpeg subtitles error: {result.stderr[-400:]}")
-        return None
-    except FileNotFoundError:
-        print("  ✗ ffmpeg not found")
-        return None
+_split_sentences  = reel_utils.split_sentences
+_words_to_captions = reel_utils.words_to_captions
+_burn_captions     = reel_utils.burn_captions
     
 # ── Config generation ──────────────────────────────────────────────────────────
 
@@ -1236,23 +1105,7 @@ def _write_ai_captions(captions: dict, reel_dir: Path, lot: dict) -> None:
         f.write(f"*Generated {datetime.now().strftime('%B %d, %Y')} · AI*\n")
 
 
-def _normalise_word_timings(words: list[dict]) -> list[dict]:
-    """
-    Normalise word timing dicts to always use {word, start, end}.
-    Handles whatever key names generate_voiceover happens to return.
-    """
-    result = []
-    for w in words:
-        # 'word' key — could also be 'text' or 'char'
-        word = w.get("word") or w.get("text") or w.get("char") or ""
-        # 'start' key — could also be 'start_time', 'startTime', 'start_seconds'
-        start = (w.get("start") or w.get("start_time") or
-                 w.get("startTime") or w.get("start_seconds") or 0.0)
-        # 'end' key — could also be 'end_time', 'endTime', 'end_seconds'
-        end = (w.get("end") or w.get("end_time") or
-               w.get("endTime") or w.get("end_seconds") or start)
-        result.append({"word": word, "start": float(start), "end": float(end)})
-    return result
+_normalise_word_timings = reel_utils.normalise_word_timings
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
@@ -1433,9 +1286,31 @@ def main() -> None:
     tag_base         = f"@thehammerprice  ·  {artist.lower()}  ·  {_sale_year}"
     _pct             = _pct_above(hook["hammer_usd"], hook["estimate_low"])
     _question, _tmpl_answer = _hook_caption(hook, _pct)
-    
+
+    # Try AI-generated hook (specific to artist + result); falls back to template
+    if OPENROUTER_KEY:
+        try:
+            from ai_content import generate_hook_question
+            _lot_preview = {
+                "artist":        artist,
+                "title":         (hook.get("title") or "Untitled")[:60],
+                "auction_house": hook.get("auction_house") or "the auction house",
+                "hammer_fmt":    _fmt_price(hook["hammer_usd"]),
+                "estimate_fmt":  f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
+                "pct_above":     _pct,
+            }
+            _ai_question = generate_hook_question(_lot_preview, _pct)
+            if _ai_question:
+                print(f"  ✓ AI hook: {_ai_question}")
+                _question = _ai_question
+            else:
+                print(f"  ▸ Hook: using template ({_question})")
+        except Exception as e:
+            print(f"  ⚠ AI hook error: {e} — using template")
+
     # defaults — overwritten inside --voice block if voice is on
-    reveal        = _build_reveal_sequence(hook, tag_base, n_act2_images=_n_act2)
+    reveal        = _build_reveal_sequence(hook, tag_base, n_act2_images=_n_act2,
+                                           hook_question=_question)
     word_timings  = []
     narr_captions = []
     srt_path: Path | None = None  # ← add this
@@ -1508,6 +1383,7 @@ def main() -> None:
                     act1_words=_act1_word_count,
                     narr_words=_narr_word_count,
                     data_words=_data_word_count,
+                    hook_question=_question,
                 )
     # ── Write reel_config.py ───────────────────────────────────
     config_path = reel_dir / "reel_config.py"

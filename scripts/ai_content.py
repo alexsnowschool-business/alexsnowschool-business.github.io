@@ -198,6 +198,65 @@ Reply with only the post text, nothing else."""
     return raw.strip() if raw else None
 
 
+def generate_hook_question(lot: dict, pct: float) -> str | None:
+    """
+    Generate a specific 5-10 word hook question for the reel's Act I title frame.
+
+    The hook must name the artist or the number — no generic market statements.
+    Falls back to None (caller uses template) if the API is unavailable or slow.
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    import random
+    artist = lot.get("artist", "Unknown")
+    title  = (lot.get("title") or "Untitled")[:50]
+    house  = lot.get("auction_house", "the auction house")
+    hammer = lot.get("hammer_fmt", "unknown")
+    est    = lot.get("estimate_fmt", "unknown")
+    mult   = round(pct / 100 + 1, 1)
+
+    # Give the model a concrete angle so it doesn't default to generic phrasing
+    angles = [
+        f"Focus on the number: {mult:.0f}× the estimate is the fact that stops the scroll.",
+        f"Focus on the artist: why does {artist} keep defying what specialists predict?",
+        f"Focus on the gap: {est} became {hammer} — frame that as a question.",
+        f"Focus on the room: who was in that room, and why were they willing to pay this?",
+        f"Focus on the catalogue: the house wrote one number. the market wrote another.",
+    ]
+    angle = random.choice(angles)
+
+    prompt = f"""Write one hook question for the opening frame of a short-form video about this auction result.
+
+Artist: {artist}
+Work: "{title}"
+House: {house}
+Estimate: {est}  →  Hammer: {hammer}  ({pct:.0f}% above estimate)
+
+Angle: {angle}
+
+Rules:
+- 5 to 10 words maximum
+- All lowercase
+- Must name the artist, the specific number, or both — no generic statements like "the estimate was wrong"
+- Ends with a period or question mark
+- No quotes, no hashtags, no emojis
+- Feels like a scroll-stopper — something specific enough that only this lot could trigger it
+
+Reply with only the hook text. Nothing else."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=40)
+    if not raw:
+        return None
+
+    # Strip any stray quotes or punctuation the model adds
+    hook = raw.strip().strip('"\'').strip()
+    # Hard cap — if model over-generates, fall back to template
+    if len(hook.split()) > 14:
+        return None
+    return hook.lower()
+
+
 def generate_hook_answer(lot: dict, question: str) -> str | None:
     """
     Generate a 4-sentence Act II voiceover: art description → art history → artist significance → market signal.

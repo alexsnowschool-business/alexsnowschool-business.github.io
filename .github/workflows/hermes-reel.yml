@@ -2,9 +2,23 @@ name: Hermès Reel — Provenance
 
 on:
   schedule:
-    - cron: "0 1 * * 1"     # Monday    11:00 CET / 12:00 CEST
-    - cron: "0 1 * * 3"     # Wednesday 11:00 CET / 12:00 CEST
-    - cron: "0 1 * * 5"     # Friday    11:00 CET / 12:00 CEST
+    # Morning slot — 04:00 UTC = 06:00 CET / 07:00 CEST
+    - cron: "0 5 * * 0"
+    - cron: "0 5 * * 1"
+    - cron: "0 5 * * 2"
+    - cron: "0 5 * * 3"
+    - cron: "0 5 * * 4"
+    - cron: "0 5 * * 5"
+    - cron: "0 5 * * 6"
+    # Evening slot — 12:00 UTC = 14:00 CET / 15:00 CEST
+    - cron: "0 13 * * 0"
+    - cron: "0 13 * * 1"
+    - cron: "0 13 * * 2"
+    - cron: "0 13 * * 3"
+    - cron: "0 13 * * 4"
+    - cron: "0 13 * * 5"
+    - cron: "0 13 * * 6"
+
   workflow_dispatch:
     inputs:
       model:
@@ -54,11 +68,12 @@ jobs:
           HERMES_ELEVENLABS_MODEL_ID: ${{ secrets.HERMES_ELEVENLABS_MODEL_ID }}
         run: |
           ARGS="--run"
+          # Scheduled runs always use --voice; manual dispatch respects the input
+          if [ -z "${{ github.event.inputs.voice }}" ] || [ "${{ inputs.voice }}" = "true" ]; then
+            ARGS="$ARGS --voice"
+          fi
           if [ -n "${{ inputs.model }}" ]; then
             ARGS="$ARGS --model '${{ inputs.model }}'"
-          fi
-          if [ "${{ inputs.voice }}" = "true" ]; then
-            ARGS="$ARGS --voice"
           fi
           eval python -u scripts/hermes_reel.py $ARGS
 
