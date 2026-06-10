@@ -78,13 +78,13 @@ _VC_HEADERS = {
 }
 
 # ── Minimum resale premium to qualify for a reel (resale must exceed retail by at least this %) ─
-MIN_PREMIUM_PCT: float = 50.0
+MIN_PREMIUM_PCT: float = 20.0
 
 # ── How many days before a posted model becomes eligible again ────────────────
-POSTED_COOLDOWN_DAYS: int = 30
+POSTED_COOLDOWN_DAYS: int = 14
 
 # ── Fallback retail prices — used only if hermes.db retail_prices table is empty ─
-# Birkin/Kelly are in-store only and never appear on hermes.com.
+# Birkin/Kelly/Constance are in-store only and never appear on hermes.com.
 # These are seeded into hermes.db on first run; thereafter the DB copy is used.
 # Prices in EUR — Hermès Europe, January 2026 increase.
 _RETAIL_SEED: dict[str, float] = {
@@ -96,6 +96,7 @@ _RETAIL_SEED: dict[str, float] = {
     "Kelly 28":   10_100,
     "Kelly 32":   11_100,
     "Kelly Mini":  8_700,
+    "Constance":   7_200,   # mixed Constance 18/24 weighted average, Jan 2026
 }
 
 # Refresh DB prices if they are older than this many days.
@@ -339,19 +340,24 @@ def _load_known_retail() -> dict[str, float]:
                     "source=excluded.source, updated_at=excluded.updated_at",
                     (model, price),
                 )
-            conn.commit()
             cached.update(fresh)
             print(f"updated {len(fresh)} prices.")
         else:
-            if not cached:
-                for model, price in _RETAIL_SEED.items():
-                    conn.execute(
-                        "INSERT OR IGNORE INTO retail_prices (model, retail_eur, source) VALUES (?, ?, 'seed')",
-                        (model, price),
-                    )
-                conn.commit()
-                cached = _RETAIL_SEED.copy()
             print("fetch failed, using cached values.")
+
+        # Always backfill any seed model the web scrape didn't cover (e.g. Kelly Mini, Constance)
+        seeded = 0
+        for model, price in _RETAIL_SEED.items():
+            if model not in cached:
+                conn.execute(
+                    "INSERT OR IGNORE INTO retail_prices (model, retail_eur, source) VALUES (?, ?, 'seed')",
+                    (model, price),
+                )
+                cached[model] = price
+                seeded += 1
+        if seeded:
+            print(f"  + seeded {seeded} model(s) not returned by web scrape.")
+        conn.commit()
 
     conn.close()
     return cached
