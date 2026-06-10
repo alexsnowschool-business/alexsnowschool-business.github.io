@@ -848,16 +848,69 @@ def _build_reveal(row: dict, brand: str, n_images: int, voice_duration: float = 
 # ── Tracking ──────────────────────────────────────────────────────────────────
 
 def _ensure_posted_table(conn: sqlite3.Connection) -> None:
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS posted_hermes_reels (
-            model       TEXT PRIMARY KEY,
-            retail_eur  REAL,
-            resale_usd  REAL,
-            premium_pct REAL,
-            reel_slug   TEXT,
-            posted_at   TEXT DEFAULT (datetime('now'))
-        )
-    """)
+    existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(posted_hermes_reels)").fetchall()}
+
+    if not existing_cols:
+        conn.execute("""
+            CREATE TABLE posted_hermes_reels (
+                id            INTEGER PRIMARY KEY AUTOINCREMENT,
+                model         TEXT NOT NULL,
+                retail_eur    REAL,
+                resale_usd    REAL,
+                premium_pct   REAL,
+                resale_count  INTEGER,
+                retail_source TEXT,
+                source_url    TEXT,
+                n_images      INTEGER,
+                voice_used    INTEGER DEFAULT 0,
+                brand         TEXT,
+                reel_slug     TEXT,
+                reel_dir      TEXT,
+                posted_at     TEXT DEFAULT (datetime('now'))
+            )
+        """)
+    elif "id" not in existing_cols:
+        # Old schema had model as PRIMARY KEY — migrate to append-log with auto id
+        conn.execute("ALTER TABLE posted_hermes_reels RENAME TO _posted_hermes_reels_old")
+        conn.execute("""
+            CREATE TABLE posted_hermes_reels (
+                id            INTEGER PRIMARY KEY AUTOINCREMENT,
+                model         TEXT NOT NULL,
+                retail_eur    REAL,
+                resale_usd    REAL,
+                premium_pct   REAL,
+                resale_count  INTEGER,
+                retail_source TEXT,
+                source_url    TEXT,
+                n_images      INTEGER,
+                voice_used    INTEGER DEFAULT 0,
+                brand         TEXT,
+                reel_slug     TEXT,
+                reel_dir      TEXT,
+                posted_at     TEXT DEFAULT (datetime('now'))
+            )
+        """)
+        conn.execute("""
+            INSERT INTO posted_hermes_reels (model, retail_eur, resale_usd, premium_pct, reel_slug, posted_at)
+            SELECT model, retail_eur, resale_usd, premium_pct, reel_slug, posted_at
+            FROM _posted_hermes_reels_old
+        """)
+        conn.execute("DROP TABLE _posted_hermes_reels_old")
+        print("  ↻ Migrated posted_hermes_reels table to append-log schema.")
+    else:
+        # Add any columns introduced after the initial migration
+        for col, col_type in [
+            ("resale_count",  "INTEGER"),
+            ("retail_source", "TEXT"),
+            ("source_url",    "TEXT"),
+            ("n_images",      "INTEGER"),
+            ("voice_used",    "INTEGER DEFAULT 0"),
+            ("brand",         "TEXT"),
+            ("reel_dir",      "TEXT"),
+        ]:
+            if col not in existing_cols:
+                conn.execute(f"ALTER TABLE posted_hermes_reels ADD COLUMN {col} {col_type}")
+
     conn.commit()
 
 
@@ -871,13 +924,35 @@ def _posted_models(conn: sqlite3.Connection) -> dict[str, str]:
     return {r["model"]: r["posted_at"] for r in rows}
 
 
-def _record_posted(conn: sqlite3.Connection, row: dict, reel_slug: str) -> None:
+def _record_posted(
+    conn: sqlite3.Connection,
+    row: dict,
+    reel_slug: str,
+    *,
+    n_images: int = 0,
+    voice_used: bool = False,
+    brand: str = "",
+    reel_dir: str = "",
+) -> None:
     conn.execute("""
-        INSERT OR REPLACE INTO posted_hermes_reels
-            (model, retail_eur, resale_usd, premium_pct, reel_slug, posted_at)
-        VALUES (?, ?, ?, ?, ?, datetime('now'))
-    """, (row["model"], row["retail_eur"], row["resale_usd"],
-          row["premium_pct"], reel_slug))
+        INSERT INTO posted_hermes_reels
+            (model, retail_eur, resale_usd, premium_pct, resale_count, retail_source,
+             source_url, n_images, voice_used, brand, reel_slug, reel_dir, posted_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    """, (
+        row["model"],
+        row["retail_eur"],
+        row["resale_usd"],
+        row["premium_pct"],
+        row.get("resale_count"),
+        row.get("retail_source"),
+        row.get("source_url", ""),
+        n_images,
+        int(voice_used),
+        brand,
+        reel_slug,
+        reel_dir,
+    ))
     conn.commit()
 
 
@@ -946,7 +1021,11 @@ def main() -> None:
             print(f"  ℹ All models posted within {POSTED_COOLDOWN_DAYS}d cooldown — picking least-recently posted.")
             unposted = sorted(premiums, key=lambda r: posted.get(r["model"], ""))
         with_imgs = [r for r in unposted if r["images"]]
-        chosen = with_imgs[0] if with_imgs else unposted[0]
+        pool = with_imgs or unposted
+        # Weighted random: weight = sqrt(premium_pct) so high-premium bags are
+        # favoured but not always chosen — avoids the same top model every cycle.
+        weights = [max(r["premium_pct"], 1) ** 0.5 for r in pool]
+        chosen = random.choices(pool, weights=weights, k=1)[0]
 
     print(f"\n▸ Model:         {chosen['model']}")
     print(f"  Retail:        {_fmt_eur(chosen['retail_eur'])}  ({chosen['retail_source']})")
@@ -1034,7 +1113,13 @@ def main() -> None:
     conn2 = sqlite3.connect(HERMES_DB)
     conn2.row_factory = sqlite3.Row
     _ensure_posted_table(conn2)
-    _record_posted(conn2, chosen, slug)
+    _record_posted(
+        conn2, chosen, slug,
+        n_images=n_images,
+        voice_used=bool(args.voice and voice_duration > 0),
+        brand=args.brand,
+        reel_dir=str(reel_dir.relative_to(BUSINESS_DIR)),
+    )
     conn2.close()
 
     # ── Summary ────────────────────────────────────────────────
