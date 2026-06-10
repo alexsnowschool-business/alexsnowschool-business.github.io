@@ -32,6 +32,7 @@ SCRIPT_DIR   = Path(__file__).resolve().parent
 BUSINESS_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(SCRIPT_DIR))
 import reel_utils
+import campaign_artist as _ca
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
 
@@ -1170,6 +1171,29 @@ def main() -> None:
     if args.all_time:
         lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
                                         artist=args.artist, title=args.title)
+        if not lots and args.artist:
+            # Walk forward through the campaign rotation to find next artist with unposted lots
+            rotation = list(dict.fromkeys(_ca.ROTATION))  # deduplicated, order preserved
+            try:
+                start_idx = next(i for i, a in enumerate(rotation)
+                                 if a.lower() == args.artist.lower())
+            except StopIteration:
+                start_idx = 0
+            fallback_artist = None
+            for offset in range(1, len(rotation)):
+                candidate = rotation[(start_idx + offset) % len(rotation)]
+                if _query_alltime_top(conn, limit=1, exclude_ids=skip,
+                                      artist=candidate, title=args.title):
+                    fallback_artist = candidate
+                    break
+            if fallback_artist:
+                print(f"\n  ⚠ All {args.artist} lots already posted — trying next candidate: {fallback_artist}")
+                lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
+                                          artist=fallback_artist, title=args.title)
+            else:
+                print(f"\n  ⚠ All {args.artist} lots already posted — no rotation candidates found, falling back to unfiltered.")
+                lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
+                                          artist=None, title=args.title)
         _slug_date = date.today().isoformat()
         _slug_mode = "alltime"
     else:
