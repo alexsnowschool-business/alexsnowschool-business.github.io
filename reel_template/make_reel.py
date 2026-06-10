@@ -1058,7 +1058,7 @@ def main():
             print(f"  ♪ Background music: {os.path.basename(_bg_track)}  ({_music_files.index(_bg_track) + 1}/{len(_music_files)})")
 
         # Volume: music sits lower when voiceover is present
-        _bg_vol     = cfg.get("bg_music_volume", 0.12 if has_audio else 0.22)
+        _bg_vol     = cfg.get("bg_music_volume", 0.20 if has_audio else 0.30)
         _video_dur  = frame_i / FPS  # total video duration in seconds
         _fade_start = max(0.0, _video_dur - 2.5)
 
