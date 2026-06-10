@@ -32,7 +32,7 @@ def load_config(reel_dir):
     cfg.setdefault("fonts_folder",    fonts_path)
     cfg.setdefault("fps",             30)
     cfg.setdefault("hold_seconds",    3.0)
-    cfg.setdefault("fade_seconds",    1.0)
+    cfg.setdefault("fade_seconds",    0.6)
     cfg.setdefault("make_image",      True)
     cfg.setdefault("make_video",      True)
     cfg.setdefault("hero_photo",      None)
@@ -936,6 +936,37 @@ def main():
         print(f"  ✓ Saved: {out_img}")
 
     # ── VIDEO ─────────────────────────────────────────────────
+    _TRANSITIONS = ["push_left", "push_up", "push_right", "push_down"]
+    _trng = random.Random()  # isolated from apply_grain's random.seed(42) calls
+
+    def _ease(t):
+        return t * t * (3 - 2 * t)
+
+    def _render_transition(src, dst, n_frames, kind, frames_dir, frame_i):
+        """Write n_frames of push transition from src→dst. Returns updated frame_i."""
+        for f in range(n_frames):
+            t = _ease(f / n_frames)
+            out = Image.new("RGB", (W, H))
+            if kind == "push_left":
+                offset = int(W * t)
+                out.paste(src, (-offset, 0))
+                out.paste(dst, (W - offset, 0))
+            elif kind == "push_right":
+                offset = int(W * t)
+                out.paste(src, (offset, 0))
+                out.paste(dst, (offset - W, 0))
+            elif kind == "push_up":
+                offset = int(H * t)
+                out.paste(src, (0, -offset))
+                out.paste(dst, (0, H - offset))
+            elif kind == "push_down":
+                offset = int(H * t)
+                out.paste(src, (0, offset))
+                out.paste(dst, (0, offset - H))
+            out.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+            frame_i += 1
+        return frame_i
+
     if cfg["make_video"]:
         print("\n▸ Rendering video frames...")
         frames_dir = os.path.join(cfg["output_folder"], "_frames")
@@ -976,6 +1007,8 @@ def main():
             return show, None
 
         prev_hook_answer_words = []  # track words already revealed in prior frame
+        _last_transition = None
+        _act1_end_frame  = frame_i  # skip captions on cover frames only; Act I + hook run with captions
 
         for i, (fname, photo) in enumerate(photos):
             show, fc = _frame_cap(i)
@@ -1054,11 +1087,12 @@ def main():
             if i < len(photos) - 1:
                 next_show, next_fc = _frame_cap(i + 1)
                 next_base = render_frame(photos[i+1][1], cfg, fnt, show_caption=next_show, frame_caption=next_fc)
-                for f in range(FADE_F):
-                    t = f / FADE_F
-                    blended = Image.blend(base, next_base, alpha=t)
-                    blended.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
-                    frame_i += 1
+                _allowed = cfg.get("transitions", _TRANSITIONS)
+                _pool = [t for t in _allowed if t != _last_transition] or _allowed
+                _kind = _trng.choice(_pool)
+                _last_transition = _kind
+                frame_i = _render_transition(base, next_base, FADE_F, _kind, frames_dir, frame_i)
+                print(f"    transition → {_kind}")
 
             print(f"  {i+1}/{len(photos)}: {fname} → {frame_i} frames")
 
@@ -1071,6 +1105,8 @@ def main():
             overlaid = 0
             for fpath in frame_files:
                 num    = int(os.path.splitext(os.path.basename(fpath))[0][1:])
+                if num < _act1_end_frame:
+                    continue  # no captions during Act I / hook
                 t_secs = num / FPS
                 text   = _active_narration_caption(t_secs, narration_captions)
                 if text:
@@ -1107,7 +1143,7 @@ def main():
             print(f"  ♪ Background music: {os.path.basename(_bg_track)}  ({_music_files.index(_bg_track) + 1}/{len(_music_files)})")
 
         # Volume: music sits lower when voiceover is present
-        _bg_vol     = cfg.get("bg_music_volume", 0.20 if has_audio else 0.30)
+        _bg_vol     = cfg.get("bg_music_volume", 0.12 if has_audio else 0.20)
         _video_dur  = frame_i / FPS  # total video duration in seconds
         _fade_start = max(0.0, _video_dur - 2.5)
 

@@ -336,7 +336,7 @@ def split_sentences(words: list[dict]) -> list[list[dict]]:
 
 def words_to_captions(
     words: list[dict],
-    words_per_cue: int = 6,
+    words_per_cue: int = 4,
     min_duration: float = 0.6,
     tail: float = 0.1,
 ) -> list[dict]:
@@ -365,7 +365,7 @@ def _srt_ts(seconds: float) -> str:
 def write_srt(
     words: list[dict],
     path: Path,
-    words_per_cue: int = 6,
+    words_per_cue: int = 4,
     min_duration: float = 0.6,
     tail: float = 0.1,
 ) -> None:

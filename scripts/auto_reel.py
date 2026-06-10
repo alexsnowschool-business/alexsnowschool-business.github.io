@@ -895,7 +895,7 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
     _line2   = f"sold: {_fmt_price(hammer)}."
     _line3   = f"+{pct:,.0f}% above estimate."
 
-    def _frame(hold=4.0, show_data=False, show_hook=False):
+    def _frame(hold=4.0, show_data=False, show_hook=False, show_upper=True):
         return {
             "show_caption":  show_data,
             "tag":           tag,
@@ -904,8 +904,8 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
             "line3":         _line3 if show_data else "",
             "hook_question": hook_question if show_hook else None,
             "hook_answer":   "",
-            "upper_artist":  artist_name,
-            "upper_title":   painting_title,
+            "upper_artist":  artist_name if show_upper else "",
+            "upper_title":   painting_title if show_upper else "",
             "hold_seconds":  hold,
         }
 
@@ -925,7 +925,7 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
 
     frames = [_frame(hold=act1_hold, show_hook=True)]
     for _ in range(n_act2_images):
-        frames.append(_frame(hold=crop_hold_s))
+        frames.append(_frame(hold=crop_hold_s, show_upper=False))
     frames.append(_frame(hold=act3_hold, show_data=True))
 
     # Trim Act I only when no voice — with voice, duration is already correct
@@ -1011,7 +1011,7 @@ def _generate_config(hook: dict, week_label: str, all_time: bool,
         "",
         "    # ── Style ─────────────────────────────────────────────────",
         '    "vibe":             "auction_editorial",',
-        '    "caption_position": "center",',
+        '    "caption_position": "lower_safe",',
         "",
         "    # ── Font overrides ─────────────────────────────────────────",
         '    "fonts_override": {',
@@ -1033,7 +1033,7 @@ def _generate_config(hook: dict, week_label: str, all_time: bool,
         "    # ── Pacing ────────────────────────────────────────────────",
         '    "fps":          5,',
         '    "hold_seconds": 0.0,',
-        '    "fade_seconds": 0.0,',
+        '    "fade_seconds": 0.8,',
         "",
         "    # ── Social captions ───────────────────────────────────────",
         '    "topic":           "culture",',
@@ -1362,7 +1362,7 @@ def main() -> None:
                 f"that's plus {_pct:.0f} percent above estimate."
             )
             _intro           = f"this is {hook.get('title') or 'untitled'}, by {artist}."
-            _act1_spoken     = _intro # + "  " + _prices_to_speech(_question)
+            _act1_spoken     = _intro + "  " + _prices_to_speech(_question)
             _narr_spoken     = _prices_to_speech(raw_appr)
             _act1_word_count = len(_act1_spoken.split())
             _narr_word_count = len(_narr_spoken.split())
