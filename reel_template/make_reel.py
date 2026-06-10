@@ -624,13 +624,12 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
             _ans_h = measure_wrapped_height(_hook_answer_full, fnt["serif_med"], max_width=W - 200, line_gap=10)
             HBH = 60 + _ans_h + 32
         elif _hook_in_upper:
-            # Fit inside the compact upper slot using the smaller italic font
-            _q_h = measure_wrapped_height(hook_question, fnt["italic_med"], max_width=W - 200, line_gap=10)
+            _q_h = measure_wrapped_height(hook_question, fnt["serif_lg"], max_width=W - 200, line_gap=12)
             HBH = 24 + _q_h + 24
         else:
             _q_h = measure_wrapped_height(hook_question, fnt["serif_lg"], max_width=W - 200, line_gap=12)
             HBH = 24 + _q_h + 24
-        HBT = (BB + 28) if show_caption else 150
+        HBT = (BB + 28) if show_caption else 300
         HBB = HBT + HBH
         if not no_box:
             hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
@@ -659,7 +658,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     # Upper box: artist name + painting title — hidden when hook_question takes the slot
     UBT = UBB = 0
     if (upper_artist or upper_title) and not _hook_in_upper:
-        UBT = 150
+        UBT = 300
         _a_h = measure_wrapped_height(upper_artist, fnt["italic_med"], max_width=W - 200) if upper_artist else 0
         _t_h = measure_wrapped_height(upper_title,  fnt["italic_med"], max_width=W - 200) if upper_title else 0
         _gap = 18 if (upper_artist and upper_title) else 0
@@ -721,7 +720,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
     if hook_question:
         if _hook_in_upper:
-            # Upper-box slot: corner brackets + compact italic font, painting stays clear
+            # Upper-box slot: corner brackets, large non-italic font
             if not no_box:
                 RD = pal["rule_dim"]
                 RB = pal["rule_bright"]
@@ -732,7 +731,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
                 for (bx, by, dx, dy) in [(72,HBT,1,1),(W-72,HBT,-1,1),(72,HBB,1,-1),(W-72,HBB,-1,-1)]:
                     draw.line([(bx,by),(bx+dx*20,by)], fill=RB, width=2)
                     draw.line([(bx,by),(bx,by+dy*20)], fill=RB, width=2)
-            ctext_wrapped(draw, HBT + 24, hook_question, fnt["italic_med"], pal["text_bright"], max_width=W - 200, line_gap=10)
+            ctext_wrapped(draw, HBT + 24, hook_question, fnt["serif_lg"], pal["text_bright"], max_width=W - 200, line_gap=12)
         elif not has_answer:
             # Question alone, centered — wrapped, large, attention-grabbing
             ctext_wrapped(draw, HBT + 24, hook_question, fnt["serif_lg"], pal["text_bright"], max_width=W - 200, line_gap=12)
