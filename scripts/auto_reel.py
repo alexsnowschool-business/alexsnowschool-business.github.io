@@ -13,7 +13,6 @@ Usage (run from alexsnowschool-business/):
 """
 
 import argparse
-import importlib.util
 import json
 import os
 import random
@@ -25,7 +24,6 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
-import httpx
 from PIL import Image
 from dotenv import load_dotenv
 
@@ -1007,6 +1005,9 @@ def _generate_config(hook: dict, week_label: str, all_time: bool,
         f'    "location_name":   "{_esc(sale_upper)}",',
         f'    "location_season": "{_esc(scraped[:4])}  ·  SALE RESULT",',
         '    "frame_label":     "@thehammerprice",',
+        "",
+        "    # ── Layout ────────────────────────────────────────────────",
+        '    "photo_fit_first":  True,',
         "",
         "    # ── Style ─────────────────────────────────────────────────",
         '    "vibe":             "auction_editorial",',

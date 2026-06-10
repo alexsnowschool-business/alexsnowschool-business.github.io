@@ -522,8 +522,12 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
         _fc_early = frame_caption or {}
         cap_pos = _fc_early.get("caption_position", cfg.get("caption_position", "upper_third"))
         bottom_cap = cap_pos in ("lower_safe", "lower_third")
-        # Reduce top gradient when captions live at the bottom — let the product breathe
-        if bottom_cap:
+        # Reduce top gradient when captions live at the bottom — let the product breathe.
+        # photo_fit_first locks to weak gradient so painting looks identical across all frames.
+        if cfg.get("photo_fit_first", True):
+            top_px  = 200
+            top_str = 180
+        elif bottom_cap:
             top_px     = 180 if show_caption else 140
             top_str    = 140 if show_caption else 100
         else:
@@ -534,6 +538,29 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
                              bot_px=420 if bottom_cap else 320,
                              strength=200 if bottom_cap else 170)
         apply_vignette(img)
+
+        # Photo zone: constrain painting to the space between the title box and the
+        # price box — only when the caption box is actually visible (Act III).
+        # Act I and sliding Act II frames always show the full image.
+        _fc_early2   = frame_caption or {}
+        _fc_show_cap = _fc_early2.get("show_caption", show_caption)
+        if cfg.get("photo_zone", False) and _fc_show_cap:
+            _zt = cfg.get("photo_zone_top", 230)
+            _zb = cfg.get("photo_zone_bot", H - 220)
+            # Hard cut: paint solid dark outside the zone
+            _zovl = Image.new("RGB", (W, H), pal["bg"])
+            _zmsk = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(_zmsk).rectangle([(0, 0), (W, _zt)], fill=255)
+            ImageDraw.Draw(_zmsk).rectangle([(0, _zb), (W, H)], fill=255)
+            img = Image.composite(_zovl, img, _zmsk)
+            # Soft fade at the zone edges
+            _fp = 40
+            _fm = Image.new("L", (W, H), 0)
+            for _yi in range(_fp):
+                _a = int(220 * (1 - _yi / _fp) ** 1.8)
+                ImageDraw.Draw(_fm).line([(0, _zt + _yi), (W, _zt + _yi)], fill=_a)
+                ImageDraw.Draw(_fm).line([(0, _zb - 1 - _yi), (W, _zb - 1 - _yi)], fill=_a)
+            img = Image.composite(_zovl, img, _fm)
 
     # Frame caption dict can override show_caption per frame
     fc            = frame_caption or {}
@@ -584,6 +611,10 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
             backdrop_mask = backdrop_mask.filter(ImageFilter.GaussianBlur(16))
             img = Image.composite(backdrop, img, backdrop_mask)
 
+    # When hook_question is active on a non-caption frame it takes the upper box slot
+    # so the painting stays unobstructed. Artist/title return once the hook is gone.
+    _hook_in_upper = bool(hook_question and not show_caption)
+
     # Hook box: question only / question+answer / answer only
     HBT = HBB = 0
     _hook_answer_full = fc.get("_hook_answer_full", hook_answer)
@@ -592,16 +623,21 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
         if has_answer:
             _ans_h = measure_wrapped_height(_hook_answer_full, fnt["serif_med"], max_width=W - 200, line_gap=10)
             HBH = 60 + _ans_h + 32
+        elif _hook_in_upper:
+            # Fit inside the compact upper slot using the smaller italic font
+            _q_h = measure_wrapped_height(hook_question, fnt["italic_med"], max_width=W - 200, line_gap=10)
+            HBH = 24 + _q_h + 24
         else:
             _q_h = measure_wrapped_height(hook_question, fnt["serif_lg"], max_width=W - 200, line_gap=12)
             HBH = 24 + _q_h + 24
-        HBT = (BB + 28) if show_caption else (H // 2 - HBH // 2)
+        HBT = (BB + 28) if show_caption else 150
         HBB = HBT + HBH
         if not no_box:
             hk_backdrop      = Image.new("RGB", (W, H), (6, 5, 4))
             hk_backdrop_mask = Image.new("L", (W, H), 0)
+            _hk_pad = 16 if _hook_in_upper else 18
             ImageDraw.Draw(hk_backdrop_mask).rectangle(
-                [(56, HBT - 18), (W - 56, HBB + 18)], fill=188
+                [(56, HBT - _hk_pad), (W - 56, HBB + _hk_pad)], fill=188
             )
             hk_backdrop_mask = hk_backdrop_mask.filter(ImageFilter.GaussianBlur(14))
             img = Image.composite(hk_backdrop, img, hk_backdrop_mask)
@@ -620,8 +656,9 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
             hk_backdrop_mask = hk_backdrop_mask.filter(ImageFilter.GaussianBlur(14))
             img = Image.composite(hk_backdrop, img, hk_backdrop_mask)
 
-    # Upper box: artist name + painting title — height expands to fit content
-    if upper_artist or upper_title:
+    # Upper box: artist name + painting title — hidden when hook_question takes the slot
+    UBT = UBB = 0
+    if (upper_artist or upper_title) and not _hook_in_upper:
         UBT = 150
         _a_h = measure_wrapped_height(upper_artist, fnt["italic_med"], max_width=W - 200) if upper_artist else 0
         _t_h = measure_wrapped_height(upper_title,  fnt["italic_med"], max_width=W - 200) if upper_title else 0
@@ -639,7 +676,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
 
     draw = ImageDraw.Draw(img)
 
-    if upper_artist or upper_title:
+    if (upper_artist or upper_title) and not _hook_in_upper:
         if not no_box:
             RD = pal["rule_dim"]
             RB = pal["rule_bright"]
@@ -683,8 +720,21 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
             ctext_wrapped(draw, BT+210, line3, fnt["italic_med"], col3, max_width=W - 120)
 
     if hook_question:
-        if not has_answer:
-            # Question alone — wrapped, large, attention-grabbing
+        if _hook_in_upper:
+            # Upper-box slot: corner brackets + compact italic font, painting stays clear
+            if not no_box:
+                RD = pal["rule_dim"]
+                RB = pal["rule_bright"]
+                draw.line([(72, HBT), (W-72, HBT)], fill=RD, width=1)
+                draw.line([(72, HBB), (W-72, HBB)], fill=RD, width=1)
+                draw.line([(72, HBT), (72, HBB)],   fill=RD, width=1)
+                draw.line([(W-72, HBT), (W-72, HBB)], fill=RD, width=1)
+                for (bx, by, dx, dy) in [(72,HBT,1,1),(W-72,HBT,-1,1),(72,HBB,1,-1),(W-72,HBB,-1,-1)]:
+                    draw.line([(bx,by),(bx+dx*20,by)], fill=RB, width=2)
+                    draw.line([(bx,by),(bx,by+dy*20)], fill=RB, width=2)
+            ctext_wrapped(draw, HBT + 24, hook_question, fnt["italic_med"], pal["text_bright"], max_width=W - 200, line_gap=10)
+        elif not has_answer:
+            # Question alone, centered — wrapped, large, attention-grabbing
             ctext_wrapped(draw, HBT + 24, hook_question, fnt["serif_lg"], pal["text_bright"], max_width=W - 200, line_gap=12)
         else:
             # Question shrinks to a small label above the answer
