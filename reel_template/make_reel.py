@@ -1084,7 +1084,7 @@ def main():
 
             prev_hook_answer_words = all_words  # advance cursor for next frame
 
-            if i < len(photos) - 1:
+            if i < len(photos) - 1 and cfg.get("transitions_enabled", False):
                 next_show, next_fc = _frame_cap(i + 1)
                 next_base = render_frame(photos[i+1][1], cfg, fnt, show_caption=next_show, frame_caption=next_fc)
                 _allowed = cfg.get("transitions", _TRANSITIONS)
@@ -1136,7 +1136,7 @@ def main():
             glob.glob(os.path.join(_music_dir, "*.wav"))
         )
         _bg_track = None
-        if _music_files and cfg.get("bg_music", True):
+        if _music_files and cfg.get("bg_music", False):
             # Rotate across all tracks: hash(reel_name) % n distributes evenly
             # so every track gets used before any repeats at scale.
             _bg_track = _music_files[abs(hash(os.path.basename(reel_dir))) % len(_music_files)]
