@@ -1145,7 +1145,8 @@ def main():
         # Volume: music sits lower when voiceover is present
         _bg_vol     = cfg.get("bg_music_volume", 0.12 if has_audio else 0.20)
         _video_dur  = frame_i / FPS  # total video duration in seconds
-        _fade_start = max(0.0, _video_dur - 2.5)
+        _audio_dur  = min(_video_dur, 50.0)   # cap audio at 50s
+        _fade_start = max(0.0, _audio_dur - 2.5)
 
         def _build_cmd(extra_audio_inputs: list, audio_filter: str, audio_map: str) -> list:
             return [
@@ -1171,7 +1172,7 @@ def main():
                 f"[1:a]adelay={int(_audio_offset*1000)}|{int(_audio_offset*1000)},"
                 f"volume=1.0[vo];"
                 f"[2:a]aloop=loop=-1:size=2e+09,volume={_bg_vol},"
-                f"atrim=duration={_video_dur:.2f},"
+                f"atrim=duration={_audio_dur:.2f},"
                 f"afade=t=out:st={_fade_start:.2f}:d=2.5[bg];"
                 f"[vo][bg]amix=inputs=2:duration=first:dropout_transition=2[aout]"
             )
@@ -1198,7 +1199,7 @@ def main():
             # Background music only (no voiceover)
             af = (
                 f"[1:a]aloop=loop=-1:size=2e+09,volume={_bg_vol},"
-                f"atrim=duration={_video_dur:.2f},"
+                f"atrim=duration={_audio_dur:.2f},"
                 f"afade=t=out:st={_fade_start:.2f}:d=2.5[aout]"
             )
             cmd = _build_cmd(
