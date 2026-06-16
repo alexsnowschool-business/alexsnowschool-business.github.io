@@ -394,17 +394,27 @@ def _load_resale_stats() -> dict[str, dict]:
         prices   = [e["price_value"] for e in entries]
         median_p = statistics.median(prices)
         best     = min(entries, key=lambda e: abs(e["price_value"] - median_p))
-        urls = best.get("image_urls") or []
-        if isinstance(urls, str):
-            try:
-                urls = json.loads(urls)
-            except Exception:
-                urls = []
+
+        # Shuffle entries so each run draws images from different listings
+        shuffled = list(entries)
+        random.shuffle(shuffled)
+        urls: list[str] = []
+        for entry in shuffled:
+            raw = entry.get("image_urls") or []
+            if isinstance(raw, str):
+                try:
+                    raw = json.loads(raw)
+                except Exception:
+                    raw = []
+            urls.extend(raw)
+            if len(urls) >= 8:
+                break
+
         stats[model] = {
             "median_usd": median_p,
             "avg_usd":    statistics.mean(prices),
             "count":      len(prices),
-            "images":     urls[:6],
+            "images":     urls[:8],
             "source_url": best.get("source_url", ""),
         }
     return stats
