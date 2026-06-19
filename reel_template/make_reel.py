@@ -333,7 +333,7 @@ def load_fonts(fonts_dir, scale=1.0, overrides=None):
         return ImageFont.truetype(path, size)
     s = scale
     fonts = {
-        "serif_lg":   f("Gloock-Regular.ttf",      int(84 * s)),
+        "serif_lg":   f("InstrumentSerif-Regular.ttf",      int(84 * s)),
         "serif_med":  f("InstrumentSerif-Italic.ttf",   int(58 * s)),
         "italic_med": f("IBMPlexSerif-Italic.ttf",  int(42 * s)),
         "jura_light": f("Jura-Light.ttf",           int(22 * s)),
