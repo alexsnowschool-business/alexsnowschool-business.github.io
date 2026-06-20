@@ -5,7 +5,7 @@ Audience: Researchers, data scientists, ML practitioners building fashion authen
 Brand tone: Academic archive meets luxury editorial — precise, analytical, unhurried
 
 ## Key sections
-- Catalogue (`index.html`) — filterable grid of 1,639 authentic + counterfeit Hermès bag listings
+- Catalogue (`index.html`) — filterable grid of 4,287 Hermès bag listings from Vestiaire Collective and Hermès.com
 - Analysis (`analysis.html`) — Chart.js visualisations + pricing analysis, sourced from `analysis.json`
 
 ## Data files

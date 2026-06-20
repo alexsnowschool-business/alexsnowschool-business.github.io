@@ -134,13 +134,13 @@ async function init() {
       note:`The secondary market for heritage leather reflects the same cultural hierarchy as the primary — the most storied houses dominate resale volume.` },
     { num:'02', title:'The Price Floor of Provenance',
       stat:`Market median: ${fmt(ps.median)} · range ${fmt(ps.min)}–${fmt(ps.max)}`,
-      note:`The entry price for authenticated heritage resale is far above the mass-luxury tier. The floor itself signals a different buyer category.` },
+      note:`The entry price for heritage resale is far above the mass-luxury tier. The floor itself signals a different buyer category.` },
     { num:'03', title:'Geography of the Secondary Market',
       stat:`${topCountry.country || '—'} is the dominant seller origin`,
       note:`European seller concentration reflects proximity to the original retail channel — pieces enter the resale market closest to where they were purchased.` },
-    { num:'04', title:'The Authentication Premium',
+    { num:'04', title:'The Platform Premium',
       stat:`${topPlatform.platform || '—'} — ${(topPlatform.count||0).toLocaleString()} listings · median ${fmt(topPlatform.median)}`,
-      note:`Authenticated platforms command higher asking prices but provide the provenance signal that defines the Provenance buyer. Verification is priced in.` },
+      note:`Curated resale platforms command higher asking prices and provide the provenance signal that defines the discerning buyer. Curation is priced in.` },
   ];
 
   const obsCards = observations.map(o => `
