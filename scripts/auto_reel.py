@@ -14,6 +14,7 @@ Usage (run from alexsnowschool-business/):
 
 import argparse
 import json
+import math
 import os
 import random
 import re
@@ -304,6 +305,8 @@ KNOWN_ARTISTS: frozenset[str] = frozenset({
     'KAWS',
 })
 
+_KNOWN_ARTISTS_LOWER: frozenset[str] = frozenset(k.lower() for k in KNOWN_ARTISTS)
+
 
 # ── Hook templates ─────────────────────────────────────────────────────────────
 # Each entry: (min_pct, [question variants], [answer variants])
@@ -545,13 +548,16 @@ def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
     return " ".join(parts), params
 
 
-def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
-                    limit: int = 8, exclude_ids: set | None = None,
-                    artist: str | None = None, title: str | None = None) -> list[dict]:
-    """Top outperforming lots scraped in the given week, excluding already-posted ones."""
+def _query_lots(conn: sqlite3.Connection, limit: int = 8,
+                exclude_ids: set | None = None,
+                artist: str | None = None, title: str | None = None,
+                week_start: str | None = None, week_end: str | None = None) -> list[dict]:
+    """Top outperforming lots. Restricts to week range when week_start/week_end are given."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
     flt_sql, flt_params = _like_clauses(artist, title)
+    date_sql    = "AND substr(scraped_at, 1, 10) BETWEEN ? AND ?" if week_start else ""
+    date_params = (week_start, week_end) if week_start else ()
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls,
@@ -562,38 +568,27 @@ def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
           AND hammer_usd IS NOT NULL
           AND estimate_low IS NOT NULL
           AND estimate_low > 0
-          AND substr(scraped_at, 1, 10) BETWEEN ? AND ?
+          {date_sql}
           {flt_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
         ORDER BY pct_above DESC
         LIMIT ?
-    """, (week_start, week_end, *flt_params, *exclude, limit)).fetchall()
+    """, (*date_params, *flt_params, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
+
+
+def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
+                    limit: int = 8, exclude_ids: set | None = None,
+                    artist: str | None = None, title: str | None = None) -> list[dict]:
+    """Top outperforming lots scraped in the given week, excluding already-posted ones."""
+    return _query_lots(conn, limit, exclude_ids, artist, title, week_start, week_end)
 
 
 def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
                        exclude_ids: set | None = None,
                        artist: str | None = None, title: str | None = None) -> list[dict]:
     """All-time top outperforming lots, excluding already-posted ones."""
-    exclude = tuple(exclude_ids or [])
-    placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
-    flt_sql, flt_params = _like_clauses(artist, title)
-    rows = conn.execute(f"""
-        SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
-               sale_name, sale_date, scraped_at, auction_house, image_urls,
-               ROUND((hammer_usd * 1.0 / estimate_low - 1) * 100, 1) AS pct_above,
-               source_url
-        FROM art_items
-        WHERE sale_performance = 'above'
-          AND hammer_usd IS NOT NULL
-          AND estimate_low IS NOT NULL
-          AND estimate_low > 0
-          {flt_sql}
-          {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
-        ORDER BY pct_above DESC
-        LIMIT ?
-    """, (*flt_params, *exclude, limit)).fetchall()
-    return [dict(r) for r in rows]
+    return _query_lots(conn, limit, exclude_ids, artist, title)
 
 
 def _query_random_week_lot(conn: sqlite3.Connection,
@@ -685,14 +680,13 @@ def _artist_is_notable(artist: str, notable_set: set[str] | None = None) -> bool
         return True
     cleaned_lower = cleaned.lower()
     return any(
-        k.lower() in cleaned_lower or cleaned_lower in k.lower()
-        for k in KNOWN_ARTISTS
+        k in cleaned_lower or cleaned_lower in k
+        for k in _KNOWN_ARTISTS_LOWER
     )
 
 
 def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
     """Composite score: market shock + visual richness + artist narability + sale magnitude."""
-    import math
     pct          = _pct_above(lot["hammer_usd"], lot["estimate_low"])
     is_known     = _artist_is_notable(lot.get("artist") or "", notable_set)
     hammer_usd   = lot["hammer_usd"] or 0
@@ -706,15 +700,8 @@ def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
 
 def _download_lot_images(lot: dict, dest_dir: Path, max_images: int = 8) -> list[Path]:
     """Download all unique images for a single lot. Returns list of saved paths."""
-    raw_urls = json.loads(lot.get("image_urls") or "[]")
-    seen, urls = set(), []
-    for u in raw_urls:
-        if u not in seen:
-            seen.add(u)
-            urls.append(u)
-    return reel_utils.download_images(
-        urls, dest_dir, max_images, headers=_HEADERS
-    )
+    urls = list(dict.fromkeys(json.loads(lot.get("image_urls") or "[]")))
+    return reel_utils.download_images(urls, dest_dir, max_images, headers=_HEADERS)
 
 
 # ── Image crop helpers ─────────────────────────────────────────────────────────
@@ -810,17 +797,16 @@ def _copy_images_to_dir(src_images: list[Path], crops_dir: Path,
             to_copy.append(p)
             seen_names.add(p.name)
 
-    for folder in (crops_dir,):
-        if folder.exists():
-            for f in sorted(folder.iterdir()):
-                if not f.is_file():
-                    continue
-                if f.suffix.lower() not in (".jpg", ".jpeg", ".png", ".webp"):
-                    continue
-                if f.name in seen_names:
-                    continue
-                to_copy.append(f)
-                seen_names.add(f.name)
+    if crops_dir.exists():
+        for f in sorted(crops_dir.iterdir()):
+            if not f.is_file():
+                continue
+            if f.suffix.lower() not in (".jpg", ".jpeg", ".png", ".webp"):
+                continue
+            if f.name in seen_names:
+                continue
+            to_copy.append(f)
+            seen_names.add(f.name)
 
     copied = 0
     for idx, src in enumerate(to_copy):
@@ -944,7 +930,21 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
 _split_sentences  = reel_utils.split_sentences
 _words_to_captions = reel_utils.words_to_captions
 _burn_captions     = reel_utils.burn_captions
-    
+
+
+def _truncate_to_sentences(text: str, max_words: int) -> str:
+    """Trim text to max_words, preferring a clean sentence boundary."""
+    words = text.split()
+    if len(words) <= max_words:
+        return text
+    trimmed = " ".join(words[:max_words])
+    for punct in (".", "!", "?"):
+        idx = trimmed.rfind(punct)
+        if idx > len(trimmed) * 0.5:
+            return trimmed[:idx + 1]
+    return trimmed
+
+
 # ── Config generation ──────────────────────────────────────────────────────────
 
 def _generate_config(hook: dict, week_label: str, all_time: bool,
@@ -1083,30 +1083,31 @@ def _write_ai_captions(captions: dict, reel_dir: Path, lot: dict) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     artist = lot.get("artist", "Unknown")
     house  = lot.get("auction_house", "Auction")
-    year   = datetime.now().year
-    with open(out, "w") as f:
-        f.write(f"# Social Media Captions\n")
-        f.write(f"*{artist} · {house} · {year}*\n\n---\n\n")
-        f.write("## 📸 Instagram\n\n")
-        f.write("**Best time to post:** Tue–Fri, 11am–1pm or 7–9pm (your local time)\n")
-        f.write("**Cover image:** `output/reel.png`\n\n")
-        f.write("### Caption\n\n```\n")
-        f.write(captions["instagram"])
-        f.write("\n```\n\n---\n\n")
-        f.write("## 🎵 TikTok\n\n")
-        f.write("**Best time to post:** Tue–Thu 7–9pm or Sat morning (your local time)\n")
-        f.write("**Video:** `output/reel.mp4`\n\n")
-        f.write("### Caption\n\n```\n")
-        f.write(captions["tiktok"])
-        f.write("\n```\n\n---\n\n")
-        if captions.get("linkedin"):
-            f.write("## 💼 LinkedIn\n\n")
-            f.write("**Best time to post:** Tue–Thu, 8–10am or 12–1pm (your local time)\n")
-            f.write("**Video:** `output/reel.mp4`\n\n")
-            f.write("### Caption\n\n```\n")
-            f.write(captions["linkedin"])
-            f.write("\n```\n\n---\n\n")
-        f.write(f"*Generated {datetime.now().strftime('%B %d, %Y')} · AI*\n")
+    now    = datetime.now()
+
+    linkedin_block = ""
+    if captions.get("linkedin"):
+        linkedin_block = (
+            "## 💼 LinkedIn\n\n"
+            "**Best time to post:** Tue–Thu, 8–10am or 12–1pm (your local time)\n"
+            "**Video:** `output/reel.mp4`\n\n"
+            f"### Caption\n\n```\n{captions['linkedin']}\n```\n\n---\n\n"
+        )
+
+    out.write_text(
+        f"# Social Media Captions\n"
+        f"*{artist} · {house} · {now.year}*\n\n---\n\n"
+        f"## 📸 Instagram\n\n"
+        f"**Best time to post:** Tue–Fri, 11am–1pm or 7–9pm (your local time)\n"
+        f"**Cover image:** `output/reel.png`\n\n"
+        f"### Caption\n\n```\n{captions['instagram']}\n```\n\n---\n\n"
+        f"## 🎵 TikTok\n\n"
+        f"**Best time to post:** Tue–Thu 7–9pm or Sat morning (your local time)\n"
+        f"**Video:** `output/reel.mp4`\n\n"
+        f"### Caption\n\n```\n{captions['tiktok']}\n```\n\n---\n\n"
+        f"{linkedin_block}"
+        f"*Generated {now.strftime('%B %d, %Y')} · AI*\n"
+    )
 
 
 _normalise_word_timings = reel_utils.normalise_word_timings
@@ -1222,13 +1223,16 @@ def main() -> None:
                 _slug_mode = "fallback"
 
     notable_artists = _build_notable_artists_set(conn)
-    conn.close()
 
-    lots = sorted(lots, key=lambda l: _score_lot(l, notable_artists), reverse=True)[:args.top_n]
+    scored = sorted(
+        ((l, _score_lot(l, notable_artists)) for l in lots),
+        key=lambda x: x[1], reverse=True,
+    )[:args.top_n]
+    lots = [l for l, _ in scored]
     if lots:
         print(f"\n  Composite scores (top {min(3, len(lots))}):")
-        for l in lots[:3]:
-            print(f"    {_score_lot(l, notable_artists):.0f}  "
+        for l, score in scored[:3]:
+            print(f"    {score:.0f}  "
                   f"{_clean_artist(l.get('artist') or '')}  "
                   f"+{_pct_above(l['hammer_usd'], l['estimate_low']):.0f}%  "
                   f"imgs={len(json.loads(l.get('image_urls') or '[]'))}  "
@@ -1266,7 +1270,7 @@ def main() -> None:
     output_dir = reel_dir / "output"
     crops_dir  = reel_dir / "_crops"
 
-    for d in (reel_dir, images_dir, output_dir):
+    for d in (reel_dir, output_dir):
         d.mkdir(parents=True, exist_ok=True)
 
     print(f"\n▸ Reel folder: {reel_dir}")
@@ -1314,18 +1318,19 @@ def main() -> None:
     _pct             = _pct_above(hook["hammer_usd"], hook["estimate_low"])
     _question, _tmpl_answer = _hook_caption(hook, _pct)
 
+    _lot_preview = {
+        "artist":        artist,
+        "title":         (hook.get("title") or "Untitled")[:60],
+        "auction_house": hook.get("auction_house") or "the auction house",
+        "hammer_fmt":    _fmt_price(hook["hammer_usd"]),
+        "estimate_fmt":  f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
+        "pct_above":     _pct,
+    }
+
     # Try AI-generated hook (specific to artist + result); falls back to template
     if OPENROUTER_KEY:
         try:
             from ai_content import generate_hook_question
-            _lot_preview = {
-                "artist":        artist,
-                "title":         (hook.get("title") or "Untitled")[:60],
-                "auction_house": hook.get("auction_house") or "the auction house",
-                "hammer_fmt":    _fmt_price(hook["hammer_usd"]),
-                "estimate_fmt":  f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
-                "pct_above":     _pct,
-            }
             _ai_question = generate_hook_question(_lot_preview, _pct)
             if _ai_question:
                 print(f"  ✓ AI hook: {_ai_question}")
@@ -1340,7 +1345,6 @@ def main() -> None:
                                            hook_question=_question)
     word_timings  = []
     narr_captions = []
-    srt_path: Path | None = None  # ← add this
 
     if args.voice:
         print("\n▸ Generating voiceover...")
@@ -1354,33 +1358,15 @@ def main() -> None:
             # AI hook answer (falls back to template)
             ai_hook_answer = None
             if generate_hook_answer and OPENROUTER_KEY:
-                lot_preview = {
-                    "artist":        artist,
-                    "title":         (hook.get("title") or "Untitled")[:60],
-                    "auction_house": hook.get("auction_house") or "the auction house",
-                    "hammer_fmt":    _fmt_price(hook["hammer_usd"]),
-                    "estimate_fmt":  f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
-                    "pct_above":     _pct,
-                }
                 try:
-                    ai_hook_answer = generate_hook_answer(lot_preview, _question)
+                    ai_hook_answer = generate_hook_answer(_lot_preview, _question)
                     if ai_hook_answer:
                         print(f"  ✓ AI answer: {ai_hook_answer[:80]}...")
                 except Exception as e:
                     print(f"  ⚠ AI hook answer error: {e} — using template")
             ai_hook_answer = ai_hook_answer or _tmpl_answer
 
-            # Truncate to word limit
-            raw_appr = ai_hook_answer or ""
-            words_   = raw_appr.split()
-            if len(words_) > _APPRECIATION_MAX_WORDS:
-                trimmed = " ".join(words_[:_APPRECIATION_MAX_WORDS])
-                for punct in (".", "!", "?"):
-                    idx = trimmed.rfind(punct)
-                    if idx > len(trimmed) * 0.5:
-                        trimmed = trimmed[:idx + 1]
-                        break
-                raw_appr = trimmed
+            raw_appr = _truncate_to_sentences(ai_hook_answer or "", _APPRECIATION_MAX_WORDS)
             _data_suffix = (
                 f"the estimate was {_fmt_price_tts(hook['estimate_low'])} "
                 f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}. "
@@ -1418,11 +1404,8 @@ def main() -> None:
     print(f"\n▸ Config written: {config_path}")
 
     # ── Record in posted_reels ─────────────────────────────────
-    conn2 = sqlite3.connect(DB_PATH)
-    conn2.row_factory = sqlite3.Row
-    _ensure_posted_table(conn2)
-    _record_posted(conn2, hook, reel_slug, ["instagram", "tiktok", "linkedin"])
-    conn2.close()
+    _record_posted(conn, hook, reel_slug, ["instagram", "tiktok", "linkedin"])
+    conn.close()
 
     # ── Summary ────────────────────────────────────────────────
     print("\n" + "═" * 60)
@@ -1479,15 +1462,5 @@ def main() -> None:
                     cwd=str(REEL_TEMPLATE.parent),
                 )
 
-        # ── Burn captions (if SRT was written and a video exists) ─────
-    if srt_path and srt_path.exists():
-        videos = sorted(output_dir.glob("*.mp4"))
-        videos = [v for v in videos if "_captioned" not in v.stem]
-        if videos:
-            print("\n▸ Burning word captions into video...")
-            _burn_captions(videos[0], srt_path)
-        else:
-            print(f"\n  ℹ No rendered video yet — run make_reel.py first, "
-                f"then re-run to burn captions.")
 if __name__ == "__main__":
     main()

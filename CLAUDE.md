@@ -18,7 +18,6 @@ This is a multi-venture portfolio hub. Each business lives in its own subdirecto
 
 Current ventures:
 - `provenance/` — Heritage luxury resale platform (status: Live)
-- `studentroadtogermany/` — Myanmar → Germany study consultation (status: In Development)
 
 To add a new venture: create a new folder, add its files, then add a card in the root `index.html` `#cardGrid`.
 
