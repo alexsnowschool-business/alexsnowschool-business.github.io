@@ -1,75 +1,114 @@
 #!/usr/bin/env python3
 """
-Print the campaign artist for today based on a continuous day-offset rotation.
+Print the next campaign artist based on posting history in art.db.
 
 Usage:
-    python scripts/campaign_artist.py              # today
-    python scripts/campaign_artist.py 2026-07-15   # specific date
+    python scripts/campaign_artist.py
 
-The rotation cycles indefinitely. Each artist holds for DAYS_PER_ARTIST days.
-Edit ROTATION to add/remove artists. Order = posting sequence.
+Builds the rotation dynamically from art_items: all artists with >= MIN_LOTS
+lots, deduplicated by last name, ranked by a composite score (lot depth,
+avg % over estimate, max hammer). Skips any artist that appeared in the
+last RECENCY_WINDOW posts to prevent back-to-back runs.
 """
 
-import sys
-from datetime import date
+import re
+import sqlite3
+from pathlib import Path
 
-# ── Rotation ──────────────────────────────────────────────────────────────────
-# Data-driven: only artists with ≥5 lots in art.db, ordered by social reach.
-# DB lot counts shown as comments so it's easy to rebalance.
+DB_PATH = Path(__file__).resolve().parent.parent / "data" / "art.db"
 
-DAYS_PER_ARTIST = 2
-
-ROTATION = [
-    # Street / pop — widest non-art audience, opens the cycle with energy
-    "Basquiat",          #  7 lots  avg +52%   max $13.8M
-    "Warhol",            # 24 lots  avg +207%  max $10M
-    "Haring",            #  9 lots  avg +193%  max $4.2M
-    "Lichtenstein",      # 47 lots  avg +107%  max $4.5M   ← deepest pop art pool
-
-    # Visual-first — image carries the post without the name doing the work
-    "Kusama",            # 24 lots  avg +84%   max $54M
-    "Murakami",          #  8 lots  avg +21%   max $19M
-    "Nara",              # 12 lots  avg +61%   max $86M    ← biggest hammer in DB
-    "Miró",              # 20 lots  avg +270%  max $4M
-
-    # Sculpture — underused format, distinctive visuals
-    "Calder",            # 22 lots  avg +89%   max $12.4M
-    "Rodin",             # 11 lots  avg +107%  max $2.8M
-
-    # Collector / institutional — serious money, auction drama
-    "Picasso",           # 42 lots  avg +68%   max $12.8M
-    "Matisse",           # 14 lots  avg +137%  max $1.4M
-    "Mitchell",          # 18 lots  avg +65%   max $20.8M  ← surprise hammer
-    "Hockney",           # 11 lots  avg +62%   max $7.5M
-
-    # Controversial / reaction-bait
-    "Hirst",             #  8 lots  avg +78%   max $1.8M
-    "Condo",             # 10 lots  avg +52%   max $19M
-    "Magritte",          #  7 lots  avg +33%   max $16M
-
-    # Hidden story — less famous name, shocking result (comment magnet)
-    "Carrington",        #  5 lots  avg +164%  max $25M    ← +108% on a $12M est
-    "Chagall",           # 58 lots  avg +636%  max $4.5M   ← biggest avg overshoot in DB
-    "Ruscha",            # 11 lots  avg +94%   max $7.5M
-
-    # Close with the heaviest names
-    "Basquiat",          # second pass mid-cycle — high performer worth repeating
-    "Kusama",            # second pass — 3 of top 10 by price
-    "Warhol",            # second pass — deepest social recognition
-    "Picasso",           # always close with Picasso
-]
-
-# Anchor date: day 0 of the rotation.
-_EPOCH = date(2026, 7, 1)
+MIN_LOTS = 4       # minimum lots in art_items to qualify for the rotation
+RECENCY_WINDOW = 4  # skip artist if they appear in the last N posts
 
 
-def artist_for_date(d: date) -> str:
-    day_offset = (d - _EPOCH).days
-    cycle_len  = len(ROTATION) * DAYS_PER_ARTIST
-    slot = (day_offset % cycle_len + cycle_len) % cycle_len
-    return ROTATION[slot // DAYS_PER_ARTIST]
+def _canonical(artist: str) -> str:
+    """'MARC CHAGALL (B. 1887)' → 'Chagall', 'Roy Lichtenstein' → 'Lichtenstein'."""
+    cleaned = re.sub(r"\s*\(.*?\)", "", artist).strip()
+    parts = cleaned.split()
+    return parts[-1].title() if parts else artist.title()
+
+
+def _matches(rotation_name: str, db_artist: str) -> bool:
+    return rotation_name.upper() in db_artist.upper()
+
+
+def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
+    """Return artists ordered by composite score, built from art_items."""
+    cur.execute(
+        """
+        SELECT
+            artist,
+            COUNT(*) AS lot_count,
+            AVG(CASE WHEN estimate_low > 0
+                     THEN (hammer_usd - estimate_low) / estimate_low * 100 END) AS avg_pct,
+            MAX(hammer_usd) AS max_hammer
+        FROM art_items
+        WHERE hammer_usd > 0 AND artist IS NOT NULL
+        GROUP BY artist
+        HAVING lot_count >= ?
+        """,
+        (MIN_LOTS,),
+    )
+
+    # Deduplicate: 'MARC CHAGALL' and 'Marc Chagall' collapse to 'Chagall'.
+    agg: dict[str, dict] = {}
+    for artist, lot_count, avg_pct, max_hammer in cur.fetchall():
+        key = _canonical(artist)
+        if key not in agg:
+            agg[key] = {"lots": 0, "avg_pct": 0.0, "max_hammer": 0.0}
+        agg[key]["lots"] += lot_count
+        agg[key]["avg_pct"] = max(agg[key]["avg_pct"], avg_pct or 0.0)
+        agg[key]["max_hammer"] = max(agg[key]["max_hammer"], max_hammer or 0.0)
+
+    # Normalise each dimension to [0, 1] then combine with weights.
+    max_lots = max(d["lots"] for d in agg.values()) or 1
+    max_avg = max(d["avg_pct"] for d in agg.values()) or 1
+    max_ham = max(d["max_hammer"] for d in agg.values()) or 1
+
+    for d in agg.values():
+        d["score"] = (
+            (d["lots"] / max_lots) * 0.4
+            + (d["avg_pct"] / max_avg) * 0.4
+            + (d["max_hammer"] / max_ham) * 0.2
+        )
+
+    return sorted(agg.keys(), key=lambda k: agg[k]["score"], reverse=True)
+
+
+def next_artist(db_path: Path = DB_PATH) -> str:
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+
+    rotation = _build_rotation(cur)
+
+    fetch_n = RECENCY_WINDOW + len(rotation) * 3
+    cur.execute(
+        """
+        SELECT artist FROM posted_reels
+        WHERE posted_at >= date('now', '-30 days')
+        ORDER BY posted_at DESC
+        LIMIT ?
+        """,
+        (fetch_n,),
+    )
+    recent = [r[0] for r in cur.fetchall()]
+    conn.close()
+
+    blocked = {
+        name
+        for db_artist in recent[:RECENCY_WINDOW]
+        for name in rotation
+        if _matches(name, db_artist)
+    }
+
+    counts = {a: sum(1 for r in recent if _matches(a, r)) for a in rotation}
+
+    candidates = [a for a in rotation if a not in blocked]
+    if not candidates:
+        candidates = rotation  # history too short to fill the window — ignore block
+
+    return min(candidates, key=lambda a: counts[a])
 
 
 if __name__ == "__main__":
-    ref = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else date.today()
-    print(artist_for_date(ref))
+    print(next_artist())
