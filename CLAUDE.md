@@ -17,7 +17,6 @@ Then open `http://localhost:3000` in a browser. No build step — all files are 
 This is a multi-venture portfolio hub. Each business lives in its own subdirectory with its own `index.html`, `styles.css`, and `script.js`. The root `index.html` is a dashboard that links to each venture via cards.
 
 Current ventures:
-- `provenance/` — Heritage luxury resale platform (status: Live)
 
 To add a new venture: create a new folder, add its files, then add a card in the root `index.html` `#cardGrid`.
 

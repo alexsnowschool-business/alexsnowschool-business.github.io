@@ -14,8 +14,6 @@ from scraper.db import connect, upsert_item
 SOURCES = [
     Path("data/vestiaire/metadata"),
     Path("data/hermes/metadata"),
-    Path("data/vinted/metadata"),
-    Path("data/ebay/metadata"),
 ]
 
 
