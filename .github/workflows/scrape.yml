@@ -50,22 +50,14 @@ jobs:
           UV_INDEX_URL: https://pypi.org/simple/
           PYTHONPATH: .
 
-      - name: Run eBay scraper
-        run: uv run python -m scraper.ebay --max-products 150
-        env:
-          UV_INDEX_URL: https://pypi.org/simple/
-          EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
-          EBAY_CERT_ID: ${{ secrets.EBAY_CERT_ID }}
-          PYTHONPATH: .
-
-      - name: Run Vinted scraper
-        run: uv run python -m scraper.vinted --max-products 150
+      - name: Run Vestiaire — Hermès
+        run: uv run python -m scraper.vestiaire --brands hermes --max-products 150
         env:
           UV_INDEX_URL: https://pypi.org/simple/
           PYTHONPATH: .
 
-      - name: Run Vestiaire scraper
-        run: uv run python -m scraper.vestiaire --max-products 150
+      - name: Run Vestiaire — Delvaux, Valextra, Loro Piana, Moynat
+        run: uv run python -m scraper.vestiaire --brands provenance --max-products 100
         env:
           UV_INDEX_URL: https://pypi.org/simple/
           PYTHONPATH: .
