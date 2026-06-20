@@ -66,10 +66,20 @@ def build_analysis(items: list[dict]) -> dict:
     priced = [item for item in items if _price_value(item) > 0]
     prices = [_price_value(item) for item in priced]
 
+    BRAND_ALIASES = {
+        "hermes": "Hermès", "hermès": "Hermès",
+        "delvaux": "Delvaux", "valextra": "Valextra",
+        "loro piana": "Loro Piana", "moynat": "Moynat",
+    }
+
+    def _normalise_brand(raw: str) -> str:
+        key = raw.strip().lower()
+        return BRAND_ALIASES.get(key, raw.strip())
+
     # ── By brand ────────────────────────────────────────────────────────────
     brand_prices: dict[str, list[float]] = defaultdict(list)
     for item in priced:
-        brand = (item.get("brand") or "Unknown").strip()
+        brand = _normalise_brand(item.get("brand") or "Unknown")
         brand_prices[brand].append(_price_value(item))
 
     brand_rows = sorted(
