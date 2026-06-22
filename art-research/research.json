@@ -1,15 +1,15 @@
 {
   "stats": {
-    "total_lots": 2525,
-    "total_artists": 901,
-    "median_hammer_usd": 153226,
-    "pct_above_estimate": 46.8,
+    "total_lots": 2575,
+    "total_artists": 903,
+    "median_hammer_usd": 150000,
+    "pct_above_estimate": 47.0,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-06-15"
+    "generated_at": "2026-06-22"
   },
   "artists": [
     {
@@ -30042,6 +30042,33 @@
       }
     },
     {
+      "norm_name": "LOUIS VUITTON MONOGRAM SOCCER BALL",
+      "display_name": "Louis Vuitton Monogram Soccer Ball",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 35000,
+        "avg_usd": 7000,
+        "total_label": "$35k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Signed by Felix",
+          "hammer_usd": 25000,
+          "sale_name": "Louis Vuitton For Unicef Auction Items"
+        },
+        "top_ratio_lot": {
+          "title": "Signed by Felix",
+          "ratio": 16.67
+        }
+      }
+    },
+    {
       "norm_name": "TAKURO KUWATA",
       "display_name": "Takuro Kuwata",
       "dates": "",
@@ -33251,6 +33278,33 @@
         "top_ratio_lot": {
           "title": "Prière de toucher",
           "ratio": 0.24
+        }
+      }
+    },
+    {
+      "norm_name": "LOUIS VUITTON “REBONDS” BOOK",
+      "display_name": "Louis Vuitton “Rebonds” Book",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 2900,
+        "avg_usd": 725,
+        "total_label": "$3k",
+        "avg_label": "$725",
+        "top_lot": {
+          "title": "Signed by Zlatan",
+          "hammer_usd": 900,
+          "sale_name": "Louis Vuitton For Unicef Auction Items"
+        },
+        "top_ratio_lot": {
+          "title": "Signed by Zlatan",
+          "ratio": 0.6
         }
       }
     },
