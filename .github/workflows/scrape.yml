@@ -56,11 +56,11 @@ jobs:
           UV_INDEX_URL: https://pypi.org/simple/
           PYTHONPATH: .
 
-      - name: Run Vestiaire — Delvaux, Valextra, Loro Piana, Moynat
-        run: uv run python -m scraper.vestiaire --brands provenance --max-products 100
-        env:
-          UV_INDEX_URL: https://pypi.org/simple/
-          PYTHONPATH: .
+      # - name: Run Vestiaire — Delvaux, Valextra, Loro Piana, Moynat
+      #   run: uv run python -m scraper.vestiaire --brands provenance --max-products 100
+      #   env:
+      #     UV_INDEX_URL: https://pypi.org/simple/
+      #     PYTHONPATH: .
 
       - name: Rebuild catalogue.json and analysis.json
         run: uv run python scripts/build_json.py
