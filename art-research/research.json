@@ -1,15 +1,15 @@
 {
   "stats": {
-    "total_lots": 2575,
+    "total_lots": 2625,
     "total_artists": 903,
-    "median_hammer_usd": 150000,
-    "pct_above_estimate": 47.0,
+    "median_hammer_usd": 139700,
+    "pct_above_estimate": 46.4,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-06-22"
+    "generated_at": "2026-06-29"
   },
   "artists": [
     {
