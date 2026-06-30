@@ -75,6 +75,15 @@ def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
     return sorted(agg.keys(), key=lambda k: agg[k]["score"], reverse=True)
 
 
+def get_rotation(db_path: Path = DB_PATH) -> list[str]:
+    """Return the full artist rotation list built from art_items."""
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    rotation = _build_rotation(cur)
+    conn.close()
+    return rotation
+
+
 def next_artist(db_path: Path = DB_PATH) -> str:
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()

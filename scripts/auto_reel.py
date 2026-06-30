@@ -1176,7 +1176,7 @@ def main() -> None:
                                         artist=args.artist, title=args.title)
         if not lots and args.artist:
             # Walk forward through the campaign rotation to find next artist with unposted lots
-            rotation = list(dict.fromkeys(_ca.ROTATION))  # deduplicated, order preserved
+            rotation = list(dict.fromkeys(_ca.get_rotation(DB_PATH)))
             try:
                 start_idx = next(i for i, a in enumerate(rotation)
                                  if a.lower() == args.artist.lower())
