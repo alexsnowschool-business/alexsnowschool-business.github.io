@@ -1,95 +1,95 @@
-name: Hermès Reel — Provenance
+# name: Hermès Reel — Provenance
 
-on:
-  schedule:
-    # Morning slot — 04:00 UTC = 06:00 CET / 07:00 CEST
-    - cron: "0 6 * * 0"
-    - cron: "0 6 * * 2"
-    - cron: "0 6 * * 3"
-    - cron: "0 6 * * 5"
+# on:
+#   schedule:
+#     # Morning slot — 04:00 UTC = 06:00 CET / 07:00 CEST
+#     - cron: "0 6 * * 0"
+#     - cron: "0 6 * * 2"
+#     - cron: "0 6 * * 3"
+#     - cron: "0 6 * * 5"
   
-    # Evening slot — 12:00 UTC = 14:00 CET / 15:00 CEST
-    - cron: "0 14 * * 1"
-    - cron: "0 14 * * 4"
-    - cron: "0 14 * * 6"
+#     # Evening slot — 12:00 UTC = 14:00 CET / 15:00 CEST
+#     - cron: "0 14 * * 1"
+#     - cron: "0 14 * * 4"
+#     - cron: "0 14 * * 6"
 
-  workflow_dispatch:
-    inputs:
-      model:
-        description: "Specific model to use, e.g. 'Birkin 30' (leave blank for auto)"
-        required: false
-        default: ""
-      voice:
-        description: "Generate AI voiceover via ElevenLabs"
-        required: false
-        default: "false"
-        type: choice
-        options:
-          - "false"
-          - "true"
+#   workflow_dispatch:
+#     inputs:
+#       model:
+#         description: "Specific model to use, e.g. 'Birkin 30' (leave blank for auto)"
+#         required: false
+#         default: ""
+#       voice:
+#         description: "Generate AI voiceover via ElevenLabs"
+#         required: false
+#         default: "false"
+#         type: choice
+#         options:
+#           - "false"
+#           - "true"
 
-jobs:
-  reel:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+# jobs:
+#   reel:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.12"
 
-      - name: Install Python dependencies
-        run: pip install pillow httpx python-dotenv elevenlabs playwright edge-tts
+#       - name: Install Python dependencies
+#         run: pip install pillow httpx python-dotenv elevenlabs playwright edge-tts
 
-      - name: Install ffmpeg + Playwright browser
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-noto-cjk --quiet
-          playwright install chromium --with-deps
+#       - name: Install ffmpeg + Playwright browser
+#         run: |
+#           sudo apt-get update -qq
+#           sudo apt-get install -y ffmpeg fonts-noto-cjk --quiet
+#           playwright install chromium --with-deps
 
-      - name: Generate reel
-        env:
-          PYTHONUNBUFFERED:           "1"
-          OPENROUTER_API_KEY:         ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL:           ${{ secrets.OPENROUTER_MODEL }}
-          HERMES_ELEVENLABS_API_KEY:  ${{ secrets.HERMES_ELEVENLABS_API_KEY }}
-          HERMES_ELEVENLABS_VOICE_ID: ${{ secrets.HERMES_ELEVENLABS_VOICE_ID }}
-          HERMES_ELEVENLABS_MODEL_ID: ${{ secrets.HERMES_ELEVENLABS_MODEL_ID }}
-        run: |
-          ARGS="--run"
-          # Scheduled runs always use --voice; manual dispatch respects the input
-          if [ -z "${{ github.event.inputs.voice }}" ] || [ "${{ inputs.voice }}" = "true" ]; then
-            ARGS="$ARGS --voice"
-          fi
-          if [ -n "${{ inputs.model }}" ]; then
-            ARGS="$ARGS --model '${{ inputs.model }}'"
-          fi
-          eval python -u scripts/hermes_reel.py $ARGS
+#       - name: Generate reel
+#         env:
+#           PYTHONUNBUFFERED:           "1"
+#           OPENROUTER_API_KEY:         ${{ secrets.OPENROUTER_API_KEY }}
+#           OPENROUTER_MODEL:           ${{ secrets.OPENROUTER_MODEL }}
+#           HERMES_ELEVENLABS_API_KEY:  ${{ secrets.HERMES_ELEVENLABS_API_KEY }}
+#           HERMES_ELEVENLABS_VOICE_ID: ${{ secrets.HERMES_ELEVENLABS_VOICE_ID }}
+#           HERMES_ELEVENLABS_MODEL_ID: ${{ secrets.HERMES_ELEVENLABS_MODEL_ID }}
+#         run: |
+#           ARGS="--run"
+#           # Scheduled runs always use --voice; manual dispatch respects the input
+#           if [ -z "${{ github.event.inputs.voice }}" ] || [ "${{ inputs.voice }}" = "true" ]; then
+#             ARGS="$ARGS --voice"
+#           fi
+#           if [ -n "${{ inputs.model }}" ]; then
+#             ARGS="$ARGS --model '${{ inputs.model }}'"
+#           fi
+#           eval python -u scripts/hermes_reel.py $ARGS
 
-      - name: Commit updated database
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/hermes.db
-          git diff --cached --quiet || git commit -m "chore(db): mark posted hermès model in posted_hermes_reels [skip ci]"
-          git push
+#       - name: Commit updated database
+#         run: |
+#           git config user.name  "github-actions[bot]"
+#           git config user.email "github-actions[bot]@users.noreply.github.com"
+#           git add data/hermes.db
+#           git diff --cached --quiet || git commit -m "chore(db): mark posted hermès model in posted_hermes_reels [skip ci]"
+#           git push
 
-      - name: Find reel folder
-        id: reel
-        run: |
-          FOLDER=$(ls -dt reels/hermes-* 2>/dev/null | head -1)
-          echo "folder=$FOLDER" >> $GITHUB_OUTPUT
-          echo "Reel folder: $FOLDER"
+#       - name: Find reel folder
+#         id: reel
+#         run: |
+#           FOLDER=$(ls -dt reels/hermes-* 2>/dev/null | head -1)
+#           echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+#           echo "Reel folder: $FOLDER"
 
-      - name: Post to Buffer
-        env:
-          PROVENANCE_BUFFER_TOKEN:        ${{ secrets.PROVENANCE_BUFFER_TOKEN }}
-          PROVENANCE_BUFFER_TIKTOK_ID:    ${{ secrets.PROVENANCE_BUFFER_TIKTOK_ID }}
-          PROVENANCE_BUFFER_INSTAGRAM_ID: ${{ secrets.PROVENANCE_BUFFER_INSTAGRAM_ID }}
-          GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/post_to_buffer_provenance.py ${{ steps.reel.outputs.folder }}
+#       - name: Post to Buffer
+#         env:
+#           PROVENANCE_BUFFER_TOKEN:        ${{ secrets.PROVENANCE_BUFFER_TOKEN }}
+#           PROVENANCE_BUFFER_TIKTOK_ID:    ${{ secrets.PROVENANCE_BUFFER_TIKTOK_ID }}
+#           PROVENANCE_BUFFER_INSTAGRAM_ID: ${{ secrets.PROVENANCE_BUFFER_INSTAGRAM_ID }}
+#           GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
+#         run: python scripts/post_to_buffer_provenance.py ${{ steps.reel.outputs.folder }}
