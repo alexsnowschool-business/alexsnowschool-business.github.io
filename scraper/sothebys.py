@@ -303,7 +303,7 @@ async def _fetch_lot_details(client: httpx.AsyncClient, lot_url: str) -> dict:
         return {}
 
 
-def _parse_lot(raw: dict, details: dict, sale_name: str, currency: str) -> dict | None:
+def _parse_lot(raw: dict, details: dict, sale_name: str, currency: str, year: str | None = None) -> dict | None:
     artist = (raw.get("creatorsDisplayTitle") or "").strip() or None
     title  = (raw.get("title") or "").strip()
 
@@ -337,7 +337,10 @@ def _parse_lot(raw: dict, details: dict, sale_name: str, currency: str) -> dict 
         "year_created":    details.get("year"),
         "lot_number":      str(raw.get("lotNr") or ""),
         "sale_name":       sale_name,
-        "sale_date":       None,
+        # Sotheby's GraphQL lot list doesn't expose an exact per-lot sale date;
+        # `year` (from the auction URL /en/buy/auction/{year}/{slug}) is the best
+        # signal available without an extra request. Coarse (year-only), not exact.
+        "sale_date":       year,
         "estimate_low":    float(est_lo) if est_lo else None,
         "estimate_high":   float(est_hi) if est_hi else None,
         "hammer_price":    hammer,
@@ -426,7 +429,7 @@ async def _scrape_sale(
             consecutive_no_price = 0
             consecutive_existing = 0
 
-            lot = _parse_lot(raw, details, sale_name, currency)
+            lot = _parse_lot(raw, details, sale_name, currency, year)
             if not lot:
                 tqdm.write(f"  skipped: lot {raw.get('lotNr')} — filtered")
                 continue

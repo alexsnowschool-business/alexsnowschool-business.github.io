@@ -83,7 +83,7 @@ def upsert_lot(conn: sqlite3.Connection, lot: dict) -> None:
     high   = lot.get("estimate_high")
     perf   = _sale_performance(hammer, low, high)
     conn.execute("""
-        INSERT OR IGNORE INTO art_items (
+        INSERT INTO art_items (
             id, auction_house, artist, title, medium, medium_category,
             dimensions, year_created, lot_number, sale_name, sale_date,
             estimate_low, estimate_high, hammer_price, currency, hammer_usd,
@@ -94,6 +94,26 @@ def upsert_lot(conn: sqlite3.Connection, lot: dict) -> None:
             ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?
         )
+        ON CONFLICT(id, auction_house) DO UPDATE SET
+            artist           = excluded.artist,
+            title            = excluded.title,
+            medium           = excluded.medium,
+            medium_category  = excluded.medium_category,
+            dimensions       = excluded.dimensions,
+            year_created     = excluded.year_created,
+            lot_number       = excluded.lot_number,
+            sale_name        = excluded.sale_name,
+            sale_date        = COALESCE(excluded.sale_date, art_items.sale_date),
+            estimate_low     = excluded.estimate_low,
+            estimate_high    = excluded.estimate_high,
+            hammer_price     = excluded.hammer_price,
+            currency         = excluded.currency,
+            hammer_usd       = excluded.hammer_usd,
+            sale_performance = excluded.sale_performance,
+            provenance       = excluded.provenance,
+            description      = excluded.description,
+            image_urls       = excluded.image_urls,
+            source_url       = excluded.source_url
     """, (
         lot["id"],
         lot.get("auction_house", ""),
