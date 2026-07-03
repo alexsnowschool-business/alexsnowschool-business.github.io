@@ -121,7 +121,14 @@ def _post_to_buffer(
     if platform == "Instagram":
         metadata["instagram"] = {"type": "post", "shouldShareToFeed": True}
     elif platform == "TikTok":
-        metadata["tiktok"] = {"title": text[:150]}
+        # TikTok's Content Posting API requires every photo/carousel post to
+        # carry background audio (unlike video posts) — auto_add_music tells
+        # TikTok to add one automatically. UNVERIFIED: guessed camelCase to
+        # match Buffer's convention elsewhere (shouldShareToFeed, dueAt); no
+        # schema access to confirm the field name or that Buffer exposes it
+        # at all. If TikTok posts still fail after this, that's the next
+        # thing to rule out via Buffer's own error message.
+        metadata["tiktok"] = {"title": text[:150], "autoAddMusic": True}
 
     variables: dict = {
         "input": {
