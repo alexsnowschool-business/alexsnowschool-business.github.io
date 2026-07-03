@@ -450,6 +450,148 @@ Reply with only the section text."""
     return raw.strip() if raw else None
 
 
+def generate_beat_the_estimate_title(lots: list[dict]) -> str | None:
+    """Generate a headline + subtitle for a multi-lot 'Beat the Estimate' roundup."""
+    if not OPENROUTER_KEY:
+        return None
+
+    summary = "\n".join(
+        f"- {l.get('artist', 'Unknown')}, \"{l.get('title', 'Untitled')}\" — "
+        f"{l.get('pct_above', 0):.0f}% above low estimate ({l.get('auction_house', '')})"
+        for l in lots
+    )
+    prompt = f"""You write editorial headlines for a recurring Substack column called "Beat the Estimate" on The Hammer Price — a weekly roundup of the auction results that ran hottest against their pre-sale estimates.
+
+This week's results:
+{summary}
+
+Write:
+TITLE: one punchy headline (~8 words) for this week's roundup. Not clickbait. Can reference a standout artist or a pattern across the results, doesn't need to name all of them.
+SUBTITLE: one sentence (~20 words) framing what this week's overperformance says about the market.
+
+Rules: sentence case (not title case). No quotes around the title. No emojis.
+
+Reply with only:
+TITLE: <title>
+SUBTITLE: <subtitle>"""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=120)
+    return raw.strip() if raw else None
+
+
+def generate_beat_the_estimate_intro(lots: list[dict]) -> str | None:
+    """Generate the opening framing paragraph for a 'Beat the Estimate' roundup."""
+    if not OPENROUTER_KEY:
+        return None
+
+    summary = "\n".join(
+        f"- {l.get('artist', 'Unknown')}, \"{l.get('title', 'Untitled')}\" — "
+        f"${l.get('estimate_low', 0):,.0f} est. → ${l.get('hammer_usd', 0):,.0f} hammer "
+        f"({l.get('pct_above', 0):.0f}% above), {l.get('auction_house', '')}"
+        for l in lots
+    )
+    prompt = f"""You write "Beat the Estimate," a recurring data column on The Hammer Price Substack. Voice: editorial, precise, analytical — not promotional.
+
+This week's overperformers, ranked by how far they cleared their low estimate:
+{summary}
+
+Write an INTRO paragraph (~120 words) that:
+1. States the pattern across this week's results — is it concentrated in one house, medium, or artist tier? Or scattered, which is itself a signal?
+2. Sets up why "beating the estimate" matters — the estimate is the specialist's read on where the market sits; a wide gap means the room disagreed.
+3. Does NOT recommend buying or selling anything — describe the data, don't advise.
+
+Rules: prose only, no bullet points, no heading.
+
+Reply with only the paragraph text."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=300)
+    return raw.strip() if raw else None
+
+
+def generate_beat_the_estimate_blurb(lot: dict, rank: int) -> str | None:
+    """Generate a short per-lot blurb (2-3 sentences) for a 'Beat the Estimate' roundup entry."""
+    if not OPENROUTER_KEY:
+        return None
+
+    prompt = f"""You write "Beat the Estimate," a recurring data column on The Hammer Price Substack. Voice: editorial, precise, analytical.
+
+This is entry #{rank} in this week's roundup:
+{_lot_context(lot)}
+
+Write a blurb (2-3 sentences, ~60 words) covering:
+1. What specifically drove the gap between estimate and hammer — is this artist under-covered by estimators, a rediscovered work, a market moment for this movement?
+2. One concrete, specific detail about the work or artist (not generic praise).
+
+Rules: prose only, no heading, don't just restate the numbers — the reader can already see them.
+
+Reply with only the blurb text."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=150)
+    return raw.strip() if raw else None
+
+
+def generate_beat_the_estimate_closing(lots: list[dict]) -> str | None:
+    """Generate the closing paragraph for a 'Beat the Estimate' roundup."""
+    if not OPENROUTER_KEY:
+        return None
+
+    houses = sorted({l.get("auction_house", "") for l in lots if l.get("auction_house")})
+    prompt = f"""You write "Beat the Estimate," a recurring data column on The Hammer Price Substack. Voice: editorial, precise, analytical.
+
+This week's roundup covered {len(lots)} results across: {', '.join(houses)}.
+
+Write a CLOSING paragraph (~60 words) that:
+1. Zooms out from this week's specific lots to what a reader should watch for next — a trend forming, a department to keep an eye on.
+2. Does NOT recommend buying or selling anything.
+
+Rules: prose only, no heading.
+
+Reply with only the paragraph text."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=150)
+    return raw.strip() if raw else None
+
+
+def generate_beat_the_estimate_post(lots: list[dict]) -> dict | None:
+    """
+    Generate all sections of a 'Beat the Estimate' roundup covering multiple lots.
+    Returns a dict with keys: title, subtitle, intro, blurbs (list, same order as `lots`), closing.
+    Returns None if the API is unavailable.
+    """
+    if not OPENROUTER_KEY or not lots:
+        return None
+
+    title_raw = generate_beat_the_estimate_title(lots)
+    intro     = generate_beat_the_estimate_intro(lots)
+    blurbs    = [generate_beat_the_estimate_blurb(lot, i + 1) for i, lot in enumerate(lots)]
+    closing   = generate_beat_the_estimate_closing(lots)
+
+    if not any([title_raw, intro, closing, *blurbs]):
+        return None
+
+    title    = ""
+    subtitle = ""
+    if title_raw:
+        for line in title_raw.splitlines():
+            if line.upper().startswith("TITLE:"):
+                title = line.split(":", 1)[1].strip()
+            elif line.upper().startswith("SUBTITLE:"):
+                subtitle = line.split(":", 1)[1].strip()
+
+    def _clean(text: str | None) -> str:
+        if not text:
+            return ""
+        return re.sub(r"^\s*#+\s+[A-Z][A-Z\s]+\n+", "", text).strip()
+
+    return {
+        "title":    title,
+        "subtitle": subtitle,
+        "intro":    _clean(intro),
+        "blurbs":   [_clean(b) for b in blurbs],
+        "closing":  _clean(closing),
+    }
+
+
 def generate_substack_post(lot: dict) -> dict | None:
     """
     Generate all sections of a Substack post for a single auction lot.

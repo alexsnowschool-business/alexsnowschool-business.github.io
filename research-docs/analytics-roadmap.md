@@ -66,22 +66,44 @@ Root cause, not a scraping gap:
   GraphQL field addition — worth doing once the coarse year-level data proves
   useful enough to justify the added request volume.
 
-## Next: turn existing signal into a content/product pillar (no new scraping)
+## Shipped: "Beat the Estimate" content pillar
 
-`sale_performance` + `top_outperformers` already exist in `analysis.json`.
-Nothing new needs to be scraped to ship this:
+`scripts/beat_the_estimate.py` (new) + `ai_content.py` (new
+`generate_beat_the_estimate_*` functions) — a recurring multi-lot Substack
+roundup, distinct from `substack_post.py`'s single-lot deep dive. Wired into
+`.github/workflows/beat-the-estimate.yml`, running Tue + Fri 06:00 UTC (a few
+hours after each `scrape-art.yml` run).
 
-- A recurring "Beat the Estimate" post/reel: which artists/lots are running
-  hot vs. cold relative to auction-house estimates this week, pulled straight
-  from `top_outperformers`.
-- With `sale_date` now populated (even partially), a real trend line by
-  house/artist/medium over time becomes possible — feeds a "quarterly index"
-  piece, which is a more defensible product angle than one-off lot highlights.
-- Free tier: reels/social as now. Paid tier (Substack, since `substack_post.py`
-  already exists): the underlying index numbers / downloadable breakdown.
-- Framing discipline: publish *data and trend analysis*, never buy/sell
-  recommendations — that keeps this outside BaFin's Anlageberatung licensing
-  in Germany.
+- **Cohort definition compromise**: `sale_date` coverage is still partial/
+  coarse (see above), so "this week's" cohort is defined by `scraped_at`
+  (when the lot entered the DB) rather than actual sale date. Not the same
+  as "sold this week", but tracks closely enough given the twice-weekly
+  scrape cadence — revisit once `sale_date` coverage improves.
+- Filters to lots with a named artist (excludes decorative arts/ceramics
+  lots that have no `artist` value) to keep the column's voice consistent
+  with the rest of the Substack content.
+- Dedupes across runs via a new `beat_the_estimate_posts` table in
+  `data/art.db` (same pattern as `auto_reel.py`'s `posted_reels`, but
+  separate — a lot can legitimately appear in both a reel and a roundup).
+- Widens the lookback window once (7 → 30 days) if the tight window returns
+  nothing, rather than shipping an empty post.
+- Verified locally end-to-end with a real OpenRouter call — output quality
+  is genuinely editorial (per-lot blurbs reason about *why* the estimate gap
+  exists, not just restate the numbers).
+- Found and fixed in passing: `scraper/sothebys.py`'s `sale_name` used
+  `.title()` on the URL slug, which mangles ordinals ("19th century" →
+  "19Th Century") — this showed up directly in generated roundup copy.
+  Fixed going forward; existing DB rows still have the mangled form (not
+  backfilled — cosmetic, low priority).
+- Framing discipline maintained: publishes *data and pattern analysis*,
+  never buy/sell recommendations — keeps this outside BaFin's
+  Anlageberatung licensing in Germany.
+
+**Still open**: with `sale_date` more fully populated, a real trend line by
+house/artist/medium over time becomes possible — feeds a "quarterly index"
+piece, a more defensible product angle than weekly lot highlights. Free tier
+stays reels/social as now; paid tier (Substack) is the roundup + eventual
+index numbers.
 
 ## Next: the actual moat — extend scraping downmarket + into Europe
 

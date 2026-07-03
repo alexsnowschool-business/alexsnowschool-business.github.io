@@ -68,6 +68,12 @@ _AUC_URL_RE = re.compile(r'/en/buy/auction/(\d{4})/([a-z0-9][a-z0-9-]+)')
 
 _FX      = {"USD": 1.0, "GBP": 1.27, "EUR": 1.09, "HKD": 0.128, "CHF": 1.13}
 _YEAR_RE = re.compile(r"\b(1[3-9]\d{2}|20[0-2]\d)\b")
+_ORDINAL_RE = re.compile(r"(\d)(St|Nd|Rd|Th)\b")
+
+
+def _sale_name_from_slug(slug: str) -> str:
+    """slug.replace('-', ' ').title() mangles ordinals ('19th' -> '19Th') — fix them back."""
+    return _ORDINAL_RE.sub(lambda m: m.group(1) + m.group(2).lower(), slug.replace("-", " ").title())
 
 _AUCTION_BY_SLUG_QUERY = """
 query AuctionBySlug($name: String!, $year: String!) {
@@ -460,7 +466,7 @@ async def scrape(max_lots: int = 50, max_pages: int = 10) -> None:
             for year, slug, auction_url in auctions:
                 if saved_ref[0] >= max_lots:
                     break
-                sale_name = slug.replace("-", " ").title()
+                sale_name = _sale_name_from_slug(slug)
                 await _scrape_sale(
                     client, conn, year, slug, auction_url, sale_name,
                     max_lots, pbar, saved_ref, skipped_ref,
