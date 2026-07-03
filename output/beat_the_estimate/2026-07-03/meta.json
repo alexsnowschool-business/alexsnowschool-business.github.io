@@ -1,0 +1,41 @@
+{
+  "title": "Romantic landscapes soar past estimates at Sotheby's",
+  "subtitle": "Buyers show renewed appetite for 19th-century European figurative and landscape painting, driving consistent outperformance across the category.",
+  "lots": [
+    {
+      "id": "019e406d-18ec-71f4-bd4e-7fba48831262",
+      "artist": "Valerius de Saedeleer",
+      "title": "Winter landscape, Ceredigion (Cardiganshire), Wales",
+      "auction_house": "Sotheby's",
+      "pct_above": 179.4
+    },
+    {
+      "id": "3badf3e2-ff16-4a17-ae5f-55a052b5850a",
+      "artist": "Eleanor Vere Boyle",
+      "title": "'And a neglected Looking-glass, And the Child cared nothing about the Looking-glass'",
+      "auction_house": "Sotheby's",
+      "pct_above": 166.7
+    },
+    {
+      "id": "5b97baa3-6535-4200-8a07-4db10b899624",
+      "artist": "Agnes Slott-M\u00f8ller",
+      "title": "King Valdemar and Queen Bengerd",
+      "auction_house": "Sotheby's",
+      "pct_above": 154.0
+    },
+    {
+      "id": "019e82e4-c8c9-7053-bc87-a205453b84e7",
+      "artist": "Ilya Nikolaevich Zankovsky",
+      "title": "Mountain landscape",
+      "auction_house": "Sotheby's",
+      "pct_above": 154.0
+    },
+    {
+      "id": "681ca9ed-cf21-46ac-8be7-1ed3f5925d0a",
+      "artist": "Ivan Konstantinovich Aivazovsky",
+      "title": "Sailing barge in Crimea with Alupka in the distance",
+      "auction_house": "Sotheby's",
+      "pct_above": 141.3
+    }
+  ]
+}
