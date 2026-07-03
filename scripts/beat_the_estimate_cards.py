@@ -17,7 +17,6 @@ Usage (as a library):
 Not meant to be run standalone — called from beat_the_estimate.py.
 """
 
-import re
 from io import BytesIO
 from pathlib import Path
 
