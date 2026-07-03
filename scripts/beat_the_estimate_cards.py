@@ -264,16 +264,30 @@ def _first_image_url(lot: dict) -> str | None:
     return None
 
 
-def render_cards(lots: list[dict], sections: dict, out_dir: Path) -> list[Path]:
-    """Render one cover card + one card per lot. Returns saved file paths in post order."""
+def render_cards(
+    lots: list[dict], sections: dict, out_dir: Path, start_date: str | None = None,
+) -> list[Path]:
+    """Render one cover card + one card per lot. Returns saved file paths in post order.
+
+    `start_date` ("YYYY-MM-DD") is the explicit eligibility cutoff passed to
+    beat_the_estimate.py's --start-date, if any — shown on the cover instead
+    of just today's date, so a card generated from an older cutoff doesn't
+    read as "this week" when it isn't.
+    """
     out_dir.mkdir(parents=True, exist_ok=True)
     paths: list[Path] = []
 
-    from datetime import date
+    from datetime import date, datetime
+    if start_date:
+        cutoff = datetime.strptime(start_date, "%Y-%m-%d").strftime("%b %-d, %Y")
+        date_str = f"SINCE {cutoff}"
+    else:
+        date_str = date.today().strftime("%b %-d, %Y")
+
     cover = render_cover_card(
         title=sections.get("title", ""),
         subtitle=sections.get("subtitle", ""),
-        date_str=date.today().strftime("%b %-d, %Y"),
+        date_str=date_str,
         count=len(lots),
         lots=lots,
     )

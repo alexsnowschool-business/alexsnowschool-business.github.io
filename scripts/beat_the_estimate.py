@@ -271,7 +271,7 @@ def main() -> None:
 
         print("\n▸ Generating Instagram/TikTok image cards...")
         cards_dir = Path(args.cards_dir) / run_label
-        card_paths = render_cards(lots, sections, cards_dir)
+        card_paths = render_cards(lots, sections, cards_dir, start_date=args.start_date)
         print(f"✓ {len(card_paths)} cards saved → {cards_dir}")
         print("  Post with: python scripts/post_beat_the_estimate_to_buffer.py "
               f"{cards_dir.relative_to(BUSINESS_DIR)} --dry-run")
