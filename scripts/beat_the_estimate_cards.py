@@ -4,11 +4,12 @@ Static image cards for the "Beat the Estimate" Instagram/TikTok carousel —
 no video. One cover card + one card per featured lot, sized 1080x1350
 (4:5 portrait — works for an Instagram carousel post and a TikTok photo post).
 
-Cover card uses a full-bleed hero photo with a bottom gradient and bold
-sans caps overlay (Outfit-Bold/Regular) — the punchy Instagram-carousel
-look. Per-lot cards use the existing reel pipeline's "auction_editorial"
-palette (reel_template/make_reel.py) and serif pairing (Italiana headline +
-CrimsonPro body) so the set still reads as one brand.
+Cover card is a full-bleed grid mosaic of every featured lot's photo, with
+a bottom gradient and bold sans caps overlay — the punchy Instagram-
+carousel look. Per-lot cards share the same Outfit-Bold/Regular pairing
+(bold caps artist name, regular everything else) on the existing reel
+pipeline's "auction_editorial" gold-on-black palette
+(reel_template/make_reel.py), so the whole carousel reads as one set.
 
 Usage (as a library):
     from beat_the_estimate_cards import render_cards
@@ -106,9 +107,29 @@ def _fit_caps_lines(
     return font, lines
 
 
+def _full_bleed_mosaic(lots: list[dict], w: int, h: int) -> Image.Image:
+    """Tile every featured lot's photo into a grid that fills the whole w x h canvas."""
+    canvas = Image.new("RGB", (w, h), (30, 27, 24))
+    photos = [p for p in (_download_photo(_first_image_url(lot)) for lot in lots) if p]
+    if not photos:
+        return canvas
+
+    cols = 1 if len(photos) == 1 else 2
+    rows = -(-len(photos) // cols)  # ceil division
+
+    for i, photo in enumerate(photos):
+        col, row = i % cols, i // cols
+        x0 = (col * w) // cols
+        x1 = ((col + 1) * w) // cols
+        y0 = (row * h) // rows
+        y1 = ((row + 1) * h) // rows
+        canvas.paste(_crop_fill(photo, x1 - x0, y1 - y0), (x0, y0))
+
+    return canvas
+
+
 def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots: list[dict]) -> Image.Image:
-    photo = _download_photo(_first_image_url(lots[0])) if lots else None
-    img = _crop_fill(photo, W, H) if photo else Image.new("RGB", (W, H), (30, 27, 24))
+    img = _full_bleed_mosaic(lots, W, H) if lots else Image.new("RGB", (W, H), (30, 27, 24))
 
     # Bottom gradient so headline text stays legible over a bright/busy painting,
     # without darkening the top of the artwork where the composition reads best.
@@ -125,14 +146,30 @@ def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots
     draw = ImageDraw.Draw(img)
     content_w = W - MARGIN * 2
 
+    # Solid backdrop behind the kicker label — a gradient scrim isn't reliable
+    # contrast against a mosaic where tile brightness varies tile to tile.
     kicker_font = _font("Outfit-Regular.ttf", 24)
-    draw.text((MARGIN, MARGIN), "THE HAMMER PRICE", font=kicker_font, fill=GOLD)
+    kicker_text = "THE HAMMER PRICE"
+    kicker_bbox = draw.textbbox((0, 0), kicker_text, font=kicker_font)
+    pad_x, pad_y = 20, 12
+    draw.rectangle(
+        [
+            MARGIN - pad_x, MARGIN - pad_y,
+            MARGIN + (kicker_bbox[2] - kicker_bbox[0]) + pad_x,
+            MARGIN + (kicker_bbox[3] - kicker_bbox[1]) + pad_y,
+        ],
+        fill=(8, 7, 6),
+    )
+    draw.text((MARGIN, MARGIN), kicker_text, font=kicker_font, fill=GOLD)
 
     title_font, title_lines = _fit_caps_lines(
         draw, title, content_w, "Outfit-Bold.ttf", start_size=88, min_size=48, max_lines=4,
     )
     subtitle_font = _font("Outfit-Regular.ttf", 32)
-    subtitle_lines = _wrap(draw, subtitle, subtitle_font, content_w)[:2]
+    all_subtitle_lines = _wrap(draw, subtitle, subtitle_font, content_w)
+    subtitle_lines = all_subtitle_lines[:2]
+    if len(all_subtitle_lines) > 2 and subtitle_lines:
+        subtitle_lines[-1] = subtitle_lines[-1].rstrip(".,;:") + "…"
     meta_font = _font("Outfit-Regular.ttf", 24)
 
     title_bbox   = title_font.getbbox("Hg")
@@ -177,10 +214,10 @@ def render_lot_card(lot: dict, rank: int, blurb: str) -> Image.Image:
     draw.rectangle([0, photo_h, W, photo_h + 4], fill=GOLD)
 
     y = photo_h + 36
-    draw.text((MARGIN, y), f"{rank:02d}", font=_font("CrimsonPro-Regular.ttf", 22), fill=GOLD_DIM)
+    draw.text((MARGIN, y), f"{rank:02d}", font=_font("Outfit-Regular.ttf", 22), fill=GOLD_DIM)
     y += 40
 
-    artist_font = _font("Italiana-Regular.ttf", 46)
+    artist_font = _font("Outfit-Bold.ttf", 42)
     artist = (lot.get("artist") or "Unknown").upper()
     for line in _wrap(draw, artist, artist_font, W - MARGIN * 2):
         draw.text((MARGIN, y), line, font=artist_font, fill=IVORY)
@@ -188,7 +225,7 @@ def render_lot_card(lot: dict, rank: int, blurb: str) -> Image.Image:
         y += (bbox[3] - bbox[1]) + 8
     y += 6
 
-    title_font = _font("CrimsonPro-Italic.ttf", 32)
+    title_font = _font("Outfit-Regular.ttf", 30)
     title = lot.get("title") or "Untitled"
     for line in _wrap(draw, title, title_font, W - MARGIN * 2)[:2]:
         draw.text((MARGIN, y), line, font=title_font, fill=IVORY_DIM)
@@ -197,12 +234,12 @@ def render_lot_card(lot: dict, rank: int, blurb: str) -> Image.Image:
     y += 20
 
     pct = lot.get("pct_above", 0)
-    pct_font = _font("Italiana-Regular.ttf", 52)
+    pct_font = _font("Outfit-Bold.ttf", 50)
     draw.text((MARGIN, y), f"+{pct:.0f}% ABOVE ESTIMATE", font=pct_font, fill=GOLD)
     bbox = draw.textbbox((0, 0), f"+{pct:.0f}% ABOVE ESTIMATE", font=pct_font)
     y += (bbox[3] - bbox[1]) + 20
 
-    detail_font = _font("CrimsonPro-Regular.ttf", 26)
+    detail_font = _font("Outfit-Regular.ttf", 25)
     house  = lot.get("auction_house", "")
     hammer = f"${lot.get('hammer_usd', 0):,.0f}"
     est_lo = f"${lot.get('estimate_low', 0):,.0f}"
@@ -213,7 +250,7 @@ def render_lot_card(lot: dict, rank: int, blurb: str) -> Image.Image:
     if blurb:
         draw.line([(MARGIN, y), (MARGIN + 60, y)], fill=GOLD_DIM, width=2)
         y += 30
-        blurb_font  = _font("CrimsonPro-Regular.ttf", 27)
+        blurb_font  = _font("Outfit-Regular.ttf", 26)
         max_lines   = (H - MARGIN - y) // 42
         all_lines   = _wrap(draw, blurb, blurb_font, W - MARGIN * 2)
         lines       = all_lines[:max_lines]
