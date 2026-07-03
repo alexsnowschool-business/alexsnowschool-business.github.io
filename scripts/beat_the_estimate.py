@@ -18,6 +18,7 @@ Usage:
     python scripts/beat_the_estimate.py --list             # preview candidates
     python scripts/beat_the_estimate.py --run              # generate + save draft
     python scripts/beat_the_estimate.py --run --top-n 8 --days 10
+    python scripts/beat_the_estimate.py --run --start-date 2026-07-01  # explicit cutoff instead of --days
 """
 
 import argparse
@@ -64,12 +65,21 @@ def _connect() -> sqlite3.Connection:
     return conn
 
 
-def _candidates(conn: sqlite3.Connection, days: int, top_n: int) -> list[dict]:
+def _candidates(
+    conn: sqlite3.Connection, days: int, top_n: int, start_date: str | None = None,
+) -> list[dict]:
     """
-    Top outperformers among lots scraped in the last `days` days, excluding
-    lots already featured in a previous roundup. Widens the window once if
-    that yields nothing (a scrape didn't land, or every recent lot was
-    already featured) rather than shipping an empty post.
+    Top outperformers among lots scraped since `start_date` (an explicit
+    "YYYY-MM-DD" cutoff — everything scraped on or after that date is
+    eligible) if given, otherwise the last `days` days. Excludes lots
+    already featured in a previous roundup.
+
+    With a relative `days` window (no start_date), widens the window once
+    if it yields nothing (a scrape didn't land, or every recent lot was
+    already featured) rather than shipping an empty post. An explicit
+    start_date is not auto-widened — the caller chose that cutoff
+    deliberately, so an empty result should be reported, not silently
+    overridden.
     """
     query = """
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
@@ -78,20 +88,29 @@ def _candidates(conn: sqlite3.Connection, days: int, top_n: int) -> list[dict]:
         FROM art_items
         WHERE hammer_usd IS NOT NULL AND estimate_low > 0
           AND artist IS NOT NULL AND artist != ''
-          AND scraped_at >= datetime('now', ?)
+          AND scraped_at >= {cutoff}
           AND id NOT IN (SELECT lot_id FROM beat_the_estimate_posts)
         ORDER BY pct_above DESC
         LIMIT ?
     """
-    rows = conn.execute(query, (f"-{days} days", top_n)).fetchall()
+
+    if start_date:
+        rows = conn.execute(
+            query.format(cutoff="?"), (start_date, top_n)
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    rows = conn.execute(
+        query.format(cutoff="datetime('now', ?)"), (f"-{days} days", top_n)
+    ).fetchall()
     if not rows and days < 30:
         return _candidates(conn, days=30, top_n=top_n)
     return [dict(r) for r in rows]
 
 
-def _list_candidates(days: int, top_n: int) -> None:
+def _list_candidates(days: int, top_n: int, start_date: str | None = None) -> None:
     conn = _connect()
-    lots = _candidates(conn, days, top_n)
+    lots = _candidates(conn, days, top_n, start_date)
     conn.close()
 
     if not lots:
@@ -179,7 +198,9 @@ def main() -> None:
     parser.add_argument("--list",  action="store_true", help="Preview candidates without generating a draft")
     parser.add_argument("--run",   action="store_true", help="Generate the draft and record featured lots")
     parser.add_argument("--top-n", type=int, default=6, help="Number of lots to feature (default: 6)")
-    parser.add_argument("--days",  type=int, default=7,  help="Lookback window in days by scraped_at (default: 7)")
+    parser.add_argument("--days",  type=int, default=7,  help="Lookback window in days by scraped_at (default: 7) — ignored if --start-date is given")
+    parser.add_argument("--start-date", default=None,
+                        help="Explicit 'YYYY-MM-DD' cutoff — only lots scraped on or after this date are eligible. Overrides --days.")
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR))
     parser.add_argument("--cards-dir",  default=str(BUSINESS_DIR / "output" / "beat_the_estimate"))
     parser.add_argument("--no-cards",   dest="cards", action="store_false", default=True,
@@ -190,11 +211,11 @@ def main() -> None:
         parser.error("Specify --list to preview or --run to generate a draft.")
 
     if args.list:
-        _list_candidates(args.days, args.top_n)
+        _list_candidates(args.days, args.top_n, args.start_date)
         return
 
     conn = _connect()
-    lots = _candidates(conn, args.days, args.top_n)
+    lots = _candidates(conn, args.days, args.top_n, args.start_date)
     if not lots:
         print("No unfeatured candidates found — nothing to generate.")
         conn.close()
