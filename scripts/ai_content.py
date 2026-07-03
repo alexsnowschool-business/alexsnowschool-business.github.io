@@ -508,6 +508,55 @@ Reply with only the paragraph text."""
     return raw.strip() if raw else None
 
 
+def generate_beat_the_estimate_social_caption(lots: list[dict], title: str) -> dict | None:
+    """
+    Returns {instagram, tiktok} captions for the Beat the Estimate image
+    carousel — short, hook-led, pointing viewers to swipe through the cards.
+    Distinct from generate_captions() (single-lot reel captions).
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    summary = "\n".join(
+        f"- {l.get('artist', 'Unknown')} — {l.get('pct_above', 0):.0f}% above estimate"
+        for l in lots
+    )
+    prompt = f"""You write captions for @thehammerprice — an art market Instagram/TikTok account. This post is a swipeable image carousel (not a video), covering this week's "Beat the Estimate" results:
+
+{summary}
+
+Headline already on the cover card: "{title}"
+
+Rules:
+- All lowercase, no fluff adjectives ("stunning", "incredible")
+- Reference that it's a carousel — invite the swipe ("swipe for the full list", "swipe through")
+- Do NOT restate the exact percentages — the cards already show them
+- No hashtags in your reply (added separately)
+
+--- INSTAGRAM ---
+2-3 short lines: hook, then a data-pattern observation across the lots (concentrated in one house/category, or scattered), then a swipe CTA.
+
+--- TIKTOK ---
+1-2 lines, tighter than Instagram. Same hook, shorter CTA.
+
+Reply with only the two labeled sections."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=300)
+    if not raw:
+        return None
+
+    ig_m = re.search(r"--- INSTAGRAM ---\s*(.*?)(?=--- TIKTOK ---|$)", raw, re.DOTALL)
+    tt_m = re.search(r"--- TIKTOK ---\s*(.*?)$", raw, re.DOTALL)
+
+    ig = (ig_m.group(1).strip() + f"\n\n{_HASHTAGS_IG}") if ig_m else None
+    tt = (tt_m.group(1).strip() + f"\n\n{_HASHTAGS_TT}") if tt_m else None
+
+    if not ig or not tt:
+        return None
+
+    return {"instagram": ig, "tiktok": tt}
+
+
 def generate_beat_the_estimate_blurb(lot: dict, rank: int) -> str | None:
     """Generate a short per-lot blurb (2-3 sentences) for a 'Beat the Estimate' roundup entry."""
     if not OPENROUTER_KEY:

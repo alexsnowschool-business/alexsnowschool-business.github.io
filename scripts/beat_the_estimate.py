@@ -181,6 +181,9 @@ def main() -> None:
     parser.add_argument("--top-n", type=int, default=5, help="Number of lots to feature (default: 5)")
     parser.add_argument("--days",  type=int, default=7,  help="Lookback window in days by scraped_at (default: 7)")
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR))
+    parser.add_argument("--cards-dir",  default=str(BUSINESS_DIR / "output" / "beat_the_estimate"))
+    parser.add_argument("--no-cards",   dest="cards", action="store_false", default=True,
+                        help="Skip generating the Instagram/TikTok image cards")
     args = parser.parse_args()
 
     if not args.list and not args.run:
@@ -230,6 +233,20 @@ def main() -> None:
 
     print(f"\n✓ Draft saved → {out_path}")
     print("  Open and review, then paste into Substack editor (supports markdown).")
+
+    if args.cards:
+        try:
+            from beat_the_estimate_cards import render_cards
+        except ImportError as e:
+            print(f"✗ Could not import beat_the_estimate_cards ({e}) — skipping image cards.")
+            return
+
+        print("\n▸ Generating Instagram/TikTok image cards...")
+        cards_dir = Path(args.cards_dir) / date.today().isoformat()
+        card_paths = render_cards(lots, sections, cards_dir)
+        print(f"✓ {len(card_paths)} cards saved → {cards_dir}")
+        print("  Post with: python scripts/post_beat_the_estimate_to_buffer.py "
+              f"{cards_dir.relative_to(BUSINESS_DIR)} --dry-run")
 
 
 if __name__ == "__main__":
