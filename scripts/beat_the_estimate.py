@@ -178,7 +178,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a 'Beat the Estimate' Substack roundup.")
     parser.add_argument("--list",  action="store_true", help="Preview candidates without generating a draft")
     parser.add_argument("--run",   action="store_true", help="Generate the draft and record featured lots")
-    parser.add_argument("--top-n", type=int, default=5, help="Number of lots to feature (default: 5)")
+    parser.add_argument("--top-n", type=int, default=6, help="Number of lots to feature (default: 6)")
     parser.add_argument("--days",  type=int, default=7,  help="Lookback window in days by scraped_at (default: 7)")
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR))
     parser.add_argument("--cards-dir",  default=str(BUSINESS_DIR / "output" / "beat_the_estimate"))
