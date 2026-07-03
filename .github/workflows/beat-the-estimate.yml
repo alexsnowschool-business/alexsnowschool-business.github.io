@@ -14,9 +14,13 @@ on:
         required: false
         default: "6"
       days:
-        description: "Lookback window in days (by scraped_at)"
+        description: "Lookback window in days (by scraped_at) — ignored if start_date is set"
         required: false
         default: "7"
+      start_date:
+        description: "Explicit 'YYYY-MM-DD' cutoff — only lots scraped on or after this date are eligible. Overrides days."
+        required: false
+        default: ""
 
 jobs:
   beat-the-estimate:
@@ -43,7 +47,8 @@ jobs:
         run: |
           python -u scripts/beat_the_estimate.py --run \
             --top-n "${{ inputs.top_n || '6' }}" \
-            --days "${{ inputs.days || '7' }}"
+            --days "${{ inputs.days || '7' }}" \
+            --start-date "${{ inputs.start_date }}"
 
       - name: Find cards folder
         id: cards
