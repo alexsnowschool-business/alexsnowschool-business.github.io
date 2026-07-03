@@ -1,71 +1,71 @@
-# French sculpture and Venetian views steal the show
+# Poynter leads charge as academic painters find new admirers
 
-*European academic art continues to defy expectations, with classical subjects and figurative work commanding premiums across the board.*
-
----
-
-This week's overperformers cluster almost entirely within a single Sotheby's sale and across a narrow band of nineteenth-century European sculpture and painting, suggesting a concentrated pocket of collector appetite rather than broad-based strength. Four of five lots beat their low estimate by 27 to 33 percent, with the outlier—Dalou's small bronze sketch—achieving the same percentage gain from a substantially lower base. The pattern warrants attention because the estimate represents the specialist's calibrated assessment of current market appetite; when multiple works in the same session clear their lows by similar margins, it signals either conservative pre-sale positioning, unexpected bidding momentum in a particular school, or both. Whether this reflects genuine renewed interest in Belle Époque figural work or simply reflects the specific composition of this week's bidders remains a question the data alone cannot settle.
+*Historical figurative work continues defying estimates, signaling renewed collector appetite for narrative-driven realism.*
 
 ---
 
-## 1. Aimé-Jules Dalou — Lion du pont Alexandre III, esquisse, enfant à la guirlande (Lion from Pont Alexandre III, sketch)
-
-[![Aimé-Jules Dalou — Lion du pont Alexandre III, esquisse, enfant à la guirlande (Lion from Pont Alexandre III, sketch)](https://sothebys-md.brightspotcdn.com/dims4/default/ca3de5e/2147483647/strip/true/crop/1631x2000+0+0/resize/1024x1256!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2F87%2Fde%2Ffda74b5b447b90f3423be27daede%2Fl26230-dmkwl-t2-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/lion-du-pont-alexandre-iii-esquisse-enfant-a-la)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $4,000–$6,000 · Hammer: **$5,334** (33% above low estimate)
-
-Dalou's preparatory sketch for the iconic Pont Alexandre III lions commanded solid interest, suggesting estimators remain conservative on this sculptor's decorative output despite his secure Beaux-Arts pedigree. The work's appeal lies in its documentary value—this esquisse captures the design evolution of Paris's most recognizable public sculptures, making it particularly attractive to collectors tracking the genesis of monumental commissions.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/lion-du-pont-alexandre-iii-esquisse-enfant-a-la)*
-
-## 2. Félix Ziem — The Exit of the Bucentaure, Venice
-
-[![Félix Ziem — The Exit of the Bucentaure, Venice](https://sothebys-md.brightspotcdn.com/dims4/default/9876199/2147483647/strip/true/crop/2000x1206+0+0/resize/1024x617!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2F36%2F82%2F9e2acc084fb6a615c979c2f9b0f9%2Fl26230-dnm6b-cs-02.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/the-exit-of-the-bucentaure-venice)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $40,000–$60,000 · Hammer: **$53,340** (33% above low estimate)
-
-Ziem's Venetian scene landed squarely within its estimate range, yet the 33% premium over the low figure suggests renewed appetite for 19th-century Orientalist maritime subjects. The artist's luminous treatment of water—a signature technique that influenced later Impressionists—continues to resonate with collectors seeking atmospheric landscapes beyond the French canon's center.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/the-exit-of-the-bucentaure-venice)*
-
-## 3. Léon Comerre — A moment of repose
-
-[![Léon Comerre — A moment of repose](https://sothebys-md.brightspotcdn.com/dims4/default/e829632/2147483647/strip/true/crop/2000x1348+0+0/resize/1024x690!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2Ffb%2F4e%2F18211c55452ab8c60f4b5f19fc2a%2Fl26230-dnr7h-t2-02-cropped.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/a-moment-of-repose)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $40,000–$60,000 · Hammer: **$53,340** (33% above low estimate)
-
-Comerre's academic precision—evident in the luminous flesh tones and architectural rigor of this interior scene—continues to resonate with collectors reassessing late-nineteenth-century salon painting's technical mastery. The modest overage suggests estimators remain cautious on French academic work, even as museums and private buyers increasingly recognize these painters' undervalued contributions to art history's narrative.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/a-moment-of-repose)*
-
-## 4. Jean Baptiste Carpeaux — Le Chinois (Bust of a Chinese Man)
-
-[![Jean Baptiste Carpeaux — Le Chinois (Bust of a Chinese Man)](https://sothebys-md.brightspotcdn.com/dims4/default/e9e5c83/2147483647/strip/true/crop/1500x2000+0+0/resize/1024x1365!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2F1e%2Fa9%2F9ec0d734412290803c3365211dcd%2Fl26230-dmphf-t1-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/le-chinois-bust-of-a-chinese-man)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $30,000–$50,000 · Hammer: **$38,100** (27% above low estimate)
-
-Carpeaux's deft modeling of ethnic physiognomy—a Victorian fascination that has gained scholarly reexamination—appears undervalued by Sotheby's pricing. The 19th-century French sculptor's portrait busts remain perpetually underestimated relative to his monumental public works, suggesting estimators have yet to fully recalibrate for renewed institutional interest in his ethnographic studies.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/le-chinois-bust-of-a-chinese-man)*
-
-## 5. Sir Alfred James Munnings, P.R.A., R.W.S. — Shrimp and Ponies at the Ford
-
-[![Sir Alfred James Munnings, P.R.A., R.W.S. — Shrimp and Ponies at the Ford](https://sothebys-md.brightspotcdn.com/dims4/default/9cf2e5f/2147483647/strip/true/crop/2000x1661+0+0/resize/1024x850!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2Ff2%2Fdc%2Fdbc556e1475a9a427c82e6ddfd02%2Fl26230-dgbbf-t3-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/shrimp-and-ponies-at-the-ford)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $300,000–$500,000 · Hammer: **$381,000** (27% above low estimate)
-
-Munnings' equestrian subjects continue to outpace conservative estimates, reflecting sustained collector appetite for British sporting art despite the artist's mid-century eclipse. This particular canvas—featuring his characteristic loose brushwork capturing ponies at a rural ford—benefited from the recent critical reassessment of early modernist animal painting, a category long undervalued against figure studies and landscapes.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/shrimp-and-ponies-at-the-ford)*
+This week's overperformers cluster exclusively at Sotheby's and span an unusually wide range of price points and artistic pedigree—from a nineteenth-century Russian School work hammered at under seven thousand dollars to a six-hundred-thousand-dollar Symbolist canvas by Degouve de Nuncques. The concentration at a single house raises a procedural question worth noting, though the vertical spread across market tiers suggests something broader: a sustained disagreement between pre-sale estimates and floor appetite. Estimates function as a specialist's calibrated forecast of where bidding will settle; when actual results consistently exceed those projections by fifteen to twenty percent, the market is signaling either that specialists have grown conservative in their guidance, or that demand has shifted faster than their databases can track. This week's data does not indicate which.
 
 ---
 
-The week's Sotheby's results underscore a widening market bifurcation: established blue-chip lots continue commanding premium multiples, while secondary-tier material faces mounting resistance. Collectors should monitor whether this stratification persists through the spring season—particularly whether mid-market lots can stabilize or if the gap further widens. Departmental performance divergence may reshape acquisition strategies across all price points.
+## 1. Sir Edward John Poynter, Bt., PRA, RWS — Sweet is the Breath of Morn
+
+[![Sir Edward John Poynter, Bt., PRA, RWS — Sweet is the Breath of Morn](https://sothebys-md.brightspotcdn.com/dims4/default/cfda930/2147483647/strip/true/crop/2000x1998+0+0/resize/1024x1023!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2Ff9%2F49%2F1d2c106d4bfda1d680de81c5a784%2Fl26230-dgg9c-t1-02-a.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/sweet-is-the-breath-of-morn)
+
+**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
+Estimate: $100,000–$150,000 · Hammer: **$120,650** (21% above low estimate)
+
+Poynter's Victorian narrative paintings remain undervalued relative to his peers, and this Romantic pastoral—rendered with his signature technical precision in oils—found eager bidders willing to breach estimate. The artist's dual mastery of academic rigor and literary sentiment continues resonating with collectors seeking substantive figuration beyond Aestheticism's more decorative practitioners.
+
+*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/sweet-is-the-breath-of-morn)*
+
+## 2. Sir Alfred James Munnings, P.R.A., R.W.S. — Going to the Post
+
+[![Sir Alfred James Munnings, P.R.A., R.W.S. — Going to the Post](https://sothebys-md.brightspotcdn.com/dims4/default/77199a9/2147483647/strip/true/crop/2000x1397+0+0/resize/1024x715!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2F24%2F6d%2Fc052d3df4d9290fa322e0765ad86%2Fl26230-dnq39-t1-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/going-to-the-post)
+
+**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
+Estimate: $150,000–$200,000 · Hammer: **$177,800** (18% above low estimate)
+
+Munnings' equestrian subject landed squarely within estimate range, suggesting the market has properly recalibrated for the late P.R.A.'s racing scenes—a category that has steadily gained traction among collectors of British sporting art. The artist's signature treatment of pre-race tension, rendered through his characteristic loose brushwork and attention to thoroughbred musculature, continues to command consistent competition from both traditional and newly minted collectors in this segment.
+
+*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/going-to-the-post)*
+
+## 3. William Degouve de Nuncques — La nuit à Bruges
+
+[![William Degouve de Nuncques — La nuit à Bruges](https://sothebys-md.brightspotcdn.com/dims4/default/ca61a0c/2147483647/strip/true/crop/2000x1330+0+0/resize/1024x681!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fcd%2F10%2F07abf89f42c2a48bbed3026dbd0a%2Fl26230-dnsqw-t1-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/la-nuit-a-bruges)
+
+**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
+Estimate: $600,000–$800,000 · Hammer: **$698,500** (16% above low estimate)
+
+Degouve de Nuncques' moody Belgian symbolism continues finding fresh momentum among collectors hungry for atmospheric fin-de-siècle work beyond the canonical names. The painting's nocturnal Bruges cityscape—rendered in the artist's signature murky palette of indigos and deep greens—exemplifies the melancholic introspection that's increasingly prized as a counterweight to brighter Art Nouveau contemporaries, pushing bidders past the house's conservative midpoint estimate.
+
+*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/la-nuit-a-bruges)*
+
+## 4. Russian School, 19th Century — The boudoir
+
+[![Russian School, 19th Century — The boudoir](https://sothebys-md.brightspotcdn.com/dims4/default/e4a7eed/2147483647/strip/true/crop/3309x3856+0+0/resize/1024x1193!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fa7%2Fee%2F24c5f6474ca7b3f34a3ee07074ce%2Fl26230-dm5m9-t2-02-cropped.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/the-boudoir)
+
+**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
+Estimate: $6,000–$8,000 · Hammer: **$6,985** (16% above low estimate)
+
+This unattributed Russian School canvas capitalized on sustained collector appetite for 19th-century salon painting, even as estimators remained cautious with anonymous attributions. The work's intimate domestic interior—rendered in the precise, jewel-toned palette characteristic of Peredvizhnik-influenced realism—resonated with buyers seeking authenticity over provenance certainty, narrowing what could have been a wider gap.
+
+*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/the-boudoir)*
+
+## 5. Émile Boisseau — Venus and Cupid
+
+[![Émile Boisseau — Venus and Cupid](https://sothebys-md.brightspotcdn.com/dims4/default/b57a04f/2147483647/strip/true/crop/1600x2000+0+0/resize/1024x1280!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2F3a%2F5f%2F23d769884503997bc1ac290d33dc%2Fl26230-dfw28-t3-01-rx.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/venus-and-cupid)
+
+**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
+Estimate: $12,000–$18,000 · Hammer: **$13,970** (16% above low estimate)
+
+Boisseau's mythological composition performed modestly above its low estimate, suggesting cautious pricing rather than collector fervor for this 19th-century Academic painter. The work's delicate neoclassical rendering—characteristic of salon painting's decorative tradition—attracted steady bidding without the speculative heat that might signal market reassessment of his oeuvre.
+
+*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/venus-and-cupid)*
+
+---
+
+The Sotheby's results this week signal a market recalibrating around authenticity and provenance documentation. As collectors grow more discerning, watch how auction houses weigh condition issues against historical significance. The coming months will reveal whether this scrutiny reshapes estimate-setting across categories—or remains confined to high-value segments where expertise commands premium pricing.
 
 ---
 
