@@ -199,11 +199,11 @@ def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots
     return img
 
 
-def render_lot_card(lot: dict, rank: int, blurb: str) -> Image.Image:
+def render_lot_card(lot: dict, rank: int) -> Image.Image:
     img  = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(img)
 
-    photo_h = 760
+    photo_h = 980
     photo = _download_photo(_first_image_url(lot))
     if photo:
         photo = _crop_fill(photo, W, photo_h)
@@ -213,52 +213,38 @@ def render_lot_card(lot: dict, rank: int, blurb: str) -> Image.Image:
 
     draw.rectangle([0, photo_h, W, photo_h + 4], fill=GOLD)
 
-    y = photo_h + 36
+    y = photo_h + 32
     draw.text((MARGIN, y), f"{rank:02d}", font=_font("Outfit-Regular.ttf", 22), fill=GOLD_DIM)
-    y += 40
+    y += 36
 
-    artist_font = _font("Outfit-Bold.ttf", 42)
+    artist_font = _font("Outfit-Bold.ttf", 40)
     artist = (lot.get("artist") or "Unknown").upper()
-    for line in _wrap(draw, artist, artist_font, W - MARGIN * 2):
+    for line in _wrap(draw, artist, artist_font, W - MARGIN * 2)[:1]:
         draw.text((MARGIN, y), line, font=artist_font, fill=IVORY)
         bbox = draw.textbbox((0, 0), line, font=artist_font)
-        y += (bbox[3] - bbox[1]) + 8
-    y += 6
+        y += (bbox[3] - bbox[1]) + 6
+    y += 4
 
-    title_font = _font("Outfit-Regular.ttf", 30)
+    title_font = _font("Outfit-Regular.ttf", 26)
     title = lot.get("title") or "Untitled"
-    for line in _wrap(draw, title, title_font, W - MARGIN * 2)[:2]:
+    for line in _wrap(draw, title, title_font, W - MARGIN * 2)[:1]:
         draw.text((MARGIN, y), line, font=title_font, fill=IVORY_DIM)
         bbox = draw.textbbox((0, 0), line, font=title_font)
-        y += (bbox[3] - bbox[1]) + 6
-    y += 20
+        y += (bbox[3] - bbox[1]) + 4
+    y += 14
 
     pct = lot.get("pct_above", 0)
-    pct_font = _font("Outfit-Bold.ttf", 50)
+    pct_font = _font("Outfit-Bold.ttf", 44)
     draw.text((MARGIN, y), f"+{pct:.0f}% ABOVE ESTIMATE", font=pct_font, fill=GOLD)
     bbox = draw.textbbox((0, 0), f"+{pct:.0f}% ABOVE ESTIMATE", font=pct_font)
-    y += (bbox[3] - bbox[1]) + 20
+    y += (bbox[3] - bbox[1]) + 14
 
-    detail_font = _font("Outfit-Regular.ttf", 25)
+    detail_font = _font("Outfit-Regular.ttf", 23)
     house  = lot.get("auction_house", "")
     hammer = f"${lot.get('hammer_usd', 0):,.0f}"
     est_lo = f"${lot.get('estimate_low', 0):,.0f}"
     est_hi = f"${(lot.get('estimate_high') or lot.get('estimate_low', 0)):,.0f}"
     draw.text((MARGIN, y), f"{house}  ·  est. {est_lo}–{est_hi}  ·  hammer {hammer}", font=detail_font, fill=IVORY_DIM)
-    y += 50
-
-    if blurb:
-        draw.line([(MARGIN, y), (MARGIN + 60, y)], fill=GOLD_DIM, width=2)
-        y += 30
-        blurb_font  = _font("Outfit-Regular.ttf", 26)
-        max_lines   = (H - MARGIN - y) // 42
-        all_lines   = _wrap(draw, blurb, blurb_font, W - MARGIN * 2)
-        lines       = all_lines[:max_lines]
-        if len(all_lines) > max_lines and lines:
-            lines[-1] = lines[-1].rstrip(".,;:") + "…"
-        for line in lines:
-            draw.text((MARGIN, y), line, font=blurb_font, fill=IVORY_DIM)
-            y += 42
 
     return img
 
@@ -295,9 +281,8 @@ def render_cards(lots: list[dict], sections: dict, out_dir: Path) -> list[Path]:
     cover.save(cover_path)
     paths.append(cover_path)
 
-    blurbs = sections.get("blurbs") or [""] * len(lots)
-    for i, (lot, blurb) in enumerate(zip(lots, blurbs), start=1):
-        card = render_lot_card(lot, i, blurb)
+    for i, lot in enumerate(lots, start=1):
+        card = render_lot_card(lot, i)
         card_path = out_dir / f"{i:02d}_lot.png"
         card.save(card_path)
         paths.append(card_path)
