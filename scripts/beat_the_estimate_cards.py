@@ -106,28 +106,59 @@ def _download_photo(url: str | None) -> Image.Image | None:
         return None
 
 
-def render_cover_card(title: str, subtitle: str, date_str: str, count: int) -> Image.Image:
+def _mosaic(lots: list[dict], w: int, h: int, max_tiles: int = 4) -> Image.Image:
+    """Tile up to `max_tiles` lot photos side by side, crop-filled to equal-width columns."""
+    canvas = Image.new("RGB", (w, h), (30, 27, 24))
+    photos = [p for p in (_download_photo(_first_image_url(lot)) for lot in lots[:max_tiles]) if p]
+    if not photos:
+        return canvas
+
+    tile_w = w // len(photos)
+    x = 0
+    for i, photo in enumerate(photos):
+        this_w = w - x if i == len(photos) - 1 else tile_w  # last tile absorbs rounding remainder
+        canvas.paste(_crop_fill(photo, this_w, h), (x, 0))
+        x += this_w
+    return canvas
+
+
+def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots: list[dict]) -> Image.Image:
     img  = Image.new("RGB", (W, H), BG)
+
+    photo_h = 520
+    mosaic = _mosaic(lots, W, photo_h)
+    img.paste(mosaic, (0, 0))
+
+    # Dark gradient fade from the mosaic into the solid background so the
+    # photos read as a teaser rather than competing with the masthead text.
+    fade_h = 160
+    fade = Image.new("RGB", (W, fade_h), BG)
+    mask = Image.new("L", (W, fade_h), 0)
+    mask_draw = ImageDraw.Draw(mask)
+    for row in range(fade_h):
+        mask_draw.line([(0, row), (W, row)], fill=int(255 * row / fade_h))
+    img.paste(fade, (0, photo_h - fade_h), mask)
+
     draw = ImageDraw.Draw(img)
+    draw.rectangle([0, photo_h, W, photo_h + 4], fill=GOLD)
+    draw.rectangle([MARGIN, photo_h + 40, W - MARGIN, H - MARGIN], outline=GOLD_DIM, width=2)
 
-    draw.rectangle([MARGIN, MARGIN, W - MARGIN, H - MARGIN], outline=GOLD_DIM, width=2)
+    y = photo_h + 90
+    y = _draw_centered(draw, y, "THE HAMMER PRICE", _font("CrimsonPro-Regular.ttf", 26), IVORY_DIM, letter_spacing=6)
+    y += 34
 
-    y = 280
-    y = _draw_centered(draw, y, "THE HAMMER PRICE", _font("CrimsonPro-Regular.ttf", 28), IVORY_DIM, letter_spacing=6)
-    y += 40
+    y = _draw_centered(draw, y, "BEAT THE ESTIMATE", _font("Italiana-Regular.ttf", 56), IVORY)
+    y += 26
 
-    y = _draw_centered(draw, y, "BEAT THE ESTIMATE", _font("Italiana-Regular.ttf", 64), IVORY)
-    y += 30
-
-    body_font = _font("CrimsonPro-Italic.ttf", 34)
+    body_font = _font("CrimsonPro-Italic.ttf", 30)
     for line in _wrap(draw, subtitle, body_font, W - MARGIN * 2 - 80):
         y = _draw_centered(draw, y, line, body_font, IVORY_DIM)
-    y += 60
+    y += 44
 
     draw.line([(W // 2 - 60, y), (W // 2 + 60, y)], fill=GOLD, width=2)
-    y += 40
+    y += 36
 
-    _draw_centered(draw, y, f"{count} RESULTS  ·  {date_str}", _font("CrimsonPro-Regular.ttf", 26), GOLD, letter_spacing=3)
+    _draw_centered(draw, y, f"{count} RESULTS  ·  {date_str}", _font("CrimsonPro-Regular.ttf", 24), GOLD, letter_spacing=3)
 
     return img
 
@@ -222,6 +253,7 @@ def render_cards(lots: list[dict], sections: dict, out_dir: Path) -> list[Path]:
         subtitle=sections.get("subtitle", ""),
         date_str=date.today().strftime("%b %-d, %Y"),
         count=len(lots),
+        lots=lots,
     )
     cover_path = out_dir / "00_cover.png"
     cover.save(cover_path)

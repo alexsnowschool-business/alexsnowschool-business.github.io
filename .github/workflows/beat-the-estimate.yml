@@ -52,11 +52,11 @@ jobs:
           echo "folder=$FOLDER" >> "$GITHUB_OUTPUT"
           echo "Cards folder: $FOLDER"
 
-      - name: Commit draft, cards, and DB
+      - name: Commit draft and DB
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/substack/ output/beat_the_estimate/ data/art.db
+          git add output/substack/ data/art.db
           git diff --cached --quiet || git commit -m "feat(substack): beat-the-estimate roundup $(date -u '+%Y-%m-%d') [skip ci]"
           git pull --rebase --autostash origin main
           git push
