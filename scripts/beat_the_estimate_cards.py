@@ -4,9 +4,11 @@ Static image cards for the "Beat the Estimate" Instagram/TikTok carousel —
 no video. One cover card + one card per featured lot, sized 1080x1350
 (4:5 portrait — works for an Instagram carousel post and a TikTok photo post).
 
-Visual language matches the existing reel pipeline's "auction_editorial"
-palette (reel_template/make_reel.py) and font pairing (Italiana headline +
-CrimsonPro body) so this reads as the same brand, just a still format.
+Cover card uses a full-bleed hero photo with a bottom gradient and bold
+sans caps overlay (Outfit-Bold/Regular) — the punchy Instagram-carousel
+look. Per-lot cards use the existing reel pipeline's "auction_editorial"
+palette (reel_template/make_reel.py) and serif pairing (Italiana headline +
+CrimsonPro body) so the set still reads as one brand.
 
 Usage (as a library):
     from beat_the_estimate_cards import render_cards
@@ -62,23 +64,6 @@ def _wrap(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, ma
     return lines
 
 
-def _draw_centered(draw: ImageDraw.ImageDraw, y: int, text: str, font: ImageFont.FreeTypeFont, fill, letter_spacing: int = 0) -> int:
-    """Draw a single line centered horizontally; returns the y just below it."""
-    if letter_spacing:
-        widths = [draw.textlength(ch, font=font) for ch in text]
-        total = sum(widths) + letter_spacing * (len(text) - 1)
-        x = (W - total) / 2
-        for ch, w in zip(text, widths):
-            draw.text((x, y), ch, font=font, fill=fill)
-            x += w + letter_spacing
-        bbox = font.getbbox("Hg")
-        return y + (bbox[3] - bbox[1]) + 10
-    bbox = draw.textbbox((0, 0), text, font=font)
-    tw = bbox[2] - bbox[0]
-    draw.text(((W - tw) / 2, y), text, font=font, fill=fill)
-    return y + (bbox[3] - bbox[1]) + 10
-
-
 def _crop_fill(img: Image.Image, w: int, h: int) -> Image.Image:
     """Crop-to-fill: scale + center-crop so `img` exactly covers a w x h box."""
     iw, ih = img.size
@@ -106,59 +91,74 @@ def _download_photo(url: str | None) -> Image.Image | None:
         return None
 
 
-def _mosaic(lots: list[dict], w: int, h: int, max_tiles: int = 4) -> Image.Image:
-    """Tile up to `max_tiles` lot photos side by side, crop-filled to equal-width columns."""
-    canvas = Image.new("RGB", (w, h), (30, 27, 24))
-    photos = [p for p in (_download_photo(_first_image_url(lot)) for lot in lots[:max_tiles]) if p]
-    if not photos:
-        return canvas
-
-    tile_w = w // len(photos)
-    x = 0
-    for i, photo in enumerate(photos):
-        this_w = w - x if i == len(photos) - 1 else tile_w  # last tile absorbs rounding remainder
-        canvas.paste(_crop_fill(photo, this_w, h), (x, 0))
-        x += this_w
-    return canvas
+def _fit_caps_lines(
+    draw: ImageDraw.ImageDraw, text: str, max_width: int, font_name: str,
+    start_size: int, min_size: int, max_lines: int,
+) -> tuple[ImageFont.FreeTypeFont, list[str]]:
+    """Pick the largest size (within start/min) whose wrapped, all-caps text fits max_lines."""
+    size = start_size
+    upper = text.upper()
+    while size >= min_size:
+        font  = _font(font_name, size)
+        lines = _wrap(draw, upper, font, max_width)
+        if len(lines) <= max_lines:
+            return font, lines
+        size -= 4
+    return font, lines
 
 
 def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots: list[dict]) -> Image.Image:
-    img  = Image.new("RGB", (W, H), BG)
+    photo = _download_photo(_first_image_url(lots[0])) if lots else None
+    img = _crop_fill(photo, W, H) if photo else Image.new("RGB", (W, H), (30, 27, 24))
 
-    photo_h = 520
-    mosaic = _mosaic(lots, W, photo_h)
-    img.paste(mosaic, (0, 0))
-
-    # Dark gradient fade from the mosaic into the solid background so the
-    # photos read as a teaser rather than competing with the masthead text.
-    fade_h = 160
-    fade = Image.new("RGB", (W, fade_h), BG)
+    # Bottom gradient so headline text stays legible over a bright/busy painting,
+    # without darkening the top of the artwork where the composition reads best.
+    fade_top = int(H * 0.42)
+    fade_h   = H - fade_top
+    fade = Image.new("RGB", (W, fade_h), (8, 7, 6))
     mask = Image.new("L", (W, fade_h), 0)
     mask_draw = ImageDraw.Draw(mask)
     for row in range(fade_h):
-        mask_draw.line([(0, row), (W, row)], fill=int(255 * row / fade_h))
-    img.paste(fade, (0, photo_h - fade_h), mask)
+        alpha = int(235 * (row / fade_h) ** 1.4)
+        mask_draw.line([(0, row), (W, row)], fill=alpha)
+    img.paste(fade, (0, fade_top), mask)
 
     draw = ImageDraw.Draw(img)
-    draw.rectangle([0, photo_h, W, photo_h + 4], fill=GOLD)
-    draw.rectangle([MARGIN, photo_h + 40, W - MARGIN, H - MARGIN], outline=GOLD_DIM, width=2)
+    content_w = W - MARGIN * 2
 
-    y = photo_h + 90
-    y = _draw_centered(draw, y, "THE HAMMER PRICE", _font("CrimsonPro-Regular.ttf", 26), IVORY_DIM, letter_spacing=6)
-    y += 34
+    kicker_font = _font("Outfit-Regular.ttf", 24)
+    draw.text((MARGIN, MARGIN), "THE HAMMER PRICE", font=kicker_font, fill=GOLD)
 
-    y = _draw_centered(draw, y, "BEAT THE ESTIMATE", _font("Italiana-Regular.ttf", 56), IVORY)
-    y += 26
+    title_font, title_lines = _fit_caps_lines(
+        draw, title, content_w, "Outfit-Bold.ttf", start_size=88, min_size=48, max_lines=4,
+    )
+    subtitle_font = _font("Outfit-Regular.ttf", 32)
+    subtitle_lines = _wrap(draw, subtitle, subtitle_font, content_w)[:2]
+    meta_font = _font("Outfit-Regular.ttf", 24)
 
-    body_font = _font("CrimsonPro-Italic.ttf", 30)
-    for line in _wrap(draw, subtitle, body_font, W - MARGIN * 2 - 80):
-        y = _draw_centered(draw, y, line, body_font, IVORY_DIM)
-    y += 44
+    title_bbox   = title_font.getbbox("Hg")
+    title_line_h = int((title_bbox[3] - title_bbox[1]) * 1.12)
+    sub_bbox     = subtitle_font.getbbox("Hg")
+    sub_line_h   = int((sub_bbox[3] - sub_bbox[1]) * 1.3)
 
-    draw.line([(W // 2 - 60, y), (W // 2 + 60, y)], fill=GOLD, width=2)
+    block_h = (
+        title_line_h * len(title_lines) + 24
+        + sub_line_h * len(subtitle_lines) + 36
+        + 30  # meta line
+    )
+    y = H - MARGIN - block_h
+
+    for line in title_lines:
+        draw.text((MARGIN, y), line, font=title_font, fill=IVORY)
+        y += title_line_h
+    y += 24
+
+    for line in subtitle_lines:
+        draw.text((MARGIN, y), line, font=subtitle_font, fill=IVORY_DIM)
+        y += sub_line_h
     y += 36
 
-    _draw_centered(draw, y, f"{count} RESULTS  ·  {date_str}", _font("CrimsonPro-Regular.ttf", 24), GOLD, letter_spacing=3)
+    draw.text((MARGIN, y), f"{count} RESULTS  ·  {date_str.upper()}", font=meta_font, fill=GOLD)
 
     return img
 
