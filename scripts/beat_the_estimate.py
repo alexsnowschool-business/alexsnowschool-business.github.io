@@ -244,9 +244,16 @@ def main() -> None:
 
     draft_md = _render_markdown(lots, sections)
 
+    # Today's date is when this was generated, not what --start-date filtered
+    # for — append the cutoff when one's explicitly given so repeated same-day
+    # runs with different cutoffs don't clobber each other's output.
+    run_label = date.today().isoformat()
+    if args.start_date:
+        run_label += f"-from-{args.start_date}"
+
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{date.today().isoformat()}-beat-the-estimate.md"
+    out_path = out_dir / f"{run_label}-beat-the-estimate.md"
     out_path.write_text(draft_md, encoding="utf-8")
 
     _mark_posted(conn, lots)
@@ -263,7 +270,7 @@ def main() -> None:
             return
 
         print("\n▸ Generating Instagram/TikTok image cards...")
-        cards_dir = Path(args.cards_dir) / date.today().isoformat()
+        cards_dir = Path(args.cards_dir) / run_label
         card_paths = render_cards(lots, sections, cards_dir)
         print(f"✓ {len(card_paths)} cards saved → {cards_dir}")
         print("  Post with: python scripts/post_beat_the_estimate_to_buffer.py "

@@ -53,7 +53,11 @@ jobs:
       - name: Find cards folder
         id: cards
         run: |
-          FOLDER="output/beat_the_estimate/$(date -u '+%Y-%m-%d')"
+          LABEL="$(date -u '+%Y-%m-%d')"
+          if [ -n "${{ inputs.start_date }}" ]; then
+            LABEL="${LABEL}-from-${{ inputs.start_date }}"
+          fi
+          FOLDER="output/beat_the_estimate/${LABEL}"
           echo "folder=$FOLDER" >> "$GITHUB_OUTPUT"
           echo "Cards folder: $FOLDER"
 
