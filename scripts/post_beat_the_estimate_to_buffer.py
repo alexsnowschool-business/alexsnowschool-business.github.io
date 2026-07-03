@@ -3,12 +3,12 @@
 Post a "Beat the Estimate" image card set to Instagram and TikTok via Buffer
 GraphQL — a carousel of still images, not a video.
 
-CAVEAT: post_to_buffer.py / post_to_buffer_provenance.py (the existing Buffer
-integrations in this repo) only ever post video assets. Buffer's exact
-GraphQL field names for an Instagram *carousel* and a TikTok *photo* post are
-untested here — the `assets`/`metadata` shapes below are best-effort, based
-on Buffer's documented image-post support, not a live-verified call. Run
-with --dry-run first, and treat the first --live run as the actual test.
+First live run (2026-07-03) surfaced one real Buffer error, now fixed:
+Instagram's `type` field only accepts post/story/reel, not "carousel" — a
+multi-image carousel is posted as a plain "post" and Buffer infers the
+carousel from having multiple image assets. TikTok's metadata shape
+(`{"title": ...}`, same as the video poster) has not yet had a live run
+confirm or reject it — treat the next live run as that test.
 
 Usage:
     python scripts/post_beat_the_estimate_to_buffer.py output/beat_the_estimate/<date> --dry-run
@@ -114,13 +114,12 @@ def _post_to_buffer(
         print(f"  Caption: {text[:120]}...")
         return True
 
-    # NOTE: "carousel" for Instagram and plain {"title": ...} for TikTok mirror
-    # the shape used for video posts elsewhere in this repo (post_to_buffer.py
-    # uses "type": "reel") — unverified for image/carousel posts specifically.
-    # Check Buffer's actual response on the first --dry-run and first live run.
+    # Confirmed against a live Buffer error response: Instagram's `type` only
+    # accepts post/story/reel — a multi-image carousel is just a "post" with
+    # multiple image assets, Buffer infers the carousel from the asset count.
     metadata: dict = {}
     if platform == "Instagram":
-        metadata["instagram"] = {"type": "carousel", "shouldShareToFeed": True}
+        metadata["instagram"] = {"type": "post", "shouldShareToFeed": True}
     elif platform == "TikTok":
         metadata["tiktok"] = {"title": text[:150]}
 
