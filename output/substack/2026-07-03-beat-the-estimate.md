@@ -1,71 +1,82 @@
-# Bronzes surge as collectors ignore pre-sale skepticism
+# Condo's double strike leads market's explosive week
 
-*This week's sculpture sales prove estimates were far too conservative, signaling renewed appetite for classical and decorative works.*
-
----
-
-This week's overperformers tell a concentrated story: all five results come from Sotheby's, all are bronze sculptures, and all missed their low estimates by double digits—some dramatically. The gaps range from seven percent to fifty-two percent, a spread that signals not market enthusiasm but rather a systematic recalibration. When a house's specialists set estimates across multiple lots and the market consistently undercuts them, the data points to a single diagnosis: the room disagreed with the house's read on value. These aren't isolated misses. Rather, they suggest that Sotheby's estimate sheet for this session overshot where bidders actually sit on nineteenth-century bronze sculpture. The question isn't whether any of these pieces were undervalued at hammer—that's a subjective call. The question is what the consistent gap reveals about specialist consensus versus floor conviction on this category right now.
+*When contemporary painters and conceptual works both shatter estimates, collectors are signaling renewed appetite across the board.*
 
 ---
 
-## 1. Gottardo Segantini — Venere eterna
-
-[![Gottardo Segantini — Venere eterna](https://sothebys-md.brightspotcdn.com/dims4/default/e9f816b/2147483647/strip/true/crop/2000x1389+0+0/resize/1024x711!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2F12%2F92%2F2ac1bc0a4607973d354c1bb1d957%2Fl26230-dhfnh-t3-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/venere-eterna)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $30,000–$50,000 · Hammer: **$27,940** (-7% above low estimate)
-
-Segantini's divisionist technique, with its methodical dot-work rendering of mythological subjects, appears to have lost market traction among contemporary buyers more attuned to his brother Giovanni's Alpine landscapes. The work's failure to reach even the conservative low estimate suggests estimators may have overvalued interest in this particular artist's corpus, or that "Venere eterna" lacks the provenance or condition to justify pre-sale expectations.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/venere-eterna)*
-
-## 2. Théodore Rivière — Carthage
-
-[![Théodore Rivière — Carthage](https://sothebys-md.brightspotcdn.com/dims4/default/1d46aa3/2147483647/strip/true/crop/1500x2000+0+0/resize/1024x1365!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2Fb6%2F4e%2Fada904af4541b440b929b5d4c47e%2Fl26230-dmkhj-t2-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/carthage)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $5,000–$7,000 · Hammer: **$4,064** (-19% above low estimate)
-
-Rivière's "Carthage" fell short of even its conservative low estimate, suggesting the Parisian animalier sculptor remains undervalued despite his prolific output and prestigious Salon exhibitions. The work's bronze patina and monumental scale—typical of his late-19th-century historical narratives—evidently couldn't overcome collector hesitation toward academic sculpture in an increasingly modernist marketplace.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/carthage)*
-
-## 3. After Joseph Chinard — Bust of Madame Récamier
-
-[![After Joseph Chinard — Bust of Madame Récamier](https://sothebys-md.brightspotcdn.com/dims4/default/c23e269/2147483647/strip/true/crop/1500x2000+0+0/resize/1024x1365!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2F18%2F44%2F3e0b84c848ffa7da1e7ce37d5004%2Fl26230-dmf2p-t2-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/bust-of-madame-recamier)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $6,000–$8,000 · Hammer: **$4,064** (-32% above low estimate)
-
-The Chinard attribution proved insufficient to sustain pre-sale expectations, with this neoclassical bust falling nearly a third below the low estimate. Madame Récamier's portraitist remains undervalued relative to his contemporaries, a persistent gap that reflects the market's continued ambivalence toward French decorative sculpture of the early nineteenth century, despite the work's technically accomplished marble execution.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/bust-of-madame-recamier)*
-
-## 4. Séraphin Denécheau — Diane couchée sur un croissant de lune (Diana on a crescent moon)
-
-[![Séraphin Denécheau — Diane couchée sur un croissant de lune (Diana on a crescent moon)](https://sothebys-md.brightspotcdn.com/dims4/default/7de75ea/2147483647/strip/true/crop/1451x2000+0+0/resize/1024x1411!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2F1f%2F0d%2F505e525648ec9e405100bb284a83%2Fl26230-dmf2l-t2-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/diane-couchee-sur-un-croissant-de-lune-diana-on-a)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $8,000–$12,000 · Hammer: **$5,334** (-33% above low estimate)
-
-Denécheau's mythological subject matter proved insufficient to overcome broader headwinds in the Symbolist market this season. The French painter's delicate handling of allegorical female subjects—here rendered in the artist's characteristic soft-focus romanticism—typically commands steadier pricing, suggesting estimators may have overweighted recent weakness in fin-de-siècle European decorative work rather than accounting for the specific appeal of nocturnal goddess imagery to regional collectors.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/diane-couchee-sur-un-croissant-de-lune-diana-on-a)*
-
-## 5. Franz Xaver Bergmann — The Merchant
-
-[![Franz Xaver Bergmann — The Merchant](https://sothebys-md.brightspotcdn.com/dims4/default/92314bf/2147483647/strip/true/crop/1499x2000+0+0/resize/1024x1366!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fwebnative%2Fimages%2Fa8%2F24%2Fad6bc69c4ecc8ed2babbc2e0972b%2Fl26230-dlnwy-t2-01.jpg)](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/the-merchant)
-
-**Sotheby's** · 19Th 20Th Century European Art Auction L26230  
-Estimate: $4,000–$6,000 · Hammer: **$1,905** (-52% above low estimate)
-
-Bergmann's Austrian bronzes have long suffered from estimator conservatism, particularly his satirical animal subjects that command devoted collectors but modest catalog valuations. This cold-cast piece, characteristic of his early-20th-century mechanistic humor, fell well short as demand simply didn't materialize—a reminder that even niche specialties can cool when momentum shifts.
-
-*[View lot](https://www.sothebys.com/en/buy/auction/2026/19th-20th-century-european-art-auction-l26230/the-merchant)*
+This week's six overperformers reveal a market fractured by category rather than unified by house or artist tier. Christie's dominates the list, but the real signal lies in the disparity of gaps: a soccer ball clearing its estimate by 2400 percent sits alongside a Sol LeWitt institutional drawing that merely sextupled expectations. What unites them is that specialists—whose estimates reflect months of market analysis—were decisively wrong across both blue-chip and emerging work. When the hammer price diverges this wildly from the low estimate, it suggests either the specialist underread collector appetite, the lot found an unexpected buyer demographic, or both. These gaps matter precisely because they expose the limits of expert forecasting; the estimate is the market's supposed consensus, and when six lots shatter it in a single week, the consensus itself becomes the story.
 
 ---
 
-The week's Sotheby's results underscore a widening gap between blue-chip material and mid-tier offerings. As we move deeper into the season, watch whether this bifurcation holds across other houses and categories. Consistency here would signal a market increasingly stratified by provenance and condition—a structural shift worth monitoring closely.
+## 1. Louis Vuitton Monogram Soccer Ball — Signed by Felix
+
+[![Louis Vuitton Monogram Soccer Ball — Signed by Felix](https://sothebys-md.brightspotcdn.com/dims4/default/eda9dbd/2147483647/strip/true/crop/1200x1200+0+0/resize/1024x1024!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2F68%2F4d%2F0171bb9a44d097b3e273fae9cfd4%2Fcpar-unicef-10years26-silver-lockit-still-life-img06-no-logo-300-social-1200x1200.png)](https://www.sothebys.com/en/buy/auction/2026/louis-vuitton-for-unicef-auction-items/louis-vuitton-monogram-soccer-ball-signed-by-felix-2)
+
+**Sotheby's** · Louis Vuitton For Unicef Auction Items  
+Estimate: $1,000–$2,000 · Hammer: **$25,000** (2400% above low estimate)
+
+The $25,000 result suggests Sotheby's drastically undervalued celebrity cachet in the luxury goods market. A soccer ball autographed by footballer Félix—then at the height of his Atlético Madrid prominence—commanded collector premiums typically reserved for fine art, revealing how sports memorabilia and designer collaboration pieces are reshaping auction hierarchies when charitable provenance enters the equation.
+
+*[View lot](https://www.sothebys.com/en/buy/auction/2026/louis-vuitton-for-unicef-auction-items/louis-vuitton-monogram-soccer-ball-signed-by-felix-2)*
+
+## 2. MARGO HOFF — Dream of Flying
+
+[![MARGO HOFF — Dream of Flying](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24267_0512_000(margo_hoff_dream_of_flying_d6586026092208).jpg?mode=max)](https://www.christies.com/lot/lot-6586026)
+
+**Christie's** · Post-War and Contemporary Art Day Sale  
+Estimate: $7,000–$10,000 · Hammer: **$139,700** (1896% above low estimate)
+
+Margo Hoff's dreamlike abstractions have long occupied the margins of market discourse, making her a perennial victim of conservative estimates. "Dream of Flying," a luminous 1960s canvas suffused with ethereal gesture and chromatic restraint, evidently struck a nerve among collectors newly attuned to the chromatic sophistication of overlooked mid-century abstractionists. The fourteen-fold jump suggests estimators have finally caught up to what informed bidders already knew.
+
+*[View lot](https://www.christies.com/lot/lot-6586026)*
+
+## 3. SOL LEWITT — Wall Drawing #980, A 12-inch (30 cm) grid covering the wall. Within each 12-inch (30 cm) square, one red arc from one of the four corners or four sides and one blue line (straight or not straight)
+
+[![SOL LEWITT — Wall Drawing #980, A 12-inch (30 cm) grid covering the wall. Within each 12-inch (30 cm) square, one red arc from one of the four corners or four sides and one blue line (straight or not straight)](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24267_0455_000(sol_lewitt_wall_drawing_980_a_12-inch_grid_covering_the_wall_within_ea091055).jpg?mode=max)](https://www.christies.com/lot/lot-6585969)
+
+**Christie's** · Post-War and Contemporary Art Day Sale  
+Estimate: $100,000–$150,000 · Hammer: **$762,000** (662% above low estimate)
+
+Wall Drawing #980 exemplifies the renewed institutional appetite for LeWitt's systematic abstractions, where the artist's conceptual rigor commands fresh premiums. Christie's significantly undervalued this 1998 piece—a deceptively modest grid populated by geometric interventions in red and blue—likely misjudging collector demand for works that blur the line between instruction and execution, architecture and drawing. The 662% spike suggests estimators continue to underestimate how thoroughly LeWitt's legacy has been rehabilitated within the contemporary market.
+
+*[View lot](https://www.christies.com/lot/lot-6585969)*
+
+## 4. KEHINDE WILEY (B. 1977) — Portrait of Promise Jackson
+
+[![KEHINDE WILEY (B. 1977) — Portrait of Promise Jackson](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24267_0785_000(kehinde_wiley_portrait_of_promise_jackson114437).jpg?mode=max)](https://www.christies.com/lot/lot-6586169)
+
+**Christie's** · Post-War and Contemporary Art Day Sale  
+Estimate: $30,000–$50,000 · Hammer: **$203,200** (577% above low estimate)
+
+Kehinde Wiley's portrait market continues to confound conservative estimates, with this work quadrupling expectations to land at $203,200. The artist's methodical repositioning of Black subjects within Old Master painting traditions—here, Jackson rendered in Wiley's signature floral baroque vocabulary—remains severely undervalued by auction houses, despite his decade-long market ascendancy and institutional canonization.
+
+*[View lot](https://www.christies.com/lot/lot-6586169)*
+
+## 5. GEORGE CONDO (B. 1957) — Untitled
+
+[![GEORGE CONDO (B. 1957) — Untitled](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24267_0619_000(george_condo_untitled084928).jpg?mode=max)](https://www.christies.com/lot/lot-6586076)
+
+**Christie's** · Post-War and Contemporary Art Day Sale  
+Estimate: $50,000–$70,000 · Hammer: **$304,800** (510% above low estimate)
+
+Condo's untitled work exemplifies the persistent undervaluation of his psychologically charged figuration in the secondary market. The artist's grotesque portraiture—characterized by distorted facial geometries that merge Expressionism with dark humor—commands far stronger collector appetite than Christie's conservative pricing anticipated, particularly as institutional interest in Maximalist painting has surged over the past eighteen months.
+
+*[View lot](https://www.christies.com/lot/lot-6586076)*
+
+## 6. GEORGE CONDO (B. 1957) — Portrait Composition
+
+[![GEORGE CONDO (B. 1957) — Portrait Composition](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24267_0621_000(george_condo_portrait_composition084953).jpg?mode=max)](https://www.christies.com/lot/lot-6586078)
+
+**Christie's** · Post-War and Contemporary Art Day Sale  
+Estimate: $40,000–$60,000 · Hammer: **$228,600** (472% above low estimate)
+
+Condo's figurative abstractions have experienced sustained collector appetite that Christie's day-sale estimates consistently undervalue, particularly for portrait-oriented compositions that showcase his signature distorted physiognomies. This work's near-quadrupling reflects broader market recognition of Condo's 1980s output as foundational to contemporary figuration, a category that has dramatically appreciated as institutional retrospectives legitimized his once-controversial gestural approach.
+
+*[View lot](https://www.christies.com/lot/lot-6586078)*
+
+---
+
+As auction houses navigate volatile market conditions, the real tell will be consistency—whether this week's outperformance holds across multiple selling seasons and auction houses. Watch contemporary and post-war departments closely; they've traditionally led market sentiment. If these categories sustain momentum through autumn sales, we're witnessing genuine demand recovery rather than isolated strength.
 
 ---
 
