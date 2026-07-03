@@ -21,6 +21,7 @@ Usage:
 """
 
 import argparse
+import json
 import sqlite3
 import sys
 from datetime import date
@@ -46,6 +47,14 @@ CREATE TABLE IF NOT EXISTS beat_the_estimate_posts (
 
 def _fmt(usd: float) -> str:
     return f"${usd:,.0f}"
+
+
+def _first_image(lot: dict) -> str | None:
+    try:
+        urls = json.loads(lot.get("image_urls") or "[]")
+    except (TypeError, ValueError):
+        return None
+    return urls[0] if urls else None
 
 
 def _connect() -> sqlite3.Connection:
@@ -124,10 +133,17 @@ def _render_markdown(lots: list[dict], sections: dict) -> str:
         house    = lot.get("auction_house", "")
         sale     = lot.get("sale_name", "")
         source   = lot.get("source_url", "")
+        image    = _first_image(lot)
+        alt      = f"{lot.get('artist', 'Unknown')} — {lot.get('title', 'Untitled')}"
 
         lines += [
-            f"## {i}. {lot.get('artist', 'Unknown')} — {lot.get('title', 'Untitled')}",
+            f"## {i}. {alt}",
             "",
+        ]
+        if image:
+            lines.append(f"[![{alt}]({image})]({source})" if source else f"![{alt}]({image})")
+            lines.append("")
+        lines += [
             f"**{house}**" + (f" · {sale}" if sale else "") + "  ",
             f"Estimate: {est_low}–{est_high} · Hammer: **{hammer}** ({lot['pct_above']:.0f}% above low estimate)",
             "",
