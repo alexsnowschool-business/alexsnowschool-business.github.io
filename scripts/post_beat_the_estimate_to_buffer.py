@@ -3,12 +3,20 @@
 Post a "Beat the Estimate" image card set to Instagram and TikTok via Buffer
 GraphQL — a carousel of still images, not a video.
 
-First live run (2026-07-03) surfaced one real Buffer error, now fixed:
-Instagram's `type` field only accepts post/story/reel, not "carousel" — a
-multi-image carousel is posted as a plain "post" and Buffer infers the
-carousel from having multiple image assets. TikTok's metadata shape
-(`{"title": ...}`, same as the video poster) has not yet had a live run
-confirm or reject it — treat the next live run as that test.
+Live runs on 2026-07-03 surfaced three real issues, all fixed:
+1. Instagram's `type` field only accepts post/story/reel, not "carousel" —
+   a multi-image carousel is posted as a plain "post"; Buffer infers the
+   carousel from having multiple image assets.
+2. Buffer's TikTok metadata input has no "autoAddMusic" field (confirmed
+   via a GraphQL validation error) — reverted, back to the same
+   `{"title": ...}` shape the working video poster uses. Whatever's
+   actually failing for TikTok photo posts is still unconfirmed.
+3. Repeated same-day test runs all reused one release tag
+   (`beat-the-estimate-<date>`); `gh release upload --clobber` deletes an
+   asset before reuploading it, so a later run's clobber could delete an
+   image out from under an earlier run's in-flight Buffer fetch, causing
+   a transient "Image URL is not accessible: HTTP 404". Fixed by making
+   the release tag unique per invocation (date + unix timestamp).
 
 Usage:
     python scripts/post_beat_the_estimate_to_buffer.py output/beat_the_estimate/<date> --dry-run
@@ -27,6 +35,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -47,7 +56,15 @@ GITHUB_REPO = "alexsnowschool-business/alexsnowschool-business.github.io"
 
 
 def _upload_images_to_github(image_paths: list[Path], slug: str, dry_run: bool) -> list[str] | None:
-    tag = f"beat-the-estimate-{slug}"
+    # Unique tag per invocation, not just per day — a live run hit an
+    # Instagram "Image URL is not accessible: HTTP 404" error that traced
+    # back to reusing one release tag across every run of the same day.
+    # `gh release upload --clobber` deletes-then-reuploads each asset; if a
+    # second run's clobber lands while Buffer is mid-fetch of the first
+    # run's image (Buffer fetches asynchronously after createPost returns),
+    # the asset can momentarily not exist. A fresh tag per run means nothing
+    # ever gets deleted out from under an in-flight fetch.
+    tag = f"beat-the-estimate-{slug}-{int(time.time())}"
 
     if dry_run:
         urls = [f"https://github.com/{GITHUB_REPO}/releases/download/{tag}/{p.name}" for p in image_paths]
@@ -67,19 +84,8 @@ def _upload_images_to_github(image_paths: list[Path], slug: str, dry_run: bool) 
     )
 
     if result.returncode != 0:
-        if "already exists" in result.stderr:
-            print("  Release exists — uploading assets...")
-            r2 = subprocess.run(
-                ["gh", "release", "upload", tag, *[str(p) for p in image_paths],
-                 "--repo", GITHUB_REPO, "--clobber"],
-                capture_output=True, text=True,
-            )
-            if r2.returncode != 0:
-                print(f"  ✗ Upload failed: {r2.stderr[:200]}")
-                return None
-        else:
-            print(f"  ✗ GitHub release failed: {result.stderr[:200]}")
-            return None
+        print(f"  ✗ GitHub release failed: {result.stderr[:200]}")
+        return None
 
     urls = [f"https://github.com/{GITHUB_REPO}/releases/download/{tag}/{p.name}" for p in image_paths]
     print(f"  ✓ Uploaded {len(urls)} images")
@@ -117,18 +123,16 @@ def _post_to_buffer(
     # Confirmed against a live Buffer error response: Instagram's `type` only
     # accepts post/story/reel — a multi-image carousel is just a "post" with
     # multiple image assets, Buffer infers the carousel from the asset count.
+    # A live run confirmed Buffer's TikTok metadata input has no "autoAddMusic"
+    # field (GraphQL validation error: "Field autoAddMusic is not defined") —
+    # reverted. Whatever's failing on TikTok's side for photo posts isn't
+    # fixable through this field; back to the same shape the working video
+    # poster uses.
     metadata: dict = {}
     if platform == "Instagram":
         metadata["instagram"] = {"type": "post", "shouldShareToFeed": True}
     elif platform == "TikTok":
-        # TikTok's Content Posting API requires every photo/carousel post to
-        # carry background audio (unlike video posts) — auto_add_music tells
-        # TikTok to add one automatically. UNVERIFIED: guessed camelCase to
-        # match Buffer's convention elsewhere (shouldShareToFeed, dueAt); no
-        # schema access to confirm the field name or that Buffer exposes it
-        # at all. If TikTok posts still fail after this, that's the next
-        # thing to rule out via Buffer's own error message.
-        metadata["tiktok"] = {"title": text[:150], "autoAddMusic": True}
+        metadata["tiktok"] = {"title": text[:150]}
 
     variables: dict = {
         "input": {
