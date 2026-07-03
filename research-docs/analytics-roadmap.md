@@ -113,3 +113,37 @@ This is the multi-week build, not a same-session fix — scoping it (site
 structure, rate limits, whether Playwright vs. plain httpx is needed per site)
 is the next concrete task once the "Beat the Estimate" content pillar is
 shipped and validated with the existing audience.
+
+## Scoping: Van Ham / Lempertz / Ketterer Kunst / Grisebach
+
+Researched each house's public results archive to rate scrape feasibility
+before committing engineering time. No code written yet — this is purely
+site-structure recon.
+
+| House | Results URL | Tech | Anti-bot | Feasibility |
+|---|---|---|---|---|
+| **Ketterer Kunst** | `kettererkunst.com/result.php?gebiet=9&shw=1&auswahl=vk` | Static PHP, query-param pagination | None | **Easy** |
+| **Lempertz** | `lempertz.com/en/auctions/sale-results.html` + `/detail/{id}-{slug}.html` | Static listing shell, but lot detail pages ship unrendered JS template syntax (`{{ lot.number }}`) — data is fetched client-side | None | **Medium** |
+| **Grisebach** | `online.grisebach.com/past-auctions` (NOT grisebach.com, which only has PDF results) | ASP.NET SPA — outsourced to **Auction Technology Group** (a third-party vendor also powering thesaleroom.com/i-bidder and other European houses) | None found, but SPA + undocumented vendor API | **Medium** |
+| **Van Ham** | Marketing site is static, but actual lot data lives on `auction.van-ham.com` | Separate auction-engine subdomain | **Cloudflare Turnstile challenge (403, active bot-block)** | **Hard** |
+
+**Recommended build order:**
+1. **Ketterer Kunst first** — plain PHP, numbered pagination via query params,
+   closest match to the existing Christie's regex-scraping approach. Should
+   be a straight port of that pattern, no Playwright needed.
+2. **Lempertz / Grisebach second** — both need Playwright (or reverse-engineered
+   JSON endpoints found via browser network-tab inspection) since neither
+   ships lot data in raw server HTML. Grisebach's ATG backend is notable: a
+   scraper built for it likely generalizes to other ATG-powered European
+   houses beyond this list, so it may be worth the extra reverse-engineering
+   effort over Lempertz's bespoke template system.
+3. **Van Ham last, maybe never** — blocked by an active Cloudflare Turnstile
+   challenge on the subdomain that actually holds lot data. Plain httpx won't
+   get through; even Playwright would likely need stealth patches or
+   residential proxies. Not worth the effort until the other three prove the
+   product angle out.
+
+**Not yet confirmed** (needs live Playwright rendering to verify, not done in
+this recon pass): exact field coverage (medium, provenance, dimensions,
+images) on Lempertz and Grisebach lot-detail pages, and Ketterer Kunst's
+`details-e.php` detail-page fields beyond the results-list view.
