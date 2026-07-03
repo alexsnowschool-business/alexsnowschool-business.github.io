@@ -900,13 +900,13 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
         total_w     = max(1, act1_words + narr_words + data_words)
         act1_ratio  = act1_words / total_w if act1_words > 0 else 0.12
         act3_ratio  = data_words / total_w if data_words > 0 else 0.15
-        act1_hold   = max(2.0, round(voice_duration * act1_ratio, 1))
+        act1_hold   = max(1.5, round(voice_duration * act1_ratio, 1))
         act3_hold   = max(3.0, round(voice_duration * act3_ratio, 1))
         crop_hold_s = max(0.3, round(
             (voice_duration - act1_hold - act3_hold) / max(1, n_act2_images), 1
         ))
     else:
-        act1_hold   = 8.0
+        act1_hold   = 7.0
         act3_hold   = 10.0
         crop_hold_s = max(0.3, round(5.0 / max(1, n_act2_images), 1))
 

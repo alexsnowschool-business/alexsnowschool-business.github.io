@@ -388,36 +388,6 @@ SUBTITLE: <subtitle>"""
     return raw.strip() if raw else None
 
 
-def generate_substack_price_commentary(lot: dict) -> str | None:
-    """
-    Generate a 250-word price commentary section: estimate vs hammer, what the gap signals,
-    market context for this artist.
-    """
-    if not OPENROUTER_KEY:
-        return None
-
-    prompt = f"""You write art market analysis for The Hammer Price, a Substack for informed collectors. Voice: editorial, precise, no hype. Like a sharp auction house specialist talking off the record.
-
-Auction result:
-{_lot_context(lot)}
-
-Write the PRICE COMMENTARY section (~250 words). Cover:
-1. The estimate vs the hammer — what the specialists thought going in, and what the room decided.
-2. What the percentage gap means in this market context — is this surprising? Routine? Historically significant?
-3. What drives collectors to push past estimate for this kind of work — demand signal, scarcity, timing?
-4. End with one sentence that frames what this result reveals about where the market is right now.
-
-Rules:
-- Prose paragraphs only — no bullet points, no headers within the section.
-- Specific and data-grounded — reference the actual numbers.
-- No fluff adjectives ("stunning", "remarkable"). Say what things mean, not how impressive they are.
-- Write in present tense where appropriate.
-
-Reply with only the section text."""
-
-    raw = _call([{"role": "user", "content": prompt}], max_tokens=600)
-    return raw.strip() if raw else None
-
 
 def generate_substack_work_analysis(lot: dict) -> str | None:
     """
@@ -462,7 +432,7 @@ def generate_substack_art_history(lot: dict) -> str | None:
 Auction result:
 {_lot_context(lot)}
 
-Write THE ARTIST section (~280 words). Cover:
+Write THE ARTIST section (~400 words). Cover:
 1. Who this artist is — nationality, birth/death years if known, training, major periods of activity.
 2. The movement or school they belong to — be specific (not just "modern art"). Name influences, contemporaries, the critical context they emerged from.
 3. How their auction market has behaved over time — when did they peak? Any periods of critical or commercial revival? Where do they sit in the market hierarchy today?
@@ -483,18 +453,17 @@ Reply with only the section text."""
 def generate_substack_post(lot: dict) -> dict | None:
     """
     Generate all sections of a Substack post for a single auction lot.
-    Returns a dict with keys: title, subtitle, price_commentary, work_analysis, art_history.
+    Returns a dict with keys: title, subtitle, work_analysis, art_history.
     Returns None if the API is unavailable.
     """
     if not OPENROUTER_KEY:
         return None
 
-    title_raw        = generate_substack_title(lot)
-    price_commentary = generate_substack_price_commentary(lot)
-    work_analysis    = generate_substack_work_analysis(lot)
-    art_history      = generate_substack_art_history(lot)
+    title_raw     = generate_substack_title(lot)
+    work_analysis = generate_substack_work_analysis(lot)
+    art_history   = generate_substack_art_history(lot)
 
-    if not any([title_raw, price_commentary, work_analysis, art_history]):
+    if not any([title_raw, work_analysis, art_history]):
         return None
 
     title    = ""
@@ -515,8 +484,7 @@ def generate_substack_post(lot: dict) -> dict | None:
     return {
         "title":             title,
         "subtitle":          subtitle,
-        "price_commentary":  _clean(price_commentary),
-        "work_analysis":     _clean(work_analysis),
+        "work_analysis":  _clean(work_analysis),
         "art_history":       _clean(art_history),
     }
 

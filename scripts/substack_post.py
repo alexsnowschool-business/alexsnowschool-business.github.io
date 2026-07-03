@@ -2,8 +2,8 @@
 """
 On-demand Substack post generator for @thehammerprice.
 
-Pulls a lot from art.db, generates price commentary + work analysis + art history
-via AI, and saves a ready-to-paste markdown draft.
+Pulls a lot from art.db, generates work analysis + art history via AI,
+and saves a ready-to-paste markdown draft.
 
 Usage:
     python scripts/substack_post.py --lot-id <id>
@@ -94,12 +94,6 @@ def _render_markdown(lot: dict, sections: dict) -> str:
         f"",
         f"---",
         f"",
-        f"## The Result",
-        f"",
-        sections.get("price_commentary", ""),
-        f"",
-        f"---",
-        f"",
         f"## The Work",
         f"",
         sections.get("work_analysis", ""),
@@ -157,7 +151,6 @@ def main() -> None:
 
     print(f"  ✓ Title:             {sections['title']}")
     print(f"  ✓ Subtitle:          {sections['subtitle'][:80]}...")
-    print(f"  ✓ Price commentary:  {len(sections['price_commentary'])} chars")
     print(f"  ✓ Work analysis:     {len(sections['work_analysis'])} chars")
     print(f"  ✓ Art history:       {len(sections['art_history'])} chars")
 
