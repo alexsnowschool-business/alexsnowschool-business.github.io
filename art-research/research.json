@@ -1,15 +1,15 @@
 {
   "stats": {
-    "total_lots": 2625,
-    "total_artists": 903,
-    "median_hammer_usd": 139700,
-    "pct_above_estimate": 46.4,
+    "total_lots": 2675,
+    "total_artists": 947,
+    "median_hammer_usd": 137096,
+    "pct_above_estimate": 46.3,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Sotheby's"
     ],
-    "generated_at": "2026-06-29"
+    "generated_at": "2026-07-03"
   },
   "artists": [
     {
@@ -19516,6 +19516,33 @@
       }
     },
     {
+      "norm_name": "IVAN KONSTANTINOVICH AIVAZOVSKY",
+      "display_name": "Ivan Konstantinovich Aivazovsky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 927100,
+        "avg_usd": 309033,
+        "total_label": "$927k",
+        "avg_label": "$309k",
+        "top_lot": {
+          "title": "View of Venice at sunset",
+          "hammer_usd": 508000,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Horse and cart in a cornfield",
+          "ratio": 2.96
+        }
+      }
+    },
+    {
       "norm_name": "HERNAN BAS",
       "display_name": "Hernan Bas",
       "dates": "",
@@ -19975,6 +20002,33 @@
       }
     },
     {
+      "norm_name": "SIR ALFRED JAMES MUNNINGS, P.R.A., R.W.S.",
+      "display_name": "Sir Alfred James Munnings, P.R.A., R.W.S.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 762000,
+        "avg_usd": 254000,
+        "total_label": "$762k",
+        "avg_label": "$254k",
+        "top_lot": {
+          "title": "Shrimp and Ponies at the Ford",
+          "hammer_usd": 381000,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "H.R.H. George VI's Sun Chariot, Winner of the 1942 1,000 Gui",
+          "ratio": 1.16
+        }
+      }
+    },
+    {
       "norm_name": "TOMOO GOKITA",
       "display_name": "Tomoo Gokita",
       "dates": "",
@@ -20187,6 +20241,33 @@
         "top_ratio_lot": {
           "title": "Solitude 自宅",
           "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM DEGOUVE DE NUNCQUES",
+      "display_name": "William Degouve De Nuncques",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 698500,
+        "avg_usd": 698500,
+        "total_label": "$698k",
+        "avg_label": "$698k",
+        "top_lot": {
+          "title": "La nuit à Bruges",
+          "hammer_usd": 698500,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "La nuit à Bruges",
+          "ratio": 1.0
         }
       }
     },
@@ -20619,6 +20700,33 @@
         "top_ratio_lot": {
           "title": "Le Lapin Agile à Montmartre",
           "ratio": 2.33
+        }
+      }
+    },
+    {
+      "norm_name": "JOAQUÍN SOROLLA",
+      "display_name": "Joaquín Sorolla",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 609600,
+        "avg_usd": 609600,
+        "total_label": "$610k",
+        "avg_label": "$610k",
+        "top_lot": {
+          "title": "Ninos en la orilla del mar, Valencia (Children on the seasho",
+          "hammer_usd": 609600,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Ninos en la orilla del mar, Valencia (Children on the seasho",
+          "ratio": 0.87
         }
       }
     },
@@ -21645,6 +21753,33 @@
         "top_ratio_lot": {
           "title": "Bursting 06 爆裂 06",
           "ratio": 2.33
+        }
+      }
+    },
+    {
+      "norm_name": "HELENE SCHJERFBECK",
+      "display_name": "Helene Schjerfbeck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 381000,
+        "avg_usd": 381000,
+        "total_label": "$381k",
+        "avg_label": "$381k",
+        "top_lot": {
+          "title": "Dancing Shoes",
+          "hammer_usd": 381000,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Dancing Shoes",
+          "ratio": 1.52
         }
       }
     },
@@ -23863,6 +23998,33 @@
       }
     },
     {
+      "norm_name": "EDWARD ROBERT HUGHES",
+      "display_name": "Edward Robert Hughes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 215900,
+        "avg_usd": 215900,
+        "total_label": "$216k",
+        "avg_label": "$216k",
+        "top_lot": {
+          "title": "Waning Moon",
+          "hammer_usd": 215900,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Waning Moon",
+          "ratio": 5.4
+        }
+      }
+    },
+    {
       "norm_name": "PAUL CEZANNE",
       "display_name": "Paul Cezanne",
       "dates": "",
@@ -24102,6 +24264,33 @@
         "top_ratio_lot": {
           "title": "Soundsuit",
           "ratio": 2.03
+        }
+      }
+    },
+    {
+      "norm_name": "GUSTAVE MOREAU",
+      "display_name": "Gustave Moreau",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 203200,
+        "avg_usd": 203200,
+        "total_label": "$203k",
+        "avg_label": "$203k",
+        "top_lot": {
+          "title": "Salomé carrying the head of Saint John",
+          "hammer_usd": 203200,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Salomé carrying the head of Saint John",
+          "ratio": 1.16
         }
       }
     },
@@ -25618,6 +25807,33 @@
       }
     },
     {
+      "norm_name": "LUCY KEMP-WELCH",
+      "display_name": "Lucy Kemp-Welch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 139700,
+        "avg_usd": 139700,
+        "total_label": "$140k",
+        "avg_label": "$140k",
+        "top_lot": {
+          "title": "The Joy of Life",
+          "hammer_usd": 139700,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "The Joy of Life",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
       "norm_name": "EWA JUSZKIEWICZ",
       "display_name": "Ewa Juszkiewicz",
       "dates": "",
@@ -25965,6 +26181,33 @@
         "top_ratio_lot": {
           "title": "Nu sur canapé",
           "ratio": 2.03
+        }
+      }
+    },
+    {
+      "norm_name": "SIR EDWARD JOHN POYNTER, BT., PRA, RWS",
+      "display_name": "Sir Edward John Poynter, Bt., Pra, Rws",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 120650,
+        "avg_usd": 120650,
+        "total_label": "$121k",
+        "avg_label": "$121k",
+        "top_lot": {
+          "title": "Sweet is the Breath of Morn",
+          "hammer_usd": 120650,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Sweet is the Breath of Morn",
+          "ratio": 0.97
         }
       }
     },
@@ -27288,6 +27531,33 @@
       }
     },
     {
+      "norm_name": "JÁNOS KMETTY",
+      "display_name": "János Kmetty",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 88900,
+        "avg_usd": 88900,
+        "total_label": "$89k",
+        "avg_label": "$89k",
+        "top_lot": {
+          "title": "Self Portrait with sculpture",
+          "hammer_usd": 88900,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Self Portrait with sculpture",
+          "ratio": 1.78
+        }
+      }
+    },
+    {
       "norm_name": "MIRIAM CAHN",
       "display_name": "Miriam Cahn",
       "dates": "",
@@ -28476,6 +28746,33 @@
       }
     },
     {
+      "norm_name": "ANDREAS SCHELFHOUT",
+      "display_name": "Andreas Schelfhout",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 60960,
+        "avg_usd": 60960,
+        "total_label": "$61k",
+        "avg_label": "$61k",
+        "top_lot": {
+          "title": "Skaters on a frozen waterway",
+          "hammer_usd": 60960,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Skaters on a frozen waterway",
+          "ratio": 2.44
+        }
+      }
+    },
+    {
       "norm_name": "GEORGE GROSZ",
       "display_name": "George Grosz",
       "dates": "",
@@ -28553,6 +28850,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.5
+        }
+      }
+    },
+    {
+      "norm_name": "EUGÈNE CARRIÈRE",
+      "display_name": "Eugène Carrière",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 57150,
+        "avg_usd": 57150,
+        "total_label": "$57k",
+        "avg_label": "$57k",
+        "top_lot": {
+          "title": "Maternité",
+          "hammer_usd": 57150,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Maternité",
+          "ratio": 1.43
         }
       }
     },
@@ -28854,6 +29178,87 @@
       }
     },
     {
+      "norm_name": "ELEANOR VERE BOYLE",
+      "display_name": "Eleanor Vere Boyle",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 53340,
+        "avg_usd": 53340,
+        "total_label": "$53k",
+        "avg_label": "$53k",
+        "top_lot": {
+          "title": "'And a neglected Looking-glass, And the Child cared nothing ",
+          "hammer_usd": 53340,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "'And a neglected Looking-glass, And the Child cared nothing ",
+          "ratio": 2.13
+        }
+      }
+    },
+    {
+      "norm_name": "FÉLIX ZIEM",
+      "display_name": "Félix Ziem",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 53340,
+        "avg_usd": 53340,
+        "total_label": "$53k",
+        "avg_label": "$53k",
+        "top_lot": {
+          "title": "The Exit of the Bucentaure, Venice",
+          "hammer_usd": 53340,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "The Exit of the Bucentaure, Venice",
+          "ratio": 1.07
+        }
+      }
+    },
+    {
+      "norm_name": "LÉON COMERRE",
+      "display_name": "Léon Comerre",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 53340,
+        "avg_usd": 53340,
+        "total_label": "$53k",
+        "avg_label": "$53k",
+        "top_lot": {
+          "title": "A moment of repose",
+          "hammer_usd": 53340,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "A moment of repose",
+          "ratio": 1.07
+        }
+      }
+    },
+    {
       "norm_name": "THÉO VAN RYSSELBERGHE",
       "display_name": "Théo Van Rysselberghe",
       "dates": "",
@@ -29012,6 +29417,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "AGNES SLOTT-MØLLER",
+      "display_name": "Agnes Slott-Møller",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 50800,
+        "avg_usd": 50800,
+        "total_label": "$51k",
+        "avg_label": "$51k",
+        "top_lot": {
+          "title": "King Valdemar and Queen Bengerd",
+          "hammer_usd": 50800,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "King Valdemar and Queen Bengerd",
+          "ratio": 2.03
         }
       }
     },
@@ -29282,6 +29714,33 @@
         "top_ratio_lot": {
           "title": "Tête de femme",
           "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "GUILLAUME SEIGNAC",
+      "display_name": "Guillaume Seignac",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 46990,
+        "avg_usd": 46990,
+        "total_label": "$47k",
+        "avg_label": "$47k",
+        "top_lot": {
+          "title": "Odalisque",
+          "hammer_usd": 46990,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Odalisque",
+          "ratio": 3.13
         }
       }
     },
@@ -29772,6 +30231,60 @@
       }
     },
     {
+      "norm_name": "DANTE GABRIEL ROSSETTI",
+      "display_name": "Dante Gabriel Rossetti",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Val Prinsep as Sir Launcelot – Study for the mural 'Sir Laun",
+          "hammer_usd": 40640,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Val Prinsep as Sir Launcelot – Study for the mural 'Sir Laun",
+          "ratio": 1.63
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-JACQUES HENNER",
+      "display_name": "Jean-Jacques Henner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "La Magdeleine",
+          "hammer_usd": 40640,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "La Magdeleine",
+          "ratio": 1.63
+        }
+      }
+    },
+    {
       "norm_name": "DAVID ALFARO SIQUEIROS",
       "display_name": "David Alfaro Siqueiros",
       "dates": "",
@@ -29853,6 +30366,33 @@
       }
     },
     {
+      "norm_name": "JEAN BAPTISTE CARPEAUX",
+      "display_name": "Jean Baptiste Carpeaux",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38100,
+        "avg_usd": 38100,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Le Chinois (Bust of a Chinese Man)",
+          "hammer_usd": 38100,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Le Chinois (Bust of a Chinese Man)",
+          "ratio": 0.95
+        }
+      }
+    },
+    {
       "norm_name": "MARY ABBOTT",
       "display_name": "Mary Abbott",
       "dates": "",
@@ -29903,6 +30443,33 @@
         "top_ratio_lot": {
           "title": "\"Paradise\" Cabinet",
           "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-BAPTISTE AUGUSTE CLÉSINGER",
+      "display_name": "Jean-Baptiste Auguste Clésinger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 35560,
+        "avg_usd": 35560,
+        "total_label": "$36k",
+        "avg_label": "$36k",
+        "top_lot": {
+          "title": "Triomphe d'Ariane (The Triumph of Ariadne)",
+          "hammer_usd": 35560,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Triomphe d'Ariane (The Triumph of Ariadne)",
+          "ratio": 2.37
         }
       }
     },
@@ -30092,6 +30659,33 @@
         "top_ratio_lot": {
           "title": "Two Bowls",
           "ratio": 8.0
+        }
+      }
+    },
+    {
+      "norm_name": "OTTO LANGE",
+      "display_name": "Otto Lange",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 33020,
+        "avg_usd": 33020,
+        "total_label": "$33k",
+        "avg_label": "$33k",
+        "top_lot": {
+          "title": "View of Saxon Switzerland, near Hinterhermsdorf",
+          "hammer_usd": 33020,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "View of Saxon Switzerland, near Hinterhermsdorf",
+          "ratio": 5.5
         }
       }
     },
@@ -30582,6 +31176,87 @@
       }
     },
     {
+      "norm_name": "VALERIUS DE SAEDELEER",
+      "display_name": "Valerius De Saedeleer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 27940,
+        "avg_usd": 27940,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Winter landscape, Ceredigion (Cardiganshire), Wales",
+          "hammer_usd": 27940,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Winter landscape, Ceredigion (Cardiganshire), Wales",
+          "ratio": 2.24
+        }
+      }
+    },
+    {
+      "norm_name": "GOTTARDO SEGANTINI",
+      "display_name": "Gottardo Segantini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 27940,
+        "avg_usd": 27940,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Venere eterna",
+          "hammer_usd": 27940,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Venere eterna",
+          "ratio": 0.7
+        }
+      }
+    },
+    {
+      "norm_name": "LOUIS EMILE PINEL DE GRANDCHAMP",
+      "display_name": "Louis Emile Pinel De Grandchamp",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 27940,
+        "avg_usd": 27940,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Lady with a fan",
+          "hammer_usd": 27940,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Lady with a fan",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "ELIE NADELMAN",
       "display_name": "Elie Nadelman",
       "dates": "",
@@ -31014,6 +31689,33 @@
       }
     },
     {
+      "norm_name": "SARAH BERNHARDT",
+      "display_name": "Sarah Bernhardt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 25400,
+        "avg_usd": 25400,
+        "total_label": "$25k",
+        "avg_label": "$25k",
+        "top_lot": {
+          "title": "Fantastical Inkwell, self-portrait as a sphinx",
+          "hammer_usd": 25400,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Fantastical Inkwell, self-portrait as a sphinx",
+          "ratio": 2.54
+        }
+      }
+    },
+    {
       "norm_name": "ANDRÉ BRETON",
       "display_name": "André Breton",
       "dates": "",
@@ -31176,6 +31878,33 @@
       }
     },
     {
+      "norm_name": "GEORGES ROCHEGROSSE",
+      "display_name": "Georges Rochegrosse",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 24130,
+        "avg_usd": 24130,
+        "total_label": "$24k",
+        "avg_label": "$24k",
+        "top_lot": {
+          "title": "Iris",
+          "hammer_usd": 24130,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Iris",
+          "ratio": 2.41
+        }
+      }
+    },
+    {
       "norm_name": "PAMELA PHATSIMO SUNSTRUM",
       "display_name": "Pamela Phatsimo Sunstrum",
       "dates": "",
@@ -31199,6 +31928,33 @@
         "top_ratio_lot": {
           "title": "Panthea 03",
           "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "PRINCE PAUL TROUBETZKOY",
+      "display_name": "Prince Paul Troubetzkoy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 22860,
+        "avg_usd": 22860,
+        "total_label": "$23k",
+        "avg_label": "$23k",
+        "top_lot": {
+          "title": "Lady Constance Stewart Richardson",
+          "hammer_usd": 22860,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Lady Constance Stewart Richardson",
+          "ratio": 2.29
         }
       }
     },
@@ -31280,6 +32036,33 @@
         "top_ratio_lot": {
           "title": "Zwei Mädchen",
           "ratio": 0.86
+        }
+      }
+    },
+    {
+      "norm_name": "YULI YULIEVICH KLEVER AND STUDIO",
+      "display_name": "Yuli Yulievich Klever And Studio",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 21590,
+        "avg_usd": 21590,
+        "total_label": "$22k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Winter sunset",
+          "hammer_usd": 21590,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Winter sunset",
+          "ratio": 1.73
         }
       }
     },
@@ -31415,6 +32198,60 @@
         "top_ratio_lot": {
           "title": "Abigail Williams",
           "ratio": 2.39
+        }
+      }
+    },
+    {
+      "norm_name": "ILYA NIKOLAEVICH ZANKOVSKY",
+      "display_name": "Ilya Nikolaevich Zankovsky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 20320,
+        "avg_usd": 20320,
+        "total_label": "$20k",
+        "avg_label": "$20k",
+        "top_lot": {
+          "title": "Mountain landscape",
+          "hammer_usd": 20320,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Mountain landscape",
+          "ratio": 2.03
+        }
+      }
+    },
+    {
+      "norm_name": "ALFRED STEVENS",
+      "display_name": "Alfred Stevens",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 20320,
+        "avg_usd": 20320,
+        "total_label": "$20k",
+        "avg_label": "$20k",
+        "top_lot": {
+          "title": "Reading hour",
+          "hammer_usd": 20320,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Reading hour",
+          "ratio": 1.16
         }
       }
     },
@@ -32094,6 +32931,60 @@
       }
     },
     {
+      "norm_name": "JOHN WILLIAM WATERHOUSE",
+      "display_name": "John William Waterhouse",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Study for Psyche Opening the Golden Box",
+          "hammer_usd": 13970,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Study for Psyche Opening the Golden Box",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
+      "norm_name": "ÉMILE BOISSEAU",
+      "display_name": "Émile Boisseau",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Venus and Cupid",
+          "hammer_usd": 13970,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Venus and Cupid",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
       "norm_name": "JUDITH ROTHSCHILD",
       "display_name": "Judith Rothschild",
       "dates": "",
@@ -32391,6 +33282,33 @@
       }
     },
     {
+      "norm_name": "ÉMILE LOUIS PICAULT",
+      "display_name": "Émile Louis Picault",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 10795,
+        "avg_usd": 10795,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "King Menthuophis and Queen Nitocris",
+          "hammer_usd": 10795,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "King Menthuophis and Queen Nitocris",
+          "ratio": 0.86
+        }
+      }
+    },
+    {
       "norm_name": "MARTIN CREED",
       "display_name": "Martin Creed",
       "dates": "",
@@ -32414,6 +33332,33 @@
         "top_ratio_lot": {
           "title": "Work No. 1741",
           "ratio": 0.7
+        }
+      }
+    },
+    {
+      "norm_name": "AIMÉ-JULES DALOU",
+      "display_name": "Aimé-Jules Dalou",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 10173,
+        "avg_usd": 5086,
+        "total_label": "$10k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Lion du pont Alexandre III, esquisse, enfant à la guirlande ",
+          "hammer_usd": 5334,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Femme cousant (La couseuse)",
+          "ratio": 1.21
         }
       }
     },
@@ -32553,6 +33498,33 @@
       }
     },
     {
+      "norm_name": "VICTOR HUGUET",
+      "display_name": "Victor Huguet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 9525,
+        "avg_usd": 9525,
+        "total_label": "$10k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "The Caravan",
+          "hammer_usd": 9525,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "The Caravan",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
       "norm_name": "RUDOLF SCHLICHTER",
       "display_name": "Rudolf Schlichter",
       "dates": "",
@@ -32629,6 +33601,87 @@
         },
         "top_ratio_lot": {
           "title": "Femme cygne",
+          "ratio": 1.18
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM HOLMAN HUNT, O.M., R.W.S., A.R.S.A.",
+      "display_name": "William Holman Hunt, O.M., R.W.S., A.R.S.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8255,
+        "avg_usd": 8255,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "The Awakening Conscience",
+          "hammer_usd": 8255,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "The Awakening Conscience",
+          "ratio": 0.83
+        }
+      }
+    },
+    {
+      "norm_name": "GERHARDT (EVGRAF) VON REUTERN",
+      "display_name": "Gerhardt (Evgraf) Von Reutern",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8255,
+        "avg_usd": 8255,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Pious woman",
+          "hammer_usd": 8255,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Pious woman",
+          "ratio": 1.18
+        }
+      }
+    },
+    {
+      "norm_name": "ARCHIBALD THORBURN",
+      "display_name": "Archibald Thorburn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8255,
+        "avg_usd": 8255,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Hawk owl and Tengmalm's owl",
+          "hammer_usd": 8255,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Hawk owl and Tengmalm's owl",
           "ratio": 1.18
         }
       }
@@ -32738,6 +33791,60 @@
         "top_ratio_lot": {
           "title": "Shallow Grave",
           "ratio": 0.7
+        }
+      }
+    },
+    {
+      "norm_name": "RUSSIAN SCHOOL, 19TH CENTURY",
+      "display_name": "Russian School, 19Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6985,
+        "avg_usd": 6985,
+        "total_label": "$7k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "The boudoir",
+          "hammer_usd": 6985,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "The boudoir",
+          "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "ALFRED DUBUCAND",
+      "display_name": "Alfred Dubucand",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6985,
+        "avg_usd": 6985,
+        "total_label": "$7k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Hunting in the Sahara",
+          "hammer_usd": 6985,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Hunting in the Sahara",
+          "ratio": 1.0
         }
       }
     },
@@ -32931,6 +34038,33 @@
       }
     },
     {
+      "norm_name": "SÉRAPHIN DENÉCHEAU",
+      "display_name": "Séraphin Denécheau",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5334,
+        "avg_usd": 5334,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Diane couchée sur un croissant de lune (Diana on a crescent ",
+          "hammer_usd": 5334,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Diane couchée sur un croissant de lune (Diana on a crescent ",
+          "ratio": 0.53
+        }
+      }
+    },
+    {
       "norm_name": "EDOUARD PIGNON",
       "display_name": "Edouard Pignon",
       "dates": "",
@@ -32954,6 +34088,33 @@
         "top_ratio_lot": {
           "title": "Voiliers à Ostend",
           "ratio": 6.23
+        }
+      }
+    },
+    {
+      "norm_name": "FRANZ XAVER BERGMANN",
+      "display_name": "Franz Xaver Bergmann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 5207,
+        "avg_usd": 2604,
+        "total_label": "$5k",
+        "avg_label": "$3k",
+        "top_lot": {
+          "title": "Bedouin tent",
+          "hammer_usd": 3302,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Bedouin tent",
+          "ratio": 0.83
         }
       }
     },
@@ -33008,33 +34169,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.27
-        }
-      }
-    },
-    {
-      "norm_name": "AIMÉ-JULES DALOU",
-      "display_name": "Aimé-Jules Dalou",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 4839,
-        "avg_usd": 4839,
-        "total_label": "$5k",
-        "avg_label": "$5k",
-        "top_lot": {
-          "title": "Femme cousant (La couseuse)",
-          "hammer_usd": 4839,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Femme cousant (La couseuse)",
-          "ratio": 1.21
         }
       }
     },
@@ -33116,6 +34250,60 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "AFTER JOSEPH CHINARD",
+      "display_name": "After Joseph Chinard",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4064,
+        "avg_usd": 4064,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Bust of Madame Récamier",
+          "hammer_usd": 4064,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Bust of Madame Récamier",
+          "ratio": 0.58
+        }
+      }
+    },
+    {
+      "norm_name": "THÉODORE RIVIÈRE",
+      "display_name": "Théodore Rivière",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4064,
+        "avg_usd": 4064,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Carthage",
+          "hammer_usd": 4064,
+          "sale_name": "19Th 20Th Century European Art Auction L26230"
+        },
+        "top_ratio_lot": {
+          "title": "Carthage",
+          "ratio": 0.68
         }
       }
     },
