@@ -95,12 +95,11 @@ def _fit_caps_lines(
     draw: ImageDraw.ImageDraw, text: str, max_width: int, font_name: str,
     start_size: int, min_size: int, max_lines: int,
 ) -> tuple[ImageFont.FreeTypeFont, list[str]]:
-    """Pick the largest size (within start/min) whose wrapped, all-caps text fits max_lines."""
+    """Pick the largest size (within start/min) whose wrapped text fits max_lines."""
     size = start_size
-    upper = text.upper()
     while size >= min_size:
         font  = _font(font_name, size)
-        lines = _wrap(draw, upper, font, max_width)
+        lines = _wrap(draw, text, font, max_width)
         if len(lines) <= max_lines:
             return font, lines
         size -= 4
@@ -149,7 +148,7 @@ def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots
     # Solid backdrop behind the kicker label — a gradient scrim isn't reliable
     # contrast against a mosaic where tile brightness varies tile to tile.
     kicker_font = _font("Outfit-Regular.ttf", 24)
-    kicker_text = "THE HAMMER PRICE"
+    kicker_text = "The Hammer Price"
     kicker_bbox = draw.textbbox((0, 0), kicker_text, font=kicker_font)
     pad_x, pad_y = 20, 12
     draw.rectangle(
@@ -194,7 +193,7 @@ def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots
         y += sub_line_h
     y += 36
 
-    draw.text((MARGIN, y), f"{count} RESULTS  ·  {date_str.upper()}", font=meta_font, fill=GOLD)
+    draw.text((MARGIN, y), f"{count} results  ·  {date_str}", font=meta_font, fill=GOLD)
 
     return img
 
@@ -218,7 +217,7 @@ def render_lot_card(lot: dict, rank: int) -> Image.Image:
     y += 36
 
     artist_font = _font("Outfit-Bold.ttf", 40)
-    artist = (lot.get("artist") or "Unknown").upper()
+    artist = lot.get("artist") or "Unknown"
     for line in _wrap(draw, artist, artist_font, W - MARGIN * 2)[:1]:
         draw.text((MARGIN, y), line, font=artist_font, fill=IVORY)
         bbox = draw.textbbox((0, 0), line, font=artist_font)
@@ -235,8 +234,8 @@ def render_lot_card(lot: dict, rank: int) -> Image.Image:
 
     pct = lot.get("pct_above", 0)
     pct_font = _font("Outfit-Bold.ttf", 44)
-    draw.text((MARGIN, y), f"+{pct:.0f}% ABOVE ESTIMATE", font=pct_font, fill=GOLD)
-    bbox = draw.textbbox((0, 0), f"+{pct:.0f}% ABOVE ESTIMATE", font=pct_font)
+    draw.text((MARGIN, y), f"+{pct:.0f}% above estimate", font=pct_font, fill=GOLD)
+    bbox = draw.textbbox((0, 0), f"+{pct:.0f}% above estimate", font=pct_font)
     y += (bbox[3] - bbox[1]) + 14
 
     detail_font = _font("Outfit-Regular.ttf", 23)
@@ -280,7 +279,7 @@ def render_cards(
     from datetime import date, datetime
     if start_date:
         cutoff = datetime.strptime(start_date, "%Y-%m-%d").strftime("%b %-d, %Y")
-        date_str = f"SINCE {cutoff}"
+        date_str = f"Since {cutoff}"
     else:
         date_str = date.today().strftime("%b %-d, %Y")
 
