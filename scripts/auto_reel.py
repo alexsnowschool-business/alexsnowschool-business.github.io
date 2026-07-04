@@ -1233,8 +1233,20 @@ def main() -> None:
     scored = sorted(
         ((l, _score_lot(l, notable_artists)) for l in lots),
         key=lambda x: x[1], reverse=True,
-    )[:args.top_n]
-    lots = [l for l, _ in scored]
+    )
+
+    # Cap at 5 lots per artist before trimming to top_n
+    _artist_counts: dict[str, int] = {}
+    _capped: list[tuple] = []
+    for item in scored:
+        _key = _clean_artist(item[0].get("artist") or "").lower()
+        if _artist_counts.get(_key, 0) >= 5:
+            continue
+        _artist_counts[_key] = _artist_counts.get(_key, 0) + 1
+        _capped.append(item)
+        if len(_capped) >= args.top_n:
+            break
+    lots = [l for l, _ in _capped]
     if lots:
         print(f"\n  Composite scores (top {min(3, len(lots))}):")
         for l, score in scored[:3]:
