@@ -658,6 +658,15 @@ def _build_notable_artists_set(conn: sqlite3.Connection) -> set[str]:
     return {_clean_artist(r[0]) for r in rows if r[0]}
 
 
+def _posted_count_for_artist(conn: sqlite3.Connection, artist: str) -> int:
+    """Return how many reels have already been posted for a given artist name."""
+    row = conn.execute(
+        "SELECT COUNT(*) FROM posted_reels WHERE LOWER(artist) LIKE LOWER(?)",
+        (f"%{artist}%",),
+    ).fetchone()
+    return row[0] if row else 0
+
+
 def _record_posted(conn: sqlite3.Connection, lot: dict, reel_slug: str,
                    platforms: list[str]) -> None:
     conn.execute("""
@@ -1191,6 +1200,10 @@ def main() -> None:
             fallback_artist = None
             for offset in range(1, len(rotation)):
                 candidate = rotation[(start_idx + offset) % len(rotation)]
+                posted_count = _posted_count_for_artist(conn, candidate)
+                if posted_count >= 5:
+                    print(f"  ↷ Skipping {candidate} — {posted_count} reels already posted")
+                    continue
                 if _query_alltime_top(conn, limit=1, exclude_ids=skip,
                                       artist=candidate, title=args.title):
                     fallback_artist = candidate
