@@ -910,7 +910,7 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
         act3_hold   = 10.0
         crop_hold_s = max(0.3, round(5.0 / max(1, n_act2_images), 1))
 
-    frames = [_frame(hold=act1_hold, show_hook=True)]
+    frames = [_frame(hold=act1_hold, show_hook=False)]
     for _ in range(n_act2_images):
         frames.append(_frame(hold=crop_hold_s, show_upper=False))
     frames.append(_frame(hold=act3_hold, show_data=True))

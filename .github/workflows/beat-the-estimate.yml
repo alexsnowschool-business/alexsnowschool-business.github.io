@@ -6,7 +6,7 @@ name: Beat the Estimate — The Hammer Price
 # so "recent" lots (by scraped_at) reflect the latest data.
 on:
   schedule:
-    - cron: '0 6 * * 2,5'   # 06:00 UTC Tue + Fri — a few hours after each scrape
+    - cron: '0 6 * * *'     # 06:00 UTC daily
   workflow_dispatch:
     inputs:
       top_n:
