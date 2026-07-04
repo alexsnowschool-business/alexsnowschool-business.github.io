@@ -203,7 +203,7 @@ def render_lot_card(lot: dict, rank: int) -> Image.Image:
     img  = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(img)
 
-    photo_h = 980
+    photo_h = 1080
     photo = _download_photo(_first_image_url(lot))
     if photo:
         photo = _crop_fill(photo, W, photo_h)
@@ -213,7 +213,7 @@ def render_lot_card(lot: dict, rank: int) -> Image.Image:
 
     draw.rectangle([0, photo_h, W, photo_h + 4], fill=GOLD)
 
-    y = photo_h + 32
+    y = photo_h + 20
     draw.text((MARGIN, y), f"{rank:02d}", font=_font("Outfit-Regular.ttf", 22), fill=GOLD_DIM)
     y += 36
 
