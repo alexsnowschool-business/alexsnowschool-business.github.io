@@ -90,33 +90,38 @@ def next_artist(db_path: Path = DB_PATH) -> str:
 
     rotation = _build_rotation(cur)
 
-    fetch_n = RECENCY_WINDOW + len(rotation) * 3
+    # Fetch every post ever so we can find the true last-posted date per artist.
     cur.execute(
         """
-        SELECT artist FROM posted_reels
-        WHERE posted_at >= date('now', '-30 days')
+        SELECT artist, posted_at FROM posted_reels
         ORDER BY posted_at DESC
-        LIMIT ?
         """,
-        (fetch_n,),
     )
-    recent = [r[0] for r in cur.fetchall()]
+    all_posts = cur.fetchall()
     conn.close()
+
+    recent_artists = [r[0] for r in all_posts]
 
     blocked = {
         name
-        for db_artist in recent[:RECENCY_WINDOW]
+        for db_artist in recent_artists[:RECENCY_WINDOW]
         for name in rotation
         if _matches(name, db_artist)
     }
 
-    counts = {a: sum(1 for r in recent if _matches(a, r)) for a in rotation}
+    # last_posted: most recent posted_at for each rotation artist (None = never posted)
+    last_posted: dict[str, str | None] = {a: None for a in rotation}
+    for db_artist, posted_at in all_posts:
+        for name in rotation:
+            if _matches(name, db_artist) and last_posted[name] is None:
+                last_posted[name] = posted_at
 
     candidates = [a for a in rotation if a not in blocked]
     if not candidates:
         candidates = rotation  # history too short to fill the window — ignore block
 
-    return min(candidates, key=lambda a: counts[a])
+    # Pick whoever was posted longest ago (never-posted artists sort first).
+    return min(candidates, key=lambda a: last_posted[a] or "")
 
 
 if __name__ == "__main__":
