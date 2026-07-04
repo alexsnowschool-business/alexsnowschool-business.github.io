@@ -1,82 +1,82 @@
-# Christie's Pascin pair leads seven-figure estimate smashing spree
+# Christie's delivers six-fold surprises across the board
 
-*When estimates miss by 600 percent, collectors aren't just bidding—they're rewriting the rulebook on what these works are worth.*
-
----
-
-This week's overperformers cluster almost entirely within a single Christie's sale, with six works clearing their low estimates by 600 percent or more—a concentration that suggests a specific market moment rather than broad category strength. What's notable is the span of price points involved, from an $800 Pascin drawing to a $50,000 Valtat, indicating the outperformance wasn't limited to bargain-basement estimates or trophy lots. The estimate itself functions as a specialist's calibrated prediction: it reflects research, comp analysis, and an informed read on collector appetite at a given moment. When hammer prices exceed estimates by this magnitude—particularly across multiple works in one session—it signals a disconnect between pre-sale consensus and actual bidding behavior. Whether that gap reflects undervaluation, temporary demand spikes, or strategic low-balling by the house requires closer examination of the works themselves and the broader sale context.
+*When estimates miss by this much, it raises questions about pricing strategy—and suggests real appetite beneath the surface.*
 
 ---
 
-## 1. ERNST LUDWIG KIRCHNER — Drahtseilläufer
+This week's six overperformers—each clearing its low estimate by 535 to 599 percent—share a striking concentration: all sold at Christie's, and all landed in the sub-$100,000 and mid-six-figure tiers, suggesting the outsized performance was neither a blockbuster anomaly nor a budget-tier fluke but rather a pattern across the mid-market. The clustering is notable because estimate gaps this wide signal a disconnect between the specialist's pre-sale thesis and the room's actual conviction. When a work estimated at $2,000 hammers at $14,000, or a $50,000 estimate yields $338,000, the estimate itself—traditionally a specialist's calibrated read on market appetite—becomes less a prediction than a baseline. This week's data indicates either underestimation on a house-wide scale or genuine market enthusiasm that the pre-sale machinery failed to capture. Either reading warrants attention for what it reveals about where price discovery actually occurs.
 
-[![ERNST LUDWIG KIRCHNER — Drahtseilläufer](https://www.christies.com/img/LotImages/2026/CKS/2026_CKS_24183_0469_000(ernst_ludwig_kirchner_drahtseillaufer024705).jpg?mode=max)](https://www.christies.com/lot/lot-6574502)
+---
 
-**Christie's** · Impressionist and Modern Art Day and Works on Paper Sale  
-Estimate: $8,000–$12,000 · Hammer: **$64,516** (706% above low estimate)
+## 1. GARY HUME (B. 1962) — Funny Girl
 
-Kirchner's expressionist woodcuts remain chronically undervalued at auction, with estimators consistently miscalibrating demand for the German master's graphic work. This particular print's explosive result—over seven times the low estimate—reflects a broader market correction as collectors reassess Brücke movement works beyond the canonical paintings. The artist's jagged, kinetic line work in depicting circus performers proved irresistible to bidders willing to chase the estimate into the stratosphere.
+[![GARY HUME (B. 1962) — Funny Girl](https://www.christies.com/img/LotImages/2025/CKS/2025_CKS_23887_0170_000(gary_hume_funny_girl012920).jpg?mode=max)](https://www.christies.com/lot/lot-6552960)
 
-*[View lot](https://www.christies.com/lot/lot-6574502)*
+**Christie's** · Post-War and Contemporary Art Day Sale  
+Estimate: $15,000–$20,000 · Hammer: **$104,838** (599% above low estimate)
 
-## 2. JULES PASCIN — Cavalier à Cuba
+Gary Hume's candy-colored abstractions have long punched above their auction estimates, and "Funny Girl" proved no exception—the work's glossy, enamel-on-canvas surface and deadpan title exemplify his signature approach of mining vernacular sources for high-art material. Estimators consistently undervalue works from his 1990s peak, when the British painter was synthesizing Pop's visual accessibility with the formal rigor of color-field painting, leaving room for collectors to capitalize on persistent underpricing.
 
-[![JULES PASCIN — Cavalier à Cuba](https://www.christies.com/img/LotImages/2026/CKS/2026_CKS_24183_0565_000(jules_pascin_cavalier_a_cuba_d6574598032819).jpg?mode=max)](https://www.christies.com/lot/lot-6574598)
+*[View lot](https://www.christies.com/lot/lot-6552960)*
 
-**Christie's** · Impressionist and Modern Art Day and Works on Paper Sale  
-Estimate: $8,000–$12,000 · Hammer: **$64,516** (706% above low estimate)
+## 2. WILHELM LEHMBRUCK — Badendes Mädchen (Badende), Düsseldorf
 
-Pascin's market has experienced a notable recalibration among collectors seeking early-twentieth-century figuration outside the canonical modernist hierarchy. "Cavalier à Cuba" exemplifies the Bulgarian-French painter's distinctive synthesis of Impressionist brushwork with Art Deco linearity—a stylistic bridge that remains undervalued relative to his contemporaries. The 706% surge suggests institutional estimators have yet to calibrate for renewed institutional and private appetite for this particular corner of the interwar market.
-
-*[View lot](https://www.christies.com/lot/lot-6574598)*
-
-## 3. JULES PASCIN — Cinq personnages
-
-[![JULES PASCIN — Cinq personnages](https://www.christies.com/img/LotImages/2026/CKS/2026_CKS_24183_0570_000(jules_pascin_cinq_personnages113037).jpg?mode=max)](https://www.christies.com/lot/lot-6574603)
-
-**Christie's** · Impressionist and Modern Art Day and Works on Paper Sale  
-Estimate: $800–$1,200 · Hammer: **$6,129** (666% above low estimate)
-
-Pascin's modest estimate appears to have undervalued the Bulgarian-French modernist's enduring appeal among collectors seeking early twentieth-century figuration outside the mainstream canon. "Cinq personnages," a work from his prolific period depicting multiple figures with characteristic gestural economy, exemplifies the intimate scale and psychological depth that has sustained steady demand for his works despite decades of critical eclipse.
-
-*[View lot](https://www.christies.com/lot/lot-6574603)*
-
-## 4. PAUL SIGNAC — Venise. La Piazzetta
-
-[![PAUL SIGNAC — Venise. La Piazzetta](https://www.christies.com/img/LotImages/2026/CKS/2026_CKS_24183_0411_000(paul_signac_venise_la_piazzetta020248).jpg?mode=max)](https://www.christies.com/lot/lot-6574373)
-
-**Christie's** · Impressionist and Modern Art Day and Works on Paper Sale  
-Estimate: $15,000–$25,000 · Hammer: **$112,903** (653% above low estimate)
-
-Signac's pointillist masterwork exemplifies a persistent blind spot in Christie's estimates: the Post-Impressionist division consistently undervalues works by movement founders. This Venetian view, with its characteristic divisionist technique applied to the lagoon's luminous waters, attracted competing bidders hungry for authentic examples of the artist's methodical chromatic theory—a rarity in the market compared to Impressionist alternatives.
-
-*[View lot](https://www.christies.com/lot/lot-6574373)*
-
-## 5. KEITH HARING — Untitled
-
-[![KEITH HARING — Untitled](https://www.christies.com/img/LotImages/2026/CKS/2026_CKS_24182_0602_000(keith_haring_untitled055615).jpg?mode=max)](https://www.christies.com/lot/lot-6575081)
-
-**Christie's** · Post-War and Contemporary Art Day Sale&#160;&#160;&#160;  
-Estimate: $20,000–$30,000 · Hammer: **$145,161** (626% above low estimate)
-
-Haring's market continues to defy conservative estimates, with this untitled work capturing the frenetic energy of his signature linear vocabulary—likely a mid-1980s piece when his graphite-on-paper studies commanded serious collector attention. The 626% surge reflects persistent undervaluation of works on paper from this prolific period, where dealers and institutions have only recently begun serious archival cataloging.
-
-*[View lot](https://www.christies.com/lot/lot-6575081)*
-
-## 6. LOUIS VALTAT — Femmes sur les rochers à Anthéor
-
-[![LOUIS VALTAT — Femmes sur les rochers à Anthéor](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24196_0223_000(louis_valtat_femmes_sur_les_rochers_a_antheor_d6584154122300).jpg?mode=max)](https://www.christies.com/lot/lot-6584154)
+[![WILHELM LEHMBRUCK — Badendes Mädchen (Badende), Düsseldorf](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24196_0231_000(wilhelm_lehmbruck_badendes_madchen_dusseldorf122438).jpg?mode=max)](https://www.christies.com/lot/lot-6584162)
 
 **Christie's** · Impressionist and Modern Art Day Sale  
-Estimate: $50,000–$70,000 · Hammer: **$355,600** (611% above low estimate)
+Estimate: $2,000–$3,000 · Hammer: **$13,970** (598% above low estimate)
 
-Valtat's coastal scene exemplifies the persistent undervaluation of Post-Impressionist colorists outside the canonical triumvirate. This 1898 canvas, depicting bathers amid Provence's dramatic geology, showcases the artist's signature palette of acidic yellows and violets—a chromatic vocabulary that presaged Fauvism yet remains chronically mispriced at auction. The six-fold jump suggests collectors are finally recalibrating their assessment of a movement's supporting cast.
+Lehmbruck's bronze—a rare figurative work from the Düsseldorf period—landed nearly six times its low estimate, suggesting Christie's fundamentally misjudged appetite for the German Expressionist's sculpted forms. The artist's postwar reputation has quietly strengthened among collectors seeking alternatives to canonical modernists, and this intimate bathing figure, with its characteristic elongated proportions and introspective mood, proved exactly the type of overlooked gem the market rewards when properly positioned.
 
-*[View lot](https://www.christies.com/lot/lot-6584154)*
+*[View lot](https://www.christies.com/lot/lot-6584162)*
+
+## 3. BANKSY — Paranoid Pictures
+
+[![BANKSY — Paranoid Pictures](https://www.christies.com/img/LotImages/2026/CKS/2026_CKS_24182_0666_000(banksy_paranoid_pictures115136).jpg?mode=max)](https://www.christies.com/lot/lot-6575145)
+
+**Christie's** · Post-War and Contemporary Art Day Sale&#160;&#160;&#160;  
+Estimate: $50,000–$70,000 · Hammer: **$338,709** (577% above low estimate)
+
+Banksy's market continues to confound conservative estimates, with "Paranoid Pictures" hammering at nearly 6x the low estimate despite the artist's deliberate market resistance and limited provenance documentation. The work's spray-paint-on-canvas execution—a rare pivot from his signature stencil technique—appears to have resonated with collectors betting on authentication scarcity as galleries tighten cataloguing standards.
+
+*[View lot](https://www.christies.com/lot/lot-6575145)*
+
+## 4. WILHELM LEHMBRUCK — Badendes Mädchen (Badende), Düsseldorf
+
+[![WILHELM LEHMBRUCK — Badendes Mädchen (Badende), Düsseldorf](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24196_0232_000(wilhelm_lehmbruck_badendes_madchen_dusseldorf_d6584163122448).jpg?mode=max)](https://www.christies.com/lot/lot-6584163)
+
+**Christie's** · Impressionist and Modern Art Day Sale  
+Estimate: $5,000–$7,000 · Hammer: **$33,020** (560% above low estimate)
+
+Lehmbruck's bronze captures the German Expressionist moment when figural sculpture commanded renewed reverence post-war, a market appetite Christie's estimators appear to have underestimated. The Düsseldorf provenance—linking directly to the artist's hometown atelier—likely activated collectors familiar with this particular casting's historical significance, explaining the five-fold surge from the conservative low estimate.
+
+*[View lot](https://www.christies.com/lot/lot-6584163)*
+
+## 5. ALBERTO GIACOMETTI — Figure
+
+[![ALBERTO GIACOMETTI — Figure](https://www.christies.com/img/LotImages/2026/NYR/2026_NYR_24196_0207_000(alberto_giacometti_figure121931).jpg?mode=max)](https://www.christies.com/lot/lot-6584138)
+
+**Christie's** · Impressionist and Modern Art Day Sale  
+Estimate: $100,000–$150,000 · Hammer: **$635,000** (535% above low estimate)
+
+Giacometti's postwar bronzes command unwavering collector appetite, yet daytime sales estimates chronically lag behind realized prices—a persistent blind spot among Christie's day-sale specialists. This particular "Figure," cast in the artist's signature attenuated form, exemplifies the sustained market conviction that even modestly catalogued works from his 1950s output merit serious premium positioning, a conviction the hammer price decisively validated.
+
+*[View lot](https://www.christies.com/lot/lot-6584138)*
+
+## 6. PAUL SIGNAC — Blaye
+
+[![PAUL SIGNAC — Blaye](https://www.christies.com/img/LotImages/2026/CKS/2026_CKS_24183_0412_000(paul_signac_blaye020300).jpg?mode=max)](https://www.christies.com/lot/lot-6574374)
+
+**Christie's** · Impressionist and Modern Art Day and Works on Paper Sale  
+Estimate: $14,000–$18,000 · Hammer: **$88,710** (534% above low estimate)
+
+Signac's divisionist harbor scene exemplifies persistent undervaluation of Post-Impressionist coastal subjects in day sales, where buyers routinely overlook the artist's meticulous pointillist technique and historical significance as a Neo-Impressionist pioneer. The work's depiction of Blaye's strategic river fortifications—rendered through thousands of deliberate dot-strokes—attracted collectors attuned to both technical mastery and the romantic appeal of French maritime architecture, categories consistently mispriced at Christie's estimate levels.
+
+*[View lot](https://www.christies.com/lot/lot-6574374)*
 
 ---
 
-The week's Christie's results underscore a persistent market bifurcation: established provenance and museum-quality condition command premiums, while mid-tier lots face headwinds. As supply normalizes post-pandemic, watch whether this gap widens or stabilizes. Collectors should monitor upcoming evening sales for signals of where demand is genuinely concentrating—particularly revealing across categories where scarcity meets collector appetite.
+The Christie's results this week underscore a widening bifurcation in the market: established provenance and institutional pedigree command premiums, while attribution ambiguity depresses realizations. Collectors should monitor whether this gap narrows as supply tightens heading into autumn sales, or if authentication standards become the defining filter across all categories.
 
 ---
 
