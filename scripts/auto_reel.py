@@ -915,29 +915,23 @@ def _build_reveal_sequence(lot: dict, tag_base: str,
             (voice_duration - act1_hold - act3_hold) / max(1, n_act2_images), 1
         ))
     else:
-        act1_hold   = 7.0
+        act1_hold   = 3.0
         act3_hold   = 10.0
         crop_hold_s = max(0.3, round(5.0 / max(1, n_act2_images), 1))
 
-    # Act I: brief name-reveal frame (3 s) then clean frame for remaining hold
-    _name_reveal_s = 3.0
-    _act1_rest = max(0.5, round(act1_hold - _name_reveal_s, 1))
-    frames = [
-        _frame(hold=_name_reveal_s, show_hook=False, show_upper=True),
-        _frame(hold=_act1_rest,     show_hook=False, show_upper=False),
-    ]
+    frames = [_frame(hold=act1_hold, show_hook=False, show_upper=True)]
     for _ in range(n_act2_images):
         frames.append(_frame(hold=crop_hold_s, show_upper=False))
     frames.append(_frame(hold=act3_hold, show_data=True, show_upper=False))
 
-    # Trim Act I rest frame only when no voice — with voice, duration is already correct
+    # Trim Act I only when no voice — with voice, duration is already correct
     if voice_duration <= 0:
-        act1_floor = 1.2
+        act1_floor = 4.2
         total = sum(f["hold_seconds"] + _FRAME_FADE_S for f in frames)
         if total > _MAX_REEL_SECONDS:
             cut = min(total - _MAX_REEL_SECONDS,
-                      max(0.0, frames[1]["hold_seconds"] - act1_floor))
-            frames[1]["hold_seconds"] = round(frames[1]["hold_seconds"] - cut, 1)
+                      max(0.0, frames[0]["hold_seconds"] - act1_floor))
+            frames[0]["hold_seconds"] = round(frames[0]["hold_seconds"] - cut, 1)
 
     return frames
 
@@ -1030,6 +1024,7 @@ def _generate_config(hook: dict, week_label: str, all_time: bool,
         '    "caption_position": "lower_safe",',
         '    "bg_music":         True,',
         '    "transitions_enabled": False,',
+        '    "block_reveal":       False,',
         "",
         "    # ── Font overrides ─────────────────────────────────────────",
         '    "fonts_override": {',
