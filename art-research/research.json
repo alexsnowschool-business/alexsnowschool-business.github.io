@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 2825,
-    "total_artists": 1025,
-    "median_hammer_usd": 128016,
-    "pct_above_estimate": 47.9,
+    "total_lots": 2920,
+    "total_artists": 1077,
+    "median_hammer_usd": 120650,
+    "pct_above_estimate": 48.6,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-06"
+    "generated_at": "2026-07-08"
   },
   "artists": [
     {
@@ -287,11 +287,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 47,
-        "total_usd": 56362823,
-        "avg_usd": 1199209,
-        "total_label": "$56.36M",
-        "avg_label": "$1.20M",
+        "lot_count": 49,
+        "total_usd": 56434881,
+        "avg_usd": 1151732,
+        "total_label": "$56.43M",
+        "avg_label": "$1.15M",
         "top_lot": {
           "title": "Homme assis",
           "hammer_usd": 12800000,
@@ -513,11 +513,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 48,
-        "total_usd": 42694739,
-        "avg_usd": 889474,
-        "total_label": "$42.69M",
-        "avg_label": "$889k",
+        "lot_count": 50,
+        "total_usd": 42771209,
+        "avg_usd": 855424,
+        "total_label": "$42.77M",
+        "avg_label": "$855k",
         "top_lot": {
           "title": "Late Four-Foot Flowers",
           "hammer_usd": 10000000,
@@ -2699,11 +2699,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 12,
-        "total_usd": 7194337,
-        "avg_usd": 599528,
-        "total_label": "$7.19M",
-        "avg_label": "$600k",
+        "lot_count": 14,
+        "total_usd": 7238454,
+        "avg_usd": 517032,
+        "total_label": "$7.24M",
+        "avg_label": "$517k",
         "top_lot": {
           "title": "Trompetenbläser I (Trumpeters I)",
           "hammer_usd": 4300000,
@@ -3045,6 +3045,60 @@
       }
     },
     {
+      "norm_name": "KEITH HARING",
+      "display_name": "Keith Haring",
+      "dates": "1958–1990",
+      "nationality": "American",
+      "movement": "Street Art · Pop Art",
+      "movement_id": "street-art",
+      "bio": "Keith Haring was born in Reading, Pennsylvania in 1958 and arrived in New York in 1978 to study at the School of Visual Arts. He became one of the defining visual voices of the 1980s through his chalk drawings made on the blank paper panels covering unused advertising spaces in the New York subway system, drawings that were seen daily by millions of commuters and that translated the energy and accessibility of graffiti into a language of simple, almost universal symbolic figures.\n\nHaring's visual vocabulary is immediately recognisable: radiant babies, barking dogs, dancing figures, hearts, flying saucers — outlined in the thick black line that became his signature — rendered in a manner that is simultaneously playful and politically charged. His work addressed the AIDS crisis, apartheid, drugs, nuclear threat, and the Reagan administration's indifference to minority communities with a directness that made art available as political communication without requiring any specialist knowledge. He opened the Pop Shop in 1986, selling merchandise at affordable prices as an extension of his democratic commitment to accessibility.\n\nHaring was diagnosed with HIV in 1988 and died of AIDS-related complications in 1990 at thirty-one. The Keith Haring Foundation, established before his death, continues to support social programmes for children and AIDS research. His work is held by major museums worldwide and his visual language has had an influence on subsequent culture that far exceeds the art world.",
+      "famous_works": [
+        {
+          "title": "Radiant Baby",
+          "year": "1982",
+          "notes": "Haring's most reproduced image — a crawling infant surrounded by radiant lines — which became an emblem of innocence, energy, and creative possibility."
+        },
+        {
+          "title": "Crack Is Wack",
+          "year": "1986",
+          "notes": "A large-scale mural painted on a handball court in New York City addressing the crack cocaine epidemic, demonstrating Haring's commitment to using his public platform for political communication."
+        },
+        {
+          "title": "Once Upon A Time (Cooper Square installation)",
+          "year": "1989",
+          "notes": "An explicit mural painted on the walls of a men's room in the LGBT Community Center in New York, addressing sexuality, desire, and the AIDS crisis with characteristic directness."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "New York Public Library installation",
+          "year": "1982",
+          "notes": "An early gallery-context installation that translated Haring's subway chalk work into a formal institutional setting while maintaining its popular energy."
+        },
+        {
+          "title": "Apocalypse series",
+          "year": "1988",
+          "notes": "A series of prints made in collaboration with William S. Burroughs that extends Haring's symbolic vocabulary into the register of cultural apocalypse."
+        }
+      ],
+      "dataset": {
+        "lot_count": 13,
+        "total_usd": 6685698,
+        "avg_usd": 514284,
+        "total_label": "$6.69M",
+        "avg_label": "$514k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 4200000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 5.81
+        }
+      }
+    },
+    {
       "norm_name": "BERNARD BUFFET",
       "display_name": "Bernard Buffet",
       "dates": "1928–1999",
@@ -3095,60 +3149,6 @@
         "top_ratio_lot": {
           "title": "Grand duc",
           "ratio": 2.64
-        }
-      }
-    },
-    {
-      "norm_name": "KEITH HARING",
-      "display_name": "Keith Haring",
-      "dates": "1958–1990",
-      "nationality": "American",
-      "movement": "Street Art · Pop Art",
-      "movement_id": "street-art",
-      "bio": "Keith Haring was born in Reading, Pennsylvania in 1958 and arrived in New York in 1978 to study at the School of Visual Arts. He became one of the defining visual voices of the 1980s through his chalk drawings made on the blank paper panels covering unused advertising spaces in the New York subway system, drawings that were seen daily by millions of commuters and that translated the energy and accessibility of graffiti into a language of simple, almost universal symbolic figures.\n\nHaring's visual vocabulary is immediately recognisable: radiant babies, barking dogs, dancing figures, hearts, flying saucers — outlined in the thick black line that became his signature — rendered in a manner that is simultaneously playful and politically charged. His work addressed the AIDS crisis, apartheid, drugs, nuclear threat, and the Reagan administration's indifference to minority communities with a directness that made art available as political communication without requiring any specialist knowledge. He opened the Pop Shop in 1986, selling merchandise at affordable prices as an extension of his democratic commitment to accessibility.\n\nHaring was diagnosed with HIV in 1988 and died of AIDS-related complications in 1990 at thirty-one. The Keith Haring Foundation, established before his death, continues to support social programmes for children and AIDS research. His work is held by major museums worldwide and his visual language has had an influence on subsequent culture that far exceeds the art world.",
-      "famous_works": [
-        {
-          "title": "Radiant Baby",
-          "year": "1982",
-          "notes": "Haring's most reproduced image — a crawling infant surrounded by radiant lines — which became an emblem of innocence, energy, and creative possibility."
-        },
-        {
-          "title": "Crack Is Wack",
-          "year": "1986",
-          "notes": "A large-scale mural painted on a handball court in New York City addressing the crack cocaine epidemic, demonstrating Haring's commitment to using his public platform for political communication."
-        },
-        {
-          "title": "Once Upon A Time (Cooper Square installation)",
-          "year": "1989",
-          "notes": "An explicit mural painted on the walls of a men's room in the LGBT Community Center in New York, addressing sexuality, desire, and the AIDS crisis with characteristic directness."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "New York Public Library installation",
-          "year": "1982",
-          "notes": "An early gallery-context installation that translated Haring's subway chalk work into a formal institutional setting while maintaining its popular energy."
-        },
-        {
-          "title": "Apocalypse series",
-          "year": "1988",
-          "notes": "A series of prints made in collaboration with William S. Burroughs that extends Haring's symbolic vocabulary into the register of cultural apocalypse."
-        }
-      ],
-      "dataset": {
-        "lot_count": 12,
-        "total_usd": 6641581,
-        "avg_usd": 553465,
-        "total_label": "$6.64M",
-        "avg_label": "$553k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 4200000,
-          "sale_name": "Contemporary Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 5.81
         }
       }
     },
@@ -5662,6 +5662,65 @@
       }
     },
     {
+      "norm_name": "ROBERT MOTHERWELL",
+      "display_name": "Robert Motherwell",
+      "dates": "1915–1991",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Elegy Series",
+      "movement_id": "abstract-expressionism",
+      "bio": "The most intellectually articulate of the Abstract Expressionists, Motherwell had studied philosophy at Stanford and Harvard before dedicating himself to painting. He served as the movement's primary editor and anthologist — The Dada Painters and Poets (1951) remains the essential sourcebook. His Elegies to the Spanish Republic, begun in 1948 and continued for over forty years across more than 150 paintings, are the defining sustained series of Abstract Expressionism: large black ovoids pressing against vertical bars in stark bipartite compositions. The Spanish Civil War was the occasion; the elegiac mode became his vehicle for all political tragedy. He was married to Helen Frankenthaler from 1958 to 1971. His Open series — canvases of single colour interrupted by a gestural rectangle — explored the paradox of painting's flatness through near-minimalist means. He was also a prolific printmaker and collagist who brought a European sensibility to the American scene.",
+      "famous_works": [
+        {
+          "title": "Elegy to the Spanish Republic No. 34",
+          "year": "1953–54",
+          "notes": "One of the most fully achieved of the Elegy series. The black ovoids and bars are at their most formally resolved — minimal in element, monumental in presence."
+        },
+        {
+          "title": "At Five in the Afternoon",
+          "year": "1949",
+          "notes": "The first fully resolved Elegy, named after García Lorca's poem. Established the vocabulary that Motherwell would pursue for the rest of his life."
+        },
+        {
+          "title": "The Voyage",
+          "year": "1949",
+          "notes": "A large horizontal canvas of nautical imagery refracted through collage logic. The journey as existential metaphor, rendered with paper and oil."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Je t'aime (with Gauloises)",
+          "year": "1955",
+          "notes": "One of the smallest, most intimate works — a collage with a Gauloise cigarette package fragment. Motherwell's Frenchness, his Europeanness, compressed into a torn rectangle of blue paper."
+        },
+        {
+          "title": "Open No. 121",
+          "year": "1969",
+          "notes": "From the Open series — a field of deep ochre interrupted by a single gestural rectangle. The simplest possible painting that is still a painting."
+        },
+        {
+          "title": "Drunk with Turpentine",
+          "year": "1979",
+          "notes": "A late Elegy variant in which the gestural mark breaks free of the canonical oval-and-bar vocabulary — a rare instance of the series relaxing its formal discipline."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 3490008,
+        "avg_usd": 436251,
+        "total_label": "$3.49M",
+        "avg_label": "$436k",
+        "top_lot": {
+          "title": "The Red Wall",
+          "hammer_usd": 1865000,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Zen I",
+          "ratio": 3.3
+        }
+      }
+    },
+    {
       "norm_name": "RAOUL DUFY",
       "display_name": "Raoul Dufy",
       "dates": "1877–1953",
@@ -5712,65 +5771,6 @@
         "top_ratio_lot": {
           "title": "Robe pour Poiret, bleu, blanc et rouge",
           "ratio": 6.45
-        }
-      }
-    },
-    {
-      "norm_name": "ROBERT MOTHERWELL",
-      "display_name": "Robert Motherwell",
-      "dates": "1915–1991",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Elegy Series",
-      "movement_id": "abstract-expressionism",
-      "bio": "The most intellectually articulate of the Abstract Expressionists, Motherwell had studied philosophy at Stanford and Harvard before dedicating himself to painting. He served as the movement's primary editor and anthologist — The Dada Painters and Poets (1951) remains the essential sourcebook. His Elegies to the Spanish Republic, begun in 1948 and continued for over forty years across more than 150 paintings, are the defining sustained series of Abstract Expressionism: large black ovoids pressing against vertical bars in stark bipartite compositions. The Spanish Civil War was the occasion; the elegiac mode became his vehicle for all political tragedy. He was married to Helen Frankenthaler from 1958 to 1971. His Open series — canvases of single colour interrupted by a gestural rectangle — explored the paradox of painting's flatness through near-minimalist means. He was also a prolific printmaker and collagist who brought a European sensibility to the American scene.",
-      "famous_works": [
-        {
-          "title": "Elegy to the Spanish Republic No. 34",
-          "year": "1953–54",
-          "notes": "One of the most fully achieved of the Elegy series. The black ovoids and bars are at their most formally resolved — minimal in element, monumental in presence."
-        },
-        {
-          "title": "At Five in the Afternoon",
-          "year": "1949",
-          "notes": "The first fully resolved Elegy, named after García Lorca's poem. Established the vocabulary that Motherwell would pursue for the rest of his life."
-        },
-        {
-          "title": "The Voyage",
-          "year": "1949",
-          "notes": "A large horizontal canvas of nautical imagery refracted through collage logic. The journey as existential metaphor, rendered with paper and oil."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Je t'aime (with Gauloises)",
-          "year": "1955",
-          "notes": "One of the smallest, most intimate works — a collage with a Gauloise cigarette package fragment. Motherwell's Frenchness, his Europeanness, compressed into a torn rectangle of blue paper."
-        },
-        {
-          "title": "Open No. 121",
-          "year": "1969",
-          "notes": "From the Open series — a field of deep ochre interrupted by a single gestural rectangle. The simplest possible painting that is still a painting."
-        },
-        {
-          "title": "Drunk with Turpentine",
-          "year": "1979",
-          "notes": "A late Elegy variant in which the gestural mark breaks free of the canonical oval-and-bar vocabulary — a rare instance of the series relaxing its formal discipline."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 3467950,
-        "avg_usd": 495421,
-        "total_label": "$3.47M",
-        "avg_label": "$495k",
-        "top_lot": {
-          "title": "The Red Wall",
-          "hammer_usd": 1865000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Zen I",
-          "ratio": 3.3
         }
       }
     },
@@ -10111,6 +10111,60 @@
       }
     },
     {
+      "norm_name": "KARL SCHMIDT-ROTTLUFF",
+      "display_name": "Karl Schmidt-Rottluff",
+      "dates": "1884–1976",
+      "nationality": "German",
+      "movement": "Expressionism · Die Brücke",
+      "movement_id": "expressionism",
+      "bio": "Karl Schmidt-Rottluff was born Karl Schmidt in Rottluff, Saxony in 1884 and added his hometown name to distinguish himself from other Schmidts — a gesture typical of the assertive cultural self-fashioning of the Die Brücke group he co-founded with Ernst Ludwig Kirchner, Fritz Bleyl, and Erich Heckel in Dresden in 1905. The group drew inspiration from the tribal art of Oceania and Africa, the prints of Albrecht Dürer and Lucas Cranach, and the anti-bourgeois spirit of German Expressionism.\n\nSchmidt-Rottluff's style is among the most forceful within Die Brücke: angular, large-planed, reduced to elemental forms of great physical impact. His woodcuts in particular — in which the grain and cut of the block are integral to the image's energy — are among the finest achievements of Expressionist printmaking. His paintings, which share this formal reduction, are characterised by strong outlines, non-naturalistic colour, and a compositional boldness that sometimes approaches near-abstraction.\n\nThe Nazis declared his work degenerate, confiscating hundreds of his paintings from German museums. He survived the war and was appointed professor at the Hochschule für Bildende Künste in Berlin in 1947, continuing to paint until his death at ninety-one. The Brücke Museum in Berlin, established in 1967, holds a major collection of the group's work.",
+      "famous_works": [
+        {
+          "title": "Self-Portrait with Monocle",
+          "year": "1910",
+          "notes": "A self-portrait of fierce formal directness in which the simplified angular planes and non-naturalistic colour of Schmidt-Rottluff's mature style are already fully present."
+        },
+        {
+          "title": "Two Women",
+          "year": "1912",
+          "notes": "A figure composition in which the reduction of the human form to geometric planes and the non-naturalistic colour combination create an image of striking primitive force."
+        },
+        {
+          "title": "Moonlit Night at the Sea",
+          "year": "1912",
+          "notes": "A landscape in which the simplified planes of Schmidt-Rottluff's mature style are applied to the natural world, creating an image of elemental power."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Head of Christ (Woodcut series)",
+          "year": "1918",
+          "notes": "A series of woodcuts in which religious subjects are treated with the same formal severity as secular material, the angular cut of the block creating an image of primitive spiritual force."
+        },
+        {
+          "title": "Landscape with Railway",
+          "year": "1914",
+          "notes": "A German landscape in which the industrial subject is rendered in the simplified, angular manner that makes Die Brücke painting so formally distinctive."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 882320,
+        "avg_usd": 147053,
+        "total_label": "$882k",
+        "avg_label": "$147k",
+        "top_lot": {
+          "title": "Julimond",
+          "hammer_usd": 323532,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Julimond",
+          "ratio": 3.24
+        }
+      }
+    },
+    {
       "norm_name": "MICHAËL BORREMANS",
       "display_name": "Michaël Borremans",
       "dates": "b. 1963",
@@ -10161,60 +10215,6 @@
         "top_ratio_lot": {
           "title": "The Measure II",
           "ratio": 1.73
-        }
-      }
-    },
-    {
-      "norm_name": "KARL SCHMIDT-ROTTLUFF",
-      "display_name": "Karl Schmidt-Rottluff",
-      "dates": "1884–1976",
-      "nationality": "German",
-      "movement": "Expressionism · Die Brücke",
-      "movement_id": "expressionism",
-      "bio": "Karl Schmidt-Rottluff was born Karl Schmidt in Rottluff, Saxony in 1884 and added his hometown name to distinguish himself from other Schmidts — a gesture typical of the assertive cultural self-fashioning of the Die Brücke group he co-founded with Ernst Ludwig Kirchner, Fritz Bleyl, and Erich Heckel in Dresden in 1905. The group drew inspiration from the tribal art of Oceania and Africa, the prints of Albrecht Dürer and Lucas Cranach, and the anti-bourgeois spirit of German Expressionism.\n\nSchmidt-Rottluff's style is among the most forceful within Die Brücke: angular, large-planed, reduced to elemental forms of great physical impact. His woodcuts in particular — in which the grain and cut of the block are integral to the image's energy — are among the finest achievements of Expressionist printmaking. His paintings, which share this formal reduction, are characterised by strong outlines, non-naturalistic colour, and a compositional boldness that sometimes approaches near-abstraction.\n\nThe Nazis declared his work degenerate, confiscating hundreds of his paintings from German museums. He survived the war and was appointed professor at the Hochschule für Bildende Künste in Berlin in 1947, continuing to paint until his death at ninety-one. The Brücke Museum in Berlin, established in 1967, holds a major collection of the group's work.",
-      "famous_works": [
-        {
-          "title": "Self-Portrait with Monocle",
-          "year": "1910",
-          "notes": "A self-portrait of fierce formal directness in which the simplified angular planes and non-naturalistic colour of Schmidt-Rottluff's mature style are already fully present."
-        },
-        {
-          "title": "Two Women",
-          "year": "1912",
-          "notes": "A figure composition in which the reduction of the human form to geometric planes and the non-naturalistic colour combination create an image of striking primitive force."
-        },
-        {
-          "title": "Moonlit Night at the Sea",
-          "year": "1912",
-          "notes": "A landscape in which the simplified planes of Schmidt-Rottluff's mature style are applied to the natural world, creating an image of elemental power."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Head of Christ (Woodcut series)",
-          "year": "1918",
-          "notes": "A series of woodcuts in which religious subjects are treated with the same formal severity as secular material, the angular cut of the block creating an image of primitive spiritual force."
-        },
-        {
-          "title": "Landscape with Railway",
-          "year": "1914",
-          "notes": "A German landscape in which the industrial subject is rendered in the simplified, angular manner that makes Die Brücke painting so formally distinctive."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 838203,
-        "avg_usd": 167641,
-        "total_label": "$838k",
-        "avg_label": "$168k",
-        "top_lot": {
-          "title": "Julimond",
-          "hammer_usd": 323532,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Julimond",
-          "ratio": 3.24
         }
       }
     },
@@ -12156,11 +12156,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 380458,
-        "avg_usd": 95114,
-        "total_label": "$380k",
-        "avg_label": "$95k",
+        "lot_count": 5,
+        "total_usd": 396634,
+        "avg_usd": 79327,
+        "total_label": "$397k",
+        "avg_label": "$79k",
         "top_lot": {
           "title": "Prima che il lago geli",
           "hammer_usd": 308826,
@@ -18177,11 +18177,11 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 2302674,
-        "avg_usd": 1151337,
-        "total_label": "$2.30M",
-        "avg_label": "$1.15M",
+        "lot_count": 3,
+        "total_usd": 2320321,
+        "avg_usd": 773440,
+        "total_label": "$2.32M",
+        "avg_label": "$773k",
         "top_lot": {
           "title": "Zwei liegende Mädchen",
           "hammer_usd": 2205900,
@@ -18352,6 +18352,33 @@
         "top_ratio_lot": {
           "title": "Assemblage 1-8 集1-8",
           "ratio": 0.82
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXEJ VON JAWLENSKY",
+      "display_name": "Alexej Von Jawlensky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 9,
+        "total_usd": 1758600,
+        "avg_usd": 195400,
+        "total_label": "$1.76M",
+        "avg_label": "$195k",
+        "top_lot": {
+          "title": "Nordisch (Großer Abstrakter Kopf)",
+          "hammer_usd": 426473,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Nordisch (Großer Abstrakter Kopf)",
+          "ratio": 2.13
         }
       }
     },
@@ -18757,33 +18784,6 @@
         "top_ratio_lot": {
           "title": "Deux personnages à la lisière d'un bois, Veneux-Nadon",
           "ratio": 1.76
-        }
-      }
-    },
-    {
-      "norm_name": "ALEXEJ VON JAWLENSKY",
-      "display_name": "Alexej Von Jawlensky",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 8,
-        "total_usd": 1513010,
-        "avg_usd": 189126,
-        "total_label": "$1.51M",
-        "avg_label": "$189k",
-        "top_lot": {
-          "title": "Nordisch (Großer Abstrakter Kopf)",
-          "hammer_usd": 426473,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Nordisch (Großer Abstrakter Kopf)",
-          "ratio": 2.13
         }
       }
     },
@@ -20084,6 +20084,33 @@
       }
     },
     {
+      "norm_name": "THOMAS SCHÜTTE",
+      "display_name": "Thomas Schütte",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 780600,
+        "avg_usd": 195150,
+        "total_label": "$781k",
+        "avg_label": "$195k",
+        "top_lot": {
+          "title": "Großer Frauenkopf (Large Female Head)",
+          "hammer_usd": 355600,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "You Are My Tears",
+          "ratio": 1.43
+        }
+      }
+    },
+    {
       "norm_name": "ERIC FISCHL",
       "display_name": "Eric Fischl",
       "dates": "",
@@ -20192,6 +20219,33 @@
       }
     },
     {
+      "norm_name": "WILLI BAUMEISTER",
+      "display_name": "Willi Baumeister",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 744122,
+        "avg_usd": 248041,
+        "total_label": "$744k",
+        "avg_label": "$248k",
+        "top_lot": {
+          "title": "Phantom mit roter Figur",
+          "hammer_usd": 588240,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Steingarten",
+          "ratio": 2.79
+        }
+      }
+    },
+    {
       "norm_name": "STURTEVANT",
       "display_name": "Sturtevant",
       "dates": "",
@@ -20296,33 +20350,6 @@
         "top_ratio_lot": {
           "title": "Vase de fleurs",
           "ratio": 1.71
-        }
-      }
-    },
-    {
-      "norm_name": "WILLI BAUMEISTER",
-      "display_name": "Willi Baumeister",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 700005,
-        "avg_usd": 350002,
-        "total_label": "$700k",
-        "avg_label": "$350k",
-        "top_lot": {
-          "title": "Phantom mit roter Figur",
-          "hammer_usd": 588240,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Steingarten",
-          "ratio": 2.79
         }
       }
     },
@@ -20786,33 +20813,6 @@
       }
     },
     {
-      "norm_name": "THOMAS SCHÜTTE",
-      "display_name": "Thomas Schütte",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 633540,
-        "avg_usd": 211180,
-        "total_label": "$634k",
-        "avg_label": "$211k",
-        "top_lot": {
-          "title": "Großer Frauenkopf (Large Female Head)",
-          "hammer_usd": 355600,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "You Are My Tears",
-          "ratio": 1.43
-        }
-      }
-    },
-    {
       "norm_name": "MAURICE UTRILLO",
       "display_name": "Maurice Utrillo",
       "dates": "",
@@ -21002,6 +21002,33 @@
       }
     },
     {
+      "norm_name": "CHRISTO",
+      "display_name": "Christo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 567487,
+        "avg_usd": 141872,
+        "total_label": "$567k",
+        "avg_label": "$142k",
+        "top_lot": {
+          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
+          "hammer_usd": 264708,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
+          "ratio": 1.76
+        }
+      }
+    },
+    {
       "norm_name": "JOAN SNYDER",
       "display_name": "Joan Snyder",
       "dates": "",
@@ -21079,33 +21106,6 @@
         "top_ratio_lot": {
           "title": "\"...the event matured, accomplished in sight of all non-exis",
           "ratio": 0.73
-        }
-      }
-    },
-    {
-      "norm_name": "CHRISTO",
-      "display_name": "Christo",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 538076,
-        "avg_usd": 179359,
-        "total_label": "$538k",
-        "avg_label": "$179k",
-        "top_lot": {
-          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
-          "hammer_usd": 264708,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
-          "ratio": 1.76
         }
       }
     },
@@ -22811,6 +22811,33 @@
       }
     },
     {
+      "norm_name": "MARKUS LÜPERTZ",
+      "display_name": "Markus Lüpertz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 299668,
+        "avg_usd": 99889,
+        "total_label": "$300k",
+        "avg_label": "$100k",
+        "top_lot": {
+          "title": "Aus der kleinen Straße - dithyrambisch",
+          "hammer_usd": 157354,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Aus der kleinen Straße - dithyrambisch",
+          "ratio": 1.97
+        }
+      }
+    },
+    {
       "norm_name": "KONRAD KLAPHECK",
       "display_name": "Konrad Klapheck",
       "dates": "",
@@ -22915,6 +22942,33 @@
         "top_ratio_lot": {
           "title": "Entrance; Untitled [Two Works]",
           "ratio": 2.39
+        }
+      }
+    },
+    {
+      "norm_name": "GÜNTHER UECKER",
+      "display_name": "Günther Uecker",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 291176,
+        "avg_usd": 97059,
+        "total_label": "$291k",
+        "avg_label": "$97k",
+        "top_lot": {
+          "title": "Taktile Struktur Rotierend",
+          "hammer_usd": 205883,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Reihung",
+          "ratio": 2.35
         }
       }
     },
@@ -23351,33 +23405,6 @@
       }
     },
     {
-      "norm_name": "MARKUS LÜPERTZ",
-      "display_name": "Markus Lüpertz",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 270257,
-        "avg_usd": 135128,
-        "total_label": "$270k",
-        "avg_label": "$135k",
-        "top_lot": {
-          "title": "Aus der kleinen Straße - dithyrambisch",
-          "hammer_usd": 157354,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Aus der kleinen Straße - dithyrambisch",
-          "ratio": 1.97
-        }
-      }
-    },
-    {
       "norm_name": "FRED EVERSLEY",
       "display_name": "Fred Eversley",
       "dates": "",
@@ -23428,33 +23455,6 @@
         "top_ratio_lot": {
           "title": "Tête de femme ou La Gitane",
           "ratio": 3.63
-        }
-      }
-    },
-    {
-      "norm_name": "GÜNTHER UECKER",
-      "display_name": "Günther Uecker",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 264706,
-        "avg_usd": 132353,
-        "total_label": "$265k",
-        "avg_label": "$132k",
-        "top_lot": {
-          "title": "Taktile Struktur Rotierend",
-          "hammer_usd": 205883,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Reihung",
-          "ratio": 2.35
         }
       }
     },
@@ -24404,6 +24404,33 @@
       }
     },
     {
+      "norm_name": "ERICH HECKEL",
+      "display_name": "Erich Heckel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 213473,
+        "avg_usd": 53368,
+        "total_label": "$213k",
+        "avg_label": "$53k",
+        "top_lot": {
+          "title": "Schiffe im Kanal",
+          "hammer_usd": 147060,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Haus am Berg",
+          "ratio": 2.98
+        }
+      }
+    },
+    {
       "norm_name": "ANDRE LHOTE",
       "display_name": "Andre Lhote",
       "dates": "",
@@ -24971,6 +24998,33 @@
       }
     },
     {
+      "norm_name": "ISA GENZKEN",
+      "display_name": "Isa Genzken",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 186439,
+        "avg_usd": 62146,
+        "total_label": "$186k",
+        "avg_label": "$62k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 82550,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Ohne Titel",
+          "ratio": 1.47
+        }
+      }
+    },
+    {
       "norm_name": "JULIE MEHRETU",
       "display_name": "Julie Mehretu",
       "dates": "",
@@ -25241,6 +25295,33 @@
       }
     },
     {
+      "norm_name": "HORST ANTES",
+      "display_name": "Horst Antes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 169118,
+        "avg_usd": 56373,
+        "total_label": "$169k",
+        "avg_label": "$56k",
+        "top_lot": {
+          "title": "Interieur 1 (Milano)",
+          "hammer_usd": 73530,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Interieur 1 (Milano)",
+          "ratio": 1.47
+        }
+      }
+    },
+    {
       "norm_name": "ALVARO BARRINGTON",
       "display_name": "Alvaro Barrington",
       "dates": "",
@@ -25291,33 +25372,6 @@
         "top_ratio_lot": {
           "title": "Happiness",
           "ratio": 3.6
-        }
-      }
-    },
-    {
-      "norm_name": "ERICH HECKEL",
-      "display_name": "Erich Heckel",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 166415,
-        "avg_usd": 83208,
-        "total_label": "$166k",
-        "avg_label": "$83k",
-        "top_lot": {
-          "title": "Schiffe im Kanal",
-          "hammer_usd": 147060,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Haus am Berg",
-          "ratio": 2.98
         }
       }
     },
@@ -25507,6 +25561,33 @@
         "top_ratio_lot": {
           "title": "The Mystic Marriage of Saint Catherine of Alexandria, with S",
           "ratio": 1.1
+        }
+      }
+    },
+    {
+      "norm_name": "RAINER FETTING",
+      "display_name": "Rainer Fetting",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 164706,
+        "avg_usd": 54902,
+        "total_label": "$165k",
+        "avg_label": "$55k",
+        "top_lot": {
+          "title": "Konzert in der Waldbühne",
+          "hammer_usd": 105883,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Konzert in der Waldbühne",
+          "ratio": 3.53
         }
       }
     },
@@ -25723,33 +25804,6 @@
         "top_ratio_lot": {
           "title": "Night Car (Beach Fire) 夜行的汽車（海灘之火）",
           "ratio": 1.07
-        }
-      }
-    },
-    {
-      "norm_name": "ISA GENZKEN",
-      "display_name": "Isa Genzken",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 159969,
-        "avg_usd": 79984,
-        "total_label": "$160k",
-        "avg_label": "$80k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 82550,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Spray Painting",
-          "ratio": 1.41
         }
       }
     },
@@ -26429,33 +26483,6 @@
       }
     },
     {
-      "norm_name": "HORST ANTES",
-      "display_name": "Horst Antes",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 132353,
-        "avg_usd": 66176,
-        "total_label": "$132k",
-        "avg_label": "$66k",
-        "top_lot": {
-          "title": "Interieur 1 (Milano)",
-          "hammer_usd": 73530,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Interieur 1 (Milano)",
-          "ratio": 1.47
-        }
-      }
-    },
-    {
       "norm_name": "IMI KNOEBEL",
       "display_name": "Imi Knoebel",
       "dates": "",
@@ -26618,6 +26645,33 @@
       }
     },
     {
+      "norm_name": "JANE AUSTEN",
+      "display_name": "Jane Austen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 127000,
+        "avg_usd": 127000,
+        "total_label": "$127k",
+        "avg_label": "$127k",
+        "top_lot": {
+          "title": "Pride and Prejudice, 1813, first edition, 3 volumes, contemp",
+          "hammer_usd": 127000,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Pride and Prejudice, 1813, first edition, 3 volumes, contemp",
+          "ratio": 2.12
+        }
+      }
+    },
+    {
       "norm_name": "RICHARD ARTSCHWAGER",
       "display_name": "Richard Artschwager",
       "dates": "",
@@ -26695,6 +26749,60 @@
         "top_ratio_lot": {
           "title": "Rouge et vert",
           "ratio": 1.56
+        }
+      }
+    },
+    {
+      "norm_name": "FRITZ WINTER",
+      "display_name": "Fritz Winter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 125000,
+        "avg_usd": 62500,
+        "total_label": "$125k",
+        "avg_label": "$62k",
+        "top_lot": {
+          "title": "Kommendes Rot",
+          "hammer_usd": 91177,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Kommendes Rot",
+          "ratio": 1.82
+        }
+      }
+    },
+    {
+      "norm_name": "EMIL SCHUMACHER",
+      "display_name": "Emil Schumacher",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 124999,
+        "avg_usd": 62500,
+        "total_label": "$125k",
+        "avg_label": "$62k",
+        "top_lot": {
+          "title": "Zargala",
+          "hammer_usd": 95588,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Necho",
+          "ratio": 1.47
         }
       }
     },
@@ -27505,6 +27613,33 @@
       }
     },
     {
+      "norm_name": "NORBERT BISKY",
+      "display_name": "Norbert Bisky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 107353,
+        "avg_usd": 53676,
+        "total_label": "$107k",
+        "avg_label": "$54k",
+        "top_lot": {
+          "title": "Dem Morgen entgegen",
+          "hammer_usd": 80883,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Dem Morgen entgegen",
+          "ratio": 2.7
+        }
+      }
+    },
+    {
       "norm_name": "CARLOS NADAL",
       "display_name": "Carlos Nadal",
       "dates": "",
@@ -27528,33 +27663,6 @@
         "top_ratio_lot": {
           "title": "La Estacada",
           "ratio": 2.19
-        }
-      }
-    },
-    {
-      "norm_name": "RAINER FETTING",
-      "display_name": "Rainer Fetting",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 105883,
-        "avg_usd": 105883,
-        "total_label": "$106k",
-        "avg_label": "$106k",
-        "top_lot": {
-          "title": "Konzert in der Waldbühne",
-          "hammer_usd": 105883,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Konzert in der Waldbühne",
-          "ratio": 3.53
         }
       }
     },
@@ -27991,33 +28099,6 @@
       }
     },
     {
-      "norm_name": "EMIL SCHUMACHER",
-      "display_name": "Emil Schumacher",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 95588,
-        "avg_usd": 95588,
-        "total_label": "$96k",
-        "avg_label": "$96k",
-        "top_lot": {
-          "title": "Zargala",
-          "hammer_usd": 95588,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Zargala",
-          "ratio": 0.96
-        }
-      }
-    },
-    {
       "norm_name": "HENRY MORET",
       "display_name": "Henry Moret",
       "dates": "",
@@ -28180,6 +28261,33 @@
       }
     },
     {
+      "norm_name": "CHARLES DICKENS",
+      "display_name": "Charles Dickens",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 93980,
+        "avg_usd": 46990,
+        "total_label": "$94k",
+        "avg_label": "$47k",
+        "top_lot": {
+          "title": "Pictures from Italy, London, 1846, first edition, warmly ins",
+          "hammer_usd": 69850,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "A Christmas Carol, 1843, first edition, original cloth",
+          "ratio": 2.41
+        }
+      }
+    },
+    {
       "norm_name": "ALIGHIERO BOETTI",
       "display_name": "Alighiero Boetti",
       "dates": "",
@@ -28257,33 +28365,6 @@
         "top_ratio_lot": {
           "title": "Linsenobjekt",
           "ratio": 3.04
-        }
-      }
-    },
-    {
-      "norm_name": "FRITZ WINTER",
-      "display_name": "Fritz Winter",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 91177,
-        "avg_usd": 91177,
-        "total_label": "$91k",
-        "avg_label": "$91k",
-        "top_lot": {
-          "title": "Kommendes Rot",
-          "hammer_usd": 91177,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Kommendes Rot",
-          "ratio": 1.82
         }
       }
     },
@@ -28504,6 +28585,33 @@
       }
     },
     {
+      "norm_name": "DADO",
+      "display_name": "Dado",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 86765,
+        "avg_usd": 43382,
+        "total_label": "$87k",
+        "avg_label": "$43k",
+        "top_lot": {
+          "title": "Hospital militair",
+          "hammer_usd": 47059,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Hospital militair",
+          "ratio": 3.14
+        }
+      }
+    },
+    {
       "norm_name": "AFTER FERNAND LEGER",
       "display_name": "After Fernand Leger",
       "dates": "",
@@ -28689,33 +28797,6 @@
         "top_ratio_lot": {
           "title": "Ce soir ou jamais",
           "ratio": 2.06
-        }
-      }
-    },
-    {
-      "norm_name": "NORBERT BISKY",
-      "display_name": "Norbert Bisky",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 80883,
-        "avg_usd": 80883,
-        "total_label": "$81k",
-        "avg_label": "$81k",
-        "top_lot": {
-          "title": "Dem Morgen entgegen",
-          "hammer_usd": 80883,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Dem Morgen entgegen",
-          "ratio": 2.7
         }
       }
     },
@@ -29260,6 +29341,33 @@
       }
     },
     {
+      "norm_name": "ALBRECHT DÜRER",
+      "display_name": "Albrecht Dürer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 69850,
+        "avg_usd": 69850,
+        "total_label": "$70k",
+        "avg_label": "$70k",
+        "top_lot": {
+          "title": "The Crucifixion (Round) (Bartsch 23; Meder, Hollstein 24; Sc",
+          "hammer_usd": 69850,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "The Crucifixion (Round) (Bartsch 23; Meder, Hollstein 24; Sc",
+          "ratio": 3.49
+        }
+      }
+    },
+    {
       "norm_name": "EVA HELENE PADE",
       "display_name": "Eva Helene Pade",
       "dates": "",
@@ -29337,6 +29445,33 @@
         "top_ratio_lot": {
           "title": "Minotaurus selbst",
           "ratio": 1.69
+        }
+      }
+    },
+    {
+      "norm_name": "RAIMUND GIRKE",
+      "display_name": "Raimund Girke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 67646,
+        "avg_usd": 33823,
+        "total_label": "$68k",
+        "avg_label": "$34k",
+        "top_lot": {
+          "title": "Ohne Titel",
+          "hammer_usd": 41176,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Ohne Titel",
+          "ratio": 2.29
         }
       }
     },
@@ -29854,6 +29989,60 @@
       }
     },
     {
+      "norm_name": "JIRI GEORG DOKOUPIL",
+      "display_name": "Jiri Georg Dokoupil",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 60293,
+        "avg_usd": 30146,
+        "total_label": "$60k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "Ohne Titel (Diptychon)",
+          "hammer_usd": 38235,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Ohne Titel (Diptychon)",
+          "ratio": 2.12
+        }
+      }
+    },
+    {
+      "norm_name": "MARK TOBEY",
+      "display_name": "Mark Tobey",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 60226,
+        "avg_usd": 30113,
+        "total_label": "$60k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 41176,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.24
+        }
+      }
+    },
+    {
       "norm_name": "FIKA LEON",
       "display_name": "Fika Leon",
       "dates": "",
@@ -29931,6 +30120,33 @@
         "top_ratio_lot": {
           "title": "Maternité",
           "ratio": 1.43
+        }
+      }
+    },
+    {
+      "norm_name": "CLAUDE DEBUSSY",
+      "display_name": "Claude Debussy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 57150,
+        "avg_usd": 57150,
+        "total_label": "$57k",
+        "avg_label": "$57k",
+        "top_lot": {
+          "title": "Autograph manuscript of the song “Flots, palmes, sables”, si",
+          "hammer_usd": 57150,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Autograph manuscript of the song “Flots, palmes, sables”, si",
+          "ratio": 3.27
         }
       }
     },
@@ -30120,6 +30336,33 @@
         "top_ratio_lot": {
           "title": "Friedrichstrasse in Berlin (Nacht)",
           "ratio": 0.97
+        }
+      }
+    },
+    {
+      "norm_name": "ALICJA KWADE",
+      "display_name": "Alicja Kwade",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 55217,
+        "avg_usd": 27608,
+        "total_label": "$55k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Donnerstag, 19. September 2013, 15:22:00 Uhr",
+          "hammer_usd": 29411,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Deer Desire",
+          "ratio": 2.06
         }
       }
     },
@@ -31339,6 +31582,87 @@
       }
     },
     {
+      "norm_name": "STEPHAN BALKENHOL",
+      "display_name": "Stephan Balkenhol",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 44117,
+        "avg_usd": 44117,
+        "total_label": "$44k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "Giraffe",
+          "hammer_usd": 44117,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Giraffe",
+          "ratio": 1.1
+        }
+      }
+    },
+    {
+      "norm_name": "FRED THIELER",
+      "display_name": "Fred Thieler",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 44117,
+        "avg_usd": 44117,
+        "total_label": "$44k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "Wandbild im Kurhaus Wannsee",
+          "hammer_usd": 44117,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Wandbild im Kurhaus Wannsee",
+          "ratio": 1.47
+        }
+      }
+    },
+    {
+      "norm_name": "NICHOLAS KRUSHENICK",
+      "display_name": "Nicholas Krushenick",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 44117,
+        "avg_usd": 44117,
+        "total_label": "$44k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "Last One Out",
+          "hammer_usd": 44117,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Last One Out",
+          "ratio": 1.26
+        }
+      }
+    },
+    {
       "norm_name": "ANDRE HAMBOURG",
       "display_name": "Andre Hambourg",
       "dates": "",
@@ -31663,6 +31987,60 @@
       }
     },
     {
+      "norm_name": "NORBERT KRICKE",
+      "display_name": "Norbert Kricke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 39706,
+        "avg_usd": 39706,
+        "total_label": "$40k",
+        "avg_label": "$40k",
+        "top_lot": {
+          "title": "Flächenbahn",
+          "hammer_usd": 39706,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Flächenbahn",
+          "ratio": 2.21
+        }
+      }
+    },
+    {
+      "norm_name": "HERMANN NITSCH",
+      "display_name": "Hermann Nitsch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38235,
+        "avg_usd": 38235,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Schüttbild",
+          "hammer_usd": 38235,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Schüttbild",
+          "ratio": 1.27
+        }
+      }
+    },
+    {
       "norm_name": "SHIRAZEH HOUSHIARY",
       "display_name": "Shirazeh Houshiary",
       "dates": "",
@@ -31825,6 +32203,33 @@
       }
     },
     {
+      "norm_name": "KARL HARTUNG",
+      "display_name": "Karl Hartung",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 36765,
+        "avg_usd": 36765,
+        "total_label": "$37k",
+        "avg_label": "$37k",
+        "top_lot": {
+          "title": "Kleine Liegende mit aufgestütztem Kopf",
+          "hammer_usd": 36765,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Kleine Liegende mit aufgestütztem Kopf",
+          "ratio": 1.47
+        }
+      }
+    },
+    {
       "norm_name": "JEAN-BAPTISTE AUGUSTE CLÉSINGER",
       "display_name": "Jean-Baptiste Auguste Clésinger",
       "dates": "",
@@ -31875,6 +32280,33 @@
         "top_ratio_lot": {
           "title": "Torso",
           "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "BINDING—SANGORSKI & SUTCLIFFE—OMAR KHAYYAM",
+      "display_name": "Binding—Sangorski & Sutcliffe—Omar Khayyam",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 35560,
+        "avg_usd": 35560,
+        "total_label": "$36k",
+        "avg_label": "$36k",
+        "top_lot": {
+          "title": "Rubaiyat, London, 1872, third edition, in a magnificent jewe",
+          "hammer_usd": 35560,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Rubaiyat, London, 1872, third edition, in a magnificent jewe",
+          "ratio": 2.03
         }
       }
     },
@@ -32095,6 +32527,33 @@
       }
     },
     {
+      "norm_name": "KARL HORST HÖDICKE",
+      "display_name": "Karl Horst Hödicke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 33823,
+        "avg_usd": 33823,
+        "total_label": "$34k",
+        "avg_label": "$34k",
+        "top_lot": {
+          "title": "Blowing the Whistle",
+          "hammer_usd": 33823,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Blowing the Whistle",
+          "ratio": 1.88
+        }
+      }
+    },
+    {
       "norm_name": "OTTO LANGE",
       "display_name": "Otto Lange",
       "dates": "",
@@ -32118,6 +32577,60 @@
         "top_ratio_lot": {
           "title": "View of Saxon Switzerland, near Hinterhermsdorf",
           "ratio": 5.5
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM BLAKE",
+      "display_name": "William Blake",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 33020,
+        "avg_usd": 33020,
+        "total_label": "$33k",
+        "avg_label": "$33k",
+        "top_lot": {
+          "title": "Illustrations of the Book of Job, [1826], one of 150 sets of",
+          "hammer_usd": 33020,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Illustrations of the Book of Job, [1826], one of 150 sets of",
+          "ratio": 1.89
+        }
+      }
+    },
+    {
+      "norm_name": "HELMUT STURM",
+      "display_name": "Helmut Sturm",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 32353,
+        "avg_usd": 32353,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "Rosenrot",
+          "hammer_usd": 32353,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Rosenrot",
+          "ratio": 1.62
         }
       }
     },
@@ -32388,6 +32901,33 @@
         "top_ratio_lot": {
           "title": "Vöröshajú lányka virágot szagol",
           "ratio": 5.07
+        }
+      }
+    },
+    {
+      "norm_name": "ERNST BARLACH",
+      "display_name": "Ernst Barlach",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 29411,
+        "avg_usd": 29411,
+        "total_label": "$29k",
+        "avg_label": "$29k",
+        "top_lot": {
+          "title": "Russische Bettlerin II",
+          "hammer_usd": 29411,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Russische Bettlerin II",
+          "ratio": 1.47
         }
       }
     },
@@ -32982,33 +33522,6 @@
         "top_ratio_lot": {
           "title": "Verge",
           "ratio": 3.69
-        }
-      }
-    },
-    {
-      "norm_name": "ALICJA KWADE",
-      "display_name": "Alicja Kwade",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 25806,
-        "avg_usd": 25806,
-        "total_label": "$26k",
-        "avg_label": "$26k",
-        "top_lot": {
-          "title": "Deer Desire",
-          "hammer_usd": 25806,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Deer Desire",
-          "ratio": 2.06
         }
       }
     },
@@ -33796,6 +34309,33 @@
       }
     },
     {
+      "norm_name": "GLEN BAXTER",
+      "display_name": "Glen Baxter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 19939,
+        "avg_usd": 3988,
+        "total_label": "$20k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Seven works",
+          "hammer_usd": 9525,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Seven works",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
       "norm_name": "CARLOS GARAICOA",
       "display_name": "Carlos Garaicoa",
       "dates": "",
@@ -33873,33 +34413,6 @@
         "top_ratio_lot": {
           "title": "Oakland Intersection—59th and Stanford",
           "ratio": 1.09
-        }
-      }
-    },
-    {
-      "norm_name": "MARK TOBEY",
-      "display_name": "Mark Tobey",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 19050,
-        "avg_usd": 19050,
-        "total_label": "$19k",
-        "avg_label": "$19k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 19050,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 2.24
         }
       }
     },
@@ -34066,6 +34579,33 @@
       }
     },
     {
+      "norm_name": "URSULA SCHULTZE-BLUHM",
+      "display_name": "Ursula Schultze-Bluhm",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17647,
+        "avg_usd": 17647,
+        "total_label": "$18k",
+        "avg_label": "$18k",
+        "top_lot": {
+          "title": "Schmetterlings-Nacht",
+          "hammer_usd": 17647,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Schmetterlings-Nacht",
+          "ratio": 1.26
+        }
+      }
+    },
+    {
       "norm_name": "NICOLAS SCHOFFER",
       "display_name": "Nicolas Schoffer",
       "dates": "",
@@ -34143,6 +34683,33 @@
         "top_ratio_lot": {
           "title": "Table Lamp",
           "ratio": 2.0
+        }
+      }
+    },
+    {
+      "norm_name": "EDUARD VON GRÜTZNER",
+      "display_name": "Eduard Von Grützner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16176,
+        "avg_usd": 16176,
+        "total_label": "$16k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Klosterbibliothek",
+          "hammer_usd": 16176,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Klosterbibliothek",
+          "ratio": 1.35
         }
       }
     },
@@ -34332,6 +34899,33 @@
         "top_ratio_lot": {
           "title": "Trompe l'œil with a bird in a cage, a hunting horn, calling ",
           "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "ANTHONY BURGESS",
+      "display_name": "Anthony Burgess",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "A Clockwork Orange. London, 1962, first edition, inscribed b",
+          "hammer_usd": 15240,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "A Clockwork Orange. London, 1962, first edition, inscribed b",
+          "ratio": 3.81
         }
       }
     },
@@ -34682,6 +35276,33 @@
         },
         "top_ratio_lot": {
           "title": "The Virgin in Glory with Saints Carlo Borromeo, Ignatius, Mi",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES BOSWELL",
+      "display_name": "James Boswell",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "The life of Samuel Johnson, 1791, 2 volumes, first edition o",
+          "hammer_usd": 13970,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "The life of Samuel Johnson, 1791, 2 volumes, first edition o",
           "ratio": 1.12
         }
       }
@@ -35173,6 +35794,60 @@
       }
     },
     {
+      "norm_name": "[FRYDERYK CHOPIN]—FRANZ LISZT",
+      "display_name": "[Fryderyk Chopin]—Franz Liszt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 10160,
+        "avg_usd": 10160,
+        "total_label": "$10k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "First edition of Liszt’s biography of Chopin, signed and ins",
+          "hammer_usd": 10160,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "First edition of Liszt’s biography of Chopin, signed and ins",
+          "ratio": 5.81
+        }
+      }
+    },
+    {
+      "norm_name": "STANLEY ROY BADMIN",
+      "display_name": "Stanley Roy Badmin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 10160,
+        "avg_usd": 3387,
+        "total_label": "$10k",
+        "avg_label": "$3k",
+        "top_lot": {
+          "title": "The Skaters, gouache",
+          "hammer_usd": 6985,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "The Skaters, gouache",
+          "ratio": 2.79
+        }
+      }
+    },
+    {
       "norm_name": "LARRY BELL",
       "display_name": "Larry Bell",
       "dates": "",
@@ -35331,6 +36006,33 @@
         "top_ratio_lot": {
           "title": "The Caravan",
           "ratio": 1.12
+        }
+      }
+    },
+    {
+      "norm_name": "DOROTHY CARLETON SMYTH",
+      "display_name": "Dorothy Carleton Smyth",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 9525,
+        "avg_usd": 9525,
+        "total_label": "$10k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "A series of 24 coloured designs for Rudyard Kipling",
+          "hammer_usd": 9525,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "A series of 24 coloured designs for Rudyard Kipling",
+          "ratio": 1.91
         }
       }
     },
@@ -35767,6 +36469,60 @@
       }
     },
     {
+      "norm_name": "BINDING—PAUL VALÉRY",
+      "display_name": "Binding—Paul Valéry",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6985,
+        "avg_usd": 6985,
+        "total_label": "$7k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Essai sur Stendhal, Paris, 1927, designer binding by Pierre ",
+          "hammer_usd": 6985,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Essai sur Stendhal, Paris, 1927, designer binding by Pierre ",
+          "ratio": 3.49
+        }
+      }
+    },
+    {
+      "norm_name": "COMPOSERS",
+      "display_name": "Composers",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6985,
+        "avg_usd": 6985,
+        "total_label": "$7k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Collection of printed first and early editions by Haydn, Str",
+          "hammer_usd": 6985,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Collection of printed first and early editions by Haydn, Str",
+          "ratio": 2.79
+        }
+      }
+    },
+    {
       "norm_name": "RENÉ AUGUSTE SEYSSAUD",
       "display_name": "René Auguste Seyssaud",
       "dates": "",
@@ -35952,6 +36708,33 @@
         "top_ratio_lot": {
           "title": "A sketch of a head",
           "ratio": 0.82
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN CAGE",
+      "display_name": "John Cage",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5715,
+        "avg_usd": 5715,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Autograph note signed, c. 1950",
+          "hammer_usd": 5715,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Autograph note signed, c. 1950",
+          "ratio": 4.57
         }
       }
     },
@@ -36334,6 +37117,33 @@
       }
     },
     {
+      "norm_name": "ARTHUR CONAN DOYLE",
+      "display_name": "Arthur Conan Doyle",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4445,
+        "avg_usd": 4445,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "The Hound of the Baskervilles, 1902, first edition of perhap",
+          "hammer_usd": 4445,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "The Hound of the Baskervilles, 1902, first edition of perhap",
+          "ratio": 2.54
+        }
+      }
+    },
+    {
       "norm_name": "AFTER JOSEPH CHINARD",
       "display_name": "After Joseph Chinard",
       "dates": "",
@@ -36438,6 +37248,87 @@
         "top_ratio_lot": {
           "title": "The Penitent Magdalene",
           "ratio": 0.58
+        }
+      }
+    },
+    {
+      "norm_name": "AUBREY BEARDSLEY",
+      "display_name": "Aubrey Beardsley",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4064,
+        "avg_usd": 4064,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "The Yellow Book, 1894-1897, 13 volumes, original cloth",
+          "hammer_usd": 4064,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "The Yellow Book, 1894-1897, 13 volumes, original cloth",
+          "ratio": 5.81
+        }
+      }
+    },
+    {
+      "norm_name": "BEEKEEPING",
+      "display_name": "Beekeeping",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3810,
+        "avg_usd": 3810,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "A group of four volumes",
+          "hammer_usd": 3810,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "A group of four volumes",
+          "ratio": 9.53
+        }
+      }
+    },
+    {
+      "norm_name": "HECTOR BERLIOZ",
+      "display_name": "Hector Berlioz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3810,
+        "avg_usd": 3810,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "First edition of the “Grande messe des morts”, signed and in",
+          "hammer_usd": 3810,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "First edition of the “Grande messe des morts”, signed and in",
+          "ratio": 1.09
         }
       }
     },
@@ -36631,6 +37522,33 @@
       }
     },
     {
+      "norm_name": "RUDOLPH ACKERMANN",
+      "display_name": "Rudolph Ackermann",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2794,
+        "avg_usd": 2794,
+        "total_label": "$3k",
+        "avg_label": "$3k",
+        "top_lot": {
+          "title": "A History of the University of Cambridge, 1815, 2 volumes, c",
+          "hammer_usd": 2794,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "A History of the University of Cambridge, 1815, 2 volumes, c",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "GEORG WILSON",
       "display_name": "Georg Wilson",
       "dates": "",
@@ -36712,6 +37630,141 @@
       }
     },
     {
+      "norm_name": "ARTHUR CHIDLEY",
+      "display_name": "Arthur Chidley",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2286,
+        "avg_usd": 2286,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Original illustration of a Vickers Type 170 Vanguard in Impe",
+          "hammer_usd": 2286,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Original illustration of a Vickers Type 170 Vanguard in Impe",
+          "ratio": 3.27
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN CRAXTON, R.A.",
+      "display_name": "John Craxton, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2286,
+        "avg_usd": 2286,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Winter Panorama",
+          "hammer_usd": 2286,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Winter Panorama",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "BINDING—ANGELA JAMES (BINDER) AND NIGEL DAVISON (ARTIST)",
+      "display_name": "Binding—Angela James (Binder) And Nigel Davison (Artist)",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2159,
+        "avg_usd": 2159,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Deluvio Noe, 1986, number 26 of 60 copies signed by the arti",
+          "hammer_usd": 2159,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Deluvio Noe, 1986, number 26 of 60 copies signed by the arti",
+          "ratio": 1.44
+        }
+      }
+    },
+    {
+      "norm_name": "FÉLIX BUHOT",
+      "display_name": "Félix Buhot",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2159,
+        "avg_usd": 2159,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Pluie et Parapluie",
+          "hammer_usd": 2159,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Pluie et Parapluie",
+          "ratio": 5.4
+        }
+      }
+    },
+    {
+      "norm_name": "ANTONÍN DVOŘÁK",
+      "display_name": "Antonín Dvořák",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2159,
+        "avg_usd": 2159,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Vocal score of the Requiem Mass inscribed by the composer to",
+          "hammer_usd": 2159,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Vocal score of the Requiem Mass inscribed by the composer to",
+          "ratio": 0.86
+        }
+      }
+    },
+    {
       "norm_name": "MAURICE-ALBERT LOUTREUIL",
       "display_name": "Maurice-Albert Loutreuil",
       "dates": "",
@@ -36739,6 +37792,114 @@
       }
     },
     {
+      "norm_name": "JOHN CROME",
+      "display_name": "John Crome",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2032,
+        "avg_usd": 2032,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Thirty-Two original etchings of views of Norfolk... with por",
+          "hammer_usd": 2032,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Thirty-Two original etchings of views of Norfolk... with por",
+          "ratio": 0.51
+        }
+      }
+    },
+    {
+      "norm_name": "NAUM ARONSON",
+      "display_name": "Naum Aronson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1778,
+        "avg_usd": 1778,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Ludwig van Beethoven",
+          "hammer_usd": 1778,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Ludwig van Beethoven",
+          "ratio": 2.74
+        }
+      }
+    },
+    {
+      "norm_name": "ANTIQUARIAN BOOKS",
+      "display_name": "Antiquarian Books",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1524,
+        "avg_usd": 1524,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Seven volumes",
+          "hammer_usd": 1524,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Seven volumes",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "ARCHITECTURE",
+      "display_name": "Architecture",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1524,
+        "avg_usd": 1524,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Three volumes",
+          "hammer_usd": 1524,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Three volumes",
+          "ratio": 0.61
+        }
+      }
+    },
+    {
       "norm_name": "NICOLÁS COLÓN",
       "display_name": "Nicolás Colón",
       "dates": "",
@@ -36762,6 +37923,249 @@
         "top_ratio_lot": {
           "title": "Minia (Ocotilán)",
           "ratio": 0.67
+        }
+      }
+    },
+    {
+      "norm_name": "STEVEN BONE",
+      "display_name": "Steven Bone",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1143,
+        "avg_usd": 1143,
+        "total_label": "$1k",
+        "avg_label": "$1k",
+        "top_lot": {
+          "title": "Yorkshire Coast by LNER",
+          "hammer_usd": 1143,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Yorkshire Coast by LNER",
+          "ratio": 1.14
+        }
+      }
+    },
+    {
+      "norm_name": "CYRIL CONNOLLY",
+      "display_name": "Cyril Connolly",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1143,
+        "avg_usd": 1143,
+        "total_label": "$1k",
+        "avg_label": "$1k",
+        "top_lot": {
+          "title": "Bond Strikes Camp, 1963, first separate book-form edition, n",
+          "hammer_usd": 1143,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Bond Strikes Camp, 1963, first separate book-form edition, n",
+          "ratio": 0.91
+        }
+      }
+    },
+    {
+      "norm_name": "BRITISH TOPOGRAPHY",
+      "display_name": "British Topography",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1016,
+        "avg_usd": 1016,
+        "total_label": "$1k",
+        "avg_label": "$1k",
+        "top_lot": {
+          "title": "A group of four works, 7 volumes in all",
+          "hammer_usd": 1016,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "A group of four works, 7 volumes in all",
+          "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "BOXING AND BALLET",
+      "display_name": "Boxing And Ballet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 889,
+        "avg_usd": 889,
+        "total_label": "$889",
+        "avg_label": "$889",
+        "top_lot": {
+          "title": "Postcard album of approx. 443 postcards, [with:] Gordon Anth",
+          "hammer_usd": 889,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Postcard album of approx. 443 postcards, [with:] Gordon Anth",
+          "ratio": 1.78
+        }
+      }
+    },
+    {
+      "norm_name": "ALBUM AMICORUM",
+      "display_name": "Album Amicorum",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 762,
+        "avg_usd": 762,
+        "total_label": "$762",
+        "avg_label": "$762",
+        "top_lot": {
+          "title": "Der Freundschaft gewidmet, 1779-1793, manuscript in German",
+          "hammer_usd": 762,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Der Freundschaft gewidmet, 1779-1793, manuscript in German",
+          "ratio": 0.61
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM HAVELL; WITH JOSEPH STANNARD AND HERMANUS VAN BRUSSEL",
+      "display_name": "William Havell; With Joseph Stannard And Hermanus Van Brussel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 635,
+        "avg_usd": 635,
+        "total_label": "$635",
+        "avg_label": "$635",
+        "top_lot": {
+          "title": "Study of Trees and Shrubs with Seated Figure; with Derelict ",
+          "hammer_usd": 635,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Study of Trees and Shrubs with Seated Figure; with Derelict ",
+          "ratio": 0.51
+        }
+      }
+    },
+    {
+      "norm_name": "RAYMOND C. BOOTH",
+      "display_name": "Raymond C. Booth",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 508,
+        "avg_usd": 508,
+        "total_label": "$508",
+        "avg_label": "$508",
+        "top_lot": {
+          "title": "Hilly Habitat of Lilium Auratum, pencil drawing",
+          "hammer_usd": 508,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Hilly Habitat of Lilium Auratum, pencil drawing",
+          "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "ABRAHAM BOSSE",
+      "display_name": "Abraham Bosse",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 254,
+        "avg_usd": 254,
+        "total_label": "$254",
+        "avg_label": "$254",
+        "top_lot": {
+          "title": "Death of the Rich Man (La Mort du mauvais riche), from La Pa",
+          "hammer_usd": 254,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "Death of the Rich Man (La Mort du mauvais riche), from La Pa",
+          "ratio": 2.03
+        }
+      }
+    },
+    {
+      "norm_name": "PETER BROOKES",
+      "display_name": "Peter Brookes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 254,
+        "avg_usd": 254,
+        "total_label": "$254",
+        "avg_label": "$254",
+        "top_lot": {
+          "title": "\"Barrow-in-Furness but cool as a cucumber with Shell\", origi",
+          "hammer_usd": 254,
+          "sale_name": "Shelf Life Books Manuscripts And Works On Paper From The Library Of Stanley J Seeger And Christopher Cone L26402"
+        },
+        "top_ratio_lot": {
+          "title": "\"Barrow-in-Furness but cool as a cucumber with Shell\", origi",
+          "ratio": 0.64
         }
       }
     },
