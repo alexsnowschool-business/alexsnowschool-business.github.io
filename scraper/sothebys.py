@@ -51,12 +51,38 @@ _NON_ART_BLOCKLIST = re.compile(
     re.IGNORECASE,
 )
 
-# Auction-level filter — skip entire sales whose URL slug signals non-art content
+# Auction-level blocklist — skip entire sales whose URL slug signals non-art content
 _NON_ART_SALE_RE = re.compile(
-    r"\b(wine|whisky|whiskey|jewelry|jewel|jewellery|watches?|nba|sports?|comics?|"
+    r"\b(wines?|whisky|whiskey|jewelry|jewel|jewellery|watches?|nba|sports?|comics?|"
     r"handbag|spirits|cognac|champagne|bordeaux|burgundy|tequila|automobile|napa|"
-    r"macallan|cask|sneaker|collectible|numismatic|coin|medal|stamp|natural-history|"
-    r"science|space|entertainment|pop-culture|streetwear|fashion|luxury-accessories)\b",
+    r"macallan|cask|sneaker|collectible|numismatic|coin|medal|stamp|natural.history|"
+    r"science|space|entertainment|pop.culture|streetwear|fashion|luxury.accessories|"
+    r"clock|barometer|instrument|silver|real.estate|gold.box|"
+    r"history.of.science|popular.culture|sports.memorabilia|sneakers)\b",
+    re.IGNORECASE,
+)
+
+# Auction-level allowlist — Sotheby's official art department slugs.
+# A sale must match at least one keyword here (after passing the blocklist) to be scraped.
+# Derived from: Contemporary Art, Impressionist & Modern Art, Old Master Paintings/Drawings,
+# Prints, Photographs, Sculpture, 19th/20th C. European, African, Asian, Chinese, Japanese,
+# Indian, Himalayan, Islamic, Latin American, Russian, Aboriginal, Pre-Columbian, Digital Art,
+# Middle East, Southeast Asian, British/Irish, Czech, Swiss, Canadian, Dutch, Belgian,
+# Italian, Spanish, German/Austrian, Orientalist, Decorative Arts, Manuscripts, Judaica, etc.
+_ART_SALE_ALLOWLIST = re.compile(
+    r"\b("
+    r"paint(?:ing)?s?|drawings?|prints?|multiples|photographs?|photography|"
+    r"sculpt(?:ure)?s?|watercolou?rs?|ceramics?|porcelain|gouache|etchings?|"
+    r"old[\-_]?master|works[\-_]?on[\-_]?paper|works[\-_]?of[\-_]?art|"
+    r"pre[\-_]?raphaelite|pre[\-_]?columbian|"
+    r"contemporary|impressionist|surreali\w*|abstract\w*|baroque|renaissance|"
+    r"african|oceanic|aboriginal|asian|chinese|japanese|korean|himalayan|"
+    r"islamic|judaica|orientali\w*|latin|southeast[\-_]?asian|"
+    r"russian|canadian|swiss|czech|dutch|belgian|italian|spanish|"
+    r"german|austrian|british|irish|european|american|indian|"
+    r"manuscript|digital|decorative|modern|design|"
+    r"\bart\b"
+    r")",
     re.IGNORECASE,
 )
 
@@ -94,6 +120,8 @@ query AuctionLots($auctionId: String!, $take: Int!, $skip: Int!) {
       creatorsDisplayTitle
       title
       url
+      closedAt
+      endDate
       estimates { low high }
     }
   }
@@ -159,8 +187,20 @@ def _best_image_from_cache(cache: dict) -> str | None:
     return None
 
 
+_ISO_DATE_RE = re.compile(r"(\d{4}-\d{2}-\d{2})")
+
+
+def _parse_iso_date(value: str | None) -> str | None:
+    """Return YYYY-MM-DD from an ISO timestamp, or None."""
+    if not value:
+        return None
+    m = _ISO_DATE_RE.search(str(value))
+    return m.group(1) if m else None
+
+
 def _extract_lot_data_from_cache(cache: dict) -> dict:
-    result = {"hammer": None, "image": None, "medium": None, "provenance": None, "year": None}
+    result = {"hammer": None, "image": None, "medium": None, "provenance": None,
+              "year": None, "closed_at": None}
 
     bid_key = next((k for k in cache if k.startswith("BidState:")), None)
     if bid_key:
@@ -172,6 +212,10 @@ def _extract_lot_data_from_cache(cache: dict) -> dict:
                     result["hammer"] = float(bid_ask)
                 except (TypeError, ValueError):
                     pass
+        # closedAt / endDate live on BidState in the Apollo cache
+        result["closed_at"] = _parse_iso_date(
+            bid.get("closedAt") or bid.get("endDate") or bid.get("closeDate")
+        )
 
     result["image"] = _best_image_from_cache(cache)
 
@@ -257,6 +301,10 @@ async def _discover_auctions(
                 tqdm.write(f"  skip non-art: {slug}")
                 continue
 
+            if not _ART_SALE_ALLOWLIST.search(slug):
+                tqdm.write(f"  skip unknown category: {slug}")
+                continue
+
             seen.add(key)
             auction_url = f"/en/buy/auction/{year}/{slug}"
             result.append((year, slug, auction_url))
@@ -328,6 +376,14 @@ def _parse_lot(raw: dict, details: dict, sale_name: str, currency: str, year: st
     est_hi = est.get("high")
     hammer = details.get("hammer")
 
+    # Prefer exact lot-close date; fall back to auction year from URL slug.
+    # Sources in priority order: GQL closedAt/endDate fields, Apollo BidState.
+    sale_date = (
+        _parse_iso_date(raw.get("closedAt") or raw.get("endDate"))
+        or details.get("closed_at")
+        or year
+    )
+
     lot_url = raw.get("url") or ""
     if lot_url and not lot_url.startswith("http"):
         lot_url = BASE_URL + lot_url
@@ -343,10 +399,7 @@ def _parse_lot(raw: dict, details: dict, sale_name: str, currency: str, year: st
         "year_created":    details.get("year"),
         "lot_number":      str(raw.get("lotNr") or ""),
         "sale_name":       sale_name,
-        # Sotheby's GraphQL lot list doesn't expose an exact per-lot sale date;
-        # `year` (from the auction URL /en/buy/auction/{year}/{slug}) is the best
-        # signal available without an extra request. Coarse (year-only), not exact.
-        "sale_date":       year,
+        "sale_date":       sale_date,
         "estimate_low":    float(est_lo) if est_lo else None,
         "estimate_high":   float(est_hi) if est_hi else None,
         "hammer_price":    hammer,
