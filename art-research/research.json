@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 2920,
-    "total_artists": 1077,
-    "median_hammer_usd": 120650,
-    "pct_above_estimate": 48.6,
+    "total_lots": 2970,
+    "total_artists": 1099,
+    "median_hammer_usd": 119850,
+    "pct_above_estimate": 48.7,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-08"
+    "generated_at": "2026-07-09"
   },
   "artists": [
     {
@@ -174,11 +174,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 20,
-        "total_usd": 63443000,
-        "avg_usd": 3172150,
-        "total_label": "$63.44M",
-        "avg_label": "$3.17M",
+        "lot_count": 21,
+        "total_usd": 63473000,
+        "avg_usd": 3022524,
+        "total_label": "$63.47M",
+        "avg_label": "$3.02M",
         "top_lot": {
           "title": "Noon",
           "hammer_usd": 20800000,
@@ -901,11 +901,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 6,
-        "total_usd": 25800056,
-        "avg_usd": 4300009,
-        "total_label": "$25.80M",
-        "avg_label": "$4.30M",
+        "lot_count": 7,
+        "total_usd": 25980056,
+        "avg_usd": 3711437,
+        "total_label": "$25.98M",
+        "avg_label": "$3.71M",
         "top_lot": {
           "title": "Concetto spaziale, La fine di Dio",
           "hammer_usd": 20000000,
@@ -1073,11 +1073,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 67,
-        "total_usd": 22461949,
-        "avg_usd": 335253,
-        "total_label": "$22.46M",
-        "avg_label": "$335k",
+        "lot_count": 70,
+        "total_usd": 23061949,
+        "avg_usd": 329456,
+        "total_label": "$23.06M",
+        "avg_label": "$329k",
         "top_lot": {
           "title": "Bethsabée",
           "hammer_usd": 4500000,
@@ -2043,6 +2043,60 @@
       }
     },
     {
+      "norm_name": "FRANTIŠEK KUPKA",
+      "display_name": "František Kupka",
+      "dates": "1871–1957",
+      "nationality": "Czech-French",
+      "movement": "Abstraction · Orphism",
+      "movement_id": "modernism",
+      "bio": "František Kupka was one of the earliest pioneers of pure abstraction in European painting, a Czech-born artist working in Paris whose colour compositions of the 1910s anticipated much of what would later be celebrated as Abstract Expressionism. Born in Opočno, Bohemia, he trained in Prague and Vienna before settling permanently in Paris in 1895, supporting himself initially as an illustrator for journals including L'Assiette au beurre while developing his philosophical and spiritual investigations into colour and form.\n\nKupka's path to abstraction was rooted in his deep interest in music, theosophy, and the physics of light — he believed that colour vibrations could induce spiritual states analogous to musical experience. His Amorpha: Fugue in Two Colours (1912), exhibited at the Salon d'Automne, is among the first fully non-representational paintings shown publicly in Europe, predating Kandinsky's Compositions and Mondrian's grids. His subsequent series — Disques de Newton, Plans par couleurs, Vertical and Diagonal Planes — explore rhythm, chromatic interval, and spatial recession through abstract formal vocabulary of remarkable originality.\n\nKupka remained relatively marginal during his lifetime, overshadowed by the Cubists and later the Abstract Expressionists, but has been substantially reassessed since the 1970s as a founding figure of geometric and lyrical abstraction. His work commands significant prices in the Czech and broader European market.",
+      "famous_works": [
+        {
+          "title": "Amorpha: Fugue in Two Colours",
+          "year": "1912",
+          "notes": "One of the first fully abstract paintings exhibited publicly in Europe, shown at the 1912 Salon d'Automne."
+        },
+        {
+          "title": "Disques de Newton: Étude pour Fugue à deux couleurs",
+          "year": "1911–1912",
+          "notes": "A study in rotating colour discs that anticipated Op Art by half a century."
+        },
+        {
+          "title": "Vertical Planes in Blue and Red",
+          "year": "1913",
+          "notes": "A pure geometric abstraction demonstrating his parallel engagement with music theory and colour physics."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The First Step",
+          "year": "1909–1913",
+          "notes": "A transitional work moving from rounded organic forms toward the flat planes of his mature abstract language."
+        },
+        {
+          "title": "Planes by Colours, Large Nude",
+          "year": "1909–1910",
+          "notes": "An extraordinary study dissolving a female figure into stacked colour planes, showing abstraction emerging directly from the figurative tradition."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 9460000,
+        "avg_usd": 3153333,
+        "total_label": "$9.46M",
+        "avg_label": "$3.15M",
+        "top_lot": {
+          "title": "Flux et reflux",
+          "hammer_usd": 5000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Étude pour Amorpha (recto; verso)",
+          "ratio": 2.4
+        }
+      }
+    },
+    {
       "norm_name": "WASSILY KANDINSKY",
       "display_name": "Wassily Kandinsky",
       "dates": "1866–1944",
@@ -2093,60 +2147,6 @@
         "top_ratio_lot": {
           "title": "Villa Seeburg am Staffelsee",
           "ratio": 3.13
-        }
-      }
-    },
-    {
-      "norm_name": "FRANTIŠEK KUPKA",
-      "display_name": "František Kupka",
-      "dates": "1871–1957",
-      "nationality": "Czech-French",
-      "movement": "Abstraction · Orphism",
-      "movement_id": "modernism",
-      "bio": "František Kupka was one of the earliest pioneers of pure abstraction in European painting, a Czech-born artist working in Paris whose colour compositions of the 1910s anticipated much of what would later be celebrated as Abstract Expressionism. Born in Opočno, Bohemia, he trained in Prague and Vienna before settling permanently in Paris in 1895, supporting himself initially as an illustrator for journals including L'Assiette au beurre while developing his philosophical and spiritual investigations into colour and form.\n\nKupka's path to abstraction was rooted in his deep interest in music, theosophy, and the physics of light — he believed that colour vibrations could induce spiritual states analogous to musical experience. His Amorpha: Fugue in Two Colours (1912), exhibited at the Salon d'Automne, is among the first fully non-representational paintings shown publicly in Europe, predating Kandinsky's Compositions and Mondrian's grids. His subsequent series — Disques de Newton, Plans par couleurs, Vertical and Diagonal Planes — explore rhythm, chromatic interval, and spatial recession through abstract formal vocabulary of remarkable originality.\n\nKupka remained relatively marginal during his lifetime, overshadowed by the Cubists and later the Abstract Expressionists, but has been substantially reassessed since the 1970s as a founding figure of geometric and lyrical abstraction. His work commands significant prices in the Czech and broader European market.",
-      "famous_works": [
-        {
-          "title": "Amorpha: Fugue in Two Colours",
-          "year": "1912",
-          "notes": "One of the first fully abstract paintings exhibited publicly in Europe, shown at the 1912 Salon d'Automne."
-        },
-        {
-          "title": "Disques de Newton: Étude pour Fugue à deux couleurs",
-          "year": "1911–1912",
-          "notes": "A study in rotating colour discs that anticipated Op Art by half a century."
-        },
-        {
-          "title": "Vertical Planes in Blue and Red",
-          "year": "1913",
-          "notes": "A pure geometric abstraction demonstrating his parallel engagement with music theory and colour physics."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The First Step",
-          "year": "1909–1913",
-          "notes": "A transitional work moving from rounded organic forms toward the flat planes of his mature abstract language."
-        },
-        {
-          "title": "Planes by Colours, Large Nude",
-          "year": "1909–1910",
-          "notes": "An extraordinary study dissolving a female figure into stacked colour planes, showing abstraction emerging directly from the figurative tradition."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 9400000,
-        "avg_usd": 4700000,
-        "total_label": "$9.40M",
-        "avg_label": "$4.70M",
-        "top_lot": {
-          "title": "Flux et reflux",
-          "hammer_usd": 5000000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Flux et reflux",
-          "ratio": 1.25
         }
       }
     },
@@ -2490,6 +2490,65 @@
       }
     },
     {
+      "norm_name": "HENRI MATISSE",
+      "display_name": "Henri Matisse",
+      "dates": "1869–1954",
+      "nationality": "French",
+      "movement": "Fauvism · Modernism · Decoration",
+      "movement_id": "modernism",
+      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
+      "famous_works": [
+        {
+          "title": "La Joie de vivre",
+          "year": "1906",
+          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
+        },
+        {
+          "title": "Dance (II)",
+          "year": "1910",
+          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
+        },
+        {
+          "title": "The Swimming Pool",
+          "year": "1952",
+          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Moroccans",
+          "year": "1915–16",
+          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
+        },
+        {
+          "title": "Piano Lesson",
+          "year": "1916",
+          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
+        },
+        {
+          "title": "Bathers by a River",
+          "year": "1909–16",
+          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
+        }
+      ],
+      "dataset": {
+        "lot_count": 16,
+        "total_usd": 7558951,
+        "avg_usd": 472434,
+        "total_label": "$7.56M",
+        "avg_label": "$472k",
+        "top_lot": {
+          "title": "Henriette, robe jaune",
+          "hammer_usd": 1405200,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Henriette, robe jaune",
+          "ratio": 3.51
+        }
+      }
+    },
+    {
       "norm_name": "CHU TEH-CHUN",
       "display_name": "Chu Teh-Chun",
       "dates": "1920–2014",
@@ -2540,65 +2599,6 @@
         "top_ratio_lot": {
           "title": "Lointains spirituels 心靈的遠方",
           "ratio": 0.96
-        }
-      }
-    },
-    {
-      "norm_name": "HENRI MATISSE",
-      "display_name": "Henri Matisse",
-      "dates": "1869–1954",
-      "nationality": "French",
-      "movement": "Fauvism · Modernism · Decoration",
-      "movement_id": "modernism",
-      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
-      "famous_works": [
-        {
-          "title": "La Joie de vivre",
-          "year": "1906",
-          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
-        },
-        {
-          "title": "Dance (II)",
-          "year": "1910",
-          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
-        },
-        {
-          "title": "The Swimming Pool",
-          "year": "1952",
-          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Moroccans",
-          "year": "1915–16",
-          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
-        },
-        {
-          "title": "Piano Lesson",
-          "year": "1916",
-          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
-        },
-        {
-          "title": "Bathers by a River",
-          "year": "1909–16",
-          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
-        }
-      ],
-      "dataset": {
-        "lot_count": 15,
-        "total_usd": 7428951,
-        "avg_usd": 495263,
-        "total_label": "$7.43M",
-        "avg_label": "$495k",
-        "top_lot": {
-          "title": "Henriette, robe jaune",
-          "hammer_usd": 1405200,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Henriette, robe jaune",
-          "ratio": 3.51
         }
       }
     },
@@ -4125,6 +4125,60 @@
       }
     },
     {
+      "norm_name": "AUGUSTE RODIN",
+      "display_name": "Auguste Rodin",
+      "dates": "1840–1917",
+      "nationality": "French",
+      "movement": "Modernism · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Auguste Rodin was born in Paris in 1840 and spent his early career working as a decorative craftsman, having been rejected three times by the École des Beaux-Arts. A visit to Italy in 1875 transformed his understanding of figure sculpture through his encounter with the work of Michelangelo, and the full-scale figure he produced on his return — The Age of Bronze — was so anatomically accurate that he was accused of casting from a live model. The controversy established him as a radical presence within the French sculpture establishment.\n\nRodin's working method was itself revolutionary: he did not carve but modelled, and he insisted on the fragment — the headless torso, the disembodied hand — as a legitimate subject rather than a failure of completion. His surfaces preserve the mark of the modelling process, embracing accident and the trace of creative struggle as expressive content. The Gates of Hell, commissioned in 1880 and worked on for the rest of his life, served as a laboratory for most of his major figures; The Thinker, The Kiss, and numerous others were conceived as components of this monumental threshold before achieving independent life.\n\nRodin attracted both devotion and scandal throughout his career, most notably with his Monument to Balzac, rejected by the commissioning body for its uncompromising abstraction of the writer's bulky form. He employed numerous studio assistants, including Camille Claudel, with whom he had an intense and professionally formative relationship. The Musée Rodin in Paris, established during his lifetime, holds the definitive collection of his work.",
+      "famous_works": [
+        {
+          "title": "The Thinker",
+          "year": "1880–1882",
+          "notes": "Originally conceived as a figure of Dante for The Gates of Hell, The Thinker became the twentieth century's most recognisable image of intellectual contemplation."
+        },
+        {
+          "title": "The Burghers of Calais",
+          "year": "1889",
+          "notes": "A monument to six medieval civic heroes facing death, revolutionary in its placement of the figures at ground level and its refusal of heroic idealisation."
+        },
+        {
+          "title": "The Kiss",
+          "year": "1888–1889",
+          "notes": "A marble group depicting the forbidden embrace of Paolo and Francesca from Dante's Inferno, which became an iconic image of romantic love."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Iris, Messenger of the Gods",
+          "year": "1890–1891",
+          "notes": "A headless, spread-eagled bronze figure of aggressive sexual explicitness that demonstrates the transgressive energy concealed within Rodin's more celebrated works."
+        },
+        {
+          "title": "The Walking Man",
+          "year": "1900–1907",
+          "notes": "A headless, armless figure in the act of walking that anticipates twentieth-century concerns with the body as pure movement and mass rather than individual expression."
+        }
+      ],
+      "dataset": {
+        "lot_count": 15,
+        "total_usd": 5282039,
+        "avg_usd": 352136,
+        "total_label": "$5.28M",
+        "avg_label": "$352k",
+        "top_lot": {
+          "title": "Adam, taille originale dit aussi \"Grand modèle\"",
+          "hammer_usd": 2772500,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Femme au pyjama entrouvert",
+          "ratio": 4.0
+        }
+      }
+    },
+    {
       "norm_name": "GEORG BASELITZ",
       "display_name": "Georg Baselitz",
       "dates": "b. 1938",
@@ -4175,60 +4229,6 @@
         "top_ratio_lot": {
           "title": "Enddesign",
           "ratio": 2.01
-        }
-      }
-    },
-    {
-      "norm_name": "AUGUSTE RODIN",
-      "display_name": "Auguste Rodin",
-      "dates": "1840–1917",
-      "nationality": "French",
-      "movement": "Modernism · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Auguste Rodin was born in Paris in 1840 and spent his early career working as a decorative craftsman, having been rejected three times by the École des Beaux-Arts. A visit to Italy in 1875 transformed his understanding of figure sculpture through his encounter with the work of Michelangelo, and the full-scale figure he produced on his return — The Age of Bronze — was so anatomically accurate that he was accused of casting from a live model. The controversy established him as a radical presence within the French sculpture establishment.\n\nRodin's working method was itself revolutionary: he did not carve but modelled, and he insisted on the fragment — the headless torso, the disembodied hand — as a legitimate subject rather than a failure of completion. His surfaces preserve the mark of the modelling process, embracing accident and the trace of creative struggle as expressive content. The Gates of Hell, commissioned in 1880 and worked on for the rest of his life, served as a laboratory for most of his major figures; The Thinker, The Kiss, and numerous others were conceived as components of this monumental threshold before achieving independent life.\n\nRodin attracted both devotion and scandal throughout his career, most notably with his Monument to Balzac, rejected by the commissioning body for its uncompromising abstraction of the writer's bulky form. He employed numerous studio assistants, including Camille Claudel, with whom he had an intense and professionally formative relationship. The Musée Rodin in Paris, established during his lifetime, holds the definitive collection of his work.",
-      "famous_works": [
-        {
-          "title": "The Thinker",
-          "year": "1880–1882",
-          "notes": "Originally conceived as a figure of Dante for The Gates of Hell, The Thinker became the twentieth century's most recognisable image of intellectual contemplation."
-        },
-        {
-          "title": "The Burghers of Calais",
-          "year": "1889",
-          "notes": "A monument to six medieval civic heroes facing death, revolutionary in its placement of the figures at ground level and its refusal of heroic idealisation."
-        },
-        {
-          "title": "The Kiss",
-          "year": "1888–1889",
-          "notes": "A marble group depicting the forbidden embrace of Paolo and Francesca from Dante's Inferno, which became an iconic image of romantic love."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Iris, Messenger of the Gods",
-          "year": "1890–1891",
-          "notes": "A headless, spread-eagled bronze figure of aggressive sexual explicitness that demonstrates the transgressive energy concealed within Rodin's more celebrated works."
-        },
-        {
-          "title": "The Walking Man",
-          "year": "1900–1907",
-          "notes": "A headless, armless figure in the act of walking that anticipates twentieth-century concerns with the body as pure movement and mass rather than individual expression."
-        }
-      ],
-      "dataset": {
-        "lot_count": 14,
-        "total_usd": 5212039,
-        "avg_usd": 372288,
-        "total_label": "$5.21M",
-        "avg_label": "$372k",
-        "top_lot": {
-          "title": "Adam, taille originale dit aussi \"Grand modèle\"",
-          "hammer_usd": 2772500,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Adam, taille originale dit aussi \"Grand modèle\"",
-          "ratio": 3.26
         }
       }
     },
@@ -4734,6 +4734,60 @@
       }
     },
     {
+      "norm_name": "HANS HARTUNG",
+      "display_name": "Hans Hartung",
+      "dates": "1904–1989",
+      "nationality": "French-German",
+      "movement": "Lyrical Abstraction · Tachisme",
+      "movement_id": "abstract-expressionism",
+      "bio": "Hans Hartung was one of the pioneers of European gestural abstraction and among the earliest painters to develop a purely non-representational mark-making practice, a Dresden-born artist who settled in Paris and became a central figure of the postwar École de Paris. His black gestural marks — energetic, calligraphic, seemingly spontaneous — on grounds of ochre, blue, or warm grey are among the most immediately recognisable works in the lyrical abstraction tradition.\n\nHartung's path to abstraction began extraordinarily early: his childhood watercolours of the 1920s already display the scratchy, impulsive marks that would define his mature work, and he later claimed that his style was essentially formed before any significant exposure to the European avant-garde. Influenced by Rembrandt's late drawings and by the Expressionist generation of Nolde and Kirchner, he moved through figuration into increasingly abstract work through the 1930s, working in near-isolation and poverty — he fought in the French Foreign Legion during the Second World War and lost a leg at the Liberation, a trauma that only deepened his commitment to mark-making as a direct physical and psychic release.\n\nAfter the war Hartung received rapid critical recognition in Paris, exhibiting with Pierre Loeb and winning the Grand Prize at the 1960 Venice Biennale. His late works, made in the 1980s after he had lost the use of both legs, used a reversed tractor tyre, branches, and spray guns to create works of unexpected raw energy. His studio in Antibes, where he died, became the Fondation Hartung-Bergman.",
+      "famous_works": [
+        {
+          "title": "T1963-R22",
+          "year": "1963",
+          "notes": "A canonical work in his T (for tableau) series in which black gestural marks cascade across a warm grey-gold ground."
+        },
+        {
+          "title": "T1948-31",
+          "year": "1948",
+          "notes": "An early postwar work in which yellow-ochre grounds support freely drawn black marks, establishing the visual language of his mature output."
+        },
+        {
+          "title": "P1973-H22",
+          "year": "1973",
+          "notes": "A large-format work demonstrating his late expansion of scale and the integration of spray techniques with his signature drawn marks."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Aquarelle",
+          "year": "1922",
+          "notes": "A childhood watercolour from Dresden already displaying the scratchy gestural vocabulary of his mature abstraction."
+        },
+        {
+          "title": "T1960-H44",
+          "year": "1960",
+          "notes": "A Venice Biennale prize-year work in which his compositional organisation of the picture field reaches a peak of authoritative resolution."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 4384645,
+        "avg_usd": 876929,
+        "total_label": "$4.38M",
+        "avg_label": "$877k",
+        "top_lot": {
+          "title": "Hans Hartung 漢斯・哈同 | T1975-R25",
+          "hammer_usd": 2400000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.79
+        }
+      }
+    },
+    {
       "norm_name": "SAM GILLIAM",
       "display_name": "Sam Gilliam",
       "dates": "1933–2022",
@@ -4784,60 +4838,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 2.1
-        }
-      }
-    },
-    {
-      "norm_name": "HANS HARTUNG",
-      "display_name": "Hans Hartung",
-      "dates": "1904–1989",
-      "nationality": "French-German",
-      "movement": "Lyrical Abstraction · Tachisme",
-      "movement_id": "abstract-expressionism",
-      "bio": "Hans Hartung was one of the pioneers of European gestural abstraction and among the earliest painters to develop a purely non-representational mark-making practice, a Dresden-born artist who settled in Paris and became a central figure of the postwar École de Paris. His black gestural marks — energetic, calligraphic, seemingly spontaneous — on grounds of ochre, blue, or warm grey are among the most immediately recognisable works in the lyrical abstraction tradition.\n\nHartung's path to abstraction began extraordinarily early: his childhood watercolours of the 1920s already display the scratchy, impulsive marks that would define his mature work, and he later claimed that his style was essentially formed before any significant exposure to the European avant-garde. Influenced by Rembrandt's late drawings and by the Expressionist generation of Nolde and Kirchner, he moved through figuration into increasingly abstract work through the 1930s, working in near-isolation and poverty — he fought in the French Foreign Legion during the Second World War and lost a leg at the Liberation, a trauma that only deepened his commitment to mark-making as a direct physical and psychic release.\n\nAfter the war Hartung received rapid critical recognition in Paris, exhibiting with Pierre Loeb and winning the Grand Prize at the 1960 Venice Biennale. His late works, made in the 1980s after he had lost the use of both legs, used a reversed tractor tyre, branches, and spray guns to create works of unexpected raw energy. His studio in Antibes, where he died, became the Fondation Hartung-Bergman.",
-      "famous_works": [
-        {
-          "title": "T1963-R22",
-          "year": "1963",
-          "notes": "A canonical work in his T (for tableau) series in which black gestural marks cascade across a warm grey-gold ground."
-        },
-        {
-          "title": "T1948-31",
-          "year": "1948",
-          "notes": "An early postwar work in which yellow-ochre grounds support freely drawn black marks, establishing the visual language of his mature output."
-        },
-        {
-          "title": "P1973-H22",
-          "year": "1973",
-          "notes": "A large-format work demonstrating his late expansion of scale and the integration of spray techniques with his signature drawn marks."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Aquarelle",
-          "year": "1922",
-          "notes": "A childhood watercolour from Dresden already displaying the scratchy gestural vocabulary of his mature abstraction."
-        },
-        {
-          "title": "T1960-H44",
-          "year": "1960",
-          "notes": "A Venice Biennale prize-year work in which his compositional organisation of the picture field reaches a peak of authoritative resolution."
-        }
-      ],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 4360645,
-        "avg_usd": 1090161,
-        "total_label": "$4.36M",
-        "avg_label": "$1.09M",
-        "top_lot": {
-          "title": "Hans Hartung 漢斯・哈同 | T1975-R25",
-          "hammer_usd": 2400000,
-          "sale_name": "Modern Day Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.79
         }
       }
     },
@@ -5058,6 +5058,60 @@
       }
     },
     {
+      "norm_name": "JEAN DUBUFFET",
+      "display_name": "Jean Dubuffet",
+      "dates": "1901–1985",
+      "nationality": "French",
+      "movement": "Art Brut · Contemporary",
+      "movement_id": "contemporary",
+      "bio": "Jean Dubuffet was born in Le Havre in 1901 and arrived in Paris in 1918, entering the Académie Julian but quickly abandoning formal art education. He spent years working in his family's wine business before committing fully to painting in his forties — a late start that paradoxically gave his practice an independence from contemporary fashions that those trained in art schools often lack. He became the most radical primitivist in twentieth-century art and the theorist and collector of Art Brut.\n\nDubuffet's work, beginning in the mid-1940s, deliberately sought to escape the refinements of Western high culture by working with crude materials — gravel, sand, coal dust, tar — and by developing a drawing style that mimicked the untrained mark-making of children, the mentally ill, and outsider creators. He coined the term 'Art Brut' (raw art) for work made outside cultural conventions, amassing a collection of several thousand works that is now housed at the Collection de l'Art Brut in Lausanne.\n\nDubuffet's own painting moved through numerous phases: the Hautes Pâtes (thick paste) works, the Hourloupe cycle of the 1960s–70s (red, blue, white, and black puzzle-like forms derived from telephone doodles), and late large-scale theatre and sculpture projects. He remains among the most consequential and provocative artists of the post-war period, and his influence on subsequent generations of artists interested in the primitive, the outsider, and the anti-aesthetic is profound.",
+      "famous_works": [
+        {
+          "title": "Corps de Dame",
+          "year": "1950",
+          "notes": "A series of paintings of the female body in which the figure is rendered in thick, crude paste with a deliberate anti-aesthetic brutality that attacks conventional beauty standards."
+        },
+        {
+          "title": "The Busy Life",
+          "year": "1953",
+          "notes": "A dense, primitive urban scene in which Paris pedestrian life is depicted in the flat, graffiti-like manner Dubuffet developed from children's drawing and urban wall art."
+        },
+        {
+          "title": "Pissing Figure (Hourloupe)",
+          "year": "1972",
+          "notes": "A large Hourloupe-cycle painting in which the red, blue, and white puzzle-forms create a complex figure within a visual system that denies both illusion and conventional form."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Minuit Hurlant (Howling Midnight)",
+          "year": "1944",
+          "notes": "An early work demonstrating Dubuffet's initial move toward primitive figuration before the development of the dense material surfaces of his mature Hautes Pâtes period."
+        },
+        {
+          "title": "Coucou Bazar",
+          "year": "1973",
+          "notes": "A theatrical event involving performers in Hourloupe-costumed interaction with Hourloupe stage elements, extending the visual system into time and performance."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 4052498,
+        "avg_usd": 506562,
+        "total_label": "$4.05M",
+        "avg_label": "$507k",
+        "top_lot": {
+          "title": "L'Après-midi chômé",
+          "hammer_usd": 1950000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Robinet",
+          "ratio": 7.5
+        }
+      }
+    },
+    {
       "norm_name": "SHARA HUGHES",
       "display_name": "Shara Hughes",
       "dates": "b. 1981",
@@ -5108,60 +5162,6 @@
         "top_ratio_lot": {
           "title": "Heart Throb",
           "ratio": 0.97
-        }
-      }
-    },
-    {
-      "norm_name": "JEAN DUBUFFET",
-      "display_name": "Jean Dubuffet",
-      "dates": "1901–1985",
-      "nationality": "French",
-      "movement": "Art Brut · Contemporary",
-      "movement_id": "contemporary",
-      "bio": "Jean Dubuffet was born in Le Havre in 1901 and arrived in Paris in 1918, entering the Académie Julian but quickly abandoning formal art education. He spent years working in his family's wine business before committing fully to painting in his forties — a late start that paradoxically gave his practice an independence from contemporary fashions that those trained in art schools often lack. He became the most radical primitivist in twentieth-century art and the theorist and collector of Art Brut.\n\nDubuffet's work, beginning in the mid-1940s, deliberately sought to escape the refinements of Western high culture by working with crude materials — gravel, sand, coal dust, tar — and by developing a drawing style that mimicked the untrained mark-making of children, the mentally ill, and outsider creators. He coined the term 'Art Brut' (raw art) for work made outside cultural conventions, amassing a collection of several thousand works that is now housed at the Collection de l'Art Brut in Lausanne.\n\nDubuffet's own painting moved through numerous phases: the Hautes Pâtes (thick paste) works, the Hourloupe cycle of the 1960s–70s (red, blue, white, and black puzzle-like forms derived from telephone doodles), and late large-scale theatre and sculpture projects. He remains among the most consequential and provocative artists of the post-war period, and his influence on subsequent generations of artists interested in the primitive, the outsider, and the anti-aesthetic is profound.",
-      "famous_works": [
-        {
-          "title": "Corps de Dame",
-          "year": "1950",
-          "notes": "A series of paintings of the female body in which the figure is rendered in thick, crude paste with a deliberate anti-aesthetic brutality that attacks conventional beauty standards."
-        },
-        {
-          "title": "The Busy Life",
-          "year": "1953",
-          "notes": "A dense, primitive urban scene in which Paris pedestrian life is depicted in the flat, graffiti-like manner Dubuffet developed from children's drawing and urban wall art."
-        },
-        {
-          "title": "Pissing Figure (Hourloupe)",
-          "year": "1972",
-          "notes": "A large Hourloupe-cycle painting in which the red, blue, and white puzzle-forms create a complex figure within a visual system that denies both illusion and conventional form."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Minuit Hurlant (Howling Midnight)",
-          "year": "1944",
-          "notes": "An early work demonstrating Dubuffet's initial move toward primitive figuration before the development of the dense material surfaces of his mature Hautes Pâtes period."
-        },
-        {
-          "title": "Coucou Bazar",
-          "year": "1973",
-          "notes": "A theatrical event involving performers in Hourloupe-costumed interaction with Hourloupe stage elements, extending the visual system into time and performance."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 4010498,
-        "avg_usd": 572928,
-        "total_label": "$4.01M",
-        "avg_label": "$573k",
-        "top_lot": {
-          "title": "L'Après-midi chômé",
-          "hammer_usd": 1950000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Robinet",
-          "ratio": 7.5
         }
       }
     },
@@ -8402,6 +8402,60 @@
       }
     },
     {
+      "norm_name": "ETEL ADNAN",
+      "display_name": "Etel Adnan",
+      "dates": "1925–2021",
+      "nationality": "Lebanese-American",
+      "movement": "Contemporary · Modernism",
+      "movement_id": "contemporary",
+      "bio": "Etel Adnan was born in Beirut in 1925, the daughter of a Greek mother and Syrian father, and grew up speaking Greek and Turkish, learning French and English later, and Arabic still later — a linguistic multiplicity that was formative for a writer and artist whose entire practice engages the relationship between language, image, and the experience of displacement. She studied philosophy at the Sorbonne in Paris and at Harvard before returning to the Arab world as a teacher and journalist.\n\nAdnan came to visual art relatively late, developing in the 1960s the leporello format — folded accordion-book paintings — that became her primary visual medium alongside poetry and prose. These small, jewel-like works contain simple geometric forms — circles, triangles, rectangles — in areas of pure, luminous colour derived from the landscape and light of Northern California (where she eventually settled) and the landscapes of Lebanon and Greece. The forms are neither representational nor purely abstract but hover between horizon, sun, and mountain in a register of condensed poetic notation.\n\nAdnan was awarded major literary prizes and her novel Sitt Marie Rose has become a classic of war literature. Her visual work was exhibited internationally from the early 2000s, including at Documenta, and she was recognised as one of the most original figures at the intersection of poetry, visual art, and the Arab intellectual tradition. She died in Paris in 2021.",
+      "famous_works": [
+        {
+          "title": "The Arab Apocalypse (leporello)",
+          "year": "1989",
+          "notes": "A visual poem in leporello format combining Arabic calligraphy and geometric forms that responds to the Lebanese Civil War with concentrated poetic-pictorial force."
+        },
+        {
+          "title": "California Leporello series",
+          "year": "1970s–2000s",
+          "notes": "Ongoing series of accordion-folded paintings in which the geometry of horizon, sun, and mountain is condensed into areas of pure colour that carry the emotional weight of landscape remembered and inhabited."
+        },
+        {
+          "title": "Seasons",
+          "year": "2012",
+          "notes": "A late series of leporellos in which chromatic harmonies derived from the natural world create meditations on time, change, and the relationship between body and landscape."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Sea and Fog",
+          "year": "1990s",
+          "notes": "A leporello painting in which the atmospheric conditions of the Pacific Coast are translated into a poetic geometry of greys, blues, and white."
+        },
+        {
+          "title": "Untitled (Mountain Series)",
+          "year": "2000s",
+          "notes": "A group of works in which the triangular form of a mountain is treated as both geometric form and emotionally charged landscape memory."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 1688121,
+        "avg_usd": 211015,
+        "total_label": "$1.69M",
+        "avg_label": "$211k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 450000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Jardins 10",
+          "ratio": 3.43
+        }
+      }
+    },
+    {
       "norm_name": "BOB THOMPSON",
       "display_name": "Bob Thompson",
       "dates": "1937–1966",
@@ -8574,60 +8628,6 @@
       }
     },
     {
-      "norm_name": "ETEL ADNAN",
-      "display_name": "Etel Adnan",
-      "dates": "1925–2021",
-      "nationality": "Lebanese-American",
-      "movement": "Contemporary · Modernism",
-      "movement_id": "contemporary",
-      "bio": "Etel Adnan was born in Beirut in 1925, the daughter of a Greek mother and Syrian father, and grew up speaking Greek and Turkish, learning French and English later, and Arabic still later — a linguistic multiplicity that was formative for a writer and artist whose entire practice engages the relationship between language, image, and the experience of displacement. She studied philosophy at the Sorbonne in Paris and at Harvard before returning to the Arab world as a teacher and journalist.\n\nAdnan came to visual art relatively late, developing in the 1960s the leporello format — folded accordion-book paintings — that became her primary visual medium alongside poetry and prose. These small, jewel-like works contain simple geometric forms — circles, triangles, rectangles — in areas of pure, luminous colour derived from the landscape and light of Northern California (where she eventually settled) and the landscapes of Lebanon and Greece. The forms are neither representational nor purely abstract but hover between horizon, sun, and mountain in a register of condensed poetic notation.\n\nAdnan was awarded major literary prizes and her novel Sitt Marie Rose has become a classic of war literature. Her visual work was exhibited internationally from the early 2000s, including at Documenta, and she was recognised as one of the most original figures at the intersection of poetry, visual art, and the Arab intellectual tradition. She died in Paris in 2021.",
-      "famous_works": [
-        {
-          "title": "The Arab Apocalypse (leporello)",
-          "year": "1989",
-          "notes": "A visual poem in leporello format combining Arabic calligraphy and geometric forms that responds to the Lebanese Civil War with concentrated poetic-pictorial force."
-        },
-        {
-          "title": "California Leporello series",
-          "year": "1970s–2000s",
-          "notes": "Ongoing series of accordion-folded paintings in which the geometry of horizon, sun, and mountain is condensed into areas of pure colour that carry the emotional weight of landscape remembered and inhabited."
-        },
-        {
-          "title": "Seasons",
-          "year": "2012",
-          "notes": "A late series of leporellos in which chromatic harmonies derived from the natural world create meditations on time, change, and the relationship between body and landscape."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Sea and Fog",
-          "year": "1990s",
-          "notes": "A leporello painting in which the atmospheric conditions of the Pacific Coast are translated into a poetic geometry of greys, blues, and white."
-        },
-        {
-          "title": "Untitled (Mountain Series)",
-          "year": "2000s",
-          "notes": "A group of works in which the triangular form of a mountain is treated as both geometric form and emotionally charged landscape memory."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 1615121,
-        "avg_usd": 269187,
-        "total_label": "$1.62M",
-        "avg_label": "$269k",
-        "top_lot": {
-          "title": "Untitled 無題",
-          "hammer_usd": 450000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Jardins 10",
-          "ratio": 3.43
-        }
-      }
-    },
-    {
       "norm_name": "SEAN SCULLY",
       "display_name": "Sean Scully",
       "dates": "b. 1945",
@@ -8741,6 +8741,60 @@
       }
     },
     {
+      "norm_name": "PAUL SIGNAC",
+      "display_name": "Paul Signac",
+      "dates": "1863–1935",
+      "nationality": "French",
+      "movement": "Neo-Impressionism · Post-Impressionism",
+      "movement_id": "post-impressionism",
+      "bio": "Paul Signac was the most dedicated theorist and organiser of Neo-Impressionism, the movement founded by Georges Seurat in 1886 that applied contemporary colour science to the systematic division of pigment into separate dots or strokes of pure colour. Born into a Parisian bourgeois family, Signac was largely self-taught as a painter and took up Pointillism — the term he preferred — with evangelical commitment after meeting Seurat in 1884, becoming the movement's most energetic propagandist and its institutional backbone.\n\nAfter Seurat's death in 1891, Signac became the de facto leader of the Neo-Impressionist group and his theoretical text D'Eugène Delacroix au néo-impressionnisme (1899) remains the essential document of the movement's colour theory and ambitions. His own painting evolved from the strict scientific dot of Seurat's method toward larger, squarer brushstrokes of pure colour that create a mosaic-like surface of greater decorative vitality, particularly in his Mediterranean harbour scenes — Saint-Tropez (which he discovered by boat in 1892 and effectively introduced to the Parisian art world), Antibes, Venice, and Constantinople.\n\nSignac was also a committed anarchist and a passionate sailor who owned a series of yachts named after Impressionist and Post-Impressionist painters, and his love of the sea permeates his best work. He was president of the Société des Artistes Indépendants from 1908 to 1934, a role in which he championed generations of younger artists.",
+      "famous_works": [
+        {
+          "title": "Femmes au puits (Women at the Well)",
+          "year": "1892",
+          "notes": "A monumental Neo-Impressionist figure composition demonstrating his command of the divisionist method at its most architecturally resolved."
+        },
+        {
+          "title": "Entrance to the Grand Canal, Venice",
+          "year": "1905",
+          "notes": "A Venetian harbour view in his mature mosaic-tile style, the Baroque architecture rendered in small squares of pure Mediterranean colour."
+        },
+        {
+          "title": "The Papal Palace, Avignon",
+          "year": "1900",
+          "notes": "A southern French architectural subject in which his enlarged divisionist stroke creates a surface of vibrant chromatic energy."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Portrait of Félix Fénéon against an Enamel Background",
+          "year": "1890",
+          "notes": "A remarkable portrait of the Neo-Impressionist critic set against a swirling Art Nouveau background of colour theory in action."
+        },
+        {
+          "title": "The Dining Room",
+          "year": "1886–1887",
+          "notes": "An early Pointillist domestic interior demonstrating his rapid assimilation of Seurat's divisionist method just months after their first encounter."
+        }
+      ],
+      "dataset": {
+        "lot_count": 14,
+        "total_usd": 1570918,
+        "avg_usd": 112208,
+        "total_label": "$1.57M",
+        "avg_label": "$112k",
+        "top_lot": {
+          "title": "Samois. Étude n° 11",
+          "hammer_usd": 516128,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "La Baie (Saint-Tropez)",
+          "ratio": 7.06
+        }
+      }
+    },
+    {
       "norm_name": "GÜNTHER FÖRG",
       "display_name": "Günther Förg",
       "dates": "1952–2013",
@@ -8791,60 +8845,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 2.34
-        }
-      }
-    },
-    {
-      "norm_name": "PAUL SIGNAC",
-      "display_name": "Paul Signac",
-      "dates": "1863–1935",
-      "nationality": "French",
-      "movement": "Neo-Impressionism · Post-Impressionism",
-      "movement_id": "post-impressionism",
-      "bio": "Paul Signac was the most dedicated theorist and organiser of Neo-Impressionism, the movement founded by Georges Seurat in 1886 that applied contemporary colour science to the systematic division of pigment into separate dots or strokes of pure colour. Born into a Parisian bourgeois family, Signac was largely self-taught as a painter and took up Pointillism — the term he preferred — with evangelical commitment after meeting Seurat in 1884, becoming the movement's most energetic propagandist and its institutional backbone.\n\nAfter Seurat's death in 1891, Signac became the de facto leader of the Neo-Impressionist group and his theoretical text D'Eugène Delacroix au néo-impressionnisme (1899) remains the essential document of the movement's colour theory and ambitions. His own painting evolved from the strict scientific dot of Seurat's method toward larger, squarer brushstrokes of pure colour that create a mosaic-like surface of greater decorative vitality, particularly in his Mediterranean harbour scenes — Saint-Tropez (which he discovered by boat in 1892 and effectively introduced to the Parisian art world), Antibes, Venice, and Constantinople.\n\nSignac was also a committed anarchist and a passionate sailor who owned a series of yachts named after Impressionist and Post-Impressionist painters, and his love of the sea permeates his best work. He was president of the Société des Artistes Indépendants from 1908 to 1934, a role in which he championed generations of younger artists.",
-      "famous_works": [
-        {
-          "title": "Femmes au puits (Women at the Well)",
-          "year": "1892",
-          "notes": "A monumental Neo-Impressionist figure composition demonstrating his command of the divisionist method at its most architecturally resolved."
-        },
-        {
-          "title": "Entrance to the Grand Canal, Venice",
-          "year": "1905",
-          "notes": "A Venetian harbour view in his mature mosaic-tile style, the Baroque architecture rendered in small squares of pure Mediterranean colour."
-        },
-        {
-          "title": "The Papal Palace, Avignon",
-          "year": "1900",
-          "notes": "A southern French architectural subject in which his enlarged divisionist stroke creates a surface of vibrant chromatic energy."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Portrait of Félix Fénéon against an Enamel Background",
-          "year": "1890",
-          "notes": "A remarkable portrait of the Neo-Impressionist critic set against a swirling Art Nouveau background of colour theory in action."
-        },
-        {
-          "title": "The Dining Room",
-          "year": "1886–1887",
-          "notes": "An early Pointillist domestic interior demonstrating his rapid assimilation of Seurat's divisionist method just months after their first encounter."
-        }
-      ],
-      "dataset": {
-        "lot_count": 13,
-        "total_usd": 1544918,
-        "avg_usd": 118840,
-        "total_label": "$1.54M",
-        "avg_label": "$119k",
-        "top_lot": {
-          "title": "Samois. Étude n° 11",
-          "hammer_usd": 516128,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "La Baie (Saint-Tropez)",
-          "ratio": 7.06
         }
       }
     },
@@ -9340,6 +9340,60 @@
       }
     },
     {
+      "norm_name": "GIORGIO DE CHIRICO",
+      "display_name": "Giorgio de Chirico",
+      "dates": "1888–1978",
+      "nationality": "Italian (Greek-born)",
+      "movement": "Surrealism · Pittura Metafisica",
+      "movement_id": "surrealism",
+      "bio": "Giorgio de Chirico was the founding figure of Pittura Metafisica (Metaphysical Painting), a movement he invented in Ferrara during the First World War that created the template for Surrealist image-making and remains, through Magritte and Dalí, the most influential artistic legacy of any single early twentieth-century painter outside Cubism. Born in Volos, Greece, to Italian parents, he trained in Athens and Munich before arriving in Paris in 1911, where his visionary piazze — eerily empty Italian squares lit by raking shadows, populated by classical statues, mannequins, and unexplained objects — immediately attracted the admiration of Apollinaire and the nascent Surrealist circle.\n\nDe Chirico's metaphysical interiors of the Ferrara period (1915–1917) are his most hermetically inventive works: claustrophobic studios crammed with set squares, biscuits, artichoke maps, and faceless mannequins that transform the logic of rational space into dreamlike poetry. He later repudiated these works and claimed they had been made in a visionary state he could not recover, devoting his post-1920 career to a return to Old Master technique that most critics found retrograde but he defended as a principled response to the chaos of modernism.\n\nDe Chirico's self-forgeries — replicas of his most celebrated early works, some misdated to appear as period originals — have created significant authentication problems in the market. The Giorgio and Isa de Chirico Foundation in Rome works to maintain the catalogue and exclude forgeries.",
+      "famous_works": [
+        {
+          "title": "The Song of Love",
+          "year": "1914",
+          "notes": "A classical head, a rubber glove, and a green ball in an architectural setting — the first fully realised Metaphysical canvas and Breton's declared favourite painting."
+        },
+        {
+          "title": "The Melancholy and Mystery of a Street",
+          "year": "1914",
+          "notes": "A girl with a hoop in a shadowed arcade, a rolling wagon visible in the distance — the purest image of metaphysical unease."
+        },
+        {
+          "title": "The Disquieting Muses",
+          "year": "1918",
+          "notes": "Mannequin figures before the Este castle in Ferrara, his most symbolically dense Metaphysical work and a direct precursor of Surrealist figuration."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Archaeologists",
+          "year": "1927",
+          "notes": "A pair of mannequin figures assembled from architectural fragments and classical ruins, a late Metaphysical work of extraordinary compositional energy."
+        },
+        {
+          "title": "Hector and Andromache",
+          "year": "1917",
+          "notes": "A Ferrara-period mannequin embrace of Homeric subjects, the lovers reduced to jointed forms in a farewell that is already post-human."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 1203216,
+        "avg_usd": 120322,
+        "total_label": "$1.20M",
+        "avg_label": "$120k",
+        "top_lot": {
+          "title": "I Giochi del Principe",
+          "hammer_usd": 300000,
+          "sale_name": "Modern Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Donne ateniesi",
+          "ratio": 3.0
+        }
+      }
+    },
+    {
       "norm_name": "HA CHONGHYUN",
       "display_name": "Ha Chong-Hyun",
       "dates": "b. 1935",
@@ -9611,60 +9665,6 @@
         "top_ratio_lot": {
           "title": "Untitled (Thank You)",
           "ratio": 1.05
-        }
-      }
-    },
-    {
-      "norm_name": "GIORGIO DE CHIRICO",
-      "display_name": "Giorgio de Chirico",
-      "dates": "1888–1978",
-      "nationality": "Italian (Greek-born)",
-      "movement": "Surrealism · Pittura Metafisica",
-      "movement_id": "surrealism",
-      "bio": "Giorgio de Chirico was the founding figure of Pittura Metafisica (Metaphysical Painting), a movement he invented in Ferrara during the First World War that created the template for Surrealist image-making and remains, through Magritte and Dalí, the most influential artistic legacy of any single early twentieth-century painter outside Cubism. Born in Volos, Greece, to Italian parents, he trained in Athens and Munich before arriving in Paris in 1911, where his visionary piazze — eerily empty Italian squares lit by raking shadows, populated by classical statues, mannequins, and unexplained objects — immediately attracted the admiration of Apollinaire and the nascent Surrealist circle.\n\nDe Chirico's metaphysical interiors of the Ferrara period (1915–1917) are his most hermetically inventive works: claustrophobic studios crammed with set squares, biscuits, artichoke maps, and faceless mannequins that transform the logic of rational space into dreamlike poetry. He later repudiated these works and claimed they had been made in a visionary state he could not recover, devoting his post-1920 career to a return to Old Master technique that most critics found retrograde but he defended as a principled response to the chaos of modernism.\n\nDe Chirico's self-forgeries — replicas of his most celebrated early works, some misdated to appear as period originals — have created significant authentication problems in the market. The Giorgio and Isa de Chirico Foundation in Rome works to maintain the catalogue and exclude forgeries.",
-      "famous_works": [
-        {
-          "title": "The Song of Love",
-          "year": "1914",
-          "notes": "A classical head, a rubber glove, and a green ball in an architectural setting — the first fully realised Metaphysical canvas and Breton's declared favourite painting."
-        },
-        {
-          "title": "The Melancholy and Mystery of a Street",
-          "year": "1914",
-          "notes": "A girl with a hoop in a shadowed arcade, a rolling wagon visible in the distance — the purest image of metaphysical unease."
-        },
-        {
-          "title": "The Disquieting Muses",
-          "year": "1918",
-          "notes": "Mannequin figures before the Este castle in Ferrara, his most symbolically dense Metaphysical work and a direct precursor of Surrealist figuration."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Archaeologists",
-          "year": "1927",
-          "notes": "A pair of mannequin figures assembled from architectural fragments and classical ruins, a late Metaphysical work of extraordinary compositional energy."
-        },
-        {
-          "title": "Hector and Andromache",
-          "year": "1917",
-          "notes": "A Ferrara-period mannequin embrace of Homeric subjects, the lovers reduced to jointed forms in a farewell that is already post-human."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 1033216,
-        "avg_usd": 114802,
-        "total_label": "$1.03M",
-        "avg_label": "$115k",
-        "top_lot": {
-          "title": "I Giochi del Principe",
-          "hammer_usd": 300000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Donne ateniesi",
-          "ratio": 3.0
         }
       }
     },
@@ -10705,6 +10705,60 @@
       }
     },
     {
+      "norm_name": "JOEL SHAPIRO",
+      "display_name": "Joel Shapiro",
+      "dates": "b. 1941",
+      "nationality": "American",
+      "movement": "Minimalism · Contemporary",
+      "movement_id": "minimalism",
+      "bio": "Joel Shapiro was born in New York City in 1941 and studied at New York University, served in the Peace Corps in India, and returned to New York in the late 1960s where he became associated with the broader Minimalist milieu while developing an approach that increasingly diverged from its orthodoxies. His early works — small cast iron or bronze house forms placed directly on the floor — used geometric architectural forms at a scale that forced intimacy rather than the monumental distance of conventional sculpture.\n\nFrom the late 1970s, Shapiro developed the vocabulary that has remained central to his practice: geometric wooden elements — beams, planks, L-shapes — assembled into dynamic configurations that suggest human figures in motion, without being representational in any obvious sense. These forms are fabricated and painted in bright, non-naturalistic colours, their angular architectonic geometry evoking both pure spatial composition and the kinetic energy of the human body in movement, falling, running, or reaching.\n\nShapiro is represented by Pace Gallery and his work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally. He stands as an important figure in the development of post-Minimalist sculpture, maintaining Minimalism's commitment to geometric form while reintroducing the associative and figurative dimensions that strict Minimalism had excluded.",
+      "famous_works": [
+        {
+          "title": "Untitled (House on a Field)",
+          "year": "1974",
+          "notes": "A tiny cast iron house placed on the floor of an enormous gallery, in which scale displacement generates a sense of melancholy and displacement that exceeds the object's apparent simplicity."
+        },
+        {
+          "title": "Untitled (Figure in Motion)",
+          "year": "1985",
+          "notes": "A configuration of painted wooden beams assembled to suggest a human figure in dynamic movement, demonstrating Shapiro's synthesis of geometric abstraction and figurative association."
+        },
+        {
+          "title": "Loss and Regeneration",
+          "year": "1993",
+          "notes": "A large-scale bronze work installed at the Jewish Museum Berlin that extends Shapiro's kinetic figurative vocabulary into memorial and historical subject matter."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Untitled (Small Bridge)",
+          "year": "1976",
+          "notes": "A cast iron architectural fragment at miniature scale, demonstrating Shapiro's sustained interest in the relationship between architectural form and the body."
+        },
+        {
+          "title": "Untitled (Floating Figure)",
+          "year": "1988",
+          "notes": "A work in which the geometric beam-figure appears to be in free suspension, testing the limits of physical balance as a formal and associative element."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 653706,
+        "avg_usd": 217902,
+        "total_label": "$654k",
+        "avg_label": "$218k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 504000,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.02
+        }
+      }
+    },
+    {
       "norm_name": "RHEE SEUNDJA",
       "display_name": "Rhee Seundja",
       "dates": "1918–2009",
@@ -11246,60 +11300,6 @@
         "top_ratio_lot": {
           "title": "Study of Eric",
           "ratio": 14.7
-        }
-      }
-    },
-    {
-      "norm_name": "JOEL SHAPIRO",
-      "display_name": "Joel Shapiro",
-      "dates": "b. 1941",
-      "nationality": "American",
-      "movement": "Minimalism · Contemporary",
-      "movement_id": "minimalism",
-      "bio": "Joel Shapiro was born in New York City in 1941 and studied at New York University, served in the Peace Corps in India, and returned to New York in the late 1960s where he became associated with the broader Minimalist milieu while developing an approach that increasingly diverged from its orthodoxies. His early works — small cast iron or bronze house forms placed directly on the floor — used geometric architectural forms at a scale that forced intimacy rather than the monumental distance of conventional sculpture.\n\nFrom the late 1970s, Shapiro developed the vocabulary that has remained central to his practice: geometric wooden elements — beams, planks, L-shapes — assembled into dynamic configurations that suggest human figures in motion, without being representational in any obvious sense. These forms are fabricated and painted in bright, non-naturalistic colours, their angular architectonic geometry evoking both pure spatial composition and the kinetic energy of the human body in movement, falling, running, or reaching.\n\nShapiro is represented by Pace Gallery and his work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally. He stands as an important figure in the development of post-Minimalist sculpture, maintaining Minimalism's commitment to geometric form while reintroducing the associative and figurative dimensions that strict Minimalism had excluded.",
-      "famous_works": [
-        {
-          "title": "Untitled (House on a Field)",
-          "year": "1974",
-          "notes": "A tiny cast iron house placed on the floor of an enormous gallery, in which scale displacement generates a sense of melancholy and displacement that exceeds the object's apparent simplicity."
-        },
-        {
-          "title": "Untitled (Figure in Motion)",
-          "year": "1985",
-          "notes": "A configuration of painted wooden beams assembled to suggest a human figure in dynamic movement, demonstrating Shapiro's synthesis of geometric abstraction and figurative association."
-        },
-        {
-          "title": "Loss and Regeneration",
-          "year": "1993",
-          "notes": "A large-scale bronze work installed at the Jewish Museum Berlin that extends Shapiro's kinetic figurative vocabulary into memorial and historical subject matter."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Untitled (Small Bridge)",
-          "year": "1976",
-          "notes": "A cast iron architectural fragment at miniature scale, demonstrating Shapiro's sustained interest in the relationship between architectural form and the body."
-        },
-        {
-          "title": "Untitled (Floating Figure)",
-          "year": "1988",
-          "notes": "A work in which the geometric beam-figure appears to be in free suspension, testing the limits of physical balance as a formal and associative element."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 568706,
-        "avg_usd": 284353,
-        "total_label": "$569k",
-        "avg_label": "$284k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 504000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 2.02
         }
       }
     },
@@ -18923,6 +18923,60 @@
       }
     },
     {
+      "norm_name": "GEORGES MATHIEU",
+      "display_name": "Georges Mathieu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1388000,
+        "avg_usd": 462667,
+        "total_label": "$1.39M",
+        "avg_label": "$463k",
+        "top_lot": {
+          "title": "Composition 構成",
+          "hammer_usd": 1300000,
+          "sale_name": "Modern Day Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "Composition",
+          "ratio": 4.5
+        }
+      }
+    },
+    {
+      "norm_name": "LEONOR FINI",
+      "display_name": "Leonor Fini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 1365679,
+        "avg_usd": 273136,
+        "total_label": "$1.37M",
+        "avg_label": "$273k",
+        "top_lot": {
+          "title": "La chambre d’écho",
+          "hammer_usd": 889000,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Étude de ballet",
+          "ratio": 9.6
+        }
+      }
+    },
+    {
       "norm_name": "SIX N. FIVE (EZEQUIEL PINI) SIX N. FIVE（埃斯基爾·皮尼）",
       "display_name": "Six N. Five (Ezequiel Pini) Six N. Five（埃斯基爾·皮尼）",
       "dates": "",
@@ -19004,33 +19058,6 @@
       }
     },
     {
-      "norm_name": "LEONOR FINI",
-      "display_name": "Leonor Fini",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 1310679,
-        "avg_usd": 327670,
-        "total_label": "$1.31M",
-        "avg_label": "$328k",
-        "top_lot": {
-          "title": "La chambre d’écho",
-          "hammer_usd": 889000,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Étude de ballet",
-          "ratio": 9.6
-        }
-      }
-    },
-    {
       "norm_name": "ELLSWORTH KELLY",
       "display_name": "Ellsworth Kelly",
       "dates": "",
@@ -19081,33 +19108,6 @@
         "top_ratio_lot": {
           "title": "Ecriture No. 63-78  描法 NO. 63－78",
           "ratio": 0.76
-        }
-      }
-    },
-    {
-      "norm_name": "GEORGES MATHIEU",
-      "display_name": "Georges Mathieu",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 1300000,
-        "avg_usd": 1300000,
-        "total_label": "$1.30M",
-        "avg_label": "$1.30M",
-        "top_lot": {
-          "title": "Composition 構成",
-          "hammer_usd": 1300000,
-          "sale_name": "Modern Day Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "Composition 構成",
-          "ratio": 0.87
         }
       }
     },
@@ -20273,6 +20273,33 @@
       }
     },
     {
+      "norm_name": "LOUIS VALTAT",
+      "display_name": "Louis Valtat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 723700,
+        "avg_usd": 90462,
+        "total_label": "$724k",
+        "avg_label": "$90k",
+        "top_lot": {
+          "title": "Femmes sur les rochers à Anthéor",
+          "hammer_usd": 355600,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Femmes sur les rochers à Anthéor",
+          "ratio": 5.93
+        }
+      }
+    },
+    {
       "norm_name": "SRIHADI SUDARSONO",
       "display_name": "Srihadi Sudarsono",
       "dates": "",
@@ -20296,33 +20323,6 @@
         "top_ratio_lot": {
           "title": "Srihadi Sudarsono 斯裡哈迪·蘇達索諾 | Puppets 木偶",
           "ratio": 1.38
-        }
-      }
-    },
-    {
-      "norm_name": "LOUIS VALTAT",
-      "display_name": "Louis Valtat",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 716200,
-        "avg_usd": 102314,
-        "total_label": "$716k",
-        "avg_label": "$102k",
-        "top_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "hammer_usd": 355600,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "ratio": 5.93
         }
       }
     },
@@ -20867,6 +20867,33 @@
       }
     },
     {
+      "norm_name": "CHRISTO",
+      "display_name": "Christo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 605487,
+        "avg_usd": 121097,
+        "total_label": "$605k",
+        "avg_label": "$121k",
+        "top_lot": {
+          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
+          "hammer_usd": 264708,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
+          "ratio": 1.76
+        }
+      }
+    },
+    {
       "norm_name": "PAUL DELVAUX",
       "display_name": "Paul Delvaux",
       "dates": "",
@@ -20998,33 +21025,6 @@
         "top_ratio_lot": {
           "title": "Romanel",
           "ratio": 2.42
-        }
-      }
-    },
-    {
-      "norm_name": "CHRISTO",
-      "display_name": "Christo",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 567487,
-        "avg_usd": 141872,
-        "total_label": "$567k",
-        "avg_label": "$142k",
-        "top_lot": {
-          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
-          "hammer_usd": 264708,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "The Pont Neuf, Wrapped (Project for Paris) (2-teilig)",
-          "ratio": 1.76
         }
       }
     },
@@ -21974,6 +21974,33 @@
       }
     },
     {
+      "norm_name": "KEES VAN DONGEN",
+      "display_name": "Kees Van Dongen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 382500,
+        "avg_usd": 127500,
+        "total_label": "$382k",
+        "avg_label": "$128k",
+        "top_lot": {
+          "title": "Intimes dans la dune",
+          "hammer_usd": 190500,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Guguse (Dolly van Dongen)",
+          "ratio": 1.49
+        }
+      }
+    },
+    {
       "norm_name": "HELENE SCHJERFBECK",
       "display_name": "Helene Schjerfbeck",
       "dates": "",
@@ -22298,6 +22325,33 @@
       }
     },
     {
+      "norm_name": "SERGE POLIAKOFF",
+      "display_name": "Serge Poliakoff",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 345000,
+        "avg_usd": 172500,
+        "total_label": "$345k",
+        "avg_label": "$172k",
+        "top_lot": {
+          "title": "Composition abstraite",
+          "hammer_usd": 220000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Rouge et vert",
+          "ratio": 1.56
+        }
+      }
+    },
+    {
       "norm_name": "REUVEN RUBIN",
       "display_name": "Reuven Rubin",
       "dates": "",
@@ -22618,33 +22672,6 @@
         "top_ratio_lot": {
           "title": "The Actors V",
           "ratio": 0.8
-        }
-      }
-    },
-    {
-      "norm_name": "KEES VAN DONGEN",
-      "display_name": "Kees Van Dongen",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 317500,
-        "avg_usd": 158750,
-        "total_label": "$318k",
-        "avg_label": "$159k",
-        "top_lot": {
-          "title": "Intimes dans la dune",
-          "hammer_usd": 190500,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Guguse (Dolly van Dongen)",
-          "ratio": 1.49
         }
       }
     },
@@ -25133,6 +25160,33 @@
       }
     },
     {
+      "norm_name": "JANE GRAVEROL",
+      "display_name": "Jane Graverol",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 174000,
+        "avg_usd": 87000,
+        "total_label": "$174k",
+        "avg_label": "$87k",
+        "top_lot": {
+          "title": "Le Temps",
+          "hammer_usd": 150000,
+          "sale_name": "Modern Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Le Temps",
+          "ratio": 3.75
+        }
+      }
+    },
+    {
       "norm_name": "FÁTIMA DE JUAN",
       "display_name": "Fátima De Juan",
       "dates": "",
@@ -25210,6 +25264,33 @@
         "top_ratio_lot": {
           "title": "Black Stare",
           "ratio": 0.97
+        }
+      }
+    },
+    {
+      "norm_name": "ANDRÉ MASSON",
+      "display_name": "André Masson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 170000,
+        "avg_usd": 170000,
+        "total_label": "$170k",
+        "avg_label": "$170k",
+        "top_lot": {
+          "title": "Poursuite",
+          "hammer_usd": 170000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Poursuite",
+          "ratio": 1.7
         }
       }
     },
@@ -25943,33 +26024,6 @@
       }
     },
     {
-      "norm_name": "JANE GRAVEROL",
-      "display_name": "Jane Graverol",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 150000,
-        "avg_usd": 150000,
-        "total_label": "$150k",
-        "avg_label": "$150k",
-        "top_lot": {
-          "title": "Le Temps",
-          "hammer_usd": 150000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Le Temps",
-          "ratio": 3.75
-        }
-      }
-    },
-    {
       "norm_name": "DOROTHEA LANGE",
       "display_name": "Dorothea Lange",
       "dates": "",
@@ -26290,6 +26344,33 @@
         "top_ratio_lot": {
           "title": "Shiy De-Jinn 席德進 | Taipei streetscape 台北街景",
           "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "CARLOS CRUZ DIEZ",
+      "display_name": "Carlos Cruz Diez",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 140000,
+        "avg_usd": 140000,
+        "total_label": "$140k",
+        "avg_label": "$140k",
+        "top_lot": {
+          "title": "Physichromie no.212",
+          "hammer_usd": 140000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Physichromie no.212",
+          "ratio": 2.0
         }
       }
     },
@@ -26722,33 +26803,6 @@
         "top_ratio_lot": {
           "title": "Nightstand",
           "ratio": 4.35
-        }
-      }
-    },
-    {
-      "norm_name": "SERGE POLIAKOFF",
-      "display_name": "Serge Poliakoff",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 125000,
-        "avg_usd": 125000,
-        "total_label": "$125k",
-        "avg_label": "$125k",
-        "top_lot": {
-          "title": "Rouge et vert",
-          "hammer_usd": 125000,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Rouge et vert",
-          "ratio": 1.56
         }
       }
     },
@@ -27505,6 +27559,33 @@
       }
     },
     {
+      "norm_name": "ROBERT INDIANA",
+      "display_name": "Robert Indiana",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 110000,
+        "avg_usd": 110000,
+        "total_label": "$110k",
+        "avg_label": "$110k",
+        "top_lot": {
+          "title": "Hope",
+          "hammer_usd": 110000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Hope",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "NATHANIEL MARY QUINN",
       "display_name": "Nathaniel Mary Quinn",
       "dates": "",
@@ -27663,6 +27744,33 @@
         "top_ratio_lot": {
           "title": "La Estacada",
           "ratio": 2.19
+        }
+      }
+    },
+    {
+      "norm_name": "SAM SZAFRAN",
+      "display_name": "Sam Szafran",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 105000,
+        "avg_usd": 52500,
+        "total_label": "$105k",
+        "avg_label": "$52k",
+        "top_lot": {
+          "title": "Sans titre (Plantes)",
+          "hammer_usd": 55000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre (Plantes)",
+          "ratio": 1.38
         }
       }
     },
@@ -28396,6 +28504,33 @@
       }
     },
     {
+      "norm_name": "JEAN-BAPTISTE SÉCHERET",
+      "display_name": "Jean-Baptiste Sécheret",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 90000,
+        "avg_usd": 90000,
+        "total_label": "$90k",
+        "avg_label": "$90k",
+        "top_lot": {
+          "title": "Hôtel des Roches Noires",
+          "hammer_usd": 90000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Hôtel des Roches Noires",
+          "ratio": 1.8
+        }
+      }
+    },
+    {
       "norm_name": "BILL TRAYLOR (C. 1853-1949)",
       "display_name": "Bill Traylor (C. 1853-1949)",
       "dates": "",
@@ -28581,6 +28716,33 @@
         "top_ratio_lot": {
           "title": "Waterloo Bridge bei Nebel, London",
           "ratio": 1.47
+        }
+      }
+    },
+    {
+      "norm_name": "MARÍA HELENA VIEIRA DA SILVA",
+      "display_name": "María Helena Vieira Da Silva",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 88000,
+        "avg_usd": 44000,
+        "total_label": "$88k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "L’Atelier",
+          "hammer_usd": 50000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 2.17
         }
       }
     },
@@ -29584,6 +29746,60 @@
       }
     },
     {
+      "norm_name": "LALANNE, FRANÇOIS-XAVIER",
+      "display_name": "Lalanne, François-Xavier",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Tortue",
+          "hammer_usd": 65000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Tortue",
+          "ratio": 1.62
+        }
+      }
+    },
+    {
+      "norm_name": "PABLO ATCHUGARRY",
+      "display_name": "Pablo Atchugarry",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Venus dormida",
+          "hammer_usd": 65000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Venus dormida",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
       "norm_name": "JOSEPH BEUYS",
       "display_name": "Joseph Beuys",
       "dates": "",
@@ -29881,6 +30097,33 @@
       }
     },
     {
+      "norm_name": "ARMAN",
+      "display_name": "Arman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 61161,
+        "avg_usd": 30580,
+        "total_label": "$61k",
+        "avg_label": "$31k",
+        "top_lot": {
+          "title": "Hommage à ma jolie (A Tribute to My Beauty)",
+          "hammer_usd": 45161,
+          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
+        },
+        "top_ratio_lot": {
+          "title": "Inclusion, Tubes de peinture",
+          "ratio": 1.88
+        }
+      }
+    },
+    {
       "norm_name": "FRANZ GERTSCH",
       "display_name": "Franz Gertsch",
       "dates": "",
@@ -30092,6 +30335,33 @@
         },
         "top_ratio_lot": {
           "title": "Untitled",
+          "ratio": 1.5
+        }
+      }
+    },
+    {
+      "norm_name": "LEONARDO CREMONINI",
+      "display_name": "Leonardo Cremonini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 60000,
+        "avg_usd": 60000,
+        "total_label": "$60k",
+        "avg_label": "$60k",
+        "top_lot": {
+          "title": "Les passe-partout du visible",
+          "hammer_usd": 60000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Les passe-partout du visible",
           "ratio": 1.5
         }
       }
@@ -30417,6 +30687,33 @@
         "top_ratio_lot": {
           "title": "New Year's Eve at La Morna",
           "ratio": 1.1
+        }
+      }
+    },
+    {
+      "norm_name": "SIMON HANTAÏ",
+      "display_name": "Simon Hantaï",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 55000,
+        "avg_usd": 55000,
+        "total_label": "$55k",
+        "avg_label": "$55k",
+        "top_lot": {
+          "title": "Manteau de la Vierge",
+          "hammer_usd": 55000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Manteau de la Vierge",
+          "ratio": 0.79
         }
       }
     },
@@ -31501,33 +31798,6 @@
       }
     },
     {
-      "norm_name": "ARMAN",
-      "display_name": "Arman",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 45161,
-        "avg_usd": 45161,
-        "total_label": "$45k",
-        "avg_label": "$45k",
-        "top_lot": {
-          "title": "Hommage à ma jolie (A Tribute to My Beauty)",
-          "hammer_usd": 45161,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
-        },
-        "top_ratio_lot": {
-          "title": "Hommage à ma jolie (A Tribute to My Beauty)",
-          "ratio": 1.0
-        }
-      }
-    },
-    {
       "norm_name": "BENDT EYCKERMANS",
       "display_name": "Bendt Eyckermans",
       "dates": "",
@@ -32203,6 +32473,33 @@
       }
     },
     {
+      "norm_name": "ANNA-EVA BERGMAN",
+      "display_name": "Anna-Eva Bergman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38000,
+        "avg_usd": 38000,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "N°26-1969 Multihorizon",
+          "hammer_usd": 38000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "N°26-1969 Multihorizon",
+          "ratio": 9.5
+        }
+      }
+    },
+    {
       "norm_name": "KARL HARTUNG",
       "display_name": "Karl Hartung",
       "dates": "",
@@ -32851,6 +33148,60 @@
       }
     },
     {
+      "norm_name": "EDUARDO ARROYO",
+      "display_name": "Eduardo Arroyo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 32000,
+        "avg_usd": 32000,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "L'Espagne Bandée",
+          "hammer_usd": 32000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "L'Espagne Bandée",
+          "ratio": 3.76
+        }
+      }
+    },
+    {
+      "norm_name": "JULIAN SCHNABEL",
+      "display_name": "Julian Schnabel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 32000,
+        "avg_usd": 32000,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "Untitled, Série,\"Paintings without Bingo\"",
+          "hammer_usd": 32000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled, Série,\"Paintings without Bingo\"",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
       "norm_name": "JAN SLUIJTERS",
       "display_name": "Jan Sluijters",
       "dates": "",
@@ -33472,6 +33823,33 @@
       }
     },
     {
+      "norm_name": "IGOR MITORAJ",
+      "display_name": "Igor Mitoraj",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 26000,
+        "avg_usd": 26000,
+        "total_label": "$26k",
+        "avg_label": "$26k",
+        "top_lot": {
+          "title": "Corazza media",
+          "hammer_usd": 26000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Corazza media",
+          "ratio": 2.08
+        }
+      }
+    },
+    {
       "norm_name": "SONIA GOMES",
       "display_name": "Sonia Gomes",
       "dates": "",
@@ -33931,6 +34309,33 @@
       }
     },
     {
+      "norm_name": "RAYMOND HAINS",
+      "display_name": "Raymond Hains",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 24000,
+        "avg_usd": 24000,
+        "total_label": "$24k",
+        "avg_label": "$24k",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 24000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 1.92
+        }
+      }
+    },
+    {
       "norm_name": "PRINCE PAUL TROUBETZKOY",
       "display_name": "Prince Paul Troubetzkoy",
       "dates": "",
@@ -34035,6 +34440,33 @@
         "top_ratio_lot": {
           "title": "Untitled, N.D.",
           "ratio": 1.51
+        }
+      }
+    },
+    {
+      "norm_name": "CLAUDE VIALLAT",
+      "display_name": "Claude Viallat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 22000,
+        "avg_usd": 22000,
+        "total_label": "$22k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 22000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 1.02
         }
       }
     },
@@ -34687,6 +35119,33 @@
       }
     },
     {
+      "norm_name": "ANDRÉ BRETON | VALENTINE HUGO | NUSCH ÉLUARD | GRETA KNUTSON",
+      "display_name": "André Breton | Valentine Hugo | Nusch Éluard | Greta Knutson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17000,
+        "avg_usd": 17000,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "Cadavre exquis",
+          "hammer_usd": 17000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Cadavre exquis",
+          "ratio": 2.83
+        }
+      }
+    },
+    {
       "norm_name": "EDUARD VON GRÜTZNER",
       "display_name": "Eduard Von Grützner",
       "dates": "",
@@ -34980,6 +35439,33 @@
         "top_ratio_lot": {
           "title": "Lunate III",
           "ratio": 2.42
+        }
+      }
+    },
+    {
+      "norm_name": "STANISLAO LEPRI",
+      "display_name": "Stanislao Lepri",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 14200,
+        "avg_usd": 7100,
+        "total_label": "$14k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 13000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 1.04
         }
       }
     },
@@ -35574,6 +36060,33 @@
         "top_ratio_lot": {
           "title": "A pair of seascapes, en brunaille",
           "ratio": 1.72
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL JENKINS",
+      "display_name": "Paul Jenkins",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12000,
+        "avg_usd": 12000,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Phenomena, Batten down the Hatches",
+          "hammer_usd": 12000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Phenomena, Batten down the Hatches",
+          "ratio": 3.0
         }
       }
     },
@@ -36307,6 +36820,33 @@
       }
     },
     {
+      "norm_name": "GÉRARD DESCHAMPS",
+      "display_name": "Gérard Deschamps",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8000,
+        "avg_usd": 8000,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Chiffons japonais \"PLUME\"",
+          "hammer_usd": 8000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Chiffons japonais \"PLUME\"",
+          "ratio": 0.94
+        }
+      }
+    },
+    {
       "norm_name": "FAILE (EST. 1999)",
       "display_name": "Faile (Est. 1999)",
       "dates": "",
@@ -36654,6 +37194,33 @@
         "top_ratio_lot": {
           "title": "No. 1071",
           "ratio": 1.01
+        }
+      }
+    },
+    {
+      "norm_name": "ÉMILE THÉODORE FRANDSEN",
+      "display_name": "Émile Théodore Frandsen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6000,
+        "avg_usd": 6000,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Nature morte",
+          "hammer_usd": 6000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Nature morte",
+          "ratio": 1.0
         }
       }
     },
@@ -37680,6 +38247,33 @@
         "top_ratio_lot": {
           "title": "Winter Panorama",
           "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "ADRIEN DAX",
+      "display_name": "Adrien Dax",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 2200,
+        "avg_usd": 1100,
+        "total_label": "$2k",
+        "avg_label": "$1k",
+        "top_lot": {
+          "title": "Composition",
+          "hammer_usd": 1200,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Dessin automatique",
+          "ratio": 1.43
         }
       }
     },
