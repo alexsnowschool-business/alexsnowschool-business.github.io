@@ -18,11 +18,23 @@ Usage (as a library):
 Not meant to be run standalone — called from beat_the_estimate.py.
 """
 
+import random
 from io import BytesIO
 from pathlib import Path
 
 import httpx
 from PIL import Image, ImageDraw, ImageFont
+
+_COVER_HOOKS = [
+    "Guess what they paid",
+    "Can you guess the price?",
+    "Guess the hammer price",
+    "What did collectors pay?",
+    "Guess what this sold for",
+    "Can you guess what it fetched?",
+    "What price did this go for?",
+    "Guess the sale price",
+]
 
 FONTS_DIR = Path(__file__).resolve().parent.parent / "reel_template" / "fonts"
 
@@ -127,7 +139,7 @@ def _full_bleed_mosaic(lots: list[dict], w: int, h: int) -> Image.Image:
     return canvas
 
 
-def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots: list[dict]) -> Image.Image:
+def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots: list[dict]) -> Image.Image:  # noqa: ARG001 — title/subtitle replaced by hook
     img = _full_bleed_mosaic(lots, W, H) if lots else Image.new("RGB", (W, H), (30, 27, 24))
 
     # Bottom gradient so headline text stays legible over a bright/busy painting,
@@ -161,37 +173,22 @@ def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots
     )
     draw.text((MARGIN, MARGIN), kicker_text, font=kicker_font, fill=GOLD)
 
+    hook = random.choice(_COVER_HOOKS).upper()
     title_font, title_lines = _fit_caps_lines(
-        draw, title, content_w, "Outfit-Bold.ttf", start_size=88, min_size=48, max_lines=4,
+        draw, hook, content_w, "Outfit-Bold.ttf", start_size=88, min_size=48, max_lines=4,
     )
-    subtitle_font = _font("Outfit-Regular.ttf", 32)
-    all_subtitle_lines = _wrap(draw, subtitle, subtitle_font, content_w)
-    subtitle_lines = all_subtitle_lines[:2]
-    if len(all_subtitle_lines) > 2 and subtitle_lines:
-        subtitle_lines[-1] = subtitle_lines[-1].rstrip(".,;:") + "…"
     meta_font = _font("Outfit-Regular.ttf", 24)
 
     title_bbox   = title_font.getbbox("Hg")
     title_line_h = int((title_bbox[3] - title_bbox[1]) * 1.12)
-    sub_bbox     = subtitle_font.getbbox("Hg")
-    sub_line_h   = int((sub_bbox[3] - sub_bbox[1]) * 1.3)
 
-    block_h = (
-        title_line_h * len(title_lines) + 24
-        + sub_line_h * len(subtitle_lines) + 36
-        + 30  # meta line
-    )
+    block_h = title_line_h * len(title_lines) + 24 + 30  # meta line
     y = H - MARGIN - block_h
 
     for line in title_lines:
         draw.text((MARGIN, y), line, font=title_font, fill=IVORY)
         y += title_line_h
     y += 24
-
-    for line in subtitle_lines:
-        draw.text((MARGIN, y), line, font=subtitle_font, fill=IVORY_DIM)
-        y += sub_line_h
-    y += 36
 
     draw.text((MARGIN, y), f"{count} results  ·  {date_str}", font=meta_font, fill=GOLD)
 
