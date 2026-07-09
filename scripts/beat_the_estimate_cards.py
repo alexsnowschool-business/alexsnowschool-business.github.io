@@ -173,7 +173,7 @@ def render_cover_card(title: str, subtitle: str, date_str: str, count: int, lots
     )
     draw.text((MARGIN, MARGIN), kicker_text, font=kicker_font, fill=GOLD)
 
-    hook = random.choice(_COVER_HOOKS).upper()
+    hook = random.choice(_COVER_HOOKS).capitalize()
     title_font, title_lines = _fit_caps_lines(
         draw, hook, content_w, "Outfit-Bold.ttf", start_size=88, min_size=48, max_lines=4,
     )
