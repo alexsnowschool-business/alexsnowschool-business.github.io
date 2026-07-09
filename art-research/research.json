@@ -1,9 +1,9 @@
 {
   "stats": {
-    "total_lots": 2970,
-    "total_artists": 1099,
-    "median_hammer_usd": 119850,
-    "pct_above_estimate": 48.7,
+    "total_lots": 3020,
+    "total_artists": 1111,
+    "median_hammer_usd": 112903,
+    "pct_above_estimate": 48.5,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
@@ -287,11 +287,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 49,
-        "total_usd": 56434881,
-        "avg_usd": 1151732,
-        "total_label": "$56.43M",
-        "avg_label": "$1.15M",
+        "lot_count": 51,
+        "total_usd": 56462881,
+        "avg_usd": 1107115,
+        "total_label": "$56.46M",
+        "avg_label": "$1.11M",
         "top_lot": {
           "title": "Homme assis",
           "hammer_usd": 12800000,
@@ -513,11 +513,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 50,
-        "total_usd": 42771209,
-        "avg_usd": 855424,
-        "total_label": "$42.77M",
-        "avg_label": "$855k",
+        "lot_count": 51,
+        "total_usd": 42856209,
+        "avg_usd": 840318,
+        "total_label": "$42.86M",
+        "avg_label": "$840k",
         "top_lot": {
           "title": "Late Four-Foot Flowers",
           "hammer_usd": 10000000,
@@ -2699,11 +2699,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 14,
-        "total_usd": 7238454,
-        "avg_usd": 517032,
-        "total_label": "$7.24M",
-        "avg_label": "$517k",
+        "lot_count": 18,
+        "total_usd": 7294454,
+        "avg_usd": 405247,
+        "total_label": "$7.29M",
+        "avg_label": "$405k",
         "top_lot": {
           "title": "Trompetenbläser I (Trumpeters I)",
           "hammer_usd": 4300000,
@@ -7953,11 +7953,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 9,
-        "total_usd": 1911642,
-        "avg_usd": 212405,
-        "total_label": "$1.91M",
-        "avg_label": "$212k",
+        "lot_count": 10,
+        "total_usd": 1920142,
+        "avg_usd": 192014,
+        "total_label": "$1.92M",
+        "avg_label": "$192k",
         "top_lot": {
           "title": "Wall Drawing #980, A 12-inch (30 cm) grid covering the wall.",
           "hammer_usd": 762000,
@@ -12713,6 +12713,60 @@
       }
     },
     {
+      "norm_name": "VICTOR VASARELY",
+      "display_name": "Victor Vasarely",
+      "dates": "1906–1997",
+      "nationality": "French",
+      "movement": "Op Art · Modernism",
+      "movement_id": "modernism",
+      "bio": "Victor Vasarely was born Győző Vásárhelyi in Pécs, Hungary in 1906 and studied at the Mühely School in Budapest, a Bauhaus-inspired institution where he absorbed the principles of geometric abstraction and design. Moving to Paris in 1930, he worked as a graphic designer and commercial artist, developing through his advertising work a mastery of visual perception and optical effect that would become the foundation of his fine art practice.\n\nFrom the late 1940s, Vasarely developed the systematic investigation of optical phenomena — colour interaction, figure-ground ambiguity, spatial illusion — that made him the founding father of Op Art. His paintings and prints use grids of geometric forms in precisely calibrated colour relationships to create effects of vibration, movement, and three-dimensional illusion on flat surfaces. His ambition was not merely optical sensation but a democratic art: he believed that his visual investigations could be translated into architectural environments, serial multiples, and design applications that would bring aesthetic experience to everyone.\n\nVasarely established the Fondation Vasarely in Aix-en-Provence in 1976, a Bauhaus-inspired centre for visual research housed in a building he designed, and his work was exhibited internationally throughout the 1960s and 1970s as Op Art attracted worldwide popular attention. His work is held by the Fondation Vasarely and major museums internationally.",
+      "famous_works": [
+        {
+          "title": "Vega-Nor",
+          "year": "1969",
+          "notes": "A large painting in which a grid of squares distorted at the centre creates an illusion of a spherical form projecting from or receding into the picture plane."
+        },
+        {
+          "title": "Zebra",
+          "year": "1937",
+          "notes": "An early optical painting in which black and white stripes create a figure-ground ambiguity that announces Vasarely's central concerns twenty years before Op Art was named."
+        },
+        {
+          "title": "Kettes",
+          "year": "1956",
+          "notes": "A painting in which the subtle modulation of a geometric grid creates a pulsing spatial dynamic characteristic of Vasarely's mature optical investigations."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Orion MC",
+          "year": "1963",
+          "notes": "An optical work in which the interaction of circular and square forms creates spatial illusions of considerable visual complexity."
+        },
+        {
+          "title": "Gestalt series",
+          "year": "1970s",
+          "notes": "Works from Vasarely's late career in which the optical investigations of the earlier work are pursued at increasingly large scale and chromatic complexity."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 292600,
+        "avg_usd": 97533,
+        "total_label": "$293k",
+        "avg_label": "$98k",
+        "top_lot": {
+          "title": "AIX-MC",
+          "hammer_usd": 201600,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "VEGA (2)",
+          "ratio": 5.04
+        }
+      }
+    },
+    {
       "norm_name": "JEAN HÉLION",
       "display_name": "Jean Hélion",
       "dates": "1904–1987",
@@ -12925,60 +12979,6 @@
         "top_ratio_lot": {
           "title": "Mirror 鏡子",
           "ratio": 1.08
-        }
-      }
-    },
-    {
-      "norm_name": "VICTOR VASARELY",
-      "display_name": "Victor Vasarely",
-      "dates": "1906–1997",
-      "nationality": "French",
-      "movement": "Op Art · Modernism",
-      "movement_id": "modernism",
-      "bio": "Victor Vasarely was born Győző Vásárhelyi in Pécs, Hungary in 1906 and studied at the Mühely School in Budapest, a Bauhaus-inspired institution where he absorbed the principles of geometric abstraction and design. Moving to Paris in 1930, he worked as a graphic designer and commercial artist, developing through his advertising work a mastery of visual perception and optical effect that would become the foundation of his fine art practice.\n\nFrom the late 1940s, Vasarely developed the systematic investigation of optical phenomena — colour interaction, figure-ground ambiguity, spatial illusion — that made him the founding father of Op Art. His paintings and prints use grids of geometric forms in precisely calibrated colour relationships to create effects of vibration, movement, and three-dimensional illusion on flat surfaces. His ambition was not merely optical sensation but a democratic art: he believed that his visual investigations could be translated into architectural environments, serial multiples, and design applications that would bring aesthetic experience to everyone.\n\nVasarely established the Fondation Vasarely in Aix-en-Provence in 1976, a Bauhaus-inspired centre for visual research housed in a building he designed, and his work was exhibited internationally throughout the 1960s and 1970s as Op Art attracted worldwide popular attention. His work is held by the Fondation Vasarely and major museums internationally.",
-      "famous_works": [
-        {
-          "title": "Vega-Nor",
-          "year": "1969",
-          "notes": "A large painting in which a grid of squares distorted at the centre creates an illusion of a spherical form projecting from or receding into the picture plane."
-        },
-        {
-          "title": "Zebra",
-          "year": "1937",
-          "notes": "An early optical painting in which black and white stripes create a figure-ground ambiguity that announces Vasarely's central concerns twenty years before Op Art was named."
-        },
-        {
-          "title": "Kettes",
-          "year": "1956",
-          "notes": "A painting in which the subtle modulation of a geometric grid creates a pulsing spatial dynamic characteristic of Vasarely's mature optical investigations."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Orion MC",
-          "year": "1963",
-          "notes": "An optical work in which the interaction of circular and square forms creates spatial illusions of considerable visual complexity."
-        },
-        {
-          "title": "Gestalt series",
-          "year": "1970s",
-          "notes": "Works from Vasarely's late career in which the optical investigations of the earlier work are pursued at increasingly large scale and chromatic complexity."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 264600,
-        "avg_usd": 132300,
-        "total_label": "$265k",
-        "avg_label": "$132k",
-        "top_lot": {
-          "title": "AIX-MC",
-          "hammer_usd": 201600,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "VEGA (2)",
-          "ratio": 5.04
         }
       }
     },
@@ -18204,11 +18204,11 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 1962141,
-        "avg_usd": 490535,
-        "total_label": "$1.96M",
-        "avg_label": "$491k",
+        "lot_count": 5,
+        "total_usd": 1997141,
+        "avg_usd": 399428,
+        "total_label": "$2.00M",
+        "avg_label": "$399k",
         "top_lot": {
           "title": "Il Villaggio (The Village) 村莊",
           "hammer_usd": 1600000,
@@ -19328,6 +19328,33 @@
       }
     },
     {
+      "norm_name": "HENRI LEBASQUE",
+      "display_name": "Henri Lebasque",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 1138910,
+        "avg_usd": 227782,
+        "total_label": "$1.14M",
+        "avg_label": "$228k",
+        "top_lot": {
+          "title": "Le goûter sur la terrasse à Sainte-Maxime",
+          "hammer_usd": 693000,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Femme et fillettes dans un verger en fleurs",
+          "ratio": 1.65
+        }
+      }
+    },
+    {
       "norm_name": "LI TIANBING",
       "display_name": "Li Tianbing",
       "dates": "",
@@ -19432,33 +19459,6 @@
         "top_ratio_lot": {
           "title": "Melty Legs",
           "ratio": 2.26
-        }
-      }
-    },
-    {
-      "norm_name": "HENRI LEBASQUE",
-      "display_name": "Henri Lebasque",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 1061910,
-        "avg_usd": 353970,
-        "total_label": "$1.06M",
-        "avg_label": "$354k",
-        "top_lot": {
-          "title": "Le goûter sur la terrasse à Sainte-Maxime",
-          "hammer_usd": 693000,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Femme et fillettes dans un verger en fleurs",
-          "ratio": 1.65
         }
       }
     },
@@ -20084,6 +20084,33 @@
       }
     },
     {
+      "norm_name": "LOUIS VALTAT",
+      "display_name": "Louis Valtat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 11,
+        "total_usd": 796700,
+        "avg_usd": 72427,
+        "total_label": "$797k",
+        "avg_label": "$72k",
+        "top_lot": {
+          "title": "Femmes sur les rochers à Anthéor",
+          "hammer_usd": 355600,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Femmes sur les rochers à Anthéor",
+          "ratio": 5.93
+        }
+      }
+    },
+    {
       "norm_name": "THOMAS SCHÜTTE",
       "display_name": "Thomas Schütte",
       "dates": "",
@@ -20269,33 +20296,6 @@
         "top_ratio_lot": {
           "title": "Study for Warhol's Marilyn",
           "ratio": 4.14
-        }
-      }
-    },
-    {
-      "norm_name": "LOUIS VALTAT",
-      "display_name": "Louis Valtat",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 8,
-        "total_usd": 723700,
-        "avg_usd": 90462,
-        "total_label": "$724k",
-        "avg_label": "$90k",
-        "top_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "hammer_usd": 355600,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "ratio": 5.93
         }
       }
     },
@@ -21272,6 +21272,33 @@
       }
     },
     {
+      "norm_name": "CHIHARU SHIOTA",
+      "display_name": "Chiharu Shiota",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 472130,
+        "avg_usd": 157377,
+        "total_label": "$472k",
+        "avg_label": "$157k",
+        "top_lot": {
+          "title": "State of Being (Keys) 生存的狀態（鑰匙）",
+          "hammer_usd": 400000,
+          "sale_name": "Contemporary Day Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "State of Being (village)",
+          "ratio": 1.2
+        }
+      }
+    },
+    {
       "norm_name": "CARLOS CRUZ-DIEZ",
       "display_name": "Carlos Cruz-Diez",
       "dates": "",
@@ -21677,33 +21704,6 @@
       }
     },
     {
-      "norm_name": "CHIHARU SHIOTA",
-      "display_name": "Chiharu Shiota",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 424130,
-        "avg_usd": 212065,
-        "total_label": "$424k",
-        "avg_label": "$212k",
-        "top_lot": {
-          "title": "State of Being (Keys) 生存的狀態（鑰匙）",
-          "hammer_usd": 400000,
-          "sale_name": "Contemporary Day Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "State of Being (Keys) 生存的狀態（鑰匙）",
-          "ratio": 1.08
-        }
-      }
-    },
-    {
       "norm_name": "MINJUNG KIM",
       "display_name": "Minjung Kim",
       "dates": "",
@@ -21893,6 +21893,33 @@
       }
     },
     {
+      "norm_name": "KEES VAN DONGEN",
+      "display_name": "Kees Van Dongen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 408500,
+        "avg_usd": 102125,
+        "total_label": "$408k",
+        "avg_label": "$102k",
+        "top_lot": {
+          "title": "Intimes dans la dune",
+          "hammer_usd": 190500,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Guguse (Dolly van Dongen)",
+          "ratio": 1.49
+        }
+      }
+    },
+    {
       "norm_name": "JEAN PAUL RIOPELLE",
       "display_name": "Jean Paul Riopelle",
       "dates": "",
@@ -21970,33 +21997,6 @@
         "top_ratio_lot": {
           "title": "Bursting 06 爆裂 06",
           "ratio": 2.33
-        }
-      }
-    },
-    {
-      "norm_name": "KEES VAN DONGEN",
-      "display_name": "Kees Van Dongen",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 382500,
-        "avg_usd": 127500,
-        "total_label": "$382k",
-        "avg_label": "$128k",
-        "top_lot": {
-          "title": "Intimes dans la dune",
-          "hammer_usd": 190500,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Guguse (Dolly van Dongen)",
-          "ratio": 1.49
         }
       }
     },
@@ -22406,6 +22406,33 @@
       }
     },
     {
+      "norm_name": "LÉON SPILLIAERT",
+      "display_name": "Léon Spilliaert",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 338580,
+        "avg_usd": 169290,
+        "total_label": "$339k",
+        "avg_label": "$169k",
+        "top_lot": {
+          "title": "Het kanaal",
+          "hammer_usd": 322580,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Het kanaal",
+          "ratio": 1.29
+        }
+      }
+    },
+    {
       "norm_name": "ASGER JORN",
       "display_name": "Asger Jorn",
       "dates": "",
@@ -22510,33 +22537,6 @@
         "top_ratio_lot": {
           "title": "Non-Believers Need Good Godfathers",
           "ratio": 1.4
-        }
-      }
-    },
-    {
-      "norm_name": "LÉON SPILLIAERT",
-      "display_name": "Léon Spilliaert",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 322580,
-        "avg_usd": 322580,
-        "total_label": "$323k",
-        "avg_label": "$323k",
-        "top_lot": {
-          "title": "Het kanaal",
-          "hammer_usd": 322580,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Het kanaal",
-          "ratio": 1.29
         }
       }
     },
@@ -24809,6 +24809,33 @@
       }
     },
     {
+      "norm_name": "DADO",
+      "display_name": "Dado",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 197765,
+        "avg_usd": 16480,
+        "total_label": "$198k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 50000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Hospital militair",
+          "ratio": 3.14
+        }
+      }
+    },
+    {
       "norm_name": "MOISE KISLING",
       "display_name": "Moise Kisling",
       "dates": "",
@@ -26186,6 +26213,33 @@
       }
     },
     {
+      "norm_name": "HENRI MANGUIN",
+      "display_name": "Henri Manguin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 146723,
+        "avg_usd": 36681,
+        "total_label": "$147k",
+        "avg_label": "$37k",
+        "top_lot": {
+          "title": "Jeanne cousant sous un chêne-liège, Villa Demière",
+          "hammer_usd": 52920,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Toulon, l'entrée de la Rade",
+          "ratio": 1.92
+        }
+      }
+    },
+    {
       "norm_name": "MICHEL MAJERUS",
       "display_name": "Michel Majerus",
       "dates": "",
@@ -27185,33 +27239,6 @@
       }
     },
     {
-      "norm_name": "HENRI MANGUIN",
-      "display_name": "Henri Manguin",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 114723,
-        "avg_usd": 38241,
-        "total_label": "$115k",
-        "avg_label": "$38k",
-        "top_lot": {
-          "title": "Jeanne cousant sous un chêne-liège, Villa Demière",
-          "hammer_usd": 52920,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Toulon, l'entrée de la Rade",
-          "ratio": 1.92
-        }
-      }
-    },
-    {
       "norm_name": "JOAN MIRÓ (1893-1983) & JOSEP LLORENS ARTIGAS",
       "display_name": "Joan Miró (1893-1983) & Josep Llorens Artigas",
       "dates": "",
@@ -27640,6 +27667,33 @@
       }
     },
     {
+      "norm_name": "FRANÇOIS MORELLET",
+      "display_name": "François Morellet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 108000,
+        "avg_usd": 54000,
+        "total_label": "$108k",
+        "avg_label": "$54k",
+        "top_lot": {
+          "title": "Red and Blue",
+          "hammer_usd": 100000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Red and Blue",
+          "ratio": 1.43
+        }
+      }
+    },
+    {
       "norm_name": "MARWAN",
       "display_name": "Marwan",
       "dates": "",
@@ -27879,6 +27933,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.48
+        }
+      }
+    },
+    {
+      "norm_name": "MAX BILL",
+      "display_name": "Max Bill",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 102968,
+        "avg_usd": 34323,
+        "total_label": "$103k",
+        "avg_label": "$34k",
+        "top_lot": {
+          "title": "strahlung aus grün",
+          "hammer_usd": 64516,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Variation 6",
+          "ratio": 3.69
         }
       }
     },
@@ -28747,33 +28828,6 @@
       }
     },
     {
-      "norm_name": "DADO",
-      "display_name": "Dado",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 86765,
-        "avg_usd": 43382,
-        "total_label": "$87k",
-        "avg_label": "$43k",
-        "top_lot": {
-          "title": "Hospital militair",
-          "hammer_usd": 47059,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Hospital militair",
-          "ratio": 3.14
-        }
-      }
-    },
-    {
       "norm_name": "AFTER FERNAND LEGER",
       "display_name": "After Fernand Leger",
       "dates": "",
@@ -29152,6 +29206,33 @@
       }
     },
     {
+      "norm_name": "AVIGDOR ARIKHA",
+      "display_name": "Avigdor Arikha",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 76806,
+        "avg_usd": 25602,
+        "total_label": "$77k",
+        "avg_label": "$26k",
+        "top_lot": {
+          "title": "Umbrella",
+          "hammer_usd": 42000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Two Umbrellas",
+          "ratio": 1.8
+        }
+      }
+    },
+    {
       "norm_name": "MILTON RESNICK",
       "display_name": "Milton Resnick",
       "dates": "",
@@ -29391,33 +29472,6 @@
         "top_ratio_lot": {
           "title": "Sans titre",
           "ratio": 1.2
-        }
-      }
-    },
-    {
-      "norm_name": "MAX BILL",
-      "display_name": "Max Bill",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 70968,
-        "avg_usd": 35484,
-        "total_label": "$71k",
-        "avg_label": "$35k",
-        "top_lot": {
-          "title": "strahlung aus grün",
-          "hammer_usd": 64516,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Variation 6",
-          "ratio": 3.69
         }
       }
     },
@@ -29800,6 +29854,33 @@
       }
     },
     {
+      "norm_name": "MARCELLO LO GIUDICE",
+      "display_name": "Marcello Lo Giudice",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Eden Blu VIOLET",
+          "hammer_usd": 65000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Eden Blu VIOLET",
+          "ratio": 1.62
+        }
+      }
+    },
+    {
       "norm_name": "JOSEPH BEUYS",
       "display_name": "Joseph Beuys",
       "dates": "",
@@ -30093,6 +30174,33 @@
         "top_ratio_lot": {
           "title": "Moonlit farm with figures around a fire",
           "ratio": 3.6
+        }
+      }
+    },
+    {
+      "norm_name": "VICTOR BRAUNER",
+      "display_name": "Victor Brauner",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 62000,
+        "avg_usd": 20667,
+        "total_label": "$62k",
+        "avg_label": "$21k",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 24000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 1.37
         }
       }
     },
@@ -32257,6 +32365,33 @@
       }
     },
     {
+      "norm_name": "GEORGE MINNE",
+      "display_name": "George Minne",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 40000,
+        "avg_usd": 13333,
+        "total_label": "$40k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Les Saintes femmes au tombeau",
+          "hammer_usd": 17000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "L'agenouillé à la fontaine",
+          "ratio": 1.71
+        }
+      }
+    },
+    {
       "norm_name": "NORBERT KRICKE",
       "display_name": "Norbert Kricke",
       "dates": "",
@@ -33850,6 +33985,33 @@
       }
     },
     {
+      "norm_name": "VERA ROCKLINE",
+      "display_name": "Vera Rockline",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 26000,
+        "avg_usd": 26000,
+        "total_label": "$26k",
+        "avg_label": "$26k",
+        "top_lot": {
+          "title": "Nu à la toilette",
+          "hammer_usd": 26000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Nu à la toilette",
+          "ratio": 2.6
+        }
+      }
+    },
+    {
       "norm_name": "SONIA GOMES",
       "display_name": "Sonia Gomes",
       "dates": "",
@@ -33900,33 +34062,6 @@
         "top_ratio_lot": {
           "title": "Verge",
           "ratio": 3.69
-        }
-      }
-    },
-    {
-      "norm_name": "AVIGDOR ARIKHA",
-      "display_name": "Avigdor Arikha",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 25806,
-        "avg_usd": 25806,
-        "total_label": "$26k",
-        "avg_label": "$26k",
-        "top_lot": {
-          "title": "Knife",
-          "hammer_usd": 25806,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
-        },
-        "top_ratio_lot": {
-          "title": "Knife",
-          "ratio": 1.47
         }
       }
     },
@@ -34089,6 +34224,33 @@
         "top_ratio_lot": {
           "title": "Decalcomania",
           "ratio": 0.83
+        }
+      }
+    },
+    {
+      "norm_name": "LÉON DE SMET",
+      "display_name": "Léon De Smet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 24500,
+        "avg_usd": 12250,
+        "total_label": "$24k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Bouquet d'œillets et tulipes",
+          "hammer_usd": 16000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Bouquet d'œillets et tulipes",
+          "ratio": 0.91
         }
       }
     },
@@ -34903,6 +35065,33 @@
       }
     },
     {
+      "norm_name": "WALTER LEBLANC",
+      "display_name": "Walter Leblanc",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 19000,
+        "avg_usd": 19000,
+        "total_label": "$19k",
+        "avg_label": "$19k",
+        "top_lot": {
+          "title": "Twisted Strings 40F X 783",
+          "hammer_usd": 19000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Twisted Strings 40F X 783",
+          "ratio": 0.64
+        }
+      }
+    },
+    {
       "norm_name": "DARREL AUSTIN",
       "display_name": "Darrel Austin",
       "dates": "",
@@ -35146,6 +35335,33 @@
       }
     },
     {
+      "norm_name": "JUAN GENOVÉS",
+      "display_name": "Juan Genovés",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17000,
+        "avg_usd": 17000,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "Los Gritos",
+          "hammer_usd": 17000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Los Gritos",
+          "ratio": 0.68
+        }
+      }
+    },
+    {
       "norm_name": "EDUARD VON GRÜTZNER",
       "display_name": "Eduard Von Grützner",
       "dates": "",
@@ -35250,6 +35466,33 @@
         "top_ratio_lot": {
           "title": "Casa sul mare",
           "ratio": 0.91
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-PIERRE PINCEMIN",
+      "display_name": "Jean-Pierre Pincemin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16000,
+        "avg_usd": 16000,
+        "total_label": "$16k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 16000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 2.29
         }
       }
     },
@@ -35493,6 +35736,33 @@
         "top_ratio_lot": {
           "title": "Two Prints Related to Le Surréalisme en 1947",
           "ratio": 3.5
+        }
+      }
+    },
+    {
+      "norm_name": "VÁCLAV BOSTÍK",
+      "display_name": "Václav Bostík",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 14000,
+        "avg_usd": 14000,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Sans titre",
+          "hammer_usd": 14000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Sans titre",
+          "ratio": 2.8
         }
       }
     },
@@ -36168,6 +36438,33 @@
         "top_ratio_lot": {
           "title": "Patrons",
           "ratio": 1.32
+        }
+      }
+    },
+    {
+      "norm_name": "RENÉ GUIETTE",
+      "display_name": "René Guiette",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Portrait",
+          "hammer_usd": 11000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait",
+          "ratio": 1.0
         }
       }
     },
@@ -37679,6 +37976,33 @@
         },
         "top_ratio_lot": {
           "title": "Untitled",
+          "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "GUSTAVE DE SMET",
+      "display_name": "Gustave De Smet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4500,
+        "avg_usd": 4500,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Nature morte aux porcelaines",
+          "hammer_usd": 4500,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Nature morte aux porcelaines",
           "ratio": 0.75
         }
       }
