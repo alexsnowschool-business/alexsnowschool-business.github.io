@@ -47,7 +47,9 @@ _GQL_HEADERS = {**_HEADERS, "Content-Type": "application/json", "Accept": "appli
 _NON_ART_BLOCKLIST = re.compile(
     r"\b(château|bordeaux|burgundy|champagne|whisky|whiskey|diamond|bracelet|necklace|"
     r"earring|brooch|pendant|ring|rolex|patek|audemars|vacheron|watch|clock|"
-    r"decanter|bottle|magnum|wine|beer|cognac|port|brandy)\b",
+    r"decanter|bottle|magnum|wine|beer|cognac|port|brandy|"
+    r"book|manuscript|autograph|autographed|first.edition|signed.edition|"
+    r"letter|archive|folio|incunabul)\b",
     re.IGNORECASE,
 )
 
@@ -58,7 +60,8 @@ _NON_ART_SALE_RE = re.compile(
     r"macallan|cask|sneaker|collectible|numismatic|coin|medal|stamp|natural.history|"
     r"science|space|entertainment|pop.culture|streetwear|fashion|luxury.accessories|"
     r"clock|barometer|instrument|silver|real.estate|gold.box|"
-    r"history.of.science|popular.culture|sports.memorabilia|sneakers)\b",
+    r"history.of.science|popular.culture|sports.memorabilia|sneakers|"
+    r"books?|manuscripts?|autographs?|archives?|literature)\b",
     re.IGNORECASE,
 )
 
@@ -80,7 +83,7 @@ _ART_SALE_ALLOWLIST = re.compile(
     r"islamic|judaica|orientali\w*|latin|southeast[\-_]?asian|"
     r"russian|canadian|swiss|czech|dutch|belgian|italian|spanish|"
     r"german|austrian|british|irish|european|american|indian|"
-    r"manuscript|digital|decorative|modern|design|"
+    r"digital|decorative|modern|design|"
     r"\bart\b"
     r")",
     re.IGNORECASE,
