@@ -245,7 +245,7 @@ def main() -> None:
     captions = _build_captions(quote_text, author, book)
 
     print("═" * 62)
-    print("  BUFFER POSTER — Provenance Quote Reel")
+    print("  BUFFER POSTER — Quote Reel")
     print(f"  Reel:    {reel_slug}")
     print(f"  Video:   {video_path.name}")
     print(f"  Mode:    {'DRY RUN' if args.dry_run else 'LIVE'}")
