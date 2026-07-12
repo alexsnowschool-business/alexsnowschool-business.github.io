@@ -4,6 +4,24 @@ niche: "reading"
 quotes_db: "data/quotes.db"
 art_db:    "data/art.db"
 
+scrape_tags:
+  - books
+  - reading
+  - literature
+  - writing
+  - poetry
+  - wisdom
+  - life
+  - philosophy
+  - imagination
+  - creativity
+  - knowledge
+  - truth
+  - beauty
+  - solitude
+  - nature
+  - art
+
 hashtags_tiktok: >-
   #reading #books #quotes #booktok #literature #foryou
 

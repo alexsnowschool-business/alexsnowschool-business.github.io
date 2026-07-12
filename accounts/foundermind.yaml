@@ -1,0 +1,38 @@
+handle: "@founder.mind"
+niche: "business"
+
+quotes_db: "data/foundermind_quotes.db"
+art_db:    "data/art.db"
+
+scrape_tags:
+  - entrepreneurship
+  - success
+  - leadership
+  - business
+  - motivation
+  - ambition
+  - perseverance
+  - hard-work
+  - innovation
+  - vision
+  - courage
+  - change
+  - hustle
+
+hashtags_tiktok: >-
+  #entrepreneurship #business #success #leadership #founder #motivation #foryou
+
+hashtags_instagram: >-
+  #entrepreneurship #business #success #leadership #founder #motivation #mindset
+
+buffer_token_env:        "FOUNDERMIND_BUFFER_TOKEN"
+buffer_tiktok_id_env:    "FOUNDERMIND_BUFFER_TIKTOK_ID"
+buffer_instagram_id_env: "FOUNDERMIND_BUFFER_INSTAGRAM_ID"
+
+palette:
+  bg:     [6, 6, 8]
+  rule:   [200, 160, 80]
+  quote:  [240, 235, 220]
+  author: [200, 160, 80]
+  book:   [155, 125, 65]
+  tag:    [100, 80, 42]

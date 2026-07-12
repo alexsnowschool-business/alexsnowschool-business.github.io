@@ -3,7 +3,12 @@ name: Quote Scrape
 on:
   schedule:
     - cron: '0 3 * * *'   # 03:00 UTC every day
-  workflow_dispatch:       # allow manual trigger from GitHub UI
+  workflow_dispatch:
+    inputs:
+      account:
+        description: "Account slug to scrape (leave blank = all accounts)"
+        required: false
+        default: ""
 
 jobs:
   scrape-quotes:
@@ -25,43 +30,48 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
-      - name: Run Goodreads quote scraper
-        run: |
-          uv run python scripts/goodreads_scraper.py \
-            --tags books reading life wisdom love inspirational \
-                   philosophy writing poetry art music travel \
-                   friendship happiness success truth courage \
-                   change time creativity imagination beauty \
-                   freedom hope knowledge mindfulness nature \
-                   patience solitude \
-            --pages 2
+      - name: Scrape quotes for all accounts
         env:
           PYTHONPATH: .
-
-      - name: Report quote count
         run: |
-          uv run python -c "
-          import sqlite3
-          conn = sqlite3.connect('data/quotes.db')
-          total  = conn.execute('SELECT COUNT(*) FROM quotes').fetchone()[0]
-          unused = conn.execute('SELECT COUNT(*) FROM quotes WHERE used_at IS NULL').fetchone()[0]
-          print(f'Total quotes: {total}  |  Unused: {unused}')
-          conn.close()
-          "
+          ACCOUNTS="${{ inputs.account }}"
+          if [ -z "$ACCOUNTS" ]; then
+            ACCOUNTS=$(ls accounts/*.yaml | xargs -I{} basename {} .yaml | tr '\n' ' ')
+          fi
+          for ACCOUNT in $ACCOUNTS; do
+            echo "=== Scraping: $ACCOUNT ==="
+            uv run python scripts/goodreads_scraper.py --account "$ACCOUNT" --pages 2
+          done
 
-      - name: Commit and push quotes.db
+      - name: Report quote counts
+        env:
+          PYTHONPATH: .
+        run: |
+          for yaml in accounts/*.yaml; do
+            ACCOUNT=$(basename "$yaml" .yaml)
+            uv run python -c "
+          import sqlite3, sys, account_config
+          cfg = account_config.load('$ACCOUNT')
+          db = 'data/' + cfg.get('quotes_db','data/quotes.db').replace('data/','')
+          try:
+              conn = sqlite3.connect(db)
+              total  = conn.execute('SELECT COUNT(*) FROM quotes').fetchone()[0]
+              unused = conn.execute('SELECT COUNT(*) FROM quotes WHERE used_at IS NULL').fetchone()[0]
+              print(f'  $ACCOUNT: {total} total, {unused} unused')
+          except Exception as e:
+              print(f'  $ACCOUNT: (no db yet)')
+          "
+          done
+
+      - name: Commit and push quote databases
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/quotes.db
+          git add data/*_quotes.db data/quotes.db 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No new quotes — nothing to commit."
             exit 0
           fi
-          TOTAL=$(uv run python -c "
-          import sqlite3; conn = sqlite3.connect('data/quotes.db')
-          print(conn.execute('SELECT COUNT(*) FROM quotes').fetchone()[0])
-          ")
-          git commit -m "chore(data): quote scrape $(date -u '+%Y-%m-%d') (${TOTAL} total quotes) [skip ci]"
+          git commit -m "chore(data): quote scrape $(date -u '+%Y-%m-%d') [skip ci]"
           git pull --rebase --autostash origin main
           git push

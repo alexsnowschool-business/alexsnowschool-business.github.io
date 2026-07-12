@@ -1,0 +1,38 @@
+handle: "@deep.thought_"
+niche: "philosophy"
+
+quotes_db: "data/deepthought_quotes.db"
+art_db:    "data/art.db"
+
+scrape_tags:
+  - philosophy
+  - nietzsche
+  - existentialism
+  - dostoevsky
+  - albert-camus
+  - absurdism
+  - darkness
+  - truth
+  - meaning
+  - death
+  - freedom
+  - loneliness
+  - suffering
+
+hashtags_tiktok: >-
+  #philosophy #nietzsche #existentialism #deepthoughts #dostoevsky #camus #foryou
+
+hashtags_instagram: >-
+  #philosophy #nietzsche #existentialism #deepthoughts #dostoevsky #camus #wisdom
+
+buffer_token_env:        "DEEPTHOUGHT_BUFFER_TOKEN"
+buffer_tiktok_id_env:    "DEEPTHOUGHT_BUFFER_TIKTOK_ID"
+buffer_instagram_id_env: "DEEPTHOUGHT_BUFFER_INSTAGRAM_ID"
+
+palette:
+  bg:     [4, 4, 4]
+  rule:   [160, 80, 80]
+  quote:  [220, 215, 210]
+  author: [160, 80, 80]
+  book:   [120, 65, 65]
+  tag:    [80, 44, 44]

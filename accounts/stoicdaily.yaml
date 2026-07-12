@@ -1,0 +1,37 @@
+handle: "@stoic.daily"
+niche: "stoicism"
+
+quotes_db: "data/stoicdaily_quotes.db"
+art_db:    "data/art.db"
+
+scrape_tags:
+  - stoicism
+  - marcus-aurelius
+  - stoic
+  - epictetus
+  - seneca
+  - philosophy
+  - ancient-wisdom
+  - virtue
+  - resilience
+  - self-discipline
+  - mindfulness
+  - inner-peace
+
+hashtags_tiktok: >-
+  #stoicism #marcusaurelius #philosophy #ancientwisdom #stoic #epictetus #seneca #foryou
+
+hashtags_instagram: >-
+  #stoicism #marcusaurelius #philosophy #ancientwisdom #stoic #epictetus #seneca
+
+buffer_token_env:        "STOICDAILY_BUFFER_TOKEN"
+buffer_tiktok_id_env:    "STOICDAILY_BUFFER_TIKTOK_ID"
+buffer_instagram_id_env: "STOICDAILY_BUFFER_INSTAGRAM_ID"
+
+palette:
+  bg:     [8, 10, 12]
+  rule:   [140, 160, 180]
+  quote:  [225, 230, 235]
+  author: [140, 160, 180]
+  book:   [100, 120, 140]
+  tag:    [65, 80, 95]

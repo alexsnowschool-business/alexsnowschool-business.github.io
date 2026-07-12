@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """
-Scrape reading quotes from goodreads.com/quotes and store in data/quotes.db.
+Scrape quotes from goodreads.com/quotes and store in an account's quotes.db.
 
 Usage:
-    python scripts/goodreads_scraper.py                  # scrape all default tags
-    python scripts/goodreads_scraper.py --tags books     # scrape specific tag
-    python scripts/goodreads_scraper.py --pages 5        # pages per tag (default 3)
-    python scripts/goodreads_scraper.py --list           # show stored quotes
+    python scripts/goodreads_scraper.py                         # scrape lifequoteshere (default)
+    python scripts/goodreads_scraper.py --account stoicdaily    # scrape a different account
+    python scripts/goodreads_scraper.py --tags books reading    # override tags
+    python scripts/goodreads_scraper.py --pages 5               # pages per tag (default 3)
+    python scripts/goodreads_scraper.py --list                  # show stored quotes
 """
 
 import argparse
 import sqlite3
+import sys
 import time
 import random
 from datetime import datetime, timezone
@@ -20,17 +22,11 @@ import httpx
 from bs4 import BeautifulSoup
 
 SCRIPT_DIR   = Path(__file__).resolve().parent
+sys.path.insert(0, str(SCRIPT_DIR))
 BUSINESS_DIR = SCRIPT_DIR.parent
-DB_PATH      = BUSINESS_DIR / "data" / "quotes.db"
 
-# Goodreads tag slugs to scrape
 DEFAULT_TAGS = [
-    "books",
-    "reading",
-    "life",
-    "wisdom",
-    "love",
-    "inspirational",
+    "books", "reading", "life", "wisdom", "love", "inspirational",
 ]
 
 BASE_URL = "https://www.goodreads.com/quotes/tag/{tag}?page={page}"
@@ -183,12 +179,24 @@ def cmd_list(conn: sqlite3.Connection, limit: int = 20):
 
 def main():
     parser = argparse.ArgumentParser(description="Goodreads quote scraper")
-    parser.add_argument("--tags",  nargs="+", default=DEFAULT_TAGS,
-                        help="Goodreads tag slugs to scrape")
+    parser.add_argument("--account", default="lifequoteshere",
+                        help="Account slug matching accounts/<slug>.yaml")
+    parser.add_argument("--tags",  nargs="+", default=None,
+                        help="Override Goodreads tag slugs (default: from account config)")
     parser.add_argument("--pages", type=int, default=3,
                         help="Pages to scrape per tag (default 3, ~30 quotes/page)")
     parser.add_argument("--list",  action="store_true", help="Show stored quotes")
     args = parser.parse_args()
+
+    import account_config
+    try:
+        cfg = account_config.load(args.account)
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+    DB_PATH = BUSINESS_DIR / cfg.get("quotes_db", "data/quotes.db")
+    tags    = args.tags or cfg.get("scrape_tags", DEFAULT_TAGS)
 
     conn = init_db(DB_PATH)
 
@@ -196,14 +204,14 @@ def main():
         cmd_list(conn)
         return
 
-    print(f"Scraping tags: {', '.join(args.tags)} ({args.pages} pages each)")
-    print(f"DB: {DB_PATH}\n")
+    print(f"Account: {args.account}  |  DB: {DB_PATH}")
+    print(f"Scraping {len(tags)} tags ({args.pages} pages each): {', '.join(tags)}\n")
 
     grand_new = 0
     grand_dup = 0
 
     with httpx.Client() as client:
-        for tag in args.tags:
+        for tag in tags:
             print(f"\n=== Tag: {tag} ===")
             new, dup = scrape_tag(client, conn, tag, args.pages)
             grand_new += new
