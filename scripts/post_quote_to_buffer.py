@@ -42,11 +42,10 @@ GITHUB_REPO = "alexsnowschool-business/alexsnowschool-business.github.io"
 
 _HASHTAGS_TT = (
     "#reading #books #quotes #booktok #literature "
-    "#provenance #wordstoliveby"
+    " #foryou"
 )
 _HASHTAGS_IG = (
-    "#reading #books #quotes #booktok #literature #provenance"
-)
+    "#reading #books #quotes #bookstagram #literature " )   
 
 
 # ── Caption builder ───────────────────────────────────────────────────────────

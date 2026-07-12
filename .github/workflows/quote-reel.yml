@@ -1,0 +1,102 @@
+name: Quote Reel — Provenance
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # 04:00 UTC every day (after scraper at 03:00)
+  workflow_dispatch:
+    inputs:
+      quote_id:
+        description: "Specific quote ID to use (leave blank for auto)"
+        required: false
+        default: ""
+      schedule_at:
+        description: "Schedule post ISO 8601, e.g. 2026-07-14T19:00:00+07:00 (blank = add to queue)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run — render reel but do not post to Buffer"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+
+jobs:
+  quote-reel:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python + uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: uv sync
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg --quiet
+
+      - name: Download quotes.db from rolling release
+        run: |
+          gh release download quotes-db --pattern "quotes.db" --dir data/ 2>/dev/null \
+            || echo "No existing quotes.db — starting fresh"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate quote reel
+        id: reel
+        env:
+          PYTHONPATH: .
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.quote_id }}" ]; then
+            ARGS="--id ${{ inputs.quote_id }}"
+          fi
+          uv run python scripts/quote_reel.py $ARGS
+
+          # Capture the most recently created quote reel folder
+          FOLDER=$(ls -dt reels/quote-*/ 2>/dev/null | head -1 | sed 's|/$||')
+          echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+          echo "Reel folder: $FOLDER"
+
+      - name: Upload updated quotes.db (marks quote used)
+        run: |
+          gh release delete quotes-db --yes 2>/dev/null || true
+          gh release create quotes-db data/quotes.db \
+            --title "Quotes DB (rolling)" \
+            --notes "Auto-updated daily by the Quote Scrape and Quote Reel workflows." \
+            --prerelease
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Post to Buffer
+        if: inputs.dry_run != 'true'
+        env:
+          PROVENANCE_BUFFER_TOKEN:        ${{ secrets.PROVENANCE_BUFFER_TOKEN }}
+          PROVENANCE_BUFFER_TIKTOK_ID:    ${{ secrets.PROVENANCE_BUFFER_TIKTOK_ID }}
+          PROVENANCE_BUFFER_INSTAGRAM_ID: ${{ secrets.PROVENANCE_BUFFER_INSTAGRAM_ID }}
+          GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
+          PYTHONPATH: .
+        run: |
+          ARGS="${{ steps.reel.outputs.folder }}"
+          if [ -n "${{ inputs.schedule_at }}" ]; then
+            ARGS="$ARGS --schedule '${{ inputs.schedule_at }}'"
+          fi
+          eval uv run python scripts/post_quote_to_buffer.py $ARGS
+
+      - name: Dry run — show captions only
+        if: inputs.dry_run == 'true'
+        env:
+          PYTHONPATH: .
+        run: |
+          uv run python scripts/post_quote_to_buffer.py \
+            ${{ steps.reel.outputs.folder }} --dry-run
