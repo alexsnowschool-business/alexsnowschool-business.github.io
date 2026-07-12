@@ -25,12 +25,6 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
-      - name: Download existing quotes.db from releases
-        run: |
-          gh release download quotes-db --pattern "quotes.db" --dir data/ 2>/dev/null || echo "No existing quotes.db found — starting fresh"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Run Goodreads quote scraper
         run: |
           uv run python scripts/goodreads_scraper.py \
@@ -55,14 +49,19 @@ jobs:
           conn.close()
           "
 
-      - name: Upload quotes.db to GitHub Releases
+      - name: Commit and push quotes.db
         run: |
-          TAG="quotes-db"
-          # Delete and recreate the rolling release so quotes.db is always fresh
-          gh release delete "$TAG" --yes 2>/dev/null || true
-          gh release create "$TAG" data/quotes.db \
-            --title "Quotes DB (rolling)" \
-            --notes "Auto-updated daily by the Quote Scrape workflow. Download to use locally." \
-            --prerelease
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/quotes.db
+          if git diff --cached --quiet; then
+            echo "No new quotes — nothing to commit."
+            exit 0
+          fi
+          TOTAL=$(uv run python -c "
+          import sqlite3; conn = sqlite3.connect('data/quotes.db')
+          print(conn.execute('SELECT COUNT(*) FROM quotes').fetchone()[0])
+          ")
+          git commit -m "chore(data): quote scrape $(date -u '+%Y-%m-%d') (${TOTAL} total quotes) [skip ci]"
+          git pull --rebase --autostash origin main
+          git push

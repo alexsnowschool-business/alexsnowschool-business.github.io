@@ -1,6 +1,3 @@
 # Exclude downloaded images — too large for the repo.
 # Only JSON metadata is committed.
 */images/
-
-# Generated databases
-quotes.db

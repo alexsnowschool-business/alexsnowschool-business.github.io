@@ -45,13 +45,6 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg --quiet
 
-      - name: Download quotes.db from rolling release
-        run: |
-          gh release download quotes-db --pattern "quotes.db" --dir data/ 2>/dev/null \
-            || echo "No existing quotes.db — starting fresh"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Generate quote reel
         id: reel
         env:
@@ -63,20 +56,18 @@ jobs:
           fi
           uv run python scripts/quote_reel.py $ARGS
 
-          # Capture the most recently created quote reel folder
           FOLDER=$(ls -dt reels/quote-*/ 2>/dev/null | head -1 | sed 's|/$||')
           echo "folder=$FOLDER" >> $GITHUB_OUTPUT
           echo "Reel folder: $FOLDER"
 
-      - name: Upload updated quotes.db (marks quote used)
+      - name: Commit quotes.db (marks quote used)
         run: |
-          gh release delete quotes-db --yes 2>/dev/null || true
-          gh release create quotes-db data/quotes.db \
-            --title "Quotes DB (rolling)" \
-            --notes "Auto-updated daily by the Quote Scrape and Quote Reel workflows." \
-            --prerelease
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/quotes.db
+          git diff --cached --quiet || git commit -m "chore(data): mark quote used $(date -u '+%Y-%m-%d') [skip ci]"
+          git pull --rebase --autostash origin main
+          git push
 
       - name: Post to Buffer
         if: inputs.dry_run != 'true'
