@@ -236,7 +236,7 @@ def render_frame(quote: dict, bg: Image.Image,
                   font=book_font, fill=BOOK_COL)
 
     # ── Bottom tag ────────────────────────────────────────────
-    tag_text = "reading"
+    tag_text = "@lifeqouteshere  ·  reading"
     bbox = draw.textbbox((0, 0), tag_text, font=tag_font)
     tw   = bbox[2] - bbox[0]
     draw.text(((W - tw) // 2, H - 96), tag_text, font=tag_font, fill=TAG_COL)
