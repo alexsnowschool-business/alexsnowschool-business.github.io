@@ -4,7 +4,7 @@ Reading Quote Reel — Hermès aesthetic.
 
 Picks an unused quote from data/quotes.db, downloads a random art piece
 image from data/art.db as a blurred background, renders a single 1080×1920
-frame, and produces a silent 7–8 second MP4.
+frame, and produces a 7–8 second MP4 with low-volume ambient music.
 
 Usage:
     python scripts/quote_reel.py               # auto-pick next unused quote
@@ -34,6 +34,7 @@ BUSINESS_DIR = SCRIPT_DIR.parent
 QUOTES_DB    = BUSINESS_DIR / "data" / "quotes.db"
 ART_DB       = BUSINESS_DIR / "data" / "art.db"
 FONTS_DIR    = BUSINESS_DIR / "reel_template" / "fonts"
+MUSIC_DIR    = BUSINESS_DIR / "reel_template" / "music"
 REELS_DIR    = BUSINESS_DIR / "reels"
 
 W, H    = 1080, 1920
@@ -251,25 +252,70 @@ def render_frame(quote: dict, bg: Image.Image,
     return img
 
 
+# ── Music selection ───────────────────────────────────────────────────────────
+
+def pick_music_track(seed: str) -> Path | None:
+    """Pick a track from reel_template/music/, rotating by hash of seed."""
+    tracks = sorted(
+        list(MUSIC_DIR.glob("*.mp3")) +
+        list(MUSIC_DIR.glob("*.m4a")) +
+        list(MUSIC_DIR.glob("*.wav"))
+    )
+    if not tracks:
+        return None
+    return tracks[abs(hash(seed)) % len(tracks)]
+
+
 # ── Video export ──────────────────────────────────────────────────────────────
 
-def export_video(frame_path: Path, out_path: Path):
-    """Encode single frame into a silent 8-second MP4 with fade in/out."""
-    cmd = [
-        "ffmpeg", "-y",
-        "-loop", "1", "-i", str(frame_path),
-        "-f", "lavfi", "-i", f"anullsrc=r=44100:cl=stereo",
-        "-vf", (
-            f"fade=t=in:st=0:d={FADE_S},"
-            f"fade=t=out:st={HOLD_S + FADE_S}:d={FADE_S}"
-        ),
-        "-t", str(TOTAL_S),
-        "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-        "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "128k",
-        "-shortest",
-        str(out_path),
-    ]
+def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
+    """Encode single frame into an 8-second MP4 with ambient music and fade in/out."""
+    vf = (
+        f"fade=t=in:st=0:d={FADE_S},"
+        f"fade=t=out:st={HOLD_S + FADE_S}:d={FADE_S}"
+    )
+    fade_start = max(0.0, TOTAL_S - 2.0)
+
+    if music_track:
+        # Low-volume ambient mix: fade in 0.5s, fade out last 2s
+        af = (
+            f"[1:a]"
+            f"afade=t=in:st=0:d={FADE_S},"
+            f"afade=t=out:st={fade_start:.2f}:d=2.0,"
+            f"volume=0.15,"
+            f"atrim=duration={TOTAL_S:.2f}"
+            f"[aout]"
+        )
+        cmd = [
+            "ffmpeg", "-y",
+            "-loop", "1", "-i", str(frame_path),
+            "-stream_loop", "-1", "-i", str(music_track),
+            "-vf", vf,
+            "-filter_complex", af, "-map", "0:v", "-map", "[aout]",
+            "-t", str(TOTAL_S),
+            "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "192k",
+            "-shortest",
+            str(out_path),
+        ]
+        print(f"  ♪ Music: {music_track.name}")
+    else:
+        # Fallback: silent track
+        cmd = [
+            "ffmpeg", "-y",
+            "-loop", "1", "-i", str(frame_path),
+            "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
+            "-vf", vf,
+            "-t", str(TOTAL_S),
+            "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "128k",
+            "-shortest",
+            str(out_path),
+        ]
+        print("  ♪ No music tracks found — silent track")
+
     print(f"  Encoding → {out_path.name}")
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
@@ -345,15 +391,27 @@ def main():
     frame.save(frame_path, "PNG")
     print(f"  Frame saved: {frame_path.name}")
 
+    # Write sidecar metadata for the Buffer poster
+    meta_path = reel_dir / "quote_meta.json"
+    meta_path.write_text(json.dumps({
+        "id":         quote["id"],
+        "text":       quote["text"],
+        "author":     quote["author"],
+        "book":       quote["book"],
+        "art_artist": art_artist,
+        "art_title":  art_title,
+    }, ensure_ascii=False, indent=2))
+
     if args.preview:
         print("\n  Preview mode — skipping video encoding")
         q_conn.close()
         return
 
     # ── Export video ──────────────────────────────────────────
-    out_path = reel_dir / f"{folder_name}.mp4"
-    export_video(frame_path, out_path)
-    print(f"  Video: {out_path.name}  ({TOTAL_S:.0f}s silent)")
+    music_track = pick_music_track(folder_name)
+    out_path    = reel_dir / f"{folder_name}.mp4"
+    export_video(frame_path, out_path, music_track)
+    print(f"  Video: {out_path.name}  ({TOTAL_S:.0f}s)")
 
     # ── Mark quote used ───────────────────────────────────────
     mark_quote_used(q_conn, quote["id"])
