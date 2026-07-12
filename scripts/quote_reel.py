@@ -125,7 +125,7 @@ def download_image(url: str) -> Image.Image | None:
 
 
 def prepare_background(art_img: Image.Image | None) -> Image.Image:
-    """Dark warm background, optionally using art image blurred."""
+    """Warm background with art visible at edges, darkened in centre for legibility."""
     base = Image.new("RGB", (W, H), BG_COL)
     if art_img is None:
         return base
@@ -139,21 +139,42 @@ def prepare_background(art_img: Image.Image | None) -> Image.Image:
     y = (nh - H) // 2
     art_img = art_img.crop((x, y, x + W, y + H))
 
-    # Desaturate and colour-grade to warm
-    art_img = ImageEnhance.Color(art_img).enhance(0.35)
-    art_img = ImageEnhance.Contrast(art_img).enhance(0.85)
+    # Light warm colour grade — keep the painting visible
+    art_img = ImageEnhance.Color(art_img).enhance(0.80)
+    art_img = ImageEnhance.Contrast(art_img).enhance(0.95)
+    art_img = ImageEnhance.Brightness(art_img).enhance(0.75)
     r, g, b = art_img.split()
-    r = r.point(lambda v: min(255, int(v * 1.06)))
-    b = b.point(lambda v: max(0, int(v * 0.82)))
+    r = r.point(lambda v: min(255, int(v * 1.04)))
+    b = b.point(lambda v: max(0, int(v * 0.88)))
     art_img = Image.merge("RGB", (r, g, b))
 
-    # Heavy blur
-    art_img = art_img.filter(ImageFilter.GaussianBlur(radius=28))
+    # Soft blur — still recognisable as a painting
+    art_img = art_img.filter(ImageFilter.GaussianBlur(radius=6))
 
-    # Dark overlay so quote is legible
-    overlay = Image.new("RGB", (W, H), BG_COL)
     base.paste(art_img)
-    base.paste(overlay, mask=Image.new("L", (W, H), 172))
+
+    # Centre-weighted gradient overlay: light at top/bottom, dark in the middle
+    # so the quote zone is legible while the art shows at the edges
+    overlay = Image.new("RGB", (W, H), BG_COL)
+    mask    = Image.new("L", (W, H), 0)
+    d       = ImageDraw.Draw(mask)
+
+    center      = H // 2
+    band_half   = int(H * 0.30)   # half-height of the dark centre band
+    edge_alpha  = 80              # how dark at top/bottom edges
+    centre_alpha = 185            # how dark at the quote centre
+
+    for y in range(H):
+        dist = abs(y - center)
+        if dist <= band_half:
+            # Inside centre band — linearly interpolate to max darkness
+            t     = 1.0 - dist / band_half
+            alpha = int(edge_alpha + (centre_alpha - edge_alpha) * t)
+        else:
+            alpha = edge_alpha
+        d.line([(0, y), (W, y)], fill=alpha)
+
+    base.paste(overlay, mask=mask)
     return base
 
 
@@ -181,14 +202,14 @@ def wrap_quote(text: str, font: ImageFont.FreeTypeFont, max_width: int,
 
 def render_frame(quote: dict, bg: Image.Image,
                  art_artist: str = "", art_title: str = "") -> Image.Image:
-    img  = bg.copy()
-    draw = ImageDraw.Draw(img)
+    img  = bg.copy().convert("RGBA")
+    draw = ImageDraw.Draw(img, "RGBA")
 
     # Fonts
-    quote_font  = load_font("Lora-Italic.ttf", 68)
-    author_font = load_font("InstrumentSerif-Regular.ttf", 36)
-    book_font   = load_font("InstrumentSerif-Italic.ttf", 30)
-    tag_font    = load_font("InstrumentSans-Italic.ttf", 22)
+    quote_font  = load_font("Lora-Italic.ttf", 72)
+    author_font = load_font("InstrumentSerif-Regular.ttf", 38)
+    book_font   = load_font("InstrumentSerif-Italic.ttf", 32)
+    tag_font    = load_font("InstrumentSans-Italic.ttf", 24)
 
     pad_x      = 96   # horizontal margin
     max_text_w = W - pad_x * 2
@@ -210,6 +231,8 @@ def render_frame(quote: dict, bg: Image.Image,
         lw   = bbox[2] - bbox[0]
         x    = (W - lw) // 2
         y    = text_top + i * line_h
+        # Shadow
+        draw.text((x + 2, y + 3), line, font=quote_font, fill=(0, 0, 0, 120))
         draw.text((x, y), line, font=quote_font, fill=QUOTE_COL)
 
     text_bottom = text_top + total_h
@@ -224,8 +247,9 @@ def render_frame(quote: dict, bg: Image.Image,
     author_text = quote["author"] if quote["author"] else "Unknown"
     bbox = draw.textbbox((0, 0), author_text, font=author_font)
     aw   = bbox[2] - bbox[0]
-    draw.text(((W - aw) // 2, rule_y + 18), author_text,
-              font=author_font, fill=AUTHOR_COL)
+    ax   = (W - aw) // 2
+    draw.text((ax + 1, rule_y + 19), author_text, font=author_font, fill=(0, 0, 0, 100))
+    draw.text((ax, rule_y + 18), author_text, font=author_font, fill=AUTHOR_COL)
 
     # ── Book ──────────────────────────────────────────────────
     if quote["book"]:
@@ -385,7 +409,7 @@ def main():
     frame = render_frame(quote, bg, art_artist, art_title)
 
     frame_path = reel_dir / "frame.png"
-    frame.save(frame_path, "PNG")
+    frame.convert("RGB").save(frame_path, "PNG")
     print(f"  Frame saved: {frame_path.name}")
 
     # Write sidecar metadata for the Buffer poster
