@@ -65,9 +65,13 @@ def init_db(db_path: Path) -> sqlite3.Connection:
     return conn
 
 
+MAX_CHARS = 150  # quotes longer than this won't fit the centre frame cleanly
+
 def insert_quote(conn: sqlite3.Connection, text: str, author: str, book: str,
                   tags: str, url: str) -> bool:
-    """Insert quote; returns True if new, False if duplicate."""
+    """Insert quote; returns True if new, False if duplicate or too long."""
+    if len(text) > MAX_CHARS:
+        return False
     try:
         conn.execute(
             "INSERT INTO quotes (text, author, book, tags, url, scraped_at) "
