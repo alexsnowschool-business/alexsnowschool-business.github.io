@@ -1,0 +1,68 @@
+name: Quote Scrape
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # 03:00 UTC every day
+  workflow_dispatch:       # allow manual trigger from GitHub UI
+
+jobs:
+  scrape-quotes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python + uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: uv sync
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Download existing quotes.db from releases
+        run: |
+          gh release download quotes-db --pattern "quotes.db" --dir data/ 2>/dev/null || echo "No existing quotes.db found — starting fresh"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Goodreads quote scraper
+        run: |
+          uv run python scripts/goodreads_scraper.py \
+            --tags books reading life wisdom love inspirational \
+                   philosophy writing poetry art music travel \
+                   friendship happiness success truth courage \
+                   change time creativity imagination beauty \
+                   freedom hope knowledge mindfulness nature \
+                   patience solitude \
+            --pages 2
+        env:
+          PYTHONPATH: .
+
+      - name: Report quote count
+        run: |
+          uv run python -c "
+          import sqlite3
+          conn = sqlite3.connect('data/quotes.db')
+          total  = conn.execute('SELECT COUNT(*) FROM quotes').fetchone()[0]
+          unused = conn.execute('SELECT COUNT(*) FROM quotes WHERE used_at IS NULL').fetchone()[0]
+          print(f'Total quotes: {total}  |  Unused: {unused}')
+          conn.close()
+          "
+
+      - name: Upload quotes.db to GitHub Releases
+        run: |
+          TAG="quotes-db"
+          # Delete and recreate the rolling release so quotes.db is always fresh
+          gh release delete "$TAG" --yes 2>/dev/null || true
+          gh release create "$TAG" data/quotes.db \
+            --title "Quotes DB (rolling)" \
+            --notes "Auto-updated daily by the Quote Scrape workflow. Download to use locally." \
+            --prerelease
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
