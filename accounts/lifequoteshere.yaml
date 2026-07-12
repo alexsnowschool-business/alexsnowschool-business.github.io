@@ -23,10 +23,10 @@ scrape_tags:
   - art
 
 hashtags_tiktok: >-
-  #reading #books #quotes #booktok #literature #foryou
+  #reading #books #quotes #booktok #foryou
 
 hashtags_instagram: >-
-  #reading #books #quotes #bookstagram #literature
+  #reading #books #quotes
 
 buffer_token_env:        "PROVENANCE_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "PROVENANCE_BUFFER_TIKTOK_ID"

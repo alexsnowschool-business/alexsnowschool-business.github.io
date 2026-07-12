@@ -20,10 +20,10 @@ scrape_tags:
   - suffering
 
 hashtags_tiktok: >-
-  #philosophy #nietzsche #existentialism #deepthoughts #dostoevsky #camus #foryou
+  #philosophy #nietzsche #existentialism #deepthoughts #foryou
 
 hashtags_instagram: >-
-  #philosophy #nietzsche #existentialism #deepthoughts #dostoevsky #camus #wisdom
+  #philosophy #nietzsche #existentialism
 
 buffer_token_env:        "DEEPTHOUGHT_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "DEEPTHOUGHT_BUFFER_TIKTOK_ID"

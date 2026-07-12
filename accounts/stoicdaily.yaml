@@ -19,10 +19,10 @@ scrape_tags:
   - inner-peace
 
 hashtags_tiktok: >-
-  #stoicism #marcusaurelius #philosophy #ancientwisdom #stoic #epictetus #seneca #foryou
+  #stoicism #marcusaurelius #philosophy #stoic #foryou
 
 hashtags_instagram: >-
-  #stoicism #marcusaurelius #philosophy #ancientwisdom #stoic #epictetus #seneca
+  #stoicism #marcusaurelius #philosophy
 
 buffer_token_env:        "STOICDAILY_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "STOICDAILY_BUFFER_TIKTOK_ID"
