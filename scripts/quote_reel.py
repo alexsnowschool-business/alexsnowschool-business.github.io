@@ -39,9 +39,9 @@ REELS_DIR    = BUSINESS_DIR / "reels"
 
 W, H    = 1080, 1920
 FPS     = 24
-HOLD_S  = 7.0
+HOLD_S  = 14.5
 FADE_S  = 0.5
-TOTAL_S = HOLD_S + FADE_S * 2  # 8.0
+TOTAL_S = HOLD_S + FADE_S  # 15.0
 
 # Palette — warm Hermès dark
 BG_COL      = (14, 10, 6)
