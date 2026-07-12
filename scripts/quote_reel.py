@@ -270,10 +270,7 @@ def pick_music_track(seed: str) -> Path | None:
 
 def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
     """Encode single frame into an 8-second MP4 with ambient music and fade in/out."""
-    vf = (
-        f"fade=t=in:st=0:d={FADE_S},"
-        f"fade=t=out:st={HOLD_S + FADE_S}:d={FADE_S}"
-    )
+    vf = f"fade=t=out:st={TOTAL_S - FADE_S:.2f}:d={FADE_S}"
     fade_start = max(0.0, TOTAL_S - 2.0)
 
     if music_track:
