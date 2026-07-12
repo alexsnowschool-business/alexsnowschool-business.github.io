@@ -2,8 +2,11 @@ name: Quote Reel
 
 on:
   schedule:
-    - cron: '0 1 * * *'    # 01:00 UTC every day (morning SEA 08:00)
-    - cron: '0 11 * * *'   # 11:00 UTC every day (evening SEA 18:00 / morning Europe)
+    - cron: '0 1  * * *'   # 01:00 UTC — 08:00 BKK
+    - cron: '0 5  * * *'   # 05:00 UTC — 12:00 BKK
+    - cron: '0 9  * * *'   # 09:00 UTC — 16:00 BKK
+    - cron: '0 13 * * *'   # 13:00 UTC — 20:00 BKK
+    - cron: '0 17 * * *'   # 17:00 UTC — 00:00 BKK
   workflow_dispatch:
     inputs:
       quote_id:
