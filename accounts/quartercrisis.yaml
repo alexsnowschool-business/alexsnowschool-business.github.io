@@ -1,0 +1,40 @@
+handle: "@quarter.crisis"
+niche: "life"
+
+quotes_db: "data/quartercrisis_quotes.db"
+art_db:    "data/art.db"
+
+scrape_tags:
+  - burnout
+  - midlife
+  - purpose
+  - anxiety
+  - loneliness
+  - career
+  - meaning
+  - identity
+  - change
+  - simplicity
+  - balance
+  - technology
+  - solitude
+  - truth
+  - time
+
+hashtags_tiktok: >-
+  #burnout #midlifecrisis #techlife #quarterlifecrisis #foryou
+
+hashtags_instagram: >-
+  #burnout #midlifecrisis #techlife
+
+buffer_token_env:        "QUARTERCRISIS_BUFFER_TOKEN"
+buffer_tiktok_id_env:    "QUARTERCRISIS_BUFFER_TIKTOK_ID"
+buffer_instagram_id_env: "QUARTERCRISIS_BUFFER_INSTAGRAM_ID"
+
+palette:
+  bg:     [10, 10, 14]
+  rule:   [120, 140, 180]
+  quote:  [230, 228, 235]
+  author: [120, 140, 180]
+  book:   [90, 105, 140]
+  tag:    [60, 70, 95]
