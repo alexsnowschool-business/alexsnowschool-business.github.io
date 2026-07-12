@@ -9,6 +9,10 @@ on:
     - cron: '0 17 * * *'   # 17:00 UTC — 00:00 BKK
   workflow_dispatch:
     inputs:
+      account:
+        description: "Account slug (matches accounts/<slug>.yaml)"
+        required: false
+        default: "lifequoteshere"
       quote_id:
         description: "Specific quote ID to use (leave blank for auto)"
         required: false
@@ -54,9 +58,10 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          ARGS=""
+          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ARGS="--account $ACCOUNT"
           if [ -n "${{ inputs.quote_id }}" ]; then
-            ARGS="--id ${{ inputs.quote_id }}"
+            ARGS="$ARGS --id ${{ inputs.quote_id }}"
           fi
           uv run python scripts/quote_reel.py $ARGS
 
@@ -82,7 +87,8 @@ jobs:
           GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: .
         run: |
-          ARGS="${{ steps.reel.outputs.folder }}"
+          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ARGS="${{ steps.reel.outputs.folder }} --account $ACCOUNT"
           if [ -n "${{ inputs.schedule_at }}" ]; then
             ARGS="$ARGS --schedule '${{ inputs.schedule_at }}'"
           fi
@@ -93,5 +99,6 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
+          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
           uv run python scripts/post_quote_to_buffer.py \
-            ${{ steps.reel.outputs.folder }} --dry-run
+            ${{ steps.reel.outputs.folder }} --account $ACCOUNT --dry-run

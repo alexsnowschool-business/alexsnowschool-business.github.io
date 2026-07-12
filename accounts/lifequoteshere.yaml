@@ -1,0 +1,23 @@
+handle: "@lifeqouteshere"
+niche: "reading"
+
+quotes_db: "data/quotes.db"
+art_db:    "data/art.db"
+
+hashtags_tiktok: >-
+  #reading #books #quotes #booktok #literature #foryou
+
+hashtags_instagram: >-
+  #reading #books #quotes #bookstagram #literature
+
+buffer_token_env:        "PROVENANCE_BUFFER_TOKEN"
+buffer_tiktok_id_env:    "PROVENANCE_BUFFER_TIKTOK_ID"
+buffer_instagram_id_env: "PROVENANCE_BUFFER_INSTAGRAM_ID"
+
+palette:
+  bg:     [14, 10, 6]
+  rule:   [185, 148, 68]
+  quote:  [245, 238, 212]
+  author: [185, 148, 68]
+  book:   [150, 122, 82]
+  tag:    [90, 72, 48]

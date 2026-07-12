@@ -28,37 +28,29 @@ from pathlib import Path
 import httpx
 from dotenv import load_dotenv
 
+import sys
 SCRIPT_DIR   = Path(__file__).resolve().parent
+sys.path.insert(0, str(SCRIPT_DIR))
 BUSINESS_DIR = SCRIPT_DIR.parent
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
 
 BUFFER_GRAPHQL = "https://api.buffer.com/graphql"
-TOKEN          = os.getenv("PROVENANCE_BUFFER_TOKEN")
-TT_CHANNEL     = os.getenv("PROVENANCE_BUFFER_TIKTOK_ID")
-IG_CHANNEL     = os.getenv("PROVENANCE_BUFFER_INSTAGRAM_ID")
-
-GITHUB_REPO = "alexsnowschool-business/alexsnowschool-business.github.io"
-
-_HASHTAGS_TT = (
-    "#reading #books #quotes #booktok #literature "
-    " #foryou"
-)
-_HASHTAGS_IG = (
-    "#reading #books #quotes #bookstagram #literature " )   
+GITHUB_REPO    = "alexsnowschool-business/alexsnowschool-business.github.io"
 
 
 # ── Caption builder ───────────────────────────────────────────────────────────
 
-def _build_captions(quote_text: str, author: str, book: str) -> dict[str, str]:
+def _build_captions(quote_text: str, author: str, book: str,
+                    hashtags_tt: str, hashtags_ig: str) -> dict[str, str]:
     attr = f"— {author}" if author else ""
     if book:
         attr += f", {book}"
 
     body = f'"{quote_text}"\n\n{attr}'.strip()
 
-    tiktok = f"{body}\n\n{_HASHTAGS_TT}"
-    instagram = f"{body}\n\n{_HASHTAGS_IG}"
+    tiktok    = f"{body}\n\n{hashtags_tt}"
+    instagram = f"{body}\n\n{hashtags_ig}"
     return {"tiktok": tiktok, "instagram": instagram}
 
 
@@ -196,15 +188,31 @@ def _post_to_buffer(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Post a reading quote reel to TikTok/Instagram via Buffer (Provenance)."
+        description="Post a reading quote reel to TikTok/Instagram via Buffer."
     )
-    parser.add_argument("reel_dir",       help="Reel folder, e.g. reels/quote-2026-07-12_lemony-snicket-never-trus")
+    parser.add_argument("reel_dir",       help="Reel folder, e.g. reels/quote-2026-07-12_slug")
+    parser.add_argument("--account",      default="lifequoteshere",
+                        help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--schedule",     default=None,
                         help="ISO 8601 datetime, e.g. 2026-07-13T19:00:00+07:00")
     parser.add_argument("--no-tiktok",    dest="tiktok",    action="store_false", default=True)
     parser.add_argument("--no-instagram", dest="instagram", action="store_false", default=True)
     parser.add_argument("--dry-run",      action="store_true")
     args = parser.parse_args()
+
+    # ── Load account config ───────────────────────────────────
+    import account_config
+    try:
+        cfg = account_config.load(args.account)
+    except FileNotFoundError as e:
+        print(f"✗ {e}")
+        sys.exit(1)
+
+    TOKEN      = os.getenv(cfg.get("buffer_token_env",        "PROVENANCE_BUFFER_TOKEN"))
+    TT_CHANNEL = os.getenv(cfg.get("buffer_tiktok_id_env",    "PROVENANCE_BUFFER_TIKTOK_ID"))
+    IG_CHANNEL = os.getenv(cfg.get("buffer_instagram_id_env", "PROVENANCE_BUFFER_INSTAGRAM_ID"))
+    hashtags_tt = cfg.get("hashtags_tiktok",    "")
+    hashtags_ig = cfg.get("hashtags_instagram", "")
 
     reel_dir  = BUSINESS_DIR / args.reel_dir
     reel_slug = reel_dir.name
@@ -225,8 +233,9 @@ def main() -> None:
 
     cover_path = reel_dir / "frame.png"
 
+    token_env = cfg.get("buffer_token_env", "PROVENANCE_BUFFER_TOKEN")
     if not args.dry_run and not TOKEN:
-        print("✗ PROVENANCE_BUFFER_TOKEN not set in .env")
+        print(f"✗ {token_env} not set in environment")
         sys.exit(1)
 
     # Read quote metadata from a sidecar JSON if present, else parse from slug
@@ -242,7 +251,7 @@ def main() -> None:
         author     = ""
         book       = ""
 
-    captions = _build_captions(quote_text, author, book)
+    captions = _build_captions(quote_text, author, book, hashtags_tt, hashtags_ig)
 
     print("═" * 62)
     print("  BUFFER POSTER — Quote Reel")

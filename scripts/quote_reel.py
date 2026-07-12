@@ -2,15 +2,16 @@
 """
 Reading Quote Reel — Hermès aesthetic.
 
-Picks an unused quote from data/quotes.db, downloads a random art piece
-image from data/art.db as a blurred background, renders a single 1080×1920
-frame, and produces a 7–8 second MP4 with low-volume ambient music.
+Picks an unused quote from the account's quotes.db, downloads a random art
+piece image from art.db as a blurred background, renders a single 1080×1920
+frame, and produces a 15-second MP4 with low-volume ambient music.
 
 Usage:
-    python scripts/quote_reel.py               # auto-pick next unused quote
-    python scripts/quote_reel.py --id 42       # use specific quote id
-    python scripts/quote_reel.py --preview     # render frame PNG only, no video
-    python scripts/quote_reel.py --dry-run     # print chosen quote, do nothing
+    python scripts/quote_reel.py                          # auto-pick next unused quote
+    python scripts/quote_reel.py --account stoicism       # use a different account
+    python scripts/quote_reel.py --id 42                  # use specific quote id
+    python scripts/quote_reel.py --preview                # render frame PNG only, no video
+    python scripts/quote_reel.py --dry-run                # print chosen quote, do nothing
 """
 
 import argparse
@@ -31,8 +32,6 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageEnhance
 SCRIPT_DIR   = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
 BUSINESS_DIR = SCRIPT_DIR.parent
-QUOTES_DB    = BUSINESS_DIR / "data" / "quotes.db"
-ART_DB       = BUSINESS_DIR / "data" / "art.db"
 FONTS_DIR    = BUSINESS_DIR / "reel_template" / "fonts"
 MUSIC_DIR    = BUSINESS_DIR / "reel_template" / "music"
 REELS_DIR    = BUSINESS_DIR / "reels"
@@ -43,13 +42,19 @@ HOLD_S  = 14.5
 FADE_S  = 0.5
 TOTAL_S = HOLD_S + FADE_S  # 15.0
 
-# Palette — warm Hermès dark
-BG_COL      = (14, 10, 6)
-RULE_COL    = (185, 148, 68)
-QUOTE_COL   = (245, 238, 212)
-AUTHOR_COL  = (185, 148, 68)
-BOOK_COL    = (150, 122, 82)
-TAG_COL     = (90, 72, 48)
+DEFAULT_PALETTE = {
+    "bg":     (14, 10, 6),
+    "rule":   (185, 148, 68),
+    "quote":  (245, 238, 212),
+    "author": (185, 148, 68),
+    "book":   (150, 122, 82),
+    "tag":    (90, 72, 48),
+}
+
+
+def _palette(cfg: dict) -> dict:
+    raw = cfg.get("palette", {})
+    return {k: tuple(raw[k]) if k in raw else DEFAULT_PALETTE[k] for k in DEFAULT_PALETTE}
 
 HEADERS = {
     "User-Agent": (
@@ -124,9 +129,9 @@ def download_image(url: str) -> Image.Image | None:
         return None
 
 
-def prepare_background(art_img: Image.Image | None) -> Image.Image:
+def prepare_background(art_img: Image.Image | None, palette: dict) -> Image.Image:
     """Warm background with art visible at edges, darkened in centre for legibility."""
-    base = Image.new("RGB", (W, H), BG_COL)
+    base = Image.new("RGB", (W, H), palette["bg"])
     if art_img is None:
         return base
 
@@ -155,7 +160,7 @@ def prepare_background(art_img: Image.Image | None) -> Image.Image:
 
     # Centre-weighted gradient overlay: light at top/bottom, dark in the middle
     # so the quote zone is legible while the art shows at the edges
-    overlay = Image.new("RGB", (W, H), BG_COL)
+    overlay = Image.new("RGB", (W, H), palette["bg"])
     mask    = Image.new("L", (W, H), 0)
     d       = ImageDraw.Draw(mask)
 
@@ -200,7 +205,8 @@ def wrap_quote(text: str, font: ImageFont.FreeTypeFont, max_width: int,
     return lines
 
 
-def render_frame(quote: dict, bg: Image.Image,
+def render_frame(quote: dict, bg: Image.Image, palette: dict,
+                 handle: str = "", niche: str = "",
                  art_artist: str = "", art_title: str = "") -> Image.Image:
     img  = bg.copy().convert("RGBA")
     draw = ImageDraw.Draw(img, "RGBA")
@@ -218,7 +224,7 @@ def render_frame(quote: dict, bg: Image.Image,
     # ── Opening quotation mark ────────────────────────────────
     open_font = load_font("Lora-Italic.ttf", 140)
     draw.text((pad_x - 10, center_y - 340), "“", font=open_font,
-              fill=(*RULE_COL, 60))
+              fill=(*palette["rule"], 60))
 
     # ── Quote text ────────────────────────────────────────────
     lines      = wrap_quote(quote["text"], quote_font, max_text_w, draw)
@@ -233,7 +239,7 @@ def render_frame(quote: dict, bg: Image.Image,
         y    = text_top + i * line_h
         # Shadow
         draw.text((x + 2, y + 3), line, font=quote_font, fill=(0, 0, 0, 120))
-        draw.text((x, y), line, font=quote_font, fill=QUOTE_COL)
+        draw.text((x, y), line, font=quote_font, fill=palette["quote"])
 
     text_bottom = text_top + total_h
 
@@ -241,7 +247,7 @@ def render_frame(quote: dict, bg: Image.Image,
     rule_y = text_bottom + 48
     rule_w = 60
     draw.line([(W // 2 - rule_w, rule_y), (W // 2 + rule_w, rule_y)],
-              fill=RULE_COL, width=1)
+              fill=palette["rule"], width=1)
 
     # ── Author ────────────────────────────────────────────────
     author_text = quote["author"] if quote["author"] else "Unknown"
@@ -249,7 +255,7 @@ def render_frame(quote: dict, bg: Image.Image,
     aw   = bbox[2] - bbox[0]
     ax   = (W - aw) // 2
     draw.text((ax + 1, rule_y + 19), author_text, font=author_font, fill=(0, 0, 0, 100))
-    draw.text((ax, rule_y + 18), author_text, font=author_font, fill=AUTHOR_COL)
+    draw.text((ax, rule_y + 18), author_text, font=author_font, fill=palette["author"])
 
     # ── Book ──────────────────────────────────────────────────
     if quote["book"]:
@@ -257,13 +263,15 @@ def render_frame(quote: dict, bg: Image.Image,
         bbox = draw.textbbox((0, 0), book_text, font=book_font)
         bw   = bbox[2] - bbox[0]
         draw.text(((W - bw) // 2, rule_y + 18 + 46), book_text,
-                  font=book_font, fill=BOOK_COL)
+                  font=book_font, fill=palette["book"])
 
     # ── Bottom tag ────────────────────────────────────────────
-    tag_text = "@lifeqouteshere  ·  reading"
-    bbox = draw.textbbox((0, 0), tag_text, font=tag_font)
-    tw   = bbox[2] - bbox[0]
-    draw.text(((W - tw) // 2, H - 96), tag_text, font=tag_font, fill=TAG_COL)
+    tag_parts = [p for p in [handle, niche] if p]
+    tag_text  = "  ·  ".join(tag_parts) if tag_parts else ""
+    if tag_text:
+        bbox = draw.textbbox((0, 0), tag_text, font=tag_font)
+        tw   = bbox[2] - bbox[0]
+        draw.text(((W - tw) // 2, H - 96), tag_text, font=tag_font, fill=palette["tag"])
 
     # ── Artwork credit (very dim, top left) ───────────────────
     if art_artist and art_title:
@@ -271,7 +279,7 @@ def render_frame(quote: dict, bg: Image.Image,
         if len(credit) > 55:
             credit = credit[:52] + "…"
         credit_font = load_font("InstrumentSans-Italic.ttf", 20)
-        draw.text((pad_x, 72), credit, font=credit_font, fill=(*TAG_COL, 140))
+        draw.text((pad_x, 72), credit, font=credit_font, fill=(*palette["tag"], 140))
 
     return img
 
@@ -348,12 +356,28 @@ def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
 
 def main():
     parser = argparse.ArgumentParser(description="Reading quote reel generator")
+    parser.add_argument("--account", default="lifequoteshere",
+                        help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--id",      type=int, help="Specific quote id to use")
     parser.add_argument("--preview", action="store_true",
                         help="Render frame PNG only, skip video encoding")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print chosen quote, do nothing else")
     args = parser.parse_args()
+
+    # ── Load account config ───────────────────────────────────
+    import account_config
+    try:
+        cfg = account_config.load(args.account)
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+    palette   = _palette(cfg)
+    handle    = cfg.get("handle", "")
+    niche     = cfg.get("niche", "")
+    QUOTES_DB = BUSINESS_DIR / cfg.get("quotes_db", "data/quotes.db")
+    ART_DB    = BUSINESS_DIR / cfg.get("art_db",    "data/art.db")
 
     # ── Open databases ────────────────────────────────────────
     if not QUOTES_DB.exists():
@@ -405,8 +429,8 @@ def main():
     print(f"\n  Output: {reel_dir}")
 
     # ── Render frame ──────────────────────────────────────────
-    bg    = prepare_background(art_img)
-    frame = render_frame(quote, bg, art_artist, art_title)
+    bg    = prepare_background(art_img, palette)
+    frame = render_frame(quote, bg, palette, handle, niche, art_artist, art_title)
 
     frame_path = reel_dir / "frame.png"
     frame.convert("RGB").save(frame_path, "PNG")
