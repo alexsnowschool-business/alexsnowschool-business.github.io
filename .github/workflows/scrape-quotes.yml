@@ -32,7 +32,7 @@ jobs:
 
       - name: Scrape quotes for all accounts
         env:
-          PYTHONPATH: .
+          PYTHONPATH: "scripts:."
         run: |
           ACCOUNTS="${{ inputs.account }}"
           if [ -z "$ACCOUNTS" ]; then
@@ -44,8 +44,9 @@ jobs:
           done
 
       - name: Report quote counts
+        continue-on-error: true
         env:
-          PYTHONPATH: .
+          PYTHONPATH: "scripts:."
         run: |
           for yaml in accounts/*.yaml; do
             ACCOUNT=$(basename "$yaml" .yaml)
