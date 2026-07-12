@@ -48,18 +48,22 @@ jobs:
         env:
           PYTHONPATH: "scripts:."
         run: |
-          for yaml in accounts/*.yaml; do
-            ACCOUNT=$(basename "$yaml" .yaml)
+          ACCOUNTS="${{ inputs.account }}"
+          if [ -z "$ACCOUNTS" ]; then
+            ACCOUNTS=$(ls accounts/*.yaml | xargs -I{} basename {} .yaml | tr '\n' ' ')
+          fi
+          for ACCOUNT in $ACCOUNTS; do
             uv run python -c "
-          import sqlite3, sys, account_config
+          import sqlite3, sys; sys.path.insert(0,'scripts')
+          import account_config
           cfg = account_config.load('$ACCOUNT')
-          db = 'data/' + cfg.get('quotes_db','data/quotes.db').replace('data/','')
+          db  = cfg.get('quotes_db', 'data/quotes.db')
           try:
-              conn = sqlite3.connect(db)
+              conn   = sqlite3.connect(db)
               total  = conn.execute('SELECT COUNT(*) FROM quotes').fetchone()[0]
               unused = conn.execute('SELECT COUNT(*) FROM quotes WHERE used_at IS NULL').fetchone()[0]
               print(f'  $ACCOUNT: {total} total, {unused} unused')
-          except Exception as e:
+          except Exception:
               print(f'  $ACCOUNT: (no db yet)')
           "
           done
