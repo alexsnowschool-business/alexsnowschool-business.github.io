@@ -1,32 +1,31 @@
 handle: "@lifeqouteshere"
-niche: "reading"
+niche: "life"
 
 quotes_db: "data/quotes.db"
 art_db:    "data/art.db"
 
 scrape_tags:
-  - books
-  - reading
-  - literature
-  - writing
-  - poetry
-  - wisdom
-  - life
-  - philosophy
-  - imagination
-  - creativity
-  - knowledge
-  - truth
-  - beauty
+  - burnout
+  - midlife
+  - purpose
+  - anxiety
+  - loneliness
+  - career
+  - meaning
+  - identity
+  - change
+  - simplicity
+  - balance
+  - technology
   - solitude
-  - nature
-  - art
+  - truth
+  - time
 
 hashtags_tiktok: >-
-  #reading #books #quotes #booktok #foryou
+  #burnout #midlifecrisis #techlife #quarterlifecrisis #foryou
 
 hashtags_instagram: >-
-  #reading #books #quotes
+  #burnout #midlifecrisis #techlife
 
 buffer_token_env:        "PROVENANCE_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "PROVENANCE_BUFFER_TIKTOK_ID"
