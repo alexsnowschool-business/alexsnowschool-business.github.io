@@ -151,10 +151,11 @@ def _post_to_buffer(
 
     variables: dict = {
         "input": {
-            "channelId": channel_id,
-            "text":      text,
-            "assets":    [{"video": {"url": video_url}}],
-            "metadata":  metadata,
+            "channelId":      channel_id,
+            "text":           text,
+            "assets":         [{"video": {"url": video_url}}],
+            "schedulingType": "automatic",
+            "metadata":       metadata,
         }
     }
 
