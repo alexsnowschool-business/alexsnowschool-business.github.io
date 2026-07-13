@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3020,
-    "total_artists": 1111,
-    "median_hammer_usd": 112903,
-    "pct_above_estimate": 48.5,
+    "total_lots": 3070,
+    "total_artists": 1153,
+    "median_hammer_usd": 110000,
+    "pct_above_estimate": 48.2,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-09"
+    "generated_at": "2026-07-13"
   },
   "artists": [
     {
@@ -22190,6 +22190,33 @@
       }
     },
     {
+      "norm_name": "FRANCESCO GUARDI",
+      "display_name": "Francesco Guardi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 355600,
+        "avg_usd": 177800,
+        "total_label": "$356k",
+        "avg_label": "$178k",
+        "top_lot": {
+          "title": "Venice, the entrance to the Grand Canal with Santa Maria del",
+          "hammer_usd": 215900,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Capriccio landscape with a ruined arch and figures beside a ",
+          "ratio": 2.0
+        }
+      }
+    },
+    {
       "norm_name": "GEORGES ROUAULT",
       "display_name": "Georges Rouault",
       "dates": "",
@@ -23968,6 +23995,33 @@
         "top_ratio_lot": {
           "title": "A still life with a roemer, an upturned silver tazza, oyster",
           "ratio": 1.83
+        }
+      }
+    },
+    {
+      "norm_name": "ANTONIO JOLI",
+      "display_name": "Antonio Joli",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 228600,
+        "avg_usd": 228600,
+        "total_label": "$229k",
+        "avg_label": "$229k",
+        "top_lot": {
+          "title": "A capriccio of the Bacino di San Marco, Venice, from the ent",
+          "hammer_usd": 228600,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A capriccio of the Bacino di San Marco, Venice, from the ent",
+          "ratio": 2.29
         }
       }
     },
@@ -26807,6 +26861,33 @@
       }
     },
     {
+      "norm_name": "THOMAS GAINSBOROUGH, R.A.",
+      "display_name": "Thomas Gainsborough, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 127000,
+        "avg_usd": 127000,
+        "total_label": "$127k",
+        "avg_label": "$127k",
+        "top_lot": {
+          "title": "Portrait of John Hobart (1723–1793), 2nd Earl of Buckinghams",
+          "hammer_usd": 127000,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of John Hobart (1723–1793), 2nd Earl of Buckinghams",
+          "ratio": 1.27
+        }
+      }
+    },
+    {
       "norm_name": "RICHARD ARTSCHWAGER",
       "display_name": "Richard Artschwager",
       "dates": "",
@@ -27289,6 +27370,33 @@
         "top_ratio_lot": {
           "title": "Cardinale seduto",
           "ratio": 0.91
+        }
+      }
+    },
+    {
+      "norm_name": "MELCHIOR DE HONDECOETER",
+      "display_name": "Melchior De Hondecoeter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 114300,
+        "avg_usd": 114300,
+        "total_label": "$114k",
+        "avg_label": "$114k",
+        "top_lot": {
+          "title": "A concert of birds",
+          "hammer_usd": 114300,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A concert of birds",
+          "ratio": 1.34
         }
       }
     },
@@ -28720,6 +28828,33 @@
       }
     },
     {
+      "norm_name": "THEODOOR VAN THULDEN",
+      "display_name": "Theodoor Van Thulden",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 88900,
+        "avg_usd": 88900,
+        "total_label": "$89k",
+        "avg_label": "$89k",
+        "top_lot": {
+          "title": "The Gods mourning Phaeton",
+          "hammer_usd": 88900,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "The Gods mourning Phaeton",
+          "ratio": 3.56
+        }
+      }
+    },
+    {
       "norm_name": "MIRIAM CAHN",
       "display_name": "Miriam Cahn",
       "dates": "",
@@ -28986,6 +29121,33 @@
         "top_ratio_lot": {
           "title": "Número 401",
           "ratio": 1.03
+        }
+      }
+    },
+    {
+      "norm_name": "CLAUDE GELLÉE, CALLED CLAUDE LORRAIN",
+      "display_name": "Claude Gellée, Called Claude Lorrain",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 82550,
+        "avg_usd": 82550,
+        "total_label": "$83k",
+        "avg_label": "$83k",
+        "top_lot": {
+          "title": "An Italianate river landscape with figures dancing and other",
+          "hammer_usd": 82550,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "An Italianate river landscape with figures dancing and other",
+          "ratio": 0.83
         }
       }
     },
@@ -29584,6 +29746,33 @@
       }
     },
     {
+      "norm_name": "NICCOLÒ CODAZZI",
+      "display_name": "Niccolò Codazzi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 69850,
+        "avg_usd": 69850,
+        "total_label": "$70k",
+        "avg_label": "$70k",
+        "top_lot": {
+          "title": "An architectural capriccio",
+          "hammer_usd": 69850,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "An architectural capriccio",
+          "ratio": 5.59
+        }
+      }
+    },
+    {
       "norm_name": "EVA HELENE PADE",
       "display_name": "Eva Helene Pade",
       "dates": "",
@@ -30151,6 +30340,60 @@
       }
     },
     {
+      "norm_name": "JUSEPE DE RIBERA, CALLED LO SPAGNOLETTO",
+      "display_name": "Jusepe De Ribera, Called Lo Spagnoletto",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 63500,
+        "avg_usd": 63500,
+        "total_label": "$64k",
+        "avg_label": "$64k",
+        "top_lot": {
+          "title": "The repentance of Saint Peter",
+          "hammer_usd": 63500,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "The repentance of Saint Peter",
+          "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "THOMAS LUNY",
+      "display_name": "Thomas Luny",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 63246,
+        "avg_usd": 15812,
+        "total_label": "$63k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "The Battle of the Nile",
+          "hammer_usd": 24130,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "The Battle of the Nile",
+          "ratio": 1.93
+        }
+      }
+    },
+    {
       "norm_name": "DAVID TENIERS THE YOUNGER",
       "display_name": "David Teniers The Younger",
       "dates": "",
@@ -30309,6 +30552,33 @@
         "top_ratio_lot": {
           "title": "The Adoration of the Magi",
           "ratio": 1.22
+        }
+      }
+    },
+    {
+      "norm_name": "AFTER WILLIAM HOGARTH, CIRCA 1739",
+      "display_name": "After William Hogarth, Circa 1739",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 60960,
+        "avg_usd": 60960,
+        "total_label": "$61k",
+        "avg_label": "$61k",
+        "top_lot": {
+          "title": "Sir Francis Dashwood At His Devotions",
+          "hammer_usd": 60960,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Sir Francis Dashwood At His Devotions",
+          "ratio": 4.88
         }
       }
     },
@@ -30552,6 +30822,33 @@
         "top_ratio_lot": {
           "title": "Twice Remembered",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES WARD, R.A.",
+      "display_name": "James Ward, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 56515,
+        "avg_usd": 18838,
+        "total_label": "$57k",
+        "avg_label": "$19k",
+        "top_lot": {
+          "title": "A bay hunter in a landscape",
+          "hammer_usd": 40640,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Primrose and Foal",
+          "ratio": 1.18
         }
       }
     },
@@ -32338,6 +32635,87 @@
       }
     },
     {
+      "norm_name": "LUCA GIORDANO",
+      "display_name": "Luca Giordano",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Saint Bartholomew",
+          "hammer_usd": 40640,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Saint Bartholomew",
+          "ratio": 2.32
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-BAPTISTE PILLEMENT",
+      "display_name": "Jean-Baptiste Pillement",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "A pair of shipwreck scenes",
+          "hammer_usd": 40640,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A pair of shipwreck scenes",
+          "ratio": 1.63
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGE ROMNEY",
+      "display_name": "George Romney",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Portrait of Charles Lennox, 3rd Duke of Richmond and Lennox ",
+          "hammer_usd": 40640,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of Charles Lennox, 3rd Duke of Richmond and Lennox ",
+          "ratio": 1.63
+        }
+      }
+    },
+    {
       "norm_name": "DAVID ALFARO SIQUEIROS",
       "display_name": "David Alfaro Siqueiros",
       "dates": "",
@@ -32550,6 +32928,87 @@
         "top_ratio_lot": {
           "title": "Portrait of Giovanni della Casa (1503–1556)",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "GAETANO GANDOLFI",
+      "display_name": "Gaetano Gandolfi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38100,
+        "avg_usd": 38100,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "God the Father",
+          "hammer_usd": 38100,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "God the Father",
+          "ratio": 2.18
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM HOARE OF BATH, R.A.",
+      "display_name": "William Hoare Of Bath, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38100,
+        "avg_usd": 38100,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Portrait of Richard Grenville-Temple, 2nd Earl Temple, KG, P",
+          "hammer_usd": 38100,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of Richard Grenville-Temple, 2nd Earl Temple, KG, P",
+          "ratio": 1.77
+        }
+      }
+    },
+    {
+      "norm_name": "CHINESE SCHOOL, 1845–50",
+      "display_name": "Chinese School, 1845–50",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38100,
+        "avg_usd": 38100,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "View from the American Hong, Canton",
+          "hammer_usd": 38100,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "View from the American Hong, Canton",
+          "ratio": 1.52
         }
       }
     },
@@ -33742,6 +34201,60 @@
       }
     },
     {
+      "norm_name": "DOMENICO GARGIULO, CALLED MICCO SPADARO",
+      "display_name": "Domenico Gargiulo, Called Micco Spadaro",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 27940,
+        "avg_usd": 27940,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "The Triumph of Love",
+          "hammer_usd": 27940,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "The Triumph of Love",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
+      "norm_name": "JOHANN ZOFFANY, R.A.",
+      "display_name": "Johann Zoffany, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 27940,
+        "avg_usd": 27940,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Portrait of Sir Robert Preston, 6th Baronet (1740–1834), ful",
+          "hammer_usd": 27940,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of Sir Robert Preston, 6th Baronet (1740–1834), ful",
+          "ratio": 1.12
+        }
+      }
+    },
+    {
       "norm_name": "ELIE NADELMAN",
       "display_name": "Elie Nadelman",
       "dates": "",
@@ -34444,6 +34957,33 @@
       }
     },
     {
+      "norm_name": "PHILIPPE ROUSSEAU",
+      "display_name": "Philippe Rousseau",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 24130,
+        "avg_usd": 24130,
+        "total_label": "$24k",
+        "avg_label": "$24k",
+        "top_lot": {
+          "title": "A pair of still lifes: pigeons in a roosting house in a tree",
+          "hammer_usd": 24130,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A pair of still lifes: pigeons in a roosting house in a tree",
+          "ratio": 0.97
+        }
+      }
+    },
+    {
       "norm_name": "PAMELA PHATSIMO SUNSTRUM",
       "display_name": "Pamela Phatsimo Sunstrum",
       "dates": "",
@@ -34903,6 +35443,33 @@
       }
     },
     {
+      "norm_name": "CHRISTIAN GEORG SCHÜTZ THE ELDER",
+      "display_name": "Christian Georg Schütz The Elder",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 20320,
+        "avg_usd": 20320,
+        "total_label": "$20k",
+        "avg_label": "$20k",
+        "top_lot": {
+          "title": "A view of Frankfurt",
+          "hammer_usd": 20320,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A view of Frankfurt",
+          "ratio": 1.16
+        }
+      }
+    },
+    {
       "norm_name": "GLEN BAXTER",
       "display_name": "Glen Baxter",
       "dates": "",
@@ -35007,6 +35574,33 @@
         "top_ratio_lot": {
           "title": "Oakland Intersection—59th and Stanford",
           "ratio": 1.09
+        }
+      }
+    },
+    {
+      "norm_name": "ENGLISH SCHOOL, 1740S",
+      "display_name": "English School, 1740S",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 19050,
+        "avg_usd": 19050,
+        "total_label": "$19k",
+        "avg_label": "$19k",
+        "top_lot": {
+          "title": "Portrait of Richard Windle (b. 1721) with a Chinese beaker v",
+          "hammer_usd": 19050,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of Richard Windle (b. 1721) with a Chinese beaker v",
+          "ratio": 1.27
         }
       }
     },
@@ -35362,6 +35956,33 @@
       }
     },
     {
+      "norm_name": "CIRCLE OF ALBERTO PULLICINO",
+      "display_name": "Circle Of Alberto Pullicino",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16510,
+        "avg_usd": 16510,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "Malta, a view of the Grand Harbour during a storm",
+          "hammer_usd": 16510,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Malta, a view of the Grand Harbour during a storm",
+          "ratio": 1.1
+        }
+      }
+    },
+    {
       "norm_name": "EDUARD VON GRÜTZNER",
       "display_name": "Eduard Von Grützner",
       "dates": "",
@@ -35632,6 +36253,141 @@
       }
     },
     {
+      "norm_name": "FRANCESCO FURINI",
+      "display_name": "Francesco Furini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Artemisia",
+          "hammer_usd": 15240,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Artemisia",
+          "ratio": 0.51
+        }
+      }
+    },
+    {
+      "norm_name": "SEBASTIANO CONCA",
+      "display_name": "Sebastiano Conca",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "The Rape of Europa",
+          "hammer_usd": 15240,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "The Rape of Europa",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO PIETRO DA CORTONA",
+      "display_name": "Attributed To Pietro Da Cortona",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Saint Veronica with the Veil",
+          "hammer_usd": 15240,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Saint Veronica with the Veil",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "GAWEN HAMILTON",
+      "display_name": "Gawen Hamilton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "A large family group in an interior",
+          "hammer_usd": 15240,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A large family group in an interior",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGE CHINNERY",
+      "display_name": "George Chinnery",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Portrait of George Siddons, son of the actress, Sarah Siddon",
+          "hammer_usd": 15240,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of George Siddons, son of the actress, Sarah Siddon",
+          "ratio": 1.02
+        }
+      }
+    },
+    {
       "norm_name": "SARA BERMAN",
       "display_name": "Sara Berman",
       "dates": "",
@@ -35655,6 +36411,33 @@
         "top_ratio_lot": {
           "title": "The Fool 8",
           "ratio": 3.04
+        }
+      }
+    },
+    {
+      "norm_name": "FOLLOWER OF SIR ANTHONY VAN DYCK",
+      "display_name": "Follower Of Sir Anthony Van Dyck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 14605,
+        "avg_usd": 7302,
+        "total_label": "$15k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "A sketch of a head, probably an Apostle",
+          "hammer_usd": 8890,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A sketch of a head, probably an Apostle",
+          "ratio": 0.89
         }
       }
     },
@@ -36064,6 +36847,33 @@
       }
     },
     {
+      "norm_name": "GIUSEPPE BERNARDINO BISON",
+      "display_name": "Giuseppe Bernardino Bison",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Venice, the Piazzetta di San Marco with the Doge's Palace",
+          "hammer_usd": 13970,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Venice, the Piazzetta di San Marco with the Doge's Palace",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
       "norm_name": "JUDITH ROTHSCHILD",
       "display_name": "Judith Rothschild",
       "dates": "",
@@ -36141,6 +36951,33 @@
         "top_ratio_lot": {
           "title": "Sylvette in New York",
           "ratio": 2.88
+        }
+      }
+    },
+    {
+      "norm_name": "HENRY LEONIDAS ROLFE",
+      "display_name": "Henry Leonidas Rolfe",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 13081,
+        "avg_usd": 6540,
+        "total_label": "$13k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "An eagle defending its catch in the Highlands",
+          "hammer_usd": 11430,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "An eagle defending its catch in the Highlands",
+          "ratio": 1.91
         }
       }
     },
@@ -36330,6 +37167,60 @@
         "top_ratio_lot": {
           "title": "A pair of seascapes, en brunaille",
           "ratio": 1.72
+        }
+      }
+    },
+    {
+      "norm_name": "GIUSEPPE RECCO",
+      "display_name": "Giuseppe Recco",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12065,
+        "avg_usd": 12065,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Still life of apricots, figs, pears, plums and cherries with",
+          "hammer_usd": 12065,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Still life of apricots, figs, pears, plums and cherries with",
+          "ratio": 1.72
+        }
+      }
+    },
+    {
+      "norm_name": "GIACINTO DIANO",
+      "display_name": "Giacinto Diano",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12065,
+        "avg_usd": 12065,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Christ at the Pool of Bethseda",
+          "hammer_usd": 12065,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Christ at the Pool of Bethseda",
+          "ratio": 2.01
         }
       }
     },
@@ -36847,6 +37738,33 @@
       }
     },
     {
+      "norm_name": "CARLO MARATTA",
+      "display_name": "Carlo Maratta",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 9525,
+        "avg_usd": 9525,
+        "total_label": "$10k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "The Vision of Joachim and Anne",
+          "hammer_usd": 9525,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "The Vision of Joachim and Anne",
+          "ratio": 0.76
+        }
+      }
+    },
+    {
       "norm_name": "RUDOLF SCHLICHTER",
       "display_name": "Rudolf Schlichter",
       "dates": "",
@@ -36897,6 +37815,60 @@
         "top_ratio_lot": {
           "title": "Blossom",
           "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "ROMAN SCHOOL, 17TH CENTURY",
+      "display_name": "Roman School, 17Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8890,
+        "avg_usd": 8890,
+        "total_label": "$9k",
+        "avg_label": "$9k",
+        "top_lot": {
+          "title": "Still life with a peach and three quinces",
+          "hammer_usd": 8890,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Still life with a peach and three quinces",
+          "ratio": 1.48
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO SIMON HARDIMÉ",
+      "display_name": "Attributed To Simon Hardimé",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8890,
+        "avg_usd": 8890,
+        "total_label": "$9k",
+        "avg_label": "$9k",
+        "top_lot": {
+          "title": "Still life of flowers in an urn",
+          "hammer_usd": 8890,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Still life of flowers in an urn",
+          "ratio": 0.89
         }
       }
     },
@@ -37360,6 +38332,33 @@
       }
     },
     {
+      "norm_name": "SIR THOMAS LAWRENCE, P.R.A.",
+      "display_name": "Sir Thomas Lawrence, P.R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6985,
+        "avg_usd": 6985,
+        "total_label": "$7k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Portraits of Philip Wynell-Mayow (1771–1844) and his wife, E",
+          "hammer_usd": 6985,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portraits of Philip Wynell-Mayow (1771–1844) and his wife, E",
+          "ratio": 1.0
+        }
+      }
+    },
+    {
       "norm_name": "RENÉ AUGUSTE SEYSSAUD",
       "display_name": "René Auguste Seyssaud",
       "dates": "",
@@ -37468,6 +38467,33 @@
       }
     },
     {
+      "norm_name": "GIACOMO DEL PO",
+      "display_name": "Giacomo Del Po",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6096,
+        "avg_usd": 6096,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Apollo and Daphne: a bozzetto",
+          "hammer_usd": 6096,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Apollo and Daphne: a bozzetto",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
       "norm_name": "RANA BEGUM",
       "display_name": "Rana Begum",
       "dates": "",
@@ -37544,33 +38570,6 @@
         },
         "top_ratio_lot": {
           "title": "Portrait of Marian",
-          "ratio": 0.82
-        }
-      }
-    },
-    {
-      "norm_name": "FOLLOWER OF SIR ANTHONY VAN DYCK",
-      "display_name": "Follower Of Sir Anthony Van Dyck",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 5715,
-        "avg_usd": 5715,
-        "total_label": "$6k",
-        "avg_label": "$6k",
-        "top_lot": {
-          "title": "A sketch of a head",
-          "hammer_usd": 5715,
-          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
-        },
-        "top_ratio_lot": {
-          "title": "A sketch of a head",
           "ratio": 0.82
         }
       }
@@ -37900,6 +38899,60 @@
       }
     },
     {
+      "norm_name": "ATTRIBUTED TO WILLIAM ETTY, R.A.",
+      "display_name": "Attributed To William Etty, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5080,
+        "avg_usd": 5080,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Female nude",
+          "hammer_usd": 5080,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Female nude",
+          "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "FREDERICK WATERS WATTS",
+      "display_name": "Frederick Waters Watts",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4826,
+        "avg_usd": 4826,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "A View of Littlehempston, near Totnes, Devon",
+          "hammer_usd": 4826,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A View of Littlehempston, near Totnes, Devon",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
       "norm_name": "EDDIE PEAKE",
       "display_name": "Eddie Peake",
       "dates": "",
@@ -38031,6 +39084,33 @@
         "top_ratio_lot": {
           "title": "The Hound of the Baskervilles, 1902, first edition of perhap",
           "ratio": 2.54
+        }
+      }
+    },
+    {
+      "norm_name": "FRENCH SCHOOL, LATE 18TH CENTURY",
+      "display_name": "French School, Late 18Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4445,
+        "avg_usd": 4445,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Portrait of a lady",
+          "hammer_usd": 4445,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of a lady",
+          "ratio": 0.64
         }
       }
     },
@@ -38220,6 +39300,33 @@
         "top_ratio_lot": {
           "title": "First edition of the “Grande messe des morts”, signed and in",
           "ratio": 1.09
+        }
+      }
+    },
+    {
+      "norm_name": "FOLLOWER OF PERINO DEL VAGA",
+      "display_name": "Follower Of Perino Del Vaga",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3556,
+        "avg_usd": 3556,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "A Lion Hunt",
+          "hammer_usd": 3556,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "A Lion Hunt",
+          "ratio": 1.29
         }
       }
     },
@@ -38679,6 +39786,33 @@
         "top_ratio_lot": {
           "title": "Vocal score of the Requiem Mass inscribed by the composer to",
           "ratio": 0.86
+        }
+      }
+    },
+    {
+      "norm_name": "FRENCH SCHOOL, CIRCA 1820–30",
+      "display_name": "French School, Circa 1820–30",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2159,
+        "avg_usd": 2159,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Portrait of a man",
+          "hammer_usd": 2159,
+          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of a man",
+          "ratio": 0.31
         }
       }
     },
