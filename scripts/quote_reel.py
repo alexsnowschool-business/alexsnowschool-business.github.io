@@ -39,9 +39,7 @@ REELS_DIR    = BUSINESS_DIR / "reels"
 
 W, H         = 1080, 1920
 FPS          = 24
-HOLD_S       = 14.5
-FADE_S       = 0.5
-TOTAL_S      = HOLD_S + FADE_S  # 15.0
+TOTAL_S      = 8.0
 MUSIC_VOLUME = 0.25
 
 DEFAULT_PALETTE = {
@@ -138,13 +136,12 @@ def download_image(url: str) -> Image.Image | None:
         return None
 
 
-def prepare_background(art_img: Image.Image | None, palette: dict) -> Image.Image:
-    """Warm background with art visible at edges, darkened in centre for legibility."""
+def prepare_art(art_img: Image.Image | None, palette: dict) -> Image.Image:
+    """Colour-grade and blur the painting — no dark overlay. Used as the cover frame."""
     base = Image.new("RGB", (W, H), palette["bg"])
     if art_img is None:
         return base
 
-    # Cover-crop to canvas
     aw, ah = art_img.size
     scale = max(W / aw, H / ah)
     nw, nh = int(aw * scale), int(ah * scale)
@@ -153,35 +150,37 @@ def prepare_background(art_img: Image.Image | None, palette: dict) -> Image.Imag
     y = (nh - H) // 2
     art_img = art_img.crop((x, y, x + W, y + H))
 
-    # Light warm colour grade — keep the painting visible
-    art_img = ImageEnhance.Color(art_img).enhance(0.80)
+    art_img = ImageEnhance.Color(art_img).enhance(0.90)
     art_img = ImageEnhance.Contrast(art_img).enhance(0.95)
-    art_img = ImageEnhance.Brightness(art_img).enhance(0.75)
+    art_img = ImageEnhance.Brightness(art_img).enhance(0.90)
     r, g, b = art_img.split()
     r = r.point(lambda v: min(255, int(v * 1.04)))
     b = b.point(lambda v: max(0, int(v * 0.88)))
     art_img = Image.merge("RGB", (r, g, b))
-
-    # Soft blur — still recognisable as a painting
-    art_img = art_img.filter(ImageFilter.GaussianBlur(radius=6))
+    art_img = art_img.filter(ImageFilter.GaussianBlur(radius=3))
 
     base.paste(art_img)
+    return base
 
-    # Centre-weighted gradient overlay: light at top/bottom, dark in the middle
-    # so the quote zone is legible while the art shows at the edges
+
+def prepare_background(art_img: Image.Image | None, palette: dict) -> Image.Image:
+    """Art layer plus centre-weighted dark gradient overlay for text legibility."""
+    base = prepare_art(art_img, palette)
+    if art_img is None:
+        return base
+
     overlay = Image.new("RGB", (W, H), palette["bg"])
     mask    = Image.new("L", (W, H), 0)
     d       = ImageDraw.Draw(mask)
 
-    center      = H // 2
-    band_half   = int(H * 0.30)   # half-height of the dark centre band
-    edge_alpha  = 80              # how dark at top/bottom edges
-    centre_alpha = 185            # how dark at the quote centre
+    center       = H // 2
+    band_half    = int(H * 0.30)
+    edge_alpha   = 40
+    centre_alpha = 140
 
     for y in range(H):
         dist = abs(y - center)
         if dist <= band_half:
-            # Inside centre band — linearly interpolate to max darkness
             t     = 1.0 - dist / band_half
             alpha = int(edge_alpha + (centre_alpha - edge_alpha) * t)
         else:
@@ -284,7 +283,7 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
     for i, line in enumerate(layout.lines):
         if i < lines_visible:
             alpha = 255
-        elif i == lines_visible:
+        elif i == lines_visible and current_line_alpha > 0:
             alpha = current_line_alpha
         else:
             break
@@ -336,56 +335,55 @@ def render_frame(quote: dict, bg: Image.Image, palette: dict,
                             len(layout.lines), 255, 255)
 
 
-def generate_frames(quote: dict, bg: Image.Image, palette: dict,
+def generate_frames(quote: dict, bg: Image.Image, bg_plain: Image.Image, palette: dict,
                     handle: str, niche: str, art_artist: str, art_title: str,
                     fps: int = FPS, total_s: float = TOTAL_S,
-                    fade_s: float = FADE_S):
+                    fade_s: float = 0.5):
     """Generator that yields PIL RGBA Images, one per animation frame."""
     layout  = QuoteLayout(quote, palette)
     n_lines = len(layout.lines)
 
-    bg_hold_s          = 0.3
+    bg_hold_s          = 1.2
+    overlay_fade_s     = 0.5
     reveal_per_element = 0.5
     reveal_s           = (n_lines + 1) * reveal_per_element
-    hold_s             = max(2.0, total_s - bg_hold_s - reveal_s - fade_s)
+    hold_s             = max(2.0, total_s - bg_hold_s - overlay_fade_s - reveal_s)
 
-    reveal_frames   = int(reveal_per_element * fps)
-    bg_hold_frames  = int(bg_hold_s * fps)
-    hold_frames     = int(hold_s * fps)
-    fade_frames     = int(fade_s * fps)
+    reveal_frames       = int(reveal_per_element * fps)
+    bg_hold_frames      = int(bg_hold_s * fps)
+    overlay_fade_frames = int(overlay_fade_s * fps)
+    hold_frames         = int(hold_s * fps)
 
-    def frame(lines_visible, current_line_alpha, author_alpha):
-        return _render_frame_at(layout, bg, handle, niche, art_artist, art_title,
+    def frame(bg_layer, lines_visible, current_line_alpha, author_alpha):
+        return _render_frame_at(layout, bg_layer, handle, niche, art_artist, art_title,
                                 lines_visible, current_line_alpha, author_alpha)
 
-    # 1. Background hold — pure bg, no text
-    bg_frame = frame(0, 0, 0)
+    # 1. Cover hold — plain painting, no overlay, no text
+    cover_frame = frame(bg_plain, 0, 0, 0)
     for _ in range(bg_hold_frames):
-        yield bg_frame
+        yield cover_frame
 
-    # 2. Line reveals
+    # 2. Overlay fade — painting darkens, still no text
+    for f in range(overlay_fade_frames):
+        t = (f + 1) / overlay_fade_frames
+        blended = Image.blend(bg_plain, bg, t)
+        yield frame(blended, 0, 0, 0)
+
+    # 3. Line reveals — full overlay bg, text fades in line by line
     for line_idx in range(n_lines):
         for f in range(reveal_frames):
             alpha = int(255 * (f + 1) / reveal_frames)
-            yield frame(line_idx, alpha, 0)
+            yield frame(bg, line_idx, alpha, 0)
 
-    # 3. Author reveal
+    # 4. Author reveal
     for f in range(reveal_frames):
         alpha = int(255 * (f + 1) / reveal_frames)
-        yield frame(n_lines, 255, alpha)
+        yield frame(bg, n_lines, 255, alpha)
 
-    # 4. Hold on final frame
-    final_frame = frame(n_lines, 255, 255)
+    # 5. Hold on final frame
+    final_frame = frame(bg, n_lines, 255, 255)
     for _ in range(hold_frames):
         yield final_frame
-
-    # 5. Fade to black
-    for f in range(fade_frames):
-        overlay = Image.new("RGBA", (W, H),
-                            (0, 0, 0, int(255 * (f + 1) / fade_frames)))
-        faded = final_frame.copy()
-        faded.alpha_composite(overlay)
-        yield faded
 
 
 # ── Music selection ───────────────────────────────────────────────────────────
@@ -406,14 +404,12 @@ def pick_music_track(seed: str) -> Path | None:
 
 def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
     """Encode single frame into an 8-second MP4 with ambient music and fade in/out."""
-    vf         = f"fade=t=out:st={TOTAL_S - FADE_S:.2f}:d={FADE_S}"
     fade_start = max(0.0, TOTAL_S - 2.0)
 
     if music_track:
-        # Low-volume ambient mix: fade in 0.5s, fade out last 2s
         af = (
             f"[1:a]"
-            f"afade=t=in:st=0:d={FADE_S},"
+            f"afade=t=in:st=0:d=0.5,"
             f"afade=t=out:st={fade_start:.2f}:d=2.0,"
             f"volume={MUSIC_VOLUME},"
             f"atrim=duration={TOTAL_S:.2f}"
@@ -473,7 +469,7 @@ def export_animated_video(frames_iter, out_path: Path, music_track: Path | None,
     if music_track:
         af = (
             f"[1:a]"
-            f"afade=t=in:st=0:d={FADE_S},"
+            f"afade=t=in:st=0:d=0.5,"
             f"afade=t=out:st={fade_start:.2f}:d=2.0,"
             f"volume={MUSIC_VOLUME},"
             f"atrim=duration={total_s:.2f}"
@@ -617,7 +613,8 @@ def main():
     reel_dir.mkdir(parents=True, exist_ok=True)
     print(f"\n  Output: {reel_dir}")
 
-    bg = prepare_background(art_img, palette)
+    bg_plain = prepare_art(art_img, palette)
+    bg       = prepare_background(art_img, palette)
 
     if args.preview:
         frame      = render_frame(quote, bg, palette, handle, niche, art_artist, art_title)
@@ -653,7 +650,7 @@ def main():
     # ── Export animated video ─────────────────────────────────
     music_track = pick_music_track(folder_name)
     out_path    = reel_dir / f"{folder_name}.mp4"
-    frames      = generate_frames(quote, bg, palette, handle, niche,
+    frames      = generate_frames(quote, bg, bg_plain, palette, handle, niche,
                                   art_artist, art_title)
     export_animated_video(frames, out_path, music_track)
     print(f"  Video: {out_path.name}  ({TOTAL_S:.0f}s)")
