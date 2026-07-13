@@ -22,8 +22,8 @@ import httpx
 from bs4 import BeautifulSoup
 
 SCRIPT_DIR   = Path(__file__).resolve().parent
-sys.path.insert(0, str(SCRIPT_DIR))
 BUSINESS_DIR = SCRIPT_DIR.parent
+sys.path.insert(0, str(BUSINESS_DIR / "scripts"))
 
 DEFAULT_TAGS = [
     "books", "reading", "life", "wisdom", "love", "inspirational",

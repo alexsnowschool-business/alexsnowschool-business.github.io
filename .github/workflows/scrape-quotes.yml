@@ -40,7 +40,7 @@ jobs:
           fi
           for ACCOUNT in $ACCOUNTS; do
             echo "=== Scraping: $ACCOUNT ==="
-            uv run python scripts/goodreads_scraper.py --account "$ACCOUNT" --pages 2
+            uv run python scraper/goodreads_scraper.py --account "$ACCOUNT" --pages 2
           done
 
       - name: Report quote counts

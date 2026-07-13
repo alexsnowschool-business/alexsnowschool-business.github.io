@@ -382,7 +382,7 @@ def main():
     # ── Open databases ────────────────────────────────────────
     if not QUOTES_DB.exists():
         print(f"Error: quotes database not found at {QUOTES_DB}")
-        print("Run: python scripts/goodreads_scraper.py")
+        print("Run: python scraper/goodreads_scraper.py")
         sys.exit(1)
 
     q_conn   = sqlite3.connect(QUOTES_DB)
@@ -391,7 +391,7 @@ def main():
     # ── Pick quote ────────────────────────────────────────────
     quote = pick_quote(q_conn, args.id)
     if not quote:
-        print("No unused quotes available. Run: python scripts/goodreads_scraper.py")
+        print("No unused quotes available. Run: python scraper/goodreads_scraper.py")
         sys.exit(1)
 
     print(f"\nQuote #{quote['id']}")
