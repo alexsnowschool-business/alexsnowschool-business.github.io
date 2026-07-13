@@ -1,5 +1,5 @@
 """
-Shared utilities for reel generators (auto_reel.py, hermes_reel.py, etc.).
+Shared utilities for reel generators (art_reel.py, hermes_reel.py, etc.).
 
 Covers: image download (Playwright + httpx fallback), TTS synthesis
 (ElevenLabs + Edge TTS fallback), word-level caption helpers, SRT writing,

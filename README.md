@@ -46,7 +46,7 @@ No build step. Plain HTML/CSS/JS.
 
 ```bash
 uv sync
-uv run python scripts/auto_reel.py --help
+uv run python scripts/art_reel.py --help
 ```
 
 Secrets for CI (ElevenLabs, OpenRouter, Buffer, YouTube) live in GitHub Actions secrets — not needed for local site dev.

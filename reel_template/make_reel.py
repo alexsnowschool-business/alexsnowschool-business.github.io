@@ -758,7 +758,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     return img
 
 
-# Must match _BLOCK_REVEAL_S in scripts/auto_reel.py — both sides use 4.0s for audio timing.
+# Must match _BLOCK_REVEAL_S in scripts/art_reel.py — both sides use 4.0s for audio timing.
 BLOCK_REVEAL_DURATION = 4.0
 
 

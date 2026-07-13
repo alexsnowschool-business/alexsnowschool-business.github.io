@@ -110,7 +110,7 @@ jobs:
           if [ -n "${{ inputs.title }}" ]; then
             ARGS="$ARGS --title '${{ inputs.title }}'"
           fi
-          eval python -u scripts/auto_reel.py $ARGS
+          eval python -u scripts/art_reel.py $ARGS
 
       - name: Commit updated database
         run: |
