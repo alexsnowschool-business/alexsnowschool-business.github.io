@@ -23,6 +23,7 @@ import sqlite3
 import subprocess
 import sys
 import textwrap
+import threading
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -36,11 +37,12 @@ FONTS_DIR    = BUSINESS_DIR / "reel_template" / "fonts"
 MUSIC_DIR    = BUSINESS_DIR / "reel_template" / "music"
 REELS_DIR    = BUSINESS_DIR / "reels"
 
-W, H    = 1080, 1920
-FPS     = 24
-HOLD_S  = 14.5
-FADE_S  = 0.5
-TOTAL_S = HOLD_S + FADE_S  # 15.0
+W, H         = 1080, 1920
+FPS          = 24
+HOLD_S       = 14.5
+FADE_S       = 0.5
+TOTAL_S      = HOLD_S + FADE_S  # 15.0
+MUSIC_VOLUME = 0.25
 
 DEFAULT_PALETTE = {
     "bg":     (14, 10, 6),
@@ -82,10 +84,17 @@ def pick_quote(conn: sqlite3.Connection, quote_id: int | None = None) -> dict | 
             "SELECT id, text, author, book FROM quotes WHERE id = ?", (quote_id,)
         ).fetchone()
     else:
+        # Prefer 60-110 char sweet spot
         row = conn.execute(
             "SELECT id, text, author, book FROM quotes "
-            "WHERE used_at IS NULL ORDER BY RANDOM() LIMIT 1"
+            "WHERE used_at IS NULL AND LENGTH(text) BETWEEN 60 AND 110 "
+            "ORDER BY RANDOM() LIMIT 1"
         ).fetchone()
+        if not row:  # fallback to full pool
+            row = conn.execute(
+                "SELECT id, text, author, book FROM quotes "
+                "WHERE used_at IS NULL ORDER BY RANDOM() LIMIT 1"
+            ).fetchone()
     if not row:
         return None
     return {"id": row[0], "text": row[1], "author": row[2], "book": row[3]}
@@ -205,83 +214,178 @@ def wrap_quote(text: str, font: ImageFont.FreeTypeFont, max_width: int,
     return lines
 
 
-def render_frame(quote: dict, bg: Image.Image, palette: dict,
-                 handle: str = "", niche: str = "",
-                 art_artist: str = "", art_title: str = "") -> Image.Image:
+class QuoteLayout:
+    """Computed once per render — stores geometry, fonts, and a reference to quote/palette."""
+
+    def __init__(self, quote: dict, palette: dict):
+        # Dummy draw for measurement only
+        dummy = ImageDraw.Draw(Image.new("RGBA", (W, H)))
+
+        self.pad_x      = 96
+        self.max_text_w = W - 96 * 2
+
+        # Fonts
+        self.quote_font  = load_font("Lora-Italic.ttf", 72)
+        self.author_font = load_font("InstrumentSerif-Regular.ttf", 38)
+        self.book_font   = load_font("InstrumentSerif-Italic.ttf", 32)
+        self.tag_font    = load_font("InstrumentSans-Italic.ttf", 24)
+        self.open_font   = load_font("Lora-Italic.ttf", 140)
+        self.credit_font = load_font("InstrumentSans-Italic.ttf", 20)
+
+        self.quote   = quote
+        self.palette = palette
+
+        # Geometry
+        self.lines     = wrap_quote(quote["text"], self.quote_font, self.max_text_w, dummy)
+        self.line_h    = self.quote_font.size + 18
+        total_h        = len(self.lines) * self.line_h
+        center_y       = H // 2
+        self.text_top  = center_y - total_h // 2
+        self.text_bottom = self.text_top + total_h
+        self.rule_y    = self.text_bottom + 48
+
+
+def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
+                     handle: str, niche: str, art_artist: str, art_title: str,
+                     lines_visible: int, current_line_alpha: int,
+                     author_alpha: int) -> Image.Image:
+    """Render one animation frame given per-element alpha values."""
     img  = bg.copy().convert("RGBA")
     draw = ImageDraw.Draw(img, "RGBA")
 
-    # Fonts
-    quote_font  = load_font("Lora-Italic.ttf", 72)
-    author_font = load_font("InstrumentSerif-Regular.ttf", 38)
-    book_font   = load_font("InstrumentSerif-Italic.ttf", 32)
-    tag_font    = load_font("InstrumentSans-Italic.ttf", 24)
+    palette  = layout.palette
+    pad_x    = layout.pad_x
+    center_y = H // 2
 
-    pad_x      = 96   # horizontal margin
-    max_text_w = W - pad_x * 2
-    center_y   = H // 2
+    # Static elements — shown as soon as any text has started appearing
+    if lines_visible > 0 or current_line_alpha > 0:
+        # Opening quotation mark
+        draw.text((pad_x - 10, center_y - 340), "“", font=layout.open_font,
+                  fill=(*palette["rule"], 60))
 
-    # ── Opening quotation mark ────────────────────────────────
-    open_font = load_font("Lora-Italic.ttf", 140)
-    draw.text((pad_x - 10, center_y - 340), "“", font=open_font,
-              fill=(*palette["rule"], 60))
+        # Artwork credit (very dim, top left)
+        if art_artist and art_title:
+            credit = f"{art_artist.title()} · {art_title}"
+            if len(credit) > 55:
+                credit = credit[:52] + "…"
+            draw.text((pad_x, 72), credit, font=layout.credit_font,
+                      fill=(*palette["tag"], 140))
 
-    # ── Quote text ────────────────────────────────────────────
-    lines      = wrap_quote(quote["text"], quote_font, max_text_w, draw)
-    line_h     = quote_font.size + 18
-    total_h    = len(lines) * line_h
-    text_top   = center_y - total_h // 2
+        # Bottom tag
+        tag_parts = [p for p in [handle, niche] if p]
+        tag_text  = "  ·  ".join(tag_parts) if tag_parts else ""
+        if tag_text:
+            bbox = draw.textbbox((0, 0), tag_text, font=layout.tag_font)
+            tw   = bbox[2] - bbox[0]
+            draw.text(((W - tw) // 2, H - 96), tag_text,
+                      font=layout.tag_font, fill=palette["tag"])
 
-    for i, line in enumerate(lines):
-        bbox = draw.textbbox((0, 0), line, font=quote_font)
-        lw   = bbox[2] - bbox[0]
-        x    = (W - lw) // 2
-        y    = text_top + i * line_h
-        # Shadow
-        draw.text((x + 2, y + 3), line, font=quote_font, fill=(0, 0, 0, 120))
-        draw.text((x, y), line, font=quote_font, fill=palette["quote"])
+    # Quote lines
+    for i, line in enumerate(layout.lines):
+        if i < lines_visible:
+            alpha = 255
+        elif i == lines_visible:
+            alpha = current_line_alpha
+        else:
+            break
 
-    text_bottom = text_top + total_h
+        bbox          = draw.textbbox((0, 0), line, font=layout.quote_font)
+        lw            = bbox[2] - bbox[0]
+        x             = (W - lw) // 2
+        y             = layout.text_top + i * layout.line_h
+        shadow_alpha  = int(120 * alpha / 255)
+        draw.text((x + 2, y + 3), line, font=layout.quote_font,
+                  fill=(0, 0, 0, shadow_alpha))
+        draw.text((x, y), line, font=layout.quote_font,
+                  fill=(*palette["quote"], alpha))
 
-    # ── Rule ──────────────────────────────────────────────────
-    rule_y = text_bottom + 48
-    rule_w = 60
-    draw.line([(W // 2 - rule_w, rule_y), (W // 2 + rule_w, rule_y)],
-              fill=palette["rule"], width=1)
+    # Author block (rule + author name + book) faded by author_alpha
+    if author_alpha > 0:
+        rule_y = layout.rule_y
 
-    # ── Author ────────────────────────────────────────────────
-    author_text = quote["author"] if quote["author"] else "Unknown"
-    bbox = draw.textbbox((0, 0), author_text, font=author_font)
-    aw   = bbox[2] - bbox[0]
-    ax   = (W - aw) // 2
-    draw.text((ax + 1, rule_y + 19), author_text, font=author_font, fill=(0, 0, 0, 100))
-    draw.text((ax, rule_y + 18), author_text, font=author_font, fill=palette["author"])
+        draw.line([(W // 2 - 60, rule_y), (W // 2 + 60, rule_y)],
+                  fill=(*palette["rule"], author_alpha), width=1)
 
-    # ── Book ──────────────────────────────────────────────────
-    if quote["book"]:
-        book_text = quote["book"]
-        bbox = draw.textbbox((0, 0), book_text, font=book_font)
-        bw   = bbox[2] - bbox[0]
-        draw.text(((W - bw) // 2, rule_y + 18 + 46), book_text,
-                  font=book_font, fill=palette["book"])
+        author_text  = layout.quote["author"] if layout.quote["author"] else "Unknown"
+        bbox         = draw.textbbox((0, 0), author_text, font=layout.author_font)
+        aw           = bbox[2] - bbox[0]
+        ax           = (W - aw) // 2
+        shadow_alpha = int(100 * author_alpha / 255)
+        draw.text((ax + 1, rule_y + 19), author_text, font=layout.author_font,
+                  fill=(0, 0, 0, shadow_alpha))
+        draw.text((ax, rule_y + 18), author_text, font=layout.author_font,
+                  fill=(*palette["author"], author_alpha))
 
-    # ── Bottom tag ────────────────────────────────────────────
-    tag_parts = [p for p in [handle, niche] if p]
-    tag_text  = "  ·  ".join(tag_parts) if tag_parts else ""
-    if tag_text:
-        bbox = draw.textbbox((0, 0), tag_text, font=tag_font)
-        tw   = bbox[2] - bbox[0]
-        draw.text(((W - tw) // 2, H - 96), tag_text, font=tag_font, fill=palette["tag"])
-
-    # ── Artwork credit (very dim, top left) ───────────────────
-    if art_artist and art_title:
-        credit = f"{art_artist.title()} · {art_title}"
-        if len(credit) > 55:
-            credit = credit[:52] + "…"
-        credit_font = load_font("InstrumentSans-Italic.ttf", 20)
-        draw.text((pad_x, 72), credit, font=credit_font, fill=(*palette["tag"], 140))
+        if layout.quote["book"]:
+            book_text = layout.quote["book"]
+            bbox      = draw.textbbox((0, 0), book_text, font=layout.book_font)
+            bw        = bbox[2] - bbox[0]
+            draw.text(((W - bw) // 2, rule_y + 18 + 46), book_text,
+                      font=layout.book_font,
+                      fill=(*palette["book"], author_alpha))
 
     return img
+
+
+def render_frame(quote: dict, bg: Image.Image, palette: dict,
+                 handle: str = "", niche: str = "",
+                 art_artist: str = "", art_title: str = "") -> Image.Image:
+    """Render a fully-composed static frame (used for --preview)."""
+    layout = QuoteLayout(quote, palette)
+    return _render_frame_at(layout, bg, handle, niche, art_artist, art_title,
+                            len(layout.lines), 255, 255)
+
+
+def generate_frames(quote: dict, bg: Image.Image, palette: dict,
+                    handle: str, niche: str, art_artist: str, art_title: str,
+                    fps: int = FPS, total_s: float = TOTAL_S,
+                    fade_s: float = FADE_S):
+    """Generator that yields PIL RGBA Images, one per animation frame."""
+    layout  = QuoteLayout(quote, palette)
+    n_lines = len(layout.lines)
+
+    bg_hold_s          = 0.3
+    reveal_per_element = 0.5
+    reveal_s           = (n_lines + 1) * reveal_per_element
+    hold_s             = max(2.0, total_s - bg_hold_s - reveal_s - fade_s)
+
+    reveal_frames   = int(reveal_per_element * fps)
+    bg_hold_frames  = int(bg_hold_s * fps)
+    hold_frames     = int(hold_s * fps)
+    fade_frames     = int(fade_s * fps)
+
+    def frame(lines_visible, current_line_alpha, author_alpha):
+        return _render_frame_at(layout, bg, handle, niche, art_artist, art_title,
+                                lines_visible, current_line_alpha, author_alpha)
+
+    # 1. Background hold — pure bg, no text
+    bg_frame = frame(0, 0, 0)
+    for _ in range(bg_hold_frames):
+        yield bg_frame
+
+    # 2. Line reveals
+    for line_idx in range(n_lines):
+        for f in range(reveal_frames):
+            alpha = int(255 * (f + 1) / reveal_frames)
+            yield frame(line_idx, alpha, 0)
+
+    # 3. Author reveal
+    for f in range(reveal_frames):
+        alpha = int(255 * (f + 1) / reveal_frames)
+        yield frame(n_lines, 255, alpha)
+
+    # 4. Hold on final frame
+    final_frame = frame(n_lines, 255, 255)
+    for _ in range(hold_frames):
+        yield final_frame
+
+    # 5. Fade to black
+    for f in range(fade_frames):
+        overlay = Image.new("RGBA", (W, H),
+                            (0, 0, 0, int(255 * (f + 1) / fade_frames)))
+        faded = final_frame.copy()
+        faded.alpha_composite(overlay)
+        yield faded
 
 
 # ── Music selection ───────────────────────────────────────────────────────────
@@ -302,7 +406,7 @@ def pick_music_track(seed: str) -> Path | None:
 
 def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
     """Encode single frame into an 8-second MP4 with ambient music and fade in/out."""
-    vf = f"fade=t=out:st={TOTAL_S - FADE_S:.2f}:d={FADE_S}"
+    vf         = f"fade=t=out:st={TOTAL_S - FADE_S:.2f}:d={FADE_S}"
     fade_start = max(0.0, TOTAL_S - 2.0)
 
     if music_track:
@@ -311,7 +415,7 @@ def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
             f"[1:a]"
             f"afade=t=in:st=0:d={FADE_S},"
             f"afade=t=out:st={fade_start:.2f}:d=2.0,"
-            f"volume=0.15,"
+            f"volume={MUSIC_VOLUME},"
             f"atrim=duration={TOTAL_S:.2f}"
             f"[aout]"
         )
@@ -349,6 +453,91 @@ def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         print("FFmpeg error:\n", result.stderr[-800:])
+        sys.exit(1)
+
+
+def export_animated_video(frames_iter, out_path: Path, music_track: Path | None,
+                          fps: int = FPS, total_s: float = TOTAL_S):
+    """Pipe raw RGB frames to FFmpeg via stdin to produce an animated MP4."""
+    fade_start = max(0.0, total_s - 2.0)
+
+    raw_video_args = [
+        "-f", "rawvideo",
+        "-vcodec", "rawvideo",
+        "-s", f"{W}x{H}",
+        "-r", str(fps),
+        "-pix_fmt", "rgb24",
+        "-i", "pipe:0",
+    ]
+
+    if music_track:
+        af = (
+            f"[1:a]"
+            f"afade=t=in:st=0:d={FADE_S},"
+            f"afade=t=out:st={fade_start:.2f}:d=2.0,"
+            f"volume={MUSIC_VOLUME},"
+            f"atrim=duration={total_s:.2f}"
+            f"[aout]"
+        )
+        cmd = (
+            ["ffmpeg", "-y"]
+            + raw_video_args
+            + [
+                "-stream_loop", "-1", "-i", str(music_track),
+                "-filter_complex", af,
+                "-map", "0:v",
+                "-map", "[aout]",
+                "-t", str(total_s),
+                "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+                "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-b:a", "192k",
+                "-shortest",
+                str(out_path),
+            ]
+        )
+        print(f"  ♪ Music: {music_track.name}")
+    else:
+        cmd = (
+            ["ffmpeg", "-y"]
+            + raw_video_args
+            + [
+                "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
+                "-t", str(total_s),
+                "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+                "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-b:a", "128k",
+                "-shortest",
+                str(out_path),
+            ]
+        )
+        print("  ♪ No music tracks found — silent track")
+
+    print(f"  Encoding → {out_path.name}")
+
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    stderr_buf: list[bytes] = []
+
+    def _drain_stderr():
+        for line in proc.stderr:
+            stderr_buf.append(line)
+
+    stderr_thread = threading.Thread(target=_drain_stderr, daemon=True)
+    stderr_thread.start()
+
+    try:
+        for img in frames_iter:
+            proc.stdin.write(img.convert("RGB").tobytes())
+        proc.stdin.close()
+    except BrokenPipeError:
+        pass
+
+    proc.wait()
+    stderr_thread.join()
+
+    if proc.returncode != 0:
+        stderr_text = b"".join(stderr_buf).decode("utf-8", errors="replace")
+        print("FFmpeg error:\n", stderr_text[-800:])
         sys.exit(1)
 
 
@@ -394,7 +583,7 @@ def main():
         print("No unused quotes available. Run: python scraper/goodreads_scraper.py")
         sys.exit(1)
 
-    print(f"\nQuote #{quote['id']}")
+    print(f"\nQuote #{quote['id']} ({len(quote['text'])} chars)")
     print(f"  Text:   {quote['text'][:80]}{'…' if len(quote['text']) > 80 else ''}")
     print(f"  Author: {quote['author']}")
     print(f"  Book:   {quote['book']}")
@@ -428,13 +617,27 @@ def main():
     reel_dir.mkdir(parents=True, exist_ok=True)
     print(f"\n  Output: {reel_dir}")
 
-    # ── Render frame ──────────────────────────────────────────
-    bg    = prepare_background(art_img, palette)
-    frame = render_frame(quote, bg, palette, handle, niche, art_artist, art_title)
+    bg = prepare_background(art_img, palette)
 
-    frame_path = reel_dir / "frame.png"
-    frame.convert("RGB").save(frame_path, "PNG")
-    print(f"  Frame saved: {frame_path.name}")
+    if args.preview:
+        frame      = render_frame(quote, bg, palette, handle, niche, art_artist, art_title)
+        frame_path = reel_dir / "frame.png"
+        frame.convert("RGB").save(frame_path, "PNG")
+        print(f"  Frame saved: {frame_path.name}")
+
+        meta_path = reel_dir / "quote_meta.json"
+        meta_path.write_text(json.dumps({
+            "id":         quote["id"],
+            "text":       quote["text"],
+            "author":     quote["author"],
+            "book":       quote["book"],
+            "art_artist": art_artist,
+            "art_title":  art_title,
+        }, ensure_ascii=False, indent=2))
+
+        print("\n  Preview mode — skipping video encoding")
+        q_conn.close()
+        return
 
     # Write sidecar metadata for the Buffer poster
     meta_path = reel_dir / "quote_meta.json"
@@ -447,15 +650,12 @@ def main():
         "art_title":  art_title,
     }, ensure_ascii=False, indent=2))
 
-    if args.preview:
-        print("\n  Preview mode — skipping video encoding")
-        q_conn.close()
-        return
-
-    # ── Export video ──────────────────────────────────────────
+    # ── Export animated video ─────────────────────────────────
     music_track = pick_music_track(folder_name)
     out_path    = reel_dir / f"{folder_name}.mp4"
-    export_video(frame_path, out_path, music_track)
+    frames      = generate_frames(quote, bg, palette, handle, niche,
+                                  art_artist, art_title)
+    export_animated_video(frames, out_path, music_track)
     print(f"  Video: {out_path.name}  ({TOTAL_S:.0f}s)")
 
     # ── Mark quote used ───────────────────────────────────────

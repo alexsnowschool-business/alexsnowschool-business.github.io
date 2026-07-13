@@ -20,10 +20,10 @@ scrape_tags:
   - hustle
 
 hashtags_tiktok: >-
-  #entrepreneurship #business #success #founder #foryou
+  #entrepreneurship #business #success #founder #quotesoftheday #mindset #fyp
 
 hashtags_instagram: >-
-  #entrepreneurship #business #success
+  #entrepreneurship #business #success #quotesoftheday #mindset
 
 buffer_token_env:        "FOUNDERMIND_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "FOUNDERMIND_BUFFER_TIKTOK_ID"

@@ -22,10 +22,10 @@ scrape_tags:
   - time
 
 hashtags_tiktok: >-
-  #burnout #midlifecrisis #techlife #quarterlifecrisis #foryou
+  #burnout #quarterlifecrisis #anxiety #purpose #quotesoftheday #mindset #fyp
 
 hashtags_instagram: >-
-  #burnout #midlifecrisis #techlife
+  #burnout #quarterlifecrisis #anxiety #quotesoftheday #mindset
 
 buffer_token_env:        "QUARTERCRISIS_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "QUARTERCRISIS_BUFFER_TIKTOK_ID"

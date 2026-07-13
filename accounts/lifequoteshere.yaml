@@ -25,10 +25,10 @@ scrape_tags:
   - beauty
 
 hashtags_tiktok: >-
-  #burnout #midlifecrisis #techlife #quarterlifecrisis #foryou
+  #burnout #midlifecrisis #techlife #quarterlifecrisis #quotesoftheday #mindset #fyp
 
 hashtags_instagram: >-
-  #burnout #midlifecrisis #techlife
+  #burnout #midlifecrisis #techlife #quotesoftheday #mindset
 
 buffer_token_env:        "PROVENANCE_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "PROVENANCE_BUFFER_TIKTOK_ID"
