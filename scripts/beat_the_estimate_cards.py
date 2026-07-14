@@ -229,18 +229,16 @@ def render_lot_card(lot: dict, rank: int) -> Image.Image:
         y += (bbox[3] - bbox[1]) + 4
     y += 14
 
-    pct = lot.get("pct_above", 0)
-    pct_font = _font("Outfit-Bold.ttf", 44)
-    draw.text((MARGIN, y), f"+{pct:.0f}% above estimate", font=pct_font, fill=GOLD)
-    bbox = draw.textbbox((0, 0), f"+{pct:.0f}% above estimate", font=pct_font)
-    y += (bbox[3] - bbox[1]) + 14
-
     detail_font = _font("Outfit-Regular.ttf", 23)
-    house  = lot.get("auction_house", "")
-    hammer = f"${lot.get('hammer_usd', 0):,.0f}"
     est_lo = f"${lot.get('estimate_low', 0):,.0f}"
     est_hi = f"${(lot.get('estimate_high') or lot.get('estimate_low', 0)):,.0f}"
-    draw.text((MARGIN, y), f"{house}  ·  est. {est_lo}–{est_hi}  ·  hammer {hammer}", font=detail_font, fill=IVORY_DIM)
+    draw.text((MARGIN, y), f"Estimate  {est_lo}–{est_hi}", font=detail_font, fill=IVORY_DIM)
+    bbox = draw.textbbox((0, 0), f"Estimate  {est_lo}–{est_hi}", font=detail_font)
+    y += (bbox[3] - bbox[1]) + 14
+
+    hammer = f"${lot.get('hammer_usd', 0):,.0f}"
+    sold_font = _font("Outfit-Bold.ttf", 44)
+    draw.text((MARGIN, y), f"Sold for  {hammer}", font=sold_font, fill=GOLD)
 
     return img
 
