@@ -17,12 +17,9 @@ Usage:
 import argparse
 import io
 import json
-import os
-import random
 import sqlite3
 import subprocess
 import sys
-import textwrap
 import threading
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -351,46 +348,61 @@ def generate_frames(quote: dict, bg: Image.Image, bg_plain: Image.Image, palette
     layout  = QuoteLayout(quote, palette)
     n_lines = len(layout.lines)
 
-    bg_hold_s          = 1.2
-    overlay_fade_s     = 0.5
+    start_hold_s       = 1.5  # opens on the full quote + art — the grid/loop thumbnail
+    fade_out_s         = 0.5  # dips down to the blank painting
+    blank_hold_s       = 0.8
+    fade_in_s          = 0.5
     reveal_per_element = 0.5
     reveal_s           = (n_lines + 1) * reveal_per_element
-    hold_s             = max(2.0, total_s - bg_hold_s - overlay_fade_s - reveal_s)
+    end_hold_s         = max(1.5, total_s - start_hold_s - fade_out_s -
+                            blank_hold_s - fade_in_s - reveal_s)
 
-    reveal_frames       = int(reveal_per_element * fps)
-    bg_hold_frames      = int(bg_hold_s * fps)
-    overlay_fade_frames = int(overlay_fade_s * fps)
-    hold_frames         = int(hold_s * fps)
+    reveal_frames    = int(reveal_per_element * fps)
+    start_hold_frames = int(start_hold_s * fps)
+    fade_out_frames  = int(fade_out_s * fps)
+    blank_hold_frames = int(blank_hold_s * fps)
+    fade_in_frames   = int(fade_in_s * fps)
+    end_hold_frames  = int(end_hold_s * fps)
 
     def frame(bg_layer, lines_visible, current_line_alpha, author_alpha):
         return _render_frame_at(layout, bg_layer, handle, niche, art_artist, art_title,
                                 lines_visible, current_line_alpha, author_alpha)
 
-    # 1. Cover hold — plain painting, no overlay, no text
-    cover_frame = frame(bg_plain, 0, 0, 0)
-    for _ in range(bg_hold_frames):
+    final_frame = frame(bg, n_lines, 255, 255)   # full quote + art, fully revealed
+    cover_frame = frame(bg_plain, 0, 0, 0)        # blank painting, no text
+
+    # 1. Start hold — open on the full quote + art (the loop's bookend frame)
+    for _ in range(start_hold_frames):
+        yield final_frame
+
+    # 2. Fade out — full quote dips down to the blank painting
+    for f in range(fade_out_frames):
+        t = (f + 1) / fade_out_frames
+        yield Image.blend(final_frame, cover_frame, t)
+
+    # 3. Blank hold
+    for _ in range(blank_hold_frames):
         yield cover_frame
 
-    # 2. Overlay fade — painting darkens, still no text
-    for f in range(overlay_fade_frames):
-        t = (f + 1) / overlay_fade_frames
+    # 4. Fade in — painting darkens toward the overlay bg, still no text
+    for f in range(fade_in_frames):
+        t = (f + 1) / fade_in_frames
         blended = Image.blend(bg_plain, bg, t)
         yield frame(blended, 0, 0, 0)
 
-    # 3. Line reveals — full overlay bg, text fades in line by line
+    # 5. Line reveals — full overlay bg, text fades in line by line
     for line_idx in range(n_lines):
         for f in range(reveal_frames):
             alpha = int(255 * (f + 1) / reveal_frames)
             yield frame(bg, line_idx, alpha, 0)
 
-    # 4. Author reveal
+    # 6. Author reveal
     for f in range(reveal_frames):
         alpha = int(255 * (f + 1) / reveal_frames)
         yield frame(bg, n_lines, 255, alpha)
 
-    # 5. Hold on final frame
-    final_frame = frame(bg, n_lines, 255, 255)
-    for _ in range(hold_frames):
+    # 7. End hold — identical to the opening frame, so the loop is seamless
+    for _ in range(end_hold_frames):
         yield final_frame
 
 
