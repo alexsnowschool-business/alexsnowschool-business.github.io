@@ -8,7 +8,7 @@ on:
       account:
         description: "Account slug to scrape (leave blank = all accounts)"
         required: false
-        default: ""
+        default: "lifequoteshere"
 
 jobs:
   scrape-quotes:
@@ -36,7 +36,7 @@ jobs:
         run: |
           ACCOUNTS="${{ inputs.account }}"
           if [ -z "$ACCOUNTS" ]; then
-            ACCOUNTS=$(ls accounts/*.yaml | xargs -I{} basename {} .yaml | tr '\n' ' ')
+            ACCOUNTS="lifequoteshere"
           fi
           for ACCOUNT in $ACCOUNTS; do
             echo "=== Scraping: $ACCOUNT ==="
@@ -50,7 +50,7 @@ jobs:
         run: |
           ACCOUNTS="${{ inputs.account }}"
           if [ -z "$ACCOUNTS" ]; then
-            ACCOUNTS=$(ls accounts/*.yaml | xargs -I{} basename {} .yaml | tr '\n' ' ')
+            ACCOUNTS="lifequoteshere"
           fi
           for ACCOUNT in $ACCOUNTS; do
             uv run python -c "
