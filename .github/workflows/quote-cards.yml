@@ -1,0 +1,91 @@
+name: Quote Cards
+
+on:
+  schedule:
+    - cron: '0 5 * * *'   # 05:00 UTC — 12:00 BKK (between the 08:00/20:00 reel posts)
+  workflow_dispatch:
+    inputs:
+      account:
+        description: "Account slug (matches accounts/<slug>.yaml)"
+        required: false
+        default: "lifequoteshere"
+      count:
+        description: "Number of cards in the carousel"
+        required: false
+        default: "5"
+      schedule_at:
+        description: "Schedule post ISO 8601, e.g. 2026-07-15T19:00:00+07:00 (blank = add to queue)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run — render cards but do not post to Buffer"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+
+jobs:
+  quote-cards:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python + uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: uv sync
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Generate quote cards
+        id: cards
+        env:
+          PYTHONPATH: "scripts:."
+        run: |
+          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          COUNT="${{ inputs.count || '5' }}"
+          uv run python scripts/quote_cards.py --account "$ACCOUNT" --count "$COUNT"
+
+          FOLDER=$(ls -dt output/quote_cards/cards-*/ 2>/dev/null | head -1 | sed 's|/$||')
+          echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+          echo "Cards folder: $FOLDER"
+
+      - name: Commit quotes.db (marks quotes used)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*.db
+          git diff --cached --quiet || git commit -m "chore(data): mark quotes used $(date -u '+%Y-%m-%d') [skip ci]"
+          git pull --rebase --autostash origin main
+          git push
+
+      - name: Post to Buffer
+        if: inputs.dry_run != 'true'
+        env:
+          PROVENANCE_BUFFER_TOKEN:        ${{ secrets.PROVENANCE_BUFFER_TOKEN }}
+          PROVENANCE_BUFFER_INSTAGRAM_ID: ${{ secrets.PROVENANCE_BUFFER_INSTAGRAM_ID }}
+          GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
+          PYTHONPATH: "scripts:."
+        run: |
+          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ARGS="${{ steps.cards.outputs.folder }} --account $ACCOUNT"
+          if [ -n "${{ inputs.schedule_at }}" ]; then
+            ARGS="$ARGS --schedule '${{ inputs.schedule_at }}'"
+          fi
+          eval uv run python scripts/post_quote_cards_to_buffer.py $ARGS
+
+      - name: Dry run — show caption only
+        if: inputs.dry_run == 'true'
+        env:
+          PYTHONPATH: "scripts:."
+        run: |
+          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          uv run python scripts/post_quote_cards_to_buffer.py \
+            ${{ steps.cards.outputs.folder }} --account $ACCOUNT --dry-run

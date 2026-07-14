@@ -5,4 +5,5 @@ __pycache__/
 .DS_Store
 reels/
 output/beat_the_estimate/
+output/quote_cards/
 studentroadtogermany/__pycache__/

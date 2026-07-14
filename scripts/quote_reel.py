@@ -106,13 +106,21 @@ def mark_quote_used(conn: sqlite3.Connection, quote_id: int):
     conn.commit()
 
 
-def pick_art_image_url(art_conn: sqlite3.Connection) -> tuple[str, str, str] | None:
-    """Return (image_url, artist, title) for a random art item with images."""
-    rows = art_conn.execute(
+def pick_art_image_url(art_conn: sqlite3.Connection,
+                       only_paintings: bool = False) -> tuple[str, str, str] | None:
+    """Return (image_url, artist, title) for a random art item with images.
+
+    `only_paintings` restricts to medium_category = 'painting' — excludes
+    photography, sculpture, works on paper, manuscripts, etc.
+    """
+    query = (
         "SELECT artist, title, image_urls FROM art_items "
         "WHERE image_urls IS NOT NULL AND image_urls NOT IN ('', '[]') "
-        "ORDER BY RANDOM() LIMIT 20"
-    ).fetchall()
+    )
+    if only_paintings:
+        query += "AND medium_category = 'painting' "
+    query += "ORDER BY RANDOM() LIMIT 20"
+    rows = art_conn.execute(query).fetchall()
     for artist, title, urls_json in rows:
         try:
             urls = json.loads(urls_json)
