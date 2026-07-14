@@ -4,6 +4,8 @@ niche: "life"
 quotes_db: "data/quotes.db"
 art_db:    "data/art.db"
 
+exclude_religious: true
+
 scrape_tags:
   - burnout
   - midlife

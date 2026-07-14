@@ -11,6 +11,7 @@ Usage:
 """
 
 import argparse
+import re
 import sqlite3
 import sys
 import time
@@ -28,6 +29,20 @@ sys.path.insert(0, str(BUSINESS_DIR / "scripts"))
 DEFAULT_TAGS = [
     "books", "reading", "life", "wisdom", "love", "inspirational",
 ]
+
+# Keyword filter for accounts with `exclude_religious: true` in their config —
+# skips quotes about religion/god at scrape time, and backs the --purge-religious
+# cleanup command for quotes already stored.
+RELIGIOUS_KEYWORDS = [
+    "god", "gods", "jesus", "christ", "christian", "allah", "bible", "quran", "koran",
+    "prayer", "pray", "church", "scripture", "gospel", "salvation", "divine", "holy",
+    "worship", "faith",
+]
+_RELIGIOUS_RE = re.compile(r"\b(" + "|".join(RELIGIOUS_KEYWORDS) + r")\b", re.IGNORECASE)
+
+
+def is_religious(text: str) -> bool:
+    return bool(_RELIGIOUS_RE.search(text))
 
 BASE_URL = "https://www.goodreads.com/quotes/tag/{tag}?page={page}"
 
@@ -137,27 +152,32 @@ def scrape_page(client: httpx.Client, tag: str, page: int) -> list[dict]:
 
 
 def scrape_tag(client: httpx.Client, conn: sqlite3.Connection,
-               tag: str, pages: int) -> tuple[int, int]:
+               tag: str, pages: int, exclude_religious: bool = False) -> tuple[int, int, int]:
     new_total = 0
     dup_total = 0
+    filtered_total = 0
     for page in range(1, pages + 1):
         quotes = scrape_page(client, tag, page)
         if not quotes:
             print(f"  [{tag}] page {page}: no quotes found, stopping")
             break
         for q in quotes:
-            if q["text"]:
-                added = insert_quote(conn, q["text"], q["author"], q["book"],
-                                     q["tags"], q["url"])
-                if added:
-                    new_total += 1
-                else:
-                    dup_total += 1
+            if not q["text"]:
+                continue
+            if exclude_religious and is_religious(q["text"]):
+                filtered_total += 1
+                continue
+            added = insert_quote(conn, q["text"], q["author"], q["book"],
+                                 q["tags"], q["url"])
+            if added:
+                new_total += 1
+            else:
+                dup_total += 1
         print(f"  [{tag}] page {page}: {len(quotes)} quotes "
               f"({sum(1 for q in quotes if q['text'])} valid)")
         delay = random.uniform(1.5, 3.0)
         time.sleep(delay)
-    return new_total, dup_total
+    return new_total, dup_total, filtered_total
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
@@ -177,6 +197,25 @@ def cmd_list(conn: sqlite3.Connection, limit: int = 20):
     print(f"\nTotal: {total}  |  Unused: {unused}")
 
 
+def cmd_purge_religious(conn: sqlite3.Connection, account: str):
+    rows = conn.execute("SELECT id, author, text FROM quotes").fetchall()
+    matches = [(rid, author, text) for rid, author, text in rows if is_religious(text)]
+
+    if not matches:
+        print(f"No religious/god-related quotes found in {account}'s database.")
+        return
+
+    print(f"Removing {len(matches)} religious/god-related quote(s) from {account}:")
+    for rid, author, text in matches:
+        preview = text[:70] + ("…" if len(text) > 70 else "")
+        print(f"  #{rid}  {author:<25} {preview}")
+
+    ids = [rid for rid, _, _ in matches]
+    conn.execute(f"DELETE FROM quotes WHERE id IN ({','.join('?' * len(ids))})", ids)
+    conn.commit()
+    print(f"\nDone. {len(matches)} quote(s) removed.")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Goodreads quote scraper")
     parser.add_argument("--account", default="lifequoteshere",
@@ -186,6 +225,8 @@ def main():
     parser.add_argument("--pages", type=int, default=3,
                         help="Pages to scrape per tag (default 3, ~30 quotes/page)")
     parser.add_argument("--list",  action="store_true", help="Show stored quotes")
+    parser.add_argument("--purge-religious", action="store_true",
+                        help="Delete existing quotes matching the religious/god keyword filter, then exit")
     args = parser.parse_args()
 
     import account_config
@@ -195,31 +236,41 @@ def main():
         print(f"Error: {e}")
         sys.exit(1)
 
-    DB_PATH = BUSINESS_DIR / cfg.get("quotes_db", "data/quotes.db")
-    tags    = args.tags or cfg.get("scrape_tags", DEFAULT_TAGS)
+    DB_PATH           = BUSINESS_DIR / cfg.get("quotes_db", "data/quotes.db")
+    tags              = args.tags or cfg.get("scrape_tags", DEFAULT_TAGS)
+    exclude_religious = cfg.get("exclude_religious", False)
 
     conn = init_db(DB_PATH)
+
+    if args.purge_religious:
+        cmd_purge_religious(conn, args.account)
+        conn.close()
+        return
 
     if args.list:
         cmd_list(conn)
         return
 
     print(f"Account: {args.account}  |  DB: {DB_PATH}")
+    if exclude_religious:
+        print("Filtering out religious/god-related quotes at scrape time.")
     print(f"Scraping {len(tags)} tags ({args.pages} pages each): {', '.join(tags)}\n")
 
     grand_new = 0
     grand_dup = 0
+    grand_filtered = 0
 
     with httpx.Client() as client:
         for tag in tags:
             print(f"\n=== Tag: {tag} ===")
-            new, dup = scrape_tag(client, conn, tag, args.pages)
+            new, dup, filtered = scrape_tag(client, conn, tag, args.pages, exclude_religious)
             grand_new += new
             grand_dup += dup
-            print(f"  → {new} new, {dup} duplicates")
+            grand_filtered += filtered
+            print(f"  → {new} new, {dup} duplicates, {filtered} filtered (religious)")
 
     conn.close()
-    print(f"\nDone. Total new: {grand_new} | Duplicates skipped: {grand_dup}")
+    print(f"\nDone. Total new: {grand_new} | Duplicates skipped: {grand_dup} | Filtered (religious): {grand_filtered}")
 
 
 if __name__ == "__main__":
