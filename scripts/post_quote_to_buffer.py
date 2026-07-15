@@ -155,8 +155,8 @@ def _post_to_buffer(
         metadata["instagram"] = {"type": "reel", "shouldShareToFeed": True}
     elif platform == "YouTube":
         metadata["youtube"] = {
-            "title":         yt_title or text[:100],
-            "privacyStatus": "public",
+            "title":   yt_title or text[:100],
+            "privacy": "public",
         }
 
     variables: dict = {
