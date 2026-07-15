@@ -232,9 +232,11 @@ class QuoteLayout:
         self.quote_font  = load_font("Lora-Italic.ttf", 72)
         self.author_font = load_font("InstrumentSerif-Regular.ttf", 38)
         self.book_font   = load_font("InstrumentSerif-Italic.ttf", 32)
-        self.tag_font    = load_font("InstrumentSans-Italic.ttf", 24)
-        self.open_font   = load_font("Lora-Italic.ttf", 140)
-        self.credit_font = load_font("InstrumentSans-Italic.ttf", 20)
+        self.tag_font           = load_font("InstrumentSans-Italic.ttf", 24)
+        self.open_font          = load_font("Lora-Italic.ttf", 140)
+        self.credit_font        = load_font("InstrumentSans-Italic.ttf", 20)
+        self.painting_title_font  = load_font("InstrumentSerif-Italic.ttf", 30)
+        self.painting_artist_font = load_font("InstrumentSans-Italic.ttf", 24)
 
         self.quote   = quote
         self.palette = palette
@@ -267,13 +269,6 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
         draw.text((pad_x - 10, center_y - 340), "“", font=layout.open_font,
                   fill=(*palette["rule"], 60))
 
-        # Artwork credit (very dim, top left)
-        if art_artist and art_title:
-            credit = f"{art_artist.title()} · {art_title}"
-            if len(credit) > 55:
-                credit = credit[:52] + "…"
-            draw.text((pad_x, 72), credit, font=layout.credit_font,
-                      fill=(*palette["tag"], 140))
 
         # Bottom tag
         tag_parts = [p for p in [handle, niche] if p]
@@ -327,6 +322,31 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
             draw.text(((W - bw) // 2, rule_y + 18 + 46), book_text,
                       font=layout.book_font,
                       fill=(*palette["book"], author_alpha))
+
+        # Painting attribution — below author block
+        if art_artist or art_title:
+            paint_y = rule_y + (120 if layout.quote["book"] else 80)
+            sep_alpha = int(author_alpha * 0.5)
+            draw.line([(W // 2 - 30, paint_y), (W // 2 + 30, paint_y)],
+                      fill=(*palette["rule"], sep_alpha), width=1)
+            paint_y += 18
+
+            if art_title:
+                title_text = art_title if len(art_title) <= 45 else art_title[:42] + "…"
+                bbox = draw.textbbox((0, 0), title_text, font=layout.painting_title_font)
+                tw   = bbox[2] - bbox[0]
+                draw.text(((W - tw) // 2, paint_y), title_text,
+                          font=layout.painting_title_font,
+                          fill=(*palette["quote"], int(author_alpha * 0.85)))
+                paint_y += 38
+
+            if art_artist:
+                artist_text = art_artist.title()
+                bbox = draw.textbbox((0, 0), artist_text, font=layout.painting_artist_font)
+                aw   = bbox[2] - bbox[0]
+                draw.text(((W - aw) // 2, paint_y), artist_text,
+                          font=layout.painting_artist_font,
+                          fill=(*palette["author"], int(author_alpha * 0.75)))
 
     return img
 
