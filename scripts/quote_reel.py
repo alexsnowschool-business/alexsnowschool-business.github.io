@@ -232,11 +232,10 @@ class QuoteLayout:
         self.quote_font  = load_font("Lora-Italic.ttf", 72)
         self.author_font = load_font("InstrumentSerif-Regular.ttf", 38)
         self.book_font   = load_font("InstrumentSerif-Italic.ttf", 32)
-        self.tag_font           = load_font("InstrumentSans-Italic.ttf", 24)
-        self.open_font          = load_font("Lora-Italic.ttf", 140)
-        self.credit_font        = load_font("InstrumentSans-Italic.ttf", 20)
-        self.painting_title_font  = load_font("InstrumentSerif-Italic.ttf", 30)
-        self.painting_artist_font = load_font("InstrumentSans-Italic.ttf", 24)
+        self.tag_font          = load_font("InstrumentSans-Italic.ttf", 24)
+        self.open_font         = load_font("Lora-Italic.ttf", 140)
+        self.credit_artist_font = load_font("InstrumentSans-Regular.ttf", 28)
+        self.credit_title_font  = load_font("InstrumentSans-Italic.ttf", 24)
 
         self.quote   = quote
         self.palette = palette
@@ -266,9 +265,32 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
     # Static elements — shown as soon as any text has started appearing
     if lines_visible > 0 or current_line_alpha > 0:
         # Opening quotation mark
-        draw.text((pad_x - 10, center_y - 340), "“", font=layout.open_font,
+        draw.text((pad_x - 10, center_y - 340), "\u201c", font=layout.open_font,
                   fill=(*palette["rule"], 60))
 
+        # Artwork credit — top-left, dark backdrop so it reads over any painting
+        if art_artist or art_title:
+            artist_text = art_artist.title() if art_artist else ""
+            title_text  = art_title if len(art_title) <= 42 else art_title[:39] + "…"
+
+            a_bbox  = draw.textbbox((0, 0), artist_text, font=layout.credit_artist_font) if artist_text else (0, 0, 0, 0)
+            t_bbox  = draw.textbbox((0, 0), title_text,  font=layout.credit_title_font)  if title_text  else (0, 0, 0, 0)
+            block_w = max(a_bbox[2] - a_bbox[0], t_bbox[2] - t_bbox[0])
+            block_h = (a_bbox[3] - a_bbox[1]) + (6 + (t_bbox[3] - t_bbox[1]) if title_text else 0)
+
+            pad = 16
+            top_y = 72
+            draw.rectangle(
+                [pad_x - pad, top_y - pad, pad_x + block_w + pad, top_y + block_h + pad],
+                fill=(*palette["bg"], 210),
+            )
+            if artist_text:
+                draw.text((pad_x, top_y), artist_text, font=layout.credit_artist_font,
+                          fill=(*palette["author"], 255))
+            if title_text:
+                draw.text((pad_x, top_y + (a_bbox[3] - a_bbox[1]) + 6), title_text,
+                          font=layout.credit_title_font,
+                          fill=(*palette["quote"], 220))
 
         # Bottom tag
         tag_parts = [p for p in [handle, niche] if p]
@@ -323,30 +345,6 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
                       font=layout.book_font,
                       fill=(*palette["book"], author_alpha))
 
-        # Painting attribution — below author block
-        if art_artist or art_title:
-            paint_y = rule_y + (120 if layout.quote["book"] else 80)
-            sep_alpha = int(author_alpha * 0.5)
-            draw.line([(W // 2 - 30, paint_y), (W // 2 + 30, paint_y)],
-                      fill=(*palette["rule"], sep_alpha), width=1)
-            paint_y += 18
-
-            if art_title:
-                title_text = art_title if len(art_title) <= 45 else art_title[:42] + "…"
-                bbox = draw.textbbox((0, 0), title_text, font=layout.painting_title_font)
-                tw   = bbox[2] - bbox[0]
-                draw.text(((W - tw) // 2, paint_y), title_text,
-                          font=layout.painting_title_font,
-                          fill=(*palette["quote"], int(author_alpha * 0.85)))
-                paint_y += 38
-
-            if art_artist:
-                artist_text = art_artist.title()
-                bbox = draw.textbbox((0, 0), artist_text, font=layout.painting_artist_font)
-                aw   = bbox[2] - bbox[0]
-                draw.text(((W - aw) // 2, paint_y), artist_text,
-                          font=layout.painting_artist_font,
-                          fill=(*palette["author"], int(author_alpha * 0.75)))
 
     return img
 
