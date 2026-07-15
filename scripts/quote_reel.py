@@ -230,12 +230,13 @@ class QuoteLayout:
 
         # Fonts
         self.quote_font  = load_font("Lora-Italic.ttf", 72)
-        self.author_font = load_font("InstrumentSerif-Regular.ttf", 38)
+        self.author_font = load_font("Lora-BoldItalic.ttf", 38)
         self.book_font   = load_font("InstrumentSerif-Italic.ttf", 32)
         self.tag_font          = load_font("InstrumentSans-Italic.ttf", 24)
         self.open_font         = load_font("Lora-Italic.ttf", 140)
-        self.credit_artist_font = load_font("InstrumentSans-Regular.ttf", 28)
-        self.credit_title_font  = load_font("InstrumentSans-Italic.ttf", 24)
+        self.credit_artist_font = load_font("InstrumentSans-Bold.ttf", 30)
+        self.credit_title_font  = load_font("InstrumentSans-BoldItalic.ttf", 26)
+        self.label_font         = load_font("InstrumentSans-BoldItalic.ttf", 24)
 
         self.quote   = quote
         self.palette = palette
@@ -303,33 +304,47 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
         draw.line([(W // 2 - 60, rule_y), (W // 2 + 60, rule_y)],
                   fill=(*palette["rule"], author_alpha), width=1)
 
+        lbl_bbox     = draw.textbbox((0, 0), "Author", font=layout.label_font)
+        lbl_w        = lbl_bbox[2] - lbl_bbox[0]
+        draw.text(((W - lbl_w) // 2, rule_y + 10), "Author",
+                  font=layout.label_font, fill=(*palette["quote"], author_alpha))
+
         author_text  = layout.quote["author"] if layout.quote["author"] else "Unknown"
         bbox         = draw.textbbox((0, 0), author_text, font=layout.author_font)
         aw           = bbox[2] - bbox[0]
         ax           = (W - aw) // 2
-        shadow_alpha = int(100 * author_alpha / 255)
-        draw.text((ax + 1, rule_y + 19), author_text, font=layout.author_font,
+        shadow_alpha = int(140 * author_alpha / 255)
+        draw.text((ax + 2, rule_y + 34), author_text, font=layout.author_font,
                   fill=(0, 0, 0, shadow_alpha))
-        draw.text((ax, rule_y + 18), author_text, font=layout.author_font,
+        draw.text((ax, rule_y + 32), author_text, font=layout.author_font,
                   fill=(*palette["author"], author_alpha))
 
         if layout.quote["book"]:
             book_text = layout.quote["book"]
             bbox      = draw.textbbox((0, 0), book_text, font=layout.book_font)
             bw        = bbox[2] - bbox[0]
-            draw.text(((W - bw) // 2, rule_y + 18 + 46), book_text,
+            draw.text(((W - bw) // 2, rule_y + 32 + 46), book_text,
                       font=layout.book_font,
-                      fill=(*palette["book"], author_alpha))
+                      fill=(*palette["quote"], author_alpha))
 
         # Art attribution — centered, below author/book, fades in with author block
         if art_artist or art_title:
-            paint_y     = rule_y + (120 if layout.quote["book"] else 80)
+            paint_y     = rule_y + (136 if layout.quote["book"] else 96)
             artist_text = art_artist.title() if art_artist else ""
             title_text  = art_title if len(art_title) <= 42 else art_title[:39] + "…"
+
+            pc_bbox = draw.textbbox((0, 0), "Painting credit:", font=layout.label_font)
+            pc_w    = pc_bbox[2] - pc_bbox[0]
+            draw.text(((W - pc_w) // 2, paint_y), "Painting credit:",
+                      font=layout.label_font, fill=(*palette["quote"], author_alpha))
+            paint_y += (pc_bbox[3] - pc_bbox[1]) + 8
 
             if artist_text:
                 bbox = draw.textbbox((0, 0), artist_text, font=layout.credit_artist_font)
                 aw   = bbox[2] - bbox[0]
+                draw.text(((W - aw) // 2 + 1, paint_y + 1), artist_text,
+                          font=layout.credit_artist_font,
+                          fill=(0, 0, 0, int(130 * author_alpha / 255)))
                 draw.text(((W - aw) // 2, paint_y), artist_text,
                           font=layout.credit_artist_font,
                           fill=(*palette["author"], author_alpha))
@@ -340,7 +355,7 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
                 tw   = bbox[2] - bbox[0]
                 draw.text(((W - tw) // 2, paint_y), title_text,
                           font=layout.credit_title_font,
-                          fill=(*palette["quote"], int(author_alpha * 0.85)))
+                          fill=(*palette["quote"], author_alpha))
 
 
     return img
