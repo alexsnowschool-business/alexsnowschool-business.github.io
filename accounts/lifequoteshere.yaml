@@ -39,6 +39,10 @@ hashtags_instagram: >-
 buffer_token_env:        "PROVENANCE_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "PROVENANCE_BUFFER_TIKTOK_ID"
 buffer_instagram_id_env: "PROVENANCE_BUFFER_INSTAGRAM_ID"
+buffer_youtube_id_env:   "PROVENANCE_BUFFER_YOUTUBE_ID"
+
+hashtags_youtube: >-
+  #burnout #midlifecrisis #quarterlifecrisis #quotesoftheday #shorts
 
 palette:
   bg:     [14, 10, 6]

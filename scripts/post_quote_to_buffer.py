@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Post a reading quote reel to TikTok and Instagram via Buffer (Provenance account).
+Post a reading quote reel to TikTok, Instagram, and YouTube via Buffer.
 
-Uses the same Buffer credentials as the Hermès reel poster:
+Uses Buffer credentials from the account YAML (env var names):
     PROVENANCE_BUFFER_TOKEN        — Buffer API access token
-    PROVENANCE_BUFFER_TIKTOK_ID    — Buffer channel ID for Provenance TikTok
-    PROVENANCE_BUFFER_INSTAGRAM_ID — Buffer channel ID for Provenance Instagram
+    PROVENANCE_BUFFER_TIKTOK_ID    — Buffer channel ID for TikTok
+    PROVENANCE_BUFFER_INSTAGRAM_ID — Buffer channel ID for Instagram
+    PROVENANCE_BUFFER_YOUTUBE_ID   — Buffer channel ID for YouTube
 
 Video is hosted via a GitHub release, same mechanism as other Provenance posts.
 
@@ -14,6 +15,7 @@ Usage:
     python scripts/post_quote_to_buffer.py reels/<quote-slug> --schedule "2026-07-13T19:00:00+07:00"
     python scripts/post_quote_to_buffer.py reels/<quote-slug> --dry-run
     python scripts/post_quote_to_buffer.py reels/<quote-slug> --no-tiktok
+    python scripts/post_quote_to_buffer.py reels/<quote-slug> --no-youtube
 """
 
 import argparse
@@ -42,7 +44,8 @@ GITHUB_REPO    = "alexsnowschool-business/alexsnowschool-business.github.io"
 # ── Caption builder ───────────────────────────────────────────────────────────
 
 def _build_captions(quote_text: str, author: str, book: str,
-                    hashtags_tt: str, hashtags_ig: str) -> dict[str, str]:
+                    hashtags_tt: str, hashtags_ig: str,
+                    hashtags_yt: str = "") -> dict[str, str]:
     attr = f"— {author}" if author else ""
     if book:
         attr += f", {book}"
@@ -51,7 +54,16 @@ def _build_captions(quote_text: str, author: str, book: str,
 
     tiktok    = f"{body}\n\n{hashtags_tt}"
     instagram = f"{body}\n\n{hashtags_ig}"
-    return {"tiktok": tiktok, "instagram": instagram}
+    youtube   = f"{body}\n\n{hashtags_yt}" if hashtags_yt else body
+    return {"tiktok": tiktok, "instagram": instagram, "youtube": youtube}
+
+
+def _youtube_title(quote_text: str, author: str) -> str:
+    """Short YouTube title — quote truncated to fit 100-char limit."""
+    base = f'"{quote_text}"'
+    if author:
+        base += f" — {author}"
+    return base if len(base) <= 100 else base[:97] + "…"
 
 
 # ── GitHub release upload ─────────────────────────────────────────────────────
@@ -129,6 +141,7 @@ def _post_to_buffer(
     video_url:    str,
     scheduled_at: str | None,
     dry_run:      bool,
+    yt_title:     str = "",
 ) -> bool:
     if dry_run:
         print(f"  [dry-run] {platform}: channel={channel_id}")
@@ -140,6 +153,11 @@ def _post_to_buffer(
         metadata["tiktok"] = {"title": text[:150]}
     elif platform == "Instagram":
         metadata["instagram"] = {"type": "reel", "shouldShareToFeed": True}
+    elif platform == "YouTube":
+        metadata["youtube"] = {
+            "title":         yt_title or text[:100],
+            "privacyStatus": "public",
+        }
 
     variables: dict = {
         "input": {
@@ -197,6 +215,7 @@ def main() -> None:
                         help="ISO 8601 datetime, e.g. 2026-07-13T19:00:00+07:00")
     parser.add_argument("--no-tiktok",    dest="tiktok",    action="store_false", default=True)
     parser.add_argument("--no-instagram", dest="instagram", action="store_false", default=True)
+    parser.add_argument("--no-youtube",   dest="youtube",   action="store_false", default=True)
     parser.add_argument("--dry-run",      action="store_true")
     args = parser.parse_args()
 
@@ -211,8 +230,10 @@ def main() -> None:
     TOKEN      = os.getenv(cfg.get("buffer_token_env",        "PROVENANCE_BUFFER_TOKEN"))
     TT_CHANNEL = os.getenv(cfg.get("buffer_tiktok_id_env",    "PROVENANCE_BUFFER_TIKTOK_ID"))
     IG_CHANNEL = os.getenv(cfg.get("buffer_instagram_id_env", "PROVENANCE_BUFFER_INSTAGRAM_ID"))
+    YT_CHANNEL = os.getenv(cfg.get("buffer_youtube_id_env",   "PROVENANCE_BUFFER_YOUTUBE_ID"))
     hashtags_tt = cfg.get("hashtags_tiktok",    "")
     hashtags_ig = cfg.get("hashtags_instagram", "")
+    hashtags_yt = cfg.get("hashtags_youtube",   "")
 
     reel_dir  = BUSINESS_DIR / args.reel_dir
     reel_slug = reel_dir.name
@@ -251,7 +272,8 @@ def main() -> None:
         author     = ""
         book       = ""
 
-    captions = _build_captions(quote_text, author, book, hashtags_tt, hashtags_ig)
+    captions  = _build_captions(quote_text, author, book, hashtags_tt, hashtags_ig, hashtags_yt)
+    yt_title  = _youtube_title(quote_text, author)
 
     print("═" * 62)
     print("  BUFFER POSTER — Quote Reel")
@@ -293,6 +315,16 @@ def main() -> None:
             results.append(("Instagram", ok))
         elif args.instagram and not IG_CHANNEL:
             print("  ⚠ PROVENANCE_BUFFER_INSTAGRAM_ID not set — skipping Instagram")
+
+        if args.youtube and (YT_CHANNEL or args.dry_run):
+            ok = _post_to_buffer(
+                client, YT_CHANNEL or "YT_ID", "YouTube",
+                captions["youtube"], video_url, args.schedule, args.dry_run,
+                yt_title=yt_title,
+            )
+            results.append(("YouTube", ok))
+        elif args.youtube and not YT_CHANNEL:
+            print("  ⚠ PROVENANCE_BUFFER_YOUTUBE_ID not set — skipping YouTube")
 
     print("\n" + "═" * 62)
     for platform, ok in results:
