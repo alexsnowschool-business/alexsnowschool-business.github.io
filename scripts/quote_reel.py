@@ -268,30 +268,6 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
         draw.text((pad_x - 10, center_y - 340), "\u201c", font=layout.open_font,
                   fill=(*palette["rule"], 60))
 
-        # Artwork credit — top-left, dark backdrop so it reads over any painting
-        if art_artist or art_title:
-            artist_text = art_artist.title() if art_artist else ""
-            title_text  = art_title if len(art_title) <= 42 else art_title[:39] + "…"
-
-            a_bbox  = draw.textbbox((0, 0), artist_text, font=layout.credit_artist_font) if artist_text else (0, 0, 0, 0)
-            t_bbox  = draw.textbbox((0, 0), title_text,  font=layout.credit_title_font)  if title_text  else (0, 0, 0, 0)
-            block_w = max(a_bbox[2] - a_bbox[0], t_bbox[2] - t_bbox[0])
-            block_h = (a_bbox[3] - a_bbox[1]) + (6 + (t_bbox[3] - t_bbox[1]) if title_text else 0)
-
-            pad = 16
-            top_y = 72
-            draw.rectangle(
-                [pad_x - pad, top_y - pad, pad_x + block_w + pad, top_y + block_h + pad],
-                fill=(*palette["bg"], 210),
-            )
-            if artist_text:
-                draw.text((pad_x, top_y), artist_text, font=layout.credit_artist_font,
-                          fill=(*palette["author"], 255))
-            if title_text:
-                draw.text((pad_x, top_y + (a_bbox[3] - a_bbox[1]) + 6), title_text,
-                          font=layout.credit_title_font,
-                          fill=(*palette["quote"], 220))
-
         # Bottom tag
         tag_parts = [p for p in [handle, niche] if p]
         tag_text  = "  ·  ".join(tag_parts) if tag_parts else ""
@@ -344,6 +320,27 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
             draw.text(((W - bw) // 2, rule_y + 18 + 46), book_text,
                       font=layout.book_font,
                       fill=(*palette["book"], author_alpha))
+
+        # Art attribution — centered, below author/book, fades in with author block
+        if art_artist or art_title:
+            paint_y     = rule_y + (120 if layout.quote["book"] else 80)
+            artist_text = art_artist.title() if art_artist else ""
+            title_text  = art_title if len(art_title) <= 42 else art_title[:39] + "…"
+
+            if artist_text:
+                bbox = draw.textbbox((0, 0), artist_text, font=layout.credit_artist_font)
+                aw   = bbox[2] - bbox[0]
+                draw.text(((W - aw) // 2, paint_y), artist_text,
+                          font=layout.credit_artist_font,
+                          fill=(*palette["author"], author_alpha))
+                paint_y += (bbox[3] - bbox[1]) + 8
+
+            if title_text:
+                bbox = draw.textbbox((0, 0), title_text, font=layout.credit_title_font)
+                tw   = bbox[2] - bbox[0]
+                draw.text(((W - tw) // 2, paint_y), title_text,
+                          font=layout.credit_title_font,
+                          fill=(*palette["quote"], int(author_alpha * 0.85)))
 
 
     return img
