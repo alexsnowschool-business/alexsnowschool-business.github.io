@@ -1,8 +1,8 @@
 {
   "stats": {
-    "total_lots": 3070,
-    "total_artists": 1153,
-    "median_hammer_usd": 110000,
+    "total_lots": 3122,
+    "total_artists": 1174,
+    "median_hammer_usd": 107950,
     "pct_above_estimate": 48.2,
     "max_ratio": 41.6,
     "sources": [
@@ -10,7 +10,7 @@
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-13"
+    "generated_at": "2026-07-16"
   },
   "artists": [
     {
@@ -56,19 +56,19 @@
         }
       ],
       "dataset": {
-        "lot_count": 30,
-        "total_usd": 191953798,
-        "avg_usd": 6398460,
-        "total_label": "$191.95M",
-        "avg_label": "$6.40M",
+        "lot_count": 31,
+        "total_usd": 191998798,
+        "avg_usd": 6193510,
+        "total_label": "$192.00M",
+        "avg_label": "$6.19M",
         "top_lot": {
           "title": "Pumpkin (L) 南瓜（L）",
           "hammer_usd": 54000000,
           "sale_name": "Contemporary Evening Auction, NY 2023"
         },
         "top_ratio_lot": {
-          "title": "The Pacific Ocean",
-          "ratio": 3.2
+          "title": "Untitled (Hand Painted Levi's Jeans)",
+          "ratio": 5.29
         }
       }
     },
@@ -174,11 +174,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 21,
-        "total_usd": 63473000,
-        "avg_usd": 3022524,
-        "total_label": "$63.47M",
-        "avg_label": "$3.02M",
+        "lot_count": 24,
+        "total_usd": 63610000,
+        "avg_usd": 2650417,
+        "total_label": "$63.61M",
+        "avg_label": "$2.65M",
         "top_lot": {
           "title": "Noon",
           "hammer_usd": 20800000,
@@ -186,7 +186,7 @@
         },
         "top_ratio_lot": {
           "title": "Untitled",
-          "ratio": 2.98
+          "ratio": 3.0
         }
       }
     },
@@ -680,11 +680,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 23,
-        "total_usd": 37269103,
-        "avg_usd": 1620396,
-        "total_label": "$37.27M",
-        "avg_label": "$1.62M",
+        "lot_count": 26,
+        "total_usd": 37489103,
+        "avg_usd": 1441889,
+        "total_label": "$37.49M",
+        "avg_label": "$1.44M",
         "top_lot": {
           "title": "Blue Moon",
           "hammer_usd": 12400000,
@@ -793,11 +793,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 38,
-        "total_usd": 32743072,
-        "avg_usd": 861660,
-        "total_label": "$32.74M",
-        "avg_label": "$862k",
+        "lot_count": 41,
+        "total_usd": 32811072,
+        "avg_usd": 800270,
+        "total_label": "$32.81M",
+        "avg_label": "$800k",
         "top_lot": {
           "title": "Inside the West Wing 西翼內部",
           "hammer_usd": 19000000,
@@ -1353,19 +1353,19 @@
         }
       ],
       "dataset": {
-        "lot_count": 12,
-        "total_usd": 16419550,
-        "avg_usd": 1368296,
-        "total_label": "$16.42M",
-        "avg_label": "$1.37M",
+        "lot_count": 14,
+        "total_usd": 16489550,
+        "avg_usd": 1177825,
+        "total_label": "$16.49M",
+        "avg_label": "$1.18M",
         "top_lot": {
           "title": "Genuine Blue",
           "hammer_usd": 3317000,
           "sale_name": "Post-War &amp; Contemporary Art Day Sale"
         },
         "top_ratio_lot": {
-          "title": "Earliness",
-          "ratio": 2.05
+          "title": "Sure Violet (Harrison 74)",
+          "ratio": 2.24
         }
       }
     },
@@ -4125,6 +4125,60 @@
       }
     },
     {
+      "norm_name": "GEORG BASELITZ",
+      "display_name": "Georg Baselitz",
+      "dates": "b. 1938",
+      "nationality": "German",
+      "movement": "Neo-Expressionism",
+      "movement_id": "neo-expressionism",
+      "bio": "Georg Baselitz was born Hans-Georg Kern in Deutschbaselitz, Saxony in 1938 and grew up in Soviet-occupied East Germany, fleeing to West Berlin in 1956 to study at the Hochschule für bildende Künste. His early paintings of the 1960s provoked scandal for their raw sexuality and anarchic imagery — two were confiscated by authorities — and established his commitment to provoking the normative expectations of both political systems within which he moved.\n\nThe decisive formal development of his career came in 1969, when he began painting his figures upside-down, a procedure he has maintained consistently for more than fifty years. The inversion refuses narrative: the viewer cannot construct a scene, cannot determine foreground from background in the conventional sense, and is forced to attend to the painting as a painted object — to its gestural surface, its colour, its marks — rather than to its depicted content. The figures are in the painting, but the painting is emphatically about itself.\n\nBaselitz has been a central figure in German art for six decades, associated with the resurgence of figuration in the late 1970s and 1980s, and his work has attracted sustained critical debate about the relationship between German cultural tradition, trauma, and the possibilities of Neo-Expressionism. He is represented by Gagosian Gallery and White Cube, and major retrospectives have been mounted at institutions including the Guggenheim Museum Bilbao.",
+      "famous_works": [
+        {
+          "title": "The Big Night Down the Drain",
+          "year": "1962–1963",
+          "notes": "A notorious early work confiscated by West Berlin authorities for obscenity, establishing Baselitz's commitment to transgressive imagery in his pre-inversion period."
+        },
+        {
+          "title": "Motif: The Shepherd (Der Hirte)",
+          "year": "1969",
+          "notes": "One of the first inverted paintings, marking the decisive formal decision that has defined Baselitz's practice for more than five decades."
+        },
+        {
+          "title": "Adler (Eagle)",
+          "year": "1977",
+          "notes": "A monumental inverted eagle in which the national symbol of Germany is subjected to Baselitz's characteristic formal disruption."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Remix series",
+          "year": "2005–present",
+          "notes": "A late series in which Baselitz revisits and repaints his own earlier works, making the history of the practice itself the subject of the paintings."
+        },
+        {
+          "title": "Elke I",
+          "year": "1969",
+          "notes": "An early inverted portrait of his wife Elke demonstrating the application of the inversion principle to the specific genre of portraiture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 5282529,
+        "avg_usd": 528253,
+        "total_label": "$5.28M",
+        "avg_label": "$528k",
+        "top_lot": {
+          "title": "Fingermalerei - Akt",
+          "hammer_usd": 2200000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Enddesign",
+          "ratio": 2.01
+        }
+      }
+    },
+    {
       "norm_name": "AUGUSTE RODIN",
       "display_name": "Auguste Rodin",
       "dates": "1840–1917",
@@ -4175,60 +4229,6 @@
         "top_ratio_lot": {
           "title": "Femme au pyjama entrouvert",
           "ratio": 4.0
-        }
-      }
-    },
-    {
-      "norm_name": "GEORG BASELITZ",
-      "display_name": "Georg Baselitz",
-      "dates": "b. 1938",
-      "nationality": "German",
-      "movement": "Neo-Expressionism",
-      "movement_id": "neo-expressionism",
-      "bio": "Georg Baselitz was born Hans-Georg Kern in Deutschbaselitz, Saxony in 1938 and grew up in Soviet-occupied East Germany, fleeing to West Berlin in 1956 to study at the Hochschule für bildende Künste. His early paintings of the 1960s provoked scandal for their raw sexuality and anarchic imagery — two were confiscated by authorities — and established his commitment to provoking the normative expectations of both political systems within which he moved.\n\nThe decisive formal development of his career came in 1969, when he began painting his figures upside-down, a procedure he has maintained consistently for more than fifty years. The inversion refuses narrative: the viewer cannot construct a scene, cannot determine foreground from background in the conventional sense, and is forced to attend to the painting as a painted object — to its gestural surface, its colour, its marks — rather than to its depicted content. The figures are in the painting, but the painting is emphatically about itself.\n\nBaselitz has been a central figure in German art for six decades, associated with the resurgence of figuration in the late 1970s and 1980s, and his work has attracted sustained critical debate about the relationship between German cultural tradition, trauma, and the possibilities of Neo-Expressionism. He is represented by Gagosian Gallery and White Cube, and major retrospectives have been mounted at institutions including the Guggenheim Museum Bilbao.",
-      "famous_works": [
-        {
-          "title": "The Big Night Down the Drain",
-          "year": "1962–1963",
-          "notes": "A notorious early work confiscated by West Berlin authorities for obscenity, establishing Baselitz's commitment to transgressive imagery in his pre-inversion period."
-        },
-        {
-          "title": "Motif: The Shepherd (Der Hirte)",
-          "year": "1969",
-          "notes": "One of the first inverted paintings, marking the decisive formal decision that has defined Baselitz's practice for more than five decades."
-        },
-        {
-          "title": "Adler (Eagle)",
-          "year": "1977",
-          "notes": "A monumental inverted eagle in which the national symbol of Germany is subjected to Baselitz's characteristic formal disruption."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Remix series",
-          "year": "2005–present",
-          "notes": "A late series in which Baselitz revisits and repaints his own earlier works, making the history of the practice itself the subject of the paintings."
-        },
-        {
-          "title": "Elke I",
-          "year": "1969",
-          "notes": "An early inverted portrait of his wife Elke demonstrating the application of the inversion principle to the specific genre of portraiture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 5237529,
-        "avg_usd": 581948,
-        "total_label": "$5.24M",
-        "avg_label": "$582k",
-        "top_lot": {
-          "title": "Fingermalerei - Akt",
-          "hammer_usd": 2200000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Enddesign",
-          "ratio": 2.01
         }
       }
     },
@@ -4680,6 +4680,60 @@
       }
     },
     {
+      "norm_name": "HANS HARTUNG",
+      "display_name": "Hans Hartung",
+      "dates": "1904–1989",
+      "nationality": "French-German",
+      "movement": "Lyrical Abstraction · Tachisme",
+      "movement_id": "abstract-expressionism",
+      "bio": "Hans Hartung was one of the pioneers of European gestural abstraction and among the earliest painters to develop a purely non-representational mark-making practice, a Dresden-born artist who settled in Paris and became a central figure of the postwar École de Paris. His black gestural marks — energetic, calligraphic, seemingly spontaneous — on grounds of ochre, blue, or warm grey are among the most immediately recognisable works in the lyrical abstraction tradition.\n\nHartung's path to abstraction began extraordinarily early: his childhood watercolours of the 1920s already display the scratchy, impulsive marks that would define his mature work, and he later claimed that his style was essentially formed before any significant exposure to the European avant-garde. Influenced by Rembrandt's late drawings and by the Expressionist generation of Nolde and Kirchner, he moved through figuration into increasingly abstract work through the 1930s, working in near-isolation and poverty — he fought in the French Foreign Legion during the Second World War and lost a leg at the Liberation, a trauma that only deepened his commitment to mark-making as a direct physical and psychic release.\n\nAfter the war Hartung received rapid critical recognition in Paris, exhibiting with Pierre Loeb and winning the Grand Prize at the 1960 Venice Biennale. His late works, made in the 1980s after he had lost the use of both legs, used a reversed tractor tyre, branches, and spray guns to create works of unexpected raw energy. His studio in Antibes, where he died, became the Fondation Hartung-Bergman.",
+      "famous_works": [
+        {
+          "title": "T1963-R22",
+          "year": "1963",
+          "notes": "A canonical work in his T (for tableau) series in which black gestural marks cascade across a warm grey-gold ground."
+        },
+        {
+          "title": "T1948-31",
+          "year": "1948",
+          "notes": "An early postwar work in which yellow-ochre grounds support freely drawn black marks, establishing the visual language of his mature output."
+        },
+        {
+          "title": "P1973-H22",
+          "year": "1973",
+          "notes": "A large-format work demonstrating his late expansion of scale and the integration of spray techniques with his signature drawn marks."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Aquarelle",
+          "year": "1922",
+          "notes": "A childhood watercolour from Dresden already displaying the scratchy gestural vocabulary of his mature abstraction."
+        },
+        {
+          "title": "T1960-H44",
+          "year": "1960",
+          "notes": "A Venice Biennale prize-year work in which his compositional organisation of the picture field reaches a peak of authoritative resolution."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 4459645,
+        "avg_usd": 743274,
+        "total_label": "$4.46M",
+        "avg_label": "$743k",
+        "top_lot": {
+          "title": "Hans Hartung 漢斯・哈同 | T1975-R25",
+          "hammer_usd": 2400000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.79
+        }
+      }
+    },
+    {
       "norm_name": "ANDRÉ BRASILIER",
       "display_name": "André Brasilier",
       "dates": "b. 1929",
@@ -4730,60 +4784,6 @@
         "top_ratio_lot": {
           "title": "André Brasilier 安德烈・布拉吉利 | Hiver à Loupeigne 盧佩涅的冬天",
           "ratio": 1.22
-        }
-      }
-    },
-    {
-      "norm_name": "HANS HARTUNG",
-      "display_name": "Hans Hartung",
-      "dates": "1904–1989",
-      "nationality": "French-German",
-      "movement": "Lyrical Abstraction · Tachisme",
-      "movement_id": "abstract-expressionism",
-      "bio": "Hans Hartung was one of the pioneers of European gestural abstraction and among the earliest painters to develop a purely non-representational mark-making practice, a Dresden-born artist who settled in Paris and became a central figure of the postwar École de Paris. His black gestural marks — energetic, calligraphic, seemingly spontaneous — on grounds of ochre, blue, or warm grey are among the most immediately recognisable works in the lyrical abstraction tradition.\n\nHartung's path to abstraction began extraordinarily early: his childhood watercolours of the 1920s already display the scratchy, impulsive marks that would define his mature work, and he later claimed that his style was essentially formed before any significant exposure to the European avant-garde. Influenced by Rembrandt's late drawings and by the Expressionist generation of Nolde and Kirchner, he moved through figuration into increasingly abstract work through the 1930s, working in near-isolation and poverty — he fought in the French Foreign Legion during the Second World War and lost a leg at the Liberation, a trauma that only deepened his commitment to mark-making as a direct physical and psychic release.\n\nAfter the war Hartung received rapid critical recognition in Paris, exhibiting with Pierre Loeb and winning the Grand Prize at the 1960 Venice Biennale. His late works, made in the 1980s after he had lost the use of both legs, used a reversed tractor tyre, branches, and spray guns to create works of unexpected raw energy. His studio in Antibes, where he died, became the Fondation Hartung-Bergman.",
-      "famous_works": [
-        {
-          "title": "T1963-R22",
-          "year": "1963",
-          "notes": "A canonical work in his T (for tableau) series in which black gestural marks cascade across a warm grey-gold ground."
-        },
-        {
-          "title": "T1948-31",
-          "year": "1948",
-          "notes": "An early postwar work in which yellow-ochre grounds support freely drawn black marks, establishing the visual language of his mature output."
-        },
-        {
-          "title": "P1973-H22",
-          "year": "1973",
-          "notes": "A large-format work demonstrating his late expansion of scale and the integration of spray techniques with his signature drawn marks."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Aquarelle",
-          "year": "1922",
-          "notes": "A childhood watercolour from Dresden already displaying the scratchy gestural vocabulary of his mature abstraction."
-        },
-        {
-          "title": "T1960-H44",
-          "year": "1960",
-          "notes": "A Venice Biennale prize-year work in which his compositional organisation of the picture field reaches a peak of authoritative resolution."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 4384645,
-        "avg_usd": 876929,
-        "total_label": "$4.38M",
-        "avg_label": "$877k",
-        "top_lot": {
-          "title": "Hans Hartung 漢斯・哈同 | T1975-R25",
-          "hammer_usd": 2400000,
-          "sale_name": "Modern Day Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.79
         }
       }
     },
@@ -5441,6 +5441,65 @@
       }
     },
     {
+      "norm_name": "ROBERT MOTHERWELL",
+      "display_name": "Robert Motherwell",
+      "dates": "1915–1991",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Elegy Series",
+      "movement_id": "abstract-expressionism",
+      "bio": "The most intellectually articulate of the Abstract Expressionists, Motherwell had studied philosophy at Stanford and Harvard before dedicating himself to painting. He served as the movement's primary editor and anthologist — The Dada Painters and Poets (1951) remains the essential sourcebook. His Elegies to the Spanish Republic, begun in 1948 and continued for over forty years across more than 150 paintings, are the defining sustained series of Abstract Expressionism: large black ovoids pressing against vertical bars in stark bipartite compositions. The Spanish Civil War was the occasion; the elegiac mode became his vehicle for all political tragedy. He was married to Helen Frankenthaler from 1958 to 1971. His Open series — canvases of single colour interrupted by a gestural rectangle — explored the paradox of painting's flatness through near-minimalist means. He was also a prolific printmaker and collagist who brought a European sensibility to the American scene.",
+      "famous_works": [
+        {
+          "title": "Elegy to the Spanish Republic No. 34",
+          "year": "1953–54",
+          "notes": "One of the most fully achieved of the Elegy series. The black ovoids and bars are at their most formally resolved — minimal in element, monumental in presence."
+        },
+        {
+          "title": "At Five in the Afternoon",
+          "year": "1949",
+          "notes": "The first fully resolved Elegy, named after García Lorca's poem. Established the vocabulary that Motherwell would pursue for the rest of his life."
+        },
+        {
+          "title": "The Voyage",
+          "year": "1949",
+          "notes": "A large horizontal canvas of nautical imagery refracted through collage logic. The journey as existential metaphor, rendered with paper and oil."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Je t'aime (with Gauloises)",
+          "year": "1955",
+          "notes": "One of the smallest, most intimate works — a collage with a Gauloise cigarette package fragment. Motherwell's Frenchness, his Europeanness, compressed into a torn rectangle of blue paper."
+        },
+        {
+          "title": "Open No. 121",
+          "year": "1969",
+          "notes": "From the Open series — a field of deep ochre interrupted by a single gestural rectangle. The simplest possible painting that is still a painting."
+        },
+        {
+          "title": "Drunk with Turpentine",
+          "year": "1979",
+          "notes": "A late Elegy variant in which the gestural mark breaks free of the canonical oval-and-bar vocabulary — a rare instance of the series relaxing its formal discipline."
+        }
+      ],
+      "dataset": {
+        "lot_count": 9,
+        "total_usd": 3620008,
+        "avg_usd": 402223,
+        "total_label": "$3.62M",
+        "avg_label": "$402k",
+        "top_lot": {
+          "title": "The Red Wall",
+          "hammer_usd": 1865000,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Zen I",
+          "ratio": 3.3
+        }
+      }
+    },
+    {
       "norm_name": "FERNANDO ZÓBEL",
       "display_name": "Fernando Zóbel",
       "dates": "1924–1984",
@@ -5658,65 +5717,6 @@
         "top_ratio_lot": {
           "title": "Untitled Anxious Red Drawing",
           "ratio": 2.24
-        }
-      }
-    },
-    {
-      "norm_name": "ROBERT MOTHERWELL",
-      "display_name": "Robert Motherwell",
-      "dates": "1915–1991",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Elegy Series",
-      "movement_id": "abstract-expressionism",
-      "bio": "The most intellectually articulate of the Abstract Expressionists, Motherwell had studied philosophy at Stanford and Harvard before dedicating himself to painting. He served as the movement's primary editor and anthologist — The Dada Painters and Poets (1951) remains the essential sourcebook. His Elegies to the Spanish Republic, begun in 1948 and continued for over forty years across more than 150 paintings, are the defining sustained series of Abstract Expressionism: large black ovoids pressing against vertical bars in stark bipartite compositions. The Spanish Civil War was the occasion; the elegiac mode became his vehicle for all political tragedy. He was married to Helen Frankenthaler from 1958 to 1971. His Open series — canvases of single colour interrupted by a gestural rectangle — explored the paradox of painting's flatness through near-minimalist means. He was also a prolific printmaker and collagist who brought a European sensibility to the American scene.",
-      "famous_works": [
-        {
-          "title": "Elegy to the Spanish Republic No. 34",
-          "year": "1953–54",
-          "notes": "One of the most fully achieved of the Elegy series. The black ovoids and bars are at their most formally resolved — minimal in element, monumental in presence."
-        },
-        {
-          "title": "At Five in the Afternoon",
-          "year": "1949",
-          "notes": "The first fully resolved Elegy, named after García Lorca's poem. Established the vocabulary that Motherwell would pursue for the rest of his life."
-        },
-        {
-          "title": "The Voyage",
-          "year": "1949",
-          "notes": "A large horizontal canvas of nautical imagery refracted through collage logic. The journey as existential metaphor, rendered with paper and oil."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Je t'aime (with Gauloises)",
-          "year": "1955",
-          "notes": "One of the smallest, most intimate works — a collage with a Gauloise cigarette package fragment. Motherwell's Frenchness, his Europeanness, compressed into a torn rectangle of blue paper."
-        },
-        {
-          "title": "Open No. 121",
-          "year": "1969",
-          "notes": "From the Open series — a field of deep ochre interrupted by a single gestural rectangle. The simplest possible painting that is still a painting."
-        },
-        {
-          "title": "Drunk with Turpentine",
-          "year": "1979",
-          "notes": "A late Elegy variant in which the gestural mark breaks free of the canonical oval-and-bar vocabulary — a rare instance of the series relaxing its formal discipline."
-        }
-      ],
-      "dataset": {
-        "lot_count": 8,
-        "total_usd": 3490008,
-        "avg_usd": 436251,
-        "total_label": "$3.49M",
-        "avg_label": "$436k",
-        "top_lot": {
-          "title": "The Red Wall",
-          "hammer_usd": 1865000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Zen I",
-          "ratio": 3.3
         }
       }
     },
@@ -6261,6 +6261,65 @@
       }
     },
     {
+      "norm_name": "SAM FRANCIS",
+      "display_name": "Sam Francis",
+      "dates": "1923–1994",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Colour Field",
+      "movement_id": "abstract-expressionism",
+      "bio": "Born in San Mateo, California, Francis began painting while hospitalised for spinal tuberculosis contracted during WWII service. The enforced horizontal orientation — the ceiling above a bedridden patient — and the light filtering from above are legible in the all-white early compositions. He moved to Paris in 1950 and absorbed Monet's late water-lily paintings alongside Abstract Expressionism, producing luminous chromatic fields in which colour clusters toward the edges, leaving centres of white that appear to radiate light. He later introduced cellular blue and red grids that gave the colour a structural armature. He travelled extensively — Japan, Europe, California — and his late works engage more directly with gestural energy. He established the Lapis Press in Santa Monica in 1981, producing artist's books of considerable quality. His paintings are widely collected in Europe and Japan, where the white-field works with peripheral colour rings are among the most recognisable of all American post-war paintings.",
+      "famous_works": [
+        {
+          "title": "Untitled (Composition in Blue)",
+          "year": "1951–52",
+          "notes": "An early Paris work of almost pure blue on white — the colour field at its most atmospheric and luminous."
+        },
+        {
+          "title": "Around the Blues",
+          "year": "1957–62",
+          "notes": "A large horizontal canvas in which blue and red cells surround a central emptiness. The most structural of the colour-field works; a direct influence on Japanese Gutai artists."
+        },
+        {
+          "title": "Summer No. 1",
+          "year": "1957",
+          "notes": "Yellow and orange saturate the canvas to the edges while the centre remains open. The light emanates from the void — the most characteristic compositional logic of the mature Francis."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Whiteness of the Whale",
+          "year": "1957",
+          "notes": "Named after the Moby-Dick chapter. One of the few works with a literary title — it suits the white-field paintings better than any formal description."
+        },
+        {
+          "title": "Big Red",
+          "year": "1953",
+          "notes": "The early work of red cells on white, before the compositional logic of peripheral colour was fully established. More aggressive and less atmospheric than the mature work."
+        },
+        {
+          "title": "Shining Back",
+          "year": "1958",
+          "notes": "An almost black canvas with peripheral red and blue flares. Francis's engagement with darkness as a chromatic problem rather than an absence."
+        }
+      ],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 2967445,
+        "avg_usd": 247287,
+        "total_label": "$2.97M",
+        "avg_label": "$247k",
+        "top_lot": {
+          "title": "Untitled (Triptych) 無題 （三聯作）",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 3.28
+        }
+      }
+    },
+    {
       "norm_name": "VU CAO DAM",
       "display_name": "Vu Cao Dam",
       "dates": "1908–2000",
@@ -6365,65 +6424,6 @@
         "top_ratio_lot": {
           "title": "Raise 升起",
           "ratio": 2.6
-        }
-      }
-    },
-    {
-      "norm_name": "SAM FRANCIS",
-      "display_name": "Sam Francis",
-      "dates": "1923–1994",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Colour Field",
-      "movement_id": "abstract-expressionism",
-      "bio": "Born in San Mateo, California, Francis began painting while hospitalised for spinal tuberculosis contracted during WWII service. The enforced horizontal orientation — the ceiling above a bedridden patient — and the light filtering from above are legible in the all-white early compositions. He moved to Paris in 1950 and absorbed Monet's late water-lily paintings alongside Abstract Expressionism, producing luminous chromatic fields in which colour clusters toward the edges, leaving centres of white that appear to radiate light. He later introduced cellular blue and red grids that gave the colour a structural armature. He travelled extensively — Japan, Europe, California — and his late works engage more directly with gestural energy. He established the Lapis Press in Santa Monica in 1981, producing artist's books of considerable quality. His paintings are widely collected in Europe and Japan, where the white-field works with peripheral colour rings are among the most recognisable of all American post-war paintings.",
-      "famous_works": [
-        {
-          "title": "Untitled (Composition in Blue)",
-          "year": "1951–52",
-          "notes": "An early Paris work of almost pure blue on white — the colour field at its most atmospheric and luminous."
-        },
-        {
-          "title": "Around the Blues",
-          "year": "1957–62",
-          "notes": "A large horizontal canvas in which blue and red cells surround a central emptiness. The most structural of the colour-field works; a direct influence on Japanese Gutai artists."
-        },
-        {
-          "title": "Summer No. 1",
-          "year": "1957",
-          "notes": "Yellow and orange saturate the canvas to the edges while the centre remains open. The light emanates from the void — the most characteristic compositional logic of the mature Francis."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Whiteness of the Whale",
-          "year": "1957",
-          "notes": "Named after the Moby-Dick chapter. One of the few works with a literary title — it suits the white-field paintings better than any formal description."
-        },
-        {
-          "title": "Big Red",
-          "year": "1953",
-          "notes": "The early work of red cells on white, before the compositional logic of peripheral colour was fully established. More aggressive and less atmospheric than the mature work."
-        },
-        {
-          "title": "Shining Back",
-          "year": "1958",
-          "notes": "An almost black canvas with peripheral red and blue flares. Francis's engagement with darkness as a chromatic problem rather than an absence."
-        }
-      ],
-      "dataset": {
-        "lot_count": 11,
-        "total_usd": 2817445,
-        "avg_usd": 256131,
-        "total_label": "$2.82M",
-        "avg_label": "$256k",
-        "top_lot": {
-          "title": "Untitled (Triptych) 無題 （三聯作）",
-          "hammer_usd": 900000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 3.28
         }
       }
     },
@@ -7199,6 +7199,60 @@
       }
     },
     {
+      "norm_name": "ISAMU NOGUCHI",
+      "display_name": "Isamu Noguchi",
+      "dates": "1904–1988",
+      "nationality": "American (Japanese-American)",
+      "movement": "Modernism · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Isamu Noguchi was the most intellectually ambitious American sculptor of the twentieth century, a Japanese-American artist whose hybrid cultural identity — born in Los Angeles to a Japanese poet father and an American mother, raised in Japan and educated in the United States — became the foundation of a practice that synthesised Western modernism and Japanese aesthetic philosophy into a body of work of extraordinary range and lasting influence. His output encompassed garden design, furniture, lamps, theatre sets, playground equipment, and civil memorial, as well as the sculptural objects for which he is primarily celebrated.\n\nNoguchi trained under Constantin Brancusi in Paris in 1927–1928, an experience that proved decisive: the Romanian master's reduction of form to essential sculptural presence, his integration of base and object, and his engagement with archaic sources confirmed and deepened Noguchi's own instincts. His subsequent sculptures — in stone, bronze, marble, terracotta, and eventually Cor-Ten steel — operate at the intersection of abstraction and organic form, their biomorphic shapes recalling landscape forms, bones, seeds, and geological structures while remaining wholly self-referential as objects.\n\nNoguchi's garden and landscape projects — including the UNESCO garden in Paris (1956–1958), the Hart Plaza in Detroit, and the Billy Rose Sculpture Garden in Jerusalem — are among the most significant landscape works of the twentieth century. His Akari lamp series, begun in 1951 and continuing after his death, has become one of the most influential and widely distributed design objects of the modern era.",
+      "famous_works": [
+        {
+          "title": "Red Cube",
+          "year": "1968",
+          "notes": "A monumental red steel cube balanced on a corner outside the Marine Midland Building in New York, his most famous public work."
+        },
+        {
+          "title": "Kouros",
+          "year": "1944–1945",
+          "notes": "A marble figure in nine interlocking parts referencing ancient Greek kouroi while achieving total abstraction, in the Metropolitan Museum of Art."
+        },
+        {
+          "title": "UNESCO garden, Paris",
+          "year": "1956–1958",
+          "notes": "His most celebrated landscape project, a Japanese garden in the heart of Paris that synthesises Western and Eastern spatial philosophies."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Akari lamp series",
+          "year": "1951–present",
+          "notes": "Washi paper and bamboo lanterns of extraordinary formal variety that represent his most democratic and widely distributed design contribution."
+        },
+        {
+          "title": "Play Mountain",
+          "year": "1933",
+          "notes": "A proposed public playground and landscape for New York City that was never realised but established his lifelong interest in the public space and the body in landscape."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 2339430,
+        "avg_usd": 779810,
+        "total_label": "$2.34M",
+        "avg_label": "$780k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 2228000,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled, costume design for \"King Lear,\" dir. George Devine",
+          "ratio": 11.43
+        }
+      }
+    },
+    {
       "norm_name": "ERNIE BARNES",
       "display_name": "Ernie Barnes",
       "dates": "1938–2009",
@@ -7254,60 +7308,6 @@
         "top_ratio_lot": {
           "title": "At Last",
           "ratio": 8.1
-        }
-      }
-    },
-    {
-      "norm_name": "ISAMU NOGUCHI",
-      "display_name": "Isamu Noguchi",
-      "dates": "1904–1988",
-      "nationality": "American (Japanese-American)",
-      "movement": "Modernism · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Isamu Noguchi was the most intellectually ambitious American sculptor of the twentieth century, a Japanese-American artist whose hybrid cultural identity — born in Los Angeles to a Japanese poet father and an American mother, raised in Japan and educated in the United States — became the foundation of a practice that synthesised Western modernism and Japanese aesthetic philosophy into a body of work of extraordinary range and lasting influence. His output encompassed garden design, furniture, lamps, theatre sets, playground equipment, and civil memorial, as well as the sculptural objects for which he is primarily celebrated.\n\nNoguchi trained under Constantin Brancusi in Paris in 1927–1928, an experience that proved decisive: the Romanian master's reduction of form to essential sculptural presence, his integration of base and object, and his engagement with archaic sources confirmed and deepened Noguchi's own instincts. His subsequent sculptures — in stone, bronze, marble, terracotta, and eventually Cor-Ten steel — operate at the intersection of abstraction and organic form, their biomorphic shapes recalling landscape forms, bones, seeds, and geological structures while remaining wholly self-referential as objects.\n\nNoguchi's garden and landscape projects — including the UNESCO garden in Paris (1956–1958), the Hart Plaza in Detroit, and the Billy Rose Sculpture Garden in Jerusalem — are among the most significant landscape works of the twentieth century. His Akari lamp series, begun in 1951 and continuing after his death, has become one of the most influential and widely distributed design objects of the modern era.",
-      "famous_works": [
-        {
-          "title": "Red Cube",
-          "year": "1968",
-          "notes": "A monumental red steel cube balanced on a corner outside the Marine Midland Building in New York, his most famous public work."
-        },
-        {
-          "title": "Kouros",
-          "year": "1944–1945",
-          "notes": "A marble figure in nine interlocking parts referencing ancient Greek kouroi while achieving total abstraction, in the Metropolitan Museum of Art."
-        },
-        {
-          "title": "UNESCO garden, Paris",
-          "year": "1956–1958",
-          "notes": "His most celebrated landscape project, a Japanese garden in the heart of Paris that synthesises Western and Eastern spatial philosophies."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Akari lamp series",
-          "year": "1951–present",
-          "notes": "Washi paper and bamboo lanterns of extraordinary formal variety that represent his most democratic and widely distributed design contribution."
-        },
-        {
-          "title": "Play Mountain",
-          "year": "1933",
-          "notes": "A proposed public playground and landscape for New York City that was never realised but established his lifelong interest in the public space and the body in landscape."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 2239430,
-        "avg_usd": 1119715,
-        "total_label": "$2.24M",
-        "avg_label": "$1.12M",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 2228000,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled, costume design for \"King Lear,\" dir. George Devine",
-          "ratio": 11.43
         }
       }
     },
@@ -8402,6 +8402,60 @@
       }
     },
     {
+      "norm_name": "ROBERT MANGOLD",
+      "display_name": "Robert Mangold",
+      "dates": "b. 1937",
+      "nationality": "American",
+      "movement": "Minimalism · Contemporary",
+      "movement_id": "minimalism",
+      "bio": "Robert Mangold was born in North Tonawanda, New York in 1937 and studied at the Cleveland Museum of Art School and Yale University School of Art. He came to prominence in the 1960s as one of the central figures of Minimalism, developing a practice of large-scale paintings on shaped canvases or panels that reduced pictorial means to simple geometric forms and limited, matte colour surfaces.\n\nMangold's paintings consistently engage the relationship between drawn line and painted plane, frame and interior, circle and rectangle — the basic geometric vocabulary of Western pictorial tradition tested against its own limits. He paints in flat acrylic on panels that are often monochrome or bicolour, drawing lines or curves in graphite or chalk directly on the painted surface that create a second layer of visual information in dialogue with the painted ground. The shapes of his supports — trapezoids, ellipses, joined polygons — are themselves formal propositions about the nature of the pictorial field.\n\nMangold is represented by Pace Gallery and his work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally. He has maintained an extraordinarily consistent practice across six decades, making formal decisions of precision and apparent simplicity that reward sustained attention with increasing complexity.",
+      "famous_works": [
+        {
+          "title": "Attic Series",
+          "year": "1990",
+          "notes": "A group of large-scale paintings on curved-edge panels in which a single sweeping line creates a spatial and compositional drama from the most elementary formal means."
+        },
+        {
+          "title": "Frame Paintings",
+          "year": "1983–1985",
+          "notes": "Works in which two or four panels are joined to create frame-like structures, investigating the relationship between frame and image as a formal and conceptual problem."
+        },
+        {
+          "title": "Column Structure series",
+          "year": "1970–1975",
+          "notes": "Large-scale vertical panel paintings in which the architectural metaphor of the column is engaged through purely pictorial formal means."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Area Studies",
+          "year": "1965–1966",
+          "notes": "Early works on shaped panels that establish Mangold's fundamental approach to the relationship between support shape and painted surface."
+        },
+        {
+          "title": "Ring Image series",
+          "year": "1996–2001",
+          "notes": "Paintings in which elliptical drawn forms create spatial relationships with the panel edge that demonstrate the continued formal range of Mangold's mature practice."
+        }
+      ],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 1739391,
+        "avg_usd": 248484,
+        "total_label": "$1.74M",
+        "avg_label": "$248k",
+        "top_lot": {
+          "title": "1/4 X Series (Blue)",
+          "hammer_usd": 478800,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "4 Color Frame Painting #3",
+          "ratio": 2.05
+        }
+      }
+    },
+    {
       "norm_name": "ETEL ADNAN",
       "display_name": "Etel Adnan",
       "dates": "1925–2021",
@@ -8628,6 +8682,60 @@
       }
     },
     {
+      "norm_name": "GÜNTHER FÖRG",
+      "display_name": "Günther Förg",
+      "dates": "1952–2013",
+      "nationality": "German",
+      "movement": "Contemporary · Abstract",
+      "movement_id": "contemporary",
+      "bio": "Günther Förg was born in Füssen, Bavaria in 1952 and studied at the Akademie der Bildenden Künste in Munich. He developed a multifaceted practice encompassing painting, photography, sculpture, and graphic design whose common thread was an investigation of modernism's legacy — its forms, its ambitions, its failures — pursued through a combination of rigorous formal intelligence and wry, affectionate irony.\n\nFörg's paintings range from monochrome lead works applied directly to wall to gestural abstract canvases in bright, raw colour that simultaneously invoke and undermine the heroic ambitions of Abstract Expressionism and its European counterparts. His photographic series of modernist architecture — Bauhaus buildings, Fascist-era Italian public works, Le Corbusier structures — approach these monuments with a documentary precision that is also an act of aesthetic reckoning, neither condemning nor celebrating the ideological content of the buildings' forms.\n\nFörg died at sixty in 2013, leaving a body of work that has attracted growing institutional attention in the years since his death, with major retrospectives at the Museum of Modern Art in New York and the Haus der Kunst in Munich confirming his position as one of the most consistently intelligent and formally inventive German artists of his generation. He is represented posthumously by Hauser & Wirth.",
+      "famous_works": [
+        {
+          "title": "Lead Paintings",
+          "year": "1984–1990",
+          "notes": "A series of monochrome paintings executed in lead applied directly to the wall, whose material heaviness and surface modulation engage modernism's utopian aspirations through their most elemental formal means."
+        },
+        {
+          "title": "Athen series (Photography)",
+          "year": "1989",
+          "notes": "Photographs of modernist architecture in Athens that combine documentary precision with an aesthetic attention that transforms buildings into formal compositions."
+        },
+        {
+          "title": "Grid Paintings",
+          "year": "1990s–2000s",
+          "notes": "Abstract canvases in which grids of gestural colour application create surfaces that reference the history of modernist geometric painting while maintaining a distinctly raw, anti-perfectionistic quality."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Bronze Sculptures",
+          "year": "1990s",
+          "notes": "Small bronze works that extend Förg's investigation of modernist form into three dimensions."
+        },
+        {
+          "title": "Bauhaus Photography series",
+          "year": "1985–1988",
+          "notes": "Early photographic works focused on Bauhaus buildings that establish the terms of Förg's ongoing dialogue with German and European modernist heritage."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 1591388,
+        "avg_usd": 159139,
+        "total_label": "$1.59M",
+        "avg_label": "$159k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 564515,
+          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 2.34
+        }
+      }
+    },
+    {
       "norm_name": "SEAN SCULLY",
       "display_name": "Sean Scully",
       "dates": "b. 1945",
@@ -8795,60 +8903,6 @@
       }
     },
     {
-      "norm_name": "GÜNTHER FÖRG",
-      "display_name": "Günther Förg",
-      "dates": "1952–2013",
-      "nationality": "German",
-      "movement": "Contemporary · Abstract",
-      "movement_id": "contemporary",
-      "bio": "Günther Förg was born in Füssen, Bavaria in 1952 and studied at the Akademie der Bildenden Künste in Munich. He developed a multifaceted practice encompassing painting, photography, sculpture, and graphic design whose common thread was an investigation of modernism's legacy — its forms, its ambitions, its failures — pursued through a combination of rigorous formal intelligence and wry, affectionate irony.\n\nFörg's paintings range from monochrome lead works applied directly to wall to gestural abstract canvases in bright, raw colour that simultaneously invoke and undermine the heroic ambitions of Abstract Expressionism and its European counterparts. His photographic series of modernist architecture — Bauhaus buildings, Fascist-era Italian public works, Le Corbusier structures — approach these monuments with a documentary precision that is also an act of aesthetic reckoning, neither condemning nor celebrating the ideological content of the buildings' forms.\n\nFörg died at sixty in 2013, leaving a body of work that has attracted growing institutional attention in the years since his death, with major retrospectives at the Museum of Modern Art in New York and the Haus der Kunst in Munich confirming his position as one of the most consistently intelligent and formally inventive German artists of his generation. He is represented posthumously by Hauser & Wirth.",
-      "famous_works": [
-        {
-          "title": "Lead Paintings",
-          "year": "1984–1990",
-          "notes": "A series of monochrome paintings executed in lead applied directly to the wall, whose material heaviness and surface modulation engage modernism's utopian aspirations through their most elemental formal means."
-        },
-        {
-          "title": "Athen series (Photography)",
-          "year": "1989",
-          "notes": "Photographs of modernist architecture in Athens that combine documentary precision with an aesthetic attention that transforms buildings into formal compositions."
-        },
-        {
-          "title": "Grid Paintings",
-          "year": "1990s–2000s",
-          "notes": "Abstract canvases in which grids of gestural colour application create surfaces that reference the history of modernist geometric painting while maintaining a distinctly raw, anti-perfectionistic quality."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Bronze Sculptures",
-          "year": "1990s",
-          "notes": "Small bronze works that extend Förg's investigation of modernist form into three dimensions."
-        },
-        {
-          "title": "Bauhaus Photography series",
-          "year": "1985–1988",
-          "notes": "Early photographic works focused on Bauhaus buildings that establish the terms of Förg's ongoing dialogue with German and European modernist heritage."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 1549388,
-        "avg_usd": 172154,
-        "total_label": "$1.55M",
-        "avg_label": "$172k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 564515,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 2.34
-        }
-      }
-    },
-    {
       "norm_name": "PAT STEIR",
       "display_name": "Pat Steir",
       "dates": "b. 1940",
@@ -8891,11 +8945,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 1524300,
-        "avg_usd": 381075,
-        "total_label": "$1.52M",
-        "avg_label": "$381k",
+        "lot_count": 5,
+        "total_usd": 1559300,
+        "avg_usd": 311860,
+        "total_label": "$1.56M",
+        "avg_label": "$312k",
         "top_lot": {
           "title": "Secret Night Waterfall",
           "hammer_usd": 762000,
@@ -9012,60 +9066,6 @@
         "top_ratio_lot": {
           "title": "Hazy Sun",
           "ratio": 1.31
-        }
-      }
-    },
-    {
-      "norm_name": "ROBERT MANGOLD",
-      "display_name": "Robert Mangold",
-      "dates": "b. 1937",
-      "nationality": "American",
-      "movement": "Minimalism · Contemporary",
-      "movement_id": "minimalism",
-      "bio": "Robert Mangold was born in North Tonawanda, New York in 1937 and studied at the Cleveland Museum of Art School and Yale University School of Art. He came to prominence in the 1960s as one of the central figures of Minimalism, developing a practice of large-scale paintings on shaped canvases or panels that reduced pictorial means to simple geometric forms and limited, matte colour surfaces.\n\nMangold's paintings consistently engage the relationship between drawn line and painted plane, frame and interior, circle and rectangle — the basic geometric vocabulary of Western pictorial tradition tested against its own limits. He paints in flat acrylic on panels that are often monochrome or bicolour, drawing lines or curves in graphite or chalk directly on the painted surface that create a second layer of visual information in dialogue with the painted ground. The shapes of his supports — trapezoids, ellipses, joined polygons — are themselves formal propositions about the nature of the pictorial field.\n\nMangold is represented by Pace Gallery and his work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally. He has maintained an extraordinarily consistent practice across six decades, making formal decisions of precision and apparent simplicity that reward sustained attention with increasing complexity.",
-      "famous_works": [
-        {
-          "title": "Attic Series",
-          "year": "1990",
-          "notes": "A group of large-scale paintings on curved-edge panels in which a single sweeping line creates a spatial and compositional drama from the most elementary formal means."
-        },
-        {
-          "title": "Frame Paintings",
-          "year": "1983–1985",
-          "notes": "Works in which two or four panels are joined to create frame-like structures, investigating the relationship between frame and image as a formal and conceptual problem."
-        },
-        {
-          "title": "Column Structure series",
-          "year": "1970–1975",
-          "notes": "Large-scale vertical panel paintings in which the architectural metaphor of the column is engaged through purely pictorial formal means."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Area Studies",
-          "year": "1965–1966",
-          "notes": "Early works on shaped panels that establish Mangold's fundamental approach to the relationship between support shape and painted surface."
-        },
-        {
-          "title": "Ring Image series",
-          "year": "1996–2001",
-          "notes": "Paintings in which elliptical drawn forms create spatial relationships with the panel edge that demonstrate the continued formal range of Mangold's mature practice."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 1432183,
-        "avg_usd": 238697,
-        "total_label": "$1.43M",
-        "avg_label": "$239k",
-        "top_lot": {
-          "title": "1/4 X Series (Blue)",
-          "hammer_usd": 478800,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "4 Color Frame Painting #3",
-          "ratio": 2.05
         }
       }
     },
@@ -12389,6 +12389,60 @@
       }
     },
     {
+      "norm_name": "FRANZ WEST",
+      "display_name": "Franz West",
+      "dates": "1947–2012",
+      "nationality": "Austrian",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Franz West was born in Vienna in 1947 and came of age in the intellectual milieu of Viennese Actionism, though his own practice took a very different direction: toward sculpture, furniture, and objects that question the boundaries between art and utility, formal presentation and informal use. Largely self-taught, he began making his Passstücke (Adaptives) in the late 1970s — small, lumpy plaster objects sized to be held, worn, or balanced against the body by gallery visitors, activating and completing the work through physical participation.\n\nWest developed these ideas into larger-scale sculptures and furniture that similarly demanded activation: sculptures to sit on, paper-maché and wire constructions in bright colours that look simultaneously childish and formally sophisticated, collaborative installations with friends and collaborators. His work consistently refuses the preciousness and distance of conventional sculpture, insisting on contact, use, and the social interaction that objects designed for bodies necessarily produce.\n\nWest won the Golden Lion for Lifetime Achievement at the 2011 Venice Biennale. He was represented by Gagosian Gallery and his work is held by major museums worldwide. His legacy extends beyond individual works to an attitude toward the relationship between art objects and their audience that has influenced numerous younger artists.",
+      "famous_works": [
+        {
+          "title": "Passstücke (Adaptives)",
+          "year": "1974–1979",
+          "notes": "Small plaster objects sized for bodily use by gallery visitors, in which the sculpture is completed only through physical contact and activation by the audience."
+        },
+        {
+          "title": "Epoxy works",
+          "year": "1990s",
+          "notes": "Large-scale painted epoxy sculptures of bulbous, lumpy forms in bright colours that combine formal playfulness with a material directness that resists aesthetic idealisation."
+        },
+        {
+          "title": "Furniture Works",
+          "year": "various",
+          "notes": "Wicker, steel, and found-material furniture that functions simultaneously as art and seating, collapsing the distinction between the aesthetic and the utilitarian."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Auditorium",
+          "year": "1993",
+          "notes": "An installation in which West's characteristic furniture-sculptures are arranged into a collective seating arrangement that transforms the gallery into a social space."
+        },
+        {
+          "title": "Collages",
+          "year": "1980s–1990s",
+          "notes": "A body of works on paper in which magazine images are rearranged and annotated in a manner that reflects West's intellectual engagement with psychoanalysis and Viennese cultural life."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 332200,
+        "avg_usd": 166100,
+        "total_label": "$332k",
+        "avg_label": "$166k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 277200,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.58
+        }
+      }
+    },
+    {
       "norm_name": "PETER BEARD",
       "display_name": "Peter Beard",
       "dates": "1938–2020",
@@ -12875,56 +12929,110 @@
       }
     },
     {
-      "norm_name": "FRANZ WEST",
-      "display_name": "Franz West",
-      "dates": "1947–2012",
-      "nationality": "Austrian",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Franz West was born in Vienna in 1947 and came of age in the intellectual milieu of Viennese Actionism, though his own practice took a very different direction: toward sculpture, furniture, and objects that question the boundaries between art and utility, formal presentation and informal use. Largely self-taught, he began making his Passstücke (Adaptives) in the late 1970s — small, lumpy plaster objects sized to be held, worn, or balanced against the body by gallery visitors, activating and completing the work through physical participation.\n\nWest developed these ideas into larger-scale sculptures and furniture that similarly demanded activation: sculptures to sit on, paper-maché and wire constructions in bright colours that look simultaneously childish and formally sophisticated, collaborative installations with friends and collaborators. His work consistently refuses the preciousness and distance of conventional sculpture, insisting on contact, use, and the social interaction that objects designed for bodies necessarily produce.\n\nWest won the Golden Lion for Lifetime Achievement at the 2011 Venice Biennale. He was represented by Gagosian Gallery and his work is held by major museums worldwide. His legacy extends beyond individual works to an attitude toward the relationship between art objects and their audience that has influenced numerous younger artists.",
+      "norm_name": "EDDIE MARTINEZ",
+      "display_name": "Eddie Martinez",
+      "dates": "b. 1977",
+      "nationality": "American",
+      "movement": "Neo-Expressionism · Contemporary",
+      "movement_id": "neo-expressionism",
+      "bio": "Eddie Martinez was born in Connecticut in 1977 and studied at the University of Hartford before establishing himself in New York. His practice has developed across painting, works on paper, and ceramics, maintaining throughout a gestural energy and material directness that acknowledges multiple predecessors — Philip Guston, Jim Dine, Jean-Michel Basquiat, outsider art — while remaining distinctly his own.\n\nMartinez's paintings range from dense, layered abstractions to figurative works featuring recurring motifs — turtles, insects, hands, cartoon-like figures — that appear and disappear across his canvases in a manner that suggests automatism and psychological association rather than deliberate composition. He works rapidly and productively, covering surfaces in multiple layers of paint, drawing, and collage to produce works that have the quality of archaeological strata: each visible layer implies a history of previous decisions, revisions, and additions.\n\nHe has been exhibited with Mitchell-Innes & Nash in New York and Blum & Poe in Los Angeles, and his work has attracted strong collector interest particularly among those drawn to the expressionist current in contemporary painting. Martinez represents a generational continuation of the gestural figurative tradition that passes through Guston's late work and the graffiti-influenced painting of the 1980s.",
       "famous_works": [
         {
-          "title": "Passstücke (Adaptives)",
-          "year": "1974–1979",
-          "notes": "Small plaster objects sized for bodily use by gallery visitors, in which the sculpture is completed only through physical contact and activation by the audience."
+          "title": "Caulking Gun (The Real Thing)",
+          "year": "2008",
+          "notes": "A large, densely layered canvas in which found objects, gestural paint, and graphic marks accumulate into an image that bridges abstraction and symbolic figuration."
         },
         {
-          "title": "Epoxy works",
-          "year": "1990s",
-          "notes": "Large-scale painted epoxy sculptures of bulbous, lumpy forms in bright colours that combine formal playfulness with a material directness that resists aesthetic idealisation."
+          "title": "Double Turtle",
+          "year": "2015",
+          "notes": "A figurative painting featuring the recurring turtle motif central to Martinez's iconographic vocabulary, rendered with the physical directness of his mature gestural manner."
         },
         {
-          "title": "Furniture Works",
-          "year": "various",
-          "notes": "Wicker, steel, and found-material furniture that functions simultaneously as art and seating, collapsing the distinction between the aesthetic and the utilitarian."
+          "title": "The Push and The Pull",
+          "year": "2019",
+          "notes": "A large abstract-figurative canvas demonstrating the dialogue in Martinez's work between gestural mark-making and the emergence of legible imagery."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Auditorium",
-          "year": "1993",
-          "notes": "An installation in which West's characteristic furniture-sculptures are arranged into a collective seating arrangement that transforms the gallery into a social space."
+          "title": "Untitled (Hand Study)",
+          "year": "2010",
+          "notes": "A smaller-scale work focusing on the hand as both mark-making tool and recurring image within Martinez's symbolic vocabulary."
         },
         {
-          "title": "Collages",
-          "year": "1980s–1990s",
-          "notes": "A body of works on paper in which magazine images are rearranged and annotated in a manner that reflects West's intellectual engagement with psychoanalysis and Viennese cultural life."
+          "title": "Face Drawing",
+          "year": "2013",
+          "notes": "A work on paper that demonstrates the relationship between Martinez's drawing practice and the larger painted canvases it informs."
         }
       ],
       "dataset": {
-        "lot_count": 1,
-        "total_usd": 277200,
-        "avg_usd": 277200,
-        "total_label": "$277k",
-        "avg_label": "$277k",
+        "lot_count": 2,
+        "total_usd": 280000,
+        "avg_usd": 140000,
+        "total_label": "$280k",
+        "avg_label": "$140k",
         "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 277200,
+          "title": "Future Modern",
+          "hammer_usd": 150000,
           "sale_name": "Post-War &amp; Contemporary Art Day Sale"
         },
         "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.58
+          "title": "Ideal Location",
+          "ratio": 1.04
+        }
+      }
+    },
+    {
+      "norm_name": "LOUISE NEVELSON",
+      "display_name": "Louise Nevelson",
+      "dates": "1899–1988",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Sculpture",
+      "movement_id": "abstract-expressionism",
+      "bio": "Louise Nevelson was born Leah Berliawsky in Pereiaslav in the Russian Empire (now Ukraine) in 1899 and emigrated with her family to Rockland, Maine as a child. After her marriage she moved to New York, where she studied under Hans Hofmann and Diego Rivera before developing the sculptural practice that made her reputation from the late 1950s. Her signature works are large-scale wall assemblages — accumulations of found wooden objects (chair legs, architectural fragments, blocks, boxes) organised within a grid of wooden boxes and painted uniformly in black, white, or gold.\n\nNevelson's assemblages are among the great formal achievements of post-war American sculpture. The uniform colour (which she described as making order out of disorder, one colour being the equaliser) transforms the disparate found elements into a complex visual music of shadow and form. The works are wall-scaled environments rather than objects, and their relationship with the viewer is architectural — they are entered as much as viewed. Her use of black in particular gives the works a gravity and spatial depth that continues to affect viewers with immediate force.\n\nShe came to major critical attention relatively late, achieving international recognition in her sixties. Her work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally. She was awarded the National Medal of Arts and the Presidential Medal of Freedom.",
+      "famous_works": [
+        {
+          "title": "Sky Cathedral",
+          "year": "1958",
+          "notes": "A monumental wall assemblage of found wooden elements in painted black boxes that established Nevelson's mature language and made her an immediate sensation in the 1958 New York art world."
+        },
+        {
+          "title": "Dawn's Wedding Feast",
+          "year": "1959",
+          "notes": "A large white-painted assemblage intended to evoke the ritual of matrimony through accumulated wooden forms, demonstrating the emotional and symbolic range of Nevelson's vocabulary."
+        },
+        {
+          "title": "Royal Tide I",
+          "year": "1960",
+          "notes": "A gold-painted assemblage that invests the found wooden elements with a ceremonial, precious quality that complicates Nevelson's more customary mortuary black."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "First Personage",
+          "year": "1956",
+          "notes": "An early freestanding painted wood figure that prefigures the wall assemblages while demonstrating Nevelson's individual approach to sculpture as a gestural, accumulative practice."
+        },
+        {
+          "title": "Atmosphere and Environment series",
+          "year": "1966–1974",
+          "notes": "Later works in Cor-ten steel that extend Nevelson's formal concerns into outdoor public and architectural contexts."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 279400,
+        "avg_usd": 93133,
+        "total_label": "$279k",
+        "avg_label": "$93k",
+        "top_lot": {
+          "title": "Mirror Shadow XXXXI",
+          "hammer_usd": 239400,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Mirror Shadow XXXXI",
+          "ratio": 1.6
         }
       }
     },
@@ -13357,60 +13465,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.37
-        }
-      }
-    },
-    {
-      "norm_name": "LOUISE NEVELSON",
-      "display_name": "Louise Nevelson",
-      "dates": "1899–1988",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Sculpture",
-      "movement_id": "abstract-expressionism",
-      "bio": "Louise Nevelson was born Leah Berliawsky in Pereiaslav in the Russian Empire (now Ukraine) in 1899 and emigrated with her family to Rockland, Maine as a child. After her marriage she moved to New York, where she studied under Hans Hofmann and Diego Rivera before developing the sculptural practice that made her reputation from the late 1950s. Her signature works are large-scale wall assemblages — accumulations of found wooden objects (chair legs, architectural fragments, blocks, boxes) organised within a grid of wooden boxes and painted uniformly in black, white, or gold.\n\nNevelson's assemblages are among the great formal achievements of post-war American sculpture. The uniform colour (which she described as making order out of disorder, one colour being the equaliser) transforms the disparate found elements into a complex visual music of shadow and form. The works are wall-scaled environments rather than objects, and their relationship with the viewer is architectural — they are entered as much as viewed. Her use of black in particular gives the works a gravity and spatial depth that continues to affect viewers with immediate force.\n\nShe came to major critical attention relatively late, achieving international recognition in her sixties. Her work is held by the Museum of Modern Art, the Whitney Museum, and major collections internationally. She was awarded the National Medal of Arts and the Presidential Medal of Freedom.",
-      "famous_works": [
-        {
-          "title": "Sky Cathedral",
-          "year": "1958",
-          "notes": "A monumental wall assemblage of found wooden elements in painted black boxes that established Nevelson's mature language and made her an immediate sensation in the 1958 New York art world."
-        },
-        {
-          "title": "Dawn's Wedding Feast",
-          "year": "1959",
-          "notes": "A large white-painted assemblage intended to evoke the ritual of matrimony through accumulated wooden forms, demonstrating the emotional and symbolic range of Nevelson's vocabulary."
-        },
-        {
-          "title": "Royal Tide I",
-          "year": "1960",
-          "notes": "A gold-painted assemblage that invests the found wooden elements with a ceremonial, precious quality that complicates Nevelson's more customary mortuary black."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "First Personage",
-          "year": "1956",
-          "notes": "An early freestanding painted wood figure that prefigures the wall assemblages while demonstrating Nevelson's individual approach to sculpture as a gestural, accumulative practice."
-        },
-        {
-          "title": "Atmosphere and Environment series",
-          "year": "1966–1974",
-          "notes": "Later works in Cor-ten steel that extend Nevelson's formal concerns into outdoor public and architectural contexts."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 239400,
-        "avg_usd": 239400,
-        "total_label": "$239k",
-        "avg_label": "$239k",
-        "top_lot": {
-          "title": "Mirror Shadow XXXXI",
-          "hammer_usd": 239400,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Mirror Shadow XXXXI",
-          "ratio": 1.6
         }
       }
     },
@@ -14603,60 +14657,6 @@
       }
     },
     {
-      "norm_name": "EDDIE MARTINEZ",
-      "display_name": "Eddie Martinez",
-      "dates": "b. 1977",
-      "nationality": "American",
-      "movement": "Neo-Expressionism · Contemporary",
-      "movement_id": "neo-expressionism",
-      "bio": "Eddie Martinez was born in Connecticut in 1977 and studied at the University of Hartford before establishing himself in New York. His practice has developed across painting, works on paper, and ceramics, maintaining throughout a gestural energy and material directness that acknowledges multiple predecessors — Philip Guston, Jim Dine, Jean-Michel Basquiat, outsider art — while remaining distinctly his own.\n\nMartinez's paintings range from dense, layered abstractions to figurative works featuring recurring motifs — turtles, insects, hands, cartoon-like figures — that appear and disappear across his canvases in a manner that suggests automatism and psychological association rather than deliberate composition. He works rapidly and productively, covering surfaces in multiple layers of paint, drawing, and collage to produce works that have the quality of archaeological strata: each visible layer implies a history of previous decisions, revisions, and additions.\n\nHe has been exhibited with Mitchell-Innes & Nash in New York and Blum & Poe in Los Angeles, and his work has attracted strong collector interest particularly among those drawn to the expressionist current in contemporary painting. Martinez represents a generational continuation of the gestural figurative tradition that passes through Guston's late work and the graffiti-influenced painting of the 1980s.",
-      "famous_works": [
-        {
-          "title": "Caulking Gun (The Real Thing)",
-          "year": "2008",
-          "notes": "A large, densely layered canvas in which found objects, gestural paint, and graphic marks accumulate into an image that bridges abstraction and symbolic figuration."
-        },
-        {
-          "title": "Double Turtle",
-          "year": "2015",
-          "notes": "A figurative painting featuring the recurring turtle motif central to Martinez's iconographic vocabulary, rendered with the physical directness of his mature gestural manner."
-        },
-        {
-          "title": "The Push and The Pull",
-          "year": "2019",
-          "notes": "A large abstract-figurative canvas demonstrating the dialogue in Martinez's work between gestural mark-making and the emergence of legible imagery."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Untitled (Hand Study)",
-          "year": "2010",
-          "notes": "A smaller-scale work focusing on the hand as both mark-making tool and recurring image within Martinez's symbolic vocabulary."
-        },
-        {
-          "title": "Face Drawing",
-          "year": "2013",
-          "notes": "A work on paper that demonstrates the relationship between Martinez's drawing practice and the larger painted canvases it informs."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 150000,
-        "avg_usd": 150000,
-        "total_label": "$150k",
-        "avg_label": "$150k",
-        "top_lot": {
-          "title": "Future Modern",
-          "hammer_usd": 150000,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Future Modern",
-          "ratio": 0.7
-        }
-      }
-    },
-    {
       "norm_name": "ROBERT RYMAN",
       "display_name": "Robert Ryman",
       "dates": "1930–2019",
@@ -15355,6 +15355,60 @@
         "top_ratio_lot": {
           "title": "Too Young to Go Steady",
           "ratio": 1.53
+        }
+      }
+    },
+    {
+      "norm_name": "JIM DINE",
+      "display_name": "Jim Dine",
+      "dates": "b. 1935",
+      "nationality": "American",
+      "movement": "Neo-Dada · Pop Art",
+      "movement_id": "pop-art",
+      "bio": "Jim Dine was born in Cincinnati, Ohio in 1935 and studied at the University of Cincinnati and the Boston Museum School before arriving in New York, where he became a central figure in the Happenings movement of the late 1950s alongside Claes Oldenburg and Allan Kaprow. His participation in this performative milieu fed into a painterly practice that combined Abstract Expressionist gesture with the attachment of real objects — tools, clothing, household items — to the canvas surface, creating works that occupied a position somewhere between painting, assemblage, and theatre prop.\n\nDine is particularly associated with his recurring motifs — hearts, robes, tools, Pinocchio — which he returns to obsessively across decades, treating them as vehicles for painterly and emotional investigation rather than stable symbols. His paintings of hearts, for example, range from delicate and lyrical to raw and aggressively gestural, the constant subject providing stability within which the full range of painterly possibility can be explored. His tool paintings of the early 1960s, in which real hardware tools are affixed to thickly painted surfaces, combine the physical directness of everyday objects with Abstract Expressionist painterly energy.\n\nDine has worked extensively as a printmaker and sculptor and has been represented by Pace Gallery for many years. His influence on subsequent generations of painters who have maintained emotionally invested subject matter within a broadly abstract painterly language is considerable.",
+      "famous_works": [
+        {
+          "title": "Five Feet of Colorful Tools",
+          "year": "1962",
+          "notes": "A painting from which thirty-two real tools hang across the lower portion of the canvas, directly integrating the hardware store with the gallery and the painterly surface."
+        },
+        {
+          "title": "Heart for Anne Moses",
+          "year": "1966",
+          "notes": "An early heart painting that established the motif that has remained central to Dine's practice for six decades."
+        },
+        {
+          "title": "The Robe series",
+          "year": "1964–present",
+          "notes": "A series of paintings of a bathrobe — Dine's own —  used as a surrogate self-portrait that explores themes of absence, presence, and the body."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Car Crash (Happening)",
+          "year": "1960",
+          "notes": "An early Happening performance that established Dine's participation in the movement before his practice consolidated around painting."
+        },
+        {
+          "title": "Pinocchio paintings",
+          "year": "1980s–present",
+          "notes": "A later recurring motif in which the fictional puppet boy becomes a vehicle for exploring themes of artistic identity and the constructed nature of selfhood."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 102600,
+        "avg_usd": 51300,
+        "total_label": "$103k",
+        "avg_label": "$51k",
+        "top_lot": {
+          "title": "Zurich",
+          "hammer_usd": 90000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Zurich",
+          "ratio": 2.25
         }
       }
     },
@@ -17573,60 +17627,6 @@
       }
     },
     {
-      "norm_name": "JIM DINE",
-      "display_name": "Jim Dine",
-      "dates": "b. 1935",
-      "nationality": "American",
-      "movement": "Neo-Dada · Pop Art",
-      "movement_id": "pop-art",
-      "bio": "Jim Dine was born in Cincinnati, Ohio in 1935 and studied at the University of Cincinnati and the Boston Museum School before arriving in New York, where he became a central figure in the Happenings movement of the late 1950s alongside Claes Oldenburg and Allan Kaprow. His participation in this performative milieu fed into a painterly practice that combined Abstract Expressionist gesture with the attachment of real objects — tools, clothing, household items — to the canvas surface, creating works that occupied a position somewhere between painting, assemblage, and theatre prop.\n\nDine is particularly associated with his recurring motifs — hearts, robes, tools, Pinocchio — which he returns to obsessively across decades, treating them as vehicles for painterly and emotional investigation rather than stable symbols. His paintings of hearts, for example, range from delicate and lyrical to raw and aggressively gestural, the constant subject providing stability within which the full range of painterly possibility can be explored. His tool paintings of the early 1960s, in which real hardware tools are affixed to thickly painted surfaces, combine the physical directness of everyday objects with Abstract Expressionist painterly energy.\n\nDine has worked extensively as a printmaker and sculptor and has been represented by Pace Gallery for many years. His influence on subsequent generations of painters who have maintained emotionally invested subject matter within a broadly abstract painterly language is considerable.",
-      "famous_works": [
-        {
-          "title": "Five Feet of Colorful Tools",
-          "year": "1962",
-          "notes": "A painting from which thirty-two real tools hang across the lower portion of the canvas, directly integrating the hardware store with the gallery and the painterly surface."
-        },
-        {
-          "title": "Heart for Anne Moses",
-          "year": "1966",
-          "notes": "An early heart painting that established the motif that has remained central to Dine's practice for six decades."
-        },
-        {
-          "title": "The Robe series",
-          "year": "1964–present",
-          "notes": "A series of paintings of a bathrobe — Dine's own —  used as a surrogate self-portrait that explores themes of absence, presence, and the body."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Car Crash (Happening)",
-          "year": "1960",
-          "notes": "An early Happening performance that established Dine's participation in the movement before his practice consolidated around painting."
-        },
-        {
-          "title": "Pinocchio paintings",
-          "year": "1980s–present",
-          "notes": "A later recurring motif in which the fictional puppet boy becomes a vehicle for exploring themes of artistic identity and the constructed nature of selfhood."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 12600,
-        "avg_usd": 12600,
-        "total_label": "$13k",
-        "avg_label": "$13k",
-        "top_lot": {
-          "title": "Two Chinese Dogs",
-          "hammer_usd": 12600,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Two Chinese Dogs",
-          "ratio": 1.26
-        }
-      }
-    },
-    {
       "norm_name": "CHRISTIAN MARCLAY",
       "display_name": "Christian Marclay",
       "dates": "b. 1955",
@@ -18140,6 +18140,33 @@
       }
     },
     {
+      "norm_name": "HERMANN MAX PECHSTEIN",
+      "display_name": "Hermann Max Pechstein",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 2467381,
+        "avg_usd": 616845,
+        "total_label": "$2.47M",
+        "avg_label": "$617k",
+        "top_lot": {
+          "title": "Zwei liegende Mädchen",
+          "hammer_usd": 2205900,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Tree on Water",
+          "ratio": 3.23
+        }
+      }
+    },
+    {
       "norm_name": "FENG XIAOMIN",
       "display_name": "Feng Xiaomin",
       "dates": "",
@@ -18163,33 +18190,6 @@
         "top_ratio_lot": {
           "title": "Feng Xiaomin 馮驍鳴 | Composition N°22.07.19 構圖N°22.07.19",
           "ratio": 5.33
-        }
-      }
-    },
-    {
-      "norm_name": "HERMANN MAX PECHSTEIN",
-      "display_name": "Hermann Max Pechstein",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 2320321,
-        "avg_usd": 773440,
-        "total_label": "$2.32M",
-        "avg_label": "$773k",
-        "top_lot": {
-          "title": "Zwei liegende Mädchen",
-          "hammer_usd": 2205900,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Tree on Water",
-          "ratio": 3.23
         }
       }
     },
@@ -23027,6 +23027,33 @@
       }
     },
     {
+      "norm_name": "KAREL APPEL",
+      "display_name": "Karel Appel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 290034,
+        "avg_usd": 145017,
+        "total_label": "$290k",
+        "avg_label": "$145k",
+        "top_lot": {
+          "title": "Personages",
+          "hammer_usd": 272034,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Personages",
+          "ratio": 2.72
+        }
+      }
+    },
+    {
       "norm_name": "ELIZABETH CATLETT",
       "display_name": "Elizabeth Catlett",
       "dates": "",
@@ -23428,33 +23455,6 @@
         "top_ratio_lot": {
           "title": "Repos grande",
           "ratio": 1.65
-        }
-      }
-    },
-    {
-      "norm_name": "KAREL APPEL",
-      "display_name": "Karel Appel",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 272034,
-        "avg_usd": 272034,
-        "total_label": "$272k",
-        "avg_label": "$272k",
-        "top_lot": {
-          "title": "Personages",
-          "hammer_usd": 272034,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Personages",
-          "ratio": 2.72
         }
       }
     },
@@ -24917,6 +24917,60 @@
       }
     },
     {
+      "norm_name": "MANOUCHER YEKTAI",
+      "display_name": "Manoucher Yektai",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 195000,
+        "avg_usd": 97500,
+        "total_label": "$195k",
+        "avg_label": "$98k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 130000,
+          "sale_name": "Contemporary Day Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.62
+        }
+      }
+    },
+    {
+      "norm_name": "LOUISE BOURGEOIS",
+      "display_name": "Louise Bourgeois",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 194599,
+        "avg_usd": 64866,
+        "total_label": "$195k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Happiness",
+          "hammer_usd": 144018,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Happiness",
+          "ratio": 3.6
+        }
+      }
+    },
+    {
       "norm_name": "JENNY HOLZER",
       "display_name": "Jenny Holzer",
       "dates": "",
@@ -25187,6 +25241,33 @@
       }
     },
     {
+      "norm_name": "THEODOROS STAMOS",
+      "display_name": "Theodoros Stamos",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 180000,
+        "avg_usd": 180000,
+        "total_label": "$180k",
+        "avg_label": "$180k",
+        "top_lot": {
+          "title": "Day of the Two Suns",
+          "hammer_usd": 180000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Day of the Two Suns",
+          "ratio": 3.6
+        }
+      }
+    },
+    {
       "norm_name": "HAROLD ANCART",
       "display_name": "Harold Ancart",
       "dates": "",
@@ -25264,6 +25345,33 @@
         "top_ratio_lot": {
           "title": "Le Temps",
           "ratio": 3.75
+        }
+      }
+    },
+    {
+      "norm_name": "MARGO HOFF",
+      "display_name": "Margo Hoff",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 171700,
+        "avg_usd": 85850,
+        "total_label": "$172k",
+        "avg_label": "$86k",
+        "top_lot": {
+          "title": "Dream of Flying",
+          "hammer_usd": 139700,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Dream of Flying",
+          "ratio": 16.44
         }
       }
     },
@@ -25507,33 +25615,6 @@
         "top_ratio_lot": {
           "title": "Black Power",
           "ratio": 1.76
-        }
-      }
-    },
-    {
-      "norm_name": "LOUISE BOURGEOIS",
-      "display_name": "Louise Bourgeois",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 166599,
-        "avg_usd": 83300,
-        "total_label": "$167k",
-        "avg_label": "$83k",
-        "top_lot": {
-          "title": "Happiness",
-          "hammer_usd": 144018,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Happiness",
-          "ratio": 3.6
         }
       }
     },
@@ -26537,33 +26618,6 @@
       }
     },
     {
-      "norm_name": "MARGO HOFF",
-      "display_name": "Margo Hoff",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 139700,
-        "avg_usd": 139700,
-        "total_label": "$140k",
-        "avg_label": "$140k",
-        "top_lot": {
-          "title": "Dream of Flying",
-          "hammer_usd": 139700,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Dream of Flying",
-          "ratio": 16.44
-        }
-      }
-    },
-    {
       "norm_name": "LUCY KEMP-WELCH",
       "display_name": "Lucy Kemp-Welch",
       "dates": "",
@@ -26699,33 +26753,6 @@
       }
     },
     {
-      "norm_name": "MANOUCHER YEKTAI",
-      "display_name": "Manoucher Yektai",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 130000,
-        "avg_usd": 130000,
-        "total_label": "$130k",
-        "avg_label": "$130k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 130000,
-          "sale_name": "Contemporary Day Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.04
-        }
-      }
-    },
-    {
       "norm_name": "JORDI RIBES",
       "display_name": "Jordi Ribes",
       "dates": "",
@@ -26776,6 +26803,33 @@
         "top_ratio_lot": {
           "title": "Visual Poetry 視覺詩歌",
           "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "JAMES BROOKS",
+      "display_name": "James Brooks",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 130000,
+        "avg_usd": 130000,
+        "total_label": "$130k",
+        "avg_label": "$130k",
+        "top_lot": {
+          "title": "Karrig",
+          "hammer_usd": 130000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Karrig",
+          "ratio": 5.2
         }
       }
     },
@@ -30070,6 +30124,33 @@
       }
     },
     {
+      "norm_name": "MERCEDES MATTER",
+      "display_name": "Mercedes Matter",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Untitled (Still Life)",
+          "hammer_usd": 65000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Still Life)",
+          "ratio": 1.3
+        }
+      }
+    },
+    {
       "norm_name": "JOSEPH BEUYS",
       "display_name": "Joseph Beuys",
       "dates": "",
@@ -31123,6 +31204,33 @@
       }
     },
     {
+      "norm_name": "JEAN-PAUL RIOPELLE",
+      "display_name": "Jean-Paul Riopelle",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 55000,
+        "avg_usd": 55000,
+        "total_label": "$55k",
+        "avg_label": "$55k",
+        "top_lot": {
+          "title": "Untitled (PM6)",
+          "hammer_usd": 55000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (PM6)",
+          "ratio": 0.92
+        }
+      }
+    },
+    {
       "norm_name": "ANDREW CRANSTON",
       "display_name": "Andrew Cranston",
       "dates": "",
@@ -31173,6 +31281,33 @@
         "top_ratio_lot": {
           "title": "Composition",
           "ratio": 2.72
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL JENKINS",
+      "display_name": "Paul Jenkins",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 54000,
+        "avg_usd": 27000,
+        "total_label": "$54k",
+        "avg_label": "$27k",
+        "top_lot": {
+          "title": "Eyes of the Dove - Barne's Strip",
+          "hammer_usd": 42000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Phenomena, Batten down the Hatches",
+          "ratio": 3.0
         }
       }
     },
@@ -32446,6 +32581,33 @@
       }
     },
     {
+      "norm_name": "CATHERINE MURPHY",
+      "display_name": "Catherine Murphy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 42000,
+        "avg_usd": 42000,
+        "total_label": "$42k",
+        "avg_label": "$42k",
+        "top_lot": {
+          "title": "Paint Ladder",
+          "hammer_usd": 42000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Paint Ladder",
+          "ratio": 1.05
+        }
+      }
+    },
+    {
       "norm_name": "JOAN MIRÓ (1893-1983) & JOAN GARDY ARTIGAS",
       "display_name": "Joan Miró (1893-1983) & Joan Gardy Artigas",
       "dates": "",
@@ -33337,6 +33499,60 @@
       }
     },
     {
+      "norm_name": "TALA MADANI",
+      "display_name": "Tala Madani",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 35000,
+        "avg_usd": 35000,
+        "total_label": "$35k",
+        "avg_label": "$35k",
+        "top_lot": {
+          "title": "The Bubble",
+          "hammer_usd": 35000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "The Bubble",
+          "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "ALICE BABER",
+      "display_name": "Alice Baber",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 35000,
+        "avg_usd": 35000,
+        "total_label": "$35k",
+        "avg_label": "$35k",
+        "top_lot": {
+          "title": "Rainforest to Palenque, Mexico",
+          "hammer_usd": 35000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Rainforest to Palenque, Mexico",
+          "ratio": 0.7
+        }
+      }
+    },
+    {
       "norm_name": "LOUIS VUITTON MONOGRAM SOCCER BALL",
       "display_name": "Louis Vuitton Monogram Soccer Ball",
       "dates": "",
@@ -33846,6 +34062,60 @@
         "top_ratio_lot": {
           "title": "Vöröshajú lányka virágot szagol",
           "ratio": 5.07
+        }
+      }
+    },
+    {
+      "norm_name": "FELIX RUVOLO",
+      "display_name": "Felix Ruvolo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 30000,
+        "avg_usd": 30000,
+        "total_label": "$30k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "Abstraction",
+          "hammer_usd": 30000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Abstraction",
+          "ratio": 7.5
+        }
+      }
+    },
+    {
+      "norm_name": "HOWARD DAUM",
+      "display_name": "Howard Daum",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 30000,
+        "avg_usd": 30000,
+        "total_label": "$30k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 30000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 4.29
         }
       }
     },
@@ -34737,6 +35007,33 @@
         "top_ratio_lot": {
           "title": "Decalcomania",
           "ratio": 0.83
+        }
+      }
+    },
+    {
+      "norm_name": "ERNEST BRIGGS",
+      "display_name": "Ernest Briggs",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 25000,
+        "avg_usd": 25000,
+        "total_label": "$25k",
+        "avg_label": "$25k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 25000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 4.17
         }
       }
     },
@@ -35956,6 +36253,60 @@
       }
     },
     {
+      "norm_name": "LILIANE  TOMASKO",
+      "display_name": "Liliane  Tomasko",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17000,
+        "avg_usd": 17000,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "all that we make",
+          "hammer_usd": 17000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "all that we make",
+          "ratio": 0.68
+        }
+      }
+    },
+    {
+      "norm_name": "APRIL GORNIK",
+      "display_name": "April Gornik",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17000,
+        "avg_usd": 17000,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "After Eden",
+          "hammer_usd": 17000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "After Eden",
+          "ratio": 0.68
+        }
+      }
+    },
+    {
       "norm_name": "CIRCLE OF ALBERTO PULLICINO",
       "display_name": "Circle Of Alberto Pullicino",
       "dates": "",
@@ -36114,6 +36465,60 @@
         "top_ratio_lot": {
           "title": "Sans titre",
           "ratio": 2.29
+        }
+      }
+    },
+    {
+      "norm_name": "JOSEPH KOSUTH",
+      "display_name": "Joseph Kosuth",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16000,
+        "avg_usd": 16000,
+        "total_label": "$16k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "The Paradox of Content #3",
+          "hammer_usd": 16000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "The Paradox of Content #3",
+          "ratio": 0.46
+        }
+      }
+    },
+    {
+      "norm_name": "RAY PARKER",
+      "display_name": "Ray Parker",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16000,
+        "avg_usd": 16000,
+        "total_label": "$16k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Helicopter",
+          "hammer_usd": 16000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Helicopter",
+          "ratio": 0.53
         }
       }
     },
@@ -36411,6 +36816,33 @@
         "top_ratio_lot": {
           "title": "The Fool 8",
           "ratio": 3.04
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGE J. MCNEIL",
+      "display_name": "George J. Mcneil",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15000,
+        "avg_usd": 15000,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Jezebel",
+          "hammer_usd": 15000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Jezebel",
+          "ratio": 1.76
         }
       }
     },
@@ -37225,33 +37657,6 @@
       }
     },
     {
-      "norm_name": "PAUL JENKINS",
-      "display_name": "Paul Jenkins",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 12000,
-        "avg_usd": 12000,
-        "total_label": "$12k",
-        "avg_label": "$12k",
-        "top_lot": {
-          "title": "Phenomena, Batten down the Hatches",
-          "hammer_usd": 12000,
-          "sale_name": "Modern Contemporary Discoveries Pf2659"
-        },
-        "top_ratio_lot": {
-          "title": "Phenomena, Batten down the Hatches",
-          "ratio": 3.0
-        }
-      }
-    },
-    {
       "norm_name": "KARL PRIEBE",
       "display_name": "Karl Priebe",
       "dates": "",
@@ -37356,6 +37761,33 @@
         "top_ratio_lot": {
           "title": "Portrait",
           "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "KYLE MORRIS",
+      "display_name": "Kyle Morris",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "One Danced with Him",
+          "hammer_usd": 11000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "One Danced with Him",
+          "ratio": 2.75
         }
       }
     },
@@ -38926,6 +39358,33 @@
       }
     },
     {
+      "norm_name": "ALEXANDRE ISTRATI",
+      "display_name": "Alexandre Istrati",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5000,
+        "avg_usd": 5000,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Blue",
+          "hammer_usd": 5000,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Blue",
+          "ratio": 2.0
+        }
+      }
+    },
+    {
       "norm_name": "FREDERICK WATERS WATTS",
       "display_name": "Frederick Waters Watts",
       "dates": "",
@@ -39057,6 +39516,60 @@
         "top_ratio_lot": {
           "title": "Nature morte aux porcelaines",
           "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN MCALLISTER",
+      "display_name": "John Mcallister",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4500,
+        "avg_usd": 4500,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Feigning Falling",
+          "hammer_usd": 4500,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Feigning Falling",
+          "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "CAMERON BOOTH",
+      "display_name": "Cameron Booth",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4500,
+        "avg_usd": 4500,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Fragrance",
+          "hammer_usd": 4500,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Fragrance",
+          "ratio": 0.9
         }
       }
     },
@@ -39304,6 +39817,33 @@
       }
     },
     {
+      "norm_name": "LISA MILROY",
+      "display_name": "Lisa Milroy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3800,
+        "avg_usd": 3800,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Greek Vases",
+          "hammer_usd": 3800,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Greek Vases",
+          "ratio": 0.95
+        }
+      }
+    },
+    {
       "norm_name": "FOLLOWER OF PERINO DEL VAGA",
       "display_name": "Follower Of Perino Del Vaga",
       "dates": "",
@@ -39435,6 +39975,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 0.14
+        }
+      }
+    },
+    {
+      "norm_name": "MARK INNERST",
+      "display_name": "Mark Innerst",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3500,
+        "avg_usd": 3500,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Periphery",
+          "hammer_usd": 3500,
+          "sale_name": "Contemporary Discoveries"
+        },
+        "top_ratio_lot": {
+          "title": "Periphery",
+          "ratio": 0.58
         }
       }
     },
