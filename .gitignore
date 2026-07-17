@@ -6,5 +6,5 @@ __pycache__/
 reels/
 output/beat_the_estimate/
 output/quote_cards/
-output/artist_cards/
+# output/artist_cards/ — tracked so CI can commit generated cards
 studentroadtogermany/__pycache__/
