@@ -37,8 +37,8 @@ TOKEN      = os.getenv("BUFFER_TOKEN")
 IG_CHANNEL = os.getenv("BUFFER_INSTAGRAM_ID")
 TT_CHANNEL = os.getenv("BUFFER_TIKTOK_ID")
 
-_HASHTAGS_IG = "#arthistory #painting #artist"
-_HASHTAGS_TT = "#arthistory #painting #artist #fineart #artoftheday"
+_HASHTAGS_IG = "#arthistory  #artlovers #thehammerprice"
+_HASHTAGS_TT = "#arthistory #artlovers #fineart #artoftheday #thehammerprice"
 
 _CREATE_POST = """
 mutation CreatePost($input: CreatePostInput!) {
