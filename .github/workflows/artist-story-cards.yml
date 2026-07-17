@@ -1,0 +1,114 @@
+name: Artist Story Cards
+
+on:
+  schedule:
+    # Run daily at 03:00 UTC — picks up new campaign artist on rotation day
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      artist:
+        description: "Artist name (leave blank for campaign artist)"
+        required: false
+        default: ""
+      force:
+        description: "Re-fetch profile and regenerate even if cards already exist"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+
+jobs:
+  artist-cards:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python + uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: uv sync
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      - name: Determine campaign artist
+        id: artist
+        run: |
+          if [ -n "${{ inputs.artist }}" ]; then
+            ARTIST="${{ inputs.artist }}"
+          else
+            ARTIST=$(uv run python scripts/campaign_artist.py 2>/dev/null || true)
+          fi
+          echo "name=$ARTIST" >> $GITHUB_OUTPUT
+          echo "▸ Artist: $ARTIST"
+
+      - name: Check if cards already exist
+        id: check
+        run: |
+          ARTIST="${{ steps.artist.outputs.name }}"
+          SLUG=$(echo "$ARTIST" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g' | sed 's/^-//;s/-$//')
+          CACHE="data/artist_cache/${ARTIST// /_}.json"
+          EXISTING=$(ls -d output/artist_cards/artist-*-${SLUG}/ 2>/dev/null | head -1 || true)
+
+          if [ "${{ inputs.force }}" = "true" ]; then
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "▸ Force mode — regenerating"
+          elif [ -f "$CACHE" ] && [ -n "$EXISTING" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "▸ Cards already exist for $ARTIST — skipping"
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "▸ New artist — generating cards"
+          fi
+
+      - name: Fetch artist profile
+        if: steps.check.outputs.skip == 'false' && steps.artist.outputs.name != ''
+        env:
+          PYTHONPATH: "scripts:."
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL:   ${{ secrets.OPENROUTER_MODEL }}
+        run: |
+          ARGS="${{ steps.artist.outputs.name }}"
+          if [ "${{ inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          uv run python scripts/fetch_artist_profile.py $ARGS
+
+      - name: Generate story cards
+        if: steps.check.outputs.skip == 'false' && steps.artist.outputs.name != ''
+        id: cards
+        env:
+          PYTHONPATH: "scripts:."
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL:   ${{ secrets.OPENROUTER_MODEL }}
+        run: |
+          uv run python scripts/artist_story_cards.py "${{ steps.artist.outputs.name }}"
+          FOLDER=$(ls -dt output/artist_cards/artist-*/ 2>/dev/null | head -1 | sed 's|/$||')
+          echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+          echo "▸ Cards → $FOLDER"
+
+      - name: Commit cards and profile cache
+        if: steps.check.outputs.skip == 'false' && steps.artist.outputs.name != ''
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/artist_cache/ output/artist_cards/
+          git diff --cached --quiet || git commit -m "feat(artist-cards): ${{ steps.artist.outputs.name }} story cards [skip ci]"
+          git pull --rebase --autostash origin main
+          git push
+
+      - name: Post to Buffer
+        if: steps.check.outputs.skip == 'false' && steps.cards.outputs.folder != ''
+        env:
+          BUFFER_TOKEN:        ${{ secrets.BUFFER_TOKEN }}
+          BUFFER_INSTAGRAM_ID: ${{ secrets.BUFFER_INSTAGRAM_ID }}
+          BUFFER_TIKTOK_ID:    ${{ secrets.BUFFER_TIKTOK_ID }}
+          GH_TOKEN:            ${{ secrets.GITHUB_TOKEN }}
+          PYTHONPATH:          "scripts:."
+        run: uv run python scripts/post_artist_cards_to_buffer.py "${{ steps.cards.outputs.folder }}"

@@ -1,0 +1,86 @@
+{
+  "gac_url": "https://artsandculture.google.com/entity/salvador-dalí/m09_xn",
+  "full_name": "Salvador Dalí",
+  "bio": "Salvador Domingo Felipe Jacinto Dalí i Domènech, 1st Marquess of Dalí of Púbol gcYC was a Spanish surrealist artist renowned for his technical skill, precise draftsmanship, and the striking and bizarre images in his work. Born in Figueres, Catalonia, Spain, Dalí received his formal education in fine arts in Madrid. Influenced by Impressionism and the Renaissance masters from a young age, he became increasingly attracted to Cubism and avant-garde movements. He moved closer to Surrealism in the late 1920s and joined the Surrealist group in 1929, soon becoming one of its leading exponents. His best-known work, The Persistence of Memory, was completed in August 1931, and is one of the most famous Surrealist paintings. Dalí lived in France throughout the Spanish Civil War before leaving for the United States in 1940 where he achieved commercial success. He returned to Spain in 1948 where he announced his return to the Catholic faith and developed his \"nuclear mysticism\" style, based on his interest in classicism, mysticism, and recent scientific developments.",
+  "image_url": "https://lh3.googleusercontent.com/ci/AL18g_T1eIHrs2jJW3ts84Cr5z8FFFprcuDVZ2FadiybBFqLO3bdAYyyYzgnH51SwnVLt-TpK1xSkiA=s1200",
+  "birth_date": "May 11, 1904",
+  "death_date": "Jan 23, 1989",
+  "famous_artworks": [
+    {
+      "title": "The Persistence of Memory (1931)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS6bU28kxeSjG4WPQcUp_eMbgMSaPSRZ6vYP-lin3FSmJZNKiBj",
+      "ext_url": "http://www.wikiart.org/en/salvador-dali/the-persistence-of-memory-1931"
+    },
+    {
+      "title": "The Great Masturbator (1929)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRq02Lh7klFvoQNhG82o66odcPkV8e64gIVyJVUtj9bnPck5dKc",
+      "ext_url": "http://www.wikiart.org/en/salvador-dali/the-great-masturbator-1929"
+    },
+    {
+      "title": "The Elephants (1948)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQfQ7nhNdqeNBefxU087lf6e8rWJrYGl4em-91ngiE2ktAekAuN",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Elephants"
+    },
+    {
+      "title": "Christ of Saint John of the Cross (1951)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjhkYhcDXYyWpCYg5PM76YMGh0kwxoc0_zKG6IZ-LHK4PrmUE8",
+      "ext_url": "http://www.wikiart.org/en/salvador-dali/christ-of-st-john-of-the-cross-1951"
+    },
+    {
+      "title": "The Disintegration of the Persistence of Memory (1954)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTIhkS5GkrV-6kv3wolv4IRlscJfqnDG8Sn-QfxorPHygSb2reg",
+      "ext_url": "http://www.wikiart.org/en/salvador-dali/the-disintegration-of-the-persistence-of-memory"
+    },
+    {
+      "title": "The Burning Giraffe (1937)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRf5Xb5uY79XKT-cvxpw3Bd-7YodPBJFJYUg70yUBRyohSlc1xE",
+      "ext_url": "http://www.wikiart.org/en/salvador-dali/flaming-giraffe"
+    },
+    {
+      "title": "Metamorphosis of Narcissus (1937)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQC97aRGeUw6p0p3ePKCgTEPf5Dq0ed51cyw8A42-Pv6hu9RzTB",
+      "ext_url": "https://en.wikipedia.org/wiki/Metamorphosis_of_Narcissus"
+    },
+    {
+      "title": "The Hallucinogenic Toreador (1970)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQRL_imBQ29NdTN-Y7x8T238QJJqOICbfVmTnI6mJmwk-mwyT1H",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Hallucinogenic_Toreador"
+    },
+    {
+      "title": "Lobster Telephone (1936)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiXhpprgS0bEkM7Q8Wd8BmHNtiee_SyxNtR4AhnN7QoNS7v313",
+      "ext_url": "https://www.tate.org.uk/art/artworks/dali-lobster-telephone-t03257"
+    }
+  ],
+  "nationality": "Spanish",
+  "art_movement": "Surrealism",
+  "portrait_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Salvador_Dal%C3%AD_1939.jpg/1280px-Salvador_Dal%C3%AD_1939.jpg",
+  "timeline": [
+    {
+      "year": 1904,
+      "event": "Salvador Dalí born in Figueres, Catalonia on May 11"
+    },
+    {
+      "year": 1929,
+      "event": "Joined the Surrealist group and became a leading exponent"
+    },
+    {
+      "year": 1931,
+      "event": "Completed his best-known work, The Persistence of Memory"
+    },
+    {
+      "year": 1940,
+      "event": "Left for the United States where he achieved commercial success"
+    },
+    {
+      "year": 1948,
+      "event": "Returned to Spain and announced return to Catholic faith"
+    },
+    {
+      "year": 1989,
+      "event": "Salvador Dalí died on January 23"
+    }
+  ],
+  "quote": "The sole difference between myself and a madman is the fact that I am not mad",
+  "artist_name": "Salvador Dali"
+}
