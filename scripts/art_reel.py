@@ -22,6 +22,7 @@ import shutil
 import sqlite3
 import subprocess
 import sys
+import unicodedata
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -536,11 +537,28 @@ def _posted_ids(conn: sqlite3.Connection) -> set[str]:
     return {r[0] for r in rows}
 
 
+def _strip_accents(s: str | None) -> str | None:
+    """'SALVADOR DALÍ' → 'SALVADOR DALI' — enables LIKE matching across Unicode case variants."""
+    if s is None:
+        return None
+    return "".join(
+        c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
+    )
+
+
+def _open_db(path: Path) -> sqlite3.Connection:
+    """Open the database and register custom functions required by queries."""
+    conn = sqlite3.connect(path)
+    conn.row_factory = sqlite3.Row
+    conn.create_function("strip_accents", 1, _strip_accents)
+    return conn
+
+
 def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
     """Return combined (sql_fragment, params) for optional artist and title LIKE filters."""
     parts, params = [], []
     if artist:
-        parts.append("AND artist LIKE ?")
+        parts.append("AND strip_accents(LOWER(artist)) LIKE strip_accents(LOWER(?))")
         params.append(f"%{artist}%")
     if title:
         parts.append("AND title LIKE ?")
@@ -1146,8 +1164,7 @@ def main() -> None:
         if not DB_PATH.exists():
             print(f"✗ Database not found: {DB_PATH}")
             sys.exit(1)
-        conn = sqlite3.connect(DB_PATH)
-        conn.row_factory = sqlite3.Row
+        conn = _open_db(DB_PATH)
         _list_artists(conn)
         conn.close()
         sys.exit(0)
@@ -1173,8 +1190,7 @@ def main() -> None:
         sys.exit(1)
 
     # ── Query lots ─────────────────────────────────────────────
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    conn = _open_db(DB_PATH)
     _ensure_posted_table(conn)
     skip = _posted_ids(conn)
     if skip:

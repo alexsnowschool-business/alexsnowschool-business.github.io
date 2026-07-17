@@ -22,9 +22,12 @@ RECENCY_WINDOW = 4  # skip artist if they appear in the last N posts
 
 
 def _canonical(artist: str) -> str:
-    """'MARC CHAGALL (B. 1887)' → 'Chagall', 'Roy Lichtenstein' → 'Lichtenstein'."""
+    """'MARC CHAGALL (B. 1887)' → 'Chagall', 'Roy Lichtenstein' → 'Lichtenstein'.
+    Returns '' for entries that are clearly not a person (> 4 words after stripping parens)."""
     cleaned = re.sub(r"\s*\(.*?\)", "", artist).strip()
     parts = cleaned.split()
+    if len(parts) > 4:
+        return ""
     return parts[-1].title() if parts else artist.title()
 
 
@@ -54,6 +57,8 @@ def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
     agg: dict[str, dict] = {}
     for artist, lot_count, avg_pct, max_hammer in cur.fetchall():
         key = _canonical(artist)
+        if not key:
+            continue
         if key not in agg:
             agg[key] = {"lots": 0, "avg_pct": 0.0, "max_hammer": 0.0}
         agg[key]["lots"] += lot_count
@@ -102,9 +107,17 @@ def next_artist(db_path: Path = DB_PATH) -> str:
 
     recent_artists = [r[0] for r in all_posts]
 
+    # Collect the last RECENCY_WINDOW *distinct* posted artists (not rows).
+    seen: list[str] = []
+    for db_artist in recent_artists:
+        if db_artist not in seen:
+            seen.append(db_artist)
+        if len(seen) >= RECENCY_WINDOW:
+            break
+
     blocked = {
         name
-        for db_artist in recent_artists[:RECENCY_WINDOW]
+        for db_artist in seen
         for name in rotation
         if _matches(name, db_artist)
     }
@@ -120,8 +133,10 @@ def next_artist(db_path: Path = DB_PATH) -> str:
     if not candidates:
         candidates = rotation  # history too short to fill the window — ignore block
 
-    # Pick whoever was posted longest ago (never-posted artists sort first).
-    return min(candidates, key=lambda a: last_posted[a] or "")
+    # Pick whoever was posted longest ago; tiebreak by rotation rank so the
+    # highest-scored never-posted artist surfaces before lower-ranked ones.
+    rank_of = {a: i for i, a in enumerate(rotation)}
+    return min(candidates, key=lambda a: (last_posted[a] or "1900-01-01", rank_of[a]))
 
 
 if __name__ == "__main__":
