@@ -37,10 +37,8 @@ TOKEN      = os.getenv("BUFFER_TOKEN")
 IG_CHANNEL = os.getenv("BUFFER_INSTAGRAM_ID")
 TT_CHANNEL = os.getenv("BUFFER_TIKTOK_ID")
 
-_HASHTAGS = (
-    "#arthistory #painting #artoftheday #artist #fineart "
-    "#museum #classicart #artwork #art #artlover"
-)
+_HASHTAGS_IG = "#arthistory #painting #artist"
+_HASHTAGS_TT = "#arthistory #painting #artist #fineart #artoftheday"
 
 _CREATE_POST = """
 mutation CreatePost($input: CreatePostInput!) {
@@ -56,7 +54,7 @@ mutation CreatePost($input: CreatePostInput!) {
 """
 
 
-def _build_caption(meta: dict) -> str:
+def _build_caption(meta: dict, hashtags: str) -> str:
     profile  = meta.get("profile", {})
     name     = profile.get("full_name") or meta.get("artist_name", "")
     movement = profile.get("art_movement", "")
@@ -66,7 +64,7 @@ def _build_caption(meta: dict) -> str:
     if quote:
         lines.append(f'\n"{quote}"')
     lines.append("\nSwipe to explore a life in art →")
-    lines.append(f"\n{_HASHTAGS}")
+    lines.append(f"\n{hashtags}")
 
     return "\n".join(lines).strip()
 
@@ -194,8 +192,9 @@ def main() -> None:
         print(f"✗ No PNG cards found in {cards_dir}")
         sys.exit(1)
 
-    caption = _build_caption(meta)
-    artist  = meta.get("profile", {}).get("full_name") or meta.get("artist_name", cards_dir.name)
+    caption_ig = _build_caption(meta, _HASHTAGS_IG)
+    caption_tt = _build_caption(meta, _HASHTAGS_TT)
+    artist     = meta.get("profile", {}).get("full_name") or meta.get("artist_name", cards_dir.name)
 
     print("═" * 60)
     print("  BUFFER POSTER — Artist Story Cards")
@@ -219,14 +218,14 @@ def main() -> None:
     with httpx.Client(headers=headers, timeout=30) as client:
         if args.instagram and (IG_CHANNEL or args.dry_run):
             ok = _post_carousel(client, IG_CHANNEL or "IG_ID", "Instagram",
-                                caption, image_urls, args.schedule, args.dry_run)
+                                caption_ig, image_urls, args.schedule, args.dry_run)
             results.append(("Instagram", ok))
         elif args.instagram:
             print("  ⚠ BUFFER_INSTAGRAM_ID not set — skipping")
 
         if args.tiktok and (TT_CHANNEL or args.dry_run):
             ok = _post_carousel(client, TT_CHANNEL or "TT_ID", "TikTok",
-                                caption, image_urls, args.schedule, args.dry_run)
+                                caption_tt, image_urls, args.schedule, args.dry_run)
             results.append(("TikTok", ok))
         elif args.tiktok and not TT_CHANNEL:
             print("  ⚠ BUFFER_TIKTOK_ID not set — skipping")
