@@ -52,16 +52,14 @@ jobs:
         id: check
         run: |
           ARTIST="${{ steps.artist.outputs.name }}"
-          SLUG=$(echo "$ARTIST" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g' | sed 's/^-//;s/-$//')
           CACHE="data/artist_cache/${ARTIST// /_}.json"
-          EXISTING=$(ls -d output/artist_cards/artist-*-${SLUG}/ 2>/dev/null | head -1 || true)
 
           if [ "${{ inputs.force }}" = "true" ]; then
             echo "skip=false" >> $GITHUB_OUTPUT
             echo "▸ Force mode — regenerating"
-          elif [ -f "$CACHE" ] && [ -n "$EXISTING" ]; then
+          elif [ -f "$CACHE" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
-            echo "▸ Cards already exist for $ARTIST — skipping"
+            echo "▸ Profile cache exists for $ARTIST — skipping (use force=true to regenerate)"
           else
             echo "skip=false" >> $GITHUB_OUTPUT
             echo "▸ New artist — generating cards"
@@ -93,13 +91,13 @@ jobs:
           echo "folder=$FOLDER" >> $GITHUB_OUTPUT
           echo "▸ Cards → $FOLDER"
 
-      - name: Commit cards and profile cache
+      - name: Commit profile cache
         if: steps.check.outputs.skip == 'false' && steps.artist.outputs.name != ''
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/artist_cache/ output/artist_cards/
-          git diff --cached --quiet || git commit -m "feat(artist-cards): ${{ steps.artist.outputs.name }} story cards [skip ci]"
+          git add data/artist_cache/
+          git diff --cached --quiet || git commit -m "chore(artist-cache): ${{ steps.artist.outputs.name }} profile [skip ci]"
           git pull --rebase --autostash origin main
           git push
 
