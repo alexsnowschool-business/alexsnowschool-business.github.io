@@ -1,0 +1,72 @@
+{
+  "gac_url": "https://artsandculture.google.com/entity/henri-fantin-latour/m0jjpp",
+  "full_name": "Henri Fantin-Latour",
+  "bio": "Henri Fantin-Latour was a French painter and lithographer best known for his flower paintings and group portraits of Parisian artists and writers.",
+  "image_url": "https://lh3.googleusercontent.com/ci/AL18g_SuBXH5Ps12rfBI5V3NtVALcJHZIjCE5YIJumK998ihhKV3_TljhPC5x6c-wuWH8H0NzhAlkACi=s1200",
+  "birth_date": "Jan 14, 1836",
+  "death_date": "Aug 25, 1904",
+  "famous_artworks": [
+    {
+      "title": "Homage to Delacroix (1864)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpsIyXSogFYrWA93x7esji8_60wYGMc6ghGxYJ3ixx2AVaiRku",
+      "ext_url": "http://www.wikidata.org/wiki/Q1626128"
+    },
+    {
+      "title": "White Roses in a Vase (1885)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT4N-Xk8d8DRXRu0aFO8Rm66KMwKYpxJlIq3yxPXt-JIFge8AiI",
+      "ext_url": "http://www.wikiart.org/en/henri-fantin-latour/white-roses-in-a-vase-1885"
+    },
+    {
+      "title": "Roses and Clematis (1883)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTweQATiH6mEcslV2sNBf8z8v9IoK_cbDmO72MWMMpTqjwMjB32",
+      "ext_url": "http://www.wikiart.org/en/henri-fantin-latour/roses-and-clematis-1883"
+    },
+    {
+      "title": "A Basket of Roses (1890)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQgZLXNcPCk0ExkMu64aIZ_FNlOdXla3mUga_awfUvcz7A-vY8k",
+      "ext_url": "http://www.wikidata.org/wiki/Q26689497"
+    },
+    {
+      "title": "Batignolles group (1870)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd3zqaSZIuAxG5jWpPbSG07jWKVIOVSd1H3gIFLE0jGrTvYmkq",
+      "ext_url": "https://en.wikipedia.org/wiki/Batignolles_group"
+    },
+    {
+      "title": "Charlotte Dubourg (1882)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQzSOfcU6kqTHLSBwFeoPM8lmfR_vFJvMXyorPCRvWoCM6KbrRA",
+      "ext_url": "http://www.wikidata.org/wiki/Q17491009"
+    },
+    {
+      "title": "Flowers Poppies (1883)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ54rsoAHdmDge57odTfFmyUg6GduqH3I9ZSEBXkUkKuu1-VkdO",
+      "ext_url": "http://www.wikiart.org/en/henri-fantin-latour/flowers-poppies-1883"
+    }
+  ],
+  "nationality": "French",
+  "art_movement": "",
+  "portrait_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Henri_Fantin-Latour_autoportrait.jpg/1280px-Henri_Fantin-Latour_autoportrait.jpg",
+  "timeline": [
+    {
+      "year": 1836,
+      "event": "Born in Grenoble, France on January 14"
+    },
+    {
+      "year": 1850,
+      "event": "Began formal art training in Paris"
+    },
+    {
+      "year": 1870,
+      "event": "Established reputation with flower paintings and group portraits"
+    },
+    {
+      "year": 1880,
+      "event": "Became prominent lithographer alongside painting career"
+    },
+    {
+      "year": 1904,
+      "event": "Died in Buré, France on August 25"
+    }
+  ],
+  "quote": "sorted chronologically, by date of the quotes of Fantin-Latour",
+  "artist_name": "Fantin-Latour"
+}
