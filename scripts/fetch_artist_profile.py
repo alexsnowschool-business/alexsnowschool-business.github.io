@@ -72,64 +72,40 @@ def _get_entity_url(artist_name: str) -> str | None:
 _WIKI_HEADERS = {"User-Agent": "artist-profile-bot/1.0 (educational research)"}
 
 
-def _wikiquote_quote(artist_name: str) -> str:
-    """Fetch one short, clean quote from Wikiquote for the given artist."""
+def _llm_quote(artist_name: str) -> str:
+    """Ask the LLM for one well-known, verifiable quote from the given artist."""
+    if not _OPENROUTER_KEY:
+        return ""
+
+    prompt = (
+        f"Give me one short, well-known quote attributed to {artist_name}. "
+        "Return ONLY the quote text itself — no attribution, no quotation marks, "
+        "no explanation, no extra text. The quote must be 10–40 words."
+    )
+
     try:
-        resp = requests.get(
-            "https://en.wikiquote.org/w/api.php",
-            params={
-                "action": "query",
-                "titles": artist_name,
-                "prop": "revisions",
-                "rvprop": "content",
-                "rvslots": "main",
-                "format": "json",
+        r = httpx.post(
+            _OPENROUTER_URL,
+            headers={
+                "Authorization": f"Bearer {_OPENROUTER_KEY}",
+                "HTTP-Referer": "https://github.com/alexsnowschool-business",
+                "X-Title": "artist-profile-bot",
             },
-            headers=_WIKI_HEADERS,
-            timeout=15,
+            json={
+                "model": _OPENROUTER_MODEL,
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 100,
+                "temperature": 0.3,
+            },
+            timeout=30,
         )
-        resp.raise_for_status()
-        pages = resp.json().get("query", {}).get("pages", {})
-        page = next(iter(pages.values()), {})
-        wikitext = (
-            page.get("revisions", [{}])[0]
-            .get("slots", {})
-            .get("main", {})
-            .get("*", "")
-        )
-        def _clean(text: str) -> str:
-            # Strip wikitext links [[target|label]] → label, or [[target]] → target
-            text = re.sub(r"\[\[(?:[^\]|]+\|)?([^\]]+)\]\]", r"\1", text)
-            # Strip citation templates {{...}}
-            text = re.sub(r"\{\{[^}]+\}\}", "", text)
-            # Strip italics '' and bold '''
-            text = re.sub(r"'{2,3}", "", text)
-            return text.strip()
-
-        candidates: list[str] = []
-
-        # Format 1: '' 'text' '' (Dalí-style italic quotes)
-        for m in re.findall(r"''\s*'([^']{20,250})'\s*''", wikitext):
-            candidates.append(_clean(m))
-
-        # Format 2: * bullet lines (Chagall-style)
-        for m in re.findall(r"^\*\s+([^\n]{20,300})", wikitext, re.M):
-            # Skip lines that are citations (contain 'as cited', 'quoted in', etc.)
-            if not re.search(r"as cited|quoted in|cited in|''[A-Z]", m):
-                candidates.append(_clean(m))
-
-        skip_words = {"Salvador", "Marc", "Roy", "Vincent", "Pablo",
-                      "chronologically", "w:"}
-        for q in candidates:
-            first_word = q.split()[0] if q.split() else ""
-            if (first_word not in skip_words
-                    and "[[" not in q
-                    and len(q.split()) >= 6
-                    and len(q) <= 200):
-                return q.strip()
-    except Exception:
-        pass
-    return ""
+        r.raise_for_status()
+        quote = r.json()["choices"][0]["message"]["content"].strip()
+        quote = re.sub(r'^["“]|["”]$', "", quote).strip()
+        return quote
+    except Exception as e:
+        print(f"  [warn] LLM quote failed: {e}")
+        return ""
 
 
 def _wikipedia_portrait(artist_name: str) -> str:
@@ -335,8 +311,8 @@ def _parse_entity_page(url: str, artist_name_hint: str = "") -> dict:
     # --- Timeline from Wikipedia plain-text extract ---
     profile["timeline"] = _wikipedia_timeline(wiki_name)
 
-    # --- Quote from Wikiquote ---
-    profile["quote"] = _wikiquote_quote(wiki_name)
+    # --- Quote from LLM ---
+    profile["quote"] = _llm_quote(wiki_name)
 
     return profile
 
