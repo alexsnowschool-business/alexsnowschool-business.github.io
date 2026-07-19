@@ -109,7 +109,7 @@ def _post_to_buffer(
     if platform == "Instagram":
         metadata["instagram"] = {"type": "post", "shouldShareToFeed": True}
     elif platform == "TikTok":
-        metadata["tiktok"] = {"title": text[:150]}
+        metadata["tiktok"] = {}
 
     variables: dict = {
         "input": {
