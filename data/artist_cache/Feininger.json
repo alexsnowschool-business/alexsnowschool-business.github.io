@@ -1,0 +1,72 @@
+{
+  "gac_url": "https://artsandculture.google.com/entity/lyonel-feininger/m04nqm",
+  "full_name": "Lyonel Feininger",
+  "bio": "Lyonel Charles Feininger was a German-American painter, and a leading exponent of Expressionism. He also worked as a caricaturist and comic strip artist. He was born and grew up in New York City, traveling to Germany at 16 to study and perfect his art. He started his career as a cartoonist in 1894 and met with much success in this area. He was also a commercial caricaturist for 20 years for magazines and newspapers in the USA and Germany. At the age of 36, he started to work as a fine artist. He also produced a large body of photographic works between 1928 and the mid 1950s, but he kept these primarily within his circle of friends. He was also a pianist and composer, with several piano compositions and fugues for organ extant.",
+  "image_url": "https://lh3.googleusercontent.com/ci/AL18g_RiLR-IgH1C_wLHNtyjFmSwj7ULPuVuRcSlccfQ_JP-jBBzgZGizZvDHuOePpdi6ExycnKPTg=s1200",
+  "birth_date": "Jul 17, 1871",
+  "death_date": "Jan 13, 1956",
+  "famous_artworks": [
+    {
+      "title": "Church of the Minorites II (1926)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTMGxCP_0cU1VsxDZgYG6G4skjjqvcXjOVx7p8PN_I9i1voWQWr",
+      "ext_url": "https://www.wikiart.org/en/lyonel-feininger/church-of-the-minorities-ii"
+    },
+    {
+      "title": "Lady in Mauve (1922)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSPy4gHZR-g67fUP1ASoyqizLdIG-4uiLzkUQH2xbkaqY2oA_5y",
+      "ext_url": "http://www.wikiart.org/en/lyonel-feininger/lady-in-mauve-1922"
+    },
+    {
+      "title": "Gelmeroda III (1913)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSNXUI-7rw6zKYmDobSLW2lLOaPJ8cfQw2dhQXixDIiImGyxZcE",
+      "ext_url": "http://www.wikiart.org/en/lyonel-feininger/gelmeroda-iii-1913"
+    },
+    {
+      "title": "The High Shore (1923)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRT-nVReoKjvOpZlxzhDSP2F_79Kxo_jNP_29im4od_JoN59_pg",
+      "ext_url": "http://www.wikiart.org/en/lyonel-feininger/the-high-shore-1923"
+    },
+    {
+      "title": "The White Man (1907)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRKE5NAubTnCa6YnP2kYDE0dV5b7N2Sz_WNYlYvwGTqOw8X4xnz",
+      "ext_url": "http://www.wikiart.org/en/lyonel-feininger/the-white-man-1907"
+    },
+    {
+      "title": "The Lady in Mauve (1922)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS0kEqdytG4oaWic9gjHE57V8rVXNU7lTen39yVyt7zc8RUiGf4",
+      "ext_url": "https://www.museothyssen.org/en/collection/artists/feininger-lyonel/lady-mauve"
+    },
+    {
+      "title": "Market Church in Halle (1930)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTDBsC0tWa-b9jFFMGZeB2ZhDyTVxAI9stUsjAd69PlgRSW8FI3",
+      "ext_url": "https://www.wikiart.org/en/lyonel-feininger/market-church-in-halle-1930"
+    }
+  ],
+  "nationality": "German",
+  "art_movement": "Expressionism",
+  "portrait_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Lyonel_Feininger_by_Hugo_Erfurth_1941.jpg",
+  "timeline": [
+    {
+      "year": 1871,
+      "event": "Born in New York City on July 17"
+    },
+    {
+      "year": 1887,
+      "event": "Traveled to Europe to study art in Hamburg, Berlin, and Paris"
+    },
+    {
+      "year": 1894,
+      "event": "Started career as a cartoonist with much success"
+    },
+    {
+      "year": 1907,
+      "event": "Began working as a fine artist at age 36"
+    },
+    {
+      "year": 1956,
+      "event": "Died on January 13"
+    }
+  ],
+  "quote": "Where I used to strive for movement and restlessness I now attempt to sense and express the complete total calm of objects and the surrounding air.",
+  "artist_name": "Feininger"
+}
