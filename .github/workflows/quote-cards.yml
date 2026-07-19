@@ -71,6 +71,7 @@ jobs:
         env:
           PROVENANCE_BUFFER_TOKEN:        ${{ secrets.PROVENANCE_BUFFER_TOKEN }}
           PROVENANCE_BUFFER_INSTAGRAM_ID: ${{ secrets.PROVENANCE_BUFFER_INSTAGRAM_ID }}
+          PROVENANCE_BUFFER_TIKTOK_ID:    ${{ secrets.PROVENANCE_BUFFER_TIKTOK_ID }}
           GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: "scripts:."
         run: |

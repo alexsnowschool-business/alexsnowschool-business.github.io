@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """
-Post a 5-quote card carousel to Instagram via Buffer GraphQL — a carousel of
-still images, not a video. TikTok is intentionally not supported here: photo
-carousel posts have had unresolved issues on TikTok's side in this codebase
-(see post_beat_the_estimate_to_buffer.py) — video reels stay TikTok's format.
+Post a 5-quote card carousel to Instagram and TikTok via Buffer GraphQL — a
+carousel of still images, not a video.
 
 Usage:
     python scripts/post_quote_cards_to_buffer.py output/quote_cards/<slug> --dry-run
     python scripts/post_quote_cards_to_buffer.py output/quote_cards/<slug>
     python scripts/post_quote_cards_to_buffer.py output/quote_cards/<slug> --schedule "2026-07-15T19:00:00+07:00"
+    python scripts/post_quote_cards_to_buffer.py output/quote_cards/<slug> --no-tiktok
 """
 
 import argparse
@@ -95,26 +94,30 @@ mutation CreatePost($input: CreatePostInput!) {
 def _post_to_buffer(
     client: httpx.Client,
     channel_id: str,
+    platform: str,
     text: str,
     image_urls: list[str],
     scheduled_at: str | None,
     dry_run: bool,
 ) -> bool:
     if dry_run:
-        print(f"  [dry-run] Instagram: channel={channel_id}, images={len(image_urls)}, schedule={scheduled_at or 'queue'}")
+        print(f"  [dry-run] {platform}: channel={channel_id}, images={len(image_urls)}, schedule={scheduled_at or 'queue'}")
         print(f"  Caption: {text[:120]}...")
         return True
 
-    # Instagram's `type` only accepts post/story/reel — a multi-image
-    # carousel is just a "post" with multiple image assets; Buffer infers
-    # the carousel from the asset count (confirmed in beat_the_estimate poster).
+    metadata: dict = {}
+    if platform == "Instagram":
+        metadata["instagram"] = {"type": "post", "shouldShareToFeed": True}
+    elif platform == "TikTok":
+        metadata["tiktok"] = {"title": text[:150]}
+
     variables: dict = {
         "input": {
             "channelId":      channel_id,
             "text":           text,
             "assets":         [{"image": {"url": url}} for url in image_urls],
             "schedulingType": "automatic",
-            "metadata":       {"instagram": {"type": "post", "shouldShareToFeed": True}},
+            "metadata":       metadata,
         }
     }
 
@@ -128,35 +131,38 @@ def _post_to_buffer(
     r = client.post(BUFFER_GRAPHQL, json={"query": _CREATE_POST, "variables": variables})
 
     if r.status_code != 200:
-        print(f"  ✗ Instagram HTTP {r.status_code}: {r.text[:300]}")
+        print(f"  ✗ {platform} HTTP {r.status_code}: {r.text[:300]}")
         return False
 
     data = r.json()
     if data.get("errors"):
-        print(f"  ✗ Instagram GraphQL error: {data['errors'][0].get('message')}")
+        print(f"  ✗ {platform} GraphQL error: {data['errors'][0].get('message')}")
         return False
 
     result = data.get("data", {}).get("createPost", {})
     if "message" in result:
-        print(f"  ✗ Instagram Buffer error: {result['message']}")
+        print(f"  ✗ {platform} Buffer error: {result['message']}")
+        print(f"      Full response: {json.dumps(data)[:400]}")
         return False
 
     post = result.get("post")
     if not post:
-        print(f"  ✗ Instagram unexpected response: {json.dumps(data)[:400]}")
+        print(f"  ✗ {platform} unexpected response: {json.dumps(data)[:400]}")
         return False
 
-    print(f"  ✓ Instagram queued — id: {post['id']}  status: {post['status']}  due: {post.get('dueAt', 'queue')}")
+    print(f"  ✓ {platform} queued — id: {post['id']}  status: {post['status']}  due: {post.get('dueAt', 'queue')}")
     return True
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Post a quote card carousel to Instagram via Buffer.")
-    parser.add_argument("cards_dir",  help="Folder from quote_cards.py, e.g. output/quote_cards/cards-2026-07-15_slug")
-    parser.add_argument("--account",  default="lifequoteshere",
+    parser = argparse.ArgumentParser(description="Post a quote card carousel to Instagram and TikTok via Buffer.")
+    parser.add_argument("cards_dir",     help="Folder from quote_cards.py, e.g. output/quote_cards/cards-2026-07-15_slug")
+    parser.add_argument("--account",     default="lifequoteshere",
                         help="Account slug matching accounts/<slug>.yaml")
-    parser.add_argument("--schedule", default=None, help="ISO 8601 datetime, e.g. 2026-07-15T19:00:00+07:00")
-    parser.add_argument("--dry-run",  action="store_true")
+    parser.add_argument("--schedule",    default=None, help="ISO 8601 datetime, e.g. 2026-07-15T19:00:00+07:00")
+    parser.add_argument("--no-instagram", dest="instagram", action="store_false", default=True)
+    parser.add_argument("--no-tiktok",   dest="tiktok",    action="store_false", default=True)
+    parser.add_argument("--dry-run",     action="store_true")
     args = parser.parse_args()
 
     import account_config
@@ -168,7 +174,9 @@ def main() -> None:
 
     TOKEN      = os.getenv(cfg.get("buffer_token_env",        "PROVENANCE_BUFFER_TOKEN"))
     IG_CHANNEL = os.getenv(cfg.get("buffer_instagram_id_env", "PROVENANCE_BUFFER_INSTAGRAM_ID"))
-    hashtags   = cfg.get("hashtags_instagram", "")
+    TT_CHANNEL = os.getenv(cfg.get("buffer_tiktok_id_env",   "PROVENANCE_BUFFER_TIKTOK_ID"))
+    ig_hashtags = cfg.get("hashtags_instagram", "")
+    tt_hashtags = cfg.get("hashtags_tiktok", "")
 
     cards_dir = BUSINESS_DIR / args.cards_dir
     meta_path = cards_dir / "meta.json"
@@ -183,9 +191,6 @@ def main() -> None:
     token_env = cfg.get("buffer_token_env", "PROVENANCE_BUFFER_TOKEN")
     if not args.dry_run and not TOKEN:
         print(f"✗ {token_env} not set in environment")
-        sys.exit(1)
-    if not args.dry_run and not IG_CHANNEL:
-        print(f"✗ {cfg.get('buffer_instagram_id_env', 'PROVENANCE_BUFFER_INSTAGRAM_ID')} not set in environment")
         sys.exit(1)
 
     meta   = json.loads(meta_path.read_text())
@@ -205,7 +210,8 @@ def main() -> None:
     print(f"  Mode:   {'DRY RUN' if args.dry_run else 'LIVE'}")
     print("═" * 60)
 
-    caption = _build_caption(quotes, hashtags)
+    ig_caption = _build_caption(quotes, ig_hashtags)
+    tt_caption = _build_caption(quotes, tt_hashtags)
 
     print("\n▸ Hosting images on GitHub releases...")
     image_urls = _upload_images_to_github(images, cards_dir.name, args.dry_run)
@@ -214,12 +220,26 @@ def main() -> None:
 
     print("\n▸ Posting to Buffer...")
     headers = {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"}
+    results = []
 
     with httpx.Client(headers=headers, timeout=30) as client:
-        ok = _post_to_buffer(client, IG_CHANNEL or "IG_ID", caption, image_urls, args.schedule, args.dry_run)
+        if args.instagram and (IG_CHANNEL or args.dry_run):
+            ok = _post_to_buffer(client, IG_CHANNEL or "IG_ID", "Instagram",
+                                 ig_caption, image_urls, args.schedule, args.dry_run)
+            results.append(("Instagram", ok))
+        elif args.instagram:
+            print(f"  ⚠ {cfg.get('buffer_instagram_id_env', 'PROVENANCE_BUFFER_INSTAGRAM_ID')} not set — skipping")
+
+        if args.tiktok and (TT_CHANNEL or args.dry_run):
+            ok = _post_to_buffer(client, TT_CHANNEL or "TT_ID", "TikTok",
+                                 tt_caption, image_urls, args.schedule, args.dry_run)
+            results.append(("TikTok", ok))
+        elif args.tiktok:
+            print(f"  ⚠ {cfg.get('buffer_tiktok_id_env', 'PROVENANCE_BUFFER_TIKTOK_ID')} not set — skipping")
 
     print("\n" + "═" * 60)
-    print(f"  {'✓' if ok else '✗'} Instagram")
+    for platform, ok in results:
+        print(f"  {'✓' if ok else '✗'} {platform}")
     print("═" * 60)
 
 
