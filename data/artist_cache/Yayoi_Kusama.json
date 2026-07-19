@@ -1,0 +1,75 @@
+{
+  "gac_url": "https://artsandculture.google.com/entity/yayoi-kusama/m028n9m",
+  "full_name": "Yayoi Kusama",
+  "bio": "Yayoi Kusama is a Japanese contemporary artist who works primarily in sculpture and installation, but is also active in painting, performance, film, fashion, poetry, fiction, and other arts. Her work is based in conceptual art and shows some attributes of feminism, minimalism, surrealism, Art Brut, pop art, and abstract expressionism, and is infused with autobiographical, psychological, and sexual content. She has been acknowledged as one of the most important living artists to come out of Japan. Kusama was raised in Matsumoto, and trained at the Kyoto City University of Arts in a traditional Japanese painting style called nihonga. Kusama was inspired, however, by American Abstract impressionism. She moved to New York City in 1958 and was a part of the New York avant-garde scene throughout the 1960s, especially in the pop-art movement. Embracing the rise of the hippie counterculture of the late 1960s, she came to public attention when she organized a series of happenings in which naked participants were painted with brightly coloured polka dots. Since the 1970s, Kusama has continued to create art, most notably installations in various museums around the world.",
+  "image_url": "https://lh3.googleusercontent.com/ci/AL18g_SvUt2s_QF5VHuOAvOBbtDkTlu2aetZEa2BLnU9y4iT-YZNwtoiZMkE1MZJ7oyO9zFthvszsoM=s1200",
+  "birth_date": "Born Mar 22, 1929",
+  "death_date": "",
+  "famous_artworks": [
+    {
+      "title": "Dots Obsession (2003)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP6MqW829FPKy8TH7Wk50cLK1XwJ4FXhtEEVk5jJBkH4WXlGQM",
+      "ext_url": "https://play.qagoma.qld.gov.au/looknowseeforever/works/dots/"
+    },
+    {
+      "title": "Watching the Sea (1989)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR9c-3LEm3gjMnFTOLB_IUk95FKO4sHMgv9uO5BxGY9H06ui6d8",
+      "ext_url": "http://www.wikiart.org/en/yayoi-kusama/watching-the-sea-1989"
+    },
+    {
+      "title": "Ready to Blossom in the Morning (1989)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSmis9Ablsx-u90Wxv7ZCwte2D_14GMbhKTYSNSoE2TvAVsfjCD",
+      "ext_url": "http://www.wikiart.org/en/yayoi-kusama/ready-to-blossom-in-the-morning-1989"
+    },
+    {
+      "title": "Fields in Spring (1988)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTzd_GtoSAkwj0XbikPyIKOLPRd7AcPo0A35mJiByumVfrzyJ8Z",
+      "ext_url": "http://www.wikiart.org/en/yayoi-kusama/fields-in-spring-1988"
+    },
+    {
+      "title": "Infinity Nets Yellow (1960)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH1gV7cbOfjKZZDBZTYy5PhCzvA5jMdd3WK1qdk8i8kTiWcoTu",
+      "ext_url": "https://www.nga.gov/artworks/124183-infinity-nets-yellow"
+    },
+    {
+      "title": "Waves on the Hudson River (1988)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTWHEf-esdGum4xxQ1bE18ghdtBQPtXn3JzzGzctCRiOwSOZXMe",
+      "ext_url": "http://www.wikiart.org/en/yayoi-kusama/waves-on-the-hudson-river-1988"
+    }
+  ],
+  "nationality": "Japanese",
+  "art_movement": "Surrealism",
+  "portrait_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yayoi_Kusama_wax_model_at_Louis_Vitton.jpg/1280px-Yayoi_Kusama_wax_model_at_Louis_Vitton.jpg",
+  "timeline": [
+    {
+      "year": 1929,
+      "event": "Born on March 22 in Matsumoto, Japan"
+    },
+    {
+      "year": 1948,
+      "event": "Trained in nihonga at Kyoto City University of Arts"
+    },
+    {
+      "year": 1958,
+      "event": "Moved to New York City to join the avant-garde scene"
+    },
+    {
+      "year": 1960,
+      "event": "Became prominent in pop-art movement with polka dot happenings"
+    },
+    {
+      "year": 1970,
+      "event": "Experienced period of overlooked work during the 1970s"
+    },
+    {
+      "year": 1970,
+      "event": "Began residing in mental health facility; art became therapy"
+    },
+    {
+      "year": 1980,
+      "event": "Revival of interest in her art brought her back into public view"
+    }
+  ],
+  "quote": "I have obliterated my name and my past, and tried to sink into the infinity of love and prayers.",
+  "artist_name": "Yayoi Kusama"
+}
