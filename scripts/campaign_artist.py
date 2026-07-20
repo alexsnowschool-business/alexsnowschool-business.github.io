@@ -89,6 +89,23 @@ def get_rotation(db_path: Path = DB_PATH) -> list[str]:
     return rotation
 
 
+def _unposted_above_estimate_count(cur: sqlite3.Cursor, name: str) -> int:
+    """Count above-estimate lots for this artist that have not yet been posted."""
+    cur.execute(
+        """
+        SELECT COUNT(*) FROM art_items
+        WHERE hammer_usd > estimate_high
+          AND estimate_high > 0
+          AND artist IS NOT NULL
+          AND UPPER(artist) LIKE '%' || UPPER(?) || '%'
+          AND id NOT IN (SELECT lot_id FROM posted_reels)
+        """,
+        (name,),
+    )
+    row = cur.fetchone()
+    return row[0] if row else 0
+
+
 def next_artist(db_path: Path = DB_PATH) -> str:
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
@@ -103,8 +120,23 @@ def next_artist(db_path: Path = DB_PATH) -> str:
         """,
     )
     all_posts = cur.fetchall()
-    conn.close()
 
+    # --- Sticky campaign: keep the current artist until all their lots are posted ---
+    # Find the most recently posted artist that maps to a rotation entry.
+    current_campaign: str | None = None
+    for db_artist, _ in all_posts:
+        for name in rotation:
+            if _matches(name, db_artist):
+                current_campaign = name
+                break
+        if current_campaign:
+            break
+
+    if current_campaign and _unposted_above_estimate_count(cur, current_campaign) > 0:
+        conn.close()
+        return current_campaign
+
+    # Current artist exhausted (or no history) — pick the next one via rotation.
     recent_artists = [r[0] for r in all_posts]
 
     # Collect the last RECENCY_WINDOW *distinct* posted artists (not rows).
@@ -129,9 +161,16 @@ def next_artist(db_path: Path = DB_PATH) -> str:
             if _matches(name, db_artist) and last_posted[name] is None:
                 last_posted[name] = posted_at
 
-    candidates = [a for a in rotation if a not in blocked]
+    # Only consider artists who still have unposted above-estimate lots.
+    candidates = [
+        a for a in rotation
+        if a not in blocked and _unposted_above_estimate_count(cur, a) > 0
+    ]
     if not candidates:
-        candidates = rotation  # history too short to fill the window — ignore block
+        # Fall back: ignore block and lot-exhaustion filter so we always return someone.
+        candidates = [a for a in rotation if a not in blocked] or rotation
+
+    conn.close()
 
     # Pick whoever was posted longest ago; tiebreak by rotation rank so the
     # highest-scored never-posted artist surfaces before lower-ranked ones.
