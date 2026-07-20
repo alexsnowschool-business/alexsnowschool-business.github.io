@@ -5,8 +5,8 @@ name: Beat the Estimate — The Hammer Price
 # twice-weekly art scrape (scrape-art.yml, Mon+Thu 02:00 UTC) has landed,
 # so "recent" lots (by scraped_at) reflect the latest data.
 on:
-  schedule:
-    - cron: '0 6 * * *'     # 06:00 UTC daily
+  # schedule:
+  #   - cron: '0 6 * * *'   # 06:00 UTC daily — paused
   workflow_dispatch:
     inputs:
       top_n:
