@@ -61,12 +61,13 @@ def _get_entity_url(artist_name: str) -> str | None:
     last_name = _strip_accents(artist_name.split()[-1]).lower()
     matches = re.findall(r'"/entity/([^"]+)"', resp.text)
 
+    # Check full slug_id (e.g. "tracey-emin/m0abc") not just the first segment.
     for slug_id in matches:
-        slug = slug_id.split("/")[0]
-        if last_name in _strip_accents(slug).lower():
+        if last_name in _strip_accents(slug_id).lower():
             return f"{GAC_BASE}/entity/{slug_id}"
 
-    return f"{GAC_BASE}/entity/{matches[0]}" if matches else None
+    # No match found — don't blindly return the first result.
+    return None
 
 
 _WIKI_HEADERS = {"User-Agent": "artist-profile-bot/1.0 (educational research)"}
