@@ -24,6 +24,8 @@ from dotenv import load_dotenv
 
 SCRIPT_DIR   = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
+
+from hashtag_selector import select_hashtags
 BUSINESS_DIR = SCRIPT_DIR.parent
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
@@ -175,8 +177,6 @@ def main() -> None:
     TOKEN      = os.getenv(cfg.get("buffer_token_env",        "PROVENANCE_BUFFER_TOKEN"))
     IG_CHANNEL = os.getenv(cfg.get("buffer_instagram_id_env", "PROVENANCE_BUFFER_INSTAGRAM_ID"))
     TT_CHANNEL = os.getenv(cfg.get("buffer_tiktok_id_env",   "PROVENANCE_BUFFER_TIKTOK_ID"))
-    ig_hashtags = cfg.get("hashtags_instagram", "")
-    tt_hashtags = cfg.get("hashtags_tiktok", "")
 
     cards_dir = BUSINESS_DIR / args.cards_dir
     meta_path = cards_dir / "meta.json"
@@ -203,6 +203,10 @@ def main() -> None:
         print(f"✗ No quotes in meta.json")
         sys.exit(1)
 
+    topic = quotes[0].get("author") or None
+    print(f"\n▸ Selecting hashtags" + (f" for '{topic}'" if topic else "") + "...")
+    tags = select_hashtags("quote", topic=topic)
+
     print("═" * 60)
     print("  BUFFER POSTER — Quote Cards (carousel)")
     print(f"  Folder: {cards_dir.name}")
@@ -210,8 +214,8 @@ def main() -> None:
     print(f"  Mode:   {'DRY RUN' if args.dry_run else 'LIVE'}")
     print("═" * 60)
 
-    ig_caption = _build_caption(quotes, ig_hashtags)
-    tt_caption = _build_caption(quotes, tt_hashtags)
+    ig_caption = _build_caption(quotes, tags["instagram"])
+    tt_caption = _build_caption(quotes, tags["tiktok"])
 
     print("\n▸ Hosting images on GitHub releases...")
     image_urls = _upload_images_to_github(images, cards_dir.name, args.dry_run)

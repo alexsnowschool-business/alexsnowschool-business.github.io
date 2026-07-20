@@ -33,6 +33,8 @@ from dotenv import load_dotenv
 import sys
 SCRIPT_DIR   = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
+
+from hashtag_selector import select_hashtags
 BUSINESS_DIR = SCRIPT_DIR.parent
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
@@ -232,9 +234,7 @@ def main() -> None:
     TT_CHANNEL = os.getenv(cfg.get("buffer_tiktok_id_env",    "PROVENANCE_BUFFER_TIKTOK_ID"))
     IG_CHANNEL = os.getenv(cfg.get("buffer_instagram_id_env", "PROVENANCE_BUFFER_INSTAGRAM_ID"))
     YT_CHANNEL = os.getenv(cfg.get("buffer_youtube_id_env",   "PROVENANCE_BUFFER_YOUTUBE_ID"))
-    hashtags_tt = cfg.get("hashtags_tiktok",    "")
-    hashtags_ig = cfg.get("hashtags_instagram", "")
-    hashtags_yt = cfg.get("hashtags_youtube",   "")
+    hashtags_yt = cfg.get("hashtags_youtube", "")
 
     reel_dir  = BUSINESS_DIR / args.reel_dir
     reel_slug = reel_dir.name
@@ -273,7 +273,9 @@ def main() -> None:
         author     = ""
         book       = ""
 
-    captions  = _build_captions(quote_text, author, book, hashtags_tt, hashtags_ig, hashtags_yt)
+    print(f"\n▸ Selecting hashtags" + (f" for '{author}'" if author else "") + "...")
+    tags = select_hashtags("quote", topic=author or None)
+    captions  = _build_captions(quote_text, author, book, tags["tiktok"], tags["instagram"], hashtags_yt)
     yt_title  = _youtube_title(quote_text, author)
 
     print("═" * 62)

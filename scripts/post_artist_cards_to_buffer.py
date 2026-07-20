@@ -25,6 +25,8 @@ from pathlib import Path
 import httpx
 from dotenv import load_dotenv
 
+from hashtag_selector import select_hashtags
+
 SCRIPT_DIR   = Path(__file__).resolve().parent
 BUSINESS_DIR = SCRIPT_DIR.parent
 
@@ -36,9 +38,6 @@ GITHUB_REPO    = "alexsnowschool-business/alexsnowschool-business.github.io"
 TOKEN      = os.getenv("BUFFER_TOKEN")
 IG_CHANNEL = os.getenv("BUFFER_INSTAGRAM_ID")
 TT_CHANNEL = os.getenv("BUFFER_TIKTOK_ID")
-
-_HASHTAGS_IG = "#arthistory  #artlovers #thehammerprice"
-_HASHTAGS_TT = "#arthistory #artlovers #fineart #artoftheday #thehammerprice"
 
 _CREATE_POST = """
 mutation CreatePost($input: CreatePostInput!) {
@@ -192,9 +191,11 @@ def main() -> None:
         print(f"✗ No PNG cards found in {cards_dir}")
         sys.exit(1)
 
-    caption_ig = _build_caption(meta, _HASHTAGS_IG)
-    caption_tt = _build_caption(meta, _HASHTAGS_TT)
     artist     = meta.get("profile", {}).get("full_name") or meta.get("artist_name", cards_dir.name)
+    print(f"\n▸ Selecting hashtags for '{artist}'...")
+    tags       = select_hashtags("artist", topic=artist)
+    caption_ig = _build_caption(meta, tags["instagram"])
+    caption_tt = _build_caption(meta, tags["tiktok"])
 
     print("═" * 60)
     print("  BUFFER POSTER — Artist Story Cards")
