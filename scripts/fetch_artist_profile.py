@@ -54,17 +54,20 @@ def _cache_path(artist_name: str) -> Path:
 
 def _get_entity_url(artist_name: str) -> str | None:
     """Search GAC and return the best matching /entity/ URL."""
-    query = _strip_accents(artist_name).replace(" ", "+")
-    resp = requests.get(f"{GAC_BASE}/search?q={query}", headers=HEADERS, timeout=15)
-    resp.raise_for_status()
-
     last_name = _strip_accents(artist_name.split()[-1]).lower()
-    matches = re.findall(r'"/entity/([^"]+)"', resp.text)
 
-    # Check full slug_id (e.g. "tracey-emin/m0abc") not just the first segment.
-    for slug_id in matches:
-        if last_name in _strip_accents(slug_id).lower():
-            return f"{GAC_BASE}/entity/{slug_id}"
+    for query_str in [artist_name, f"{artist_name} artist"]:
+        query = _strip_accents(query_str).replace(" ", "+")
+        resp = requests.get(f"{GAC_BASE}/search?q={query}", headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+
+        matches = re.findall(r'"/entity/([^"]+)"', resp.text)
+        # Check full slug_id (e.g. "tracey-emin/m0abc") not just the first segment.
+        for slug_id in matches:
+            if last_name in _strip_accents(slug_id).lower():
+                return f"{GAC_BASE}/entity/{slug_id}"
+
+        time.sleep(0.5)
 
     # No match found — don't blindly return the first result.
     return None
@@ -330,8 +333,23 @@ def fetch_profile(artist_name: str, force: bool = False) -> dict:
     print(f"[search] {artist_name!r}")
     entity_url = _get_entity_url(artist_name)
     if not entity_url:
-        print(f"[warn] No GAC entity found for {artist_name!r}")
-        return {}
+        print(f"[warn] No GAC entity found for {artist_name!r} — building Wikipedia stub")
+        stub: dict = {
+            "artist_name": artist_name,
+            "full_name": "",
+            "bio": "",
+            "portrait_url": _wikipedia_portrait(artist_name),
+            "timeline": _wikipedia_timeline(artist_name),
+            "quote": _llm_quote(artist_name),
+            "famous_artworks": [],
+            "nationality": "",
+            "art_movement": "",
+            "birth_date": "",
+            "death_date": "",
+        }
+        cache.write_text(json.dumps(stub, indent=2, ensure_ascii=False))
+        print(f"[saved]  {cache.name}")
+        return stub
 
     print(f"[fetch]  {entity_url}")
     time.sleep(1)
