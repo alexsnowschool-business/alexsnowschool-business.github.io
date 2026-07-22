@@ -51,7 +51,8 @@ def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
                      THEN (hammer_usd - estimate_low) / estimate_low * 100 END) AS avg_pct,
             MAX(hammer_usd) AS max_hammer
         FROM art_items
-        WHERE hammer_usd > 0 AND artist IS NOT NULL
+        WHERE sale_performance = 'above'
+          AND artist IS NOT NULL
         GROUP BY artist
         HAVING lot_count >= ?
         """,
@@ -103,12 +104,11 @@ def get_rotation(db_path: Path = DB_PATH) -> list[str]:
 
 
 def _unposted_above_estimate_count(cur: sqlite3.Cursor, name: str) -> int:
-    """Count above-estimate lots for this artist that have not yet been posted."""
+    """Count unposted lots for this artist where hammer beat the high estimate."""
     cur.execute(
         """
         SELECT COUNT(*) FROM art_items
-        WHERE hammer_usd > estimate_high
-          AND estimate_high > 0
+        WHERE sale_performance = 'above'
           AND artist IS NOT NULL
           AND UPPER(artist) LIKE '%' || UPPER(?) || '%'
           AND id NOT IN (SELECT lot_id FROM posted_reels)
