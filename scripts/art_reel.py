@@ -569,7 +569,8 @@ def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
 def _query_lots(conn: sqlite3.Connection, limit: int = 8,
                 exclude_ids: set | None = None,
                 artist: str | None = None, title: str | None = None,
-                week_start: str | None = None, week_end: str | None = None) -> list[dict]:
+                week_start: str | None = None, week_end: str | None = None,
+                order_by: str = "pct_above DESC") -> list[dict]:
     """Top outperforming lots. Restricts to week range when week_start/week_end are given."""
     exclude = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
@@ -589,7 +590,7 @@ def _query_lots(conn: sqlite3.Connection, limit: int = 8,
           {date_sql}
           {flt_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
-        ORDER BY pct_above DESC
+        ORDER BY {order_by}
         LIMIT ?
     """, (*date_params, *flt_params, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
@@ -597,16 +598,18 @@ def _query_lots(conn: sqlite3.Connection, limit: int = 8,
 
 def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
                     limit: int = 8, exclude_ids: set | None = None,
-                    artist: str | None = None, title: str | None = None) -> list[dict]:
+                    artist: str | None = None, title: str | None = None,
+                    order_by: str = "pct_above DESC") -> list[dict]:
     """Top outperforming lots scraped in the given week, excluding already-posted ones."""
-    return _query_lots(conn, limit, exclude_ids, artist, title, week_start, week_end)
+    return _query_lots(conn, limit, exclude_ids, artist, title, week_start, week_end, order_by)
 
 
 def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
                        exclude_ids: set | None = None,
-                       artist: str | None = None, title: str | None = None) -> list[dict]:
+                       artist: str | None = None, title: str | None = None,
+                       order_by: str = "pct_above DESC") -> list[dict]:
     """All-time top outperforming lots, excluding already-posted ones."""
-    return _query_lots(conn, limit, exclude_ids, artist, title)
+    return _query_lots(conn, limit, exclude_ids, artist, title, order_by=order_by)
 
 
 def _query_random_week_lot(conn: sqlite3.Connection,
@@ -1197,9 +1200,14 @@ def main() -> None:
         print(f"\n  ℹ Skipping {len(skip)} already-posted lot(s).")
 
     _candidate_n = max(args.top_n * 6, 50)
+    # Campaign mode (artist filter set): rank by hammer price so the highest-value
+    # lot posts first. General discovery mode: rank by % above estimate for shock factor.
+    _order_by = "hammer_usd DESC" if args.artist else "pct_above DESC"
+
     if args.all_time:
         lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
-                                        artist=args.artist, title=args.title)
+                                        artist=args.artist, title=args.title,
+                                        order_by=_order_by)
         if not lots and args.artist:
             # Walk forward through the campaign rotation to find next artist with unposted lots
             rotation = list(dict.fromkeys(_ca.get_rotation(DB_PATH)))
@@ -1216,13 +1224,15 @@ def main() -> None:
                     print(f"  ↷ Skipping {candidate} — {posted_count} reels already posted")
                     continue
                 if _query_alltime_top(conn, limit=1, exclude_ids=skip,
-                                      artist=candidate, title=args.title):
+                                      artist=candidate, title=args.title,
+                                      order_by=_order_by):
                     fallback_artist = candidate
                     break
             if fallback_artist:
                 print(f"\n  ⚠ All {args.artist} lots already posted — trying next candidate: {fallback_artist}")
                 lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
-                                          artist=fallback_artist, title=args.title)
+                                          artist=fallback_artist, title=args.title,
+                                          order_by=_order_by)
             else:
                 print(f"\n  ⚠ All {args.artist} lots already posted — no rotation candidates found, falling back to unfiltered.")
                 lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
@@ -1232,7 +1242,8 @@ def main() -> None:
     else:
         lots = _query_top_lots(conn, week_start, week_end,
                                limit=_candidate_n, exclude_ids=skip,
-                               artist=args.artist, title=args.title)
+                               artist=args.artist, title=args.title,
+                               order_by=_order_by)
         if not lots:
             print(f"\n  No new data for week {week_label} — trying random unposted week...")
             rand = _query_random_week_lot(conn, exclude_ids=skip,
@@ -1242,14 +1253,16 @@ def main() -> None:
                 wb_start, wb_end = _week_bounds(date.fromisoformat(w))
                 lots       = _query_top_lots(conn, wb_start, wb_end,
                                              limit=_candidate_n, exclude_ids=skip,
-                                             artist=args.artist, title=args.title)
+                                             artist=args.artist, title=args.title,
+                                             order_by=_order_by)
                 _slug_date = wb_start
                 _slug_mode = "random"
                 print(f"  Using random week: {wb_start}")
             if not lots:
                 print("  Falling back to all-time top unposted lots.")
                 lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
-                                                artist=args.artist, title=args.title)
+                                                artist=args.artist, title=args.title,
+                                                order_by=_order_by)
                 _slug_mode = "fallback"
 
     notable_artists = _build_notable_artists_set(conn)
