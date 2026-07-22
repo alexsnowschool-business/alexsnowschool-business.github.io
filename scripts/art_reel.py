@@ -1154,7 +1154,6 @@ def main() -> None:
     parser.add_argument("--run",          action="store_true", help="Run make_reel.py after generation")
     parser.add_argument("--voice",        action="store_true", help="Generate TTS narration via ElevenLabs")
     parser.add_argument("--top-n",        type=int, default=8,    help="Max lots to query (default: 8)")
-    parser.add_argument("--lot-index",    type=int, default=0,    help="Which lot to use (0 = top)")
     parser.add_argument("--crop-method",  choices=("grid", "sliding"), default="grid")
     parser.add_argument("--crop-size",    type=int, default=565,  help="Square crop/tile size in pixels")
     parser.add_argument("--crop-stride",  type=int, default=None, help="Stride for sliding-window crops")
@@ -1296,22 +1295,16 @@ def main() -> None:
     if not lots:
         print("✗ No suitable lots found in database.")
         sys.exit(1)
-    if args.lot_index >= len(lots):
-        clamped = len(lots) - 1
-        print(f"  ⚠ --lot-index {args.lot_index} out of range ({len(lots)} lots found) — using index {clamped}")
-        args.lot_index = clamped
 
-    hook   = lots[args.lot_index]
+    hook   = lots[0]
     artist = _clean_artist(hook.get("artist") or "Unknown")
 
-    # Build descriptive slug: {date}_{artist-slug}_{title-slug}[_{mode}][_lot{n}]
+    # Build descriptive slug: {date}_{artist-slug}_{title-slug}[_{mode}]
     _artist_slug = _make_slug(artist)
     _title_slug  = _make_slug(hook.get("title") or "untitled", max_len=20)
     _parts       = [_slug_date, _artist_slug, _title_slug]
     if _slug_mode:
         _parts.append(_slug_mode)
-    if args.lot_index > 0:
-        _parts.append(f"lot{args.lot_index + 1}")
     reel_slug = "_".join(_parts)
     print(f"\n▸ Hook lot: {artist} — {hook.get('title', 'Untitled')[:50]}")
     print(f"  Estimate: {_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}")
