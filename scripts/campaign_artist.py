@@ -31,6 +31,11 @@ def _canonical(artist: str) -> str:
     return parts[-1].title() if parts else artist.title()
 
 
+def _clean_name(artist: str) -> str:
+    """Strip birth-year suffix and title-case: 'TRACEY EMIN (B. 1963)' → 'Tracey Emin'."""
+    return re.sub(r"\s*\([^)]+\)\s*$", "", artist).strip().title()
+
+
 def _matches(rotation_name: str, db_artist: str) -> bool:
     return rotation_name.upper() in db_artist.upper()
 
@@ -53,14 +58,16 @@ def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
         (MIN_LOTS,),
     )
 
-    # Deduplicate: 'MARC CHAGALL' and 'Marc Chagall' collapse to 'Chagall'.
+    # Deduplicate: 'MARC CHAGALL' and 'Marc Chagall' collapse to 'Chagall' key,
+    # but we track the full clean name so callers get 'Marc Chagall' not 'Chagall'.
     agg: dict[str, dict] = {}
     for artist, lot_count, avg_pct, max_hammer in cur.fetchall():
         key = _canonical(artist)
         if not key:
             continue
         if key not in agg:
-            agg[key] = {"lots": 0, "avg_pct": 0.0, "max_hammer": 0.0}
+            agg[key] = {"lots": 0, "avg_pct": 0.0, "max_hammer": 0.0,
+                        "full_name": _clean_name(artist)}
         agg[key]["lots"] += lot_count
         agg[key]["avg_pct"] = max(agg[key]["avg_pct"], avg_pct or 0.0)
         agg[key]["max_hammer"] = max(agg[key]["max_hammer"], max_hammer or 0.0)
@@ -77,7 +84,13 @@ def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
             + (d["max_hammer"] / max_ham) * 0.2
         )
 
-    return sorted(agg.keys(), key=lambda k: agg[k]["score"], reverse=True)
+    # Return full names (e.g. "Tracey Emin") sorted by score so LIKE filters
+    # are unambiguous — returning just "Emin" would also match "Pincemin".
+    return sorted(
+        (d["full_name"] for d in agg.values()),
+        key=lambda name: agg[_canonical(name)]["score"],
+        reverse=True,
+    )
 
 
 def get_rotation(db_path: Path = DB_PATH) -> list[str]:
