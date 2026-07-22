@@ -1,0 +1,95 @@
+{
+  "gac_url": "https://artsandculture.google.com/entity/henri-matisse/m0gct_",
+  "full_name": "Henri Matisse",
+  "bio": "Henri Émile Benoît Matisse was a French artist, known for both his use of colour and his fluid and original draughtsmanship. He was a draughtsman, printmaker, and sculptor, but is known primarily as a painter. Matisse is commonly regarded, along with Pablo Picasso, as one of the artists who best helped to define the revolutionary developments in the visual arts throughout the opening decades of the twentieth century, responsible for significant developments in painting and sculpture. The intense colorism of the works he painted between 1900 and 1905 brought him notoriety as one of the Fauves. Many of his finest works were created in the decade or so after 1906, when he developed a rigorous style that emphasized flattened forms and decorative pattern. In 1917, he relocated to a suburb of Nice on the French Riviera, and the more relaxed style of his work during the 1920s gained him critical acclaim as an upholder of the classical tradition in French painting. After 1930, he adopted a bolder simplification of form. When ill health in his final years prevented him from painting, he created an important body of work in the medium of cut paper collage.",
+  "image_url": "https://lh3.googleusercontent.com/ci/AL18g_TnwoldxxorjlD0NHwc7dcThbWqL0f3cf4eh4m0gKmTIXI0Zr3SmWgv6ltDKDXsMTs-CqDztw=s1200",
+  "birth_date": "Dec 31, 1869",
+  "death_date": "Nov 3, 1954",
+  "famous_artworks": [
+    {
+      "title": "Woman with a Hat (1905)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwM7iw0-RO0On0_2pdhDUzcAYnKeZXcDAG_ng6BsUHPtxsVb0X",
+      "ext_url": "http://www.wikidata.org/wiki/Q1437492"
+    },
+    {
+      "title": "Le bonheur de vivre (1906)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRJp2GP9KJUy6R-xSlD__X9HIn_RAoGuN2BWNQSufhI3vHxj9d0",
+      "ext_url": "https://www.amazon.de/-/en/Matisse-Bonheur-Painted-Unframed-30x45cm/dp/B0CQTD61GY"
+    },
+    {
+      "title": "The Open Window (1905)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSuwi45WI1nTY5TdpXDIDBzKHtRoYvbaQ_LD81f7nwllwfPRT86",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Open_Window_(Matisse)"
+    },
+    {
+      "title": "The Dessert: Harmony in Red (The Red Room) (1908)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRL_qKLrrJ72VsS4iA72qfKixgcT1NA-Ax3NXx5a6rJYsMXjof4",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Dessert:_Harmony_in_Red_(The_Red_Room)"
+    },
+    {
+      "title": "Blue Nude (1907)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT3wiF2gTpSkvQolJ-h61ZAnjmvNuj9BAr5pMFqzxKpWB4r8TcI",
+      "ext_url": "http://www.wikiart.org/en/henri-matisse/the-blue-nude-souvenir-of-biskra-1907"
+    },
+    {
+      "title": "The Red Studio (1911)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRZHXX_pcsNqlFIpvS-DvjCxETrjm-oE875Umi1u6KtLCk39yHb",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Red_Studio"
+    },
+    {
+      "title": "Blue Nudes (1952)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaz-oO-QQbXk5wOQTg50oPzyirxPBLagjjmiieetW7VDP53Hkn",
+      "ext_url": "https://artchive.ru/henrimatisse/works/217510~Sinie_obnazhennye"
+    },
+    {
+      "title": "The Sorrows of the King (1952)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS-CqxvfKpoEeaBimihiX87wNl6TDhIYd4wn87DBg7K18aCJLNI",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Sorrows_of_the_King"
+    },
+    {
+      "title": "The Boat (1953)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzy48wH-n8RhLA1zlrWCa0T3rExRBc4vcck4-53cUhJQVx0aH_",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Boat_(Matisse)"
+    },
+    {
+      "title": "Luxe, Calme et Volupté (1904)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR7Yc4h17t4vTgyFZq8WNHoAFHvZJBCSlW76627sj64nKihiJoI",
+      "ext_url": "https://en.wikipedia.org/wiki/Luxe,_Calme_et_Volupt%C3%A9"
+    }
+  ],
+  "nationality": "French",
+  "art_movement": "",
+  "portrait_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Henri_Matisse%2C_1913%2C_photograph_by_Alvin_Langdon_Coburn.jpg",
+  "timeline": [
+    {
+      "year": 1869,
+      "event": "Henri Matisse born on December 31 in France"
+    },
+    {
+      "year": 1900,
+      "event": "Begins intense colorist period that defines Fauvism movement"
+    },
+    {
+      "year": 1906,
+      "event": "Develops rigorous style emphasizing flattened forms and pattern"
+    },
+    {
+      "year": 1917,
+      "event": "Relocates to suburb of Nice on the French Riviera"
+    },
+    {
+      "year": 1920,
+      "event": "Gains critical acclaim for relaxed style upholding classical tradition"
+    },
+    {
+      "year": 1930,
+      "event": "Adopts bolder simplification of form in artistic practice"
+    },
+    {
+      "year": 1954,
+      "event": "Dies on November 3 after creating cut paper collage works"
+    }
+  ],
+  "quote": "Creativity takes courage.",
+  "artist_name": "Henri Matisse"
+}
