@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3172,
-    "total_artists": 1221,
-    "median_hammer_usd": 107950,
-    "pct_above_estimate": 47.9,
+    "total_lots": 3222,
+    "total_artists": 1258,
+    "median_hammer_usd": 104838,
+    "pct_above_estimate": 47.5,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-20"
+    "generated_at": "2026-07-23"
   },
   "artists": [
     {
@@ -18248,6 +18248,33 @@
       }
     },
     {
+      "norm_name": "IVAN KONSTANTINOVICH AIVAZOVSKY",
+      "display_name": "Ivan Konstantinovich Aivazovsky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 2227100,
+        "avg_usd": 556775,
+        "total_label": "$2.23M",
+        "avg_label": "$557k",
+        "top_lot": {
+          "title": "Venice, San Giorgio Maggiore",
+          "hammer_usd": 1300000,
+          "sale_name": "Old Master 19th Century Paintings Evening Auction"
+        },
+        "top_ratio_lot": {
+          "title": "Horse and cart in a cornfield",
+          "ratio": 2.96
+        }
+      }
+    },
+    {
       "norm_name": "ALESSANDRO DI MARIANO FILIPEPI, CALLED SANDRO BOTTICELLI, AND ASSOCIATE",
       "display_name": "Alessandro Di Mariano Filipepi, Called Sandro Botticelli, And Associate",
       "dates": "",
@@ -19783,33 +19810,6 @@
         "top_ratio_lot": {
           "title": "Natura morta",
           "ratio": 0.95
-        }
-      }
-    },
-    {
-      "norm_name": "IVAN KONSTANTINOVICH AIVAZOVSKY",
-      "display_name": "Ivan Konstantinovich Aivazovsky",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 927100,
-        "avg_usd": 309033,
-        "total_label": "$927k",
-        "avg_label": "$309k",
-        "top_lot": {
-          "title": "View of Venice at sunset",
-          "hammer_usd": 508000,
-          "sale_name": "19Th 20Th Century European Art Auction L26230"
-        },
-        "top_ratio_lot": {
-          "title": "Horse and cart in a cornfield",
-          "ratio": 2.96
         }
       }
     },
@@ -22352,6 +22352,33 @@
       }
     },
     {
+      "norm_name": "PETR PETROVICH VERESHCHAGIN",
+      "display_name": "Petr Petrovich Vereshchagin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 380000,
+        "avg_usd": 380000,
+        "total_label": "$380k",
+        "avg_label": "$380k",
+        "top_lot": {
+          "title": "A panoramic view of Saint Petersburg",
+          "hammer_usd": 380000,
+          "sale_name": "Old Master 19th Century Paintings Evening Auction"
+        },
+        "top_ratio_lot": {
+          "title": "A panoramic view of Saint Petersburg",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
       "norm_name": "WU GUANZHONG",
       "display_name": "Wu Guanzhong",
       "dates": "",
@@ -23999,6 +24026,33 @@
       }
     },
     {
+      "norm_name": "HENRY NELSON O'NEIL, A.R.A.",
+      "display_name": "Henry Nelson O'Neil, A.R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 260000,
+        "avg_usd": 260000,
+        "total_label": "$260k",
+        "avg_label": "$260k",
+        "top_lot": {
+          "title": "The Standard-Bearer: A Portrait of Rajaram Roy (1817–c. 1850",
+          "hammer_usd": 260000,
+          "sale_name": "Old Master 19th Century Paintings Evening Auction"
+        },
+        "top_ratio_lot": {
+          "title": "The Standard-Bearer: A Portrait of Rajaram Roy (1817–c. 1850",
+          "ratio": 1.04
+        }
+      }
+    },
+    {
       "norm_name": "LORNA SIMPSON",
       "display_name": "Lorna Simpson",
       "dates": "",
@@ -24912,6 +24966,33 @@
         },
         "top_ratio_lot": {
           "title": "The Adoration of the Magi",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "FRIEDRICH NERLY",
+      "display_name": "Friedrich Nerly",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 220000,
+        "avg_usd": 220000,
+        "total_label": "$220k",
+        "avg_label": "$220k",
+        "top_lot": {
+          "title": "Venice, The Riva degli Schiavoni, with the Doge's Palace, th",
+          "hammer_usd": 220000,
+          "sale_name": "Old Master 19th Century Paintings Evening Auction"
+        },
+        "top_ratio_lot": {
+          "title": "Venice, The Riva degli Schiavoni, with the Doge's Palace, th",
           "ratio": 0.88
         }
       }
@@ -28936,6 +29017,33 @@
       }
     },
     {
+      "norm_name": "JOHN CONSTABLE, R.A.",
+      "display_name": "John Constable, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 100000,
+        "avg_usd": 100000,
+        "total_label": "$100k",
+        "avg_label": "$100k",
+        "top_lot": {
+          "title": "View of the West End of East Bergholt Church",
+          "hammer_usd": 100000,
+          "sale_name": "Old Master 19th Century Paintings Evening Auction"
+        },
+        "top_ratio_lot": {
+          "title": "View of the West End of East Bergholt Church",
+          "ratio": 1.11
+        }
+      }
+    },
+    {
       "norm_name": "REBECCA WARREN",
       "display_name": "Rebecca Warren",
       "dates": "",
@@ -32689,6 +32797,60 @@
       }
     },
     {
+      "norm_name": "GERMAN, PROBABLY LOWER RHINE, CIRCA 1500",
+      "display_name": "German, Probably Lower Rhine, Circa 1500",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 48260,
+        "avg_usd": 48260,
+        "total_label": "$48k",
+        "avg_label": "$48k",
+        "top_lot": {
+          "title": "Relief with the Veil of Veronica held by Angels",
+          "hammer_usd": 48260,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Relief with the Veil of Veronica held by Angels",
+          "ratio": 1.14
+        }
+      }
+    },
+    {
+      "norm_name": "ANNE SEYMOUR DAMER",
+      "display_name": "Anne Seymour Damer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 48260,
+        "avg_usd": 48260,
+        "total_label": "$48k",
+        "avg_label": "$48k",
+        "top_lot": {
+          "title": "Tamesis",
+          "hammer_usd": 48260,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Tamesis",
+          "ratio": 1.21
+        }
+      }
+    },
+    {
       "norm_name": "SOPHIA LOEB",
       "display_name": "Sophia Loeb",
       "dates": "",
@@ -33009,6 +33171,33 @@
         "top_ratio_lot": {
           "title": "Idle moments",
           "ratio": 7.41
+        }
+      }
+    },
+    {
+      "norm_name": "ENGLISH, PROBABLY NOTTINGHAM, 15TH CENTURY",
+      "display_name": "English, Probably Nottingham, 15Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 44323,
+        "avg_usd": 14774,
+        "total_label": "$44k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "The Adoration of the Magi",
+          "hammer_usd": 22860,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "The Resurrection",
+          "ratio": 2.03
         }
       }
     },
@@ -34660,6 +34849,33 @@
       }
     },
     {
+      "norm_name": "ITALIAN, FLORENCE, PROBABLY 16TH CENTURY",
+      "display_name": "Italian, Florence, Probably 16Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 30480,
+        "avg_usd": 15240,
+        "total_label": "$30k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Roundel with Athena",
+          "hammer_usd": 17780,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Relief with the Virgin and Child",
+          "ratio": 2.12
+        }
+      }
+    },
+    {
       "norm_name": "JÓZSEF RIPPL-RÓNAI",
       "display_name": "József Rippl-Rónai",
       "dates": "",
@@ -35146,6 +35362,33 @@
       }
     },
     {
+      "norm_name": "ATTRIBUTED TO FRANCESCO DURANTINO",
+      "display_name": "Attributed To Francesco Durantino",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 27940,
+        "avg_usd": 27940,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Istoriato dish",
+          "hammer_usd": 27940,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Istoriato dish",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
       "norm_name": "ELIE NADELMAN",
       "display_name": "Elie Nadelman",
       "dates": "",
@@ -35605,6 +35848,33 @@
       }
     },
     {
+      "norm_name": "WORKSHOP OF WILLEM VAN DEN BROECKE, CALLED PALUDANUS",
+      "display_name": "Workshop Of Willem Van Den Broecke, Called Paludanus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 25400,
+        "avg_usd": 25400,
+        "total_label": "$25k",
+        "avg_label": "$25k",
+        "top_lot": {
+          "title": "The Resurrection",
+          "hammer_usd": 25400,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "The Resurrection",
+          "ratio": 1.02
+        }
+      }
+    },
+    {
       "norm_name": "ANDRÉ BRETON",
       "display_name": "André Breton",
       "dates": "",
@@ -35902,6 +36172,60 @@
       }
     },
     {
+      "norm_name": "PROBABLY ITALIAN 13TH CENTURY",
+      "display_name": "Probably Italian 13Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 24130,
+        "avg_usd": 24130,
+        "total_label": "$24k",
+        "avg_label": "$24k",
+        "top_lot": {
+          "title": "Recumbent Lion",
+          "hammer_usd": 24130,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Recumbent Lion",
+          "ratio": 1.38
+        }
+      }
+    },
+    {
+      "norm_name": "ATTRIBUTED TO MASSIMILIANO SOLDANI BENZI",
+      "display_name": "Attributed To Massimiliano Soldani Benzi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 24130,
+        "avg_usd": 24130,
+        "total_label": "$24k",
+        "avg_label": "$24k",
+        "top_lot": {
+          "title": "Venus de' Medici",
+          "hammer_usd": 24130,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Venus de' Medici",
+          "ratio": 0.97
+        }
+      }
+    },
+    {
       "norm_name": "PAMELA PHATSIMO SUNSTRUM",
       "display_name": "Pamela Phatsimo Sunstrum",
       "dates": "",
@@ -36006,6 +36330,33 @@
         "top_ratio_lot": {
           "title": "Landscape with a figure fishing on a bank, with two figures ",
           "ratio": 1.83
+        }
+      }
+    },
+    {
+      "norm_name": "GERMAN, ERFURT, LAST QUARTER 15TH CENTURY",
+      "display_name": "German, Erfurt, Last Quarter 15Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 22860,
+        "avg_usd": 22860,
+        "total_label": "$23k",
+        "avg_label": "$23k",
+        "top_lot": {
+          "title": "Relief with the Lamentation",
+          "hammer_usd": 22860,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Relief with the Lamentation",
+          "ratio": 2.69
         }
       }
     },
@@ -36523,6 +36874,60 @@
       }
     },
     {
+      "norm_name": "ITALIAN, POSSIBLY 16TH/ 17TH CENTURY",
+      "display_name": "Italian, Possibly 16Th/ 17Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 19050,
+        "avg_usd": 19050,
+        "total_label": "$19k",
+        "avg_label": "$19k",
+        "top_lot": {
+          "title": "Basin",
+          "hammer_usd": 19050,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Basin",
+          "ratio": 4.76
+        }
+      }
+    },
+    {
+      "norm_name": "ITALIAN, FLORENCE, SECOND THIRD 16TH CENTURY",
+      "display_name": "Italian, Florence, Second Third 16Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 19050,
+        "avg_usd": 19050,
+        "total_label": "$19k",
+        "avg_label": "$19k",
+        "top_lot": {
+          "title": "Seated Bearded Man",
+          "hammer_usd": 19050,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Seated Bearded Man",
+          "ratio": 2.72
+        }
+      }
+    },
+    {
       "norm_name": "FAUSTO MELOTTI",
       "display_name": "Fausto Melotti",
       "dates": "",
@@ -36708,6 +37113,33 @@
         "top_ratio_lot": {
           "title": "Maternindad",
           "ratio": 2.09
+        }
+      }
+    },
+    {
+      "norm_name": "GIUSEPPE MAZZUOLI",
+      "display_name": "Giuseppe Mazzuoli",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17780,
+        "avg_usd": 17780,
+        "total_label": "$18k",
+        "avg_label": "$18k",
+        "top_lot": {
+          "title": "Charity triumphing over Avarice",
+          "hammer_usd": 17780,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Charity triumphing over Avarice",
+          "ratio": 0.89
         }
       }
     },
@@ -36951,6 +37383,33 @@
         "top_ratio_lot": {
           "title": "Malta, a view of the Grand Harbour during a storm",
           "ratio": 1.1
+        }
+      }
+    },
+    {
+      "norm_name": "BARTOLOMEO CAVACEPPI",
+      "display_name": "Bartolomeo Cavaceppi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16510,
+        "avg_usd": 16510,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "Bust of a Boy, called the Young Emperor Nero",
+          "hammer_usd": 16510,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Bust of a Boy, called the Young Emperor Nero",
+          "ratio": 0.94
         }
       }
     },
@@ -37410,6 +37869,33 @@
         "top_ratio_lot": {
           "title": "Portrait of George Siddons, son of the actress, Sarah Siddon",
           "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "PROBABLY ITALIAN, 17TH CENTURY",
+      "display_name": "Probably Italian, 17Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Hercules Running",
+          "hammer_usd": 15240,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Hercules Running",
+          "ratio": 1.22
         }
       }
     },
@@ -37927,6 +38413,60 @@
       }
     },
     {
+      "norm_name": "SOUTHERN NETHERLANDISH, HAINAUT, FIRST HALF OF THE 16TH CENTURY",
+      "display_name": "Southern Netherlandish, Hainaut, First Half Of The 16Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "The Virgin and Saint John",
+          "hammer_usd": 13970,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "The Virgin and Saint John",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "AFTER GIAMBOLOGNA",
+      "display_name": "After Giambologna",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Sleeping Nymph",
+          "hammer_usd": 13970,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Sleeping Nymph",
+          "ratio": 1.4
+        }
+      }
+    },
+    {
       "norm_name": "JUDITH ROTHSCHILD",
       "display_name": "Judith Rothschild",
       "dates": "",
@@ -38305,6 +38845,33 @@
       }
     },
     {
+      "norm_name": "ITALIAN, EARLY 19TH CENTURY",
+      "display_name": "Italian, Early 19Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 11430,
+        "avg_usd": 5715,
+        "total_label": "$11k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Intaglio with Mercury and Chelone",
+          "hammer_usd": 7620,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Intaglio with Mercury and Chelone",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
       "norm_name": "BALTHUS",
       "display_name": "Balthus",
       "dates": "",
@@ -38490,6 +39057,33 @@
         "top_ratio_lot": {
           "title": "The Virgin in Prayer",
           "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "BRITISH, 18TH CENTURY",
+      "display_name": "British, 18Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 10795,
+        "avg_usd": 10795,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Pair of Busts of Laughing and Sulking Children",
+          "hammer_usd": 10795,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of Busts of Laughing and Sulking Children",
+          "ratio": 0.98
         }
       }
     },
@@ -38818,6 +39412,33 @@
       }
     },
     {
+      "norm_name": "FRENCH, LIMOGES, EARLY 13TH CENTURY",
+      "display_name": "French, Limoges, Early 13Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 9525,
+        "avg_usd": 9525,
+        "total_label": "$10k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "Corpus Christi",
+          "hammer_usd": 9525,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Corpus Christi",
+          "ratio": 1.91
+        }
+      }
+    },
+    {
       "norm_name": "RUDOLF SCHLICHTER",
       "display_name": "Rudolf Schlichter",
       "dates": "",
@@ -39111,6 +39732,141 @@
         "top_ratio_lot": {
           "title": "A) The Emperor Julian | B) The contest between Reason and Pa",
           "ratio": 2.06
+        }
+      }
+    },
+    {
+      "norm_name": "NORTHERN ITALIAN, PROBABLY VENICE, 15TH CENTURY",
+      "display_name": "Northern Italian, Probably Venice, 15Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8255,
+        "avg_usd": 8255,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "The Virgin and Child in a Tabernacle",
+          "hammer_usd": 8255,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "The Virgin and Child in a Tabernacle",
+          "ratio": 1.18
+        }
+      }
+    },
+    {
+      "norm_name": "SOUTHERN GERMAN, UPPER RHINE OR FRANCONIA, CIRCA 1500-1510",
+      "display_name": "Southern German, Upper Rhine Or Franconia, Circa 1500-1510",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8255,
+        "avg_usd": 8255,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Relief with the Baptism of Christ",
+          "hammer_usd": 8255,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Relief with the Baptism of Christ",
+          "ratio": 1.1
+        }
+      }
+    },
+    {
+      "norm_name": "ITALIAN, NAPLES, LATE 17TH/ EARLY 18TH CENTURY",
+      "display_name": "Italian, Naples, Late 17Th/ Early 18Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8255,
+        "avg_usd": 8255,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Bust of Stefano Brancaccio (1618–1682)",
+          "hammer_usd": 8255,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Bust of Stefano Brancaccio (1618–1682)",
+          "ratio": 0.83
+        }
+      }
+    },
+    {
+      "norm_name": "CIRCLE OF GABRIEL GRUPELLO",
+      "display_name": "Circle Of Gabriel Grupello",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8255,
+        "avg_usd": 8255,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Bust of Bacchus",
+          "hammer_usd": 8255,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Bust of Bacchus",
+          "ratio": 1.18
+        }
+      }
+    },
+    {
+      "norm_name": "ITALIAN, 19TH CENTURY",
+      "display_name": "Italian, 19Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 8255,
+        "avg_usd": 4128,
+        "total_label": "$8k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Intaglio with Caesar as a god",
+          "hammer_usd": 4445,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Column",
+          "ratio": 2.54
         }
       }
     },
@@ -39439,6 +40195,33 @@
       }
     },
     {
+      "norm_name": "GERMAN, 16TH CENTURY",
+      "display_name": "German, 16Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6985,
+        "avg_usd": 6985,
+        "total_label": "$7k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Tower inkstand",
+          "hammer_usd": 6985,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Tower inkstand",
+          "ratio": 1.16
+        }
+      }
+    },
+    {
       "norm_name": "RENÉ AUGUSTE SEYSSAUD",
       "display_name": "René Auguste Seyssaud",
       "dates": "",
@@ -39655,6 +40438,33 @@
       }
     },
     {
+      "norm_name": "SPANISH, CATALONIA, CIRCA 1530 AND LATER",
+      "display_name": "Spanish, Catalonia, Circa 1530 And Later",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6096,
+        "avg_usd": 6096,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Reliquary",
+          "hammer_usd": 6096,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Reliquary",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
       "norm_name": "RANA BEGUM",
       "display_name": "Rana Begum",
       "dates": "",
@@ -39759,6 +40569,33 @@
         "top_ratio_lot": {
           "title": "Autograph note signed, c. 1950",
           "ratio": 4.57
+        }
+      }
+    },
+    {
+      "norm_name": "WORKSHOP OF NICOLÒ ROCCATAGLIATA",
+      "display_name": "Workshop Of Nicolò Roccatagliata",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5715,
+        "avg_usd": 5715,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Pair of candlebearing Putti",
+          "hammer_usd": 5715,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of candlebearing Putti",
+          "ratio": 0.95
         }
       }
     },
@@ -39921,6 +40758,33 @@
         "top_ratio_lot": {
           "title": "Four versions of 'The Chess Players'",
           "ratio": 0.89
+        }
+      }
+    },
+    {
+      "norm_name": "PROBABLY FRENCH OR FLEMISH, IN GOTHIC STYLE",
+      "display_name": "Probably French Or Flemish, In Gothic Style",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5334,
+        "avg_usd": 5334,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Spindle Chandelier with the Virgin and Child",
+          "hammer_usd": 5334,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Spindle Chandelier with the Virgin and Child",
+          "ratio": 0.76
         }
       }
     },
@@ -40627,6 +41491,33 @@
       }
     },
     {
+      "norm_name": "NORTHERN ITALIAN, EARLY 18TH CENTURY",
+      "display_name": "Northern Italian, Early 18Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4064,
+        "avg_usd": 4064,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Allegorical Bust of Spring",
+          "hammer_usd": 4064,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Allegorical Bust of Spring",
+          "ratio": 0.58
+        }
+      }
+    },
+    {
       "norm_name": "BEEKEEPING",
       "display_name": "Beekeeping",
       "dates": "",
@@ -41221,6 +42112,33 @@
       }
     },
     {
+      "norm_name": "CIRCLE OF FRANCESCO BERTOS",
+      "display_name": "Circle Of Francesco Bertos",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2413,
+        "avg_usd": 2413,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Pair of Groups representing Lapiths and Centaurs",
+          "hammer_usd": 2413,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of Groups representing Lapiths and Centaurs",
+          "ratio": 0.4
+        }
+      }
+    },
+    {
       "norm_name": "LAURIE SMITH",
       "display_name": "Laurie Smith",
       "dates": "",
@@ -41545,6 +42463,33 @@
       }
     },
     {
+      "norm_name": "SOUTHERN GERMAN OR AUSTRIAN, 17TH CENTURY",
+      "display_name": "Southern German Or Austrian, 17Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1905,
+        "avg_usd": 1905,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Pair of reliefs",
+          "hammer_usd": 1905,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of reliefs",
+          "ratio": 0.27
+        }
+      }
+    },
+    {
       "norm_name": "NAUM ARONSON",
       "display_name": "Naum Aronson",
       "dates": "",
@@ -41757,6 +42702,33 @@
         "top_ratio_lot": {
           "title": "Study of a kneeling angel",
           "ratio": 0.42
+        }
+      }
+    },
+    {
+      "norm_name": "SOUTHERN GERMAN, PROBABLY FREIBURG IM BREISGAU, LATE 17TH CENTURY",
+      "display_name": "Southern German, Probably Freiburg Im Breisgau, Late 17Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1143,
+        "avg_usd": 1143,
+        "total_label": "$1k",
+        "avg_label": "$1k",
+        "top_lot": {
+          "title": "Covered cup",
+          "hammer_usd": 1143,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Covered cup",
+          "ratio": 0.16
         }
       }
     },
@@ -42000,6 +42972,33 @@
         "top_ratio_lot": {
           "title": "Hilly Habitat of Lilium Auratum, pencil drawing",
           "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "ENGLISH, 16TH-CENTURY STYLE",
+      "display_name": "English, 16Th-Century Style",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 508,
+        "avg_usd": 508,
+        "total_label": "$508",
+        "avg_label": "$508",
+        "top_lot": {
+          "title": "Pair of candlesticks",
+          "hammer_usd": 508,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of candlesticks",
+          "ratio": 0.07
         }
       }
     },
