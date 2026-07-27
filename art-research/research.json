@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3222,
-    "total_artists": 1258,
-    "median_hammer_usd": 104838,
-    "pct_above_estimate": 47.5,
+    "total_lots": 3272,
+    "total_artists": 1296,
+    "median_hammer_usd": 100800,
+    "pct_above_estimate": 47.2,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-23"
+    "generated_at": "2026-07-27"
   },
   "artists": [
     {
@@ -21164,6 +21164,33 @@
       }
     },
     {
+      "norm_name": "FRANÇOIS BOUCHER",
+      "display_name": "François Boucher",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 588000,
+        "avg_usd": 294000,
+        "total_label": "$588k",
+        "avg_label": "$294k",
+        "top_lot": {
+          "title": "The Marriage of Cupid and Psyche",
+          "hammer_usd": 550000,
+          "sale_name": "Old Master 19th Century Paintings Evening Auction"
+        },
+        "top_ratio_lot": {
+          "title": "Studies of legs and a torso",
+          "ratio": 1.9
+        }
+      }
+    },
+    {
       "norm_name": "MAURIZIO CATTELAN",
       "display_name": "Maurizio Cattelan",
       "dates": "",
@@ -21322,33 +21349,6 @@
         "top_ratio_lot": {
           "title": "\"...the event matured, accomplished in sight of all non-exis",
           "ratio": 0.73
-        }
-      }
-    },
-    {
-      "norm_name": "FRANÇOIS BOUCHER",
-      "display_name": "François Boucher",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 550000,
-        "avg_usd": 550000,
-        "total_label": "$550k",
-        "avg_label": "$550k",
-        "top_lot": {
-          "title": "The Marriage of Cupid and Psyche",
-          "hammer_usd": 550000,
-          "sale_name": "Old Master 19th Century Paintings Evening Auction"
-        },
-        "top_ratio_lot": {
-          "title": "The Marriage of Cupid and Psyche",
-          "ratio": 0.92
         }
       }
     },
@@ -24998,6 +24998,60 @@
       }
     },
     {
+      "norm_name": "PETER PAUL RUBENS",
+      "display_name": "Peter Paul Rubens",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 220000,
+        "avg_usd": 220000,
+        "total_label": "$220k",
+        "avg_label": "$220k",
+        "top_lot": {
+          "title": "Study for a classical scene with the sacrifice of a bull",
+          "hammer_usd": 220000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Study for a classical scene with the sacrifice of a bull",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD PARKES BONINGTON",
+      "display_name": "Richard Parkes Bonington",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 220000,
+        "avg_usd": 220000,
+        "total_label": "$220k",
+        "avg_label": "$220k",
+        "top_lot": {
+          "title": "The Grand Canal, Venice, with the Rialto Bridge in the dista",
+          "hammer_usd": 220000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "The Grand Canal, Venice, with the Rialto Bridge in the dista",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "JULIA JO",
       "display_name": "Julia Jo",
       "dates": "",
@@ -26452,6 +26506,33 @@
         "top_ratio_lot": {
           "title": "The Mystic Marriage of Saint Catherine of Alexandria, with S",
           "ratio": 1.1
+        }
+      }
+    },
+    {
+      "norm_name": "JOSEPH MALLORD WILLIAM TURNER, RA",
+      "display_name": "Joseph Mallord William Turner, Ra",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 165000,
+        "avg_usd": 55000,
+        "total_label": "$165k",
+        "avg_label": "$55k",
+        "top_lot": {
+          "title": "Beech Trees at Cassiobury Park, Hertfordshire",
+          "hammer_usd": 90000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "The glasshouse with armorial window, Farnley Hall, Yorkshire",
+          "ratio": 1.67
         }
       }
     },
@@ -28504,6 +28585,33 @@
       }
     },
     {
+      "norm_name": "GIOVANNI FRANCESCO BARBIERI, CALLED GUERCINO",
+      "display_name": "Giovanni Francesco Barbieri, Called Guercino",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 108596,
+        "avg_usd": 27149,
+        "total_label": "$109k",
+        "avg_label": "$27k",
+        "top_lot": {
+          "title": "Recto: Christ carrying the Cross, a soldier standing behind ",
+          "hammer_usd": 70000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Recto: Christ carrying the Cross, a soldier standing behind ",
+          "ratio": 1.0
+        }
+      }
+    },
+    {
       "norm_name": "MAX LIEBERMANN",
       "display_name": "Max Liebermann",
       "dates": "",
@@ -29638,6 +29746,60 @@
       }
     },
     {
+      "norm_name": "HIRAM POWERS",
+      "display_name": "Hiram Powers",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 88900,
+        "avg_usd": 88900,
+        "total_label": "$89k",
+        "avg_label": "$89k",
+        "top_lot": {
+          "title": "Bust of a Greek Slave",
+          "hammer_usd": 88900,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Bust of a Greek Slave",
+          "ratio": 1.78
+        }
+      }
+    },
+    {
+      "norm_name": "ANNE SEYMOUR DAMER",
+      "display_name": "Anne Seymour Damer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 88900,
+        "avg_usd": 44450,
+        "total_label": "$89k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "Tamesis",
+          "hammer_usd": 48260,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Tamesis",
+          "ratio": 1.21
+        }
+      }
+    },
+    {
       "norm_name": "MIRIAM CAHN",
       "display_name": "Miriam Cahn",
       "dates": "",
@@ -29854,6 +30016,33 @@
       }
     },
     {
+      "norm_name": "THOMAS GIRTIN",
+      "display_name": "Thomas Girtin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 83000,
+        "avg_usd": 41500,
+        "total_label": "$83k",
+        "avg_label": "$42k",
+        "top_lot": {
+          "title": "York Minster, from the South West",
+          "hammer_usd": 72000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "York Minster, from the South West",
+          "ratio": 1.8
+        }
+      }
+    },
+    {
       "norm_name": "FRANZ RADZIWILL",
       "display_name": "Franz Radziwill",
       "dates": "",
@@ -30039,6 +30228,33 @@
         "top_ratio_lot": {
           "title": "Vibraciones (Vibrations)",
           "ratio": 0.8
+        }
+      }
+    },
+    {
+      "norm_name": "MASTER OF THE LIECHTENSTEIN ADORATION",
+      "display_name": "Master Of The Liechtenstein Adoration",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 80000,
+        "avg_usd": 80000,
+        "total_label": "$80k",
+        "avg_label": "$80k",
+        "top_lot": {
+          "title": "Soldiers discovering the body of Holofernes",
+          "hammer_usd": 80000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Soldiers discovering the body of Holofernes",
+          "ratio": 6.4
         }
       }
     },
@@ -32824,33 +33040,6 @@
       }
     },
     {
-      "norm_name": "ANNE SEYMOUR DAMER",
-      "display_name": "Anne Seymour Damer",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 48260,
-        "avg_usd": 48260,
-        "total_label": "$48k",
-        "avg_label": "$48k",
-        "top_lot": {
-          "title": "Tamesis",
-          "hammer_usd": 48260,
-          "sale_name": "Master Sculpture From Four Millenia L26264"
-        },
-        "top_ratio_lot": {
-          "title": "Tamesis",
-          "ratio": 1.21
-        }
-      }
-    },
-    {
       "norm_name": "SOPHIA LOEB",
       "display_name": "Sophia Loeb",
       "dates": "",
@@ -33175,6 +33364,33 @@
       }
     },
     {
+      "norm_name": "AFTER ANTONIO CANOVA",
+      "display_name": "After Antonio Canova",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 44450,
+        "avg_usd": 44450,
+        "total_label": "$44k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "Pair of Lions",
+          "hammer_usd": 44450,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of Lions",
+          "ratio": 1.11
+        }
+      }
+    },
+    {
       "norm_name": "ENGLISH, PROBABLY NOTTINGHAM, 15TH CENTURY",
       "display_name": "English, Probably Nottingham, 15Th Century",
       "dates": "",
@@ -33414,6 +33630,33 @@
         "top_ratio_lot": {
           "title": "Paint Ladder",
           "ratio": 1.05
+        }
+      }
+    },
+    {
+      "norm_name": "LOUIS-JEAN DESPREZ",
+      "display_name": "Louis-Jean Desprez",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 42000,
+        "avg_usd": 42000,
+        "total_label": "$42k",
+        "avg_label": "$42k",
+        "top_lot": {
+          "title": "Pope Pius VI at the Ceremony of the ‘Papal Chapel of the Ann",
+          "hammer_usd": 42000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Pope Pius VI at the Ceremony of the ‘Papal Chapel of the Ann",
+          "ratio": 0.65
         }
       }
     },
@@ -33981,6 +34224,33 @@
         "top_ratio_lot": {
           "title": "View from the American Hong, Canton",
           "ratio": 1.52
+        }
+      }
+    },
+    {
+      "norm_name": "ALFRED GILBERT",
+      "display_name": "Alfred Gilbert",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38100,
+        "avg_usd": 38100,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Victory",
+          "hammer_usd": 38100,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Victory",
+          "ratio": 0.95
         }
       }
     },
@@ -34822,6 +35092,33 @@
       }
     },
     {
+      "norm_name": "THOMAS GAINSBOROUGH, RA",
+      "display_name": "Thomas Gainsborough, Ra",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 31000,
+        "avg_usd": 15500,
+        "total_label": "$31k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Wooded Landscape with Shepherd and Sheep",
+          "hammer_usd": 18000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Wooded Landscape with Shepherd and Sheep",
+          "ratio": 1.44
+        }
+      }
+    },
+    {
       "norm_name": "JAN SLUIJTERS",
       "display_name": "Jan Sluijters",
       "dates": "",
@@ -34845,6 +35142,33 @@
         "top_ratio_lot": {
           "title": "Een dame met een handtas",
           "ratio": 7.66
+        }
+      }
+    },
+    {
+      "norm_name": "FREDERIC, LORD LEIGHTON",
+      "display_name": "Frederic, Lord Leighton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 30480,
+        "avg_usd": 30480,
+        "total_label": "$30k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "The Sluggard",
+          "hammer_usd": 30480,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "The Sluggard",
+          "ratio": 1.74
         }
       }
     },
@@ -35169,6 +35493,60 @@
         "top_ratio_lot": {
           "title": "Ohne Titel (Untitled, Hôtel Le Bristol)",
           "ratio": 1.6
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL BRIL",
+      "display_name": "Paul Bril",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 28000,
+        "avg_usd": 28000,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "A landscape with travelers on a road leading to a seaport",
+          "hammer_usd": 28000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "A landscape with travelers on a road leading to a seaport",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-AUGUSTE-DOMINIQUE INGRES",
+      "display_name": "Jean-Auguste-Dominique Ingres",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 28000,
+        "avg_usd": 28000,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Portrait of Comte Louis-Mathieu Molé (1781-1855)",
+          "hammer_usd": 28000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of Comte Louis-Mathieu Molé (1781-1855)",
+          "ratio": 0.93
         }
       }
     },
@@ -35875,6 +36253,33 @@
       }
     },
     {
+      "norm_name": "HENRI GODET, AFTER WILLIAM-ADOLPHE BOUGUEREAU",
+      "display_name": "Henri Godet, After William-Adolphe Bouguereau",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 25400,
+        "avg_usd": 25400,
+        "total_label": "$25k",
+        "avg_label": "$25k",
+        "top_lot": {
+          "title": "Le ravissement de Psyche (The Abduction of Psyche)",
+          "hammer_usd": 25400,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Le ravissement de Psyche (The Abduction of Psyche)",
+          "ratio": 1.69
+        }
+      }
+    },
+    {
       "norm_name": "ANDRÉ BRETON",
       "display_name": "André Breton",
       "dates": "",
@@ -36442,6 +36847,33 @@
       }
     },
     {
+      "norm_name": "JAN VAN DER STRAET, CALLED STRADANUS",
+      "display_name": "Jan Van Der Straet, Called Stradanus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 22000,
+        "avg_usd": 22000,
+        "total_label": "$22k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Crucifixion",
+          "hammer_usd": 22000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Crucifixion",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "JEANNE MAMMEN",
       "display_name": "Jeanne Mammen",
       "dates": "",
@@ -37005,6 +37437,33 @@
         "top_ratio_lot": {
           "title": "Twisted Strings 40F X 783",
           "ratio": 0.64
+        }
+      }
+    },
+    {
+      "norm_name": "SARAH BIFFIN, LATER MRS WRIGHT",
+      "display_name": "Sarah Biffin, Later Mrs Wright",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 19000,
+        "avg_usd": 19000,
+        "total_label": "$19k",
+        "avg_label": "$19k",
+        "top_lot": {
+          "title": "Self-portrait",
+          "hammer_usd": 19000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Self-portrait",
+          "ratio": 0.76
         }
       }
     },
@@ -37954,6 +38413,33 @@
       }
     },
     {
+      "norm_name": "ABRAHAM BLOEMAERT",
+      "display_name": "Abraham Bloemaert",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 14810,
+        "avg_usd": 7405,
+        "total_label": "$15k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Moses Striking Water from the Rock",
+          "hammer_usd": 11000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Moses Striking Water from the Rock",
+          "ratio": 1.1
+        }
+      }
+    },
+    {
       "norm_name": "FOLLOWER OF SIR ANTHONY VAN DYCK",
       "display_name": "Follower Of Sir Anthony Van Dyck",
       "dates": "",
@@ -38575,6 +39061,87 @@
       }
     },
     {
+      "norm_name": "JAN DE BISSCHOP",
+      "display_name": "Jan De Bisschop",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13000,
+        "avg_usd": 13000,
+        "total_label": "$13k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Judith with the Head of Holofernes, after Giorgione",
+          "hammer_usd": 13000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Judith with the Head of Holofernes, after Giorgione",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "GIOVANNI BENEDETTO CASTIGLIONE, CALLED IL GRECHETTO",
+      "display_name": "Giovanni Benedetto Castiglione, Called Il Grechetto",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13000,
+        "avg_usd": 13000,
+        "total_label": "$13k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "A nymph and two satyrs offering a libation before a statue o",
+          "hammer_usd": 13000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "A nymph and two satyrs offering a libation before a statue o",
+          "ratio": 0.74
+        }
+      }
+    },
+    {
+      "norm_name": "GERRIT BATTEM",
+      "display_name": "Gerrit Battem",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13000,
+        "avg_usd": 13000,
+        "total_label": "$13k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "A village festival with travelling players",
+          "hammer_usd": 13000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "A village festival with travelling players",
+          "ratio": 0.96
+        }
+      }
+    },
+    {
       "norm_name": "WILHELM SASNAL",
       "display_name": "Wilhelm Sasnal",
       "dates": "",
@@ -38818,6 +39385,33 @@
       }
     },
     {
+      "norm_name": "HORATIO GORDON ROBLEY",
+      "display_name": "Horatio Gordon Robley",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12000,
+        "avg_usd": 12000,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Portrait of Chief Tuterei Karewa, Ngāti Maru Tribe, New Zeal",
+          "hammer_usd": 12000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait of Chief Tuterei Karewa, Ngāti Maru Tribe, New Zeal",
+          "ratio": 1.71
+        }
+      }
+    },
+    {
       "norm_name": "KARL PRIEBE",
       "display_name": "Karl Priebe",
       "dates": "",
@@ -38976,6 +39570,60 @@
         "top_ratio_lot": {
           "title": "One Danced with Him",
           "ratio": 2.75
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXANDER COZENS",
+      "display_name": "Alexander Cozens",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Footpath in a forest",
+          "hammer_usd": 11000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Footpath in a forest",
+          "ratio": 0.73
+        }
+      }
+    },
+    {
+      "norm_name": "GIOVANNI DOMENICO TIEPOLO",
+      "display_name": "Giovanni Domenico Tiepolo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Cupid with amorini and a flaming torch amongst the clouds",
+          "hammer_usd": 11000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Cupid with amorini and a flaming torch amongst the clouds",
+          "ratio": 0.73
         }
       }
     },
@@ -39439,6 +40087,33 @@
       }
     },
     {
+      "norm_name": "SCHOOL OF MADRID, 17TH CENTURY",
+      "display_name": "School Of Madrid, 17Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 9500,
+        "avg_usd": 9500,
+        "total_label": "$10k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "The Assumption of the Virgin, with separate studies of her h",
+          "hammer_usd": 9500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "The Assumption of the Virgin, with separate studies of her h",
+          "ratio": 1.19
+        }
+      }
+    },
+    {
       "norm_name": "RUDOLF SCHLICHTER",
       "display_name": "Rudolf Schlichter",
       "dates": "",
@@ -39570,6 +40245,33 @@
         "top_ratio_lot": {
           "title": "Hina",
           "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "PIETER COOPSE",
+      "display_name": "Pieter Coopse",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8500,
+        "avg_usd": 8500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Two yachts and other shipping off Amsterdam harbour",
+          "hammer_usd": 8500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Two yachts and other shipping off Amsterdam harbour",
+          "ratio": 0.85
         }
       }
     },
@@ -39952,6 +40654,33 @@
       }
     },
     {
+      "norm_name": "JACOB VAN DER ULFT",
+      "display_name": "Jacob Van Der Ulft",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8000,
+        "avg_usd": 8000,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "A Roman Capriccio, with many figures before an extensive lan",
+          "hammer_usd": 8000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "A Roman Capriccio, with many figures before an extensive lan",
+          "ratio": 0.64
+        }
+      }
+    },
+    {
       "norm_name": "FAILE (EST. 1999)",
       "display_name": "Faile (Est. 1999)",
       "dates": "",
@@ -39975,6 +40704,114 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "FLORENTINE SCHOOL, FIRST HALF OF THE 16TH CENTURY",
+      "display_name": "Florentine School, First Half Of The 16Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 7500,
+        "avg_usd": 7500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "A study after Michelangelo's Aurora in the Medici Chapel",
+          "hammer_usd": 7500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "A study after Michelangelo's Aurora in the Medici Chapel",
+          "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "JOSEPH WRIGHT OF DERBY, A.R.A.",
+      "display_name": "Joseph Wright Of Derby, A.R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 7500,
+        "avg_usd": 7500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "A Centaur in combat with a sea nymph, after Raphael",
+          "hammer_usd": 7500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "A Centaur in combat with a sea nymph, after Raphael",
+          "ratio": 1.07
+        }
+      }
+    },
+    {
+      "norm_name": "AUGUSTUS CHARLES PUGIN",
+      "display_name": "Augustus Charles Pugin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 7500,
+        "avg_usd": 7500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "The Great Library at Cassiobury Park, Hertfordshire",
+          "hammer_usd": 7500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "The Great Library at Cassiobury Park, Hertfordshire",
+          "ratio": 0.75
+        }
+      }
+    },
+    {
+      "norm_name": "GIOVANNI ANTONIO PELLEGRINI",
+      "display_name": "Giovanni Antonio Pellegrini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 7000,
+        "avg_usd": 7000,
+        "total_label": "$7k",
+        "avg_label": "$7k",
+        "top_lot": {
+          "title": "Madonna and Child adored by two Saints",
+          "hammer_usd": 7000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Madonna and Child adored by two Saints",
+          "ratio": 1.17
         }
       }
     },
@@ -40222,6 +41059,33 @@
       }
     },
     {
+      "norm_name": "BOLOGNESE SCHOOL, 17TH CENTURY",
+      "display_name": "Bolognese School, 17Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 6802,
+        "avg_usd": 2267,
+        "total_label": "$7k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Landscape with a fortified building above a rocky hill",
+          "hammer_usd": 3500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Mary Magdalene in penitence",
+          "ratio": 1.09
+        }
+      }
+    },
+    {
       "norm_name": "RENÉ AUGUSTE SEYSSAUD",
       "display_name": "René Auguste Seyssaud",
       "dates": "",
@@ -40299,6 +41163,60 @@
         "top_ratio_lot": {
           "title": "\"JMF\" Console",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "JACOB KONINCK",
+      "display_name": "Jacob Koninck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6500,
+        "avg_usd": 6500,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Landscape with a house and farm buildings by a canal",
+          "hammer_usd": 6500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Landscape with a house and farm buildings by a canal",
+          "ratio": 1.3
+        }
+      }
+    },
+    {
+      "norm_name": "JAN JOSEFSZ. VAN GOYEN",
+      "display_name": "Jan Josefsz. Van Goyen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6500,
+        "avg_usd": 6500,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "River Landscape with Cows and Figures in a Ferryboat",
+          "hammer_usd": 6500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "River Landscape with Cows and Figures in a Ferryboat",
+          "ratio": 0.93
         }
       }
     },
@@ -40406,33 +41324,6 @@
         },
         "top_ratio_lot": {
           "title": "Apollo and Daphne: a bozzetto",
-          "ratio": 0.87
-        }
-      }
-    },
-    {
-      "norm_name": "GIOVANNI FRANCESCO BARBIERI, CALLED GUERCINO",
-      "display_name": "Giovanni Francesco Barbieri, Called Guercino",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 6096,
-        "avg_usd": 6096,
-        "total_label": "$6k",
-        "avg_label": "$6k",
-        "top_lot": {
-          "title": "A putto",
-          "hammer_usd": 6096,
-          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
-        },
-        "top_ratio_lot": {
-          "title": "A putto",
           "ratio": 0.87
         }
       }
@@ -40596,6 +41487,60 @@
         "top_ratio_lot": {
           "title": "Pair of candlebearing Putti",
           "ratio": 0.95
+        }
+      }
+    },
+    {
+      "norm_name": "PAUL SANDBY, RA",
+      "display_name": "Paul Sandby, Ra",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5500,
+        "avg_usd": 5500,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Pembroke Castle, Wales",
+          "hammer_usd": 5500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Pembroke Castle, Wales",
+          "ratio": 0.79
+        }
+      }
+    },
+    {
+      "norm_name": "JACOB CATS",
+      "display_name": "Jacob Cats",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5500,
+        "avg_usd": 5500,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "A Herdsman and Dog with Cows and Sheep, beside Ruins",
+          "hammer_usd": 5500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "A Herdsman and Dog with Cows and Sheep, beside Ruins",
+          "ratio": 0.69
         }
       }
     },
@@ -41005,6 +41950,33 @@
       }
     },
     {
+      "norm_name": "DOMENICO MARIA CANUTI",
+      "display_name": "Domenico Maria Canuti",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5000,
+        "avg_usd": 5000,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Hercules hunting the Calydonian boar",
+          "hammer_usd": 5000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Hercules hunting the Calydonian boar",
+          "ratio": 0.71
+        }
+      }
+    },
+    {
       "norm_name": "FREDERICK WATERS WATTS",
       "display_name": "Frederick Waters Watts",
       "dates": "",
@@ -41109,6 +42081,87 @@
         "top_ratio_lot": {
           "title": "\"Y\" Table",
           "ratio": 0.96
+        }
+      }
+    },
+    {
+      "norm_name": "FRANCESCO DA PONTE, CALLED FRANCESCO BASSANO THE YOUNGER",
+      "display_name": "Francesco Da Ponte, Called Francesco Bassano The Younger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4800,
+        "avg_usd": 4800,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Study of a man's right arm and his breeches",
+          "hammer_usd": 4800,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Study of a man's right arm and his breeches",
+          "ratio": 0.69
+        }
+      }
+    },
+    {
+      "norm_name": "FLORENTINE SCHOOL, 16TH CENTURY",
+      "display_name": "Florentine School, 16Th Century",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4800,
+        "avg_usd": 4800,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Design for a lunette: The Birth of the Virgin",
+          "hammer_usd": 4800,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Design for a lunette: The Birth of the Virgin",
+          "ratio": 1.37
+        }
+      }
+    },
+    {
+      "norm_name": "MICHIEL VAN OVERBECK",
+      "display_name": "Michiel Van Overbeck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4800,
+        "avg_usd": 4800,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "View in the Roman Campagna, with the Ponte Mollo",
+          "hammer_usd": 4800,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "View in the Roman Campagna, with the Ponte Mollo",
+          "ratio": 0.69
         }
       }
     },
@@ -41572,33 +42625,6 @@
       }
     },
     {
-      "norm_name": "ABRAHAM BLOEMAERT",
-      "display_name": "Abraham Bloemaert",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 3810,
-        "avg_usd": 3810,
-        "total_label": "$4k",
-        "avg_label": "$4k",
-        "top_lot": {
-          "title": "Recto: A sitting woman, seen from the front, and two standin",
-          "hammer_usd": 3810,
-          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
-        },
-        "top_ratio_lot": {
-          "title": "Recto: A sitting woman, seen from the front, and two standin",
-          "ratio": 0.64
-        }
-      }
-    },
-    {
       "norm_name": "LISA MILROY",
       "display_name": "Lisa Milroy",
       "dates": "",
@@ -41811,33 +42837,6 @@
         "top_ratio_lot": {
           "title": "Periphery",
           "ratio": 0.58
-        }
-      }
-    },
-    {
-      "norm_name": "BOLOGNESE SCHOOL, 17TH CENTURY",
-      "display_name": "Bolognese School, 17Th Century",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 3302,
-        "avg_usd": 1651,
-        "total_label": "$3k",
-        "avg_label": "$2k",
-        "top_lot": {
-          "title": "Mary Magdalene in penitence",
-          "hammer_usd": 1905,
-          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
-        },
-        "top_ratio_lot": {
-          "title": "Mary Magdalene in penitence",
-          "ratio": 1.09
         }
       }
     },
@@ -42837,6 +43836,33 @@
         "top_ratio_lot": {
           "title": "Standing figure in an apron, seen from behind",
           "ratio": 0.36
+        }
+      }
+    },
+    {
+      "norm_name": "CIRCLE OF LORENZO BARTOLINI",
+      "display_name": "Circle Of Lorenzo Bartolini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 889,
+        "avg_usd": 889,
+        "total_label": "$889",
+        "avg_label": "$889",
+        "top_lot": {
+          "title": "Bust of a Lady, identified as Letizia Ramolino Bonaparte (17",
+          "hammer_usd": 889,
+          "sale_name": "Master Sculpture From Four Millenia L26264"
+        },
+        "top_ratio_lot": {
+          "title": "Bust of a Lady, identified as Letizia Ramolino Bonaparte (17",
+          "ratio": 0.13
         }
       }
     },
