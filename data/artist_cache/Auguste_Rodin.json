@@ -1,0 +1,82 @@
+{
+  "gac_url": "https://artsandculture.google.com/entity/auguste-rodin/m0wgm",
+  "full_name": "Auguste Rodin",
+  "bio": "François Auguste René Rodin was a French sculptor generally considered the founder of modern sculpture. He was schooled traditionally and took a craftsman-like approach to his work. Rodin possessed a unique ability to model a complex, turbulent, and deeply pocketed surface in clay. He is known for such sculptures as The Thinker, Monument to Balzac, The Kiss, The Burghers of Calais, and The Gates of Hell. Many of Rodin's most notable sculptures were criticized, as they clashed with predominant figurative sculpture traditions in which works were decorative, formulaic, or highly thematic. Rodin's most original work departed from traditional themes of mythology and allegory. He modeled the human body with naturalism, and his sculptures celebrate individual character and physicality. Although Rodin was sensitive to the controversy surrounding his work, he refused to change his style, and his continued output brought increasing favor from the government and the artistic community.",
+  "image_url": "https://lh3.googleusercontent.com/ci/AL18g_QswMdJbvozLH6gCykNIETlFz_-RexfTObv5uwIYaykGlR25SkBT4O5ZEzjns802cP_G7VDjf7j=s1200",
+  "birth_date": "Nov 12, 1840",
+  "death_date": "Nov 17, 1917",
+  "famous_artworks": [
+    {
+      "title": "The Thinker (1904)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMcD_8W-wEhWkSxQbyH-R6SIxgE7Xz2NdpC7YVF9K-V16CRq_X",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Thinker"
+    },
+    {
+      "title": "Monument to Balzac (1897)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQPBInCcvZ5KsQTmFcF0UMh0p3q5XGqSFyzpZkSV2cWIt2shRQg",
+      "ext_url": "http://www.wikiart.org/en/auguste-rodin/balzac-1897"
+    },
+    {
+      "title": "The Walking Man (1878)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQvPIJ9wkw7BxwjXLddlD4yUd7PNbeG57Cu61wei-_4px0J311M",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Walking_Man"
+    },
+    {
+      "title": "The Three Shades (1886)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CiUsywvgaxhjG7hjWehAjpd_3OW-eAA6nXDF6loHv3ePqzAu",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Three_Shades"
+    },
+    {
+      "title": "Bust of Victor Hugo (1883)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT6Of6ccHpIucFcs7kk9PCaEuUDSaFgHYlmAhdfvKIsQl9Qad5m",
+      "ext_url": "https://en.wikipedia.org/wiki/Bust_of_Victor_Hugo"
+    },
+    {
+      "title": "The Cathedral (1908)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSZ_Rwi0nVhLtbEbBLXjs1NZrNz5VUMEDh72Gun9cnSUCKIPGHv",
+      "ext_url": "https://en.wikipedia.org/wiki/The_Cathedral_(sculpture)"
+    },
+    {
+      "title": "Man with the Broken Nose (1864)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTimXBvDt5LwxPRNH4vBiONLMHf9Moka4xPlAQltsYLDvYxvs9k",
+      "ext_url": "https://en.wikipedia.org/wiki/Man_with_the_Broken_Nose"
+    },
+    {
+      "title": "Paolo and Francesca (1885)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRBLx8U0j42F-KxIcvjEd6qPj3GdPhy6v09eq6mqwAR2nA_yWCK",
+      "ext_url": "https://hu.wikipedia.org/wiki/Francesca_da_Rimini_(szem%C3%A9ly)"
+    },
+    {
+      "title": "Ugolino and His Sons (1881)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdIZjzfj5lQ6772dvSEfsAAEFR4CzZNMWJ5ZlRh533hoBVcz1K",
+      "ext_url": "https://es.wikipedia.org/wiki/Ugolino_y_sus_hijos_(Carpeaux)"
+    }
+  ],
+  "nationality": "French",
+  "art_movement": "",
+  "portrait_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Auguste_Rodin_by_George_Charles_Beresford_%28NPG_x6573%29.jpg",
+  "timeline": [
+    {
+      "year": 1840,
+      "event": "Born in Paris on November 12"
+    },
+    {
+      "year": 1875,
+      "event": "Traveled to Italy, inspiring naturalistic approach to sculpture"
+    },
+    {
+      "year": 1880,
+      "event": "Began work on The Gates of Hell commission"
+    },
+    {
+      "year": 1900,
+      "event": "Achieved world-renowned status following World's Fair exhibit"
+    },
+    {
+      "year": 1917,
+      "event": "Married Rose Beuret and died on November 17"
+    }
+  ],
+  "quote": "The artist must create beautiful things that teach us how to see nature.",
+  "artist_name": "Auguste Rodin"
+}
