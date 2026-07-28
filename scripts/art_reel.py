@@ -1219,7 +1219,7 @@ def main() -> None:
             for offset in range(1, len(rotation)):
                 candidate = rotation[(start_idx + offset) % len(rotation)]
                 posted_count = _posted_count_for_artist(conn, candidate)
-                if posted_count >= 5:
+                if posted_count >= _ca.MAX_LOTS_PER_ARTIST:
                     print(f"  ↷ Skipping {candidate} — {posted_count} reels already posted")
                     continue
                 if _query_alltime_top(conn, limit=1, exclude_ids=skip,
@@ -1271,12 +1271,12 @@ def main() -> None:
         key=lambda x: x[1], reverse=True,
     )
 
-    # Cap at 5 lots per artist before trimming to top_n
+    # Cap at MAX_LOTS_PER_ARTIST lots per artist before trimming to top_n
     _artist_counts: dict[str, int] = {}
     _capped: list[tuple] = []
     for item in scored:
         _key = _clean_artist(item[0].get("artist") or "").lower()
-        if _artist_counts.get(_key, 0) >= 5:
+        if _artist_counts.get(_key, 0) >= _ca.MAX_LOTS_PER_ARTIST:
             continue
         _artist_counts[_key] = _artist_counts.get(_key, 0) + 1
         _capped.append(item)

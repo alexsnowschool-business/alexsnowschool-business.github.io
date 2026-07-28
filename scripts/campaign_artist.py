@@ -17,8 +17,9 @@ from pathlib import Path
 
 DB_PATH = Path(__file__).resolve().parent.parent / "data" / "art.db"
 
-MIN_LOTS = 4       # minimum lots in art_items to qualify for the rotation
-RECENCY_WINDOW = 4  # skip artist if they appear in the last N posts
+MIN_LOTS = 4            # minimum lots in art_items to qualify for the rotation
+RECENCY_WINDOW = 4      # skip artist if they appear in the last N posts
+MAX_LOTS_PER_ARTIST = 3 # cap reels posted per artist
 
 
 def _canonical(artist: str) -> str:
@@ -104,16 +105,20 @@ def get_rotation(db_path: Path = DB_PATH) -> list[str]:
 
 
 def _unposted_above_estimate_count(cur: sqlite3.Cursor, name: str) -> int:
-    """Count unposted lots for this artist where hammer beat the high estimate."""
+    """Count unposted lots among the top MAX_LOTS_PER_ARTIST by hammer for this artist."""
     cur.execute(
         """
-        SELECT COUNT(*) FROM art_items
-        WHERE sale_performance = 'above'
-          AND artist IS NOT NULL
-          AND UPPER(artist) LIKE '%' || UPPER(?) || '%'
-          AND id NOT IN (SELECT lot_id FROM posted_reels)
+        SELECT COUNT(*) FROM (
+            SELECT id FROM art_items
+            WHERE sale_performance = 'above'
+              AND artist IS NOT NULL
+              AND UPPER(artist) LIKE '%' || UPPER(?) || '%'
+            ORDER BY hammer_usd DESC
+            LIMIT ?
+        ) top_lots
+        WHERE id NOT IN (SELECT lot_id FROM posted_reels)
         """,
-        (name,),
+        (name, MAX_LOTS_PER_ARTIST),
     )
     row = cur.fetchone()
     return row[0] if row else 0
