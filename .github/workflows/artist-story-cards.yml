@@ -3,7 +3,7 @@ name: Artist Story Cards
 on:
   schedule:
     # Run daily at 03:00 UTC — picks up new campaign artist on rotation day
-    - cron: "0 3 * * *"
+    - cron: "0 7 * * *"
   workflow_dispatch:
     inputs:
       artist:

@@ -3,7 +3,6 @@ name: Quote Reel
 on:
   schedule:
     - cron: '0 1  * * *'   # 01:00 UTC — 08:00 BKK
-    - cron: '0 13 * * *'   # 13:00 UTC — 20:00 BKK
   workflow_dispatch:
     inputs:
       account:
