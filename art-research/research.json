@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3272,
-    "total_artists": 1296,
-    "median_hammer_usd": 100800,
-    "pct_above_estimate": 47.2,
+    "total_lots": 3322,
+    "total_artists": 1333,
+    "median_hammer_usd": 96774,
+    "pct_above_estimate": 46.9,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-27"
+    "generated_at": "2026-07-30"
   },
   "artists": [
     {
@@ -287,10 +287,10 @@
         }
       ],
       "dataset": {
-        "lot_count": 51,
-        "total_usd": 56462881,
-        "avg_usd": 1107115,
-        "total_label": "$56.46M",
+        "lot_count": 52,
+        "total_usd": 57859881,
+        "avg_usd": 1112690,
+        "total_label": "$57.86M",
         "avg_label": "$1.11M",
         "top_lot": {
           "title": "Homme assis",
@@ -1073,11 +1073,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 70,
-        "total_usd": 23061949,
-        "avg_usd": 329456,
-        "total_label": "$23.06M",
-        "avg_label": "$329k",
+        "lot_count": 71,
+        "total_usd": 23671549,
+        "avg_usd": 333402,
+        "total_label": "$23.67M",
+        "avg_label": "$333k",
         "top_lot": {
           "title": "Bethsabée",
           "hammer_usd": 4500000,
@@ -2372,6 +2372,65 @@
       }
     },
     {
+      "norm_name": "HENRI MATISSE",
+      "display_name": "Henri Matisse",
+      "dates": "1869–1954",
+      "nationality": "French",
+      "movement": "Fauvism · Modernism · Decoration",
+      "movement_id": "modernism",
+      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
+      "famous_works": [
+        {
+          "title": "La Joie de vivre",
+          "year": "1906",
+          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
+        },
+        {
+          "title": "Dance (II)",
+          "year": "1910",
+          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
+        },
+        {
+          "title": "The Swimming Pool",
+          "year": "1952",
+          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Moroccans",
+          "year": "1915–16",
+          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
+        },
+        {
+          "title": "Piano Lesson",
+          "year": "1916",
+          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
+        },
+        {
+          "title": "Bathers by a River",
+          "year": "1909–16",
+          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
+        }
+      ],
+      "dataset": {
+        "lot_count": 17,
+        "total_usd": 8155851,
+        "avg_usd": 479756,
+        "total_label": "$8.16M",
+        "avg_label": "$480k",
+        "top_lot": {
+          "title": "Henriette, robe jaune",
+          "hammer_usd": 1405200,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Autoportrait",
+          "ratio": 5.97
+        }
+      }
+    },
+    {
       "norm_name": "ANTONY GORMLEY",
       "display_name": "Antony Gormley",
       "dates": "b. 1950",
@@ -2490,61 +2549,110 @@
       }
     },
     {
-      "norm_name": "HENRI MATISSE",
-      "display_name": "Henri Matisse",
-      "dates": "1869–1954",
+      "norm_name": "FERNAND LÉGER",
+      "display_name": "Fernand Léger",
+      "dates": "1881–1955",
       "nationality": "French",
-      "movement": "Fauvism · Modernism · Decoration",
-      "movement_id": "modernism",
-      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
+      "movement": "Cubism · Modernism",
+      "movement_id": "cubism",
+      "bio": "Fernand Léger was the most robustly optimistic of the Cubists, a Norman-born painter whose celebration of machines, workers, and the vitality of urban-industrial life made him the visual poet of twentieth-century modernity at its most confident. Trained as an architect's draughtsman, he entered the Paris art world in the first decade of the century and developed, alongside Picasso and Braque, his own variant of Cubism — rounder, more volumetric, more colourful — that he described as 'tubism' for its cylindrical forms.\n\nLéger's First World War service as a sapper brought him into direct contact with the industrial world he had previously known only aesthetically: the gleam of a gun barrel struck by sunlight became for him a symbol of the machine age's transformative beauty. His post-war Mechanist period — The City (1919), the Disc paintings — celebrates urban spectacle with flat, bright colour planes and the spatial fragmentation of advertising typography. Later works return to the human figure, but always as a type rather than an individual — broad-shouldered workers, acrobats, cyclists — rendered with the impersonal precision of industrial design.\n\nLéger was also a significant filmmaker (Ballet mécanique, 1924), ceramicist, and muralist who believed passionately in the social function of public art. His later large-scale decorative works, including mosaics and stained glass for churches, demonstrate his sustained engagement with the built environment.",
       "famous_works": [
         {
-          "title": "La Joie de vivre",
-          "year": "1906",
-          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
+          "title": "The City (La Ville)",
+          "year": "1919",
+          "notes": "A monumental canvas celebrating urban spectacle through fragmented advertising, architecture, and human figures, in the Philadelphia Museum of Art."
         },
         {
-          "title": "Dance (II)",
-          "year": "1910",
-          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
+          "title": "Three Women (Le Grand Déjeuner)",
+          "year": "1921",
+          "notes": "A large neoclassical figure composition that fuses monumental scale with the machine-age aesthetic of his Mechanist period."
         },
         {
-          "title": "The Swimming Pool",
-          "year": "1952",
-          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
+          "title": "The Constructors (Les Constructeurs)",
+          "year": "1950",
+          "notes": "Workers on steel girders high above a city, his most politically direct statement of solidarity with industrial labour."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "The Moroccans",
-          "year": "1915–16",
-          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
+          "title": "Contrast of Forms",
+          "year": "1913",
+          "notes": "Pure investigations into volumetric contrast without representational content, among the most radical canvases of early Cubism."
         },
         {
-          "title": "Piano Lesson",
-          "year": "1916",
-          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
-        },
-        {
-          "title": "Bathers by a River",
-          "year": "1909–16",
-          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
+          "title": "Ballet mécanique",
+          "year": "1924",
+          "notes": "An avant-garde film collaborating with Dudley Murphy and Man Ray, using mechanical objects and human fragments to create a rhythmic machine ballet."
         }
       ],
       "dataset": {
-        "lot_count": 16,
-        "total_usd": 7558951,
-        "avg_usd": 472434,
-        "total_label": "$7.56M",
-        "avg_label": "$472k",
+        "lot_count": 8,
+        "total_usd": 7705573,
+        "avg_usd": 963197,
+        "total_label": "$7.71M",
+        "avg_label": "$963k",
         "top_lot": {
-          "title": "Henriette, robe jaune",
-          "hammer_usd": 1405200,
-          "sale_name": "Impressionist and Modern Art Day Sale"
+          "title": "La Jeune fille au bouquet",
+          "hammer_usd": 3200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Henriette, robe jaune",
-          "ratio": 3.51
+          "title": "Femme attablée (Étude pour ‘Le Grand déjeuner’)",
+          "ratio": 5.59
+        }
+      }
+    },
+    {
+      "norm_name": "EGON SCHIELE",
+      "display_name": "Egon Schiele",
+      "dates": "1890–1918",
+      "nationality": "Austrian",
+      "movement": "Expressionism",
+      "movement_id": "expressionism",
+      "bio": "Egon Schiele was the most psychologically naked painter of the Viennese Expressionist generation, an artist who died at twenty-eight during the 1918 Spanish flu pandemic leaving a body of work of anguished intensity and graphic daring that has lost none of its power to disturb and move. Born in Tulln an der Donau, he entered the Vienna Academy of Fine Arts in 1906 and immediately attracted the attention of Gustav Klimt, who recognised his extraordinary draftsmanship and became his mentor.\n\nSchiele broke with Klimt's ornamental symbolism to develop a style of raw linearity in which the human body — contorted, emaciated, frontally displayed in positions of erotic exposure or existential isolation — became the vehicle for an investigation of desire, shame, mortality, and the relationship between artist and model that anticipated later developments in confessional art. His figures are typically isolated on blank grounds, their outlines jagged and emphatic, their flesh rendered in sickly yellows and livid reds. The lack of environmental context focuses attention entirely on the psychological and physical reality of the body.\n\nSchiele was arrested in 1912 on charges of obscenity and producing pornography, and spent twenty-four days in prison — an experience he documented in a series of small paintings. He died in October 1918, three days after his pregnant wife Edith, at the peak of the Spanish influenza pandemic. His works now rank among the most expensive works on paper at auction, and his reputation as one of the defining figures of European modernism is firmly established.",
+      "famous_works": [
+        {
+          "title": "Self-Portrait with Physalis",
+          "year": "1912",
+          "notes": "A confrontational self-portrait with the artist holding a Chinese lantern plant, the intense orange echoing the psychic tension of his self-examination."
+        },
+        {
+          "title": "The Family",
+          "year": "1918",
+          "notes": "His final major work, showing a naked man, woman, and child — a raw family portrait painted in the year of his own death."
+        },
+        {
+          "title": "Reclining Woman with Green Stockings",
+          "year": "1917",
+          "notes": "A characteristic figure work demonstrating his mature command of compressed spatial tension and erotic directness."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Dead Mother I",
+          "year": "1910",
+          "notes": "A small but harrowing canvas exploring themes of birth and death, the infant clinging to its mother's lifeless body."
+        },
+        {
+          "title": "Krumau Landscape (Town and River)",
+          "year": "1916",
+          "notes": "One of his finest townscapes, demonstrating that his obsessive formal intelligence was not confined to the figure."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 7659910,
+        "avg_usd": 765991,
+        "total_label": "$7.66M",
+        "avg_label": "$766k",
+        "top_lot": {
+          "title": "Männlicher Akt im Profil nach rechts (Male Nude in Profile F",
+          "hammer_usd": 2000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Leopold Czihaczek, auf rotem Sofa sitzend",
+          "ratio": 2.69
         }
       }
     },
@@ -2712,114 +2820,6 @@
         "top_ratio_lot": {
           "title": "At the Sea-Side, Panel I",
           "ratio": 3.57
-        }
-      }
-    },
-    {
-      "norm_name": "FERNAND LÉGER",
-      "display_name": "Fernand Léger",
-      "dates": "1881–1955",
-      "nationality": "French",
-      "movement": "Cubism · Modernism",
-      "movement_id": "cubism",
-      "bio": "Fernand Léger was the most robustly optimistic of the Cubists, a Norman-born painter whose celebration of machines, workers, and the vitality of urban-industrial life made him the visual poet of twentieth-century modernity at its most confident. Trained as an architect's draughtsman, he entered the Paris art world in the first decade of the century and developed, alongside Picasso and Braque, his own variant of Cubism — rounder, more volumetric, more colourful — that he described as 'tubism' for its cylindrical forms.\n\nLéger's First World War service as a sapper brought him into direct contact with the industrial world he had previously known only aesthetically: the gleam of a gun barrel struck by sunlight became for him a symbol of the machine age's transformative beauty. His post-war Mechanist period — The City (1919), the Disc paintings — celebrates urban spectacle with flat, bright colour planes and the spatial fragmentation of advertising typography. Later works return to the human figure, but always as a type rather than an individual — broad-shouldered workers, acrobats, cyclists — rendered with the impersonal precision of industrial design.\n\nLéger was also a significant filmmaker (Ballet mécanique, 1924), ceramicist, and muralist who believed passionately in the social function of public art. His later large-scale decorative works, including mosaics and stained glass for churches, demonstrate his sustained engagement with the built environment.",
-      "famous_works": [
-        {
-          "title": "The City (La Ville)",
-          "year": "1919",
-          "notes": "A monumental canvas celebrating urban spectacle through fragmented advertising, architecture, and human figures, in the Philadelphia Museum of Art."
-        },
-        {
-          "title": "Three Women (Le Grand Déjeuner)",
-          "year": "1921",
-          "notes": "A large neoclassical figure composition that fuses monumental scale with the machine-age aesthetic of his Mechanist period."
-        },
-        {
-          "title": "The Constructors (Les Constructeurs)",
-          "year": "1950",
-          "notes": "Workers on steel girders high above a city, his most politically direct statement of solidarity with industrial labour."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Contrast of Forms",
-          "year": "1913",
-          "notes": "Pure investigations into volumetric contrast without representational content, among the most radical canvases of early Cubism."
-        },
-        {
-          "title": "Ballet mécanique",
-          "year": "1924",
-          "notes": "An avant-garde film collaborating with Dudley Murphy and Man Ray, using mechanical objects and human fragments to create a rhythmic machine ballet."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 7146773,
-        "avg_usd": 1020968,
-        "total_label": "$7.15M",
-        "avg_label": "$1.02M",
-        "top_lot": {
-          "title": "La Jeune fille au bouquet",
-          "hammer_usd": 3200000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Esquisse pour ‘Les Belles cyclistes’, 2ᵉ état",
-          "ratio": 1.57
-        }
-      }
-    },
-    {
-      "norm_name": "EGON SCHIELE",
-      "display_name": "Egon Schiele",
-      "dates": "1890–1918",
-      "nationality": "Austrian",
-      "movement": "Expressionism",
-      "movement_id": "expressionism",
-      "bio": "Egon Schiele was the most psychologically naked painter of the Viennese Expressionist generation, an artist who died at twenty-eight during the 1918 Spanish flu pandemic leaving a body of work of anguished intensity and graphic daring that has lost none of its power to disturb and move. Born in Tulln an der Donau, he entered the Vienna Academy of Fine Arts in 1906 and immediately attracted the attention of Gustav Klimt, who recognised his extraordinary draftsmanship and became his mentor.\n\nSchiele broke with Klimt's ornamental symbolism to develop a style of raw linearity in which the human body — contorted, emaciated, frontally displayed in positions of erotic exposure or existential isolation — became the vehicle for an investigation of desire, shame, mortality, and the relationship between artist and model that anticipated later developments in confessional art. His figures are typically isolated on blank grounds, their outlines jagged and emphatic, their flesh rendered in sickly yellows and livid reds. The lack of environmental context focuses attention entirely on the psychological and physical reality of the body.\n\nSchiele was arrested in 1912 on charges of obscenity and producing pornography, and spent twenty-four days in prison — an experience he documented in a series of small paintings. He died in October 1918, three days after his pregnant wife Edith, at the peak of the Spanish influenza pandemic. His works now rank among the most expensive works on paper at auction, and his reputation as one of the defining figures of European modernism is firmly established.",
-      "famous_works": [
-        {
-          "title": "Self-Portrait with Physalis",
-          "year": "1912",
-          "notes": "A confrontational self-portrait with the artist holding a Chinese lantern plant, the intense orange echoing the psychic tension of his self-examination."
-        },
-        {
-          "title": "The Family",
-          "year": "1918",
-          "notes": "His final major work, showing a naked man, woman, and child — a raw family portrait painted in the year of his own death."
-        },
-        {
-          "title": "Reclining Woman with Green Stockings",
-          "year": "1917",
-          "notes": "A characteristic figure work demonstrating his mature command of compressed spatial tension and erotic directness."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Dead Mother I",
-          "year": "1910",
-          "notes": "A small but harrowing canvas exploring themes of birth and death, the infant clinging to its mother's lifeless body."
-        },
-        {
-          "title": "Krumau Landscape (Town and River)",
-          "year": "1916",
-          "notes": "One of his finest townscapes, demonstrating that his obsessive formal intelligence was not confined to the figure."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 6961410,
-        "avg_usd": 773490,
-        "total_label": "$6.96M",
-        "avg_label": "$773k",
-        "top_lot": {
-          "title": "Männlicher Akt im Profil nach rechts (Male Nude in Profile F",
-          "hammer_usd": 2000000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Leopold Czihaczek, auf rotem Sofa sitzend",
-          "ratio": 2.69
         }
       }
     },
@@ -20516,6 +20516,33 @@
       }
     },
     {
+      "norm_name": "FRANK  AUERBACH",
+      "display_name": "Frank  Auerbach",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 711200,
+        "avg_usd": 711200,
+        "total_label": "$711k",
+        "avg_label": "$711k",
+        "top_lot": {
+          "title": "J.Y.M. Seated",
+          "hammer_usd": 711200,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "J.Y.M. Seated",
+          "ratio": 1.42
+        }
+      }
+    },
+    {
       "norm_name": "VIVIAN SPRINGFORD",
       "display_name": "Vivian Springford",
       "dates": "",
@@ -21164,6 +21191,33 @@
       }
     },
     {
+      "norm_name": "GUSTAV KLIMT",
+      "display_name": "Gustav Klimt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 594430,
+        "avg_usd": 84919,
+        "total_label": "$594k",
+        "avg_label": "$85k",
+        "top_lot": {
+          "title": "Die rechte Hand an der Schulter, mit roten Lippen (Right Han",
+          "hammer_usd": 160000,
+          "sale_name": "Modern Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Die rechte Hand an der Schulter, mit roten Lippen (Right Han",
+          "ratio": 2.29
+        }
+      }
+    },
+    {
       "norm_name": "FRANÇOIS BOUCHER",
       "display_name": "François Boucher",
       "dates": "",
@@ -21295,6 +21349,33 @@
         "top_ratio_lot": {
           "title": "Capriccio landscape with a ruined arch and figures beside a ",
           "ratio": 2.0
+        }
+      }
+    },
+    {
+      "norm_name": "EUGÈNE DELACROIX",
+      "display_name": "Eugène Delacroix",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 554826,
+        "avg_usd": 277413,
+        "total_label": "$555k",
+        "avg_label": "$277k",
+        "top_lot": {
+          "title": "Lion et lionne dans les montagnes",
+          "hammer_usd": 550000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Lion et lionne dans les montagnes",
+          "ratio": 1.83
         }
       }
     },
@@ -22429,33 +22510,6 @@
         "top_ratio_lot": {
           "title": "Next Bathers, two (dead tree)",
           "ratio": 1.2
-        }
-      }
-    },
-    {
-      "norm_name": "GUSTAV KLIMT",
-      "display_name": "Gustav Klimt",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 378530,
-        "avg_usd": 75706,
-        "total_label": "$379k",
-        "avg_label": "$76k",
-        "top_lot": {
-          "title": "Die rechte Hand an der Schulter, mit roten Lippen (Right Han",
-          "hammer_usd": 160000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Die rechte Hand an der Schulter, mit roten Lippen (Right Han",
-          "ratio": 2.29
         }
       }
     },
@@ -31096,6 +31150,33 @@
       }
     },
     {
+      "norm_name": "PAVEL SOKOV",
+      "display_name": "Pavel Sokov",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Watching the Dance",
+          "hammer_usd": 65000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Watching the Dance",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
       "norm_name": "JOSEPH BEUYS",
       "display_name": "Joseph Beuys",
       "dates": "",
@@ -33337,6 +33418,60 @@
       }
     },
     {
+      "norm_name": "JEAN-LOUIS-ANDRÉ-THÉODORE GÉRICAULT",
+      "display_name": "Jean-Louis-André-Théodore Géricault",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 45000,
+        "avg_usd": 22500,
+        "total_label": "$45k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Recto: Study for the figure in the foreground of the ‘Raft o",
+          "hammer_usd": 32000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Recto: Study for the figure in the foreground of the ‘Raft o",
+          "ratio": 1.28
+        }
+      }
+    },
+    {
+      "norm_name": "ADOLPH VON MENZEL",
+      "display_name": "Adolph Von Menzel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 44500,
+        "avg_usd": 22250,
+        "total_label": "$44k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Study of Three Heads",
+          "hammer_usd": 38000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Study of Three Heads",
+          "ratio": 2.17
+        }
+      }
+    },
+    {
       "norm_name": "ALBERT PÉNOT",
       "display_name": "Albert Pénot",
       "dates": "",
@@ -33954,6 +34089,33 @@
         "top_ratio_lot": {
           "title": "Muchacho en la fuente",
           "ratio": 1.15
+        }
+      }
+    },
+    {
+      "norm_name": "DAVID ROBERTS, R.A.",
+      "display_name": "David Roberts, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 40000,
+        "avg_usd": 13333,
+        "total_label": "$40k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Mosque of the Sultan Hassan from the Great Square of the Rum",
+          "hammer_usd": 24000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Mosque of the Sultan Hassan from the Great Square of the Rum",
+          "ratio": 1.2
         }
       }
     },
@@ -35092,6 +35254,60 @@
       }
     },
     {
+      "norm_name": "SAMANTA RCHED ABUGAUCH",
+      "display_name": "Samanta Rched Abugauch",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 32000,
+        "avg_usd": 32000,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "Felices Por Siempre",
+          "hammer_usd": 32000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Felices Por Siempre",
+          "ratio": 0.91
+        }
+      }
+    },
+    {
+      "norm_name": "JIANWEI WU",
+      "display_name": "Jianwei Wu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 32000,
+        "avg_usd": 32000,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "Fragrance of Books II",
+          "hammer_usd": 32000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Fragrance of Books II",
+          "ratio": 0.91
+        }
+      }
+    },
+    {
       "norm_name": "THOMAS GAINSBOROUGH, RA",
       "display_name": "Thomas Gainsborough, Ra",
       "dates": "",
@@ -35547,6 +35763,114 @@
         "top_ratio_lot": {
           "title": "Portrait of Comte Louis-Mathieu Molé (1781-1855)",
           "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "GABRIEL AKRE",
+      "display_name": "Gabriel Akre",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 28000,
+        "avg_usd": 28000,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "The Garden",
+          "hammer_usd": 28000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "The Garden",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "CHUNG-WEI CHIEN",
+      "display_name": "Chung-Wei Chien",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 28000,
+        "avg_usd": 28000,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Salmagundi Library",
+          "hammer_usd": 28000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Salmagundi Library",
+          "ratio": 2.8
+        }
+      }
+    },
+    {
+      "norm_name": "CARLA GRACE",
+      "display_name": "Carla Grace",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 28000,
+        "avg_usd": 28000,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Pride",
+          "hammer_usd": 28000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Pride",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "LYNETTE COOK",
+      "display_name": "Lynette Cook",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 28000,
+        "avg_usd": 28000,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Illumination",
+          "hammer_usd": 28000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Illumination",
+          "ratio": 2.24
         }
       }
     },
@@ -36033,6 +36357,33 @@
         "top_ratio_lot": {
           "title": "Nu à la toilette",
           "ratio": 2.6
+        }
+      }
+    },
+    {
+      "norm_name": "RUTH FITTON",
+      "display_name": "Ruth Fitton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 26000,
+        "avg_usd": 13000,
+        "total_label": "$26k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Precipice",
+          "hammer_usd": 13000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Precipice",
+          "ratio": 0.87
         }
       }
     },
@@ -36874,6 +37225,60 @@
       }
     },
     {
+      "norm_name": "BRIAN BAILEY",
+      "display_name": "Brian Bailey",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 22000,
+        "avg_usd": 22000,
+        "total_label": "$22k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Dawn",
+          "hammer_usd": 22000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Dawn",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "SANDRA KUCK",
+      "display_name": "Sandra Kuck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 22000,
+        "avg_usd": 22000,
+        "total_label": "$22k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Brushing Death Away",
+          "hammer_usd": 22000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Brushing Death Away",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "JEANNE MAMMEN",
       "display_name": "Jeanne Mammen",
       "dates": "",
@@ -37464,6 +37869,33 @@
         "top_ratio_lot": {
           "title": "Self-portrait",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "ANNE-CHRISTINE RODA",
+      "display_name": "Anne-Christine Roda",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 19000,
+        "avg_usd": 19000,
+        "total_label": "$19k",
+        "avg_label": "$19k",
+        "top_lot": {
+          "title": "Madone en Blanc",
+          "hammer_usd": 19000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Madone en Blanc",
+          "ratio": 0.88
         }
       }
     },
@@ -38062,6 +38494,33 @@
       }
     },
     {
+      "norm_name": "GABY NIGHAN",
+      "display_name": "Gaby Nighan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16000,
+        "avg_usd": 16000,
+        "total_label": "$16k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Midnight in a Perfect World",
+          "hammer_usd": 16000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Midnight in a Perfect World",
+          "ratio": 3.2
+        }
+      }
+    },
+    {
       "norm_name": "TAL R",
       "display_name": "Tal R",
       "dates": "",
@@ -38409,6 +38868,60 @@
         "top_ratio_lot": {
           "title": "Jezebel",
           "ratio": 1.76
+        }
+      }
+    },
+    {
+      "norm_name": "YOANN LOSSEL",
+      "display_name": "Yoann Lossel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15000,
+        "avg_usd": 15000,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "American Gods - The Carousel",
+          "hammer_usd": 15000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "American Gods - The Carousel",
+          "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "SCOTT GARDER",
+      "display_name": "Scott Garder",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15000,
+        "avg_usd": 15000,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Young Woman, Illuminated",
+          "hammer_usd": 15000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Young Woman, Illuminated",
+          "ratio": 1.5
         }
       }
     },
@@ -39142,6 +39655,60 @@
       }
     },
     {
+      "norm_name": "ROBERTO GAMMONE",
+      "display_name": "Roberto Gammone",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13000,
+        "avg_usd": 13000,
+        "total_label": "$13k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Baroque Recycling",
+          "hammer_usd": 13000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Baroque Recycling",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "MARCOS REY",
+      "display_name": "Marcos Rey",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13000,
+        "avg_usd": 13000,
+        "total_label": "$13k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Angel",
+          "hammer_usd": 13000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Angel",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
       "norm_name": "WILHELM SASNAL",
       "display_name": "Wilhelm Sasnal",
       "dates": "",
@@ -39412,6 +39979,87 @@
       }
     },
     {
+      "norm_name": "ANNA ABRAHAM",
+      "display_name": "Anna Abraham",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12000,
+        "avg_usd": 12000,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Moving Still",
+          "hammer_usd": 12000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Moving Still",
+          "ratio": 0.96
+        }
+      }
+    },
+    {
+      "norm_name": "ERICA ARCUDI",
+      "display_name": "Erica Arcudi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12000,
+        "avg_usd": 12000,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Harbingers",
+          "hammer_usd": 12000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Harbingers",
+          "ratio": 0.96
+        }
+      }
+    },
+    {
+      "norm_name": "MAXWELL G. MILLER",
+      "display_name": "Maxwell G. Miller",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12000,
+        "avg_usd": 12000,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "The Tale of the Curious Oysters",
+          "hammer_usd": 12000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "The Tale of the Curious Oysters",
+          "ratio": 2.0
+        }
+      }
+    },
+    {
       "norm_name": "KARL PRIEBE",
       "display_name": "Karl Priebe",
       "dates": "",
@@ -39624,6 +40272,114 @@
         "top_ratio_lot": {
           "title": "Cupid with amorini and a flaming torch amongst the clouds",
           "ratio": 0.73
+        }
+      }
+    },
+    {
+      "norm_name": "ANDRII KATERYNIUK",
+      "display_name": "Andrii Kateryniuk",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Red Sunset",
+          "hammer_usd": 11000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Red Sunset",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXANDRA KLIMAS",
+      "display_name": "Alexandra Klimas",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Griffin the Bull",
+          "hammer_usd": 11000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Griffin the Bull",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "CARA WILMANNS",
+      "display_name": "Cara Wilmanns",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Adorned",
+          "hammer_usd": 11000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Adorned",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "JOHN MARTIN",
+      "display_name": "John Martin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "The Ruins of Trionto",
+          "hammer_usd": 11000,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "The Ruins of Trionto",
+          "ratio": 0.88
         }
       }
     },
@@ -40276,6 +41032,87 @@
       }
     },
     {
+      "norm_name": "KATHRYN DENNISON",
+      "display_name": "Kathryn Dennison",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8500,
+        "avg_usd": 8500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Of Fathers and Sons",
+          "hammer_usd": 8500,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Of Fathers and Sons",
+          "ratio": 0.85
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM PAQUET",
+      "display_name": "William Paquet",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8500,
+        "avg_usd": 8500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "I am",
+          "hammer_usd": 8500,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "I am",
+          "ratio": 0.85
+        }
+      }
+    },
+    {
+      "norm_name": "MINGYANG ZHANG",
+      "display_name": "Mingyang Zhang",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8500,
+        "avg_usd": 8500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "The Girl in the Red Velvet Clothes",
+          "hammer_usd": 8500,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "The Girl in the Red Velvet Clothes",
+          "ratio": 0.85
+        }
+      }
+    },
+    {
       "norm_name": "BRASSAI",
       "display_name": "Brassai",
       "dates": "",
@@ -40789,6 +41626,33 @@
       }
     },
     {
+      "norm_name": "OLIVIA ARTS",
+      "display_name": "Olivia Arts",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 7500,
+        "avg_usd": 7500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Marco Zamburru",
+          "hammer_usd": 7500,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Marco Zamburru",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "GIOVANNI ANTONIO PELLEGRINI",
       "display_name": "Giovanni Antonio Pellegrini",
       "dates": "",
@@ -41221,6 +42085,33 @@
       }
     },
     {
+      "norm_name": "PANCRACE BESSA",
+      "display_name": "Pancrace Bessa",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6500,
+        "avg_usd": 6500,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Still Life of Flowers in a Glass Vase, with Grapes, Peaches ",
+          "hammer_usd": 6500,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Still Life of Flowers in a Glass Vase, with Grapes, Peaches ",
+          "ratio": 1.3
+        }
+      }
+    },
+    {
       "norm_name": "THEOPHILE ALEXANDRE STEINLEN",
       "display_name": "Theophile Alexandre Steinlen",
       "dates": "",
@@ -41541,6 +42432,33 @@
         "top_ratio_lot": {
           "title": "A Herdsman and Dog with Cows and Sheep, beside Ruins",
           "ratio": 0.69
+        }
+      }
+    },
+    {
+      "norm_name": "JIMIN LEE",
+      "display_name": "Jimin Lee",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5500,
+        "avg_usd": 5500,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Grandfather",
+          "hammer_usd": 5500,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Grandfather",
+          "ratio": 2.2
         }
       }
     },
@@ -42004,33 +42922,6 @@
       }
     },
     {
-      "norm_name": "EUGÈNE DELACROIX",
-      "display_name": "Eugène Delacroix",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 4826,
-        "avg_usd": 4826,
-        "total_label": "$5k",
-        "avg_label": "$5k",
-        "top_lot": {
-          "title": "A seated Carthusian monk in Seville",
-          "hammer_usd": 4826,
-          "sale_name": "Old Master Paintings Works On Paper Day Auction L26034"
-        },
-        "top_ratio_lot": {
-          "title": "A seated Carthusian monk in Seville",
-          "ratio": 0.97
-        }
-      }
-    },
-    {
       "norm_name": "EDDIE PEAKE",
       "display_name": "Eddie Peake",
       "dates": "",
@@ -42351,6 +43242,60 @@
         "top_ratio_lot": {
           "title": "The funeral of the Saint Roch",
           "ratio": 1.78
+        }
+      }
+    },
+    {
+      "norm_name": "ALINA HUBARENKO",
+      "display_name": "Alina Hubarenko",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4200,
+        "avg_usd": 4200,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Swirl",
+          "hammer_usd": 4200,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Swirl",
+          "ratio": 0.84
+        }
+      }
+    },
+    {
+      "norm_name": "FRANÇOIS BONVIN",
+      "display_name": "François Bonvin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4200,
+        "avg_usd": 4200,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Head and shoulders study of a young woman with long, dark ha",
+          "hammer_usd": 4200,
+          "sale_name": "Master Works On Paper From Five Centuries 2"
+        },
+        "top_ratio_lot": {
+          "title": "Head and shoulders study of a young woman with long, dark ha",
+          "ratio": 0.84
         }
       }
     },
@@ -42922,6 +43867,33 @@
       }
     },
     {
+      "norm_name": "EVEE ERB",
+      "display_name": "Evee Erb",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3000,
+        "avg_usd": 3000,
+        "total_label": "$3k",
+        "avg_label": "$3k",
+        "top_lot": {
+          "title": "Silent Prayer",
+          "hammer_usd": 3000,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Silent Prayer",
+          "ratio": 1.0
+        }
+      }
+    },
+    {
       "norm_name": "LOUIS VUITTON “REBONDS” BOOK",
       "display_name": "Louis Vuitton “Rebonds” Book",
       "dates": "",
@@ -43080,6 +44052,33 @@
         "top_ratio_lot": {
           "title": "A ceiling design with scenes from the life of Paris and the ",
           "ratio": 0.85
+        }
+      }
+    },
+    {
+      "norm_name": "LYUDMILA TOMOVA CLARK",
+      "display_name": "Lyudmila Tomova Clark",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2500,
+        "avg_usd": 2500,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Stormbound",
+          "hammer_usd": 2500,
+          "sale_name": "Contemporary Realism Important 21st Century Works"
+        },
+        "top_ratio_lot": {
+          "title": "Stormbound",
+          "ratio": 0.83
         }
       }
     },
