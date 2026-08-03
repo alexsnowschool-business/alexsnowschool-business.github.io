@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3322,
-    "total_artists": 1333,
+    "total_lots": 3372,
+    "total_artists": 1344,
     "median_hammer_usd": 96774,
-    "pct_above_estimate": 46.9,
+    "pct_above_estimate": 46.8,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-07-30"
+    "generated_at": "2026-08-03"
   },
   "artists": [
     {
@@ -233,19 +233,19 @@
         }
       ],
       "dataset": {
-        "lot_count": 6,
-        "total_usd": 62196000,
-        "avg_usd": 10366000,
-        "total_label": "$62.20M",
-        "avg_label": "$10.37M",
+        "lot_count": 7,
+        "total_usd": 63224700,
+        "avg_usd": 9032100,
+        "total_label": "$63.22M",
+        "avg_label": "$9.03M",
         "top_lot": {
           "title": "Meules à Giverny",
           "hammer_usd": 30200000,
           "sale_name": "Modern Evening Auction, NY 2024"
         },
         "top_ratio_lot": {
-          "title": "Vétheuil",
-          "ratio": 1.6
+          "title": "Portrait d’homme debout",
+          "ratio": 5.88
         }
       }
     },
@@ -287,11 +287,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 52,
-        "total_usd": 57859881,
-        "avg_usd": 1112690,
-        "total_label": "$57.86M",
-        "avg_label": "$1.11M",
+        "lot_count": 56,
+        "total_usd": 58653631,
+        "avg_usd": 1047386,
+        "total_label": "$58.65M",
+        "avg_label": "$1.05M",
         "top_lot": {
           "title": "Homme assis",
           "hammer_usd": 12800000,
@@ -1073,10 +1073,10 @@
         }
       ],
       "dataset": {
-        "lot_count": 71,
-        "total_usd": 23671549,
-        "avg_usd": 333402,
-        "total_label": "$23.67M",
+        "lot_count": 73,
+        "total_usd": 24344649,
+        "avg_usd": 333488,
+        "total_label": "$24.34M",
         "avg_label": "$333k",
         "top_lot": {
           "title": "Bethsabée",
@@ -1537,6 +1537,65 @@
       }
     },
     {
+      "norm_name": "PIERRE-AUGUSTE RENOIR",
+      "display_name": "Pierre-Auguste Renoir",
+      "dates": "1841–1919",
+      "nationality": "French",
+      "movement": "Impressionism · Figure Painting",
+      "movement_id": "impressionism",
+      "bio": "Born in Limoges, Renoir trained as a porcelain painter before entering the École des Beaux-Arts and meeting Monet, Sisley, and Bazille. He was the most socially optimistic of the Impressionists: his paintings depict pleasure — dances, outdoor luncheons, Sunday afternoons on the Seine, women bathing — with a warmth and sensuousness that distinguished him from Monet's more meteorological programme. The dappled light in his outdoor figure paintings is the technique applied to human social life rather than landscape. His late career, dominated by rheumatoid arthritis that eventually left him unable to hold a brush (his assistants strapped it to his wrist), turned toward an increasingly academic and studio-bound treatment of the female figure. Institutional and collector prices remain very strong globally, particularly in the United States and Japan, where his work entered major collections early.",
+      "famous_works": [
+        {
+          "title": "Le Moulin de la Galette",
+          "year": "1876",
+          "notes": "A Sunday afternoon at the outdoor dance hall in Montmartre. The dappled Impressionist light applied to a scene of bourgeois leisure — one of the movement's defining images. Musée d'Orsay."
+        },
+        {
+          "title": "Luncheon of the Boating Party",
+          "year": "1880–81",
+          "notes": "Renoir's friends lunching on a terrace above the Seine at Chatou. The most elaborate of his outdoor figure compositions — Impressionist technique at its most socially immersive."
+        },
+        {
+          "title": "The Large Bathers",
+          "year": "1884–87",
+          "notes": "A monumental outdoor nude composition in a more classical style than the Impressionist period — Renoir's attempt to reconcile plein-air observation with the grand tradition."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Swing",
+          "year": "1876",
+          "notes": "A small painting made in his garden in Montmartre — the same location as Le Moulin. The dappled light effects are even more immediate here than in the larger canvas."
+        },
+        {
+          "title": "Young Women at the Piano",
+          "year": "1892",
+          "notes": "Commissioned by the French state for the Luxembourg Museum. The domestic interior at its most comfortable — Renoir's bourgeois optimism at its least problematically cheerful."
+        },
+        {
+          "title": "The Theatre Box",
+          "year": "1874",
+          "notes": "A woman in a theatre box, the male companion a dark background figure. The woman as spectacle within the spectacle of the theatre — the looking and being-looked-at doubled."
+        }
+      ],
+      "dataset": {
+        "lot_count": 21,
+        "total_usd": 14970593,
+        "avg_usd": 712885,
+        "total_label": "$14.97M",
+        "avg_label": "$713k",
+        "top_lot": {
+          "title": "Roses dans un vase de cristal",
+          "hammer_usd": 2700000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Paysage, Cagnes",
+          "ratio": 4.09
+        }
+      }
+    },
+    {
       "norm_name": "MARK ROTHKO",
       "display_name": "Mark Rothko",
       "dates": "1903–1970",
@@ -1587,65 +1646,6 @@
         "top_ratio_lot": {
           "title": "Untitled (Season's Greetings)",
           "ratio": 3.87
-        }
-      }
-    },
-    {
-      "norm_name": "PIERRE-AUGUSTE RENOIR",
-      "display_name": "Pierre-Auguste Renoir",
-      "dates": "1841–1919",
-      "nationality": "French",
-      "movement": "Impressionism · Figure Painting",
-      "movement_id": "impressionism",
-      "bio": "Born in Limoges, Renoir trained as a porcelain painter before entering the École des Beaux-Arts and meeting Monet, Sisley, and Bazille. He was the most socially optimistic of the Impressionists: his paintings depict pleasure — dances, outdoor luncheons, Sunday afternoons on the Seine, women bathing — with a warmth and sensuousness that distinguished him from Monet's more meteorological programme. The dappled light in his outdoor figure paintings is the technique applied to human social life rather than landscape. His late career, dominated by rheumatoid arthritis that eventually left him unable to hold a brush (his assistants strapped it to his wrist), turned toward an increasingly academic and studio-bound treatment of the female figure. Institutional and collector prices remain very strong globally, particularly in the United States and Japan, where his work entered major collections early.",
-      "famous_works": [
-        {
-          "title": "Le Moulin de la Galette",
-          "year": "1876",
-          "notes": "A Sunday afternoon at the outdoor dance hall in Montmartre. The dappled Impressionist light applied to a scene of bourgeois leisure — one of the movement's defining images. Musée d'Orsay."
-        },
-        {
-          "title": "Luncheon of the Boating Party",
-          "year": "1880–81",
-          "notes": "Renoir's friends lunching on a terrace above the Seine at Chatou. The most elaborate of his outdoor figure compositions — Impressionist technique at its most socially immersive."
-        },
-        {
-          "title": "The Large Bathers",
-          "year": "1884–87",
-          "notes": "A monumental outdoor nude composition in a more classical style than the Impressionist period — Renoir's attempt to reconcile plein-air observation with the grand tradition."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Swing",
-          "year": "1876",
-          "notes": "A small painting made in his garden in Montmartre — the same location as Le Moulin. The dappled light effects are even more immediate here than in the larger canvas."
-        },
-        {
-          "title": "Young Women at the Piano",
-          "year": "1892",
-          "notes": "Commissioned by the French state for the Luxembourg Museum. The domestic interior at its most comfortable — Renoir's bourgeois optimism at its least problematically cheerful."
-        },
-        {
-          "title": "The Theatre Box",
-          "year": "1874",
-          "notes": "A woman in a theatre box, the male companion a dark background figure. The woman as spectacle within the spectacle of the theatre — the looking and being-looked-at doubled."
-        }
-      ],
-      "dataset": {
-        "lot_count": 20,
-        "total_usd": 14564193,
-        "avg_usd": 728210,
-        "total_label": "$14.56M",
-        "avg_label": "$728k",
-        "top_lot": {
-          "title": "Roses dans un vase de cristal",
-          "hammer_usd": 2700000,
-          "sale_name": "Modern Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Paysage, Cagnes",
-          "ratio": 4.09
         }
       }
     },
@@ -2043,6 +2043,60 @@
       }
     },
     {
+      "norm_name": "WASSILY KANDINSKY",
+      "display_name": "Wassily Kandinsky",
+      "dates": "1866–1944",
+      "nationality": "Russian-French",
+      "movement": "Abstract Expressionism · Modernism",
+      "movement_id": "abstract-expressionism",
+      "bio": "Wassily Kandinsky is widely credited as the first painter to make a fully non-representational work, and his theoretical writings — Concerning the Spiritual in Art (1911) and Point and Line to Plane (1926) — remain foundational texts for understanding the development of abstraction in the twentieth century. Born in Moscow into a cultivated bourgeois family, he abandoned a legal career at thirty to study painting in Munich, where he founded the Neue Künstlervereinigung München and, with Franz Marc, the Blaue Reiter group in 1911.\n\nKandinsky's conviction that colour and form could induce spiritual states analogous to music — he was a synesthete who perceived colours when hearing sound — drove him toward the elimination of recognisable subject matter from his work. His Compositions, Improvisations, and Impressions of the pre-war period oscillate between near-abstraction and the retention of landscape and figurative elements; by the early 1910s some canvases contain no discernible subject at all. At the Weimar and Dessau Bauhaus (1922–1933), where he directed the mural workshop, his work became more geometric, influenced by Russian Constructivism and the rigorous spatial investigations of his Bauhaus colleagues.\n\nKandinsky spent his final decade in Neuilly-sur-Seine, France, having fled Nazi Germany, producing biomorphic abstractions that incorporate his characteristic colour theory within more organic, Miró-influenced forms. His influence on subsequent abstraction — on the New York School, on Concrete Art, on Op Art — is pervasive and fundamental.",
+      "famous_works": [
+        {
+          "title": "Composition VII",
+          "year": "1913",
+          "notes": "Considered his masterpiece, a vast canvas of swirling forms and colour that is among the most complex pre-war abstract paintings ever made."
+        },
+        {
+          "title": "Improvisation 28 (second version)",
+          "year": "1912",
+          "notes": "A pivotal early abstraction in which landscape elements are on the verge of complete dissolution into pure form and colour."
+        },
+        {
+          "title": "Yellow-Red-Blue",
+          "year": "1925",
+          "notes": "A Bauhaus period work demonstrating his geometric turn, the primary colour theory of Concerning the Spiritual in Art applied with rigorous formal discipline."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Murnau — Landscape with Tower",
+          "year": "1908",
+          "notes": "A transitional Bavarian landscape in which Fauvist colour pushes against the representational convention, approaching the abstraction of his breakthrough works."
+        },
+        {
+          "title": "Several Circles",
+          "year": "1926",
+          "notes": "A Bauhaus-period canvas of overlapping translucent circles on black, demonstrating his investigation of colour transparency and spatial depth through geometric means."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 9488050,
+        "avg_usd": 1581342,
+        "total_label": "$9.49M",
+        "avg_label": "$1.58M",
+        "top_lot": {
+          "title": "Villa Seeburg am Staffelsee",
+          "hammer_usd": 6269999,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Villa Seeburg am Staffelsee",
+          "ratio": 3.13
+        }
+      }
+    },
+    {
       "norm_name": "FRANTIŠEK KUPKA",
       "display_name": "František Kupka",
       "dates": "1871–1957",
@@ -2097,56 +2151,61 @@
       }
     },
     {
-      "norm_name": "WASSILY KANDINSKY",
-      "display_name": "Wassily Kandinsky",
-      "dates": "1866–1944",
-      "nationality": "Russian-French",
-      "movement": "Abstract Expressionism · Modernism",
-      "movement_id": "abstract-expressionism",
-      "bio": "Wassily Kandinsky is widely credited as the first painter to make a fully non-representational work, and his theoretical writings — Concerning the Spiritual in Art (1911) and Point and Line to Plane (1926) — remain foundational texts for understanding the development of abstraction in the twentieth century. Born in Moscow into a cultivated bourgeois family, he abandoned a legal career at thirty to study painting in Munich, where he founded the Neue Künstlervereinigung München and, with Franz Marc, the Blaue Reiter group in 1911.\n\nKandinsky's conviction that colour and form could induce spiritual states analogous to music — he was a synesthete who perceived colours when hearing sound — drove him toward the elimination of recognisable subject matter from his work. His Compositions, Improvisations, and Impressions of the pre-war period oscillate between near-abstraction and the retention of landscape and figurative elements; by the early 1910s some canvases contain no discernible subject at all. At the Weimar and Dessau Bauhaus (1922–1933), where he directed the mural workshop, his work became more geometric, influenced by Russian Constructivism and the rigorous spatial investigations of his Bauhaus colleagues.\n\nKandinsky spent his final decade in Neuilly-sur-Seine, France, having fled Nazi Germany, producing biomorphic abstractions that incorporate his characteristic colour theory within more organic, Miró-influenced forms. His influence on subsequent abstraction — on the New York School, on Concrete Art, on Op Art — is pervasive and fundamental.",
+      "norm_name": "HENRI MATISSE",
+      "display_name": "Henri Matisse",
+      "dates": "1869–1954",
+      "nationality": "French",
+      "movement": "Fauvism · Modernism · Decoration",
+      "movement_id": "modernism",
+      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
       "famous_works": [
         {
-          "title": "Composition VII",
-          "year": "1913",
-          "notes": "Considered his masterpiece, a vast canvas of swirling forms and colour that is among the most complex pre-war abstract paintings ever made."
+          "title": "La Joie de vivre",
+          "year": "1906",
+          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
         },
         {
-          "title": "Improvisation 28 (second version)",
-          "year": "1912",
-          "notes": "A pivotal early abstraction in which landscape elements are on the verge of complete dissolution into pure form and colour."
+          "title": "Dance (II)",
+          "year": "1910",
+          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
         },
         {
-          "title": "Yellow-Red-Blue",
-          "year": "1925",
-          "notes": "A Bauhaus period work demonstrating his geometric turn, the primary colour theory of Concerning the Spiritual in Art applied with rigorous formal discipline."
+          "title": "The Swimming Pool",
+          "year": "1952",
+          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Murnau — Landscape with Tower",
-          "year": "1908",
-          "notes": "A transitional Bavarian landscape in which Fauvist colour pushes against the representational convention, approaching the abstraction of his breakthrough works."
+          "title": "The Moroccans",
+          "year": "1915–16",
+          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
         },
         {
-          "title": "Several Circles",
-          "year": "1926",
-          "notes": "A Bauhaus-period canvas of overlapping translucent circles on black, demonstrating his investigation of colour transparency and spatial depth through geometric means."
+          "title": "Piano Lesson",
+          "year": "1916",
+          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
+        },
+        {
+          "title": "Bathers by a River",
+          "year": "1909–16",
+          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
         }
       ],
       "dataset": {
-        "lot_count": 5,
-        "total_usd": 9418200,
-        "avg_usd": 1883640,
-        "total_label": "$9.42M",
-        "avg_label": "$1.88M",
+        "lot_count": 19,
+        "total_usd": 9006751,
+        "avg_usd": 474040,
+        "total_label": "$9.01M",
+        "avg_label": "$474k",
         "top_lot": {
-          "title": "Villa Seeburg am Staffelsee",
-          "hammer_usd": 6269999,
-          "sale_name": "Evening Sale, Munich"
+          "title": "Henriette, robe jaune",
+          "hammer_usd": 1405200,
+          "sale_name": "Impressionist and Modern Art Day Sale"
         },
         "top_ratio_lot": {
-          "title": "Villa Seeburg am Staffelsee",
-          "ratio": 3.13
+          "title": "Autoportrait",
+          "ratio": 5.97
         }
       }
     },
@@ -2372,65 +2431,6 @@
       }
     },
     {
-      "norm_name": "HENRI MATISSE",
-      "display_name": "Henri Matisse",
-      "dates": "1869–1954",
-      "nationality": "French",
-      "movement": "Fauvism · Modernism · Decoration",
-      "movement_id": "modernism",
-      "bio": "Born in Le Cateau-Cambrésis to a grain merchant, Matisse began painting while recovering from appendicitis at 21. He studied under Gustave Moreau, absorbing Cézanne and Signac's pointillism before leading the Fauve explosion at the 1905 Salon d'Automne. Where Picasso fragments and analyses, Matisse integrates and harmonises: colour creates space, defines volume, constructs the picture's internal logic. The long partnership-rivalry with Picasso ran from 1906 to Matisse's death. He lived and worked in Nice from 1917 — the light, the Mediterranean, the odalisques. The late cut-outs, made when arthritis prevented painting, are among the most formally perfect works of the century: scissors replace brushes, negative space and positive form are held in equilibrium. The Chapelle du Rosaire in Vence (1948–51), designed entirely by Matisse at 80, is the most complete integration of his decorative intelligence into architectural space.",
-      "famous_works": [
-        {
-          "title": "La Joie de vivre",
-          "year": "1906",
-          "notes": "An idyllic scene of nude figures in an Arcadian landscape rendered in pure colour without modelling. Scandalized critics; purchased by Leo and Gertrude Stein."
-        },
-        {
-          "title": "Dance (II)",
-          "year": "1910",
-          "notes": "Five nude figures in a circle against a flat blue and green ground. Commissioned by Sergei Shchukin — the most monumental statement of Matisse's colouristic programme."
-        },
-        {
-          "title": "The Swimming Pool",
-          "year": "1952",
-          "notes": "A mural-scale cut-out in which blue paper figures swim around the walls of a room. One of the last and greatest works of the cut-out period."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Moroccans",
-          "year": "1915–16",
-          "notes": "A dark, severe painting — unusual in Matisse's oeuvre for its near-monochrome gravity. The Moroccan visits (1912–13) produced his most formally radical work."
-        },
-        {
-          "title": "Piano Lesson",
-          "year": "1916",
-          "notes": "A boy at a piano in a grey-green room. More architecturally abstract than most Matisse — the spatial logic of the room treated almost like a Mondrian."
-        },
-        {
-          "title": "Bathers by a River",
-          "year": "1909–16",
-          "notes": "Worked on for seven years — Matisse's most sustained formal struggle. Four flat figures against vertical bands of grey. The monumental scale and severity are uncharacteristic."
-        }
-      ],
-      "dataset": {
-        "lot_count": 17,
-        "total_usd": 8155851,
-        "avg_usd": 479756,
-        "total_label": "$8.16M",
-        "avg_label": "$480k",
-        "top_lot": {
-          "title": "Henriette, robe jaune",
-          "hammer_usd": 1405200,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Autoportrait",
-          "ratio": 5.97
-        }
-      }
-    },
-    {
       "norm_name": "ANTONY GORMLEY",
       "display_name": "Antony Gormley",
       "dates": "b. 1950",
@@ -2481,6 +2481,60 @@
         "top_ratio_lot": {
           "title": "Another Singularity",
           "ratio": 3.78
+        }
+      }
+    },
+    {
+      "norm_name": "EGON SCHIELE",
+      "display_name": "Egon Schiele",
+      "dates": "1890–1918",
+      "nationality": "Austrian",
+      "movement": "Expressionism",
+      "movement_id": "expressionism",
+      "bio": "Egon Schiele was the most psychologically naked painter of the Viennese Expressionist generation, an artist who died at twenty-eight during the 1918 Spanish flu pandemic leaving a body of work of anguished intensity and graphic daring that has lost none of its power to disturb and move. Born in Tulln an der Donau, he entered the Vienna Academy of Fine Arts in 1906 and immediately attracted the attention of Gustav Klimt, who recognised his extraordinary draftsmanship and became his mentor.\n\nSchiele broke with Klimt's ornamental symbolism to develop a style of raw linearity in which the human body — contorted, emaciated, frontally displayed in positions of erotic exposure or existential isolation — became the vehicle for an investigation of desire, shame, mortality, and the relationship between artist and model that anticipated later developments in confessional art. His figures are typically isolated on blank grounds, their outlines jagged and emphatic, their flesh rendered in sickly yellows and livid reds. The lack of environmental context focuses attention entirely on the psychological and physical reality of the body.\n\nSchiele was arrested in 1912 on charges of obscenity and producing pornography, and spent twenty-four days in prison — an experience he documented in a series of small paintings. He died in October 1918, three days after his pregnant wife Edith, at the peak of the Spanish influenza pandemic. His works now rank among the most expensive works on paper at auction, and his reputation as one of the defining figures of European modernism is firmly established.",
+      "famous_works": [
+        {
+          "title": "Self-Portrait with Physalis",
+          "year": "1912",
+          "notes": "A confrontational self-portrait with the artist holding a Chinese lantern plant, the intense orange echoing the psychic tension of his self-examination."
+        },
+        {
+          "title": "The Family",
+          "year": "1918",
+          "notes": "His final major work, showing a naked man, woman, and child — a raw family portrait painted in the year of his own death."
+        },
+        {
+          "title": "Reclining Woman with Green Stockings",
+          "year": "1917",
+          "notes": "A characteristic figure work demonstrating his mature command of compressed spatial tension and erotic directness."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Dead Mother I",
+          "year": "1910",
+          "notes": "A small but harrowing canvas exploring themes of birth and death, the infant clinging to its mother's lifeless body."
+        },
+        {
+          "title": "Krumau Landscape (Town and River)",
+          "year": "1916",
+          "notes": "One of his finest townscapes, demonstrating that his obsessive formal intelligence was not confined to the figure."
+        }
+      ],
+      "dataset": {
+        "lot_count": 11,
+        "total_usd": 7742460,
+        "avg_usd": 703860,
+        "total_label": "$7.74M",
+        "avg_label": "$704k",
+        "top_lot": {
+          "title": "Männlicher Akt im Profil nach rechts (Male Nude in Profile F",
+          "hammer_usd": 2000000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Leopold Czihaczek, auf rotem Sofa sitzend",
+          "ratio": 2.69
         }
       }
     },
@@ -2599,60 +2653,6 @@
         "top_ratio_lot": {
           "title": "Femme attablée (Étude pour ‘Le Grand déjeuner’)",
           "ratio": 5.59
-        }
-      }
-    },
-    {
-      "norm_name": "EGON SCHIELE",
-      "display_name": "Egon Schiele",
-      "dates": "1890–1918",
-      "nationality": "Austrian",
-      "movement": "Expressionism",
-      "movement_id": "expressionism",
-      "bio": "Egon Schiele was the most psychologically naked painter of the Viennese Expressionist generation, an artist who died at twenty-eight during the 1918 Spanish flu pandemic leaving a body of work of anguished intensity and graphic daring that has lost none of its power to disturb and move. Born in Tulln an der Donau, he entered the Vienna Academy of Fine Arts in 1906 and immediately attracted the attention of Gustav Klimt, who recognised his extraordinary draftsmanship and became his mentor.\n\nSchiele broke with Klimt's ornamental symbolism to develop a style of raw linearity in which the human body — contorted, emaciated, frontally displayed in positions of erotic exposure or existential isolation — became the vehicle for an investigation of desire, shame, mortality, and the relationship between artist and model that anticipated later developments in confessional art. His figures are typically isolated on blank grounds, their outlines jagged and emphatic, their flesh rendered in sickly yellows and livid reds. The lack of environmental context focuses attention entirely on the psychological and physical reality of the body.\n\nSchiele was arrested in 1912 on charges of obscenity and producing pornography, and spent twenty-four days in prison — an experience he documented in a series of small paintings. He died in October 1918, three days after his pregnant wife Edith, at the peak of the Spanish influenza pandemic. His works now rank among the most expensive works on paper at auction, and his reputation as one of the defining figures of European modernism is firmly established.",
-      "famous_works": [
-        {
-          "title": "Self-Portrait with Physalis",
-          "year": "1912",
-          "notes": "A confrontational self-portrait with the artist holding a Chinese lantern plant, the intense orange echoing the psychic tension of his self-examination."
-        },
-        {
-          "title": "The Family",
-          "year": "1918",
-          "notes": "His final major work, showing a naked man, woman, and child — a raw family portrait painted in the year of his own death."
-        },
-        {
-          "title": "Reclining Woman with Green Stockings",
-          "year": "1917",
-          "notes": "A characteristic figure work demonstrating his mature command of compressed spatial tension and erotic directness."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Dead Mother I",
-          "year": "1910",
-          "notes": "A small but harrowing canvas exploring themes of birth and death, the infant clinging to its mother's lifeless body."
-        },
-        {
-          "title": "Krumau Landscape (Town and River)",
-          "year": "1916",
-          "notes": "One of his finest townscapes, demonstrating that his obsessive formal intelligence was not confined to the figure."
-        }
-      ],
-      "dataset": {
-        "lot_count": 10,
-        "total_usd": 7659910,
-        "avg_usd": 765991,
-        "total_label": "$7.66M",
-        "avg_label": "$766k",
-        "top_lot": {
-          "title": "Männlicher Akt im Profil nach rechts (Male Nude in Profile F",
-          "hammer_usd": 2000000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Leopold Czihaczek, auf rotem Sofa sitzend",
-          "ratio": 2.69
         }
       }
     },
@@ -2807,11 +2807,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 18,
-        "total_usd": 7294454,
-        "avg_usd": 405247,
-        "total_label": "$7.29M",
-        "avg_label": "$405k",
+        "lot_count": 19,
+        "total_usd": 7326204,
+        "avg_usd": 385590,
+        "total_label": "$7.33M",
+        "avg_label": "$386k",
         "top_lot": {
           "title": "Trompetenbläser I (Trumpeters I)",
           "hammer_usd": 4300000,
@@ -2820,6 +2820,60 @@
         "top_ratio_lot": {
           "title": "At the Sea-Side, Panel I",
           "ratio": 3.57
+        }
+      }
+    },
+    {
+      "norm_name": "PIERRE BONNARD",
+      "display_name": "Pierre Bonnard",
+      "dates": "1867–1947",
+      "nationality": "French",
+      "movement": "Post-Impressionism",
+      "movement_id": "post-impressionism",
+      "bio": "Pierre Bonnard was born in Fontenay-aux-Roses near Paris in 1867 and studied at the École des Beaux-Arts and the Académie Julian, where he met Paul Sérusier, Maurice Denis, and other members of what became the Nabis — a group of painters who, inspired by Gauguin's flat, symbolic use of colour, developed an approach to painting as a two-dimensional arrangement of colour and form that led Bonnard toward the particular vision he maintained for the rest of his life.\n\nBonnard's mature paintings are among the most chromatically extraordinary in Western art. Working from memory and from colour notes rather than direct observation, he constructed domestic interiors, garden scenes, and nudes of his companion Marthe (whom he eventually married) in colour combinations of seemingly arbitrary intensity — oranges next to purples, greens next to reds — that are somehow always precisely right, the colour creating the space and the emotion simultaneously. Marthe, who bathed compulsively due to a health condition, appears in numerous canvases floating in bathtubs of purple and gold — images of domestic intimacy that are simultaneously quotidian and transcendent.\n\nBonnard worked largely apart from the major movements of twentieth-century art — Cubism, Surrealism, Abstract Expressionism passed him by — maintaining a domestic, intimate subject matter that many critics long dismissed as minor. The rehabilitation of his reputation has been substantial, and major retrospectives at the Tate, MoMA, and the Fondation Beyeler have confirmed his standing as one of the great colourists in the history of painting.",
+      "famous_works": [
+        {
+          "title": "The Bath",
+          "year": "1925",
+          "notes": "A painting of Marthe in the bathtub in which the body, the water, and the warm-tiled room are dissolved into a single chromatic field of extraordinary radiance."
+        },
+        {
+          "title": "The Dining Room in the Country",
+          "year": "1913",
+          "notes": "A large interior painting in which domestic space, garden, and figure are united by the chromatic logic that makes every spatial distinction simultaneously a colour decision."
+        },
+        {
+          "title": "Nude in the Bath and Small Dog",
+          "year": "1941–1946",
+          "notes": "A late painting of Marthe, from which she has recently died, in which her form in the tub is suffused with a luminosity that has the quality of memory rather than observation."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Almond Tree in Blossom",
+          "year": "1946",
+          "notes": "A late landscape from Bonnard's Le Cannet studio in which the almond tree's flowering is rendered with the trembling chromatic precision of his final years."
+        },
+        {
+          "title": "The Breakfast Table",
+          "year": "1936",
+          "notes": "A domestic scene in which the still-life arrangement of breakfast objects and the morning light create a composition of characteristic chromatic intimacy."
+        }
+      ],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 7182186,
+        "avg_usd": 598516,
+        "total_label": "$7.18M",
+        "avg_label": "$599k",
+        "top_lot": {
+          "title": "Nu s'habillant",
+          "hammer_usd": 2800000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Marthe ou Marie",
+          "ratio": 2.87
         }
       }
     },
@@ -3207,60 +3261,6 @@
       }
     },
     {
-      "norm_name": "PIERRE BONNARD",
-      "display_name": "Pierre Bonnard",
-      "dates": "1867–1947",
-      "nationality": "French",
-      "movement": "Post-Impressionism",
-      "movement_id": "post-impressionism",
-      "bio": "Pierre Bonnard was born in Fontenay-aux-Roses near Paris in 1867 and studied at the École des Beaux-Arts and the Académie Julian, where he met Paul Sérusier, Maurice Denis, and other members of what became the Nabis — a group of painters who, inspired by Gauguin's flat, symbolic use of colour, developed an approach to painting as a two-dimensional arrangement of colour and form that led Bonnard toward the particular vision he maintained for the rest of his life.\n\nBonnard's mature paintings are among the most chromatically extraordinary in Western art. Working from memory and from colour notes rather than direct observation, he constructed domestic interiors, garden scenes, and nudes of his companion Marthe (whom he eventually married) in colour combinations of seemingly arbitrary intensity — oranges next to purples, greens next to reds — that are somehow always precisely right, the colour creating the space and the emotion simultaneously. Marthe, who bathed compulsively due to a health condition, appears in numerous canvases floating in bathtubs of purple and gold — images of domestic intimacy that are simultaneously quotidian and transcendent.\n\nBonnard worked largely apart from the major movements of twentieth-century art — Cubism, Surrealism, Abstract Expressionism passed him by — maintaining a domestic, intimate subject matter that many critics long dismissed as minor. The rehabilitation of his reputation has been substantial, and major retrospectives at the Tate, MoMA, and the Fondation Beyeler have confirmed his standing as one of the great colourists in the history of painting.",
-      "famous_works": [
-        {
-          "title": "The Bath",
-          "year": "1925",
-          "notes": "A painting of Marthe in the bathtub in which the body, the water, and the warm-tiled room are dissolved into a single chromatic field of extraordinary radiance."
-        },
-        {
-          "title": "The Dining Room in the Country",
-          "year": "1913",
-          "notes": "A large interior painting in which domestic space, garden, and figure are united by the chromatic logic that makes every spatial distinction simultaneously a colour decision."
-        },
-        {
-          "title": "Nude in the Bath and Small Dog",
-          "year": "1941–1946",
-          "notes": "A late painting of Marthe, from which she has recently died, in which her form in the tub is suffused with a luminosity that has the quality of memory rather than observation."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Almond Tree in Blossom",
-          "year": "1946",
-          "notes": "A late landscape from Bonnard's Le Cannet studio in which the almond tree's flowering is rendered with the trembling chromatic precision of his final years."
-        },
-        {
-          "title": "The Breakfast Table",
-          "year": "1936",
-          "notes": "A domestic scene in which the still-life arrangement of breakfast objects and the morning light create a composition of characteristic chromatic intimacy."
-        }
-      ],
-      "dataset": {
-        "lot_count": 11,
-        "total_usd": 6470986,
-        "avg_usd": 588271,
-        "total_label": "$6.47M",
-        "avg_label": "$588k",
-        "top_lot": {
-          "title": "Nu s'habillant",
-          "hammer_usd": 2800000,
-          "sale_name": "Modern Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Marthe ou Marie",
-          "ratio": 2.87
-        }
-      }
-    },
-    {
       "norm_name": "LÁSZLÓ MOHOLY-NAGY",
       "display_name": "László Moholy-Nagy",
       "dates": "1895–1946",
@@ -3622,11 +3622,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 7,
-        "total_usd": 6012628,
-        "avg_usd": 858947,
-        "total_label": "$6.01M",
-        "avg_label": "$859k",
+        "lot_count": 8,
+        "total_usd": 6065968,
+        "avg_usd": 758246,
+        "total_label": "$6.07M",
+        "avg_label": "$758k",
         "top_lot": {
           "title": "Matin, soleil d'automne à Eragny",
           "hammer_usd": 2046500,
@@ -4017,6 +4017,60 @@
       }
     },
     {
+      "norm_name": "AUGUSTE RODIN",
+      "display_name": "Auguste Rodin",
+      "dates": "1840–1917",
+      "nationality": "French",
+      "movement": "Modernism · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Auguste Rodin was born in Paris in 1840 and spent his early career working as a decorative craftsman, having been rejected three times by the École des Beaux-Arts. A visit to Italy in 1875 transformed his understanding of figure sculpture through his encounter with the work of Michelangelo, and the full-scale figure he produced on his return — The Age of Bronze — was so anatomically accurate that he was accused of casting from a live model. The controversy established him as a radical presence within the French sculpture establishment.\n\nRodin's working method was itself revolutionary: he did not carve but modelled, and he insisted on the fragment — the headless torso, the disembodied hand — as a legitimate subject rather than a failure of completion. His surfaces preserve the mark of the modelling process, embracing accident and the trace of creative struggle as expressive content. The Gates of Hell, commissioned in 1880 and worked on for the rest of his life, served as a laboratory for most of his major figures; The Thinker, The Kiss, and numerous others were conceived as components of this monumental threshold before achieving independent life.\n\nRodin attracted both devotion and scandal throughout his career, most notably with his Monument to Balzac, rejected by the commissioning body for its uncompromising abstraction of the writer's bulky form. He employed numerous studio assistants, including Camille Claudel, with whom he had an intense and professionally formative relationship. The Musée Rodin in Paris, established during his lifetime, holds the definitive collection of his work.",
+      "famous_works": [
+        {
+          "title": "The Thinker",
+          "year": "1880–1882",
+          "notes": "Originally conceived as a figure of Dante for The Gates of Hell, The Thinker became the twentieth century's most recognisable image of intellectual contemplation."
+        },
+        {
+          "title": "The Burghers of Calais",
+          "year": "1889",
+          "notes": "A monument to six medieval civic heroes facing death, revolutionary in its placement of the figures at ground level and its refusal of heroic idealisation."
+        },
+        {
+          "title": "The Kiss",
+          "year": "1888–1889",
+          "notes": "A marble group depicting the forbidden embrace of Paolo and Francesca from Dante's Inferno, which became an iconic image of romantic love."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Iris, Messenger of the Gods",
+          "year": "1890–1891",
+          "notes": "A headless, spread-eagled bronze figure of aggressive sexual explicitness that demonstrates the transgressive energy concealed within Rodin's more celebrated works."
+        },
+        {
+          "title": "The Walking Man",
+          "year": "1900–1907",
+          "notes": "A headless, armless figure in the act of walking that anticipates twentieth-century concerns with the body as pure movement and mass rather than individual expression."
+        }
+      ],
+      "dataset": {
+        "lot_count": 18,
+        "total_usd": 5400149,
+        "avg_usd": 300008,
+        "total_label": "$5.40M",
+        "avg_label": "$300k",
+        "top_lot": {
+          "title": "Adam, taille originale dit aussi \"Grand modèle\"",
+          "hammer_usd": 2772500,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Femme au pyjama entrouvert",
+          "ratio": 4.0
+        }
+      }
+    },
+    {
       "norm_name": "LUCY BULL",
       "display_name": "Lucy Bull",
       "dates": "b. 1990",
@@ -4175,60 +4229,6 @@
         "top_ratio_lot": {
           "title": "Enddesign",
           "ratio": 2.01
-        }
-      }
-    },
-    {
-      "norm_name": "AUGUSTE RODIN",
-      "display_name": "Auguste Rodin",
-      "dates": "1840–1917",
-      "nationality": "French",
-      "movement": "Modernism · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Auguste Rodin was born in Paris in 1840 and spent his early career working as a decorative craftsman, having been rejected three times by the École des Beaux-Arts. A visit to Italy in 1875 transformed his understanding of figure sculpture through his encounter with the work of Michelangelo, and the full-scale figure he produced on his return — The Age of Bronze — was so anatomically accurate that he was accused of casting from a live model. The controversy established him as a radical presence within the French sculpture establishment.\n\nRodin's working method was itself revolutionary: he did not carve but modelled, and he insisted on the fragment — the headless torso, the disembodied hand — as a legitimate subject rather than a failure of completion. His surfaces preserve the mark of the modelling process, embracing accident and the trace of creative struggle as expressive content. The Gates of Hell, commissioned in 1880 and worked on for the rest of his life, served as a laboratory for most of his major figures; The Thinker, The Kiss, and numerous others were conceived as components of this monumental threshold before achieving independent life.\n\nRodin attracted both devotion and scandal throughout his career, most notably with his Monument to Balzac, rejected by the commissioning body for its uncompromising abstraction of the writer's bulky form. He employed numerous studio assistants, including Camille Claudel, with whom he had an intense and professionally formative relationship. The Musée Rodin in Paris, established during his lifetime, holds the definitive collection of his work.",
-      "famous_works": [
-        {
-          "title": "The Thinker",
-          "year": "1880–1882",
-          "notes": "Originally conceived as a figure of Dante for The Gates of Hell, The Thinker became the twentieth century's most recognisable image of intellectual contemplation."
-        },
-        {
-          "title": "The Burghers of Calais",
-          "year": "1889",
-          "notes": "A monument to six medieval civic heroes facing death, revolutionary in its placement of the figures at ground level and its refusal of heroic idealisation."
-        },
-        {
-          "title": "The Kiss",
-          "year": "1888–1889",
-          "notes": "A marble group depicting the forbidden embrace of Paolo and Francesca from Dante's Inferno, which became an iconic image of romantic love."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Iris, Messenger of the Gods",
-          "year": "1890–1891",
-          "notes": "A headless, spread-eagled bronze figure of aggressive sexual explicitness that demonstrates the transgressive energy concealed within Rodin's more celebrated works."
-        },
-        {
-          "title": "The Walking Man",
-          "year": "1900–1907",
-          "notes": "A headless, armless figure in the act of walking that anticipates twentieth-century concerns with the body as pure movement and mass rather than individual expression."
-        }
-      ],
-      "dataset": {
-        "lot_count": 15,
-        "total_usd": 5282039,
-        "avg_usd": 352136,
-        "total_label": "$5.28M",
-        "avg_label": "$352k",
-        "top_lot": {
-          "title": "Adam, taille originale dit aussi \"Grand modèle\"",
-          "hammer_usd": 2772500,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Femme au pyjama entrouvert",
-          "ratio": 4.0
         }
       }
     },
@@ -4442,11 +4442,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 18,
-        "total_usd": 4800645,
-        "avg_usd": 266702,
-        "total_label": "$4.80M",
-        "avg_label": "$267k",
+        "lot_count": 19,
+        "total_usd": 4832395,
+        "avg_usd": 254337,
+        "total_label": "$4.83M",
+        "avg_label": "$254k",
         "top_lot": {
           "title": "Pêcheur à Chatou",
           "hammer_usd": 3500000,
@@ -5883,6 +5883,65 @@
       }
     },
     {
+      "norm_name": "EDGAR DEGAS",
+      "display_name": "Edgar Degas",
+      "dates": "1834–1917",
+      "nationality": "French",
+      "movement": "Impressionism · Realism",
+      "movement_id": "impressionism",
+      "bio": "Born in Paris to a wealthy banking family, Degas trained at the École des Beaux-Arts and in Italy before aligning himself with the Impressionists — though he resisted the plein-air doctrine entirely. His subjects — ballet dancers, café-concert singers, jockeys, women bathing — are depicted from unexpected angles and cropped by the frame in ways derived from photography and Japanese woodblock prints. He was interested in movement and the body in action rather than in light on water. His late pastels, made as his eyesight failed, achieve an atmospheric intensity that exceeds his oil paintings. He was politically reactionary (an anti-Dreyfusard), socially reclusive, and increasingly misanthropic in old age. His sculpture, produced privately and mostly cast after his death from wax models found in his studio, anticipates 20th-century attitudes to the sculptured figure.",
+      "famous_works": [
+        {
+          "title": "The Dance Class",
+          "year": "1874",
+          "notes": "Ballet students in rehearsal, the great dancing master Jules Perrot at centre. The casual spatial organisation — figures turned away, partially visible — is the radical move. Musée d'Orsay."
+        },
+        {
+          "title": "L'Absinthe",
+          "year": "1875–76",
+          "notes": "Two figures in a café, the woman staring into nothing, the glass of absinthe before her. The image of urban solitude and alcoholic depression that the bourgeois public found offensive."
+        },
+        {
+          "title": "Little Dancer Aged Fourteen",
+          "year": "1880–81",
+          "notes": "A wax figure (cast in bronze posthumously) of a young dancer in a real tutu, real hair ribbon, real silk slippers. The inclusion of non-artistic materials scandalised the 1881 exhibition audience."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Miss La La at the Cirque Fernando",
+          "year": "1879",
+          "notes": "A Black circus performer suspended from a rope by her teeth — viewed from below at a vertiginous angle. Race, gender, spectacle, and bodily risk all present simultaneously."
+        },
+        {
+          "title": "At the Milliner's",
+          "year": "1882",
+          "notes": "Women trying on hats — Degas observed from behind and to the side, the faces averted. The shopping excursion depicted with the same formal attention as the rehearsal room."
+        },
+        {
+          "title": "Woman with Chrysanthemums",
+          "year": "1865",
+          "notes": "A woman displaced entirely to the right edge of the canvas by an enormous floral arrangement. The compositional off-centering — unprecedented at the time — makes the painting's interest formal rather than portraiture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 3291142,
+        "avg_usd": 365682,
+        "total_label": "$3.29M",
+        "avg_label": "$366k",
+        "top_lot": {
+          "title": "Danseuse, grande arabesque, deuxième temps",
+          "hammer_usd": 608076,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Groupe de femmes autour d'une pianiste",
+          "ratio": 1.72
+        }
+      }
+    },
+    {
       "norm_name": "STUART DAVIS",
       "display_name": "Stuart Davis",
       "dates": "1892–1964",
@@ -6753,65 +6812,6 @@
         "top_ratio_lot": {
           "title": "Watermelon & Knife",
           "ratio": 1.04
-        }
-      }
-    },
-    {
-      "norm_name": "EDGAR DEGAS",
-      "display_name": "Edgar Degas",
-      "dates": "1834–1917",
-      "nationality": "French",
-      "movement": "Impressionism · Realism",
-      "movement_id": "impressionism",
-      "bio": "Born in Paris to a wealthy banking family, Degas trained at the École des Beaux-Arts and in Italy before aligning himself with the Impressionists — though he resisted the plein-air doctrine entirely. His subjects — ballet dancers, café-concert singers, jockeys, women bathing — are depicted from unexpected angles and cropped by the frame in ways derived from photography and Japanese woodblock prints. He was interested in movement and the body in action rather than in light on water. His late pastels, made as his eyesight failed, achieve an atmospheric intensity that exceeds his oil paintings. He was politically reactionary (an anti-Dreyfusard), socially reclusive, and increasingly misanthropic in old age. His sculpture, produced privately and mostly cast after his death from wax models found in his studio, anticipates 20th-century attitudes to the sculptured figure.",
-      "famous_works": [
-        {
-          "title": "The Dance Class",
-          "year": "1874",
-          "notes": "Ballet students in rehearsal, the great dancing master Jules Perrot at centre. The casual spatial organisation — figures turned away, partially visible — is the radical move. Musée d'Orsay."
-        },
-        {
-          "title": "L'Absinthe",
-          "year": "1875–76",
-          "notes": "Two figures in a café, the woman staring into nothing, the glass of absinthe before her. The image of urban solitude and alcoholic depression that the bourgeois public found offensive."
-        },
-        {
-          "title": "Little Dancer Aged Fourteen",
-          "year": "1880–81",
-          "notes": "A wax figure (cast in bronze posthumously) of a young dancer in a real tutu, real hair ribbon, real silk slippers. The inclusion of non-artistic materials scandalised the 1881 exhibition audience."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Miss La La at the Cirque Fernando",
-          "year": "1879",
-          "notes": "A Black circus performer suspended from a rope by her teeth — viewed from below at a vertiginous angle. Race, gender, spectacle, and bodily risk all present simultaneously."
-        },
-        {
-          "title": "At the Milliner's",
-          "year": "1882",
-          "notes": "Women trying on hats — Degas observed from behind and to the side, the faces averted. The shopping excursion depicted with the same formal attention as the rehearsal room."
-        },
-        {
-          "title": "Woman with Chrysanthemums",
-          "year": "1865",
-          "notes": "A woman displaced entirely to the right edge of the canvas by an enormous floral arrangement. The compositional off-centering — unprecedented at the time — makes the painting's interest formal rather than portraiture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 2694242,
-        "avg_usd": 336780,
-        "total_label": "$2.69M",
-        "avg_label": "$337k",
-        "top_lot": {
-          "title": "Danseuse, grande arabesque, deuxième temps",
-          "hammer_usd": 608076,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Groupe de femmes autour d'une pianiste",
-          "ratio": 1.72
         }
       }
     },
@@ -8348,6 +8348,65 @@
       }
     },
     {
+      "norm_name": "EUGÈNE BOUDIN",
+      "display_name": "Eugène Boudin",
+      "dates": "1824–1898",
+      "nationality": "French",
+      "movement": "Pre-Impressionism · Marine Painting",
+      "movement_id": "impressionism",
+      "bio": "Born in Honfleur, Normandy, the son of a sailor, Boudin ran a stationery and framing shop in Le Havre before the artists Troyon, Millet, and Couture encouraged him to paint full-time. He was the painter who introduced the young Claude Monet to plein-air technique on the Norman coast in 1858 — his influence on the artist who would become the centre of Impressionism cannot be overstated. His beach scenes at Trouville (from 1862 onward) — fashionable figures in crinolines against vast sky, the meteorological accuracy of the Normandy atmosphere — established the subject matter that Monet, Renoir, and Sisley would elaborate. Jongkind and Boudin are now understood as the essential pre-Impressionist generation. His work enters the market with reliable strength: collector enthusiasm for 19th-century French plein-air masters — particularly sky studies — has grown substantially since the 2000s.",
+      "famous_works": [
+        {
+          "title": "The Beach at Trouville",
+          "year": "1865",
+          "notes": "Fashionable figures with parasols against a luminous sky. The Impressionist programme — sensation of light and atmosphere rather than narrative — is fully present a decade before the 1874 exhibition."
+        },
+        {
+          "title": "Jetty and Wharf at Trouville",
+          "year": "1884",
+          "notes": "The harbour infrastructure depicted with documentary precision against a dramatic Normandy sky. Marine painting and meteorology as dual subjects."
+        },
+        {
+          "title": "Washerwomen near Trouville",
+          "year": "1876",
+          "notes": "Working-class figures on the Norman coast rather than the bourgeois resort. Boudin's range beyond the fashionable beach — the labour behind the leisure economy."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Study of Sky (Étude de ciel)",
+          "year": "c. 1859–65",
+          "notes": "Rapid plein-air sky studies — Boudin made hundreds. In the dataset, a study sold at 10.24× estimate; the sky study format is among the most sought-after of his work."
+        },
+        {
+          "title": "Fishing Boats at Berck",
+          "year": "1875",
+          "notes": "The northern French coast rather than Normandy — Boudin's range extended to Pas-de-Calais. The boats and the sky in equal balance."
+        },
+        {
+          "title": "The Harbour at Antwerp",
+          "year": "1871",
+          "notes": "Industrial port imagery — the steamships and loading docks that Boudin observed on his travels to Belgium. The modernity of the industrial port is acknowledged rather than avoided."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 1817560,
+        "avg_usd": 181756,
+        "total_label": "$1.82M",
+        "avg_label": "$182k",
+        "top_lot": {
+          "title": "Scène de plage à Deauville",
+          "hammer_usd": 645160,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Étude de ciel",
+          "ratio": 10.24
+        }
+      }
+    },
+    {
       "norm_name": "HENRI HAYDEN",
       "display_name": "Henri Hayden",
       "dates": "1883–1970",
@@ -8619,65 +8678,6 @@
         "top_ratio_lot": {
           "title": "No. 1",
           "ratio": 1.72
-        }
-      }
-    },
-    {
-      "norm_name": "EUGÈNE BOUDIN",
-      "display_name": "Eugène Boudin",
-      "dates": "1824–1898",
-      "nationality": "French",
-      "movement": "Pre-Impressionism · Marine Painting",
-      "movement_id": "impressionism",
-      "bio": "Born in Honfleur, Normandy, the son of a sailor, Boudin ran a stationery and framing shop in Le Havre before the artists Troyon, Millet, and Couture encouraged him to paint full-time. He was the painter who introduced the young Claude Monet to plein-air technique on the Norman coast in 1858 — his influence on the artist who would become the centre of Impressionism cannot be overstated. His beach scenes at Trouville (from 1862 onward) — fashionable figures in crinolines against vast sky, the meteorological accuracy of the Normandy atmosphere — established the subject matter that Monet, Renoir, and Sisley would elaborate. Jongkind and Boudin are now understood as the essential pre-Impressionist generation. His work enters the market with reliable strength: collector enthusiasm for 19th-century French plein-air masters — particularly sky studies — has grown substantially since the 2000s.",
-      "famous_works": [
-        {
-          "title": "The Beach at Trouville",
-          "year": "1865",
-          "notes": "Fashionable figures with parasols against a luminous sky. The Impressionist programme — sensation of light and atmosphere rather than narrative — is fully present a decade before the 1874 exhibition."
-        },
-        {
-          "title": "Jetty and Wharf at Trouville",
-          "year": "1884",
-          "notes": "The harbour infrastructure depicted with documentary precision against a dramatic Normandy sky. Marine painting and meteorology as dual subjects."
-        },
-        {
-          "title": "Washerwomen near Trouville",
-          "year": "1876",
-          "notes": "Working-class figures on the Norman coast rather than the bourgeois resort. Boudin's range beyond the fashionable beach — the labour behind the leisure economy."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Study of Sky (Étude de ciel)",
-          "year": "c. 1859–65",
-          "notes": "Rapid plein-air sky studies — Boudin made hundreds. In the dataset, a study sold at 10.24× estimate; the sky study format is among the most sought-after of his work."
-        },
-        {
-          "title": "Fishing Boats at Berck",
-          "year": "1875",
-          "notes": "The northern French coast rather than Normandy — Boudin's range extended to Pas-de-Calais. The boats and the sky in equal balance."
-        },
-        {
-          "title": "The Harbour at Antwerp",
-          "year": "1871",
-          "notes": "Industrial port imagery — the steamships and loading docks that Boudin observed on his travels to Belgium. The modernity of the industrial port is acknowledged rather than avoided."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 1620710,
-        "avg_usd": 231530,
-        "total_label": "$1.62M",
-        "avg_label": "$232k",
-        "top_lot": {
-          "title": "Scène de plage à Deauville",
-          "hammer_usd": 645160,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Étude de ciel",
-          "ratio": 10.24
         }
       }
     },
@@ -9669,6 +9669,60 @@
       }
     },
     {
+      "norm_name": "PAUL GAUGUIN",
+      "display_name": "Paul Gauguin",
+      "dates": "1848–1903",
+      "nationality": "French",
+      "movement": "Post-Impressionism · Primitivism",
+      "movement_id": "post-impressionism",
+      "bio": "Paul Gauguin was the most controversially influential of the Post-Impressionist painters, a French artist of Peruvian-Creole descent who abandoned a successful stockbroker career and his Danish wife and children to pursue an art that rejected the materialism of European civilisation in favour of what he idealised as the primal spiritual authenticity of Brittany, Martinique, and ultimately the islands of French Polynesia. His Tahitian canvases, with their flat planes of intense colour, decorative outline, and imagery derived from indigenous carving and myth, constitute a body of work of enormous formal power and deeply problematic colonial ideology.\n\nGauguin's critical importance lies in his systematic rejection of Impressionist naturalism in favour of a synthetic method — Synthetism — that simplified form to bold outlines and filled them with unmodulated colour planes derived from Japanese prints and medieval stained glass. His influence on Matisse and Fauvism, on German Expressionism, and on the decorative abstraction of the early twentieth century was decisive and pervasive. His letters to his friend Émile Bernard and his autobiographical writings — Noa Noa, Avant et après — are among the most self-consciously constructed narratives of the romantic artist-exile in the history of modernism.\n\nGauguin lived in poverty and ill health in his final years in the Marquesas Islands, in constant conflict with French colonial authorities. He died in Atuona, Hiva Oa, in 1903. His most ambitious single work, Where Do We Come From? What Are We? Where Are We Going? (1897–1898), he intended as his summation and farewell.",
+      "famous_works": [
+        {
+          "title": "Where Do We Come From? What Are We? Where Are We Going?",
+          "year": "1897–1898",
+          "notes": "A twelve-foot frieze-like canvas intended as his artistic testament, painted in Tahiti after a suicide attempt, now in the Museum of Fine Arts, Boston."
+        },
+        {
+          "title": "The Vision after the Sermon",
+          "year": "1888",
+          "notes": "A Breton peasant vision of Jacob wrestling with the angel, flat patterned colour and tilted space announcing his departure from Impressionism."
+        },
+        {
+          "title": "Nafea Faa Ipoipo (When Will You Marry?)",
+          "year": "1892",
+          "notes": "A Tahitian canvas sold in 2015 for approximately $300 million, one of the highest prices ever achieved at private sale."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Yellow Christ",
+          "year": "1889",
+          "notes": "A Breton crucifixion set in the autumn harvest landscape, the Christ figure taken from a carved wooden statue in a local chapel."
+        },
+        {
+          "title": "Manao Tupapau (Spirit of the Dead Watching)",
+          "year": "1892",
+          "notes": "A nude Tahitian woman watched by a spirit of the dead, a complex reimagining of Manet's Olympia within Polynesian iconography."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1036701,
+        "avg_usd": 345567,
+        "total_label": "$1.04M",
+        "avg_label": "$346k",
+        "top_lot": {
+          "title": "Cheval et vache dans un pré",
+          "hammer_usd": 560070,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Paysage de campagne avec usines",
+          "ratio": 2.92
+        }
+      }
+    },
+    {
       "norm_name": "SALVADOR DALÍ",
       "display_name": "Salvador Dalí",
       "dates": "1904–1989",
@@ -9719,6 +9773,60 @@
         "top_ratio_lot": {
           "title": "Huit (8) de baton, arcane mineur, projet pour le jeu de cart",
           "ratio": 3.33
+        }
+      }
+    },
+    {
+      "norm_name": "HENRI DE TOULOUSE-LAUTREC",
+      "display_name": "Henri de Toulouse-Lautrec",
+      "dates": "1864–1901",
+      "nationality": "French",
+      "movement": "Post-Impressionism",
+      "movement_id": "post-impressionism",
+      "bio": "Henri de Toulouse-Lautrec was born in Albi in 1864 into the ancient aristocracy of southern France. Genetic complications from his parents' consanguinity, compounded by two childhood fractures that prevented normal bone growth, left him with stunted legs and a body that never exceeded five feet tall. He moved to Montmartre in 1882 to study painting and became over the next two decades the most distinctive visual chronicler of that world: its cabarets, dance halls, brothels, and circuses.\n\nLautrec brought an observer's intelligence shaped by his own experience of social marginality to bear on the performances and performers of the Belle Époque. His large-format lithographic posters for the Moulin Rouge and other venues transformed commercial graphics through the combination of Japanese compositional strategies — bold outlines, flat colour areas, cropped compositions — with his acute psychological observation. His paintings of women in brothels, made during extended periods of residence in regulated houses, are among the most psychologically penetrating images of female labour in Western art.\n\nAlcoholism and the physical consequences of his condition led to a breakdown in 1899 and his death at thirty-six in 1901. His work is held by the Musée Toulouse-Lautrec in Albi, the Musée d'Orsay, and major collections internationally, and its influence on poster design, graphic art, and the subsequent history of Expressionism is immeasurable.",
+      "famous_works": [
+        {
+          "title": "Moulin Rouge: La Goulue",
+          "year": "1891",
+          "notes": "A lithographic poster for the Moulin Rouge that transformed commercial graphic design through the combination of Japanese spatial organisation, flat colour, and incisive psychological characterisation."
+        },
+        {
+          "title": "Au Moulin Rouge",
+          "year": "1892–1895",
+          "notes": "A large canvas depicting regulars and performers at the Moulin Rouge, in which the harsh artificial light and the specific social world of Montmartre are rendered with clinical precision."
+        },
+        {
+          "title": "The Sofa (Deux Femmes Faisant l'Amour)",
+          "year": "1894",
+          "notes": "A painting of two women in intimate contact at a brothel, remarkable for its combination of formal intelligence and non-judgmental human attention."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Aristide Bruant dans son cabaret",
+          "year": "1893",
+          "notes": "A poster of the chansonnier Aristide Bruant in which the dark cape and red scarf become an image of almost heraldic severity."
+        },
+        {
+          "title": "The Clownesse Cha-U-Kao at the Moulin Rouge",
+          "year": "1895",
+          "notes": "A painting of a female clown adjusting her costume backstage, in which the ambiguous gender identity of the performer is treated with characteristic Lautrec directness."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 967256,
+        "avg_usd": 241814,
+        "total_label": "$967k",
+        "avg_label": "$242k",
+        "top_lot": {
+          "title": "L'enfant au chien, fils de Madame Marthe et la chienne Pamel",
+          "hammer_usd": 448056,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Tête de cheval",
+          "ratio": 12.5
         }
       }
     },
@@ -10215,60 +10323,6 @@
         "top_ratio_lot": {
           "title": "The Measure II",
           "ratio": 1.73
-        }
-      }
-    },
-    {
-      "norm_name": "PAUL GAUGUIN",
-      "display_name": "Paul Gauguin",
-      "dates": "1848–1903",
-      "nationality": "French",
-      "movement": "Post-Impressionism · Primitivism",
-      "movement_id": "post-impressionism",
-      "bio": "Paul Gauguin was the most controversially influential of the Post-Impressionist painters, a French artist of Peruvian-Creole descent who abandoned a successful stockbroker career and his Danish wife and children to pursue an art that rejected the materialism of European civilisation in favour of what he idealised as the primal spiritual authenticity of Brittany, Martinique, and ultimately the islands of French Polynesia. His Tahitian canvases, with their flat planes of intense colour, decorative outline, and imagery derived from indigenous carving and myth, constitute a body of work of enormous formal power and deeply problematic colonial ideology.\n\nGauguin's critical importance lies in his systematic rejection of Impressionist naturalism in favour of a synthetic method — Synthetism — that simplified form to bold outlines and filled them with unmodulated colour planes derived from Japanese prints and medieval stained glass. His influence on Matisse and Fauvism, on German Expressionism, and on the decorative abstraction of the early twentieth century was decisive and pervasive. His letters to his friend Émile Bernard and his autobiographical writings — Noa Noa, Avant et après — are among the most self-consciously constructed narratives of the romantic artist-exile in the history of modernism.\n\nGauguin lived in poverty and ill health in his final years in the Marquesas Islands, in constant conflict with French colonial authorities. He died in Atuona, Hiva Oa, in 1903. His most ambitious single work, Where Do We Come From? What Are We? Where Are We Going? (1897–1898), he intended as his summation and farewell.",
-      "famous_works": [
-        {
-          "title": "Where Do We Come From? What Are We? Where Are We Going?",
-          "year": "1897–1898",
-          "notes": "A twelve-foot frieze-like canvas intended as his artistic testament, painted in Tahiti after a suicide attempt, now in the Museum of Fine Arts, Boston."
-        },
-        {
-          "title": "The Vision after the Sermon",
-          "year": "1888",
-          "notes": "A Breton peasant vision of Jacob wrestling with the angel, flat patterned colour and tilted space announcing his departure from Impressionism."
-        },
-        {
-          "title": "Nafea Faa Ipoipo (When Will You Marry?)",
-          "year": "1892",
-          "notes": "A Tahitian canvas sold in 2015 for approximately $300 million, one of the highest prices ever achieved at private sale."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Yellow Christ",
-          "year": "1889",
-          "notes": "A Breton crucifixion set in the autumn harvest landscape, the Christ figure taken from a carved wooden statue in a local chapel."
-        },
-        {
-          "title": "Manao Tupapau (Spirit of the Dead Watching)",
-          "year": "1892",
-          "notes": "A nude Tahitian woman watched by a spirit of the dead, a complex reimagining of Manet's Olympia within Polynesian iconography."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 808101,
-        "avg_usd": 404050,
-        "total_label": "$808k",
-        "avg_label": "$404k",
-        "top_lot": {
-          "title": "Cheval et vache dans un pré",
-          "hammer_usd": 560070,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Paysage de campagne avec usines",
-          "ratio": 2.92
         }
       }
     },
@@ -10921,56 +10975,56 @@
       }
     },
     {
-      "norm_name": "HENRI DE TOULOUSE-LAUTREC",
-      "display_name": "Henri de Toulouse-Lautrec",
-      "dates": "1864–1901",
-      "nationality": "French",
-      "movement": "Post-Impressionism",
-      "movement_id": "post-impressionism",
-      "bio": "Henri de Toulouse-Lautrec was born in Albi in 1864 into the ancient aristocracy of southern France. Genetic complications from his parents' consanguinity, compounded by two childhood fractures that prevented normal bone growth, left him with stunted legs and a body that never exceeded five feet tall. He moved to Montmartre in 1882 to study painting and became over the next two decades the most distinctive visual chronicler of that world: its cabarets, dance halls, brothels, and circuses.\n\nLautrec brought an observer's intelligence shaped by his own experience of social marginality to bear on the performances and performers of the Belle Époque. His large-format lithographic posters for the Moulin Rouge and other venues transformed commercial graphics through the combination of Japanese compositional strategies — bold outlines, flat colour areas, cropped compositions — with his acute psychological observation. His paintings of women in brothels, made during extended periods of residence in regulated houses, are among the most psychologically penetrating images of female labour in Western art.\n\nAlcoholism and the physical consequences of his condition led to a breakdown in 1899 and his death at thirty-six in 1901. His work is held by the Musée Toulouse-Lautrec in Albi, the Musée d'Orsay, and major collections internationally, and its influence on poster design, graphic art, and the subsequent history of Expressionism is immeasurable.",
+      "norm_name": "PAUL KLEE",
+      "display_name": "Paul Klee",
+      "dates": "1879–1940",
+      "nationality": "German-Swiss",
+      "movement": "Expressionism · Abstraction · Bauhaus",
+      "movement_id": "expressionism",
+      "bio": "Paul Klee was one of the most intellectually agile and formally inventive artists of the twentieth century, a German-Swiss painter, printmaker, and theorist whose output of over nine thousand works ranges from tiny watercolour poems to large abstract canvases, all animated by a playful, probing intelligence that made him one of the Bauhaus's most celebrated teachers and a lasting influence on painters, designers, and illustrators worldwide. Born in Münchenbuchsee near Bern to a German music teacher and a Swiss singer, he trained at the Munich Academy and spent a formative year in Italy before gravitating to the Munich avant-garde circle around Kandinsky and Marc, participating in the Blaue Reiter almanac and exhibitions.\n\nKlee's characteristic method is irreducible to any single style: he moved between figuration and abstraction, between irony and lyricism, between the microscopically miniature and the architecturally scaled, using every medium available — oil, watercolour, tempera, gouache, pastel, drawing, and printmaking. His Tunisian journey in 1914 with Macke and Moilliet revealed the power of colour to a painter who had worked primarily in line, producing the famous diary note: 'Colour and I are one. I am a painter.' At the Bauhaus, where he taught from 1921 to 1931, he developed the theoretical texts published as Pedagogical Sketchbook (1925) and Contributions to a Theory of Pictorial Form, which remain among the most searching investigations of visual thinking ever written.\n\nDiagnosed with scleroderma in 1935, a disease that progressively paralysed his hands, Klee responded by developing a new style of bold, simplified line that produced works of unexpected monumental force in his final years.",
       "famous_works": [
         {
-          "title": "Moulin Rouge: La Goulue",
-          "year": "1891",
-          "notes": "A lithographic poster for the Moulin Rouge that transformed commercial graphic design through the combination of Japanese spatial organisation, flat colour, and incisive psychological characterisation."
+          "title": "Twittering Machine (Die Zwitscher-Maschine)",
+          "year": "1922",
+          "notes": "A mechanised bird contraption drawn in pen and watercolour with deadpan wit, now in MoMA and among his most reproduced works."
         },
         {
-          "title": "Au Moulin Rouge",
-          "year": "1892–1895",
-          "notes": "A large canvas depicting regulars and performers at the Moulin Rouge, in which the harsh artificial light and the specific social world of Montmartre are rendered with clinical precision."
+          "title": "Ad Parnassum",
+          "year": "1932",
+          "notes": "A large mosaic-like composition of coloured squares building toward a pyramidal mountain form, his most sustained investigation of Divisionist colour in architectural space."
         },
         {
-          "title": "The Sofa (Deux Femmes Faisant l'Amour)",
-          "year": "1894",
-          "notes": "A painting of two women in intimate contact at a brothel, remarkable for its combination of formal intelligence and non-judgmental human attention."
+          "title": "Senecio (Head of a Man Going Senile)",
+          "year": "1922",
+          "notes": "A circular face of childlike simplicity that captures the dissolution of the self with characteristic Klee-ian blend of humour and pathos."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Aristide Bruant dans son cabaret",
-          "year": "1893",
-          "notes": "A poster of the chansonnier Aristide Bruant in which the dark cape and red scarf become an image of almost heraldic severity."
+          "title": "Villa R",
+          "year": "1919",
+          "notes": "An early architectural fantasy in which geometric forms and natural elements are balanced with a formal intelligence that anticipates his Bauhaus work."
         },
         {
-          "title": "The Clownesse Cha-U-Kao at the Moulin Rouge",
-          "year": "1895",
-          "notes": "A painting of a female clown adjusting her costume backstage, in which the ambiguous gender identity of the performer is treated with characteristic Lautrec directness."
+          "title": "Insula dulcamara",
+          "year": "1938",
+          "notes": "A late large canvas of bold simplified marks in pink, black, and white made when his hands were already compromised by scleroderma — among his most emotionally exposed works."
         }
       ],
       "dataset": {
-        "lot_count": 3,
-        "total_usd": 611656,
-        "avg_usd": 203885,
-        "total_label": "$612k",
-        "avg_label": "$204k",
+        "lot_count": 9,
+        "total_usd": 637356,
+        "avg_usd": 70817,
+        "total_label": "$637k",
+        "avg_label": "$71k",
         "top_lot": {
-          "title": "L'enfant au chien, fils de Madame Marthe et la chienne Pamel",
-          "hammer_usd": 448056,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+          "title": "Buntbewegtes an der Lage gemessen",
+          "hammer_usd": 117647,
+          "sale_name": "Evening Sale, Munich"
         },
         "top_ratio_lot": {
-          "title": "Tête de cheval",
-          "ratio": 12.5
+          "title": "mir Hering?!",
+          "ratio": 4.3
         }
       }
     },
@@ -11687,60 +11741,6 @@
       }
     },
     {
-      "norm_name": "PAUL KLEE",
-      "display_name": "Paul Klee",
-      "dates": "1879–1940",
-      "nationality": "German-Swiss",
-      "movement": "Expressionism · Abstraction · Bauhaus",
-      "movement_id": "expressionism",
-      "bio": "Paul Klee was one of the most intellectually agile and formally inventive artists of the twentieth century, a German-Swiss painter, printmaker, and theorist whose output of over nine thousand works ranges from tiny watercolour poems to large abstract canvases, all animated by a playful, probing intelligence that made him one of the Bauhaus's most celebrated teachers and a lasting influence on painters, designers, and illustrators worldwide. Born in Münchenbuchsee near Bern to a German music teacher and a Swiss singer, he trained at the Munich Academy and spent a formative year in Italy before gravitating to the Munich avant-garde circle around Kandinsky and Marc, participating in the Blaue Reiter almanac and exhibitions.\n\nKlee's characteristic method is irreducible to any single style: he moved between figuration and abstraction, between irony and lyricism, between the microscopically miniature and the architecturally scaled, using every medium available — oil, watercolour, tempera, gouache, pastel, drawing, and printmaking. His Tunisian journey in 1914 with Macke and Moilliet revealed the power of colour to a painter who had worked primarily in line, producing the famous diary note: 'Colour and I are one. I am a painter.' At the Bauhaus, where he taught from 1921 to 1931, he developed the theoretical texts published as Pedagogical Sketchbook (1925) and Contributions to a Theory of Pictorial Form, which remain among the most searching investigations of visual thinking ever written.\n\nDiagnosed with scleroderma in 1935, a disease that progressively paralysed his hands, Klee responded by developing a new style of bold, simplified line that produced works of unexpected monumental force in his final years.",
-      "famous_works": [
-        {
-          "title": "Twittering Machine (Die Zwitscher-Maschine)",
-          "year": "1922",
-          "notes": "A mechanised bird contraption drawn in pen and watercolour with deadpan wit, now in MoMA and among his most reproduced works."
-        },
-        {
-          "title": "Ad Parnassum",
-          "year": "1932",
-          "notes": "A large mosaic-like composition of coloured squares building toward a pyramidal mountain form, his most sustained investigation of Divisionist colour in architectural space."
-        },
-        {
-          "title": "Senecio (Head of a Man Going Senile)",
-          "year": "1922",
-          "notes": "A circular face of childlike simplicity that captures the dissolution of the self with characteristic Klee-ian blend of humour and pathos."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Villa R",
-          "year": "1919",
-          "notes": "An early architectural fantasy in which geometric forms and natural elements are balanced with a formal intelligence that anticipates his Bauhaus work."
-        },
-        {
-          "title": "Insula dulcamara",
-          "year": "1938",
-          "notes": "A late large canvas of bold simplified marks in pink, black, and white made when his hands were already compromised by scleroderma — among his most emotionally exposed works."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 459556,
-        "avg_usd": 65651,
-        "total_label": "$460k",
-        "avg_label": "$66k",
-        "top_lot": {
-          "title": "Buntbewegtes an der Lage gemessen",
-          "hammer_usd": 117647,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "mir Hering?!",
-          "ratio": 4.3
-        }
-      }
-    },
-    {
       "norm_name": "HANNAH HÖCH",
       "display_name": "Hannah Höch",
       "dates": "1889–1978",
@@ -11791,6 +11791,60 @@
         "top_ratio_lot": {
           "title": "Bürgerliches Brautpaar (Streit)",
           "ratio": 5.17
+        }
+      }
+    },
+    {
+      "norm_name": "ALBERT MARQUET",
+      "display_name": "Albert Marquet",
+      "dates": "1875–1947",
+      "nationality": "French",
+      "movement": "Post-Impressionism · Fauvism",
+      "movement_id": "post-impressionism",
+      "bio": "Albert Marquet was born in Bordeaux in 1875 and arrived in Paris at seventeen, studying under Gustave Moreau at the École des Beaux-Arts alongside Matisse, Manguin, and Rouault — a cohort that would become the Fauves. Marquet participated in the 1905 Salon d'Automne exhibition that scandalised critics and named the movement, yet his own use of colour was always more restrained than that of Matisse or Derain; his great subject was water.\n\nFrom the early 1900s, Marquet painted harbours, rivers, and coastal towns with a luminous economy of means that owes something to Japanese woodblock prints and the spatial clarity of Velázquez. His views of the Seine from Parisian quays and windows, his North African harbour scenes painted during his many visits to Algiers, and his Norwegian fjord paintings constitute a sustained meditation on light falling on still and moving water, rendered in muted, harmonious tones that distinguish him sharply from his Fauvist peers.\n\nMarquet travelled widely throughout his life — North Africa, Scandinavia, Russia, and Egypt — always returning to his essential subject: the relationship between architecture and water, figure and reflected light. Though less celebrated than Matisse, his work possesses a quiet, concentrated intelligence that has attracted sustained critical reassessment in recent decades.",
+      "famous_works": [
+        {
+          "title": "The Harbour at Hamburg",
+          "year": "1909",
+          "notes": "A luminous harbour scene in which industrial shipping is reduced to silhouette and tonal contrast, demonstrating Marquet's ability to make poetry from commercial modernity."
+        },
+        {
+          "title": "Quay at Algiers",
+          "year": "1924",
+          "notes": "One of many Algerian harbour subjects in which Mediterranean light dissolves architectural mass into shimmering tonal relations."
+        },
+        {
+          "title": "Notre-Dame in the Rain",
+          "year": "1910",
+          "notes": "A view from a Parisian window in which wet pavements and grey sky create the silvery tonal unity characteristic of Marquet's Seine series."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Beach at Fécamp",
+          "year": "1906",
+          "notes": "A Fauvist-period coastal scene that shows Marquet at his most chromatic before his palette settled into its characteristic restraint."
+        },
+        {
+          "title": "Port of Naples",
+          "year": "1908",
+          "notes": "An Italian harbour subject that extends the range of Marquet's water-and-architecture theme beyond his more familiar northern European and North African locales."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 439928,
+        "avg_usd": 87986,
+        "total_label": "$440k",
+        "avg_label": "$88k",
+        "top_lot": {
+          "title": "Poissy, le clocher",
+          "hammer_usd": 144018,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Poissy, le clocher",
+          "ratio": 2.88
         }
       }
     },
@@ -13465,60 +13519,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.37
-        }
-      }
-    },
-    {
-      "norm_name": "ALBERT MARQUET",
-      "display_name": "Albert Marquet",
-      "dates": "1875–1947",
-      "nationality": "French",
-      "movement": "Post-Impressionism · Fauvism",
-      "movement_id": "post-impressionism",
-      "bio": "Albert Marquet was born in Bordeaux in 1875 and arrived in Paris at seventeen, studying under Gustave Moreau at the École des Beaux-Arts alongside Matisse, Manguin, and Rouault — a cohort that would become the Fauves. Marquet participated in the 1905 Salon d'Automne exhibition that scandalised critics and named the movement, yet his own use of colour was always more restrained than that of Matisse or Derain; his great subject was water.\n\nFrom the early 1900s, Marquet painted harbours, rivers, and coastal towns with a luminous economy of means that owes something to Japanese woodblock prints and the spatial clarity of Velázquez. His views of the Seine from Parisian quays and windows, his North African harbour scenes painted during his many visits to Algiers, and his Norwegian fjord paintings constitute a sustained meditation on light falling on still and moving water, rendered in muted, harmonious tones that distinguish him sharply from his Fauvist peers.\n\nMarquet travelled widely throughout his life — North Africa, Scandinavia, Russia, and Egypt — always returning to his essential subject: the relationship between architecture and water, figure and reflected light. Though less celebrated than Matisse, his work possesses a quiet, concentrated intelligence that has attracted sustained critical reassessment in recent decades.",
-      "famous_works": [
-        {
-          "title": "The Harbour at Hamburg",
-          "year": "1909",
-          "notes": "A luminous harbour scene in which industrial shipping is reduced to silhouette and tonal contrast, demonstrating Marquet's ability to make poetry from commercial modernity."
-        },
-        {
-          "title": "Quay at Algiers",
-          "year": "1924",
-          "notes": "One of many Algerian harbour subjects in which Mediterranean light dissolves architectural mass into shimmering tonal relations."
-        },
-        {
-          "title": "Notre-Dame in the Rain",
-          "year": "1910",
-          "notes": "A view from a Parisian window in which wet pavements and grey sky create the silvery tonal unity characteristic of Marquet's Seine series."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Beach at Fécamp",
-          "year": "1906",
-          "notes": "A Fauvist-period coastal scene that shows Marquet at his most chromatic before his palette settled into its characteristic restraint."
-        },
-        {
-          "title": "Port of Naples",
-          "year": "1908",
-          "notes": "An Italian harbour subject that extends the range of Marquet's water-and-architecture theme beyond his more familiar northern European and North African locales."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 236728,
-        "avg_usd": 78909,
-        "total_label": "$237k",
-        "avg_label": "$79k",
-        "top_lot": {
-          "title": "Poissy, le clocher",
-          "hammer_usd": 144018,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Poissy, le clocher",
-          "ratio": 2.88
         }
       }
     },
@@ -18248,6 +18248,33 @@
       }
     },
     {
+      "norm_name": "VINCENT VAN GOGH",
+      "display_name": "Vincent Van Gogh",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 2382500,
+        "avg_usd": 794167,
+        "total_label": "$2.38M",
+        "avg_label": "$794k",
+        "top_lot": {
+          "title": "Vieux se chauffant",
+          "hammer_usd": 952500,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Vieux se chauffant",
+          "ratio": 2.38
+        }
+      }
+    },
+    {
       "norm_name": "IVAN KONSTANTINOVICH AIVAZOVSKY",
       "display_name": "Ivan Konstantinovich Aivazovsky",
       "dates": "",
@@ -18977,33 +19004,6 @@
       }
     },
     {
-      "norm_name": "VINCENT VAN GOGH",
-      "display_name": "Vincent Van Gogh",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 1430000,
-        "avg_usd": 715000,
-        "total_label": "$1.43M",
-        "avg_label": "$715k",
-        "top_lot": {
-          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
-          "hammer_usd": 780000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Woman in a Wood (recto); Boat on the Beach with Figures (ver",
-          "ratio": 1.11
-        }
-      }
-    },
-    {
       "norm_name": "CINDY SHERMAN",
       "display_name": "Cindy Sherman",
       "dates": "",
@@ -19463,6 +19463,33 @@
       }
     },
     {
+      "norm_name": "FRANK  AUERBACH",
+      "display_name": "Frank  Auerbach",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1143000,
+        "avg_usd": 571500,
+        "total_label": "$1.14M",
+        "avg_label": "$572k",
+        "top_lot": {
+          "title": "J.Y.M. Seated",
+          "hammer_usd": 711200,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "J.Y.M. Seated",
+          "ratio": 1.42
+        }
+      }
+    },
+    {
       "norm_name": "HENRI LEBASQUE",
       "display_name": "Henri Lebasque",
       "dates": "",
@@ -19706,6 +19733,33 @@
       }
     },
     {
+      "norm_name": "FÉLIX VALLOTTON",
+      "display_name": "Félix Vallotton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 1025144,
+        "avg_usd": 256286,
+        "total_label": "$1.03M",
+        "avg_label": "$256k",
+        "top_lot": {
+          "title": "Le 14 juillet, Dieppe or Coup de vent à Dieppe",
+          "hammer_usd": 444500,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Romanel",
+          "ratio": 2.42
+        }
+      }
+    },
+    {
       "norm_name": "HENRI FANTIN-LATOUR",
       "display_name": "Henri Fantin-Latour",
       "dates": "",
@@ -19891,6 +19945,33 @@
         "top_ratio_lot": {
           "title": "Still Life with Grocery Food and Opus One 靜物與雜貨食品及作品一號酒莊",
           "ratio": 0.53
+        }
+      }
+    },
+    {
+      "norm_name": "LOUIS VALTAT",
+      "display_name": "Louis Valtat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 891950,
+        "avg_usd": 74329,
+        "total_label": "$892k",
+        "avg_label": "$74k",
+        "top_lot": {
+          "title": "Femmes sur les rochers à Anthéor",
+          "hammer_usd": 355600,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Femmes sur les rochers à Anthéor",
+          "ratio": 5.93
         }
       }
     },
@@ -20138,6 +20219,33 @@
       }
     },
     {
+      "norm_name": "KEES VAN DONGEN",
+      "display_name": "Kees Van Dongen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 814900,
+        "avg_usd": 162980,
+        "total_label": "$815k",
+        "avg_label": "$163k",
+        "top_lot": {
+          "title": "Au bois (Au bois de Boulogne)",
+          "hammer_usd": 406400,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Guguse (Dolly van Dongen)",
+          "ratio": 1.49
+        }
+      }
+    },
+    {
       "norm_name": "CHUANG CHE",
       "display_name": "Chuang Che",
       "dates": "",
@@ -20242,33 +20350,6 @@
         "top_ratio_lot": {
           "title": "Christ as the Man of Sorrows",
           "ratio": 1.52
-        }
-      }
-    },
-    {
-      "norm_name": "LOUIS VALTAT",
-      "display_name": "Louis Valtat",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 11,
-        "total_usd": 796700,
-        "avg_usd": 72427,
-        "total_label": "$797k",
-        "avg_label": "$72k",
-        "top_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "hammer_usd": 355600,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "ratio": 5.93
         }
       }
     },
@@ -20516,33 +20597,6 @@
       }
     },
     {
-      "norm_name": "FRANK  AUERBACH",
-      "display_name": "Frank  Auerbach",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 711200,
-        "avg_usd": 711200,
-        "total_label": "$711k",
-        "avg_label": "$711k",
-        "top_lot": {
-          "title": "J.Y.M. Seated",
-          "hammer_usd": 711200,
-          "sale_name": "Modern Day Auction L26007"
-        },
-        "top_ratio_lot": {
-          "title": "J.Y.M. Seated",
-          "ratio": 1.42
-        }
-      }
-    },
-    {
       "norm_name": "VIVIAN SPRINGFORD",
       "display_name": "Vivian Springford",
       "dates": "",
@@ -20620,6 +20674,33 @@
         "top_ratio_lot": {
           "title": "La nuit à Bruges",
           "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "MAURICE UTRILLO",
+      "display_name": "Maurice Utrillo",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 9,
+        "total_usd": 696622,
+        "avg_usd": 77402,
+        "total_label": "$697k",
+        "avg_label": "$77k",
+        "top_lot": {
+          "title": "Le Lapin Agile à Montmartre",
+          "hammer_usd": 139700,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Le Lapin Agile à Montmartre",
+          "ratio": 2.33
         }
       }
     },
@@ -20975,6 +21056,33 @@
       }
     },
     {
+      "norm_name": "JUAN GRIS",
+      "display_name": "Juan Gris",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 635600,
+        "avg_usd": 317800,
+        "total_label": "$636k",
+        "avg_label": "$318k",
+        "top_lot": {
+          "title": "Compotier",
+          "hammer_usd": 355600,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Compotier",
+          "ratio": 1.19
+        }
+      }
+    },
+    {
       "norm_name": "AFTER A DESIGN BY PABLO PICASSO",
       "display_name": "After A Design By Pablo Picasso",
       "dates": "",
@@ -20998,33 +21106,6 @@
         "top_ratio_lot": {
           "title": "Déjeuner sur l'herbe",
           "ratio": 7.47
-        }
-      }
-    },
-    {
-      "norm_name": "MAURICE UTRILLO",
-      "display_name": "Maurice Utrillo",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 8,
-        "total_usd": 626772,
-        "avg_usd": 78346,
-        "total_label": "$627k",
-        "avg_label": "$78k",
-        "top_lot": {
-          "title": "Le Lapin Agile à Montmartre",
-          "hammer_usd": 139700,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Le Lapin Agile à Montmartre",
-          "ratio": 2.33
         }
       }
     },
@@ -21268,33 +21349,6 @@
         "top_ratio_lot": {
           "title": "Untitled (Good Versus Evil)",
           "ratio": 3.89
-        }
-      }
-    },
-    {
-      "norm_name": "FÉLIX VALLOTTON",
-      "display_name": "Félix Vallotton",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 580644,
-        "avg_usd": 193548,
-        "total_label": "$581k",
-        "avg_label": "$194k",
-        "top_lot": {
-          "title": "Bords de la Cagne",
-          "hammer_usd": 354838,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Romanel",
-          "ratio": 2.42
         }
       }
     },
@@ -22082,6 +22136,33 @@
       }
     },
     {
+      "norm_name": "TAMARA DE LEMPICKA",
+      "display_name": "Tamara De Lempicka",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 431800,
+        "avg_usd": 431800,
+        "total_label": "$432k",
+        "avg_label": "$432k",
+        "top_lot": {
+          "title": "Portrait de femme",
+          "hammer_usd": 431800,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait de femme",
+          "ratio": 4.32
+        }
+      }
+    },
+    {
       "norm_name": "MINJUNG KIM",
       "display_name": "Minjung Kim",
       "dates": "",
@@ -22271,33 +22352,6 @@
       }
     },
     {
-      "norm_name": "KEES VAN DONGEN",
-      "display_name": "Kees Van Dongen",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 408500,
-        "avg_usd": 102125,
-        "total_label": "$408k",
-        "avg_label": "$102k",
-        "top_lot": {
-          "title": "Intimes dans la dune",
-          "hammer_usd": 190500,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Guguse (Dolly van Dongen)",
-          "ratio": 1.49
-        }
-      }
-    },
-    {
       "norm_name": "JEAN PAUL RIOPELLE",
       "display_name": "Jean Paul Riopelle",
       "dates": "",
@@ -22375,6 +22429,33 @@
         "top_ratio_lot": {
           "title": "Bursting 06 爆裂 06",
           "ratio": 2.33
+        }
+      }
+    },
+    {
+      "norm_name": "LÉON SPILLIAERT",
+      "display_name": "Léon Spilliaert",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 383030,
+        "avg_usd": 127677,
+        "total_label": "$383k",
+        "avg_label": "$128k",
+        "top_lot": {
+          "title": "Het kanaal",
+          "hammer_usd": 322580,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Het kanaal",
+          "ratio": 1.29
         }
       }
     },
@@ -22537,6 +22618,33 @@
         "top_ratio_lot": {
           "title": "The Treatment 19",
           "ratio": 1.29
+        }
+      }
+    },
+    {
+      "norm_name": "LEON KOSSOFF",
+      "display_name": "Leon Kossoff",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 361950,
+        "avg_usd": 180975,
+        "total_label": "$362k",
+        "avg_label": "$181k",
+        "top_lot": {
+          "title": "Seated Figure",
+          "hammer_usd": 222250,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Seated Figure",
+          "ratio": 6.35
         }
       }
     },
@@ -22780,33 +22888,6 @@
         "top_ratio_lot": {
           "title": "Baie de Saint-Tropez",
           "ratio": 2.82
-        }
-      }
-    },
-    {
-      "norm_name": "LÉON SPILLIAERT",
-      "display_name": "Léon Spilliaert",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 338580,
-        "avg_usd": 169290,
-        "total_label": "$339k",
-        "avg_label": "$169k",
-        "top_lot": {
-          "title": "Het kanaal",
-          "hammer_usd": 322580,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Het kanaal",
-          "ratio": 1.29
         }
       }
     },
@@ -23104,6 +23185,33 @@
         "top_ratio_lot": {
           "title": "View of Vaitepiha Bay, Tahiti",
           "ratio": 0.8
+        }
+      }
+    },
+    {
+      "norm_name": "GEORG TAPPERT",
+      "display_name": "Georg Tappert",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 317500,
+        "avg_usd": 317500,
+        "total_label": "$318k",
+        "avg_label": "$318k",
+        "top_lot": {
+          "title": "Zwei Tänzerinnen mit Fächern",
+          "hammer_usd": 317500,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Zwei Tänzerinnen mit Fächern",
+          "ratio": 2.54
         }
       }
     },
@@ -23671,33 +23779,6 @@
         "top_ratio_lot": {
           "title": "The Blacks",
           "ratio": 0.8
-        }
-      }
-    },
-    {
-      "norm_name": "JUAN GRIS",
-      "display_name": "Juan Gris",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 280000,
-        "avg_usd": 280000,
-        "total_label": "$280k",
-        "avg_label": "$280k",
-        "top_lot": {
-          "title": "Autoportrait",
-          "hammer_usd": 280000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Autoportrait",
-          "ratio": 1.12
         }
       }
     },
@@ -25511,6 +25592,33 @@
       }
     },
     {
+      "norm_name": "AMEDEO MODIGLIANI",
+      "display_name": "Amedeo Modigliani",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 203200,
+        "avg_usd": 203200,
+        "total_label": "$203k",
+        "avg_label": "$203k",
+        "top_lot": {
+          "title": "Le Fils du peintre Micheli",
+          "hammer_usd": 203200,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Le Fils du peintre Micheli",
+          "ratio": 2.03
+        }
+      }
+    },
+    {
       "norm_name": "KATHERINE BERNHARDT",
       "display_name": "Katherine Bernhardt",
       "dates": "",
@@ -25993,6 +26101,33 @@
         "top_ratio_lot": {
           "title": "Day of the Two Suns",
           "ratio": 3.6
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN-BAPTISTE-CAMILLE COROT",
+      "display_name": "Jean-Baptiste-Camille Corot",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 177800,
+        "avg_usd": 177800,
+        "total_label": "$178k",
+        "avg_label": "$178k",
+        "top_lot": {
+          "title": "Limay, près Mantes - prairies abritées par les arbres",
+          "hammer_usd": 177800,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Limay, près Mantes - prairies abritées par les arbres",
+          "ratio": 1.42
         }
       }
     },
@@ -29422,6 +29557,33 @@
       }
     },
     {
+      "norm_name": "ANDRÉ LHOTE",
+      "display_name": "André Lhote",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 95250,
+        "avg_usd": 95250,
+        "total_label": "$95k",
+        "avg_label": "$95k",
+        "top_lot": {
+          "title": "Projet de tapisserie, composition cubiste aux deux personnag",
+          "hammer_usd": 95250,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Projet de tapisserie, composition cubiste aux deux personnag",
+          "ratio": 1.91
+        }
+      }
+    },
+    {
       "norm_name": "ANNA GÜNTNER",
       "display_name": "Anna Güntner",
       "dates": "",
@@ -30178,6 +30340,33 @@
       }
     },
     {
+      "norm_name": "STEPHEN CONROY",
+      "display_name": "Stephen Conroy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 82550,
+        "avg_usd": 82550,
+        "total_label": "$83k",
+        "avg_label": "$83k",
+        "top_lot": {
+          "title": "Francis Bacon",
+          "hammer_usd": 82550,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Francis Bacon",
+          "ratio": 2.06
+        }
+      }
+    },
+    {
       "norm_name": "DOROTHEA TANNING",
       "display_name": "Dorothea Tanning",
       "dates": "",
@@ -30448,6 +30637,33 @@
       }
     },
     {
+      "norm_name": "THÉO VAN RYSSELBERGHE",
+      "display_name": "Théo Van Rysselberghe",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 76454,
+        "avg_usd": 25485,
+        "total_label": "$76k",
+        "avg_label": "$25k",
+        "top_lot": {
+          "title": "Les vignes",
+          "hammer_usd": 40322,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Autoportrait (à Nantes)",
+          "ratio": 2.4
+        }
+      }
+    },
+    {
       "norm_name": "MILTON RESNICK",
       "display_name": "Milton Resnick",
       "dates": "",
@@ -30525,6 +30741,33 @@
         "top_ratio_lot": {
           "title": "A Man and His Land",
           "ratio": 1.91
+        }
+      }
+    },
+    {
+      "norm_name": "GUSTAVE LOISEAU",
+      "display_name": "Gustave Loiseau",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 76200,
+        "avg_usd": 76200,
+        "total_label": "$76k",
+        "avg_label": "$76k",
+        "top_lot": {
+          "title": "Au bord de la rivière",
+          "hammer_usd": 76200,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Au bord de la rivière",
+          "ratio": 0.51
         }
       }
     },
@@ -31470,6 +31713,33 @@
         "top_ratio_lot": {
           "title": "The repentance of Saint Peter",
           "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "PIET MONDRIAN",
+      "display_name": "Piet Mondrian",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 63500,
+        "avg_usd": 63500,
+        "total_label": "$64k",
+        "avg_label": "$64k",
+        "top_lot": {
+          "title": "Farmstead Under Oak Trees - Oil Sketch III",
+          "hammer_usd": 63500,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Farmstead Under Oak Trees - Oil Sketch III",
+          "ratio": 0.91
         }
       }
     },
@@ -32523,33 +32793,6 @@
         "top_ratio_lot": {
           "title": "A church interior",
           "ratio": 5.33
-        }
-      }
-    },
-    {
-      "norm_name": "THÉO VAN RYSSELBERGHE",
-      "display_name": "Théo Van Rysselberghe",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 52324,
-        "avg_usd": 26162,
-        "total_label": "$52k",
-        "avg_label": "$26k",
-        "top_lot": {
-          "title": "Les vignes",
-          "hammer_usd": 40322,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Autoportrait (à Nantes)",
-          "ratio": 2.4
         }
       }
     },
@@ -34062,6 +34305,33 @@
         "top_ratio_lot": {
           "title": "Portrait of Charles Lennox, 3rd Duke of Richmond and Lennox ",
           "ratio": 1.63
+        }
+      }
+    },
+    {
+      "norm_name": "MICHAEL CLARK",
+      "display_name": "Michael Clark",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Study for a Portrait of Francis Bacon",
+          "hammer_usd": 40640,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Study for a Portrait of Francis Bacon",
+          "ratio": 6.77
         }
       }
     },
@@ -40974,6 +41244,33 @@
         "top_ratio_lot": {
           "title": "Still life of flowers in an urn",
           "ratio": 0.89
+        }
+      }
+    },
+    {
+      "norm_name": "JACOB EPSTEIN",
+      "display_name": "Jacob Epstein",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8890,
+        "avg_usd": 8890,
+        "total_label": "$9k",
+        "avg_label": "$9k",
+        "top_lot": {
+          "title": "Third Portrait of Deidre, Leaning Forward",
+          "hammer_usd": 8890,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Third Portrait of Deidre, Leaning Forward",
+          "ratio": 1.48
         }
       }
     },
