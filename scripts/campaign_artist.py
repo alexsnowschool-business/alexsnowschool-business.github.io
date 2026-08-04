@@ -19,7 +19,7 @@ DB_PATH = Path(__file__).resolve().parent.parent / "data" / "art.db"
 
 MIN_LOTS = 4            # minimum lots in art_items to qualify for the rotation
 RECENCY_WINDOW = 4      # skip artist if they appear in the last N posts
-MAX_LOTS_PER_ARTIST = 3 # cap reels posted per artist
+MAX_LOTS_PER_ARTIST = 5 # cap reels posted per artist
 
 
 def _canonical(artist: str) -> str:
