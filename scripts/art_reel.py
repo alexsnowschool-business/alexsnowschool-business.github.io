@@ -620,6 +620,25 @@ def _social_captions(lot: dict) -> dict:
     return {"instagram": ig, "tiktok": tt}
 
 
+def _write_captions_md(output_dir: Path, lot: dict, captions: dict) -> None:
+    """Write output/captions.md in the format post_to_buffer.py expects."""
+    artist = _clean_artist(lot.get("artist") or "Unknown")
+    title  = (lot.get("title") or "Untitled")[:60]
+    ig     = captions.get("instagram", "")
+    tt     = captions.get("tiktok", "")
+
+    md = (
+        f"*{artist} · \"{title}\"*\n\n"
+        "## 📸 Instagram\n\n"
+        "### Caption\n"
+        f"```\n{ig}\n```\n\n"
+        "## 🎵 TikTok\n\n"
+        "### Caption\n"
+        f"```\n{tt}\n```\n"
+    )
+    (output_dir / "captions.md").write_text(md, encoding="utf-8")
+
+
 # ── Reel config ────────────────────────────────────────────────────────────────
 
 def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
@@ -1046,6 +1065,8 @@ def main() -> None:
 
     # ── Captions ───────────────────────────────────────────────
     captions = _social_captions(lot)
+    _write_captions_md(output_dir, lot, captions)
+    print(f"▸ Captions: reels/{reel_slug}/output/captions.md")
 
     # ── Write reel_config.py ───────────────────────────────────
     config_path = reel_dir / "reel_config.py"
