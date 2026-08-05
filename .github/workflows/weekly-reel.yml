@@ -73,7 +73,7 @@ jobs:
           ELEVENLABS_VOICE_ID:   ${{ secrets.ELEVENLABS_VOICE_ID }}
           ELEVENLABS_MODEL_ID:   ${{ secrets.ELEVENLABS_MODEL_ID }}
         run: |
-          ARGS="--all-time --top-n 20 --run --voice"
+          ARGS="--all-time --run"
           if [ -n "${{ steps.campaign.outputs.artist }}" ]; then
             ARGS="$ARGS --artist '${{ steps.campaign.outputs.artist }}'"
           fi
