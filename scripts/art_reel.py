@@ -2,12 +2,11 @@
 """
 art_reel.py — price-first auction reel
 
-Five-frame reveal, ~19 seconds — same make_reel.py pipeline:
-  Frame 1 (5s)  — full artwork      · artist + title label (lower third)
-  Frame 2 (2s)  — top crop          · detail view (clean)
-  Frame 3 (2s)  — centre crop       · detail view (clean)
-  Frame 4 (2s)  — top-left corner   · detail view (clean)
-  Frame 5 (8s)  — top-right corner  · data verdict (estimate / sold / %), pushed low
+Four-frame reveal, ~17 seconds — same make_reel.py pipeline:
+  Frame 1 (5s)  — full artwork  · artist + title label (lower third)
+  Frame 2 (2s)  — top crop      · detail view (clean)
+  Frame 3 (2s)  — centre crop   · detail view (clean)
+  Frame 4 (8s)  — full artwork  · data verdict (estimate / sold / %), pushed low
 
 Output:
   reels/{slug}/
@@ -536,12 +535,11 @@ def _first_image_url(lot: dict) -> str | None:
 
 def _prepare_images(lot: dict, images_dir: Path) -> int:
     """
-    Download artwork and write 5 reel images to images_dir:
-      01_source.jpg   — full source for Frame 1 (artist + title label)
-      02_top.jpg      — square top-biased crop       (detail: head/subject)
-      03_centre.jpg   — square centre crop            (detail)
-      04_topleft.jpg  — square top-left corner crop   (detail: upper-left region)
-      05_topright.jpg — square top-right corner crop  (Frame 5 data reveal)
+    Download artwork and write 4 reel images to images_dir:
+      01_source.jpg — full source for Frame 1 (artist + title label)
+      02_top.jpg    — square top-biased crop    (detail: head/subject)
+      03_centre.jpg — square centre crop        (detail)
+      04_source.jpg — full source again         (Frame 4 data reveal)
 
     Returns number of images written.
     """
@@ -553,27 +551,20 @@ def _prepare_images(lot: dict, images_dir: Path) -> int:
     if not photo:
         return 0
 
-    iw, ih  = photo.size
-    side    = min(iw, ih)
-    cx      = (iw - side) // 2          # horizontal centre offset
-    cy      = (ih - side) // 2          # vertical centre offset
-    top_y   = max(0, (ih - side) // 6)  # slight top bias for face/subject
-
-    # Corner crops use 70% of the short side for a tighter zoom
-    cs      = int(side * 0.70)
-    tr_x    = max(0, iw - cs)           # top-right x start
+    iw, ih = photo.size
+    side   = min(iw, ih)
+    cx     = (iw - side) // 2          # horizontal centre offset
+    cy     = (ih - side) // 2          # vertical centre offset
+    top_y  = max(0, (ih - side) // 6)  # slight top bias for face/subject
 
     photo.save(images_dir / "01_source.jpg", "JPEG", quality=95)
     photo.crop((cx, top_y, cx + side, top_y + side)).save(
         images_dir / "02_top.jpg", "JPEG", quality=95)
     photo.crop((cx, cy, cx + side, cy + side)).save(
         images_dir / "03_centre.jpg", "JPEG", quality=95)
-    photo.crop((0, 0, cs, cs)).save(
-        images_dir / "04_topleft.jpg", "JPEG", quality=95)
-    photo.crop((tr_x, 0, tr_x + cs, cs)).save(
-        images_dir / "05_topright.jpg", "JPEG", quality=95)
+    photo.save(images_dir / "04_source.jpg", "JPEG", quality=95)
 
-    return 5
+    return 4
 
 
 # ── Hook / caption ─────────────────────────────────────────────────────────────
@@ -665,7 +656,7 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
     )
 
     per_frame = [
-        # Frame 1 — full artwork, artist + title in same slot as data reveal
+        # Frame 1 — full artwork, artist + title label (lower third)
         {
             "show_caption":     True,
             "caption_position": "lower_third",
@@ -685,12 +676,7 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
             "show_caption":  False,
             "hold_seconds":  2.0,
         },
-        # Frame 4 — top-left corner detail (clean)
-        {
-            "show_caption":  False,
-            "hold_seconds":  2.0,
-        },
-        # Frame 5 — top-right corner, data reveal (pushed low)
+        # Frame 4 — full artwork again, data reveal (pushed low)
         {
             "show_caption":     True,
             "caption_position": "lower_third",
