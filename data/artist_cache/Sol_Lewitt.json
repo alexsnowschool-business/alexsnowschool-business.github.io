@@ -1,0 +1,68 @@
+{
+  "gac_url": "https://artsandculture.google.com/entity/sol-lewitt/m03v9b1",
+  "full_name": "Sol LeWitt",
+  "bio": "Solomon \"Sol\" LeWitt was an American artist linked to various movements, including conceptual art and minimalism. LeWitt came to fame in the late 1960s with his wall drawings and \"structures\" but was prolific in a wide range of media including drawing, printmaking, photography, painting, installation, and artist's books. He has been the subject of hundreds of solo exhibitions in museums and galleries around the world since 1965. The first biography of the artist, Sol LeWitt: A Life of Ideas, by Lary Bloom, was published by Wesleyan University Press in the spring of 2019.",
+  "image_url": "https://lh3.googleusercontent.com/ci/AL18g_RvGE8fzkf1W83xQ-APWVQq0Ud_Z8OFSgpMQPWmOTPRHInybGoo-qySEZOGAaFVEQPW7WYGAPI=s1200",
+  "birth_date": "Sep 9, 1928",
+  "death_date": "Apr 8, 2007",
+  "famous_artworks": [
+    {
+      "title": "Wall Drawing #1136 (2004)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREuZHq4-cuM4xzlxHztf_iA2UjAjp2QSHSiRUwP_TcJtepKmPa",
+      "ext_url": "http://www.wikiart.org/en/sol-lewitt/wall-drawing-1136-2004"
+    },
+    {
+      "title": "Four-Sided Pyramid (1965)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjtrVDhxEKpZKiWj-vhPVlcE1byhylnDLg_CQ74j-Q5kdhllv2",
+      "ext_url": "https://en.wikipedia.org/wiki/Four-Sided_Pyramid"
+    },
+    {
+      "title": "Splotch #3 (2000)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ5iwm-Hx2bdIM5VgSWKsUpS-ymNP33gQNUEBmRIKuFyOpQNmgF",
+      "ext_url": "http://www.wikiart.org/en/sol-lewitt/splotch-3-2000"
+    },
+    {
+      "title": "Arc Bands (1990)",
+      "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSSwTQ1lf8bjNx2nvkDXEtnhSpgnEkF1X3WN7jrfSZT_IUx6N8F",
+      "ext_url": "http://www.wikiart.org/en/sol-lewitt/arc-bands-1990"
+    },
+    {
+      "title": "Wall Drawing #260 (1975)",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ9dg_cFuydzRUvm9zsPSjuReQEahd8Krzr3FHwJTuCRs4n3sx9",
+      "ext_url": "http://www.wikiart.org/en/sol-lewitt/wall-drawing-260-1975"
+    },
+    {
+      "title": "Serial Project (Set B) (1966)",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSesbyFrKt4-3Lc3pDuEpDokTq_qHu7DEm662MnF8nnruPq3YMS",
+      "ext_url": "http://www.wikiart.org/en/sol-lewitt/serial-project-set-b-1966"
+    },
+    {
+      "title": "Buried Cube Containing an Object of Importance but Little Value (1968)",
+      "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSxCbk1KVVBd0SxIawq3_plwD0Rhjc7aT83KiytqIsvmmXDXZUb",
+      "ext_url": "http://www.wikiart.org/en/sol-lewitt/buried-cube-containing-an-object-of-importance-but-little-value-1968"
+    }
+  ],
+  "nationality": "American",
+  "art_movement": "Minimalism",
+  "portrait_url": "",
+  "timeline": [
+    {
+      "year": 1928,
+      "event": "Born September 9 in Hartford, Connecticut"
+    },
+    {
+      "year": 1965,
+      "event": "First solo exhibition in a museum or gallery"
+    },
+    {
+      "year": 1968,
+      "event": "Came to fame with wall drawings and structures"
+    },
+    {
+      "year": 2007,
+      "event": "Died April 8 in New York City"
+    }
+  ],
+  "quote": "The idea itself, even if not made visual, is as much a work of art as any finished product.",
+  "artist_name": "Sol Lewitt"
+}
