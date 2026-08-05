@@ -362,6 +362,13 @@ def main():
         print("Failed to load profile."); print(result.stdout); sys.exit(1)
     profile = json.loads("\n".join(lines[json_start:]))
 
+    if not profile.get("gac_url"):
+        print(
+            f"Skipping '{artist_name}' — no Google Arts & Culture page found.\n"
+            "Cards are only generated for artists listed on artsandculture.google.com."
+        )
+        sys.exit(0)
+
     import account_config
     try:
         cfg = account_config.load(args.account)
