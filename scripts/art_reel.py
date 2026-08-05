@@ -668,7 +668,7 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
         {
             "show_caption":     True,
             "caption_position": "lower_third",
-            "tag":              "",
+            "tag":              tag_line,
             "line1":            artist,
             "line2":            title,
             "line3":            "",
