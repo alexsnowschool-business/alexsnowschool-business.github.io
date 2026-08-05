@@ -877,7 +877,9 @@ def main():
         tiles = grouped[base]['tiles']
         if base_fname:
             base_path = os.path.join(cfg["input_folder"], base_fname)
-            use_fit = (not _first_base_loaded) and cfg.get("photo_fit_first", True)
+            # Any file with "source" in the stem always gets fitted (full painting, not cropped)
+            is_source = "source" in os.path.splitext(base_fname)[0].lower()
+            use_fit = is_source or ((not _first_base_loaded) and cfg.get("photo_fit_first", True))
             p = load_photo(base_path, split=split, fit=use_fit, fit_bg=pal["bg"],
                            center_crop=cfg.get("photo_center_crop", False))
             _first_base_loaded = True
