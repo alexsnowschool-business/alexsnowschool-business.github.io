@@ -605,7 +605,7 @@ def _social_captions(lot: dict) -> dict:
         f"{sale_name}\n" if sale_name else "",
         f"{house}",
         f"\n{url}" if url else "",
-        "\n\n#thehammerprice #artmarket #auctionresults #artcollecting",
+        "\n\n#thehammerprice #artmarket #auctionresults",
     ]
     ig = "".join(ig_parts)
     tt_parts = [
@@ -614,7 +614,7 @@ def _social_captions(lot: dict) -> dict:
         f"{sale_name} · " if sale_name else "",
         f"{house}",
         f"\n{url}" if url else "",
-        "\n\n#thehammerprice #artmarket #auctionresults #foryou",
+        "\n\n#thehammerprice #artmarket #auctionresults #artcollecting #foryou",
     ]
     tt = "".join(tt_parts)
     return {"instagram": ig, "tiktok": tt}
