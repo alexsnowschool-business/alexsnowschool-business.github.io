@@ -3,9 +3,9 @@
 art_reel.py — price-first auction reel
 
 Three-frame reveal, ~20 seconds — same make_reel.py pipeline, tighter structure:
-  Frame 1 (5s)  — full artwork · artist + title label at top
-  Frame 2 (7s)  — centre crop  · hook question
-  Frame 3 (8s)  — crop        · data verdict (estimate / sold / %)
+  Frame 1 (5s)  — full artwork  · artist + title centred (clean, no box)
+  Frame 2 (7s)  — top crop     · clean image (no overlay)
+  Frame 3 (8s)  — centre crop  · data verdict (estimate / sold / %)
 
 Output:
   reels/{slug}/
@@ -535,9 +535,9 @@ def _first_image_url(lot: dict) -> str | None:
 def _prepare_images(lot: dict, images_dir: Path) -> int:
     """
     Download artwork and write 3 images to images_dir:
-      01_source.jpg    — full source (make_reel fits this on Frame 1)
-      02_crop_centre.jpg — square centre crop (Frame 2, hook)
-      03_crop_top.jpg    — square top-biased crop (Frame 3, data reveal)
+      01_source.jpg  — full source fitted on Frame 1
+      02_top.jpg     — top-biased square crop (Frame 2, breathing room)
+      03_centre.jpg  — square centre crop (Frame 3, data reveal)
     Returns number of images written.
     """
     if images_dir.exists():
@@ -555,11 +555,11 @@ def _prepare_images(lot: dict, images_dir: Path) -> int:
 
     photo.save(images_dir / "01_source.jpg", "JPEG", quality=95)
 
-    centre = photo.crop((cx, (ih - side) // 2, cx + side, (ih - side) // 2 + side))
-    centre.save(images_dir / "02_crop_centre.jpg", "JPEG", quality=95)
-
     top = photo.crop((cx, top_y, cx + side, top_y + side))
-    top.save(images_dir / "03_crop_top.jpg", "JPEG", quality=95)
+    top.save(images_dir / "02_top.jpg", "JPEG", quality=95)
+
+    centre = photo.crop((cx, (ih - side) // 2, cx + side, (ih - side) // 2 + side))
+    centre.save(images_dir / "03_centre.jpg", "JPEG", quality=95)
 
     return 3
 
@@ -584,36 +584,49 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
                     random.choice(a_variants).format(**fmt))
     return "the hammer price tells the real story.", "follow the data."
 
-def _social_captions(lot: dict, question: str, answer: str) -> dict:
-    pct    = _pct_above(lot["hammer_usd"], lot["estimate_low"])
-    house  = _clean_house(lot.get("auction_house") or "").lower()
-    sentences    = re.split(r'(?<=[.!?])\s+', answer.strip())
-    short_answer = " ".join(sentences[:2])
-    ig = (
-        f"+{pct:,.0f}% above estimate.\n\n"
-        f"{question}\n\n"
-        f"{short_answer}\n\n"
-        f"estimate {_fmt(lot['estimate_low'])}  ·  sold {_fmt(lot['hammer_usd'])}  ·  {house}\n\n"
-        f"#thehammerprice #artmarket #auctionresults #artcollecting"
-    )
-    tt = (
-        f"+{pct:,.0f}% above estimate. {question}\n"
-        f"follow for weekly auction data.\n\n"
-        f"#thehammerprice #artmarket #auctionresults #foryou #artcollecting"
-    )
+def _social_captions(lot: dict) -> dict:
+    pct       = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    artist    = _clean_artist(lot.get("artist") or "Unknown")
+    title     = lot.get("title") or "Untitled"
+    house     = _clean_house(lot.get("auction_house") or "")
+    est_lo    = lot["estimate_low"]
+    est_hi    = lot.get("estimate_high") or est_lo
+    sale_name = (lot.get("sale_name") or "").strip()
+    url       = (lot.get("source_url") or "").strip()
+
+    ig_parts = [
+        f"{artist}\n",
+        f'"{title}"\n\n',
+        f"estimate: {_fmt(est_lo)}–{_fmt(est_hi)}\n",
+        f"sold: {_fmt(lot['hammer_usd'])}  (+{pct:,.0f}% above estimate)\n\n",
+        f"{sale_name}\n" if sale_name else "",
+        f"{house}",
+        f"\n{url}" if url else "",
+        "\n\n#thehammerprice #artmarket #auctionresults #artcollecting",
+    ]
+    ig = "".join(ig_parts)
+    tt_parts = [
+        f"{artist} · \"{title}\"\n",
+        f"estimate {_fmt(est_lo)}–{_fmt(est_hi)} → sold {_fmt(lot['hammer_usd'])} (+{pct:,.0f}%)\n",
+        f"{sale_name} · " if sale_name else "",
+        f"{house}",
+        f"\n{url}" if url else "",
+        "\n\n#thehammerprice #artmarket #auctionresults #foryou",
+    ]
+    tt = "".join(tt_parts)
     return {"instagram": ig, "tiktok": tt}
 
 
 # ── Reel config ────────────────────────────────────────────────────────────────
 
-def _generate_config(lot: dict, week_label: str, question: str, captions: dict) -> str:
+def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
     """
     Write reel_config.py for make_reel.py.
 
     Three frames (~20s total):
-      Frame 1 (5s)  — full artwork, artist + title label, no data overlay
-      Frame 2 (7s)  — centre crop, hook question shown
-      Frame 3 (8s)  — top crop, data reveal (estimate / sold / %)
+      Frame 1 (5s)  — full artwork, artist + title centred (no box), no data overlay
+      Frame 2 (7s)  — top crop, clean image (no text overlay)
+      Frame 3 (8s)  — centre crop, data reveal (estimate / sold / %)
     """
     artist    = _clean_artist(lot.get("artist") or "Unknown")
     title     = (lot.get("title") or "Untitled")[:50]
@@ -638,37 +651,32 @@ def _generate_config(lot: dict, week_label: str, question: str, captions: dict) 
     )
 
     per_frame = [
-        # Frame 1 — full artwork, artist / title label, no caption box
+        # Frame 1 — full artwork, artist + title centred (no box)
         {
-            "show_caption": False,
-            "tag":          tag_line,
+            "show_caption":  False,
+            "tag":           tag_line,
             "line1": "", "line2": "", "line3": "",
-            "hook_question": None,
-            "hook_answer":   "",
             "upper_artist":  artist,
             "upper_title":   title,
+            "upper_no_box":  True,
             "hold_seconds":  5.0,
         },
-        # Frame 2 — centre crop, hook question
+        # Frame 2 — top crop, clean image (breathing room)
         {
-            "show_caption": False,
-            "tag":          tag_line,
+            "show_caption":  False,
+            "tag":           tag_line,
             "line1": "", "line2": "", "line3": "",
-            "hook_question": question,
-            "hook_answer":   "",
             "upper_artist":  "",
             "upper_title":   "",
             "hold_seconds":  7.0,
         },
-        # Frame 3 — top crop, data reveal
+        # Frame 3 — centre crop, data reveal
         {
-            "show_caption": True,
-            "tag":          tag_line,
-            "line1": est_str,
-            "line2": sold_str,
-            "line3": pct_str,
-            "hook_question": None,
-            "hook_answer":   "",
+            "show_caption":  True,
+            "tag":           tag_line,
+            "line1":         est_str,
+            "line2":         sold_str,
+            "line3":         pct_str,
             "upper_artist":  "",
             "upper_title":   "",
             "hold_seconds":  8.0,
@@ -1029,16 +1037,14 @@ def main() -> None:
         print("✗ No images downloaded — cannot generate reel.")
         conn.close()
         sys.exit(1)
-    print(f"  ✓ {n_images} images (source + 2 crops)")
+    print(f"  ✓ {n_images} images (source, top crop, centre crop)")
 
-    # ── Hook + captions ────────────────────────────────────────
-    question, answer = _hook_caption(lot, pct)
-    captions         = _social_captions(lot, question, answer)
-    print(f"\n▸ Hook: {question}")
+    # ── Captions ───────────────────────────────────────────────
+    captions = _social_captions(lot)
 
     # ── Write reel_config.py ───────────────────────────────────
     config_path = reel_dir / "reel_config.py"
-    config_path.write_text(_generate_config(lot, week_label, question, captions))
+    config_path.write_text(_generate_config(lot, week_label, captions))
     print(f"▸ Config: {config_path.relative_to(BUSINESS_DIR)}")
 
     # ── meta.json ──────────────────────────────────────────────
@@ -1053,8 +1059,6 @@ def main() -> None:
         "estimate_low":  lot.get("estimate_low"),
         "estimate_high": lot.get("estimate_high"),
         "pct_above":     pct,
-        "question":      question,
-        "answer":        answer,
         "captions":      captions,
     }
     (reel_dir / "meta.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False))
