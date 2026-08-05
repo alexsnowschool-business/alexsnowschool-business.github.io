@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """
-Auto-reel generator — picks the most shocking auction results from data/art.db,
-downloads artwork images, and writes a ready-to-run reel folder for
-reel_template/make_reel.py.
+art_reel.py — price-first single-lot cards
 
-Usage (run from alexsnowschool-business/):
-    python scripts/auto_reel.py                   # uses this week's scrapes
-    python scripts/auto_reel.py --week 2026-05-08 # any date in the target week
-    python scripts/auto_reel.py --run             # also renders the reel
-    python scripts/auto_reel.py --voice           # generate TTS narration
-    python scripts/auto_reel.py --all-time        # ignore week, pick best ever
+Three PNGs per lot, rendered directly with Pillow — no video pipeline, no TTS:
+  00_number.png   — shock stat on dark background  (+N% above estimate)
+  01_art.png      — full-bleed artwork + artist / house / year
+  02_verdict.png  — estimate / sold / one-liner verdict
+  meta.json       — lot data + social captions
+
+Usage:
+    python scripts/art_reel.py              # this week's best lot
+    python scripts/art_reel.py --all-time   # best ever unposted
+    python scripts/art_reel.py --artist "Basquiat"
+    python scripts/art_reel.py --list       # preview top candidates
+    python scripts/art_reel.py --list-artists
 """
 
 import argparse
@@ -18,50 +22,40 @@ import math
 import os
 import random
 import re
-import shutil
 import sqlite3
-import subprocess
 import sys
 import unicodedata
 from datetime import date, timedelta
+from io import BytesIO
 from pathlib import Path
 
-from PIL import Image
+import httpx
+from PIL import Image, ImageDraw, ImageFont
 from dotenv import load_dotenv
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 SCRIPT_DIR   = Path(__file__).resolve().parent
 BUSINESS_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(SCRIPT_DIR))
-import reel_utils
 import campaign_artist as _ca
 
 load_dotenv(BUSINESS_DIR / ".env", override=False)
 
-DB_PATH       = BUSINESS_DIR / "data" / "art.db"
-REELS_DIR     = BUSINESS_DIR / "reels"
-REEL_TEMPLATE = BUSINESS_DIR / "reel_template"
+DB_PATH    = BUSINESS_DIR / "data" / "art.db"
+OUTPUT_DIR = BUSINESS_DIR / "output" / "art"
+FONTS_DIR  = BUSINESS_DIR / "reel_template" / "fonts"
 
-# ── API credentials ────────────────────────────────────────────────────────────
-OPENROUTER_KEY   = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "meta-llama/llama-3.1-8b-instruct:free")
-ELEVENLABS_KEY   = os.getenv("ELEVENLABS_API_KEY")
-ELEVENLABS_VOICE = os.getenv("ELEVENLABS_VOICE_ID", "LXu5MIFyvPZCxBst8fPP")
-ELEVENLABS_MODEL = os.getenv("ELEVENLABS_MODEL_ID", "eleven_turbo_v2_5")
+# ── Card dimensions ────────────────────────────────────────────────────────────
+W, H   = 1080, 1350
+MARGIN = 72
 
-# ── HTTP headers ───────────────────────────────────────────────────────────────
-_HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-    )
-}
-
-# ── Pacing constants ───────────────────────────────────────────────────────────
-_MAX_REEL_SECONDS  = 65.0
-_FRAME_FADE_S      = 0.1
-_APPRECIATION_MAX_WORDS = 200
-
+# ── Palette ────────────────────────────────────────────────────────────────────
+BG        = (20, 18, 16)
+GOLD      = (201, 168, 76)
+GOLD_DIM  = (100, 82, 45)
+IVORY     = (245, 240, 232)
+IVORY_DIM = (185, 165, 130)
+GHOST     = (90, 83, 68)
 
 # ── Notable-artist index ───────────────────────────────────────────────────────
 
@@ -308,7 +302,6 @@ KNOWN_ARTISTS: frozenset[str] = frozenset({
 
 _KNOWN_ARTISTS_LOWER: frozenset[str] = frozenset(k.lower() for k in KNOWN_ARTISTS)
 
-
 # ── Hook templates ─────────────────────────────────────────────────────────────
 # Each entry: (min_pct, [question variants], [answer variants])
 # Format vars: {artist} {title} {house} {hammer} {estimate} {pct} {n}
@@ -471,51 +464,310 @@ _HOOK_TEMPLATES = [
 ]
 
 
-# ── Formatters ─────────────────────────────────────────────────────────────────
+# ── Font cache ─────────────────────────────────────────────────────────────────
 
-def _fmt_price(usd: float) -> str:
-    """Format a USD price with full zeros: $441,000 or $1,380,000."""
+_font_cache: dict[tuple[str, int], ImageFont.FreeTypeFont] = {}
+
+def _font(name: str, size: int) -> ImageFont.FreeTypeFont:
+    key = (name, size)
+    if key not in _font_cache:
+        _font_cache[key] = ImageFont.truetype(str(FONTS_DIR / name), size)
+    return _font_cache[key]
+
+
+# ── Helpers ────────────────────────────────────────────────────────────────────
+
+def _fmt(usd: float) -> str:
     return f"${usd:,.0f}"
-
-
-def _fmt_price_tts(usd: float) -> str:
-    """Spoken-English price for TTS."""
-    if usd >= 1_000_000:
-        return f"{usd / 1_000_000:.1f} million dollars"
-    if usd >= 1_000:
-        return f"{usd / 1_000:.0f} thousand dollars"
-    return f"{usd:.0f} dollars"
-
-
-def _prices_to_speech(text: str) -> str:
-    """Replace $X,XXX-style price tokens in arbitrary text with their spoken form."""
-    def _sub(m: re.Match) -> str:
-        digits = m.group(1).replace(",", "")
-        return _fmt_price_tts(float(digits))
-    return re.sub(r"\$([0-9][0-9,]*)", _sub, text)
-
 
 def _pct_above(hammer: float, low: float) -> float:
     return round((hammer / low - 1) * 100, 1)
 
-
 def _clean_artist(name: str) -> str:
-    """Strip birth-year suffix like '(B. 1953)'."""
-    return re.sub(r"\s*\([^)]+\)\s*$", "", name).strip().title()
+    return re.sub(r"\s*\([^)]+\)\s*$", "", name or "").strip().title()
 
+def _clean_house(raw: str) -> str:
+    for key, label in [
+        ("sotheby",  "Sotheby's"),
+        ("christie", "Christie's"),
+        ("phillips", "Phillips"),
+        ("bonham",   "Bonhams"),
+        ("ketterer", "Ketterer"),
+        ("van ham",  "Van Ham"),
+        ("grisebach","Grisebach"),
+        ("lempertz", "Lempertz"),
+    ]:
+        if key in (raw or "").lower():
+            return label
+    return raw or "—"
 
-_esc      = reel_utils.esc
-_make_slug = reel_utils.make_slug
+def _strip_accents(s: str | None) -> str | None:
+    if s is None:
+        return None
+    return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")
 
+def _wrap(draw: ImageDraw.ImageDraw, text: str,
+          font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
+    words = text.split()
+    lines, line = [], ""
+    for word in words:
+        candidate = f"{line} {word}".strip()
+        if draw.textlength(candidate, font=font) <= max_w:
+            line = candidate
+        else:
+            if line:
+                lines.append(line)
+            line = word
+    if line:
+        lines.append(line)
+    return lines
+
+def _crop_fill(img: Image.Image, w: int, h: int) -> Image.Image:
+    iw, ih = img.size
+    if iw / ih > w / h:
+        nw = int(ih * w / h)
+        img = img.crop(((iw - nw) // 2, 0, (iw - nw) // 2 + nw, ih))
+    else:
+        nh = int(iw * h / w)
+        top = max(0, (ih - nh) // 3)
+        img = img.crop((0, top, iw, top + nh))
+    return img.resize((w, h), Image.LANCZOS)
+
+def _download_photo(url: str | None) -> Image.Image | None:
+    if not url:
+        return None
+    try:
+        r = httpx.get(url, timeout=20, follow_redirects=True,
+                      headers={"User-Agent": "Mozilla/5.0"})
+        r.raise_for_status()
+        return Image.open(BytesIO(r.content)).convert("RGB")
+    except Exception as e:
+        print(f"  ⚠ photo download failed: {e}")
+        return None
+
+def _first_image_url(lot: dict) -> str | None:
+    raw = lot.get("image_urls")
+    if isinstance(raw, list):
+        return raw[0] if raw else None
+    if isinstance(raw, str):
+        try:
+            return json.loads(raw)[0]
+        except (TypeError, ValueError, IndexError):
+            return None
+    return None
 
 def _week_bounds(ref_date: date) -> tuple[str, str]:
-    """Return (monday, sunday) as ISO strings for the week containing ref_date."""
     monday = ref_date - timedelta(days=ref_date.weekday())
-    sunday = monday + timedelta(days=6)
-    return monday.isoformat(), sunday.isoformat()
+    return monday.isoformat(), (monday + timedelta(days=6)).isoformat()
+
+def _make_slug(s: str, max_len: int = 30) -> str:
+    s = _strip_accents(s) or s
+    s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+    return s[:max_len].rstrip("-")
 
 
-# ── DB queries ─────────────────────────────────────────────────────────────────
+# ── Card renderers ─────────────────────────────────────────────────────────────
+
+def render_number_card(lot: dict) -> Image.Image:
+    """Frame 1: +N% above estimate — the hook, full screen on dark bg."""
+    img  = Image.new("RGB", (W, H), BG)
+    draw = ImageDraw.Draw(img)
+    pct  = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    cw   = W - MARGIN * 2
+
+    # Main stat — scale down if too wide
+    pct_str  = f"+{pct:,.0f}%"
+    pct_size = 200
+    pct_font = _font("Outfit-Bold.ttf", pct_size)
+    while draw.textlength(pct_str, font=pct_font) > cw and pct_size > 80:
+        pct_size -= 10
+        pct_font  = _font("Outfit-Bold.ttf", pct_size)
+
+    sub_font = _font("Outfit-Regular.ttf", 48)
+    sub_str  = "above estimate"
+
+    pb      = draw.textbbox((0, 0), pct_str, font=pct_font)
+    sb      = draw.textbbox((0, 0), sub_str, font=sub_font)
+    pct_h   = pb[3] - pb[1]
+    sub_h   = sb[3] - sb[1]
+    block_h = pct_h + 20 + sub_h
+    y       = (H - block_h) // 2 - 40   # slightly above center
+
+    pct_w = draw.textlength(pct_str, font=pct_font)
+    draw.text(((W - pct_w) // 2, y), pct_str, font=pct_font, fill=GOLD)
+    y += pct_h + 20
+    sub_w = draw.textlength(sub_str, font=sub_font)
+    draw.text(((W - sub_w) // 2, y), sub_str, font=sub_font, fill=IVORY_DIM)
+
+    # Bottom rule + artist name + brand tag
+    rule_y = H - MARGIN - 52
+    af     = _font("Outfit-Regular.ttf", 30)
+    artist = _clean_artist(lot.get("artist") or "Unknown")
+    draw.line([(MARGIN, rule_y), (W - MARGIN, rule_y)], fill=GHOST, width=1)
+    draw.text((MARGIN, rule_y + 14), artist.lower(), font=af, fill=GHOST)
+    tag   = "@thehammerprice"
+    tag_w = draw.textlength(tag, font=af)
+    draw.text((W - MARGIN - tag_w, rule_y + 14), tag, font=af, fill=GOLD_DIM)
+
+    return img
+
+
+def render_art_card(lot: dict, photo: Image.Image | None) -> Image.Image:
+    """Frame 2: full-bleed artwork + artist / house / year overlay."""
+    img = Image.new("RGB", (W, H), (30, 27, 24))
+    if photo:
+        img.paste(_crop_fill(photo, W, H), (0, 0))
+
+    # Bottom gradient — lower 42%
+    fade_top = int(H * 0.58)
+    fade_h   = H - fade_top
+    fade     = Image.new("RGB", (W, fade_h), (8, 7, 6))
+    mask     = Image.new("L", (W, fade_h), 0)
+    md       = ImageDraw.Draw(mask)
+    for row in range(fade_h):
+        alpha = int(230 * (row / fade_h) ** 1.3)
+        md.line([(0, row), (W, row)], fill=alpha)
+    img.paste(fade, (0, fade_top), mask)
+
+    draw   = ImageDraw.Draw(img)
+    artist = _clean_artist(lot.get("artist") or "Unknown")
+    house  = _clean_house(lot.get("auction_house") or "")
+    year   = (lot.get("sale_date") or lot.get("scraped_at") or "")[:4]
+    meta   = "  ·  ".join(x for x in [house, year] if x)
+
+    af = _font("Outfit-Bold.ttf", 52)
+    mf = _font("Outfit-Regular.ttf", 30)
+    ab = draw.textbbox((0, 0), artist, font=af)
+    mb = draw.textbbox((0, 0), meta, font=mf)
+    y  = H - MARGIN - (ab[3] - ab[1]) - 12 - (mb[3] - mb[1])
+
+    draw.text((MARGIN, y), artist, font=af, fill=IVORY)
+    y += (ab[3] - ab[1]) + 12
+    draw.text((MARGIN, y), meta, font=mf, fill=IVORY_DIM)
+
+    return img
+
+
+def render_verdict_card(lot: dict, one_liner: str) -> Image.Image:
+    """Frame 3: estimate / sold / one-liner verdict on dark bg."""
+    img  = Image.new("RGB", (W, H), BG)
+    draw = ImageDraw.Draw(img)
+    cw   = W - MARGIN * 2
+
+    hammer = lot["hammer_usd"]
+    est_lo = lot["estimate_low"]
+    est_hi = lot.get("estimate_high") or est_lo
+
+    lf = _font("Outfit-Regular.ttf", 28)   # labels
+    df = _font("Outfit-Regular.ttf", 40)   # estimate value
+    vf = _font("Outfit-Bold.ttf",    60)   # sold value
+    ol = _font("Outfit-Regular.ttf", 36)   # one-liner
+
+    y = H // 3 - 40
+
+    # estimate
+    draw.text((MARGIN, y), "estimate", font=lf, fill=GHOST)
+    y += draw.textbbox((0, 0), "estimate", font=lf)[3] + 8
+    est_str = f"{_fmt(est_lo)}–{_fmt(est_hi)}"
+    draw.text((MARGIN, y), est_str, font=df, fill=IVORY_DIM)
+    y += draw.textbbox((0, 0), est_str, font=df)[3] + 30
+
+    # divider
+    draw.line([(MARGIN, y), (W - MARGIN, y)], fill=GHOST, width=1)
+    y += 22
+
+    # sold
+    draw.text((MARGIN, y), "sold", font=lf, fill=GHOST)
+    y += draw.textbbox((0, 0), "sold", font=lf)[3] + 8
+    draw.text((MARGIN, y), _fmt(hammer), font=vf, fill=GOLD)
+    y += draw.textbbox((0, 0), _fmt(hammer), font=vf)[3] + 48
+
+    # one-liner (max 3 lines)
+    for line in _wrap(draw, one_liner, ol, cw)[:3]:
+        draw.text((MARGIN, y), line, font=ol, fill=IVORY)
+        y += draw.textbbox((0, 0), line, font=ol)[3] + 10
+
+    # Brand footer
+    tf    = _font("Outfit-Regular.ttf", 26)
+    tag   = "@thehammerprice"
+    ry    = H - MARGIN - 46
+    draw.line([(MARGIN, ry), (W - MARGIN, ry)], fill=GHOST, width=1)
+    draw.text((MARGIN, ry + 14), tag, font=tf, fill=GOLD_DIM)
+
+    return img
+
+
+# ── Scoring ────────────────────────────────────────────────────────────────────
+
+def _artist_is_notable(artist: str, notable_set: set[str] | None = None) -> bool:
+    cleaned = _clean_artist(artist)
+    if notable_set and cleaned in notable_set:
+        return True
+    cl = cleaned.lower()
+    return any(k in cl or cl in k for k in _KNOWN_ARTISTS_LOWER)
+
+def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
+    pct          = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    hammer_usd   = lot["hammer_usd"] or 0
+    pct_bonus    = math.log1p(max(pct, 0)) * 10
+    hammer_bonus = math.log10(hammer_usd) * 5 if hammer_usd >= 100_000 else 0
+    is_known     = _artist_is_notable(lot.get("artist") or "", notable_set)
+    return pct_bonus + (is_known * 20) + (hammer_bonus * 0.75)
+
+
+# ── Captions ───────────────────────────────────────────────────────────────────
+
+def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
+    """Return (question, answer) from the per-tier hook templates."""
+    mult     = round(pct / 100 + 1, 1)
+    artist   = _clean_artist(lot.get("artist") or "Unknown")
+    title    = (lot.get("title") or "Untitled")[:40]
+    house    = lot.get("auction_house") or "the auction house"
+    hammer   = _fmt(lot["hammer_usd"])
+    est_lo   = lot["estimate_low"]
+    est_hi   = lot.get("estimate_high") or est_lo
+    estimate = f"{_fmt(est_lo)}–{_fmt(est_hi)}"
+    fmt = dict(n=f"{mult:.0f}×", artist=artist, title=title, house=house,
+               hammer=hammer, estimate=estimate, pct=f"{pct:,.0f}%")
+    for threshold, q_variants, a_variants in _HOOK_TEMPLATES:
+        if pct >= threshold:
+            return (random.choice(q_variants).format(**fmt),
+                    random.choice(a_variants).format(**fmt))
+    return "the hammer price tells the real story.", "follow the data."
+
+def _social_captions(lot: dict, question: str, answer: str) -> dict:
+    """Instagram (full) + TikTok (tight) social captions."""
+    pct    = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+    artist = _clean_artist(lot.get("artist") or "Unknown").lower()
+    house  = _clean_house(lot.get("auction_house") or "").lower()
+
+    # Trim answer to first 2 sentences for the caption body
+    sentences    = re.split(r'(?<=[.!?])\s+', answer.strip())
+    short_answer = " ".join(sentences[:2])
+
+    ig = (
+        f"+{pct:,.0f}% above estimate.\n\n"
+        f"{question}\n\n"
+        f"{short_answer}\n\n"
+        f"estimate {_fmt(lot['estimate_low'])}  ·  "
+        f"sold {_fmt(lot['hammer_usd'])}  ·  {house}\n\n"
+        f"#thehammerprice #artmarket #auctionresults #artcollecting"
+    )
+    tt = (
+        f"+{pct:,.0f}% above estimate. {question}\n"
+        f"follow for weekly auction data.\n\n"
+        f"#thehammerprice #artmarket #auctionresults #foryou #artcollecting"
+    )
+    return {"instagram": ig, "tiktok": tt}
+
+
+# ── DB helpers ─────────────────────────────────────────────────────────────────
+
+def _open_db(path: Path) -> sqlite3.Connection:
+    conn = sqlite3.connect(path)
+    conn.row_factory = sqlite3.Row
+    conn.create_function("strip_accents", 1, _strip_accents)
+    return conn
 
 def _ensure_posted_table(conn: sqlite3.Connection) -> None:
     conn.execute("""
@@ -531,31 +783,28 @@ def _ensure_posted_table(conn: sqlite3.Connection) -> None:
     """)
     conn.commit()
 
-
 def _posted_ids(conn: sqlite3.Connection) -> set[str]:
-    rows = conn.execute("SELECT lot_id FROM posted_reels").fetchall()
-    return {r[0] for r in rows}
+    return {r[0] for r in conn.execute("SELECT lot_id FROM posted_reels").fetchall()}
 
+def _posted_count_for_artist(conn: sqlite3.Connection, artist: str) -> int:
+    row = conn.execute(
+        "SELECT COUNT(*) FROM posted_reels WHERE LOWER(artist) LIKE LOWER(?)",
+        (f"%{artist}%",),
+    ).fetchone()
+    return row[0] if row else 0
 
-def _strip_accents(s: str | None) -> str | None:
-    """'SALVADOR DALÍ' → 'SALVADOR DALI' — enables LIKE matching across Unicode case variants."""
-    if s is None:
-        return None
-    return "".join(
-        c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
-    )
-
-
-def _open_db(path: Path) -> sqlite3.Connection:
-    """Open the database and register custom functions required by queries."""
-    conn = sqlite3.connect(path)
-    conn.row_factory = sqlite3.Row
-    conn.create_function("strip_accents", 1, _strip_accents)
-    return conn
-
+def _record_posted(conn: sqlite3.Connection, lot: dict, slug: str,
+                   platforms: list[str]) -> None:
+    conn.execute("""
+        INSERT OR REPLACE INTO posted_reels
+            (lot_id, artist, title, hammer_usd, reel_slug, platforms)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (lot["id"], lot.get("artist"), lot.get("title"),
+          lot.get("hammer_usd"), slug, ",".join(platforms)))
+    conn.commit()
+    print(f"  ✓ recorded: {lot.get('artist')} — {lot.get('title', '')[:40]}")
 
 def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
-    """Return combined (sql_fragment, params) for optional artist and title LIKE filters."""
     parts, params = [], []
     if artist:
         parts.append("AND strip_accents(LOWER(artist)) LIKE strip_accents(LOWER(?))")
@@ -565,28 +814,24 @@ def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
         params.append(f"%{title}%")
     return " ".join(parts), params
 
-
-def _query_lots(conn: sqlite3.Connection, limit: int = 8,
+def _query_lots(conn: sqlite3.Connection, limit: int = 50,
                 exclude_ids: set | None = None,
                 artist: str | None = None, title: str | None = None,
                 week_start: str | None = None, week_end: str | None = None,
                 order_by: str = "pct_above DESC") -> list[dict]:
-    """Top outperforming lots. Restricts to week range when week_start/week_end are given."""
-    exclude = tuple(exclude_ids or [])
+    exclude      = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
     flt_sql, flt_params = _like_clauses(artist, title)
     date_sql    = "AND substr(scraped_at, 1, 10) BETWEEN ? AND ?" if week_start else ""
     date_params = (week_start, week_end) if week_start else ()
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
-               sale_name, sale_date, scraped_at, auction_house, image_urls,
-               ROUND((hammer_usd * 1.0 / estimate_low - 1) * 100, 1) AS pct_above,
-               source_url
+               sale_name, sale_date, scraped_at, auction_house, image_urls, source_url,
+               ROUND((hammer_usd * 1.0 / estimate_low - 1) * 100, 1) AS pct_above
         FROM art_items
         WHERE sale_performance = 'above'
           AND hammer_usd IS NOT NULL
-          AND estimate_low IS NOT NULL
-          AND estimate_low > 0
+          AND estimate_low IS NOT NULL AND estimate_low > 0
           {date_sql}
           {flt_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
@@ -595,63 +840,45 @@ def _query_lots(conn: sqlite3.Connection, limit: int = 8,
     """, (*date_params, *flt_params, *exclude, limit)).fetchall()
     return [dict(r) for r in rows]
 
-
-def _query_top_lots(conn: sqlite3.Connection, week_start: str, week_end: str,
-                    limit: int = 8, exclude_ids: set | None = None,
-                    artist: str | None = None, title: str | None = None,
-                    order_by: str = "pct_above DESC") -> list[dict]:
-    """Top outperforming lots scraped in the given week, excluding already-posted ones."""
-    return _query_lots(conn, limit, exclude_ids, artist, title, week_start, week_end, order_by)
-
-
-def _query_alltime_top(conn: sqlite3.Connection, limit: int = 8,
-                       exclude_ids: set | None = None,
-                       artist: str | None = None, title: str | None = None,
-                       order_by: str = "pct_above DESC") -> list[dict]:
-    """All-time top outperforming lots, excluding already-posted ones."""
-    return _query_lots(conn, limit, exclude_ids, artist, title, order_by=order_by)
-
-
 def _query_random_week_lot(conn: sqlite3.Connection,
                            exclude_ids: set | None = None,
-                           artist: str | None = None, title: str | None = None) -> list[dict]:
-    """Pick top lot from a random week that has unposted content."""
-    exclude = tuple(exclude_ids or [])
+                           artist: str | None = None) -> list[dict]:
+    exclude      = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
-    flt_sql, flt_params = _like_clauses(artist, title)
+    flt_sql, flt_params = _like_clauses(artist, None)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
-               sale_name, sale_date, scraped_at, auction_house, image_urls,
+               sale_name, sale_date, scraped_at, auction_house, image_urls, source_url,
                ROUND((hammer_usd * 1.0 / estimate_low - 1) * 100, 1) AS pct_above,
-               source_url,
                strftime('%Y-%W', scraped_at) AS week_key
         FROM art_items
         WHERE sale_performance = 'above'
           AND hammer_usd IS NOT NULL
-          AND estimate_low IS NOT NULL
-          AND estimate_low > 0
+          AND estimate_low IS NOT NULL AND estimate_low > 0
           {flt_sql}
           {"AND id NOT IN (" + placeholders + ")" if exclude else ""}
-        GROUP BY week_key
-        HAVING MAX(pct_above)
-        ORDER BY RANDOM()
-        LIMIT 1
+        GROUP BY week_key HAVING MAX(pct_above)
+        ORDER BY RANDOM() LIMIT 1
     """, (*flt_params, *exclude)).fetchall()
     return [dict(r) for r in rows]
 
+def _build_notable_artists_set(conn: sqlite3.Connection) -> set[str]:
+    rows = conn.execute("""
+        SELECT artist FROM art_items
+        WHERE hammer_usd IS NOT NULL AND artist IS NOT NULL
+        GROUP BY artist HAVING COUNT(*) >= 2 OR AVG(hammer_usd) > 50000
+    """).fetchall()
+    return {_clean_artist(r[0]) for r in rows if r[0]}
 
 def _list_artists(conn: sqlite3.Connection) -> None:
-    """Print all artists in the DB ranked by record count and avg hammer price."""
     rows = conn.execute("""
-        SELECT artist,
-               COUNT(*)                          AS lots,
-               ROUND(AVG(hammer_usd))            AS avg_hammer,
-               ROUND(MAX(hammer_usd))            AS max_hammer,
+        SELECT artist, COUNT(*) AS lots,
+               ROUND(AVG(hammer_usd)) AS avg_hammer,
+               ROUND(MAX(hammer_usd)) AS max_hammer,
                ROUND(AVG((hammer_usd * 1.0 / NULLIF(estimate_low, 0) - 1) * 100), 1) AS avg_pct
         FROM art_items
         WHERE hammer_usd IS NOT NULL AND artist IS NOT NULL
-        GROUP BY artist
-        ORDER BY lots DESC, avg_hammer DESC
+        GROUP BY artist ORDER BY lots DESC, avg_hammer DESC
     """).fetchall()
     if not rows:
         print("No artists found in database.")
@@ -660,855 +887,179 @@ def _list_artists(conn: sqlite3.Connection) -> None:
     print("─" * 80)
     for i, r in enumerate(rows, 1):
         name = _clean_artist(r["artist"] or "Unknown")
-        avg  = f"${int(r['avg_hammer']):,}"  if r["avg_hammer"] else "—"
-        mx   = f"${int(r['max_hammer']):,}"  if r["max_hammer"] else "—"
-        pct  = f"+{r['avg_pct']:.1f}%"       if r["avg_pct"]    else "—"
+        avg  = f"${int(r['avg_hammer']):,}" if r["avg_hammer"] else "—"
+        mx   = f"${int(r['max_hammer']):,}" if r["max_hammer"] else "—"
+        pct  = f"+{r['avg_pct']:.1f}%"      if r["avg_pct"]    else "—"
         print(f"{i:<5} {name:<40} {r['lots']:>5} {avg:>10} {mx:>10} {pct:>7}")
     print(f"\n  {len(rows)} artists total. Use --artist \"<name>\" to filter.")
 
-
-def _build_notable_artists_set(conn: sqlite3.Connection) -> set[str]:
-    """Artists with ≥2 records OR avg hammer > $50k — signals naratable market depth."""
-    rows = conn.execute("""
-        SELECT artist
-        FROM art_items
-        WHERE hammer_usd IS NOT NULL AND artist IS NOT NULL
-        GROUP BY artist
-        HAVING COUNT(*) >= 2 OR AVG(hammer_usd) > 50000
-    """).fetchall()
-    return {_clean_artist(r[0]) for r in rows if r[0]}
-
-
-def _posted_count_for_artist(conn: sqlite3.Connection, artist: str) -> int:
-    """Return how many reels have already been posted for a given artist name."""
-    row = conn.execute(
-        "SELECT COUNT(*) FROM posted_reels WHERE LOWER(artist) LIKE LOWER(?)",
-        (f"%{artist}%",),
-    ).fetchone()
-    return row[0] if row else 0
-
-
-def _record_posted(conn: sqlite3.Connection, lot: dict, reel_slug: str,
-                   platforms: list[str]) -> None:
-    conn.execute("""
-        INSERT OR REPLACE INTO posted_reels (lot_id, artist, title, hammer_usd, reel_slug, platforms)
-        VALUES (?, ?, ?, ?, ?, ?)
-    """, (
-        lot["id"], lot.get("artist"), lot.get("title"),
-        lot.get("hammer_usd"), reel_slug, ",".join(platforms),
-    ))
-    conn.commit()
-    print(f"  ✓ Recorded in posted_reels: {lot.get('artist')} — {lot.get('title')}")
-
-
-# ── Lot scoring ────────────────────────────────────────────────────────────────
-
-def _artist_is_notable(artist: str, notable_set: set[str] | None = None) -> bool:
-    """True if the artist is naratable — either in the curated list or has DB market depth."""
-    cleaned = _clean_artist(artist)
-    if notable_set and cleaned in notable_set:
-        return True
-    cleaned_lower = cleaned.lower()
-    return any(
-        k in cleaned_lower or cleaned_lower in k
-        for k in _KNOWN_ARTISTS_LOWER
-    )
-
-
-def _score_lot(lot: dict, notable_set: set[str] | None = None) -> float:
-    """Composite score: market shock + visual richness + artist narability + sale magnitude."""
-    pct          = _pct_above(lot["hammer_usd"], lot["estimate_low"])
-    is_known     = _artist_is_notable(lot.get("artist") or "", notable_set)
-    hammer_usd   = lot["hammer_usd"] or 0
-    pct_bonus    = math.log1p(max(pct, 0)) * 10
-    # log-scale bonus only for lots above $100k — preserves underdog stories below that
-    hammer_bonus = math.log10(hammer_usd) * 5 if hammer_usd >= 100_000 else 0
-    return pct_bonus + (is_known * 20) + (hammer_bonus * 0.75)
-
-
-# ── Image downloading ──────────────────────────────────────────────────────────
-
-def _download_lot_images(lot: dict, dest_dir: Path, max_images: int = 8) -> list[Path]:
-    """Download all unique images for a single lot. Returns list of saved paths."""
-    urls = list(dict.fromkeys(json.loads(lot.get("image_urls") or "[]")))
-    return reel_utils.download_images(urls, dest_dir, max_images, headers=_HEADERS)
-
-
-# ── Image crop helpers ─────────────────────────────────────────────────────────
-
-def _generate_grid_crops(src_paths: list[Path], crops_dir: Path,
-                         include_original: bool = True,
-                         target_size: tuple[int, int] | None = None) -> list[Path]:
-    """Generate center + corner square crops for each source image."""
-    crops_dir.mkdir(parents=True, exist_ok=True)
-    result: list[Path] = []
-    for src in src_paths:
-        try:
-            with Image.open(src) as im:
-                im = im.convert("RGB")
-                w, h = im.size
-                side = min(w, h)
-                positions = {
-                    "center":       ((w - side) // 2, (h - side) // 2),
-                    "top_left":     (0, 0),
-                    "top_right":    (w - side, 0),
-                    "bottom_left":  (0, h - side),
-                    "bottom_right": (w - side, h - side),
-                }
-                if include_original:
-                    result.append(src)
-                for name, (left, top) in positions.items():
-                    box  = (left, top, left + side, top + side)
-                    crop = im.crop(box)
-                    if target_size:
-                        crop = crop.resize(target_size, Image.LANCZOS)
-                    out_path = crops_dir / f"{src.stem}_crop_{name}{src.suffix}"
-                    crop.save(out_path, quality=95)
-                    result.append(out_path)
-        except Exception as e:
-            print(f"  ⚠ Crop failed for {src.name}: {e}")
-            if include_original and src not in result:
-                result.append(src)
-    return result
-
-
-def _generate_sliding_window_crops(src_paths: list[Path], crops_dir: Path,
-                                   tile_size: int = 256, stride: int | None = None,
-                                   include_original: bool = True) -> list[Path]:
-    """Generate overlapping square tiles (sliding window) for each source image."""
-    crops_dir.mkdir(parents=True, exist_ok=True)
-    result: list[Path] = []
-    for src in src_paths:
-        try:
-            with Image.open(src) as im:
-                im = im.convert("RGB")
-                w, h = im.size
-                ts = min(tile_size, w, h)
-                st = stride or max(1, ts // 2)
-
-                def _positions(dim: int) -> list[int]:
-                    if dim <= ts:
-                        return [0]
-                    pts = list(range(0, dim - ts + 1, st))
-                    if pts[-1] != dim - ts:
-                        pts.append(dim - ts)
-                    return pts
-
-                if include_original:
-                    result.append(src)
-                for x in _positions(w):
-                    for y in _positions(h):
-                        crop     = im.crop((x, y, x + ts, y + ts))
-                        out_path = crops_dir / f"{src.stem}_tile_{ts}_{x}_{y}{src.suffix}"
-                        crop.save(out_path, quality=95)
-                        result.append(out_path)
-        except Exception as e:
-            print(f"  ⚠ Sliding crop failed for {src.name}: {e}")
-            if include_original and src not in result:
-                result.append(src)
-    return result
-
-
-def _copy_images_to_dir(src_images: list[Path], crops_dir: Path,
-                        images_dir: Path) -> int:
-    """
-    Copy src_images (and any remaining files in crops_dir) into images/ with
-    numeric prefixes. WebP files are converted to JPEG. Returns count copied.
-    """
-    if images_dir.exists():
-        shutil.rmtree(images_dir)
-    images_dir.mkdir(parents=True, exist_ok=True)
-
-    to_copy: list[Path] = []
-    seen_names: set[str] = set()
-
-    for p in src_images:
-        if p and p.name not in seen_names and p.exists():
-            to_copy.append(p)
-            seen_names.add(p.name)
-
-    if crops_dir.exists():
-        for f in sorted(crops_dir.iterdir()):
-            if not f.is_file():
-                continue
-            if f.suffix.lower() not in (".jpg", ".jpeg", ".png", ".webp"):
-                continue
-            if f.name in seen_names:
-                continue
-            to_copy.append(f)
-            seen_names.add(f.name)
-
-    copied = 0
-    for idx, src in enumerate(to_copy):
-        if src.suffix.lower() == ".webp":
-            dest = images_dir / f"{idx + 1:02d}_{src.stem}.jpg"
-            try:
-                with Image.open(src) as im:
-                    im.convert("RGB").save(dest, "JPEG", quality=95)
-                copied += 1
-            except Exception as e:
-                print(f"  ⚠ WebP conversion failed for {src.name}: {e} — skipping")
-        else:
-            dest = images_dir / f"{idx + 1:02d}_{src.name}"
-            try:
-                shutil.copy2(src, dest)
-                copied += 1
-            except Exception as e:
-                print(f"  ⚠ Copy failed: {src} → {dest} — {e}")
-    return copied
-
-
-# ── Hook caption ───────────────────────────────────────────────────────────────
-
-def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
-    """Return (question, answer) — randomly selected from per-tier variants."""
-    mult     = round(pct / 100 + 1, 1)
-    artist   = _clean_artist(lot.get("artist") or "Unknown")
-    title    = (lot.get("title") or "Untitled")[:40]
-    house    = (lot.get("auction_house") or "the auction house")
-    hammer   = _fmt_price(lot["hammer_usd"])
-    est_low  = lot["estimate_low"]
-    est_high = lot.get("estimate_high") or est_low
-    estimate = f"{_fmt_price(est_low)}–{_fmt_price(est_high)}"
-
-    fmt = dict(
-        n=f"{mult:.0f}×", artist=artist, title=title, house=house,
-        hammer=hammer, estimate=estimate, pct=f"{pct:,.0f}%",
-    )
-    for threshold, q_variants, a_variants in _HOOK_TEMPLATES:
-        if pct >= threshold:
-            return (
-                random.choice(q_variants).format(**fmt),
-                random.choice(a_variants).format(**fmt),
-            )
-    return "the hammer price tells the real story.", "follow the data."
-
-
-# ── Reveal sequence ────────────────────────────────────────────────────────────
-
-def _build_reveal_sequence(lot: dict, tag_base: str,
-                           n_act2_images: int = 1,
-                           voice_duration: float = 0.0,
-                           act1_words: int = 0,
-                           narr_words: int = 0,
-                           data_words: int = 0,
-                           hook_question: str | None = None) -> list[dict]:
-    """
-    3-act reveal — all frames are clean (no text box); voice carries all data.
-      Act I   — full painting; voice opens the piece (hook question)
-      Act II  — crop sequence; voice narrates (art/history/significance)
-      Act III — final crop; timed to word proportion so data voice lands in sync
-    """
-    artist_name    = _clean_artist(lot.get("artist") or "Unknown")
-    painting_title = lot.get("title") or "Untitled"
-    tag = f"{tag_base}  ·  lot I"
-
-    # Act III data caption
-    est_low  = lot.get("estimate_low") or 0
-    est_high = lot.get("estimate_high") or est_low
-    hammer   = lot.get("hammer_usd") or 0
-    pct      = _pct_above(hammer, est_low) if est_low > 0 else 0
-    _line1   = f"estimate: {_fmt_price(est_low)}–{_fmt_price(est_high)}"
-    _line2   = f"sold: {_fmt_price(hammer)}."
-    _line3   = f"+{pct:,.0f}% above estimate."
-
-    def _frame(hold=4.0, show_data=False, show_hook=False, show_upper=True):
-        return {
-            "show_caption":  show_data,
-            "tag":           tag,
-            "line1":         _line1 if show_data else "",
-            "line2":         _line2 if show_data else "",
-            "line3":         _line3 if show_data else "",
-            "hook_question": hook_question if show_hook else None,
-            "hook_answer":   "",
-            "upper_artist":  artist_name if show_upper else "",
-            "upper_title":   painting_title if show_upper else "",
-            "hold_seconds":  hold,
-        }
-
-    if voice_duration > 0:
-        total_w     = max(1, act1_words + narr_words + data_words)
-        act1_ratio  = act1_words / total_w if act1_words > 0 else 0.12
-        act3_ratio  = data_words / total_w if data_words > 0 else 0.15
-        act1_hold   = max(1.5, round(voice_duration * act1_ratio, 1))
-        act3_hold   = max(3.0, round(voice_duration * act3_ratio, 1))
-        crop_hold_s = max(0.3, round(
-            (voice_duration - act1_hold - act3_hold) / max(1, n_act2_images), 1
-        ))
-    else:
-        act1_hold   = 3.0
-        act3_hold   = 10.0
-        crop_hold_s = max(0.3, round(5.0 / max(1, n_act2_images), 1))
-
-    frames = [_frame(hold=act1_hold, show_hook=False, show_upper=True)]
-    for _ in range(n_act2_images):
-        frames.append(_frame(hold=crop_hold_s, show_upper=False))
-    frames.append(_frame(hold=act3_hold, show_data=True, show_upper=False))
-
-    # Trim Act I only when no voice — with voice, duration is already correct
-    if voice_duration <= 0:
-        act1_floor = 4.2
-        total = sum(f["hold_seconds"] + _FRAME_FADE_S for f in frames)
-        if total > _MAX_REEL_SECONDS:
-            cut = min(total - _MAX_REEL_SECONDS,
-                      max(0.0, frames[0]["hold_seconds"] - act1_floor))
-            frames[0]["hold_seconds"] = round(frames[0]["hold_seconds"] - cut, 1)
-
-    return frames
-
-
-_split_sentences  = reel_utils.split_sentences
-_words_to_captions = reel_utils.words_to_captions
-_burn_captions     = reel_utils.burn_captions
-
-
-def _truncate_to_sentences(text: str, max_words: int) -> str:
-    """Trim text to max_words, preferring a clean sentence boundary."""
-    words = text.split()
-    if len(words) <= max_words:
-        return text
-    trimmed = " ".join(words[:max_words])
-    for punct in (".", "!", "?"):
-        idx = trimmed.rfind(punct)
-        if idx > len(trimmed) * 0.5:
-            return trimmed[:idx + 1]
-    return trimmed
-
-
-# ── Config generation ──────────────────────────────────────────────────────────
-
-def _generate_config(hook: dict, week_label: str, all_time: bool,
-                     reveal: list[dict] | None = None,
-                     narration_captions: list[dict] | None = None) -> str:
-    artist    = _clean_artist(hook.get("artist") or "Unknown")
-    title     = (hook.get("title") or "Untitled")[:50]
-    hammer    = hook["hammer_usd"]
-    est_low   = hook["estimate_low"]
-    est_high  = hook.get("estimate_high") or est_low
-    pct       = _pct_above(hammer, est_low)
-    house     = hook.get("auction_house") or "Auction House"
-    sale_name = (hook.get("sale_name") or "Contemporary Sale")[:40]
-    scraped   = (hook.get("scraped_at") or "")[:10]
-
-    est_str  = f"estimate: {_fmt_price(est_low)}–{_fmt_price(est_high)}"
-    sold_str = f"sold: {_fmt_price(hammer)}."
-    pct_str  = f"+{pct:,.0f}% above estimate."
-
-    year         = scraped[:4] if scraped else str(date.today().year)
-    tag_line     = f"@thehammerprice  ·  {artist.lower()}  ·  {year}"
-    house_upper  = house.upper()
-    sale_upper   = sale_name.upper()
-
-    caption_full = (
-        f"the auction house said {_fmt_price(est_low)}. the room said {_fmt_price(hammer)}. "
-        f"{artist}'s {title} sold for +{pct:,.0f}% above the low estimate. "
-        f"this is what happens when the data knows something the catalogue does not."
-    )
-    personal_note   = (
-        "51% of lots at the major houses sell above estimate. "
-        "that's not randomness — it's a pattern, and it's exploitable."
-    )
-    engagement_hook = (
-        "what's the biggest auction surprise you've ever seen? "
-        "drop the lot in the comments #thehammerprice #artmarket #auctionresults"
-    )
-
-    lines = [
-        '"""',
-        "╔══════════════════════════════════════════════════════════════╗",
-        f"║  REEL CONFIG — auto-generated for week {week_label}",
-        f"║  Hook lot: {artist} — {title[:30]}",
-        "║  Generated by scripts/auto_reel.py",
-        "╚══════════════════════════════════════════════════════════════╝",
-        '"""',
-        "",
-        "CONFIG = {",
-        f'    "lot_id":         "{_esc(hook.get("id", ""))}",',
-        "",
-        "    # ── Caption ────────────────────────────────────────────────",
-        f'    "caption_tag":    "{_esc(tag_line)}",',
-        f'    "caption_line1":  "{_esc(est_str)}",',
-        f'    "caption_line2":  "{_esc(sold_str)}",',
-        f'    "caption_line3":  "{_esc(pct_str)}",',
-        "",
-        "    # ── Location metadata ─────────────────────────────────────",
-        f'    "location_coords": "{_esc(house_upper)}",',
-        f'    "location_name":   "{_esc(sale_upper)}",',
-        f'    "location_season": "{_esc(scraped[:4])}  ·  SALE RESULT",',
-        '    "frame_label":     "@thehammerprice",',
-        "",
-        "    # ── Layout ────────────────────────────────────────────────",
-        '    "photo_fit_first":  True,',
-        "",
-        "    # ── Style ─────────────────────────────────────────────────",
-        '    "vibe":             "auction_editorial",',
-        '    "caption_position": "lower_safe",',
-        '    "bg_music":         True,',
-        '    "transitions_enabled": False,',
-        '    "block_reveal":       False,',
-        "",
-        "    # ── Font overrides ─────────────────────────────────────────",
-        '    "fonts_override": {',
-        '        "serif_lg":   ("InstrumentSerif-Regular.ttf", 82),',
-        '        "serif_med":  ("InstrumentSerif-Regular.ttf",  58),',
-        '        "italic_med": ("InstrumentSerif-Italic.ttf",  40),',
-        '        "mono":       ("IBMPlexMono-Regular.ttf",      17),',
-        '        "mono_sm":    ("IBMPlexMono-Regular.ttf",      14),',
-        "    },",
-        "",
-        "    # ── Per-line colours ──────────────────────────────────────",
-        '    "color_line1": (210, 200, 178),',
-        '    "color_line2": (201, 168, 76),',
-        '    "color_line3": (230, 215, 175),',
-        "",
-        '    "caption_all_frames": False,',
-        '    "cover_hold_seconds": 2.0,   # held at start for platform thumbnail auto-selection',
-        "",
-        "    # ── Pacing ────────────────────────────────────────────────",
-        '    "fps":          5,',
-        '    "hold_seconds": 0.0,',
-        '    "fade_seconds": 0.8,',
-        "",
-        "    # ── Social captions ───────────────────────────────────────",
-        '    "topic":           "culture",',
-        f'    "location":        "{_esc(house)}",',
-        f'    "season":          "{_esc(scraped[:4])}",',
-        '    "caption_full":    (',
-        f'        "{_esc(caption_full)}"',
-        "    ),",
-        '    "caption_hero":    "they priced it wrong",',
-        f'    "personal_note":   "{_esc(personal_note)}",',
-        f'    "engagement_hook": "{_esc(engagement_hook)}",',
-    ]
-
-    if reveal:
-        lines.append("")
-        lines.append("    # ── Progressive reveal — one entry per frame ─────────────")
-        lines.append('    "per_frame_captions": [')
-        for fc in reveal:
-            lines.append("        {")
-            for key, val in fc.items():
-                lines.append(f"            {repr(key)}: {repr(val)},")
-            lines.append("        },")
-        lines.append("    ],")
-    if narration_captions:
-        lines.append("")
-        lines.append("    # ── Word-by-word narration captions ───────────────────────")
-        lines.append('    "narration_captions": [')
-        for cap in narration_captions:
-            lines.append(
-                f"        {{\"start\": {cap['start']:.3f}, "
-                f"\"end\": {cap['end']:.3f}, "
-                f"\"text\": {repr(cap['text'])}}},")
-        lines.append("    ],")
-    lines.append("}")
-    return "\n".join(lines) + "\n"
-
-
-# ── AI caption writer ──────────────────────────────────────────────────────────
-
-def _write_ai_captions(captions: dict, reel_dir: Path, lot: dict) -> None:
-    """Write AI-generated captions in the same captions.md format as make_captions.py."""
-    from datetime import datetime
-    out = reel_dir / "output" / "captions.md"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    artist = lot.get("artist", "Unknown")
-    house  = lot.get("auction_house", "Auction")
-    now    = datetime.now()
-
-    linkedin_block = ""
-    if captions.get("linkedin"):
-        linkedin_block = (
-            "## 💼 LinkedIn\n\n"
-            "**Best time to post:** Tue–Thu, 8–10am or 12–1pm (your local time)\n"
-            "**Video:** `output/reel.mp4`\n\n"
-            f"### Caption\n\n```\n{captions['linkedin']}\n```\n\n---\n\n"
-        )
-
-    out.write_text(
-        f"# Social Media Captions\n"
-        f"*{artist} · {house} · {now.year}*\n\n---\n\n"
-        f"## 📸 Instagram\n\n"
-        f"**Best time to post:** Tue–Fri, 11am–1pm or 7–9pm (your local time)\n"
-        f"**Cover image:** `output/reel.png`\n\n"
-        f"### Caption\n\n```\n{captions['instagram']}\n```\n\n---\n\n"
-        f"## 🎵 TikTok\n\n"
-        f"**Best time to post:** Tue–Thu 7–9pm or Sat morning (your local time)\n"
-        f"**Video:** `output/reel.mp4`\n\n"
-        f"### Caption\n\n```\n{captions['tiktok']}\n```\n\n---\n\n"
-        f"{linkedin_block}"
-        f"*Generated {now.strftime('%B %d, %Y')} · AI*\n"
-    )
-
-
-_normalise_word_timings = reel_utils.normalise_word_timings
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Auto-generate a reel from weekly art auction data"
+        description="Generate price-first auction lot cards"
     )
-    parser.add_argument("--week",         default=None,   help="ISO date in target week (default: today)")
-    parser.add_argument("--all-time",     action="store_true", help="Use all-time top lots instead of weekly")
-    parser.add_argument("--run",          action="store_true", help="Run make_reel.py after generation")
-    parser.add_argument("--voice",        action="store_true", help="Generate TTS narration via ElevenLabs")
-    parser.add_argument("--top-n",        type=int, default=8,    help="Max lots to query (default: 8)")
-    parser.add_argument("--crop-method",  choices=("grid", "sliding"), default="grid")
-    parser.add_argument("--crop-size",    type=int, default=565,  help="Square crop/tile size in pixels")
-    parser.add_argument("--crop-stride",  type=int, default=None, help="Stride for sliding-window crops")
-    parser.add_argument("--artist",       default=None, help="Filter lots by artist name (substring match)")
-    parser.add_argument("--title",        default=None, help="Filter lots by painting title (substring match)")
-    parser.add_argument("--list-artists", action="store_true", help="List all artists in the DB and exit")
+    parser.add_argument("--list",         action="store_true", help="Preview top candidates without generating")
+    parser.add_argument("--list-artists", action="store_true", help="List all artists in DB and exit")
+    parser.add_argument("--all-time",     action="store_true", help="Best ever unposted (ignores week)")
+    parser.add_argument("--week",         default=None,        help="ISO date in target week (default: today)")
+    parser.add_argument("--artist",       default=None,        help="Filter by artist name (substring)")
+    parser.add_argument("--title",        default=None,        help="Filter by title (substring)")
+    parser.add_argument("--output-dir",   default=str(OUTPUT_DIR))
     args = parser.parse_args()
-
-    if args.list_artists:
-        if not DB_PATH.exists():
-            print(f"✗ Database not found: {DB_PATH}")
-            sys.exit(1)
-        conn = _open_db(DB_PATH)
-        _list_artists(conn)
-        conn.close()
-        sys.exit(0)
-
-    # ── Resolve week ───────────────────────────────────────────
-    ref_date             = date.fromisoformat(args.week) if args.week else date.today()
-    week_start, week_end = _week_bounds(ref_date)
-    week_label           = f"{week_start} / {week_end}"
-    _slug_date           = week_start
-    _slug_mode           = ""
-
-    print("═" * 60)
-    print("  AUTO-REEL GENERATOR — The Hammer Price")
-    print(f"  Mode: {'all-time top outperformers' if args.all_time else f'week {week_label}'}")
-    if args.artist:
-        print(f"  Artist filter: \"{args.artist}\"")
-    if args.title:
-        print(f"  Title filter:  \"{args.title}\"")
-    print("═" * 60)
 
     if not DB_PATH.exists():
         print(f"✗ Database not found: {DB_PATH}")
         sys.exit(1)
 
-    # ── Query lots ─────────────────────────────────────────────
     conn = _open_db(DB_PATH)
     _ensure_posted_table(conn)
+
+    if args.list_artists:
+        _list_artists(conn)
+        conn.close()
+        sys.exit(0)
+
+    ref_date             = date.fromisoformat(args.week) if args.week else date.today()
+    week_start, week_end = _week_bounds(ref_date)
+    order_by             = "hammer_usd DESC" if args.artist else "pct_above DESC"
+
+    print("═" * 60)
+    print("  ART REEL — The Hammer Price")
+    print(f"  Mode: {'all-time' if args.all_time else f'week {week_start} / {week_end}'}")
+    if args.artist:
+        print(f"  Artist: \"{args.artist}\"")
+    print("═" * 60)
+
     skip = _posted_ids(conn)
     if skip:
         print(f"\n  ℹ Skipping {len(skip)} already-posted lot(s).")
 
-    _candidate_n = max(args.top_n * 6, 50)
-    # Campaign mode (artist filter set): rank by hammer price so the highest-value
-    # lot posts first. General discovery mode: rank by % above estimate for shock factor.
-    _order_by = "hammer_usd DESC" if args.artist else "pct_above DESC"
-
+    # ── Query ──────────────────────────────────────────────────
     if args.all_time:
-        lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
-                                        artist=args.artist, title=args.title,
-                                        order_by=_order_by)
+        lots = _query_lots(conn, 50, skip, args.artist, args.title, order_by=order_by)
+
+        # Campaign rotation fallback — if all lots for this artist are posted
         if not lots and args.artist:
-            # Walk forward through the campaign rotation to find next artist with unposted lots
             rotation = list(dict.fromkeys(_ca.get_rotation(DB_PATH)))
             try:
                 start_idx = next(i for i, a in enumerate(rotation)
                                  if a.lower() == args.artist.lower())
             except StopIteration:
                 start_idx = 0
-            fallback_artist = None
             for offset in range(1, len(rotation)):
-                candidate = rotation[(start_idx + offset) % len(rotation)]
-                posted_count = _posted_count_for_artist(conn, candidate)
-                if posted_count >= _ca.MAX_LOTS_PER_ARTIST:
-                    print(f"  ↷ Skipping {candidate} — {posted_count} reels already posted")
+                next_artist = rotation[(start_idx + offset) % len(rotation)]
+                if _posted_count_for_artist(conn, next_artist) >= _ca.MAX_LOTS_PER_ARTIST:
                     continue
-                if _query_alltime_top(conn, limit=1, exclude_ids=skip,
-                                      artist=candidate, title=args.title,
-                                      order_by=_order_by):
-                    fallback_artist = candidate
+                if _query_lots(conn, 1, skip, next_artist, order_by=order_by):
+                    print(f"\n  ⚠ All {args.artist} lots posted — trying: {next_artist}")
+                    lots = _query_lots(conn, 50, skip, next_artist, order_by=order_by)
                     break
-            if fallback_artist:
-                print(f"\n  ⚠ All {args.artist} lots already posted — trying next candidate: {fallback_artist}")
-                lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
-                                          artist=fallback_artist, title=args.title,
-                                          order_by=_order_by)
-            else:
-                print(f"\n  ⚠ All {args.artist} lots already posted — no rotation candidates found, falling back to unfiltered.")
-                lots = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
-                                          artist=None, title=args.title)
-        _slug_date = date.today().isoformat()
-        _slug_mode = "alltime"
-    else:
-        lots = _query_top_lots(conn, week_start, week_end,
-                               limit=_candidate_n, exclude_ids=skip,
-                               artist=args.artist, title=args.title,
-                               order_by=_order_by)
-        if not lots:
-            print(f"\n  No new data for week {week_label} — trying random unposted week...")
-            rand = _query_random_week_lot(conn, exclude_ids=skip,
-                                          artist=args.artist, title=args.title)
-            if rand:
-                w = rand[0]["scraped_at"][:10]
-                wb_start, wb_end = _week_bounds(date.fromisoformat(w))
-                lots       = _query_top_lots(conn, wb_start, wb_end,
-                                             limit=_candidate_n, exclude_ids=skip,
-                                             artist=args.artist, title=args.title,
-                                             order_by=_order_by)
-                _slug_date = wb_start
-                _slug_mode = "random"
-                print(f"  Using random week: {wb_start}")
             if not lots:
-                print("  Falling back to all-time top unposted lots.")
-                lots       = _query_alltime_top(conn, limit=_candidate_n, exclude_ids=skip,
-                                                artist=args.artist, title=args.title,
-                                                order_by=_order_by)
-                _slug_mode = "fallback"
-
-    notable_artists = _build_notable_artists_set(conn)
-
-    scored = sorted(
-        ((l, _score_lot(l, notable_artists)) for l in lots),
-        key=lambda x: x[1], reverse=True,
-    )
-
-    # Cap at MAX_LOTS_PER_ARTIST lots per artist before trimming to top_n
-    _artist_counts: dict[str, int] = {}
-    _capped: list[tuple] = []
-    for item in scored:
-        _key = _clean_artist(item[0].get("artist") or "").lower()
-        if _artist_counts.get(_key, 0) >= _ca.MAX_LOTS_PER_ARTIST:
-            continue
-        _artist_counts[_key] = _artist_counts.get(_key, 0) + 1
-        _capped.append(item)
-        if len(_capped) >= args.top_n:
-            break
-    lots = [l for l, _ in _capped]
-    if lots:
-        print(f"\n  Composite scores (top {min(3, len(lots))}):")
-        for l, score in scored[:3]:
-            print(f"    {score:.0f}  "
-                  f"{_clean_artist(l.get('artist') or '')}  "
-                  f"+{_pct_above(l['hammer_usd'], l['estimate_low']):.0f}%  "
-                  f"imgs={len(json.loads(l.get('image_urls') or '[]'))}  "
-                  f"known={_artist_is_notable(l.get('artist') or '', notable_artists)}")
-
-    if not lots:
-        print("✗ No suitable lots found in database.")
-        sys.exit(1)
-
-    hook   = lots[0]
-    artist = _clean_artist(hook.get("artist") or "Unknown")
-
-    # Build descriptive slug: {date}_{artist-slug}_{title-slug}[_{mode}]
-    _artist_slug = _make_slug(artist)
-    _title_slug  = _make_slug(hook.get("title") or "untitled", max_len=20)
-    _parts       = [_slug_date, _artist_slug, _title_slug]
-    if _slug_mode:
-        _parts.append(_slug_mode)
-    reel_slug = "_".join(_parts)
-    print(f"\n▸ Hook lot: {artist} — {hook.get('title', 'Untitled')[:50]}")
-    print(f"  Estimate: {_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}")
-    print(f"  Hammer:   {_fmt_price(hook['hammer_usd'])}")
-    print(f"  Result:   +{_pct_above(hook['hammer_usd'], hook['estimate_low']):,.0f}% above estimate")
-    print(f"  House:    {hook.get('auction_house')}")
-
-    # ── Create reel folder ─────────────────────────────────────
-    reel_dir   = REELS_DIR / reel_slug
-    images_dir = reel_dir / "images"
-    output_dir = reel_dir / "output"
-    crops_dir  = reel_dir / "_crops"
-
-    for d in (reel_dir, output_dir):
-        d.mkdir(parents=True, exist_ok=True)
-
-    print(f"\n▸ Reel folder: {reel_dir}")
-
-    # ── Download images ────────────────────────────────────────
-    for stale in (reel_dir / "_src", images_dir):
-        if stale.exists():
-            shutil.rmtree(stale)
-    images_dir.mkdir(parents=True, exist_ok=True)
-
-    print("\n▸ Downloading images...")
-    src_images = _download_lot_images(hook, reel_dir / "_src", max_images=1)
-
-    # Generate crops
-    if args.crop_method == "sliding":
-        stride  = args.crop_stride or max(1, args.crop_size // 2)
-        variants = _generate_sliding_window_crops(
-            src_images, crops_dir, tile_size=args.crop_size,
-            stride=stride, include_original=True,
-        )
+                print(f"\n  ⚠ No rotation candidate found — falling back to unfiltered.")
+                lots = _query_lots(conn, 50, skip, order_by=order_by)
     else:
-        target_size = (args.crop_size, args.crop_size) if args.crop_size else None
-        variants = _generate_grid_crops(
-            src_images, crops_dir, include_original=True, target_size=target_size,
-        )
-    src_images = variants if variants else src_images
+        lots = _query_lots(conn, 50, skip, args.artist, args.title,
+                           week_start, week_end, order_by)
+        if not lots:
+            rand = _query_random_week_lot(conn, skip, args.artist)
+            if rand:
+                ws, we = _week_bounds(date.fromisoformat(rand[0]["scraped_at"][:10]))
+                print(f"  No data this week — using random week: {ws}")
+                lots = _query_lots(conn, 50, skip, args.artist, args.title, ws, we, order_by)
+        if not lots:
+            print("  Falling back to all-time top unposted.")
+            lots = _query_lots(conn, 50, skip, args.artist, args.title, order_by=order_by)
 
-    if not src_images:
-        print("✗ No images downloaded — cannot generate reel.")
+    # ── Score + pick top lot ───────────────────────────────────
+    notable = _build_notable_artists_set(conn)
+    scored  = sorted(((l, _score_lot(l, notable)) for l in lots),
+                     key=lambda x: x[1], reverse=True)
+
+    if not scored:
+        print("✗ No suitable lots found.")
+        conn.close()
         sys.exit(1)
 
-    n_images = _copy_images_to_dir(src_images, crops_dir, images_dir)
-    n_crops  = sum(1 for p in src_images if p.parent == crops_dir)
-    print(f"  {len(src_images) - n_crops} source + {n_crops} crops → {n_images} images in images/")
+    lot    = scored[0][0]
+    artist = _clean_artist(lot.get("artist") or "Unknown")
+    pct    = _pct_above(lot["hammer_usd"], lot["estimate_low"])
 
-    if crops_dir.exists():
-        shutil.rmtree(crops_dir)
+    print(f"\n▸ {artist}")
+    print(f"  {(lot.get('title') or 'Untitled')[:60]}")
+    print(f"  estimate  {_fmt(lot['estimate_low'])}–{_fmt(lot.get('estimate_high') or lot['estimate_low'])}")
+    print(f"  sold      {_fmt(lot['hammer_usd'])}  (+{pct:.0f}%)")
+    print(f"  {lot.get('auction_house')}")
 
-    # Number of Act II frames (all frames except Act I and Act III)
-    _n_act2 = max(1, len(src_images) - 2)
+    # Preview candidates in --list mode (show top 5 and exit)
+    if args.list:
+        print(f"\n  {'#':<4} {'Artist':<30} {'Hammer':>12} {'%+':>7}  Score")
+        print("  " + "─" * 60)
+        for i, (l, score) in enumerate(scored[:5], 1):
+            p = _pct_above(l["hammer_usd"], l["estimate_low"])
+            print(f"  {i:<4} {_clean_artist(l.get('artist') or '')[:29]:<30} "
+                  f"{_fmt(l['hammer_usd']):>12}  {p:>5.0f}%  {score:.0f}")
+        conn.close()
+        return
 
-    # ── Hook question + template answer ───────────────────────
-    _sale_year       = (hook.get("scraped_at") or str(date.today()))[:4]
-    tag_base         = f"@thehammerprice  ·  {artist.lower()}  ·  {_sale_year}"
-    _pct             = _pct_above(hook["hammer_usd"], hook["estimate_low"])
-    _question, _tmpl_answer = _hook_caption(hook, _pct)
+    # ── Build output path ──────────────────────────────────────
+    slug    = (f"{ref_date.isoformat()}_"
+               f"{_make_slug(artist)}_"
+               f"{_make_slug(lot.get('title') or 'untitled', 20)}")
+    out_dir = Path(args.output_dir) / slug
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    _lot_preview = {
+    # ── Download photo ─────────────────────────────────────────
+    print("\n▸ Downloading artwork...")
+    photo = _download_photo(_first_image_url(lot))
+    print("  ✓ photo" if photo else "  ⚠ no photo — art card will use dark bg")
+
+    # ── Hook + captions ────────────────────────────────────────
+    question, answer = _hook_caption(lot, pct)
+    captions         = _social_captions(lot, question, answer)
+
+    # ── Render 3 cards ─────────────────────────────────────────
+    print("\n▸ Rendering cards...")
+    cards = [
+        ("00_number.png",  render_number_card(lot)),
+        ("01_art.png",     render_art_card(lot, photo)),
+        ("02_verdict.png", render_verdict_card(lot, question)),
+    ]
+    for name, img in cards:
+        img.save(out_dir / name)
+        print(f"  ✓ {name}")
+
+    # ── meta.json ──────────────────────────────────────────────
+    meta = {
+        "date":          ref_date.isoformat(),
+        "slug":          slug,
+        "lot_id":        lot.get("id"),
         "artist":        artist,
-        "title":         (hook.get("title") or "Untitled")[:60],
-        "auction_house": hook.get("auction_house") or "the auction house",
-        "hammer_fmt":    _fmt_price(hook["hammer_usd"]),
-        "estimate_fmt":  f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(hook.get('estimate_high') or hook['estimate_low'])}",
-        "pct_above":     _pct,
+        "title":         lot.get("title"),
+        "auction_house": _clean_house(lot.get("auction_house") or ""),
+        "hammer_usd":    lot.get("hammer_usd"),
+        "estimate_low":  lot.get("estimate_low"),
+        "estimate_high": lot.get("estimate_high"),
+        "pct_above":     pct,
+        "question":      question,
+        "answer":        answer,
+        "captions":      captions,
     }
-
-    # Try AI-generated hook (specific to artist + result); falls back to template
-    if OPENROUTER_KEY:
-        try:
-            from ai_content import generate_hook_question
-            _ai_question = generate_hook_question(_lot_preview, _pct)
-            if _ai_question:
-                print(f"  ✓ AI hook: {_ai_question}")
-                _question = _ai_question
-            else:
-                print(f"  ▸ Hook: using template ({_question})")
-        except Exception as e:
-            print(f"  ⚠ AI hook error: {e} — using template")
-
-    # defaults — overwritten inside --voice block if voice is on
-    reveal        = _build_reveal_sequence(hook, tag_base, n_act2_images=_n_act2,
-                                           hook_question=_question)
-    word_timings  = []
-    narr_captions = []
-
-    if args.voice:
-        print("\n▸ Generating voiceover...")
-        try:
-            from ai_content import generate_voiceover, generate_hook_answer
-        except Exception as e:
-            print(f"  ⚠ Import error: {e} — skipping voice")
-            generate_voiceover = generate_hook_answer = None
-
-        if generate_voiceover:
-            # AI hook answer (falls back to template)
-            ai_hook_answer = None
-            if generate_hook_answer and OPENROUTER_KEY:
-                try:
-                    ai_hook_answer = generate_hook_answer(_lot_preview, _question)
-                    if ai_hook_answer:
-                        print(f"  ✓ AI answer: {ai_hook_answer[:80]}...")
-                except Exception as e:
-                    print(f"  ⚠ AI hook answer error: {e} — using template")
-            ai_hook_answer = ai_hook_answer or _tmpl_answer
-
-            raw_appr = _truncate_to_sentences(ai_hook_answer or "", _APPRECIATION_MAX_WORDS)
-            _data_suffix = (
-                f"the estimate was {_fmt_price_tts(hook['estimate_low'])} "
-                f"to {_fmt_price_tts(hook.get('estimate_high') or hook['estimate_low'])}. "
-                f"it sold for {_fmt_price_tts(hook['hammer_usd'])}. "
-                f"that's plus {_pct:.0f} percent above estimate."
-            )
-            _intro           = f"this is {hook.get('title') or 'untitled'}, by {artist}."
-            _act1_spoken     = _intro + "  " + _prices_to_speech(_question)
-            _narr_spoken     = _prices_to_speech(raw_appr)
-            _act1_word_count = len(_act1_spoken.split())
-            _narr_word_count = len(_narr_spoken.split())
-            _data_word_count = len(_data_suffix.split())
-            # Full script: Act I (intro + hook question) → Act II (narration) → Act III (price data)
-            appreciation_text = _act1_spoken + "  " + _narr_spoken + "  " + _data_suffix
-
-            vo_path = reel_dir / "voiceover.mp3"
-            _ok_appr, word_timings = generate_voiceover(appreciation_text, str(vo_path))
-            word_timings = _normalise_word_timings(word_timings)
-            if _ok_appr and word_timings:
-                narr_captions = _words_to_captions(word_timings)
-                appreciation_duration = word_timings[-1]["end"] + 0.5
-                print(f"  ✓ Voiceover ({appreciation_duration:.1f}s, {len(word_timings)} words, {len(narr_captions)} cues)")
-                reveal = _build_reveal_sequence(
-                    hook, tag_base,
-                    n_act2_images=_n_act2,
-                    voice_duration=appreciation_duration,
-                    act1_words=_act1_word_count,
-                    narr_words=_narr_word_count,
-                    data_words=_data_word_count,
-                    hook_question=_question,
-                )
-    # ── Write reel_config.py ───────────────────────────────────
-    config_path = reel_dir / "reel_config.py"
-    config_path.write_text(_generate_config(hook, week_label, args.all_time, reveal=reveal, narration_captions=narr_captions or None))
-    print(f"\n▸ Config written: {config_path}")
+    (out_dir / "meta.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False))
 
     # ── Record in posted_reels ─────────────────────────────────
-    _record_posted(conn, hook, reel_slug, ["instagram", "tiktok", "linkedin"])
+    _record_posted(conn, lot, slug, ["instagram", "tiktok"])
     conn.close()
 
     # ── Summary ────────────────────────────────────────────────
-    print("\n" + "═" * 60)
-    print("  READY TO RENDER")
-    print(f"  Reel folder: reels/{reel_slug}/")
-    print(f"  Frames: {n_images} (progressive reveal)")
-    print()
-    print("  To render:")
-    print(f"    cd ../reel-automation")
-    print(f"    python reel_template/make_reel.py reels/{reel_slug}")
-    print(f"    python reel_template/make_captions.py reels/{reel_slug}")
-    print("═" * 60)
+    print(f"\n✓ 3 cards → {out_dir}")
+    print(f"\n  Instagram caption:\n")
+    print("  " + captions["instagram"].replace("\n", "\n  "))
+    print(f"\n  Post with:")
+    print(f"    python scripts/post_beat_the_estimate_to_buffer.py "
+          f"{out_dir.relative_to(BUSINESS_DIR)} --dry-run")
 
-    # ── Optionally run make_reel.py ────────────────────────────
-    if args.run:
-        print("\n▸ Running make_reel.py...")
-        r1 = subprocess.run(
-            [sys.executable, str(REEL_TEMPLATE / "make_reel.py"), str(reel_dir)],
-            cwd=str(REEL_TEMPLATE.parent),
-        )
-
-        if r1.returncode == 0:
-            ai_done = False
-            if OPENROUTER_KEY:
-                print("\n▸ Generating AI captions via OpenRouter...")
-                try:
-                    from ai_content import generate_captions
-                    est_high_ = hook.get("estimate_high") or hook["estimate_low"]
-                    pct_      = _pct_above(hook["hammer_usd"], hook["estimate_low"])
-                    lot_data  = {
-                        "artist":        artist,
-                        "title":         (hook.get("title") or "Untitled")[:60],
-                        "auction_house": hook.get("auction_house") or "the auction house",
-                        "hammer_fmt":    _fmt_price(hook["hammer_usd"]),
-                        "estimate_fmt":  f"{_fmt_price(hook['estimate_low'])}–{_fmt_price(est_high_)}",
-                        "pct_above":     pct_,
-                        "sale_name":     (hook.get("sale_name") or "").strip(),
-                        "source_url":    (hook.get("source_url") or "").strip(),
-                    }
-                    captions = generate_captions(lot_data)
-                    if captions:
-                        _write_ai_captions(captions, reel_dir, lot_data)
-                        ai_done = True
-                        print("  ✓ AI captions saved")
-                    else:
-                        print("  ⚠ AI generation failed — falling back to templates")
-                except Exception as e:
-                    print(f"  ⚠ AI captions error: {e} — falling back to templates")
-
-            if not ai_done:
-                print("\n▸ Running make_captions.py...")
-                subprocess.run(
-                    [sys.executable, str(REEL_TEMPLATE / "make_captions.py"), str(reel_dir)],
-                    cwd=str(REEL_TEMPLATE.parent),
-                )
 
 if __name__ == "__main__":
     main()
