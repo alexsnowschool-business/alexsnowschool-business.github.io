@@ -664,13 +664,15 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
     )
 
     per_frame = [
-        # Frame 1 — full artwork, artist + title centred (no box)
+        # Frame 1 — full artwork, artist + title in same slot as data reveal
         {
-            "show_caption":  False,
-            "upper_artist":  artist,
-            "upper_title":   title,
-            "upper_no_box":  True,
-            "hold_seconds":  5.0,
+            "show_caption":     True,
+            "caption_position": "lower_third",
+            "tag":              "",
+            "line1":            artist,
+            "line2":            title,
+            "line3":            "",
+            "hold_seconds":     5.0,
         },
         # Frame 2 — top crop detail (clean)
         {
