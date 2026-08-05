@@ -2,10 +2,12 @@
 """
 art_reel.py — price-first auction reel
 
-Three-frame reveal, ~20 seconds — same make_reel.py pipeline, tighter structure:
+Five-frame reveal, ~19 seconds — same make_reel.py pipeline:
   Frame 1 (5s)  — full artwork  · artist + title centred (clean, no box)
-  Frame 2 (7s)  — top crop     · clean image (no overlay)
-  Frame 3 (8s)  — centre crop  · data verdict (estimate / sold / %)
+  Frame 2 (2s)  — top crop     · detail view (clean)
+  Frame 3 (2s)  — left crop    · detail view (clean)
+  Frame 4 (2s)  — right crop   · detail view (clean)
+  Frame 5 (8s)  — centre crop  · data verdict (estimate / sold / %), pushed low
 
 Output:
   reels/{slug}/
@@ -534,10 +536,14 @@ def _first_image_url(lot: dict) -> str | None:
 
 def _prepare_images(lot: dict, images_dir: Path) -> int:
     """
-    Download artwork and write 3 images to images_dir:
-      01_source.jpg  — full source fitted on Frame 1
-      02_top.jpg     — top-biased square crop (Frame 2, breathing room)
-      03_centre.jpg  — square centre crop (Frame 3, data reveal)
+    Download artwork and write 5 reel images to images_dir:
+      01_source.jpg  — full source for Frame 1 (artist + title label)
+      02_top.jpg     — square top-biased crop   (detail frame)
+      03_left.jpg    — square left-edge crop     (detail frame)
+      04_right.jpg   — square right-edge crop    (detail frame)
+      05_centre.jpg  — square centre crop        (Frame 5 data reveal)
+
+    Frames 2-4 are clean detail views; Frame 5 carries the price box.
     Returns number of images written.
     """
     if images_dir.exists():
@@ -550,18 +556,23 @@ def _prepare_images(lot: dict, images_dir: Path) -> int:
 
     iw, ih  = photo.size
     side    = min(iw, ih)
-    cx      = (iw - side) // 2   # centre x offset
-    top_y   = max(0, (ih - side) // 6)   # slight top bias
+    cx      = (iw - side) // 2        # horizontal centre offset
+    cy      = (ih - side) // 2        # vertical centre offset
+    top_y   = max(0, (ih - side) // 6)  # slight top bias for face/subject
+    left_x  = 0                          # left edge
+    right_x = max(0, iw - side)          # right edge
 
     photo.save(images_dir / "01_source.jpg", "JPEG", quality=95)
+    photo.crop((cx, top_y, cx + side, top_y + side)).save(
+        images_dir / "02_top.jpg", "JPEG", quality=95)
+    photo.crop((left_x, cy, left_x + side, cy + side)).save(
+        images_dir / "03_left.jpg", "JPEG", quality=95)
+    photo.crop((right_x, cy, right_x + side, cy + side)).save(
+        images_dir / "04_right.jpg", "JPEG", quality=95)
+    photo.crop((cx, cy, cx + side, cy + side)).save(
+        images_dir / "05_centre.jpg", "JPEG", quality=95)
 
-    top = photo.crop((cx, top_y, cx + side, top_y + side))
-    top.save(images_dir / "02_top.jpg", "JPEG", quality=95)
-
-    centre = photo.crop((cx, (ih - side) // 2, cx + side, (ih - side) // 2 + side))
-    centre.save(images_dir / "03_centre.jpg", "JPEG", quality=95)
-
-    return 3
+    return 5
 
 
 # ── Hook / caption ─────────────────────────────────────────────────────────────
@@ -623,10 +634,12 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
     """
     Write reel_config.py for make_reel.py.
 
-    Three frames (~20s total):
-      Frame 1 (5s)  — full artwork, artist + title centred (no box), no data overlay
-      Frame 2 (7s)  — top crop, clean image (no text overlay)
-      Frame 3 (8s)  — centre crop, data reveal (estimate / sold / %)
+    Five frames (~19s total):
+      Frame 1 (5s)  — full artwork, artist + title centred (no box)
+      Frame 2 (2s)  — top crop detail (clean)
+      Frame 3 (2s)  — left crop detail (clean)
+      Frame 4 (2s)  — right crop detail (clean)
+      Frame 5 (8s)  — centre crop, data reveal pushed to lower_third
     """
     artist    = _clean_artist(lot.get("artist") or "Unknown")
     title     = (lot.get("title") or "Untitled")[:50]
@@ -654,32 +667,35 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
         # Frame 1 — full artwork, artist + title centred (no box)
         {
             "show_caption":  False,
-            "tag":           tag_line,
-            "line1": "", "line2": "", "line3": "",
             "upper_artist":  artist,
             "upper_title":   title,
             "upper_no_box":  True,
             "hold_seconds":  5.0,
         },
-        # Frame 2 — top crop, clean image (breathing room)
+        # Frame 2 — top crop detail (clean)
         {
             "show_caption":  False,
-            "tag":           tag_line,
-            "line1": "", "line2": "", "line3": "",
-            "upper_artist":  "",
-            "upper_title":   "",
-            "hold_seconds":  7.0,
+            "hold_seconds":  2.0,
         },
-        # Frame 3 — centre crop, data reveal
+        # Frame 3 — left crop detail (clean)
         {
-            "show_caption":  True,
-            "tag":           tag_line,
-            "line1":         est_str,
-            "line2":         sold_str,
-            "line3":         pct_str,
-            "upper_artist":  "",
-            "upper_title":   "",
-            "hold_seconds":  8.0,
+            "show_caption":  False,
+            "hold_seconds":  2.0,
+        },
+        # Frame 4 — right crop detail (clean)
+        {
+            "show_caption":  False,
+            "hold_seconds":  2.0,
+        },
+        # Frame 5 — centre crop, data reveal (pushed low)
+        {
+            "show_caption":     True,
+            "caption_position": "lower_third",
+            "tag":              tag_line,
+            "line1":            est_str,
+            "line2":            sold_str,
+            "line3":            pct_str,
+            "hold_seconds":     8.0,
         },
     ]
 
@@ -731,7 +747,7 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
         '    "caption_all_frames": False,',
         '    "cover_hold_seconds": 2.0,',
         "",
-        "    # ── Pacing (20s total) ─────────────────────────────────",
+        "    # ── Pacing (19s total: 5+2+2+2+8) ──────────────────────",
         '    "fps":          5,',
         '    "hold_seconds": 0.0,',
         '    "fade_seconds": 0.8,',
@@ -1037,7 +1053,7 @@ def main() -> None:
         print("✗ No images downloaded — cannot generate reel.")
         conn.close()
         sys.exit(1)
-    print(f"  ✓ {n_images} images (source, top crop, centre crop)")
+    print(f"  ✓ {n_images} images (source + top/left/right detail + centre)")
 
     # ── Captions ───────────────────────────────────────────────
     captions = _social_captions(lot)
