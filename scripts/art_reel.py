@@ -4,9 +4,9 @@ art_reel.py — price-first auction reel
 
 Five-frame reveal, ~19 seconds — same make_reel.py pipeline:
   Frame 1 (5s)  — full artwork  · artist + title centred (clean, no box)
-  Frame 2 (2s)  — top crop     · detail view (clean)
-  Frame 3 (2s)  — left crop    · detail view (clean)
-  Frame 4 (2s)  — right crop   · detail view (clean)
+  Frame 2 (2s)  — top crop            · detail view (clean)
+  Frame 3 (2s)  — top-left corner    · detail view (clean)
+  Frame 4 (2s)  — bottom-right corner · detail view (clean)
   Frame 5 (8s)  — centre crop  · data verdict (estimate / sold / %), pushed low
 
 Output:
@@ -537,13 +537,14 @@ def _first_image_url(lot: dict) -> str | None:
 def _prepare_images(lot: dict, images_dir: Path) -> int:
     """
     Download artwork and write 5 reel images to images_dir:
-      01_source.jpg  — full source for Frame 1 (artist + title label)
-      02_top.jpg     — square top-biased crop   (detail frame)
-      03_left.jpg    — square left-edge crop     (detail frame)
-      04_right.jpg   — square right-edge crop    (detail frame)
-      05_centre.jpg  — square centre crop        (Frame 5 data reveal)
+      01_source.jpg    — full source for Frame 1 (artist + title label)
+      02_top.jpg       — square top-biased crop       (detail: head/subject)
+      03_topleft.jpg   — square top-left corner crop  (detail: upper-left region)
+      04_botright.jpg  — square bottom-right corner crop (detail: lower-right region)
+      05_centre.jpg    — square centre crop            (Frame 5 data reveal)
 
-    Frames 2-4 are clean detail views; Frame 5 carries the price box.
+    Corner crops (03/04) sample opposite ends of the canvas so all 3 detail
+    frames look genuinely different regardless of painting orientation.
     Returns number of images written.
     """
     if images_dir.exists():
@@ -556,19 +557,22 @@ def _prepare_images(lot: dict, images_dir: Path) -> int:
 
     iw, ih  = photo.size
     side    = min(iw, ih)
-    cx      = (iw - side) // 2        # horizontal centre offset
-    cy      = (ih - side) // 2        # vertical centre offset
+    cx      = (iw - side) // 2          # horizontal centre offset
+    cy      = (ih - side) // 2          # vertical centre offset
     top_y   = max(0, (ih - side) // 6)  # slight top bias for face/subject
-    left_x  = 0                          # left edge
-    right_x = max(0, iw - side)          # right edge
+
+    # Corner crops use 70% of the short side for a tighter zoom
+    cs      = int(side * 0.70)
+    br_x    = max(0, iw - cs)           # bottom-right x start
+    br_y    = max(0, ih - cs)           # bottom-right y start
 
     photo.save(images_dir / "01_source.jpg", "JPEG", quality=95)
     photo.crop((cx, top_y, cx + side, top_y + side)).save(
         images_dir / "02_top.jpg", "JPEG", quality=95)
-    photo.crop((left_x, cy, left_x + side, cy + side)).save(
-        images_dir / "03_left.jpg", "JPEG", quality=95)
-    photo.crop((right_x, cy, right_x + side, cy + side)).save(
-        images_dir / "04_right.jpg", "JPEG", quality=95)
+    photo.crop((0, 0, cs, cs)).save(
+        images_dir / "03_topleft.jpg", "JPEG", quality=95)
+    photo.crop((br_x, br_y, br_x + cs, br_y + cs)).save(
+        images_dir / "04_botright.jpg", "JPEG", quality=95)
     photo.crop((cx, cy, cx + side, cy + side)).save(
         images_dir / "05_centre.jpg", "JPEG", quality=95)
 
@@ -679,12 +683,12 @@ def _generate_config(lot: dict, week_label: str, captions: dict) -> str:
             "show_caption":  False,
             "hold_seconds":  2.0,
         },
-        # Frame 3 — left crop detail (clean)
+        # Frame 3 — top-left corner detail (clean)
         {
             "show_caption":  False,
             "hold_seconds":  2.0,
         },
-        # Frame 4 — right crop detail (clean)
+        # Frame 4 — bottom-right corner detail (clean)
         {
             "show_caption":  False,
             "hold_seconds":  2.0,
