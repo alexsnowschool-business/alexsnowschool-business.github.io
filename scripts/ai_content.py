@@ -601,6 +601,47 @@ Reply with only the paragraph text."""
     return raw.strip() if raw else None
 
 
+def generate_digest_insight(lots: list[dict]) -> str | None:
+    """
+    Generate a 1–2 sentence closing insight for the digest reel closing card.
+
+    Looks for a pattern across all featured lots — category, house concentration,
+    price tier, movement, or breadth of overshoot. Used by digest_reel.py.
+    Falls back gracefully to None (caller uses a template).
+    """
+    if not OPENROUTER_KEY or not lots:
+        return None
+
+    summary = "\n".join(
+        f"- {l.get('artist', 'Unknown')} ({l.get('auction_house', '')}) — "
+        f"${l.get('estimate_low', 0):,.0f} est. → ${l.get('hammer_usd', 0):,.0f} hammer "
+        f"({l.get('pct_above', 0):.0f}% above)"
+        for l in lots
+    )
+
+    prompt = f"""You write closing statements for short-form art market videos on @thehammerprice.
+
+This session's results (all sold above estimate):
+{summary}
+
+Write ONE or TWO sentences identifying a pattern across these results. Is demand concentrated in one house, one medium, one price tier, or one movement? Or is the overshoot broad across categories — which is itself a signal about the wider market?
+
+Rules:
+- All lowercase except proper nouns
+- No adjectives like "impressive", "remarkable", or "surprising"
+- Data-driven and specific — name the actual pattern, not a generic observation
+- Do NOT recommend buying or selling anything
+- Under 40 words total
+
+Reply with only the 1–2 sentence insight. Nothing else."""
+
+    raw = _call([{"role": "user", "content": prompt}], max_tokens=90)
+    if not raw:
+        return None
+    # Trim stray quotes or labels the model may add
+    return raw.strip().strip('"\'').strip().lower()
+
+
 def generate_beat_the_estimate_post(lots: list[dict]) -> dict | None:
     """
     Generate all sections of a 'Beat the Estimate' roundup covering multiple lots.

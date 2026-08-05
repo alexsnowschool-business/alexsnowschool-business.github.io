@@ -569,6 +569,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     hook_answer   = fc.get("hook_answer", "")
     upper_artist  = fc.get("upper_artist", "")
     upper_title   = fc.get("upper_title", "")
+    upper_no_box  = fc.get("upper_no_box", cfg.get("upper_no_box", False))
     UBT = UBB = 0
 
     # col2 (sold price colour) is also used for the answer text and tag — pull it out early
@@ -658,13 +659,14 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     # Upper box: artist name + painting title — hidden when hook_question takes the slot
     UBT = UBB = 0
     if (upper_artist or upper_title) and not _hook_in_upper:
-        UBT = 300
         _a_h = measure_wrapped_height(upper_artist, fnt["italic_med"], max_width=W - 200) if upper_artist else 0
         _t_h = measure_wrapped_height(upper_title,  fnt["italic_med"], max_width=W - 200) if upper_title else 0
         _gap = 18 if (upper_artist and upper_title) else 0
         UBH  = 24 + _a_h + _gap + _t_h + 24
+        # upper_no_box: clean floating text, vertically centred; otherwise anchored at y=300 with box
+        UBT  = (H - UBH) // 2 if upper_no_box else 300
         UBB  = UBT + UBH
-        if not no_box:
+        if not no_box and not upper_no_box:
             ub_back      = Image.new("RGB", (W, H), (6, 5, 4))
             ub_back_mask = Image.new("L", (W, H), 0)
             ImageDraw.Draw(ub_back_mask).rectangle(
@@ -676,7 +678,7 @@ def render_frame(photo, cfg, fnt, show_caption=True, frame_caption=None):
     draw = ImageDraw.Draw(img)
 
     if (upper_artist or upper_title) and not _hook_in_upper:
-        if not no_box:
+        if not no_box and not upper_no_box:
             RD = pal["rule_dim"]
             RB = pal["rule_bright"]
             draw.line([(72, UBT), (W-72, UBT)], fill=RD, width=1)
@@ -875,7 +877,9 @@ def main():
         tiles = grouped[base]['tiles']
         if base_fname:
             base_path = os.path.join(cfg["input_folder"], base_fname)
-            use_fit = (not _first_base_loaded) and cfg.get("photo_fit_first", True)
+            # Any file with "source" in the stem always gets fitted (full painting, not cropped)
+            is_source = "source" in os.path.splitext(base_fname)[0].lower()
+            use_fit = is_source or ((not _first_base_loaded) and cfg.get("photo_fit_first", True))
             p = load_photo(base_path, split=split, fit=use_fit, fit_bg=pal["bg"],
                            center_crop=cfg.get("photo_center_crop", False))
             _first_base_loaded = True
