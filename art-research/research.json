@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3372,
-    "total_artists": 1344,
+    "total_lots": 3422,
+    "total_artists": 1351,
     "median_hammer_usd": 96774,
-    "pct_above_estimate": 46.8,
+    "pct_above_estimate": 46.7,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-03"
+    "generated_at": "2026-08-06"
   },
   "artists": [
     {
@@ -110,11 +110,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 16,
-        "total_usd": 145756029,
-        "avg_usd": 9109752,
-        "total_label": "$145.76M",
-        "avg_label": "$9.11M",
+        "lot_count": 17,
+        "total_usd": 145971929,
+        "avg_usd": 8586584,
+        "total_label": "$145.97M",
+        "avg_label": "$8.59M",
         "top_lot": {
           "title": "In the Milky Lake 乳白色湖中",
           "hammer_usd": 86000000,
@@ -901,11 +901,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 7,
-        "total_usd": 25980056,
-        "avg_usd": 3711437,
-        "total_label": "$25.98M",
-        "avg_label": "$3.71M",
+        "lot_count": 8,
+        "total_usd": 26361056,
+        "avg_usd": 3295132,
+        "total_label": "$26.36M",
+        "avg_label": "$3.30M",
         "top_lot": {
           "title": "Concetto spaziale, La fine di Dio",
           "hammer_usd": 20000000,
@@ -913,7 +913,7 @@
         },
         "top_ratio_lot": {
           "title": "Concetto spaziale",
-          "ratio": 1.49
+          "ratio": 3.81
         }
       }
     },
@@ -1412,11 +1412,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 16,
-        "total_usd": 15913368,
-        "avg_usd": 994586,
-        "total_label": "$15.91M",
-        "avg_label": "$995k",
+        "lot_count": 17,
+        "total_usd": 16446768,
+        "avg_usd": 967457,
+        "total_label": "$16.45M",
+        "avg_label": "$967k",
         "top_lot": {
           "title": "A Bigger Wave",
           "hammer_usd": 7500000,
@@ -1918,11 +1918,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 17,
-        "total_usd": 10733544,
-        "avg_usd": 631385,
-        "total_label": "$10.73M",
-        "avg_label": "$631k",
+        "lot_count": 18,
+        "total_usd": 10786884,
+        "avg_usd": 599271,
+        "total_label": "$10.79M",
+        "avg_label": "$599k",
         "top_lot": {
           "title": "Personnage gothique, oiseau éclair",
           "hammer_usd": 4000000,
@@ -2264,6 +2264,60 @@
       }
     },
     {
+      "norm_name": "ANTONY GORMLEY",
+      "display_name": "Antony Gormley",
+      "dates": "b. 1950",
+      "nationality": "British",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
+      "famous_works": [
+        {
+          "title": "Angel of the North",
+          "year": "1998",
+          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
+        },
+        {
+          "title": "Another Place",
+          "year": "1997",
+          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
+        },
+        {
+          "title": "Event Horizon",
+          "year": "2007",
+          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Learning to Think",
+          "year": "1991",
+          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
+        },
+        {
+          "title": "One & Other",
+          "year": "2009",
+          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 8747819,
+        "avg_usd": 1457970,
+        "total_label": "$8.75M",
+        "avg_label": "$1.46M",
+        "top_lot": {
+          "title": "Open Hide",
+          "hammer_usd": 4800000,
+          "sale_name": "Contemporary Evening Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "Another Singularity",
+          "ratio": 3.78
+        }
+      }
+    },
+    {
       "norm_name": "CY TWOMBLY",
       "display_name": "Cy Twombly",
       "dates": "1928–2011",
@@ -2427,60 +2481,6 @@
         "top_ratio_lot": {
           "title": "UNTITLED",
           "ratio": 1.45
-        }
-      }
-    },
-    {
-      "norm_name": "ANTONY GORMLEY",
-      "display_name": "Antony Gormley",
-      "dates": "b. 1950",
-      "nationality": "British",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
-      "famous_works": [
-        {
-          "title": "Angel of the North",
-          "year": "1998",
-          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
-        },
-        {
-          "title": "Another Place",
-          "year": "1997",
-          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
-        },
-        {
-          "title": "Event Horizon",
-          "year": "2007",
-          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Learning to Think",
-          "year": "1991",
-          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
-        },
-        {
-          "title": "One & Other",
-          "year": "2009",
-          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 8138219,
-        "avg_usd": 1627644,
-        "total_label": "$8.14M",
-        "avg_label": "$1.63M",
-        "top_lot": {
-          "title": "Open Hide",
-          "hammer_usd": 4800000,
-          "sale_name": "Contemporary Evening Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "Another Singularity",
-          "ratio": 3.78
         }
       }
     },
@@ -2711,6 +2711,60 @@
       }
     },
     {
+      "norm_name": "LYONEL FEININGER",
+      "display_name": "Lyonel Feininger",
+      "dates": "1871–1956",
+      "nationality": "American-German",
+      "movement": "Expressionism · Cubism",
+      "movement_id": "expressionism",
+      "bio": "Lyonel Feininger was a German-American artist of extraordinary formal refinement who fused the faceted planes of Cubism with the chromatic and spiritual concerns of German Expressionism to create architectural and maritime subjects of luminous, crystalline beauty. Born in New York to German musician parents, he was sent to Germany at sixteen to study music and stayed for fifty years, becoming a central figure of the German avant-garde before returning permanently to America after the rise of National Socialism.\n\nFeininger worked initially as a caricaturist and cartoonist — his comic strips for the Chicago Tribune were ahead of their time in formal invention — before turning fully to painting in the early 1900s after encountering Cubism in Paris. He developed a personal variant of the Cubist spatial method in which architectural forms — medieval German churches and Baltic fishing villages — are decomposed into interlocking planes of translucent colour that diffuse and reflect light with an almost stained-glass luminosity. He was a founding master of the Weimar Bauhaus in 1919, producing the institution's famous woodcut cover image, and remained associated with it until its dissolution in 1933.\n\nFeininger's late New York work, returned to his native city in 1937, applies his crystalline architectural method to the Manhattan skyline and waterfront with a new vigour and chromatic brightness. His market has been consistently strong in Germany and the United States, with major canvases of his mature German period achieving significant sums.",
+      "famous_works": [
+        {
+          "title": "Cathedral (Kathedrale)",
+          "year": "1919",
+          "notes": "The Bauhaus's founding woodcut cover image — a crystalline Gothic cathedral rising above a starlit city."
+        },
+        {
+          "title": "Church of the Minorities II (Gelmeroda IV)",
+          "year": "1926",
+          "notes": "One of eleven paintings of the Gelmeroda church in Thuringia, his most sustained architectural meditation in the Cubist-Expressionist mode."
+        },
+        {
+          "title": "The Steamer Odin II",
+          "year": "1927",
+          "notes": "A maritime subject in which a vessel is dissolved into interlocking planes of pale blue, grey, and gold, capturing the quality of Baltic coastal light."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Umpferstedt I",
+          "year": "1914",
+          "notes": "An early mature work in which the small German village is translated into a tower of interpenetrating planes, his crystalline style fully formed."
+        },
+        {
+          "title": "Manhattan I",
+          "year": "1940",
+          "notes": "A New York skyscraper composition in which his European crystalline method is applied to the vertical drama of American urban architecture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 20,
+        "total_usd": 7346524,
+        "avg_usd": 367326,
+        "total_label": "$7.35M",
+        "avg_label": "$367k",
+        "top_lot": {
+          "title": "Trompetenbläser I (Trumpeters I)",
+          "hammer_usd": 4300000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "At the Sea-Side, Panel I",
+          "ratio": 3.57
+        }
+      }
+    },
+    {
       "norm_name": "ROBERT RAUSCHENBERG",
       "display_name": "Robert Rauschenberg",
       "dates": "1925–2008",
@@ -2766,60 +2820,6 @@
         "top_ratio_lot": {
           "title": "Fuse",
           "ratio": 3.28
-        }
-      }
-    },
-    {
-      "norm_name": "LYONEL FEININGER",
-      "display_name": "Lyonel Feininger",
-      "dates": "1871–1956",
-      "nationality": "American-German",
-      "movement": "Expressionism · Cubism",
-      "movement_id": "expressionism",
-      "bio": "Lyonel Feininger was a German-American artist of extraordinary formal refinement who fused the faceted planes of Cubism with the chromatic and spiritual concerns of German Expressionism to create architectural and maritime subjects of luminous, crystalline beauty. Born in New York to German musician parents, he was sent to Germany at sixteen to study music and stayed for fifty years, becoming a central figure of the German avant-garde before returning permanently to America after the rise of National Socialism.\n\nFeininger worked initially as a caricaturist and cartoonist — his comic strips for the Chicago Tribune were ahead of their time in formal invention — before turning fully to painting in the early 1900s after encountering Cubism in Paris. He developed a personal variant of the Cubist spatial method in which architectural forms — medieval German churches and Baltic fishing villages — are decomposed into interlocking planes of translucent colour that diffuse and reflect light with an almost stained-glass luminosity. He was a founding master of the Weimar Bauhaus in 1919, producing the institution's famous woodcut cover image, and remained associated with it until its dissolution in 1933.\n\nFeininger's late New York work, returned to his native city in 1937, applies his crystalline architectural method to the Manhattan skyline and waterfront with a new vigour and chromatic brightness. His market has been consistently strong in Germany and the United States, with major canvases of his mature German period achieving significant sums.",
-      "famous_works": [
-        {
-          "title": "Cathedral (Kathedrale)",
-          "year": "1919",
-          "notes": "The Bauhaus's founding woodcut cover image — a crystalline Gothic cathedral rising above a starlit city."
-        },
-        {
-          "title": "Church of the Minorities II (Gelmeroda IV)",
-          "year": "1926",
-          "notes": "One of eleven paintings of the Gelmeroda church in Thuringia, his most sustained architectural meditation in the Cubist-Expressionist mode."
-        },
-        {
-          "title": "The Steamer Odin II",
-          "year": "1927",
-          "notes": "A maritime subject in which a vessel is dissolved into interlocking planes of pale blue, grey, and gold, capturing the quality of Baltic coastal light."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Umpferstedt I",
-          "year": "1914",
-          "notes": "An early mature work in which the small German village is translated into a tower of interpenetrating planes, his crystalline style fully formed."
-        },
-        {
-          "title": "Manhattan I",
-          "year": "1940",
-          "notes": "A New York skyscraper composition in which his European crystalline method is applied to the vertical drama of American urban architecture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 19,
-        "total_usd": 7326204,
-        "avg_usd": 385590,
-        "total_label": "$7.33M",
-        "avg_label": "$386k",
-        "top_lot": {
-          "title": "Trompetenbläser I (Trumpeters I)",
-          "hammer_usd": 4300000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "At the Sea-Side, Panel I",
-          "ratio": 3.57
         }
       }
     },
@@ -3099,6 +3099,60 @@
       }
     },
     {
+      "norm_name": "BERNARD BUFFET",
+      "display_name": "Bernard Buffet",
+      "dates": "1928–1999",
+      "nationality": "French",
+      "movement": "Expressionism · Figurative",
+      "movement_id": "expressionism",
+      "bio": "Bernard Buffet was the most commercially successful French painter of the postwar decades, a prodigiously gifted technician whose thin, spiky black lines and ashen colour grounds created an immediately recognisable idiom of postwar existential alienation that made him a celebrity in his twenties and a critical target by his thirties. Born in Paris, he trained briefly at the École nationale supérieure des Beaux-Arts before exhibiting independently from 1947 and winning the Critics' Prize in 1948, shared with Francis Gruber.\n\nBuffet's early work — still lifes of fish and kitchen implements, clown figures, urban landscapes — captured the austerity and spiritual hunger of postwar France with a gaunt, acidic technique that made his canvases immediately legible as social documents. His thin, scratched lines and grim colour grounds seemed to embody the existentialist mood that Jean-Paul Sartre was simultaneously articulating in philosophy. By the mid-1950s his commercial success was extraordinary: prints, editions, and a branded lifestyle made him a household name while alienating serious critics who saw in his productivity and accessibility the symptoms of artistic compromise.\n\nReassessment of Buffet's work began seriously after his death — he died by suicide in 1999 after Parkinson's disease had made painting impossible — and has accelerated in the Japanese market, where he had been collected intensively since the 1970s. His market is now substantially driven by Japanese collectors and the Musée Bernard Buffet in Surugadaira, which holds the largest collection of his work.",
+      "famous_works": [
+        {
+          "title": "L'Horreur de la guerre (The Horror of War)",
+          "year": "1954",
+          "notes": "A seven-panel suite of war imagery that brought him his greatest critical respect and consolidated his reputation for social engagement."
+        },
+        {
+          "title": "Les clowns (The Clowns)",
+          "year": "1955–1970s",
+          "notes": "A long series of melancholy clown subjects that became among his most sought-after at Japanese auction."
+        },
+        {
+          "title": "Paris",
+          "year": "c. 1960s–1980s",
+          "notes": "Repeated urban subjects — the Eiffel Tower, Notre-Dame, Montmartre — rendered in his distinctive thin black line and grey-toned colour."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "La Passion du Christ",
+          "year": "1951",
+          "notes": "A religious cycle demonstrating his range beyond purely secular subjects and his sustained engagement with Christian iconography."
+        },
+        {
+          "title": "La beauté du diable",
+          "year": "c. 1950",
+          "notes": "An early theatrical figure subject in which the gauntness of his line carries an expressionist charge that his later celebrity work would sometimes dilute."
+        }
+      ],
+      "dataset": {
+        "lot_count": 19,
+        "total_usd": 6741319,
+        "avg_usd": 354806,
+        "total_label": "$6.74M",
+        "avg_label": "$355k",
+        "top_lot": {
+          "title": "Bernard Buffet 貝爾納・布菲 | Nature morte aux fleurs 花卉靜物",
+          "hammer_usd": 2400000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Grand duc",
+          "ratio": 2.64
+        }
+      }
+    },
+    {
       "norm_name": "KEITH HARING",
       "display_name": "Keith Haring",
       "dates": "1958–1990",
@@ -3149,60 +3203,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 5.81
-        }
-      }
-    },
-    {
-      "norm_name": "BERNARD BUFFET",
-      "display_name": "Bernard Buffet",
-      "dates": "1928–1999",
-      "nationality": "French",
-      "movement": "Expressionism · Figurative",
-      "movement_id": "expressionism",
-      "bio": "Bernard Buffet was the most commercially successful French painter of the postwar decades, a prodigiously gifted technician whose thin, spiky black lines and ashen colour grounds created an immediately recognisable idiom of postwar existential alienation that made him a celebrity in his twenties and a critical target by his thirties. Born in Paris, he trained briefly at the École nationale supérieure des Beaux-Arts before exhibiting independently from 1947 and winning the Critics' Prize in 1948, shared with Francis Gruber.\n\nBuffet's early work — still lifes of fish and kitchen implements, clown figures, urban landscapes — captured the austerity and spiritual hunger of postwar France with a gaunt, acidic technique that made his canvases immediately legible as social documents. His thin, scratched lines and grim colour grounds seemed to embody the existentialist mood that Jean-Paul Sartre was simultaneously articulating in philosophy. By the mid-1950s his commercial success was extraordinary: prints, editions, and a branded lifestyle made him a household name while alienating serious critics who saw in his productivity and accessibility the symptoms of artistic compromise.\n\nReassessment of Buffet's work began seriously after his death — he died by suicide in 1999 after Parkinson's disease had made painting impossible — and has accelerated in the Japanese market, where he had been collected intensively since the 1970s. His market is now substantially driven by Japanese collectors and the Musée Bernard Buffet in Surugadaira, which holds the largest collection of his work.",
-      "famous_works": [
-        {
-          "title": "L'Horreur de la guerre (The Horror of War)",
-          "year": "1954",
-          "notes": "A seven-panel suite of war imagery that brought him his greatest critical respect and consolidated his reputation for social engagement."
-        },
-        {
-          "title": "Les clowns (The Clowns)",
-          "year": "1955–1970s",
-          "notes": "A long series of melancholy clown subjects that became among his most sought-after at Japanese auction."
-        },
-        {
-          "title": "Paris",
-          "year": "c. 1960s–1980s",
-          "notes": "Repeated urban subjects — the Eiffel Tower, Notre-Dame, Montmartre — rendered in his distinctive thin black line and grey-toned colour."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "La Passion du Christ",
-          "year": "1951",
-          "notes": "A religious cycle demonstrating his range beyond purely secular subjects and his sustained engagement with Christian iconography."
-        },
-        {
-          "title": "La beauté du diable",
-          "year": "c. 1950",
-          "notes": "An early theatrical figure subject in which the gauntness of his line carries an expressionist charge that his later celebrity work would sometimes dilute."
-        }
-      ],
-      "dataset": {
-        "lot_count": 18,
-        "total_usd": 6652419,
-        "avg_usd": 369579,
-        "total_label": "$6.65M",
-        "avg_label": "$370k",
-        "top_lot": {
-          "title": "Bernard Buffet 貝爾納・布菲 | Nature morte aux fleurs 花卉靜物",
-          "hammer_usd": 2400000,
-          "sale_name": "Modern Day Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Grand duc",
-          "ratio": 2.64
         }
       }
     },
@@ -4572,6 +4572,60 @@
       }
     },
     {
+      "norm_name": "ANDRÉ BRASILIER",
+      "display_name": "André Brasilier",
+      "dates": "b. 1929",
+      "nationality": "French",
+      "movement": "Post-Impressionism · Figurative",
+      "movement_id": "post-impressionism",
+      "bio": "André Brasilier is a French painter of considerable popular following whose lyrical, warmly coloured images of horses and riders, women in gardens, and landscape subjects place him in a tradition of French decorative painting with affinities to Raoul Dufy and the Nabis rather than to the postwar avant-garde movements that dominated critical discourse during his career. Born in Courbevoie into an artistic family — his father was the painter Jacques Brasilier — he entered the École nationale supérieure des Beaux-Arts in 1948 and won the Grand Prix de Rome in 1953.\n\nBrasilier's mature work, consolidated from the late 1950s, deploys a palette of soft, luminous colour — pale blues, pinks, and greens — in compositions of elegant simplicity in which his favourite subjects are bathed in a Mediterranean or rural light of near-idyllic warmth. His equestrian paintings in particular — riders in landscapes, horses in pastures, polo matches — have achieved a devoted market following. The fusion of modern flat colour with traditional subject matter gives his work a broad accessibility that has sustained strong commercial demand throughout his career.\n\nBrasilier exhibits regularly at the Galerie Diane de Polignac in Paris and has achieved sustained auction market success, particularly in France, Japan, and among collectors who respond to the pleasurable aesthetic his work consistently delivers.",
+      "famous_works": [
+        {
+          "title": "Cavalières (Women Riders)",
+          "year": "c. 1960s–present",
+          "notes": "His most celebrated subject — women on horseback in luminous landscape settings — rendered in his characteristic soft, flat palette."
+        },
+        {
+          "title": "Jardin fleuri (Flowering Garden)",
+          "year": "c. 1970s–present",
+          "notes": "Garden scenes of women among flowers in pale pinks and greens, among his most commercially sought-after subjects."
+        },
+        {
+          "title": "Promenade à cheval",
+          "year": "c. 1980s",
+          "notes": "Equestrian compositions that demonstrate his sustained command of the horse-and-rider subject across changing chromatic conditions."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Early Prix de Rome works",
+          "year": "c. 1953–1955",
+          "notes": "Italian subjects produced during his Roman period that show his early engagement with Mediterranean light before his mature palette was fully formed."
+        },
+        {
+          "title": "Nocturnal landscapes",
+          "year": "c. 1990s–2000s",
+          "notes": "Night subjects in which his characteristic luminosity is achieved against dark grounds — a less exhibited but formally interesting aspect of his practice."
+        }
+      ],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 4557480,
+        "avg_usd": 651069,
+        "total_label": "$4.56M",
+        "avg_label": "$651k",
+        "top_lot": {
+          "title": "André Brasilier 安德烈・布拉吉利 |  Le champ de course à Maisons-Laf",
+          "hammer_usd": 1500000,
+          "sale_name": "Modern Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Le Bocage normand",
+          "ratio": 3.08
+        }
+      }
+    },
+    {
       "norm_name": "ZHANG ENLI",
       "display_name": "Zhang Enli",
       "dates": "b. 1965",
@@ -4734,56 +4788,56 @@
       }
     },
     {
-      "norm_name": "ANDRÉ BRASILIER",
-      "display_name": "André Brasilier",
-      "dates": "b. 1929",
-      "nationality": "French",
-      "movement": "Post-Impressionism · Figurative",
-      "movement_id": "post-impressionism",
-      "bio": "André Brasilier is a French painter of considerable popular following whose lyrical, warmly coloured images of horses and riders, women in gardens, and landscape subjects place him in a tradition of French decorative painting with affinities to Raoul Dufy and the Nabis rather than to the postwar avant-garde movements that dominated critical discourse during his career. Born in Courbevoie into an artistic family — his father was the painter Jacques Brasilier — he entered the École nationale supérieure des Beaux-Arts in 1948 and won the Grand Prix de Rome in 1953.\n\nBrasilier's mature work, consolidated from the late 1950s, deploys a palette of soft, luminous colour — pale blues, pinks, and greens — in compositions of elegant simplicity in which his favourite subjects are bathed in a Mediterranean or rural light of near-idyllic warmth. His equestrian paintings in particular — riders in landscapes, horses in pastures, polo matches — have achieved a devoted market following. The fusion of modern flat colour with traditional subject matter gives his work a broad accessibility that has sustained strong commercial demand throughout his career.\n\nBrasilier exhibits regularly at the Galerie Diane de Polignac in Paris and has achieved sustained auction market success, particularly in France, Japan, and among collectors who respond to the pleasurable aesthetic his work consistently delivers.",
+      "norm_name": "DAMIEN HIRST",
+      "display_name": "Damien Hirst",
+      "dates": "b. 1965",
+      "nationality": "British",
+      "movement": "Contemporary · Conceptual",
+      "movement_id": "conceptual",
+      "bio": "Damien Hirst was born in Bristol in 1965 and grew up in Leeds before studying at Goldsmiths College in London, where he organised the Freeze exhibition in 1988 — a landmark moment for what came to be called the Young British Artists. By the early 1990s, he had become the defining public figure of a generation of British artists who deployed shock, spectacle, and media savvy to make art that was simultaneously critically engaged and commercially spectacular.\n\nHirst's most significant works are his Natural History series — animals preserved in formaldehyde in steel and glass vitrines — and his spin paintings and spot paintings, which exist in large editions. The shark of The Physical Impossibility of Death in the Mind of Someone Living and the bisected cow and calf of Mother and Child Divided are among the most discussed works of late twentieth-century art, their confrontation of mortality, beauty, and commodity spectacle generating both genuine philosophical engagement and considerable suspicion about their depth. The diamond-encrusted skull For the Love of God (2007) extended these investigations into the territory of extreme luxury.\n\nHirst is represented by White Cube and his own company Science Ltd. A celebrated auction of his work directly through Sotheby's in 2008 raised unprecedented sums and coincided almost exactly with the global financial crisis — a piece of dark timing that many commentators found apt. His work has been the subject of major retrospectives at institutions including Tate Modern.",
       "famous_works": [
         {
-          "title": "Cavalières (Women Riders)",
-          "year": "c. 1960s–present",
-          "notes": "His most celebrated subject — women on horseback in luminous landscape settings — rendered in his characteristic soft, flat palette."
+          "title": "The Physical Impossibility of Death in the Mind of Someone Living",
+          "year": "1991",
+          "notes": "A tiger shark preserved in formaldehyde in a steel and glass vitrine, the foundational work of Hirst's Natural History series and a defining object of 1990s British art."
         },
         {
-          "title": "Jardin fleuri (Flowering Garden)",
-          "year": "c. 1970s–present",
-          "notes": "Garden scenes of women among flowers in pale pinks and greens, among his most commercially sought-after subjects."
+          "title": "Mother and Child Divided",
+          "year": "1993",
+          "notes": "A cow and calf bisected and displayed in four vitrines, winner of the Turner Prize and a key work in contemporary art's engagement with biological life and institutional display."
         },
         {
-          "title": "Promenade à cheval",
-          "year": "c. 1980s",
-          "notes": "Equestrian compositions that demonstrate his sustained command of the horse-and-rider subject across changing chromatic conditions."
+          "title": "For the Love of God",
+          "year": "2007",
+          "notes": "A platinum cast of an eighteenth-century human skull set with 8,601 diamonds, posing questions about mortality, luxury, and value with maximal theatrical impact."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Early Prix de Rome works",
-          "year": "c. 1953–1955",
-          "notes": "Italian subjects produced during his Roman period that show his early engagement with Mediterranean light before his mature palette was fully formed."
+          "title": "A Thousand Years",
+          "year": "1990",
+          "notes": "A steel and glass vitrine containing a fly-breeding box, a rotting cow's head, and an insect-o-cutor, creating a life cycle of reproduction and death without the artist's intervention."
         },
         {
-          "title": "Nocturnal landscapes",
-          "year": "c. 1990s–2000s",
-          "notes": "Night subjects in which his characteristic luminosity is achieved against dark grounds — a less exhibited but formally interesting aspect of his practice."
+          "title": "Pharmacy",
+          "year": "1992",
+          "notes": "An installation replicating the interior of a British pharmacy in its entirety, making the aesthetics of medicine and the culture of health-consumption identical terms."
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 4400000,
-        "avg_usd": 1100000,
-        "total_label": "$4.40M",
-        "avg_label": "$1.10M",
+        "lot_count": 12,
+        "total_usd": 4427491,
+        "avg_usd": 368958,
+        "total_label": "$4.43M",
+        "avg_label": "$369k",
         "top_lot": {
-          "title": "André Brasilier 安德烈・布拉吉利 |  Le champ de course à Maisons-Laf",
-          "hammer_usd": 1500000,
-          "sale_name": "Modern Day Auction, NY 2024"
+          "title": "Beautiful Dreamer 美麗的夢想家",
+          "hammer_usd": 1800000,
+          "sale_name": "Contemporary Evening Auction, NY 2023"
         },
         "top_ratio_lot": {
-          "title": "André Brasilier 安德烈・布拉吉利 | Hiver à Loupeigne 盧佩涅的冬天",
-          "ratio": 1.22
+          "title": "A Summers Day",
+          "ratio": 2.13
         }
       }
     },
@@ -4892,60 +4946,6 @@
         "top_ratio_lot": {
           "title": "Mac",
           "ratio": 3.17
-        }
-      }
-    },
-    {
-      "norm_name": "DAMIEN HIRST",
-      "display_name": "Damien Hirst",
-      "dates": "b. 1965",
-      "nationality": "British",
-      "movement": "Contemporary · Conceptual",
-      "movement_id": "conceptual",
-      "bio": "Damien Hirst was born in Bristol in 1965 and grew up in Leeds before studying at Goldsmiths College in London, where he organised the Freeze exhibition in 1988 — a landmark moment for what came to be called the Young British Artists. By the early 1990s, he had become the defining public figure of a generation of British artists who deployed shock, spectacle, and media savvy to make art that was simultaneously critically engaged and commercially spectacular.\n\nHirst's most significant works are his Natural History series — animals preserved in formaldehyde in steel and glass vitrines — and his spin paintings and spot paintings, which exist in large editions. The shark of The Physical Impossibility of Death in the Mind of Someone Living and the bisected cow and calf of Mother and Child Divided are among the most discussed works of late twentieth-century art, their confrontation of mortality, beauty, and commodity spectacle generating both genuine philosophical engagement and considerable suspicion about their depth. The diamond-encrusted skull For the Love of God (2007) extended these investigations into the territory of extreme luxury.\n\nHirst is represented by White Cube and his own company Science Ltd. A celebrated auction of his work directly through Sotheby's in 2008 raised unprecedented sums and coincided almost exactly with the global financial crisis — a piece of dark timing that many commentators found apt. His work has been the subject of major retrospectives at institutions including Tate Modern.",
-      "famous_works": [
-        {
-          "title": "The Physical Impossibility of Death in the Mind of Someone Living",
-          "year": "1991",
-          "notes": "A tiger shark preserved in formaldehyde in a steel and glass vitrine, the foundational work of Hirst's Natural History series and a defining object of 1990s British art."
-        },
-        {
-          "title": "Mother and Child Divided",
-          "year": "1993",
-          "notes": "A cow and calf bisected and displayed in four vitrines, winner of the Turner Prize and a key work in contemporary art's engagement with biological life and institutional display."
-        },
-        {
-          "title": "For the Love of God",
-          "year": "2007",
-          "notes": "A platinum cast of an eighteenth-century human skull set with 8,601 diamonds, posing questions about mortality, luxury, and value with maximal theatrical impact."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "A Thousand Years",
-          "year": "1990",
-          "notes": "A steel and glass vitrine containing a fly-breeding box, a rotting cow's head, and an insect-o-cutor, creating a life cycle of reproduction and death without the artist's intervention."
-        },
-        {
-          "title": "Pharmacy",
-          "year": "1992",
-          "notes": "An installation replicating the interior of a British pharmacy in its entirety, making the aesthetics of medicine and the culture of health-consumption identical terms."
-        }
-      ],
-      "dataset": {
-        "lot_count": 11,
-        "total_usd": 4275091,
-        "avg_usd": 388645,
-        "total_label": "$4.28M",
-        "avg_label": "$389k",
-        "top_lot": {
-          "title": "Beautiful Dreamer 美麗的夢想家",
-          "hammer_usd": 1800000,
-          "sale_name": "Contemporary Evening Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "A Summers Day",
-          "ratio": 2.13
         }
       }
     },
@@ -5829,6 +5829,60 @@
       }
     },
     {
+      "norm_name": "ANISH KAPOOR",
+      "display_name": "Anish Kapoor",
+      "dates": "b. 1954",
+      "nationality": "British-Indian",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Anish Kapoor was born in Mumbai in 1954 and moved to London in the early 1970s, studying at Hornsey College of Art and the Chelsea School of Art. He came to prominence in the early 1980s with installations in which simple geometric forms — mounds, cones, hemispheres — were coated in pure pigment powder, often Indigo blue or red, blurring the boundaries between object, environment, and perception. The works seemed to absorb light rather than reflect it, creating voids that appeared to pull the viewer's gaze inward.\n\nThis investigation of void, depth, and the limits of visual cognition has remained central to Kapoor's practice across vastly different scales and materials. His reflective steel sculptures — concave dishes, distorting mirrors, the enormous Cloud Gate in Chicago's Millennium Park — turn the viewer's own image back as a distorted reflection, making self-perception the subject of the work. His wax-projectile machines, biological-seeming masses, and controversial acquisition of exclusive rights to Vantablack pigment have each provoked sustained critical debate.\n\nKapoor won the Turner Prize in 1991 and has been commissioned for major public installations worldwide. He is represented by Lisson Gallery and Gladstone Gallery, and his practice stands as one of the most sustained investigations in contemporary art of how sculpture can engage the body, perception, and the phenomenology of space.",
+      "famous_works": [
+        {
+          "title": "Cloud Gate",
+          "year": "2006",
+          "notes": "The enormous bean-shaped reflective steel sculpture in Chicago's Millennium Park, which distorts the city's skyline and the viewer's own image in its polished surface."
+        },
+        {
+          "title": "My Red Homeland",
+          "year": "2003",
+          "notes": "A massive rotating mechanical arm that slowly ploughs a field of red wax in a circular trough, creating and destroying a blood-red landscape over time."
+        },
+        {
+          "title": "Marsyas",
+          "year": "2002",
+          "notes": "A monumental PVC installation filling the Turbine Hall of Tate Modern with three steel rings and a skin of PVC stretched between them, creating a vast interior vessel."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "1000 Names",
+          "year": "1979–1980",
+          "notes": "An early installation of pigment-coated geometric forms on the floor and wall, establishing the void and pigment explorations that underpin Kapoor's subsequent practice."
+        },
+        {
+          "title": "Ghost",
+          "year": "1990",
+          "notes": "A concave alabaster form that creates an interior void of uncanny depth, one of the key works in Kapoor's investigation of stone as a medium for constructing absence."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 3355600,
+        "avg_usd": 1677800,
+        "total_label": "$3.36M",
+        "avg_label": "$1.68M",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 3000000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Void III",
+          "ratio": 1.19
+        }
+      }
+    },
+    {
       "norm_name": "KOHEI NAWA",
       "display_name": "Kohei Nawa",
       "dates": "b. 1975",
@@ -6104,6 +6158,65 @@
       }
     },
     {
+      "norm_name": "SAM FRANCIS",
+      "display_name": "Sam Francis",
+      "dates": "1923–1994",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Colour Field",
+      "movement_id": "abstract-expressionism",
+      "bio": "Born in San Mateo, California, Francis began painting while hospitalised for spinal tuberculosis contracted during WWII service. The enforced horizontal orientation — the ceiling above a bedridden patient — and the light filtering from above are legible in the all-white early compositions. He moved to Paris in 1950 and absorbed Monet's late water-lily paintings alongside Abstract Expressionism, producing luminous chromatic fields in which colour clusters toward the edges, leaving centres of white that appear to radiate light. He later introduced cellular blue and red grids that gave the colour a structural armature. He travelled extensively — Japan, Europe, California — and his late works engage more directly with gestural energy. He established the Lapis Press in Santa Monica in 1981, producing artist's books of considerable quality. His paintings are widely collected in Europe and Japan, where the white-field works with peripheral colour rings are among the most recognisable of all American post-war paintings.",
+      "famous_works": [
+        {
+          "title": "Untitled (Composition in Blue)",
+          "year": "1951–52",
+          "notes": "An early Paris work of almost pure blue on white — the colour field at its most atmospheric and luminous."
+        },
+        {
+          "title": "Around the Blues",
+          "year": "1957–62",
+          "notes": "A large horizontal canvas in which blue and red cells surround a central emptiness. The most structural of the colour-field works; a direct influence on Japanese Gutai artists."
+        },
+        {
+          "title": "Summer No. 1",
+          "year": "1957",
+          "notes": "Yellow and orange saturate the canvas to the edges while the centre remains open. The light emanates from the void — the most characteristic compositional logic of the mature Francis."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Whiteness of the Whale",
+          "year": "1957",
+          "notes": "Named after the Moby-Dick chapter. One of the few works with a literary title — it suits the white-field paintings better than any formal description."
+        },
+        {
+          "title": "Big Red",
+          "year": "1953",
+          "notes": "The early work of red cells on white, before the compositional logic of peripheral colour was fully established. More aggressive and less atmospheric than the mature work."
+        },
+        {
+          "title": "Shining Back",
+          "year": "1958",
+          "notes": "An almost black canvas with peripheral red and blue flares. Francis's engagement with darkness as a chromatic problem rather than an absence."
+        }
+      ],
+      "dataset": {
+        "lot_count": 13,
+        "total_usd": 3062695,
+        "avg_usd": 235592,
+        "total_label": "$3.06M",
+        "avg_label": "$236k",
+        "top_lot": {
+          "title": "Untitled (Triptych) 無題 （三聯作）",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 3.28
+        }
+      }
+    },
+    {
       "norm_name": "ANNA PARK",
       "display_name": "Anna Park",
       "dates": "b. 1996",
@@ -6154,60 +6267,6 @@
         "top_ratio_lot": {
           "title": "BBQ 燒烤",
           "ratio": 1.4
-        }
-      }
-    },
-    {
-      "norm_name": "ANISH KAPOOR",
-      "display_name": "Anish Kapoor",
-      "dates": "b. 1954",
-      "nationality": "British-Indian",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Anish Kapoor was born in Mumbai in 1954 and moved to London in the early 1970s, studying at Hornsey College of Art and the Chelsea School of Art. He came to prominence in the early 1980s with installations in which simple geometric forms — mounds, cones, hemispheres — were coated in pure pigment powder, often Indigo blue or red, blurring the boundaries between object, environment, and perception. The works seemed to absorb light rather than reflect it, creating voids that appeared to pull the viewer's gaze inward.\n\nThis investigation of void, depth, and the limits of visual cognition has remained central to Kapoor's practice across vastly different scales and materials. His reflective steel sculptures — concave dishes, distorting mirrors, the enormous Cloud Gate in Chicago's Millennium Park — turn the viewer's own image back as a distorted reflection, making self-perception the subject of the work. His wax-projectile machines, biological-seeming masses, and controversial acquisition of exclusive rights to Vantablack pigment have each provoked sustained critical debate.\n\nKapoor won the Turner Prize in 1991 and has been commissioned for major public installations worldwide. He is represented by Lisson Gallery and Gladstone Gallery, and his practice stands as one of the most sustained investigations in contemporary art of how sculpture can engage the body, perception, and the phenomenology of space.",
-      "famous_works": [
-        {
-          "title": "Cloud Gate",
-          "year": "2006",
-          "notes": "The enormous bean-shaped reflective steel sculpture in Chicago's Millennium Park, which distorts the city's skyline and the viewer's own image in its polished surface."
-        },
-        {
-          "title": "My Red Homeland",
-          "year": "2003",
-          "notes": "A massive rotating mechanical arm that slowly ploughs a field of red wax in a circular trough, creating and destroying a blood-red landscape over time."
-        },
-        {
-          "title": "Marsyas",
-          "year": "2002",
-          "notes": "A monumental PVC installation filling the Turbine Hall of Tate Modern with three steel rings and a skin of PVC stretched between them, creating a vast interior vessel."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "1000 Names",
-          "year": "1979–1980",
-          "notes": "An early installation of pigment-coated geometric forms on the floor and wall, establishing the void and pigment explorations that underpin Kapoor's subsequent practice."
-        },
-        {
-          "title": "Ghost",
-          "year": "1990",
-          "notes": "A concave alabaster form that creates an interior void of uncanny depth, one of the key works in Kapoor's investigation of stone as a medium for constructing absence."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 3000000,
-        "avg_usd": 3000000,
-        "total_label": "$3.00M",
-        "avg_label": "$3.00M",
-        "top_lot": {
-          "title": "Untitled 無題",
-          "hammer_usd": 3000000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled 無題",
-          "ratio": 1.0
         }
       }
     },
@@ -6316,65 +6375,6 @@
         "top_ratio_lot": {
           "title": "Into the Sitting Room",
           "ratio": 2.81
-        }
-      }
-    },
-    {
-      "norm_name": "SAM FRANCIS",
-      "display_name": "Sam Francis",
-      "dates": "1923–1994",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Colour Field",
-      "movement_id": "abstract-expressionism",
-      "bio": "Born in San Mateo, California, Francis began painting while hospitalised for spinal tuberculosis contracted during WWII service. The enforced horizontal orientation — the ceiling above a bedridden patient — and the light filtering from above are legible in the all-white early compositions. He moved to Paris in 1950 and absorbed Monet's late water-lily paintings alongside Abstract Expressionism, producing luminous chromatic fields in which colour clusters toward the edges, leaving centres of white that appear to radiate light. He later introduced cellular blue and red grids that gave the colour a structural armature. He travelled extensively — Japan, Europe, California — and his late works engage more directly with gestural energy. He established the Lapis Press in Santa Monica in 1981, producing artist's books of considerable quality. His paintings are widely collected in Europe and Japan, where the white-field works with peripheral colour rings are among the most recognisable of all American post-war paintings.",
-      "famous_works": [
-        {
-          "title": "Untitled (Composition in Blue)",
-          "year": "1951–52",
-          "notes": "An early Paris work of almost pure blue on white — the colour field at its most atmospheric and luminous."
-        },
-        {
-          "title": "Around the Blues",
-          "year": "1957–62",
-          "notes": "A large horizontal canvas in which blue and red cells surround a central emptiness. The most structural of the colour-field works; a direct influence on Japanese Gutai artists."
-        },
-        {
-          "title": "Summer No. 1",
-          "year": "1957",
-          "notes": "Yellow and orange saturate the canvas to the edges while the centre remains open. The light emanates from the void — the most characteristic compositional logic of the mature Francis."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Whiteness of the Whale",
-          "year": "1957",
-          "notes": "Named after the Moby-Dick chapter. One of the few works with a literary title — it suits the white-field paintings better than any formal description."
-        },
-        {
-          "title": "Big Red",
-          "year": "1953",
-          "notes": "The early work of red cells on white, before the compositional logic of peripheral colour was fully established. More aggressive and less atmospheric than the mature work."
-        },
-        {
-          "title": "Shining Back",
-          "year": "1958",
-          "notes": "An almost black canvas with peripheral red and blue flares. Francis's engagement with darkness as a chromatic problem rather than an absence."
-        }
-      ],
-      "dataset": {
-        "lot_count": 12,
-        "total_usd": 2967445,
-        "avg_usd": 247287,
-        "total_label": "$2.97M",
-        "avg_label": "$247k",
-        "top_lot": {
-          "title": "Untitled (Triptych) 無題 （三聯作）",
-          "hammer_usd": 900000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 3.28
         }
       }
     },
@@ -7636,6 +7636,60 @@
       }
     },
     {
+      "norm_name": "TRACEY EMIN",
+      "display_name": "Tracey Emin",
+      "dates": "b. 1963",
+      "nationality": "British",
+      "movement": "Contemporary · Conceptual",
+      "movement_id": "conceptual",
+      "bio": "Tracey Emin was born in London in 1963 and grew up in Margate. She studied at Maidstone College of Art and the Royal College of Art in London, and became one of the defining figures of the Young British Artists generation. Her practice is rooted in an extreme autobiographical candour — using her own life, particularly experiences of abuse, sexual violence, loss, and emotional crisis, as the primary material of works across neon, embroidery, painting, sculpture, and installation.\n\nEmin's most celebrated work, My Bed (1998), presented her unmade bed surrounded by the detritus of several days of emotional crisis — bottles, cigarette packets, underwear — as an artwork. The work divided critics between those who found it self-indulgent and those who recognised it as a formal and confessional act of considerable power. Her neon works — texts rendered in the cursive script of her own handwriting — have become among the most recognised images in contemporary British art: I Promise to Love You, You Forgot to Kiss My Soul, and similar declarations function simultaneously as personal statements and universal emotional propositions.\n\nEmin won the Turner Prize nomination in 1999 and was appointed a Royal Academician in 2007, subsequently becoming the Royal Academy's professor of drawing. She is represented by White Cube and her work is held by Tate and major collections internationally.",
+      "famous_works": [
+        {
+          "title": "My Bed",
+          "year": "1998",
+          "notes": "An unmade bed surrounded by the debris of an emotional crisis, presented as a work that insists on the emotional and physical facts of private life as valid art materials."
+        },
+        {
+          "title": "Everyone I Have Ever Slept With 1963–1995",
+          "year": "1995",
+          "notes": "A tent embroidered inside with the names of everyone with whom Emin had shared a bed — a work that used textile craft to create a confessional record of intimacy across multiple registers."
+        },
+        {
+          "title": "I Promise to Love You (Neon)",
+          "year": "2007",
+          "notes": "A neon work in Emin's own cursive script that transforms a personal declaration into an architectural-scale public statement of universal emotional resonance."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Hotel (film)",
+          "year": "1993",
+          "notes": "An early film work demonstrating Emin's autobiographical methodology before her emergence as a celebrated YBA."
+        },
+        {
+          "title": "Painting works",
+          "year": "2000s–present",
+          "notes": "A body of figurative monoprints and paintings that extends Emin's confessional practice into a more traditional medium."
+        }
+      ],
+      "dataset": {
+        "lot_count": 11,
+        "total_usd": 2133410,
+        "avg_usd": 193946,
+        "total_label": "$2.13M",
+        "avg_label": "$194k",
+        "top_lot": {
+          "title": "I can't Believe (how much) How much I Loved You 我無法相信我曾如此(如此",
+          "hammer_usd": 900000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "This Is Another Place",
+          "ratio": 5.76
+        }
+      }
+    },
+    {
       "norm_name": "ADOLPH GOTTLIEB",
       "display_name": "Adolph Gottlieb",
       "dates": "1903–1974",
@@ -8236,60 +8290,6 @@
         "top_ratio_lot": {
           "title": "Sedona I",
           "ratio": 2.26
-        }
-      }
-    },
-    {
-      "norm_name": "TRACEY EMIN",
-      "display_name": "Tracey Emin",
-      "dates": "b. 1963",
-      "nationality": "British",
-      "movement": "Contemporary · Conceptual",
-      "movement_id": "conceptual",
-      "bio": "Tracey Emin was born in London in 1963 and grew up in Margate. She studied at Maidstone College of Art and the Royal College of Art in London, and became one of the defining figures of the Young British Artists generation. Her practice is rooted in an extreme autobiographical candour — using her own life, particularly experiences of abuse, sexual violence, loss, and emotional crisis, as the primary material of works across neon, embroidery, painting, sculpture, and installation.\n\nEmin's most celebrated work, My Bed (1998), presented her unmade bed surrounded by the detritus of several days of emotional crisis — bottles, cigarette packets, underwear — as an artwork. The work divided critics between those who found it self-indulgent and those who recognised it as a formal and confessional act of considerable power. Her neon works — texts rendered in the cursive script of her own handwriting — have become among the most recognised images in contemporary British art: I Promise to Love You, You Forgot to Kiss My Soul, and similar declarations function simultaneously as personal statements and universal emotional propositions.\n\nEmin won the Turner Prize nomination in 1999 and was appointed a Royal Academician in 2007, subsequently becoming the Royal Academy's professor of drawing. She is represented by White Cube and her work is held by Tate and major collections internationally.",
-      "famous_works": [
-        {
-          "title": "My Bed",
-          "year": "1998",
-          "notes": "An unmade bed surrounded by the debris of an emotional crisis, presented as a work that insists on the emotional and physical facts of private life as valid art materials."
-        },
-        {
-          "title": "Everyone I Have Ever Slept With 1963–1995",
-          "year": "1995",
-          "notes": "A tent embroidered inside with the names of everyone with whom Emin had shared a bed — a work that used textile craft to create a confessional record of intimacy across multiple registers."
-        },
-        {
-          "title": "I Promise to Love You (Neon)",
-          "year": "2007",
-          "notes": "A neon work in Emin's own cursive script that transforms a personal declaration into an architectural-scale public statement of universal emotional resonance."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Hotel (film)",
-          "year": "1993",
-          "notes": "An early film work demonstrating Emin's autobiographical methodology before her emergence as a celebrated YBA."
-        },
-        {
-          "title": "Painting works",
-          "year": "2000s–present",
-          "notes": "A body of figurative monoprints and paintings that extends Emin's confessional practice into a more traditional medium."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 1860360,
-        "avg_usd": 206707,
-        "total_label": "$1.86M",
-        "avg_label": "$207k",
-        "top_lot": {
-          "title": "I can't Believe (how much) How much I Loved You 我無法相信我曾如此(如此",
-          "hammer_usd": 900000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "This Is Another Place",
-          "ratio": 5.76
         }
       }
     },
@@ -9016,6 +9016,60 @@
       }
     },
     {
+      "norm_name": "YU NISHIMURA",
+      "display_name": "Yu Nishimura",
+      "dates": "b. 1983",
+      "nationality": "Japanese",
+      "movement": "Contemporary · Figurative",
+      "movement_id": "contemporary",
+      "bio": "Yu Nishimura was born in Tokyo in 1983 and studied at the Tama Art University before developing a painting practice that combines the traditions of Japanese figuration — particularly the influence of traditional Japanese painting (nihonga) and woodblock prints — with a contemporary approach to the female figure and personal experience. Her work explores private, contemplative states in which young women inhabit spaces of interiority that are rendered with a particular atmospheric quality.\n\nNishimura's paintings are characterised by their warm palette, their simplified but psychologically resonant figure rendering, and their treatment of interior light. The figures in her canvases are often depicted in moments of absorbed activity — reading, looking out windows, existing in states of quiet concentration — that create images of interior life rendered visible through careful formal attention. Her approach draws on both Japanese and European painting traditions while maintaining a sensibility that is entirely contemporary.\n\nShe has exhibited in Japan and has attracted international attention as part of the growing global interest in Japanese figurative painting. Nishimura represents a thoughtful engagement with the intimate scale of personal experience as a subject for painting.",
+      "famous_works": [
+        {
+          "title": "Woman Reading",
+          "year": "2015",
+          "notes": "A figure absorbed in a book rendered in Nishimura's warm palette and simplified figurative style that creates an image of concentrated inner life."
+        },
+        {
+          "title": "Interior",
+          "year": "2017",
+          "notes": "A domestic scene in which the relationship between figure and space is developed with atmospheric sensitivity characteristic of Nishimura's mature approach."
+        },
+        {
+          "title": "Morning Light",
+          "year": "2019",
+          "notes": "A painting in which the quality of morning light in a domestic space is the primary formal and emotional concern."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Early figure studies",
+          "year": "2008–2012",
+          "notes": "Initial paintings demonstrating the development of Nishimura's figurative approach before its full maturation."
+        },
+        {
+          "title": "Works on paper",
+          "year": "2014–present",
+          "notes": "Drawings and works on paper that demonstrate the intimacy and exploratory quality of Nishimura's practice beyond the painted canvas."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 1444119,
+        "avg_usd": 288824,
+        "total_label": "$1.44M",
+        "avg_label": "$289k",
+        "top_lot": {
+          "title": "A Car Running in the Green 穿過叢林的車子",
+          "hammer_usd": 750000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "A Man in a Forest",
+          "ratio": 7.11
+        }
+      }
+    },
+    {
       "norm_name": "HANS HOFMANN",
       "display_name": "Hans Hofmann",
       "dates": "1880–1966",
@@ -9120,6 +9174,60 @@
         "top_ratio_lot": {
           "title": "Study for the Penitent 懺悔者習作",
           "ratio": 1.13
+        }
+      }
+    },
+    {
+      "norm_name": "ANNIE MORRIS",
+      "display_name": "Annie Morris",
+      "dates": "b. 1978",
+      "nationality": "British",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Annie Morris was born in London in 1978 and trained at the Slade School of Fine Art and the École des Beaux-Arts in Paris. She came to sustained international attention in the mid-2010s with her 'Stack' sculptures — columns of balanced spheres cast in a variety of materials including iron, unfired earthenware, and silk — that became widely recognised for their combination of formal elegance, physical precariousness, and emotional resonance.\n\nThe Stack works emerged from a period of personal loss and were conceived as a response to grief: the stacked spheres represent accumulated days of survival, the precarious balance encoding the effort required to continue under conditions of sorrow. The forms are simultaneously ancient — recalling burial mounds, counting stones, ceremonial objects — and strikingly contemporary. Morris works across sculpture, painting, and works on paper, and her paintings of simplified, brightly coloured female figures have a directness and warmth that share the Stacks' quality of emotion held within formal discipline.\n\nShe has exhibited at Hauser & Wirth and Timothy Taylor Gallery and is collected by major institutions and private collectors internationally. Morris represents a strand of contemporary British sculpture that connects formal rigour with biographical and emotional content without sacrificing the formal ambition of the object.",
+      "famous_works": [
+        {
+          "title": "Stack Series",
+          "year": "2014–present",
+          "notes": "Monumental and intimate columns of balanced spheres in painted iron and earthenware, their precariousness encoding the emotional weight of grief and survival."
+        },
+        {
+          "title": "Untitled (Woman)",
+          "year": "2016",
+          "notes": "A large-scale painting of a simplified female figure in which flat colour and bold outline produce an image of emotional directness."
+        },
+        {
+          "title": "Nine Spheres",
+          "year": "2017",
+          "notes": "A stack sculpture in unfired earthenware that makes the material's fragility integral to the work's meaning, literalising the precariousness of emotional survival."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Small Stack",
+          "year": "2015",
+          "notes": "An intimate-scale version of the Stack works that allows close inspection of the surface textures and colour relationships that give the larger works their power."
+        },
+        {
+          "title": "The Drawing Collection",
+          "year": "2018",
+          "notes": "A group of works on paper that extend Morris's formal vocabulary in the medium of drawing, demonstrating the breadth of her practice beyond sculpture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1331000,
+        "avg_usd": 665500,
+        "total_label": "$1.33M",
+        "avg_label": "$666k",
+        "top_lot": {
+          "title": "Stack 3, Cadmium Red 堆叠 3，鎘紅",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Stack 8, Studio Purple",
+          "ratio": 1.52
         }
       }
     },
@@ -9232,56 +9340,56 @@
       }
     },
     {
-      "norm_name": "YU NISHIMURA",
-      "display_name": "Yu Nishimura",
-      "dates": "b. 1983",
-      "nationality": "Japanese",
-      "movement": "Contemporary · Figurative",
-      "movement_id": "contemporary",
-      "bio": "Yu Nishimura was born in Tokyo in 1983 and studied at the Tama Art University before developing a painting practice that combines the traditions of Japanese figuration — particularly the influence of traditional Japanese painting (nihonga) and woodblock prints — with a contemporary approach to the female figure and personal experience. Her work explores private, contemplative states in which young women inhabit spaces of interiority that are rendered with a particular atmospheric quality.\n\nNishimura's paintings are characterised by their warm palette, their simplified but psychologically resonant figure rendering, and their treatment of interior light. The figures in her canvases are often depicted in moments of absorbed activity — reading, looking out windows, existing in states of quiet concentration — that create images of interior life rendered visible through careful formal attention. Her approach draws on both Japanese and European painting traditions while maintaining a sensibility that is entirely contemporary.\n\nShe has exhibited in Japan and has attracted international attention as part of the growing global interest in Japanese figurative painting. Nishimura represents a thoughtful engagement with the intimate scale of personal experience as a subject for painting.",
+      "norm_name": "GIORGIO DE CHIRICO",
+      "display_name": "Giorgio de Chirico",
+      "dates": "1888–1978",
+      "nationality": "Italian (Greek-born)",
+      "movement": "Surrealism · Pittura Metafisica",
+      "movement_id": "surrealism",
+      "bio": "Giorgio de Chirico was the founding figure of Pittura Metafisica (Metaphysical Painting), a movement he invented in Ferrara during the First World War that created the template for Surrealist image-making and remains, through Magritte and Dalí, the most influential artistic legacy of any single early twentieth-century painter outside Cubism. Born in Volos, Greece, to Italian parents, he trained in Athens and Munich before arriving in Paris in 1911, where his visionary piazze — eerily empty Italian squares lit by raking shadows, populated by classical statues, mannequins, and unexplained objects — immediately attracted the admiration of Apollinaire and the nascent Surrealist circle.\n\nDe Chirico's metaphysical interiors of the Ferrara period (1915–1917) are his most hermetically inventive works: claustrophobic studios crammed with set squares, biscuits, artichoke maps, and faceless mannequins that transform the logic of rational space into dreamlike poetry. He later repudiated these works and claimed they had been made in a visionary state he could not recover, devoting his post-1920 career to a return to Old Master technique that most critics found retrograde but he defended as a principled response to the chaos of modernism.\n\nDe Chirico's self-forgeries — replicas of his most celebrated early works, some misdated to appear as period originals — have created significant authentication problems in the market. The Giorgio and Isa de Chirico Foundation in Rome works to maintain the catalogue and exclude forgeries.",
       "famous_works": [
         {
-          "title": "Woman Reading",
-          "year": "2015",
-          "notes": "A figure absorbed in a book rendered in Nishimura's warm palette and simplified figurative style that creates an image of concentrated inner life."
+          "title": "The Song of Love",
+          "year": "1914",
+          "notes": "A classical head, a rubber glove, and a green ball in an architectural setting — the first fully realised Metaphysical canvas and Breton's declared favourite painting."
         },
         {
-          "title": "Interior",
-          "year": "2017",
-          "notes": "A domestic scene in which the relationship between figure and space is developed with atmospheric sensitivity characteristic of Nishimura's mature approach."
+          "title": "The Melancholy and Mystery of a Street",
+          "year": "1914",
+          "notes": "A girl with a hoop in a shadowed arcade, a rolling wagon visible in the distance — the purest image of metaphysical unease."
         },
         {
-          "title": "Morning Light",
-          "year": "2019",
-          "notes": "A painting in which the quality of morning light in a domestic space is the primary formal and emotional concern."
+          "title": "The Disquieting Muses",
+          "year": "1918",
+          "notes": "Mannequin figures before the Este castle in Ferrara, his most symbolically dense Metaphysical work and a direct precursor of Surrealist figuration."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Early figure studies",
-          "year": "2008–2012",
-          "notes": "Initial paintings demonstrating the development of Nishimura's figurative approach before its full maturation."
+          "title": "The Archaeologists",
+          "year": "1927",
+          "notes": "A pair of mannequin figures assembled from architectural fragments and classical ruins, a late Metaphysical work of extraordinary compositional energy."
         },
         {
-          "title": "Works on paper",
-          "year": "2014–present",
-          "notes": "Drawings and works on paper that demonstrate the intimacy and exploratory quality of Nishimura's practice beyond the painted canvas."
+          "title": "Hector and Andromache",
+          "year": "1917",
+          "notes": "A Ferrara-period mannequin embrace of Homeric subjects, the lovers reduced to jointed forms in a farewell that is already post-human."
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 1266319,
-        "avg_usd": 316580,
-        "total_label": "$1.27M",
-        "avg_label": "$317k",
+        "lot_count": 11,
+        "total_usd": 1279416,
+        "avg_usd": 116311,
+        "total_label": "$1.28M",
+        "avg_label": "$116k",
         "top_lot": {
-          "title": "A Car Running in the Green 穿過叢林的車子",
-          "hammer_usd": 750000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
+          "title": "I Giochi del Principe",
+          "hammer_usd": 300000,
+          "sale_name": "Modern Day Auction, NY 2026"
         },
         "top_ratio_lot": {
-          "title": "across the place",
-          "ratio": 5.83
+          "title": "Nature morte aux fruits",
+          "ratio": 3.05
         }
       }
     },
@@ -9336,60 +9444,6 @@
         "top_ratio_lot": {
           "title": "SWAMP STYLE",
           "ratio": 2.71
-        }
-      }
-    },
-    {
-      "norm_name": "GIORGIO DE CHIRICO",
-      "display_name": "Giorgio de Chirico",
-      "dates": "1888–1978",
-      "nationality": "Italian (Greek-born)",
-      "movement": "Surrealism · Pittura Metafisica",
-      "movement_id": "surrealism",
-      "bio": "Giorgio de Chirico was the founding figure of Pittura Metafisica (Metaphysical Painting), a movement he invented in Ferrara during the First World War that created the template for Surrealist image-making and remains, through Magritte and Dalí, the most influential artistic legacy of any single early twentieth-century painter outside Cubism. Born in Volos, Greece, to Italian parents, he trained in Athens and Munich before arriving in Paris in 1911, where his visionary piazze — eerily empty Italian squares lit by raking shadows, populated by classical statues, mannequins, and unexplained objects — immediately attracted the admiration of Apollinaire and the nascent Surrealist circle.\n\nDe Chirico's metaphysical interiors of the Ferrara period (1915–1917) are his most hermetically inventive works: claustrophobic studios crammed with set squares, biscuits, artichoke maps, and faceless mannequins that transform the logic of rational space into dreamlike poetry. He later repudiated these works and claimed they had been made in a visionary state he could not recover, devoting his post-1920 career to a return to Old Master technique that most critics found retrograde but he defended as a principled response to the chaos of modernism.\n\nDe Chirico's self-forgeries — replicas of his most celebrated early works, some misdated to appear as period originals — have created significant authentication problems in the market. The Giorgio and Isa de Chirico Foundation in Rome works to maintain the catalogue and exclude forgeries.",
-      "famous_works": [
-        {
-          "title": "The Song of Love",
-          "year": "1914",
-          "notes": "A classical head, a rubber glove, and a green ball in an architectural setting — the first fully realised Metaphysical canvas and Breton's declared favourite painting."
-        },
-        {
-          "title": "The Melancholy and Mystery of a Street",
-          "year": "1914",
-          "notes": "A girl with a hoop in a shadowed arcade, a rolling wagon visible in the distance — the purest image of metaphysical unease."
-        },
-        {
-          "title": "The Disquieting Muses",
-          "year": "1918",
-          "notes": "Mannequin figures before the Este castle in Ferrara, his most symbolically dense Metaphysical work and a direct precursor of Surrealist figuration."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Archaeologists",
-          "year": "1927",
-          "notes": "A pair of mannequin figures assembled from architectural fragments and classical ruins, a late Metaphysical work of extraordinary compositional energy."
-        },
-        {
-          "title": "Hector and Andromache",
-          "year": "1917",
-          "notes": "A Ferrara-period mannequin embrace of Homeric subjects, the lovers reduced to jointed forms in a farewell that is already post-human."
-        }
-      ],
-      "dataset": {
-        "lot_count": 10,
-        "total_usd": 1203216,
-        "avg_usd": 120322,
-        "total_label": "$1.20M",
-        "avg_label": "$120k",
-        "top_lot": {
-          "title": "I Giochi del Principe",
-          "hammer_usd": 300000,
-          "sale_name": "Modern Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Donne ateniesi",
-          "ratio": 3.0
         }
       }
     },
@@ -9669,6 +9723,60 @@
       }
     },
     {
+      "norm_name": "SALVADOR DALÍ",
+      "display_name": "Salvador Dalí",
+      "dates": "1904–1989",
+      "nationality": "Spanish",
+      "movement": "Surrealism",
+      "movement_id": "surrealism",
+      "bio": "Salvador Dalí was the most publicly visible and theatrically self-promoting of the Surrealists, a Catalan painter of extraordinary technical skill whose meticulous, hyper-illusionistic rendering of hallucinatory imagery made his work immediately accessible to a mass audience while simultaneously enacting Freudian theories of the unconscious with systematic rigour. Born in Figueres, Catalonia, he trained at the Real Academia de Bellas Artes de San Fernando in Madrid, where he befriended Federico García Lorca and Luis Buñuel, before joining the Paris Surrealist group in 1929.\n\nDalí's 'paranoiac-critical method' — a self-induced hallucinatory state in which he sought out multiple simultaneous readings in visual phenomena — generated the imagery of melting watches, crutch-supported figures, and vast Catalonian landscapes that define his mature work. His technical mastery of Old Master glazing and sfumato, applied to impossible subject matter, creates the distinctive unsettling effect of his best canvases: the images look like photographs of something that cannot exist. His collaboration with Luis Buñuel on Un Chien Andalou (1929) and L'Age d'Or (1930) produced two of the most significant films in avant-garde cinema.\n\nDalí's expulsion from the Surrealist group in 1939, his wartime refuge in the United States, his embrace of Catholicism and Francoism, and his later theatrical antics alienated him from the art world's critical establishment, but his public fame remained enormous. The Dalí Theatre-Museum in Figueres, which he designed himself, is now the most visited museum in Spain after the Prado.",
+      "famous_works": [
+        {
+          "title": "The Persistence of Memory",
+          "year": "1931",
+          "notes": "His most recognisable work, the melting watches on a Catalonian coast, now in MoMA and one of the most reproduced images in the history of art."
+        },
+        {
+          "title": "The Temptation of Saint Anthony",
+          "year": "1946",
+          "notes": "An elephant-borne procession of desire and temptation demonstrating his sustained engagement with religious iconography through Surrealist means."
+        },
+        {
+          "title": "Christ of Saint John of the Cross",
+          "year": "1951",
+          "notes": "A vertiginous view of the crucifixion from above, one of his major post-Surrealist Catholic commissions, in Glasgow's Kelvingrove Art Gallery."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Great Masturbator",
+          "year": "1929",
+          "notes": "An overtly Freudian canvas from his breakthrough year, depicting a disembodied face from which erotic and anxiety-ridden imagery proliferates."
+        },
+        {
+          "title": "Metamorphosis of Narcissus",
+          "year": "1937",
+          "notes": "A paired composition in which the figure of Narcissus and a hand holding a cracking egg occupy the same visual space, with an explanatory poem by Dalí himself."
+        }
+      ],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 1039829,
+        "avg_usd": 148547,
+        "total_label": "$1.04M",
+        "avg_label": "$149k",
+        "top_lot": {
+          "title": "Vénus de Milo aux tiroirs",
+          "hammer_usd": 550000,
+          "sale_name": "Modern Day Auction, NY 2026"
+        },
+        "top_ratio_lot": {
+          "title": "Huit (8) de baton, arcane mineur, projet pour le jeu de cart",
+          "ratio": 3.33
+        }
+      }
+    },
+    {
       "norm_name": "PAUL GAUGUIN",
       "display_name": "Paul Gauguin",
       "dates": "1848–1903",
@@ -9723,56 +9831,56 @@
       }
     },
     {
-      "norm_name": "SALVADOR DALÍ",
-      "display_name": "Salvador Dalí",
-      "dates": "1904–1989",
-      "nationality": "Spanish",
-      "movement": "Surrealism",
-      "movement_id": "surrealism",
-      "bio": "Salvador Dalí was the most publicly visible and theatrically self-promoting of the Surrealists, a Catalan painter of extraordinary technical skill whose meticulous, hyper-illusionistic rendering of hallucinatory imagery made his work immediately accessible to a mass audience while simultaneously enacting Freudian theories of the unconscious with systematic rigour. Born in Figueres, Catalonia, he trained at the Real Academia de Bellas Artes de San Fernando in Madrid, where he befriended Federico García Lorca and Luis Buñuel, before joining the Paris Surrealist group in 1929.\n\nDalí's 'paranoiac-critical method' — a self-induced hallucinatory state in which he sought out multiple simultaneous readings in visual phenomena — generated the imagery of melting watches, crutch-supported figures, and vast Catalonian landscapes that define his mature work. His technical mastery of Old Master glazing and sfumato, applied to impossible subject matter, creates the distinctive unsettling effect of his best canvases: the images look like photographs of something that cannot exist. His collaboration with Luis Buñuel on Un Chien Andalou (1929) and L'Age d'Or (1930) produced two of the most significant films in avant-garde cinema.\n\nDalí's expulsion from the Surrealist group in 1939, his wartime refuge in the United States, his embrace of Catholicism and Francoism, and his later theatrical antics alienated him from the art world's critical establishment, but his public fame remained enormous. The Dalí Theatre-Museum in Figueres, which he designed himself, is now the most visited museum in Spain after the Prado.",
+      "norm_name": "LISA YUSKAVAGE",
+      "display_name": "Lisa Yuskavage",
+      "dates": "b. 1962",
+      "nationality": "American",
+      "movement": "Contemporary · Figurative",
+      "movement_id": "contemporary",
+      "bio": "Lisa Yuskavage was born in Philadelphia in 1962 and studied at the Tyler School of Art and Yale University School of Art. She came to prominence in the 1990s with paintings of exaggerated female figures — pneumatic forms in states of semi-undress or sexual availability — rendered with a technical virtuosity that deliberately combined Old Master glazing techniques with subject matter drawn from commercial pornography and the kitsch of pin-up culture.\n\nYuskavage's work is one of the most sustained and serious engagements with the eroticised female image in contemporary art. Her figures — which have evolved from grotesquely exaggerated adolescent forms in her early work toward more complex, psychologically ambiguous characters in recent years — are presented in atmospheric colour fields of remarkable beauty, the luminous glazed surfaces placing the provocative imagery within a tradition of painterly seriousness that complicates any simple reading. The work forces the viewer to negotiate simultaneously the beauty of the painting, the discomfort of the imagery, and the question of who controls the gaze and for whose benefit.\n\nYuskavage is represented by David Zwirner Gallery and her work has been the subject of major survey exhibitions at institutions including the Rose Art Museum and the Frye Art Museum. She stands as one of the most important figurative painters of her generation.",
       "famous_works": [
         {
-          "title": "The Persistence of Memory",
-          "year": "1931",
-          "notes": "His most recognisable work, the melting watches on a Catalonian coast, now in MoMA and one of the most reproduced images in the history of art."
+          "title": "Teenie Weenie",
+          "year": "1995",
+          "notes": "An early painting in which an exaggerated adolescent female figure is rendered in Yuskavage's characteristic glazed technique, forcing a confrontation with the politics of the erotic image."
         },
         {
-          "title": "The Temptation of Saint Anthony",
-          "year": "1946",
-          "notes": "An elephant-borne procession of desire and temptation demonstrating his sustained engagement with religious iconography through Surrealist means."
+          "title": "The Ones That Don't Want To",
+          "year": "2014",
+          "notes": "A large multi-figure painting demonstrating the development of Yuskavage's mature style, in which psychologically complex figures inhabit an atmospheric landscape."
         },
         {
-          "title": "Christ of Saint John of the Cross",
-          "year": "1951",
-          "notes": "A vertiginous view of the crucifixion from above, one of his major post-Surrealist Catholic commissions, in Glasgow's Kelvingrove Art Gallery."
+          "title": "Little Bitch",
+          "year": "1995",
+          "notes": "A painting in which Yuskavage's confrontational approach to the erotic female image is combined with her characteristic formal virtuosity to create a work that is simultaneously beautiful and disturbing."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "The Great Masturbator",
-          "year": "1929",
-          "notes": "An overtly Freudian canvas from his breakthrough year, depicting a disembodied face from which erotic and anxiety-ridden imagery proliferates."
+          "title": "Room for Cream (Warm)",
+          "year": "1996",
+          "notes": "An atmospheric interior work in which Yuskavage's investigation of light and glazed surface creates an environment of immersive colour within which her figure subjects operate."
         },
         {
-          "title": "Metamorphosis of Narcissus",
-          "year": "1937",
-          "notes": "A paired composition in which the figure of Narcissus and a hand holding a cracking egg occupy the same visual space, with an explanatory poem by Dalí himself."
+          "title": "Bruiser",
+          "year": "2010",
+          "notes": "A large painting from Yuskavage's mature period in which the formal vocabulary of her earlier provocations is applied with new psychological depth."
         }
       ],
       "dataset": {
         "lot_count": 6,
-        "total_usd": 991569,
-        "avg_usd": 165262,
-        "total_label": "$992k",
-        "avg_label": "$165k",
+        "total_usd": 1022798,
+        "avg_usd": 170466,
+        "total_label": "$1.02M",
+        "avg_label": "$170k",
         "top_lot": {
-          "title": "Vénus de Milo aux tiroirs",
-          "hammer_usd": 550000,
-          "sale_name": "Modern Day Auction, NY 2026"
+          "title": "Mrs. & Mr. Warmth",
+          "hammer_usd": 292100,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
         },
         "top_ratio_lot": {
-          "title": "Huit (8) de baton, arcane mineur, projet pour le jeu de cart",
-          "ratio": 3.33
+          "title": "Mrs. & Mr. Warmth",
+          "ratio": 4.17
         }
       }
     },
@@ -9886,60 +9994,6 @@
         "top_ratio_lot": {
           "title": "Abstraction",
           "ratio": 2.03
-        }
-      }
-    },
-    {
-      "norm_name": "ANNIE MORRIS",
-      "display_name": "Annie Morris",
-      "dates": "b. 1978",
-      "nationality": "British",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Annie Morris was born in London in 1978 and trained at the Slade School of Fine Art and the École des Beaux-Arts in Paris. She came to sustained international attention in the mid-2010s with her 'Stack' sculptures — columns of balanced spheres cast in a variety of materials including iron, unfired earthenware, and silk — that became widely recognised for their combination of formal elegance, physical precariousness, and emotional resonance.\n\nThe Stack works emerged from a period of personal loss and were conceived as a response to grief: the stacked spheres represent accumulated days of survival, the precarious balance encoding the effort required to continue under conditions of sorrow. The forms are simultaneously ancient — recalling burial mounds, counting stones, ceremonial objects — and strikingly contemporary. Morris works across sculpture, painting, and works on paper, and her paintings of simplified, brightly coloured female figures have a directness and warmth that share the Stacks' quality of emotion held within formal discipline.\n\nShe has exhibited at Hauser & Wirth and Timothy Taylor Gallery and is collected by major institutions and private collectors internationally. Morris represents a strand of contemporary British sculpture that connects formal rigour with biographical and emotional content without sacrificing the formal ambition of the object.",
-      "famous_works": [
-        {
-          "title": "Stack Series",
-          "year": "2014–present",
-          "notes": "Monumental and intimate columns of balanced spheres in painted iron and earthenware, their precariousness encoding the emotional weight of grief and survival."
-        },
-        {
-          "title": "Untitled (Woman)",
-          "year": "2016",
-          "notes": "A large-scale painting of a simplified female figure in which flat colour and bold outline produce an image of emotional directness."
-        },
-        {
-          "title": "Nine Spheres",
-          "year": "2017",
-          "notes": "A stack sculpture in unfired earthenware that makes the material's fragility integral to the work's meaning, literalising the precariousness of emotional survival."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Small Stack",
-          "year": "2015",
-          "notes": "An intimate-scale version of the Stack works that allows close inspection of the surface textures and colour relationships that give the larger works their power."
-        },
-        {
-          "title": "The Drawing Collection",
-          "year": "2018",
-          "notes": "A group of works on paper that extend Morris's formal vocabulary in the medium of drawing, demonstrating the breadth of her practice beyond sculpture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 950000,
-        "avg_usd": 950000,
-        "total_label": "$950k",
-        "avg_label": "$950k",
-        "top_lot": {
-          "title": "Stack 3, Cadmium Red 堆叠 3，鎘紅",
-          "hammer_usd": 950000,
-          "sale_name": "Contemporary Day Auction, NY 2026"
-        },
-        "top_ratio_lot": {
-          "title": "Stack 3, Cadmium Red 堆叠 3，鎘紅",
-          "ratio": 0.63
         }
       }
     },
@@ -10327,56 +10381,56 @@
       }
     },
     {
-      "norm_name": "LISA YUSKAVAGE",
-      "display_name": "Lisa Yuskavage",
-      "dates": "b. 1962",
-      "nationality": "American",
-      "movement": "Contemporary · Figurative",
-      "movement_id": "contemporary",
-      "bio": "Lisa Yuskavage was born in Philadelphia in 1962 and studied at the Tyler School of Art and Yale University School of Art. She came to prominence in the 1990s with paintings of exaggerated female figures — pneumatic forms in states of semi-undress or sexual availability — rendered with a technical virtuosity that deliberately combined Old Master glazing techniques with subject matter drawn from commercial pornography and the kitsch of pin-up culture.\n\nYuskavage's work is one of the most sustained and serious engagements with the eroticised female image in contemporary art. Her figures — which have evolved from grotesquely exaggerated adolescent forms in her early work toward more complex, psychologically ambiguous characters in recent years — are presented in atmospheric colour fields of remarkable beauty, the luminous glazed surfaces placing the provocative imagery within a tradition of painterly seriousness that complicates any simple reading. The work forces the viewer to negotiate simultaneously the beauty of the painting, the discomfort of the imagery, and the question of who controls the gaze and for whose benefit.\n\nYuskavage is represented by David Zwirner Gallery and her work has been the subject of major survey exhibitions at institutions including the Rose Art Museum and the Frye Art Museum. She stands as one of the most important figurative painters of her generation.",
+      "norm_name": "WOLFGANG TILLMANS",
+      "display_name": "Wolfgang Tillmans",
+      "dates": "b. 1968",
+      "nationality": "German",
+      "movement": "Photography · Contemporary",
+      "movement_id": "photography",
+      "bio": "Wolfgang Tillmans is the most influential photographer of his generation, a Remscheid-born artist whose expansive practice — spanning portraiture, still life, landscape, abstract darkroom works, and installation — was consolidated by his becoming the first photographer and first non-British artist to win the Turner Prize in 2000. His work operates without hierarchy between subjects: the human body and the universe, the nightclub and the scientific laboratory, the intimate domestic still life and the political demonstration are treated with the same sustained attention and formal intelligence.\n\nTillmans's reputation was built initially through his documentation of queer youth culture in the early 1990s — images of rave culture, gay intimacy, and subcultural community published in magazines including i-D and Spex — but his practice quickly expanded to encompass abstract Freischwimmer and Blushes works made by exposing photographic paper to light without a camera, large-format still lifes, and an ongoing engagement with astronomy (he has made work in collaboration with observatories) that gives his practice an unusual cosmological dimension.\n\nHis installation method — works pinned, taped, and framed in combinations that refuse any single hierarchical reading — has been as influential on subsequent exhibition practice as his photographic images themselves. His political commitment (he was active in the campaign against Brexit and against the rise of authoritarian populism across Europe) informs his work without reducing it to didacticism.",
       "famous_works": [
         {
-          "title": "Teenie Weenie",
-          "year": "1995",
-          "notes": "An early painting in which an exaggerated adolescent female figure is rendered in Yuskavage's characteristic glazed technique, forcing a confrontation with the politics of the erotic image."
+          "title": "Freischwimmer series",
+          "year": "2003–present",
+          "notes": "Abstract photographic works made without a camera by exposing light-sensitive paper to light, colour, and chemical processes in the darkroom."
         },
         {
-          "title": "The Ones That Don't Want To",
-          "year": "2014",
-          "notes": "A large multi-figure painting demonstrating the development of Yuskavage's mature style, in which psychologically complex figures inhabit an atmospheric landscape."
+          "title": "Lutz & Alex sitting in the trees",
+          "year": "1992",
+          "notes": "An early portrait of a gay couple that exemplifies his intimate, non-hierarchical approach to the queer social world he documented."
         },
         {
-          "title": "Little Bitch",
-          "year": "1995",
-          "notes": "A painting in which Yuskavage's confrontational approach to the erotic female image is combined with her characteristic formal virtuosity to create a work that is simultaneously beautiful and disturbing."
+          "title": "truth study center",
+          "year": "2005–present",
+          "notes": "An ongoing installation project gathering images and texts investigating the construction of political truth and the media's role in shaping it."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Room for Cream (Warm)",
-          "year": "1996",
-          "notes": "An atmospheric interior work in which Yuskavage's investigation of light and glazed surface creates an environment of immersive colour within which her figure subjects operate."
+          "title": "Silver 103",
+          "year": "2008",
+          "notes": "A large-format silver abstraction in which photographic paper is crinkled and exposed, creating a surface of extraordinary tonal complexity without any camera involvement."
         },
         {
-          "title": "Bruiser",
-          "year": "2010",
-          "notes": "A large painting from Yuskavage's mature period in which the formal vocabulary of her earlier provocations is applied with new psychological depth."
+          "title": "Sendeschluss / End of Broadcast",
+          "year": "2014",
+          "notes": "A video work documenting the moment of television signal termination at the end of the broadcast day — a meditation on endings, silence, and the material quality of broadcast media."
         }
       ],
       "dataset": {
-        "lot_count": 5,
-        "total_usd": 806898,
-        "avg_usd": 161380,
-        "total_label": "$807k",
-        "avg_label": "$161k",
+        "lot_count": 12,
+        "total_usd": 787985,
+        "avg_usd": 65665,
+        "total_label": "$788k",
+        "avg_label": "$66k",
         "top_lot": {
-          "title": "Mrs. & Mr. Warmth",
-          "hammer_usd": 292100,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
+          "title": "Einzelgänger II",
+          "hammer_usd": 209677,
+          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
         },
         "top_ratio_lot": {
-          "title": "Mrs. & Mr. Warmth",
-          "ratio": 4.17
+          "title": "pumpkin, tomate & pomme granate",
+          "ratio": 5.49
         }
       }
     },
@@ -10597,56 +10651,56 @@
       }
     },
     {
-      "norm_name": "WOLFGANG TILLMANS",
-      "display_name": "Wolfgang Tillmans",
-      "dates": "b. 1968",
-      "nationality": "German",
-      "movement": "Photography · Contemporary",
-      "movement_id": "photography",
-      "bio": "Wolfgang Tillmans is the most influential photographer of his generation, a Remscheid-born artist whose expansive practice — spanning portraiture, still life, landscape, abstract darkroom works, and installation — was consolidated by his becoming the first photographer and first non-British artist to win the Turner Prize in 2000. His work operates without hierarchy between subjects: the human body and the universe, the nightclub and the scientific laboratory, the intimate domestic still life and the political demonstration are treated with the same sustained attention and formal intelligence.\n\nTillmans's reputation was built initially through his documentation of queer youth culture in the early 1990s — images of rave culture, gay intimacy, and subcultural community published in magazines including i-D and Spex — but his practice quickly expanded to encompass abstract Freischwimmer and Blushes works made by exposing photographic paper to light without a camera, large-format still lifes, and an ongoing engagement with astronomy (he has made work in collaboration with observatories) that gives his practice an unusual cosmological dimension.\n\nHis installation method — works pinned, taped, and framed in combinations that refuse any single hierarchical reading — has been as influential on subsequent exhibition practice as his photographic images themselves. His political commitment (he was active in the campaign against Brexit and against the rise of authoritarian populism across Europe) informs his work without reducing it to didacticism.",
+      "norm_name": "MAN RAY",
+      "display_name": "Man Ray",
+      "dates": "1890–1976",
+      "nationality": "American",
+      "movement": "Dada · Surrealism",
+      "movement_id": "surrealism",
+      "bio": "Emmanuel Radnitzky, known as Man Ray, was born in Philadelphia in 1890 and grew up in Brooklyn, where his early exposure to fine arts and the avant-garde milieu of the New York Armory Show of 1913 shaped his ambitions. He was a founding member of the New York Dada group and moved to Paris in 1921, where he became a central figure in the Surrealist movement and an intimate of Duchamp, Picasso, Gertrude Stein, and the most significant artistic personalities of inter-war Paris.\n\nMan Ray's practice was deliberately nomadic across media: painting, photography, assemblage, film, and drawing were all pursued with equal seriousness. His photograms — which he called Rayographs — were made by placing objects directly on photosensitive paper and exposing them to light, producing abstract images of poetic beauty from everyday objects. His airbrush paintings and his objects — including the famous Gift, a flatiron with nails attached to its base — translated Dada's confrontational wit into formally inventive objects.\n\nAs a photographer, Man Ray worked extensively in portraiture and fashion, producing some of the most significant portrait photographs of the twentieth century while simultaneously developing his experimental photographic practice. He returned to the United States during World War II before settling permanently in Paris, where he died in 1976. His work is held by the Museum of Modern Art, the Centre Pompidou, and major collections internationally.",
       "famous_works": [
         {
-          "title": "Freischwimmer series",
-          "year": "2003–present",
-          "notes": "Abstract photographic works made without a camera by exposing light-sensitive paper to light, colour, and chemical processes in the darkroom."
+          "title": "Rayographs",
+          "year": "1921–1940s",
+          "notes": "Camera-less photographs made by placing objects on photosensitive paper — the most sustained and original body of experimental photography in the Dada and Surrealist tradition."
         },
         {
-          "title": "Lutz & Alex sitting in the trees",
-          "year": "1992",
-          "notes": "An early portrait of a gay couple that exemplifies his intimate, non-hierarchical approach to the queer social world he documented."
+          "title": "Le Violon d'Ingres",
+          "year": "1924",
+          "notes": "A photograph of the model Kiki de Montparnasse in which f-holes are painted onto her back, transforming the female body into a musical instrument with a wit that is simultaneously tender and critical."
         },
         {
-          "title": "truth study center",
-          "year": "2005–present",
-          "notes": "An ongoing installation project gathering images and texts investigating the construction of political truth and the media's role in shaping it."
+          "title": "Gift",
+          "year": "1921",
+          "notes": "A readymade consisting of a flat iron with nails glued to its base, which converts a domestic tool into an object of surrealist menace."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Silver 103",
-          "year": "2008",
-          "notes": "A large-format silver abstraction in which photographic paper is crinkled and exposed, creating a surface of extraordinary tonal complexity without any camera involvement."
+          "title": "Rope Dancer Accompanies Herself with Her Shadows",
+          "year": "1916",
+          "notes": "An early painting from Man Ray's pre-Paris period demonstrating the formal intelligence and spatial experimentation that would underpin his Dada and Surrealist work."
         },
         {
-          "title": "Sendeschluss / End of Broadcast",
-          "year": "2014",
-          "notes": "A video work documenting the moment of television signal termination at the end of the broadcast day — a meditation on endings, silence, and the material quality of broadcast media."
+          "title": "Observatory Time (The Lovers)",
+          "year": "1936",
+          "notes": "A surrealist painting in which Lee Miller's lips float above a Parisian landscape as vast red lips in the sky."
         }
       ],
       "dataset": {
-        "lot_count": 11,
-        "total_usd": 692735,
-        "avg_usd": 62976,
-        "total_label": "$693k",
-        "avg_label": "$63k",
+        "lot_count": 6,
+        "total_usd": 674200,
+        "avg_usd": 112367,
+        "total_label": "$674k",
+        "avg_label": "$112k",
         "top_lot": {
-          "title": "Einzelgänger II",
-          "hammer_usd": 209677,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
+          "title": "Purple Mask",
+          "hammer_usd": 435483,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
         },
         "top_ratio_lot": {
-          "title": "pumpkin, tomate & pomme granate",
-          "ratio": 5.49
+          "title": "Purple Mask",
+          "ratio": 8.71
         }
       }
     },
@@ -10917,60 +10971,6 @@
         "top_ratio_lot": {
           "title": "Contours in Prime Color Field 原色領域之輪廓",
           "ratio": 0.93
-        }
-      }
-    },
-    {
-      "norm_name": "MAN RAY",
-      "display_name": "Man Ray",
-      "dates": "1890–1976",
-      "nationality": "American",
-      "movement": "Dada · Surrealism",
-      "movement_id": "surrealism",
-      "bio": "Emmanuel Radnitzky, known as Man Ray, was born in Philadelphia in 1890 and grew up in Brooklyn, where his early exposure to fine arts and the avant-garde milieu of the New York Armory Show of 1913 shaped his ambitions. He was a founding member of the New York Dada group and moved to Paris in 1921, where he became a central figure in the Surrealist movement and an intimate of Duchamp, Picasso, Gertrude Stein, and the most significant artistic personalities of inter-war Paris.\n\nMan Ray's practice was deliberately nomadic across media: painting, photography, assemblage, film, and drawing were all pursued with equal seriousness. His photograms — which he called Rayographs — were made by placing objects directly on photosensitive paper and exposing them to light, producing abstract images of poetic beauty from everyday objects. His airbrush paintings and his objects — including the famous Gift, a flatiron with nails attached to its base — translated Dada's confrontational wit into formally inventive objects.\n\nAs a photographer, Man Ray worked extensively in portraiture and fashion, producing some of the most significant portrait photographs of the twentieth century while simultaneously developing his experimental photographic practice. He returned to the United States during World War II before settling permanently in Paris, where he died in 1976. His work is held by the Museum of Modern Art, the Centre Pompidou, and major collections internationally.",
-      "famous_works": [
-        {
-          "title": "Rayographs",
-          "year": "1921–1940s",
-          "notes": "Camera-less photographs made by placing objects on photosensitive paper — the most sustained and original body of experimental photography in the Dada and Surrealist tradition."
-        },
-        {
-          "title": "Le Violon d'Ingres",
-          "year": "1924",
-          "notes": "A photograph of the model Kiki de Montparnasse in which f-holes are painted onto her back, transforming the female body into a musical instrument with a wit that is simultaneously tender and critical."
-        },
-        {
-          "title": "Gift",
-          "year": "1921",
-          "notes": "A readymade consisting of a flat iron with nails glued to its base, which converts a domestic tool into an object of surrealist menace."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Rope Dancer Accompanies Herself with Her Shadows",
-          "year": "1916",
-          "notes": "An early painting from Man Ray's pre-Paris period demonstrating the formal intelligence and spatial experimentation that would underpin his Dada and Surrealist work."
-        },
-        {
-          "title": "Observatory Time (The Lovers)",
-          "year": "1936",
-          "notes": "A surrealist painting in which Lee Miller's lips float above a Parisian landscape as vast red lips in the sky."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 638640,
-        "avg_usd": 127728,
-        "total_label": "$639k",
-        "avg_label": "$128k",
-        "top_lot": {
-          "title": "Purple Mask",
-          "hammer_usd": 435483,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Purple Mask",
-          "ratio": 8.71
         }
       }
     },
@@ -12871,6 +12871,60 @@
         "top_ratio_lot": {
           "title": "VEGA (2)",
           "ratio": 5.04
+        }
+      }
+    },
+    {
+      "norm_name": "REMBRANDT BUGATTI",
+      "display_name": "Rembrandt Bugatti",
+      "dates": "1884–1916",
+      "nationality": "Italian",
+      "movement": "Modernism · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Rembrandt Bugatti was born in Milan in 1884, the younger brother of Ettore Bugatti, the automobile manufacturer, and the son of Carlo Bugatti, the celebrated designer of furniture and jewellery. He displayed an exceptional talent for sculpture from childhood and by his early twenties had established himself as the most gifted animal sculptor of his generation, producing works of extraordinary vitality and immediacy that transform the modelling of animal subjects into something approaching artistic revelation.\n\nBugatti worked directly from live animals at the Antwerp and Paris zoos, sometimes spending hours or days observing a single animal before modelling it in clay. His bronzes capture the essential character of each species with an immediacy that suggests not careful academic study but a direct empathetic understanding: the drooping languor of a pelican, the alert concentration of a cheetah, the massive dignity of an elephant — each is rendered in a surface texture of remarkable vitality, the rough clay marks preserved in the final bronze creating an impression of living skin.\n\nHe died in Paris in 1916, possibly by suicide, at thirty-one — his brief career producing fewer than three hundred works that are now among the most sought-after animal bronzes in the auction market. The Czestochow collection at the Musée d'Orsay holds significant examples.",
+      "famous_works": [
+        {
+          "title": "Pelican",
+          "year": "1907",
+          "notes": "A bronze in which the bird's drooping, heavy-limbed languor is captured with a formal intelligence that makes the animal's specific essence immediately palpable."
+        },
+        {
+          "title": "Elephant",
+          "year": "1906",
+          "notes": "A small bronze in which Bugatti's direct modelling preserves the massive dignity and wrinkled skin of the elephant in a remarkably immediate translation of observation into material."
+        },
+        {
+          "title": "Cheetah Walking",
+          "year": "1911",
+          "notes": "A bronze of a striding cheetah in which the predator's combination of speed and elegance is fixed in a single arrested moment of characteristic grace."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Two Vultures",
+          "year": "1905",
+          "notes": "A bronze of two birds in which the social dynamics of the species — the hierarchy of feeding — is captured in the composition's formal organisation."
+        },
+        {
+          "title": "Greyhound",
+          "year": "1905",
+          "notes": "A bronze of a standing greyhound that demonstrates Bugatti's equal mastery of domestic animals alongside the exotic zoo subjects for which he is better known."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 291211,
+        "avg_usd": 145606,
+        "total_label": "$291k",
+        "avg_label": "$146k",
+        "top_lot": {
+          "title": "Buffle d’Asie ‘Gayal’",
+          "hammer_usd": 203200,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Chien lévrier",
+          "ratio": 1.47
         }
       }
     },
@@ -15683,60 +15737,6 @@
       }
     },
     {
-      "norm_name": "REMBRANDT BUGATTI",
-      "display_name": "Rembrandt Bugatti",
-      "dates": "1884–1916",
-      "nationality": "Italian",
-      "movement": "Modernism · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Rembrandt Bugatti was born in Milan in 1884, the younger brother of Ettore Bugatti, the automobile manufacturer, and the son of Carlo Bugatti, the celebrated designer of furniture and jewellery. He displayed an exceptional talent for sculpture from childhood and by his early twenties had established himself as the most gifted animal sculptor of his generation, producing works of extraordinary vitality and immediacy that transform the modelling of animal subjects into something approaching artistic revelation.\n\nBugatti worked directly from live animals at the Antwerp and Paris zoos, sometimes spending hours or days observing a single animal before modelling it in clay. His bronzes capture the essential character of each species with an immediacy that suggests not careful academic study but a direct empathetic understanding: the drooping languor of a pelican, the alert concentration of a cheetah, the massive dignity of an elephant — each is rendered in a surface texture of remarkable vitality, the rough clay marks preserved in the final bronze creating an impression of living skin.\n\nHe died in Paris in 1916, possibly by suicide, at thirty-one — his brief career producing fewer than three hundred works that are now among the most sought-after animal bronzes in the auction market. The Czestochow collection at the Musée d'Orsay holds significant examples.",
-      "famous_works": [
-        {
-          "title": "Pelican",
-          "year": "1907",
-          "notes": "A bronze in which the bird's drooping, heavy-limbed languor is captured with a formal intelligence that makes the animal's specific essence immediately palpable."
-        },
-        {
-          "title": "Elephant",
-          "year": "1906",
-          "notes": "A small bronze in which Bugatti's direct modelling preserves the massive dignity and wrinkled skin of the elephant in a remarkably immediate translation of observation into material."
-        },
-        {
-          "title": "Cheetah Walking",
-          "year": "1911",
-          "notes": "A bronze of a striding cheetah in which the predator's combination of speed and elegance is fixed in a single arrested moment of characteristic grace."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Two Vultures",
-          "year": "1905",
-          "notes": "A bronze of two birds in which the social dynamics of the species — the hierarchy of feeding — is captured in the composition's formal organisation."
-        },
-        {
-          "title": "Greyhound",
-          "year": "1905",
-          "notes": "A bronze of a standing greyhound that demonstrates Bugatti's equal mastery of domestic animals alongside the exotic zoo subjects for which he is better known."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 88011,
-        "avg_usd": 88011,
-        "total_label": "$88k",
-        "avg_label": "$88k",
-        "top_lot": {
-          "title": "Chien lévrier",
-          "hammer_usd": 88011,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Chien lévrier",
-          "ratio": 1.47
-        }
-      }
-    },
-    {
       "norm_name": "MARÍA BERRÍO",
       "display_name": "María Berrío",
       "dates": "b. 1982",
@@ -18356,6 +18356,33 @@
       }
     },
     {
+      "norm_name": "ALEXEJ VON JAWLENSKY",
+      "display_name": "Alexej Von Jawlensky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 1923700,
+        "avg_usd": 192370,
+        "total_label": "$1.92M",
+        "avg_label": "$192k",
+        "top_lot": {
+          "title": "Nordisch (Großer Abstrakter Kopf)",
+          "hammer_usd": 426473,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Nordisch (Großer Abstrakter Kopf)",
+          "ratio": 2.13
+        }
+      }
+    },
+    {
       "norm_name": "ERNST WILHELM NAY",
       "display_name": "Ernst Wilhelm Nay",
       "dates": "",
@@ -18491,8 +18518,8 @@
       }
     },
     {
-      "norm_name": "ALEXEJ VON JAWLENSKY",
-      "display_name": "Alexej Von Jawlensky",
+      "norm_name": "LUCIAN FREUD",
+      "display_name": "Lucian Freud",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -18501,19 +18528,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 9,
-        "total_usd": 1758600,
-        "avg_usd": 195400,
-        "total_label": "$1.76M",
-        "avg_label": "$195k",
+        "lot_count": 26,
+        "total_usd": 1765432,
+        "avg_usd": 67901,
+        "total_label": "$1.77M",
+        "avg_label": "$68k",
         "top_lot": {
-          "title": "Nordisch (Großer Abstrakter Kopf)",
-          "hammer_usd": 426473,
-          "sale_name": "Evening Sale, Munich"
+          "title": "Susanna (Fragment)",
+          "hammer_usd": 419354,
+          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
         },
         "top_ratio_lot": {
-          "title": "Nordisch (Großer Abstrakter Kopf)",
-          "ratio": 2.13
+          "title": "Susanna (Fragment)",
+          "ratio": 2.4
         }
       }
     },
@@ -19247,8 +19274,8 @@
       }
     },
     {
-      "norm_name": "LUCIAN FREUD",
-      "display_name": "Lucian Freud",
+      "norm_name": "FRANK  AUERBACH",
+      "display_name": "Frank  Auerbach",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -19257,19 +19284,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 22,
-        "total_usd": 1266322,
-        "avg_usd": 57560,
-        "total_label": "$1.27M",
-        "avg_label": "$58k",
+        "lot_count": 3,
+        "total_usd": 1257300,
+        "avg_usd": 419100,
+        "total_label": "$1.26M",
+        "avg_label": "$419k",
         "top_lot": {
-          "title": "Susanna (Fragment)",
-          "hammer_usd": 419354,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
+          "title": "J.Y.M. Seated",
+          "hammer_usd": 711200,
+          "sale_name": "Modern Day Auction L26007"
         },
         "top_ratio_lot": {
-          "title": "Susanna (Fragment)",
-          "ratio": 2.4
+          "title": "J.Y.M. Seated",
+          "ratio": 1.42
         }
       }
     },
@@ -19463,8 +19490,8 @@
       }
     },
     {
-      "norm_name": "FRANK  AUERBACH",
-      "display_name": "Frank  Auerbach",
+      "norm_name": "HENRI FANTIN-LATOUR",
+      "display_name": "Henri Fantin-Latour",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -19473,19 +19500,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 1143000,
-        "avg_usd": 571500,
-        "total_label": "$1.14M",
-        "avg_label": "$572k",
+        "lot_count": 7,
+        "total_usd": 1187545,
+        "avg_usd": 169649,
+        "total_label": "$1.19M",
+        "avg_label": "$170k",
         "top_lot": {
-          "title": "J.Y.M. Seated",
-          "hammer_usd": 711200,
-          "sale_name": "Modern Day Auction L26007"
+          "title": "Gros bouquet de roses",
+          "hammer_usd": 482600,
+          "sale_name": "Impressionist and Modern Art Day Sale"
         },
         "top_ratio_lot": {
-          "title": "J.Y.M. Seated",
-          "ratio": 1.42
+          "title": "Femme dans un paysage",
+          "ratio": 7.04
         }
       }
     },
@@ -19513,6 +19540,33 @@
         "top_ratio_lot": {
           "title": "Femme et fillettes dans un verger en fleurs",
           "ratio": 1.65
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGES SEURAT",
+      "display_name": "Georges Seurat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1116204,
+        "avg_usd": 372068,
+        "total_label": "$1.12M",
+        "avg_label": "$372k",
+        "top_lot": {
+          "title": "La Concierge (La Maquerelle - La Bonne)",
+          "hammer_usd": 580644,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "La Concierge (La Maquerelle - La Bonne)",
+          "ratio": 2.32
         }
       }
     },
@@ -19594,33 +19648,6 @@
         "top_ratio_lot": {
           "title": "Christ and the Samaritan Woman; Apollo and Daphne",
           "ratio": 1.38
-        }
-      }
-    },
-    {
-      "norm_name": "GEORGES SEURAT",
-      "display_name": "Georges Seurat",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 1080644,
-        "avg_usd": 540322,
-        "total_label": "$1.08M",
-        "avg_label": "$540k",
-        "top_lot": {
-          "title": "La Concierge (La Maquerelle - La Bonne)",
-          "hammer_usd": 580644,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "La Concierge (La Maquerelle - La Bonne)",
-          "ratio": 2.32
         }
       }
     },
@@ -19760,8 +19787,8 @@
       }
     },
     {
-      "norm_name": "HENRI FANTIN-LATOUR",
-      "display_name": "Henri Fantin-Latour",
+      "norm_name": "LOUIS VALTAT",
+      "display_name": "Louis Valtat",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -19770,19 +19797,46 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 6,
-        "total_usd": 997045,
-        "avg_usd": 166174,
-        "total_label": "$997k",
-        "avg_label": "$166k",
+        "lot_count": 13,
+        "total_usd": 1006250,
+        "avg_usd": 77404,
+        "total_label": "$1.01M",
+        "avg_label": "$77k",
         "top_lot": {
-          "title": "Gros bouquet de roses",
-          "hammer_usd": 482600,
+          "title": "Femmes sur les rochers à Anthéor",
+          "hammer_usd": 355600,
           "sale_name": "Impressionist and Modern Art Day Sale"
         },
         "top_ratio_lot": {
-          "title": "Femme dans un paysage",
-          "ratio": 7.04
+          "title": "Femmes sur les rochers à Anthéor",
+          "ratio": 5.93
+        }
+      }
+    },
+    {
+      "norm_name": "ODILON REDON",
+      "display_name": "Odilon Redon",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 994410,
+        "avg_usd": 248602,
+        "total_label": "$994k",
+        "avg_label": "$249k",
+        "top_lot": {
+          "title": "Vase de fleurs",
+          "hammer_usd": 596900,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Personnage rouge devant un coquillage",
+          "ratio": 3.99
         }
       }
     },
@@ -19945,33 +19999,6 @@
         "top_ratio_lot": {
           "title": "Still Life with Grocery Food and Opus One 靜物與雜貨食品及作品一號酒莊",
           "ratio": 0.53
-        }
-      }
-    },
-    {
-      "norm_name": "LOUIS VALTAT",
-      "display_name": "Louis Valtat",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 12,
-        "total_usd": 891950,
-        "avg_usd": 74329,
-        "total_label": "$892k",
-        "avg_label": "$74k",
-        "top_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "hammer_usd": 355600,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Femmes sur les rochers à Anthéor",
-          "ratio": 5.93
         }
       }
     },
@@ -20566,33 +20593,6 @@
         "top_ratio_lot": {
           "title": "Srihadi Sudarsono 斯裡哈迪·蘇達索諾 | Puppets 木偶",
           "ratio": 1.38
-        }
-      }
-    },
-    {
-      "norm_name": "ODILON REDON",
-      "display_name": "Odilon Redon",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 715010,
-        "avg_usd": 238337,
-        "total_label": "$715k",
-        "avg_label": "$238k",
-        "top_lot": {
-          "title": "Vase de fleurs",
-          "hammer_usd": 596900,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Vase de fleurs",
-          "ratio": 1.71
         }
       }
     },
@@ -21758,6 +21758,33 @@
       }
     },
     {
+      "norm_name": "JEAN-PIERRE CASSIGNEUL",
+      "display_name": "Jean-Pierre Cassigneul",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 458978,
+        "avg_usd": 76496,
+        "total_label": "$459k",
+        "avg_label": "$76k",
+        "top_lot": {
+          "title": "La robe blanche",
+          "hammer_usd": 120650,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Les Arbres rouges",
+          "ratio": 2.7
+        }
+      }
+    },
+    {
       "norm_name": "BRUCE NAUMAN",
       "display_name": "Bruce Nauman",
       "dates": "",
@@ -22433,6 +22460,33 @@
       }
     },
     {
+      "norm_name": "MOÏSE KISLING",
+      "display_name": "Moïse Kisling",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 386969,
+        "avg_usd": 96742,
+        "total_label": "$387k",
+        "avg_label": "$97k",
+        "top_lot": {
+          "title": "Poissons",
+          "hammer_usd": 145161,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Baie de Saint-Tropez",
+          "ratio": 2.82
+        }
+      }
+    },
+    {
       "norm_name": "LÉON SPILLIAERT",
       "display_name": "Léon Spilliaert",
       "dates": "",
@@ -22703,33 +22757,6 @@
       }
     },
     {
-      "norm_name": "JEAN-PIERRE CASSIGNEUL",
-      "display_name": "Jean-Pierre Cassigneul",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 351028,
-        "avg_usd": 70206,
-        "total_label": "$351k",
-        "avg_label": "$70k",
-        "top_lot": {
-          "title": "La robe blanche",
-          "hammer_usd": 120650,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Portrait de femme",
-          "ratio": 2.56
-        }
-      }
-    },
-    {
       "norm_name": "ALEX FOXTON",
       "display_name": "Alex Foxton",
       "dates": "",
@@ -22861,33 +22888,6 @@
         "top_ratio_lot": {
           "title": "Still Life with Apples and Strawberries",
           "ratio": 1.61
-        }
-      }
-    },
-    {
-      "norm_name": "MOÏSE KISLING",
-      "display_name": "Moïse Kisling",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 338709,
-        "avg_usd": 112903,
-        "total_label": "$339k",
-        "avg_label": "$113k",
-        "top_lot": {
-          "title": "Poissons",
-          "hammer_usd": 145161,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Baie de Saint-Tropez",
-          "ratio": 2.82
         }
       }
     },
@@ -23212,6 +23212,33 @@
         "top_ratio_lot": {
           "title": "Zwei Tänzerinnen mit Fächern",
           "ratio": 2.54
+        }
+      }
+    },
+    {
+      "norm_name": "MEGAN ROONEY",
+      "display_name": "Megan Rooney",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 317500,
+        "avg_usd": 317500,
+        "total_label": "$318k",
+        "avg_label": "$318k",
+        "top_lot": {
+          "title": "The Living Sky",
+          "hammer_usd": 317500,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "The Living Sky",
+          "ratio": 6.35
         }
       }
     },
@@ -26240,6 +26267,33 @@
       }
     },
     {
+      "norm_name": "DAVID BURLIUK",
+      "display_name": "David Burliuk",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 170815,
+        "avg_usd": 34163,
+        "total_label": "$171k",
+        "avg_label": "$34k",
+        "top_lot": {
+          "title": "Marina Grande, Capri",
+          "hammer_usd": 88900,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Marina Grande, Capri",
+          "ratio": 2.22
+        }
+      }
+    },
+    {
       "norm_name": "FÁTIMA DE JUAN",
       "display_name": "Fátima De Juan",
       "dates": "",
@@ -28747,6 +28801,60 @@
       }
     },
     {
+      "norm_name": "PABLO ATCHUGARRY",
+      "display_name": "Pablo Atchugarry",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 109450,
+        "avg_usd": 54725,
+        "total_label": "$109k",
+        "avg_label": "$55k",
+        "top_lot": {
+          "title": "Venus dormida",
+          "hammer_usd": 65000,
+          "sale_name": "Modern Contemporary Discoveries Pf2659"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.11
+        }
+      }
+    },
+    {
+      "norm_name": "SANYA KANTAROVSKY",
+      "display_name": "Sanya Kantarovsky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 109220,
+        "avg_usd": 54610,
+        "total_label": "$109k",
+        "avg_label": "$55k",
+        "top_lot": {
+          "title": "Obelisk",
+          "hammer_usd": 73660,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Obelisk",
+          "ratio": 2.95
+        }
+      }
+    },
+    {
       "norm_name": "NATHANIEL MARY QUINN",
       "display_name": "Nathaniel Mary Quinn",
       "dates": "",
@@ -29148,6 +29256,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.47
+        }
+      }
+    },
+    {
+      "norm_name": "MAX PECHSTEIN",
+      "display_name": "Max Pechstein",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 101600,
+        "avg_usd": 101600,
+        "total_label": "$102k",
+        "avg_label": "$102k",
+        "top_lot": {
+          "title": "Blumenstrauß (Flower Bouquet)",
+          "hammer_usd": 101600,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Blumenstrauß (Flower Bouquet)",
+          "ratio": 1.02
         }
       }
     },
@@ -30394,6 +30529,33 @@
       }
     },
     {
+      "norm_name": "BORIS DMITRIEVICH GRIGORIEV",
+      "display_name": "Boris Dmitrievich Grigoriev",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 81280,
+        "avg_usd": 40640,
+        "total_label": "$81k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Sunflowers",
+          "hammer_usd": 53340,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Sunflowers",
+          "ratio": 1.33
+        }
+      }
+    },
+    {
       "norm_name": "OSKAR SCHLEMMER",
       "display_name": "Oskar Schlemmer",
       "dates": "",
@@ -30853,33 +31015,6 @@
       }
     },
     {
-      "norm_name": "SANYA KANTAROVSKY",
-      "display_name": "Sanya Kantarovsky",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 73660,
-        "avg_usd": 73660,
-        "total_label": "$74k",
-        "avg_label": "$74k",
-        "top_lot": {
-          "title": "Obelisk",
-          "hammer_usd": 73660,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Obelisk",
-          "ratio": 2.95
-        }
-      }
-    },
-    {
       "norm_name": "NICOLAS KALMAKOFF",
       "display_name": "Nicolas Kalmakoff",
       "dates": "",
@@ -31308,33 +31443,6 @@
         "top_ratio_lot": {
           "title": "Tortue",
           "ratio": 1.62
-        }
-      }
-    },
-    {
-      "norm_name": "PABLO ATCHUGARRY",
-      "display_name": "Pablo Atchugarry",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 65000,
-        "avg_usd": 65000,
-        "total_label": "$65k",
-        "avg_label": "$65k",
-        "top_lot": {
-          "title": "Venus dormida",
-          "hammer_usd": 65000,
-          "sale_name": "Modern Contemporary Discoveries Pf2659"
-        },
-        "top_ratio_lot": {
-          "title": "Venus dormida",
-          "ratio": 0.93
         }
       }
     },
@@ -33067,6 +33175,33 @@
       }
     },
     {
+      "norm_name": "FRIEDRICH KUNATH",
+      "display_name": "Friedrich Kunath",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 48908,
+        "avg_usd": 16303,
+        "total_label": "$49k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Where is the Madness That You Promised Me",
+          "hammer_usd": 27940,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Mrs. Starlite Walker",
+          "ratio": 1.61
+        }
+      }
+    },
+    {
       "norm_name": "GHADA AMER",
       "display_name": "Ghada Amer",
       "dates": "",
@@ -34332,6 +34467,33 @@
         "top_ratio_lot": {
           "title": "Study for a Portrait of Francis Bacon",
           "ratio": 6.77
+        }
+      }
+    },
+    {
+      "norm_name": "LEILAH BABIRYE",
+      "display_name": "Leilah Babirye",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Namasole Wannyana, Mother of King Kimera From the Kuchu Roya",
+          "hammer_usd": 40640,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Namasole Wannyana, Mother of King Kimera From the Kuchu Roya",
+          "ratio": 1.63
         }
       }
     },
@@ -36901,6 +37063,33 @@
       }
     },
     {
+      "norm_name": "LYNN CHADWICK, R.A.",
+      "display_name": "Lynn Chadwick, R.A.",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 25400,
+        "avg_usd": 25400,
+        "total_label": "$25k",
+        "avg_label": "$25k",
+        "top_lot": {
+          "title": "Sitting Couple",
+          "hammer_usd": 25400,
+          "sale_name": "Modern Day Auction L26007"
+        },
+        "top_ratio_lot": {
+          "title": "Sitting Couple",
+          "ratio": 2.03
+        }
+      }
+    },
+    {
       "norm_name": "ANDRÉ BRETON",
       "display_name": "André Breton",
       "dates": "",
@@ -37626,33 +37815,6 @@
         "top_ratio_lot": {
           "title": "Radical Writings, Schriftzug-Atemzug, Übung 2 vom 26-6-88",
           "ratio": 2.1
-        }
-      }
-    },
-    {
-      "norm_name": "FRIEDRICH KUNATH",
-      "display_name": "Friedrich Kunath",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 20968,
-        "avg_usd": 10484,
-        "total_label": "$21k",
-        "avg_label": "$10k",
-        "top_lot": {
-          "title": "Mrs. Starlite Walker",
-          "hammer_usd": 16129,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Mrs. Starlite Walker",
-          "ratio": 1.61
         }
       }
     },
@@ -39732,6 +39894,33 @@
         "top_ratio_lot": {
           "title": "Sleeping Nymph",
           "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "KAREN KILIMNIK",
+      "display_name": "Karen Kilimnik",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "My Palomino Pony, Sea Biscuit, at Chincoteague Island, Partl",
+          "hammer_usd": 13970,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "My Palomino Pony, Sea Biscuit, at Chincoteague Island, Partl",
+          "ratio": 0.93
         }
       }
     },
