@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3422,
-    "total_artists": 1351,
-    "median_hammer_usd": 96774,
-    "pct_above_estimate": 46.7,
+    "total_lots": 3472,
+    "total_artists": 1371,
+    "median_hammer_usd": 95250,
+    "pct_above_estimate": 46.6,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-06"
+    "generated_at": "2026-08-10"
   },
   "artists": [
     {
@@ -513,11 +513,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 51,
-        "total_usd": 42856209,
-        "avg_usd": 840318,
-        "total_label": "$42.86M",
-        "avg_label": "$840k",
+        "lot_count": 53,
+        "total_usd": 43049249,
+        "avg_usd": 812250,
+        "total_label": "$43.05M",
+        "avg_label": "$812k",
         "top_lot": {
           "title": "Late Four-Foot Flowers",
           "hammer_usd": 10000000,
@@ -793,11 +793,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 41,
-        "total_usd": 32811072,
-        "avg_usd": 800270,
-        "total_label": "$32.81M",
-        "avg_label": "$800k",
+        "lot_count": 42,
+        "total_usd": 33700072,
+        "avg_usd": 802383,
+        "total_label": "$33.70M",
+        "avg_label": "$802k",
         "top_lot": {
           "title": "Inside the West Wing 西翼內部",
           "hammer_usd": 19000000,
@@ -2151,6 +2151,60 @@
       }
     },
     {
+      "norm_name": "ANTONY GORMLEY",
+      "display_name": "Antony Gormley",
+      "dates": "b. 1950",
+      "nationality": "British",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
+      "famous_works": [
+        {
+          "title": "Angel of the North",
+          "year": "1998",
+          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
+        },
+        {
+          "title": "Another Place",
+          "year": "1997",
+          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
+        },
+        {
+          "title": "Event Horizon",
+          "year": "2007",
+          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Learning to Think",
+          "year": "1991",
+          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
+        },
+        {
+          "title": "One & Other",
+          "year": "2009",
+          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
+        }
+      ],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 9255819,
+        "avg_usd": 1322260,
+        "total_label": "$9.26M",
+        "avg_label": "$1.32M",
+        "top_lot": {
+          "title": "Open Hide",
+          "hammer_usd": 4800000,
+          "sale_name": "Contemporary Evening Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "Another Singularity",
+          "ratio": 3.78
+        }
+      }
+    },
+    {
       "norm_name": "HENRI MATISSE",
       "display_name": "Henri Matisse",
       "dates": "1869–1954",
@@ -2260,60 +2314,6 @@
         "top_ratio_lot": {
           "title": "Young girl with book 女孩與書",
           "ratio": 1.5
-        }
-      }
-    },
-    {
-      "norm_name": "ANTONY GORMLEY",
-      "display_name": "Antony Gormley",
-      "dates": "b. 1950",
-      "nationality": "British",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
-      "famous_works": [
-        {
-          "title": "Angel of the North",
-          "year": "1998",
-          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
-        },
-        {
-          "title": "Another Place",
-          "year": "1997",
-          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
-        },
-        {
-          "title": "Event Horizon",
-          "year": "2007",
-          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Learning to Think",
-          "year": "1991",
-          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
-        },
-        {
-          "title": "One & Other",
-          "year": "2009",
-          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 8747819,
-        "avg_usd": 1457970,
-        "total_label": "$8.75M",
-        "avg_label": "$1.46M",
-        "top_lot": {
-          "title": "Open Hide",
-          "hammer_usd": 4800000,
-          "sale_name": "Contemporary Evening Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "Another Singularity",
-          "ratio": 3.78
         }
       }
     },
@@ -3082,11 +3082,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 6743602,
-        "avg_usd": 1685900,
-        "total_label": "$6.74M",
-        "avg_label": "$1.69M",
+        "lot_count": 5,
+        "total_usd": 6813452,
+        "avg_usd": 1362690,
+        "total_label": "$6.81M",
+        "avg_label": "$1.36M",
         "top_lot": {
           "title": "Alpenveilchen",
           "hammer_usd": 4800000,
@@ -3855,6 +3855,60 @@
       }
     },
     {
+      "norm_name": "IZUMI KATO",
+      "display_name": "Izumi Kato",
+      "dates": "b. 1969",
+      "nationality": "Japanese",
+      "movement": "Contemporary · Figurative",
+      "movement_id": "contemporary",
+      "bio": "Izumi Kato was born in Shimane Prefecture, Japan in 1969 and studied at Musashino Art University in Tokyo. He has developed a distinctive figurative practice in painting, sculpture, and works on paper centred on a recurring cast of simplified, alien-seeming figures — large-headed, large-eyed, with simplified limbs and an ambiguous species identity — that hover between the human and the extraterrestrial, between the childlike and the uncanny.\n\nKato's figures are rendered in a manner that references both the naive directness of children's art and the formal sophistication of Outsider Art traditions, while his sculptural works — figures carved from wood and stone or modelled in resin — carry an additional dimension of material presence and physical vulnerability. The figures' simplicity is deceptive: their economy of form encodes complex emotional states, and their ambiguous ontological status — are they humans, spirits, aliens, toys? — opens up questions about identity, consciousness, and the boundary between the animate and the inanimate that connect to ancient animist traditions within Japanese culture.\n\nKato has been exhibited extensively internationally, including at Perrotin Gallery, and his work has attracted significant institutional and collector interest. He represents a singular contribution to contemporary figurative art that draws on both Japanese cultural tradition and global contemporary practice.",
+      "famous_works": [
+        {
+          "title": "Untitled (Large-Headed Figure)",
+          "year": "2008",
+          "notes": "A large-scale painting of one of Kato's characteristic alien figures in which the simplified form achieves an emotional presence that belies its formal economy."
+        },
+        {
+          "title": "Sculpture (Stone Figure)",
+          "year": "2012",
+          "notes": "A carved stone figure in which Kato's formal vocabulary of simplified, embryonic humanity is translated into the permanent weight of mineral matter."
+        },
+        {
+          "title": "Untitled (Group)",
+          "year": "2015",
+          "notes": "A multi-figure composition in which Kato's characters occupy a shared space, exploring the dynamics of community and isolation through their simplified, alien-human forms."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Works on paper series",
+          "year": "2010s",
+          "notes": "Drawings and works on paper that demonstrate the development of Kato's figurative vocabulary in a more intimate and exploratory format."
+        },
+        {
+          "title": "Collaborative installation",
+          "year": "2016",
+          "notes": "A site-specific installation in which Kato's figures inhabit an architectural space in ways that extend their interrogation of presence, absence, and the boundaries of the human."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 5643500,
+        "avg_usd": 1128700,
+        "total_label": "$5.64M",
+        "avg_label": "$1.13M",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 3000000,
+          "sale_name": "Contemporary Day Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 1.95
+        }
+      }
+    },
+    {
       "norm_name": "SHI HU",
       "display_name": "Shi Hu",
       "dates": "b. 1942",
@@ -3905,60 +3959,6 @@
         "top_ratio_lot": {
           "title": "Shi Hu 石虎 | Horse in the forest 森馬",
           "ratio": 8.0
-        }
-      }
-    },
-    {
-      "norm_name": "IZUMI KATO",
-      "display_name": "Izumi Kato",
-      "dates": "b. 1969",
-      "nationality": "Japanese",
-      "movement": "Contemporary · Figurative",
-      "movement_id": "contemporary",
-      "bio": "Izumi Kato was born in Shimane Prefecture, Japan in 1969 and studied at Musashino Art University in Tokyo. He has developed a distinctive figurative practice in painting, sculpture, and works on paper centred on a recurring cast of simplified, alien-seeming figures — large-headed, large-eyed, with simplified limbs and an ambiguous species identity — that hover between the human and the extraterrestrial, between the childlike and the uncanny.\n\nKato's figures are rendered in a manner that references both the naive directness of children's art and the formal sophistication of Outsider Art traditions, while his sculptural works — figures carved from wood and stone or modelled in resin — carry an additional dimension of material presence and physical vulnerability. The figures' simplicity is deceptive: their economy of form encodes complex emotional states, and their ambiguous ontological status — are they humans, spirits, aliens, toys? — opens up questions about identity, consciousness, and the boundary between the animate and the inanimate that connect to ancient animist traditions within Japanese culture.\n\nKato has been exhibited extensively internationally, including at Perrotin Gallery, and his work has attracted significant institutional and collector interest. He represents a singular contribution to contemporary figurative art that draws on both Japanese cultural tradition and global contemporary practice.",
-      "famous_works": [
-        {
-          "title": "Untitled (Large-Headed Figure)",
-          "year": "2008",
-          "notes": "A large-scale painting of one of Kato's characteristic alien figures in which the simplified form achieves an emotional presence that belies its formal economy."
-        },
-        {
-          "title": "Sculpture (Stone Figure)",
-          "year": "2012",
-          "notes": "A carved stone figure in which Kato's formal vocabulary of simplified, embryonic humanity is translated into the permanent weight of mineral matter."
-        },
-        {
-          "title": "Untitled (Group)",
-          "year": "2015",
-          "notes": "A multi-figure composition in which Kato's characters occupy a shared space, exploring the dynamics of community and isolation through their simplified, alien-human forms."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Works on paper series",
-          "year": "2010s",
-          "notes": "Drawings and works on paper that demonstrate the development of Kato's figurative vocabulary in a more intimate and exploratory format."
-        },
-        {
-          "title": "Collaborative installation",
-          "year": "2016",
-          "notes": "A site-specific installation in which Kato's figures inhabit an architectural space in ways that extend their interrogation of presence, absence, and the boundaries of the human."
-        }
-      ],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 5580000,
-        "avg_usd": 1395000,
-        "total_label": "$5.58M",
-        "avg_label": "$1.40M",
-        "top_lot": {
-          "title": "Untitled 無題",
-          "hammer_usd": 3000000,
-          "sale_name": "Contemporary Day Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled 無題",
-          "ratio": 1.95
         }
       }
     },
@@ -6200,11 +6200,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 13,
-        "total_usd": 3062695,
-        "avg_usd": 235592,
-        "total_label": "$3.06M",
-        "avg_label": "$236k",
+        "lot_count": 14,
+        "total_usd": 3090635,
+        "avg_usd": 220760,
+        "total_label": "$3.09M",
+        "avg_label": "$221k",
         "top_lot": {
           "title": "Untitled (Triptych) 無題 （三聯作）",
           "hammer_usd": 900000,
@@ -6524,19 +6524,19 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
-        "total_usd": 2800000,
-        "avg_usd": 2800000,
-        "total_label": "$2.80M",
-        "avg_label": "$2.80M",
+        "lot_count": 2,
+        "total_usd": 2840640,
+        "avg_usd": 1420320,
+        "total_label": "$2.84M",
+        "avg_label": "$1.42M",
         "top_lot": {
           "title": "93G",
           "hammer_usd": 2800000,
           "sale_name": "Contemporary Day Auction, NY 2023"
         },
         "top_ratio_lot": {
-          "title": "93G",
-          "ratio": 0.97
+          "title": "Untitled",
+          "ratio": 1.02
         }
       }
     },
@@ -6875,6 +6875,60 @@
       }
     },
     {
+      "norm_name": "JACK WHITTEN",
+      "display_name": "Jack Whitten",
+      "dates": "1939–2018",
+      "nationality": "American",
+      "movement": "Abstract Expressionism · Contemporary",
+      "movement_id": "abstract-expressionism",
+      "bio": "Jack Whitten was born in Bessemer, Alabama in 1939 and came of age during the civil rights movement, studying briefly at the Tuskegee Institute and meeting Martin Luther King Jr. before moving north to New York, where he enrolled at Cooper Union and graduated in 1964. He became part of the downtown art world, befriending Philip Guston and Ad Reinhardt and developing through the 1960s and 1970s a practice of rigorous formal experimentation that remained largely outside mainstream critical attention.\n\nWhitten's work went through numerous distinct phases, each involving technical innovation. In the 1970s he developed an approach using a large homemade squeegee to drag mixed paint across large canvases in a single decisive gesture, creating surfaces of extraordinary tonal complexity. Later he invented what he called 'tesserae' — dried slices of acrylic paint used as mosaic elements — which he pressed into large compositions to create surfaces that combine the history of Byzantine mosaic with the materiality of abstract painting. His work was explicitly concerned with being both a Black American artist and a modernist painter, holding these identities not in tension but in productive synthesis.\n\nLate recognition came with a major retrospective at the Metropolitan Museum of Art in 2014, the year before his death, which confirmed his status as one of the most significant and original painters of his generation. His works are held by major museums including the Guggenheim and the Whitney.",
+      "famous_works": [
+        {
+          "title": "Delta Group",
+          "year": "1975",
+          "notes": "A large squeegee painting in which a single horizontal gesture creates a surface of complex tonal modulation that brings together Jackson Pollock's physical engagement with painting and a more concentrated formal restraint."
+        },
+        {
+          "title": "9/11/01",
+          "year": "2006",
+          "notes": "A tessera painting created in response to the September 11 attacks, in which fragmented acrylic slabs are combined into an elegy that locates abstract painting in relation to collective trauma."
+        },
+        {
+          "title": "Atopolis (For Édouard Glissant)",
+          "year": "2014",
+          "notes": "A large tessera painting dedicated to the Caribbean philosopher, in which the mosaic surface becomes a metaphor for the creolised, rhizomatic cultural identity that Glissant theorised."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Doctor Egypt (and the Witchdoctor's Problem)",
+          "year": "1966",
+          "notes": "An early painting that demonstrates Whitten's engagement with African and African-American cultural sources as formal and intellectual content."
+        },
+        {
+          "title": "Greek Alphabet series",
+          "year": "1975–1976",
+          "notes": "A group of squeegee paintings in which the gestural system is applied with particularly rigorous consistency, creating works of concentrated formal intelligence."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 2665770,
+        "avg_usd": 444295,
+        "total_label": "$2.67M",
+        "avg_label": "$444k",
+        "top_lot": {
+          "title": "Alpha Group III",
+          "hammer_usd": 950000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Alpha Group III",
+          "ratio": 1.36
+        }
+      }
+    },
+    {
       "norm_name": "OLGA DE AMARAL",
       "display_name": "Olga de Amaral",
       "dates": "b. 1932",
@@ -6925,60 +6979,6 @@
         "top_ratio_lot": {
           "title": "Paisaje heredado 4",
           "ratio": 2.29
-        }
-      }
-    },
-    {
-      "norm_name": "JACK WHITTEN",
-      "display_name": "Jack Whitten",
-      "dates": "1939–2018",
-      "nationality": "American",
-      "movement": "Abstract Expressionism · Contemporary",
-      "movement_id": "abstract-expressionism",
-      "bio": "Jack Whitten was born in Bessemer, Alabama in 1939 and came of age during the civil rights movement, studying briefly at the Tuskegee Institute and meeting Martin Luther King Jr. before moving north to New York, where he enrolled at Cooper Union and graduated in 1964. He became part of the downtown art world, befriending Philip Guston and Ad Reinhardt and developing through the 1960s and 1970s a practice of rigorous formal experimentation that remained largely outside mainstream critical attention.\n\nWhitten's work went through numerous distinct phases, each involving technical innovation. In the 1970s he developed an approach using a large homemade squeegee to drag mixed paint across large canvases in a single decisive gesture, creating surfaces of extraordinary tonal complexity. Later he invented what he called 'tesserae' — dried slices of acrylic paint used as mosaic elements — which he pressed into large compositions to create surfaces that combine the history of Byzantine mosaic with the materiality of abstract painting. His work was explicitly concerned with being both a Black American artist and a modernist painter, holding these identities not in tension but in productive synthesis.\n\nLate recognition came with a major retrospective at the Metropolitan Museum of Art in 2014, the year before his death, which confirmed his status as one of the most significant and original painters of his generation. His works are held by major museums including the Guggenheim and the Whitney.",
-      "famous_works": [
-        {
-          "title": "Delta Group",
-          "year": "1975",
-          "notes": "A large squeegee painting in which a single horizontal gesture creates a surface of complex tonal modulation that brings together Jackson Pollock's physical engagement with painting and a more concentrated formal restraint."
-        },
-        {
-          "title": "9/11/01",
-          "year": "2006",
-          "notes": "A tessera painting created in response to the September 11 attacks, in which fragmented acrylic slabs are combined into an elegy that locates abstract painting in relation to collective trauma."
-        },
-        {
-          "title": "Atopolis (For Édouard Glissant)",
-          "year": "2014",
-          "notes": "A large tessera painting dedicated to the Caribbean philosopher, in which the mosaic surface becomes a metaphor for the creolised, rhizomatic cultural identity that Glissant theorised."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Doctor Egypt (and the Witchdoctor's Problem)",
-          "year": "1966",
-          "notes": "An early painting that demonstrates Whitten's engagement with African and African-American cultural sources as formal and intellectual content."
-        },
-        {
-          "title": "Greek Alphabet series",
-          "year": "1975–1976",
-          "notes": "A group of squeegee paintings in which the gestural system is applied with particularly rigorous consistency, creating works of concentrated formal intelligence."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 2651800,
-        "avg_usd": 530360,
-        "total_label": "$2.65M",
-        "avg_label": "$530k",
-        "top_lot": {
-          "title": "Alpha Group III",
-          "hammer_usd": 950000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Alpha Group III",
-          "ratio": 1.36
         }
       }
     },
@@ -7965,6 +7965,60 @@
       }
     },
     {
+      "norm_name": "JEFF KOONS",
+      "display_name": "Jeff Koons",
+      "dates": "b. 1955",
+      "nationality": "American",
+      "movement": "Neo-Conceptualism · Pop Art",
+      "movement_id": "pop-art",
+      "bio": "Jeff Koons is the most commercially successful living American artist and one of the most polarising figures in contemporary art, a York, Pennsylvania-born artist whose stainless-steel balloon sculptures, inflatable bunny figures, and porcelain kitsch objects trade the conceptual strategies of Duchamp and Warhol for an embrace of consumer culture so total that critics have debated endlessly whether it constitutes critique or celebration. After training at the Maryland Institute College of Art and the School of the Art Institute of Chicago, Koons worked as a commodities broker on Wall Street in the late 1970s, financing his own artistic production.\n\nKoons's artistic programme is rooted in what he calls 'acceptance' — a refusal to judge or elevate the objects and images of popular culture, approaching inflatable toys, pornography, and kitsch decorative objects with the same formal attention that a sculptor might bring to the classical tradition. His Celebration series (1994–2000, completed 2014), a group of stainless steel and high-chromium sculptures including Balloon Dog, Tulips, and Sacred Heart, are fabricated with industrial precision to look exactly like inflatable party balloons, their mirror-polished surfaces reflecting and distorting the viewer and the surrounding space. Balloon Dog (Orange) sold for $58.4 million in 2013, then the highest price for a work by a living artist.\n\nKoons's Banality series (1988) — porcelain and wood sculptures of Michael Jackson, Pink Panther, and a pig sitting on a police car — and his Made in Heaven series (1989–1991), billboard-scale photographs of himself having sex with his then-wife Ilona Staller (La Cicciolina), are his most controversial works, testing the boundaries of what art institutions are prepared to exhibit.",
+      "famous_works": [
+        {
+          "title": "Balloon Dog (Orange)",
+          "year": "1994–2000",
+          "notes": "Stainless steel coated in chromatic pigment, this mirror-polished party balloon sold for $58.4 million in 2013, then the world record for a living artist."
+        },
+        {
+          "title": "Rabbit",
+          "year": "1986",
+          "notes": "An inflatable Easter bunny cast in stainless steel, now in MoMA — sold for $91.1 million in 2019, the world record for a living artist at auction."
+        },
+        {
+          "title": "Michael Jackson and Bubbles",
+          "year": "1988",
+          "notes": "A gilded porcelain sculpture of the pop star with his chimpanzee, the definitive work of the Banality series."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The New (New Shelton Wet/Drys 9½",
+          "year": "1981",
+          "notes": "Vacuum cleaners in illuminated vitrines — his first significant works, proposing the pristine consumer object as sculpture."
+        },
+        {
+          "title": "Antiquity series",
+          "year": "2009–2012",
+          "notes": "Works combining classical sculpture, modern consumer objects, and advertising imagery in layered photographic and painted compositions."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1927940,
+        "avg_usd": 963970,
+        "total_label": "$1.93M",
+        "avg_label": "$964k",
+        "top_lot": {
+          "title": "Baroque Egg with Bow",
+          "hammer_usd": 1900000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Balloon Dog (Blue)",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "SOL LEWITT",
       "display_name": "Sol LeWitt",
       "dates": "1928–2007",
@@ -8020,60 +8074,6 @@
         "top_ratio_lot": {
           "title": "Wall Drawing #980, A 12-inch (30 cm) grid covering the wall.",
           "ratio": 6.1
-        }
-      }
-    },
-    {
-      "norm_name": "JEFF KOONS",
-      "display_name": "Jeff Koons",
-      "dates": "b. 1955",
-      "nationality": "American",
-      "movement": "Neo-Conceptualism · Pop Art",
-      "movement_id": "pop-art",
-      "bio": "Jeff Koons is the most commercially successful living American artist and one of the most polarising figures in contemporary art, a York, Pennsylvania-born artist whose stainless-steel balloon sculptures, inflatable bunny figures, and porcelain kitsch objects trade the conceptual strategies of Duchamp and Warhol for an embrace of consumer culture so total that critics have debated endlessly whether it constitutes critique or celebration. After training at the Maryland Institute College of Art and the School of the Art Institute of Chicago, Koons worked as a commodities broker on Wall Street in the late 1970s, financing his own artistic production.\n\nKoons's artistic programme is rooted in what he calls 'acceptance' — a refusal to judge or elevate the objects and images of popular culture, approaching inflatable toys, pornography, and kitsch decorative objects with the same formal attention that a sculptor might bring to the classical tradition. His Celebration series (1994–2000, completed 2014), a group of stainless steel and high-chromium sculptures including Balloon Dog, Tulips, and Sacred Heart, are fabricated with industrial precision to look exactly like inflatable party balloons, their mirror-polished surfaces reflecting and distorting the viewer and the surrounding space. Balloon Dog (Orange) sold for $58.4 million in 2013, then the highest price for a work by a living artist.\n\nKoons's Banality series (1988) — porcelain and wood sculptures of Michael Jackson, Pink Panther, and a pig sitting on a police car — and his Made in Heaven series (1989–1991), billboard-scale photographs of himself having sex with his then-wife Ilona Staller (La Cicciolina), are his most controversial works, testing the boundaries of what art institutions are prepared to exhibit.",
-      "famous_works": [
-        {
-          "title": "Balloon Dog (Orange)",
-          "year": "1994–2000",
-          "notes": "Stainless steel coated in chromatic pigment, this mirror-polished party balloon sold for $58.4 million in 2013, then the world record for a living artist."
-        },
-        {
-          "title": "Rabbit",
-          "year": "1986",
-          "notes": "An inflatable Easter bunny cast in stainless steel, now in MoMA — sold for $91.1 million in 2019, the world record for a living artist at auction."
-        },
-        {
-          "title": "Michael Jackson and Bubbles",
-          "year": "1988",
-          "notes": "A gilded porcelain sculpture of the pop star with his chimpanzee, the definitive work of the Banality series."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The New (New Shelton Wet/Drys 9½",
-          "year": "1981",
-          "notes": "Vacuum cleaners in illuminated vitrines — his first significant works, proposing the pristine consumer object as sculpture."
-        },
-        {
-          "title": "Antiquity series",
-          "year": "2009–2012",
-          "notes": "Works combining classical sculpture, modern consumer objects, and advertising imagery in layered photographic and painted compositions."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 1900000,
-        "avg_usd": 1900000,
-        "total_label": "$1.90M",
-        "avg_label": "$1.90M",
-        "top_lot": {
-          "title": "Baroque Egg with Bow",
-          "hammer_usd": 1900000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Baroque Egg with Bow",
-          "ratio": 0.63
         }
       }
     },
@@ -11849,6 +11849,60 @@
       }
     },
     {
+      "norm_name": "FRANZ WEST",
+      "display_name": "Franz West",
+      "dates": "1947–2012",
+      "nationality": "Austrian",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Franz West was born in Vienna in 1947 and came of age in the intellectual milieu of Viennese Actionism, though his own practice took a very different direction: toward sculpture, furniture, and objects that question the boundaries between art and utility, formal presentation and informal use. Largely self-taught, he began making his Passstücke (Adaptives) in the late 1970s — small, lumpy plaster objects sized to be held, worn, or balanced against the body by gallery visitors, activating and completing the work through physical participation.\n\nWest developed these ideas into larger-scale sculptures and furniture that similarly demanded activation: sculptures to sit on, paper-maché and wire constructions in bright colours that look simultaneously childish and formally sophisticated, collaborative installations with friends and collaborators. His work consistently refuses the preciousness and distance of conventional sculpture, insisting on contact, use, and the social interaction that objects designed for bodies necessarily produce.\n\nWest won the Golden Lion for Lifetime Achievement at the 2011 Venice Biennale. He was represented by Gagosian Gallery and his work is held by major museums worldwide. His legacy extends beyond individual works to an attitude toward the relationship between art objects and their audience that has influenced numerous younger artists.",
+      "famous_works": [
+        {
+          "title": "Passstücke (Adaptives)",
+          "year": "1974–1979",
+          "notes": "Small plaster objects sized for bodily use by gallery visitors, in which the sculpture is completed only through physical contact and activation by the audience."
+        },
+        {
+          "title": "Epoxy works",
+          "year": "1990s",
+          "notes": "Large-scale painted epoxy sculptures of bulbous, lumpy forms in bright colours that combine formal playfulness with a material directness that resists aesthetic idealisation."
+        },
+        {
+          "title": "Furniture Works",
+          "year": "various",
+          "notes": "Wicker, steel, and found-material furniture that functions simultaneously as art and seating, collapsing the distinction between the aesthetic and the utilitarian."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Auditorium",
+          "year": "1993",
+          "notes": "An installation in which West's characteristic furniture-sculptures are arranged into a collective seating arrangement that transforms the gallery into a social space."
+        },
+        {
+          "title": "Collages",
+          "year": "1980s–1990s",
+          "notes": "A body of works on paper in which magazine images are rearranged and annotated in a manner that reflects West's intellectual engagement with psychoanalysis and Viennese cultural life."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 438880,
+        "avg_usd": 109720,
+        "total_label": "$439k",
+        "avg_label": "$110k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 277200,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.58
+        }
+      }
+    },
+    {
       "norm_name": "MINORU NOMATA",
       "display_name": "Minoru Nomata",
       "dates": "b. 1955",
@@ -12443,60 +12497,6 @@
       }
     },
     {
-      "norm_name": "FRANZ WEST",
-      "display_name": "Franz West",
-      "dates": "1947–2012",
-      "nationality": "Austrian",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Franz West was born in Vienna in 1947 and came of age in the intellectual milieu of Viennese Actionism, though his own practice took a very different direction: toward sculpture, furniture, and objects that question the boundaries between art and utility, formal presentation and informal use. Largely self-taught, he began making his Passstücke (Adaptives) in the late 1970s — small, lumpy plaster objects sized to be held, worn, or balanced against the body by gallery visitors, activating and completing the work through physical participation.\n\nWest developed these ideas into larger-scale sculptures and furniture that similarly demanded activation: sculptures to sit on, paper-maché and wire constructions in bright colours that look simultaneously childish and formally sophisticated, collaborative installations with friends and collaborators. His work consistently refuses the preciousness and distance of conventional sculpture, insisting on contact, use, and the social interaction that objects designed for bodies necessarily produce.\n\nWest won the Golden Lion for Lifetime Achievement at the 2011 Venice Biennale. He was represented by Gagosian Gallery and his work is held by major museums worldwide. His legacy extends beyond individual works to an attitude toward the relationship between art objects and their audience that has influenced numerous younger artists.",
-      "famous_works": [
-        {
-          "title": "Passstücke (Adaptives)",
-          "year": "1974–1979",
-          "notes": "Small plaster objects sized for bodily use by gallery visitors, in which the sculpture is completed only through physical contact and activation by the audience."
-        },
-        {
-          "title": "Epoxy works",
-          "year": "1990s",
-          "notes": "Large-scale painted epoxy sculptures of bulbous, lumpy forms in bright colours that combine formal playfulness with a material directness that resists aesthetic idealisation."
-        },
-        {
-          "title": "Furniture Works",
-          "year": "various",
-          "notes": "Wicker, steel, and found-material furniture that functions simultaneously as art and seating, collapsing the distinction between the aesthetic and the utilitarian."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Auditorium",
-          "year": "1993",
-          "notes": "An installation in which West's characteristic furniture-sculptures are arranged into a collective seating arrangement that transforms the gallery into a social space."
-        },
-        {
-          "title": "Collages",
-          "year": "1980s–1990s",
-          "notes": "A body of works on paper in which magazine images are rearranged and annotated in a manner that reflects West's intellectual engagement with psychoanalysis and Viennese cultural life."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 332200,
-        "avg_usd": 166100,
-        "total_label": "$332k",
-        "avg_label": "$166k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 277200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.58
-        }
-      }
-    },
-    {
       "norm_name": "PETER BEARD",
       "display_name": "Peter Beard",
       "dates": "1938–2020",
@@ -12601,6 +12601,60 @@
         "top_ratio_lot": {
           "title": "Flowers",
           "ratio": 2.52
+        }
+      }
+    },
+    {
+      "norm_name": "CAROLINE WALKER",
+      "display_name": "Caroline Walker",
+      "dates": "b. 1982",
+      "nationality": "British",
+      "movement": "Contemporary · Figurative",
+      "movement_id": "contemporary",
+      "bio": "Caroline Walker was born in Dunfermline, Scotland in 1982 and studied at Glasgow School of Art and the Royal College of Art in London. Her paintings depict women in domestic and service environments — hotel rooms, spas, laundry rooms, kitchens, nail salons — with a concentrated attention to light, colour, and spatial architecture that consistently elevates the mundane scene into something approaching the lyrical.\n\nWalker's principal interest is in the economics and aesthetics of female service work: the women she depicts are caregivers, hospitality workers, domestic employees, and her treatment of them refuses the sentimentality of social realism while insisting on their full presence within richly lit, formally considered pictorial spaces. The light in her paintings — particularly the artificial light of interior spaces, halogen and neon falling across fabric, skin, and reflective surfaces — is handled with a quality that recalls Vermeer and Edward Hopper while remaining entirely contemporary.\n\nShe has been exhibited by Parafin Gallery in London and Stephen Friedman Gallery, and her work is held by major collections including the Arts Council Collection. Walker's practice represents a considered contribution to the feminist project of making women's labour and domestic life visible within fine art representation.",
+      "famous_works": [
+        {
+          "title": "Late Checkout",
+          "year": "2017",
+          "notes": "A painting of a hotel housekeeper at work in which the geometry of the hotel room and the quality of artificial light together produce an image of almost formal perfection."
+        },
+        {
+          "title": "Solarium",
+          "year": "2019",
+          "notes": "A spa interior scene in which the saturating light of a sun bed creates a hallucinatory colour environment that transforms a mundane service interaction."
+        },
+        {
+          "title": "Pool (Night)",
+          "year": "2020",
+          "notes": "A nocturnal outdoor pool scene in which artificial lighting transforms water and skin into surfaces of extraordinary chromatic intensity."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Laundry",
+          "year": "2016",
+          "notes": "An early work in the series depicting service environments, in which the folding of linen becomes an occasion for careful study of repetitive physical labour."
+        },
+        {
+          "title": "Night Shift",
+          "year": "2018",
+          "notes": "A painting of a woman working a night shift in a domestic context, in which interior artificial light generates the colour field within which the figure operates."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 321609,
+        "avg_usd": 80402,
+        "total_label": "$322k",
+        "avg_label": "$80k",
+        "top_lot": {
+          "title": "Study for Training II",
+          "hammer_usd": 151200,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Snack Table",
+          "ratio": 2.54
         }
       }
     },
@@ -12763,6 +12817,60 @@
         "top_ratio_lot": {
           "title": "Life Force (Painted Universe Mandala, Lavender, Blue, Dark B",
           "ratio": 1.35
+        }
+      }
+    },
+    {
+      "norm_name": "STERLING RUBY",
+      "display_name": "Sterling Ruby",
+      "dates": "b. 1972",
+      "nationality": "American",
+      "movement": "Contemporary · Installation",
+      "movement_id": "installation",
+      "bio": "Sterling Ruby was born in Bitburg, Germany, to American parents in 1972 and grew up in Pennsylvania before studying at the School of the Art Institute of Chicago and the California Institute of the Arts. He has developed a sprawling, multi-disciplinary practice — encompassing painting, sculpture, video, ceramics, textile, and costume — that engages with violence, power, subcultural communities, and the material culture of American life.\n\nRuby's work resists any single medium or formal approach: his spray paint and acrylic canvases share territory with ceramic vessels decorated with the imagery of gang culture and American vernacular ornament; his fabric collages and urethane spray sculptures share an aesthetic of controlled abandon; his costumes and textile works connect to fashion while maintaining the autonomy of art objects. What unifies the practice is an intense engagement with the physical and psychological dimensions of materials, and a commitment to working at a scale and ambition that refuses intimacy in favour of the overwhelming.\n\nHe is represented by Hauser & Wirth and has been exhibited at major institutions internationally. Ruby maintains a large studio complex in Vernon, California, with multiple departments operating simultaneously across the range of media he employs.",
+      "famous_works": [
+        {
+          "title": "SP",
+          "year": "2007–present",
+          "notes": "A long-running series of spray paint and acrylic canvases in which aerosol paint creates atmospheric grounds layered with gestural marks, exploring the territory between graffit aesthetics and abstract painting."
+        },
+        {
+          "title": "BASIN THEOLOGY",
+          "year": "2019",
+          "notes": "A monumental installation at Hauser & Wirth filling the gallery's entire space with a combination of sculpture, fabric, and ceramic works that create an overwhelming material environment."
+        },
+        {
+          "title": "Ceramics series",
+          "year": "2005–present",
+          "notes": "Large ceramic vessels and urns decorated with imagery drawn from gang culture, violent iconography, and American vernacular design."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "DRFTWR (driftwood sculptures)",
+          "year": "2008",
+          "notes": "Works using driftwood and found materials that demonstrate the range of Ruby's material investigations beyond his more visible spray paint and ceramic works."
+        },
+        {
+          "title": "Textile works",
+          "year": "2010s",
+          "notes": "Fabric and clothing works that connect Ruby's practice to the history of craft traditions and the specificity of tactile material."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 296529,
+        "avg_usd": 74132,
+        "total_label": "$297k",
+        "avg_label": "$74k",
+        "top_lot": {
+          "title": "SP186",
+          "hammer_usd": 152400,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Basin Theology/Talwin + Ritalin",
+          "ratio": 1.42
         }
       }
     },
@@ -13627,60 +13735,6 @@
         "top_ratio_lot": {
           "title": "Independence (Alma I)",
           "ratio": 1.18
-        }
-      }
-    },
-    {
-      "norm_name": "CAROLINE WALKER",
-      "display_name": "Caroline Walker",
-      "dates": "b. 1982",
-      "nationality": "British",
-      "movement": "Contemporary · Figurative",
-      "movement_id": "contemporary",
-      "bio": "Caroline Walker was born in Dunfermline, Scotland in 1982 and studied at Glasgow School of Art and the Royal College of Art in London. Her paintings depict women in domestic and service environments — hotel rooms, spas, laundry rooms, kitchens, nail salons — with a concentrated attention to light, colour, and spatial architecture that consistently elevates the mundane scene into something approaching the lyrical.\n\nWalker's principal interest is in the economics and aesthetics of female service work: the women she depicts are caregivers, hospitality workers, domestic employees, and her treatment of them refuses the sentimentality of social realism while insisting on their full presence within richly lit, formally considered pictorial spaces. The light in her paintings — particularly the artificial light of interior spaces, halogen and neon falling across fabric, skin, and reflective surfaces — is handled with a quality that recalls Vermeer and Edward Hopper while remaining entirely contemporary.\n\nShe has been exhibited by Parafin Gallery in London and Stephen Friedman Gallery, and her work is held by major collections including the Arts Council Collection. Walker's practice represents a considered contribution to the feminist project of making women's labour and domestic life visible within fine art representation.",
-      "famous_works": [
-        {
-          "title": "Late Checkout",
-          "year": "2017",
-          "notes": "A painting of a hotel housekeeper at work in which the geometry of the hotel room and the quality of artificial light together produce an image of almost formal perfection."
-        },
-        {
-          "title": "Solarium",
-          "year": "2019",
-          "notes": "A spa interior scene in which the saturating light of a sun bed creates a hallucinatory colour environment that transforms a mundane service interaction."
-        },
-        {
-          "title": "Pool (Night)",
-          "year": "2020",
-          "notes": "A nocturnal outdoor pool scene in which artificial lighting transforms water and skin into surfaces of extraordinary chromatic intensity."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Laundry",
-          "year": "2016",
-          "notes": "An early work in the series depicting service environments, in which the folding of linen becomes an occasion for careful study of repetitive physical labour."
-        },
-        {
-          "title": "Night Shift",
-          "year": "2018",
-          "notes": "A painting of a woman working a night shift in a domestic context, in which interior artificial light generates the colour field within which the figure operates."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 220009,
-        "avg_usd": 73336,
-        "total_label": "$220k",
-        "avg_label": "$73k",
-        "top_lot": {
-          "title": "Study for Training II",
-          "hammer_usd": 151200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Study for Training II",
-          "ratio": 2.16
         }
       }
     },
@@ -14815,60 +14869,6 @@
         "top_ratio_lot": {
           "title": "Femme assise en robe jaune",
           "ratio": 1.1
-        }
-      }
-    },
-    {
-      "norm_name": "STERLING RUBY",
-      "display_name": "Sterling Ruby",
-      "dates": "b. 1972",
-      "nationality": "American",
-      "movement": "Contemporary · Installation",
-      "movement_id": "installation",
-      "bio": "Sterling Ruby was born in Bitburg, Germany, to American parents in 1972 and grew up in Pennsylvania before studying at the School of the Art Institute of Chicago and the California Institute of the Arts. He has developed a sprawling, multi-disciplinary practice — encompassing painting, sculpture, video, ceramics, textile, and costume — that engages with violence, power, subcultural communities, and the material culture of American life.\n\nRuby's work resists any single medium or formal approach: his spray paint and acrylic canvases share territory with ceramic vessels decorated with the imagery of gang culture and American vernacular ornament; his fabric collages and urethane spray sculptures share an aesthetic of controlled abandon; his costumes and textile works connect to fashion while maintaining the autonomy of art objects. What unifies the practice is an intense engagement with the physical and psychological dimensions of materials, and a commitment to working at a scale and ambition that refuses intimacy in favour of the overwhelming.\n\nHe is represented by Hauser & Wirth and has been exhibited at major institutions internationally. Ruby maintains a large studio complex in Vernon, California, with multiple departments operating simultaneously across the range of media he employs.",
-      "famous_works": [
-        {
-          "title": "SP",
-          "year": "2007–present",
-          "notes": "A long-running series of spray paint and acrylic canvases in which aerosol paint creates atmospheric grounds layered with gestural marks, exploring the territory between graffit aesthetics and abstract painting."
-        },
-        {
-          "title": "BASIN THEOLOGY",
-          "year": "2019",
-          "notes": "A monumental installation at Hauser & Wirth filling the gallery's entire space with a combination of sculpture, fabric, and ceramic works that create an overwhelming material environment."
-        },
-        {
-          "title": "Ceramics series",
-          "year": "2005–present",
-          "notes": "Large ceramic vessels and urns decorated with imagery drawn from gang culture, violent iconography, and American vernacular design."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "DRFTWR (driftwood sculptures)",
-          "year": "2008",
-          "notes": "Works using driftwood and found materials that demonstrate the range of Ruby's material investigations beyond his more visible spray paint and ceramic works."
-        },
-        {
-          "title": "Textile works",
-          "year": "2010s",
-          "notes": "Fabric and clothing works that connect Ruby's practice to the history of craft traditions and the specificity of tactile material."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 144129,
-        "avg_usd": 48043,
-        "total_label": "$144k",
-        "avg_label": "$48k",
-        "top_lot": {
-          "title": "SP55",
-          "hammer_usd": 80645,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Basin Theology/Talwin + Ritalin",
-          "ratio": 1.42
         }
       }
     },
@@ -21164,6 +21164,33 @@
       }
     },
     {
+      "norm_name": "ALLEN JONES",
+      "display_name": "Allen Jones",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 609600,
+        "avg_usd": 609600,
+        "total_label": "$610k",
+        "avg_label": "$610k",
+        "top_lot": {
+          "title": "Table Sculpture",
+          "hammer_usd": 609600,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Table Sculpture",
+          "ratio": 2.44
+        }
+      }
+    },
+    {
       "norm_name": "CHRISTO",
       "display_name": "Christo",
       "dates": "",
@@ -22703,6 +22730,33 @@
       }
     },
     {
+      "norm_name": "CHRIS OFILI",
+      "display_name": "Chris Ofili",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 361175,
+        "avg_usd": 90294,
+        "total_label": "$361k",
+        "avg_label": "$90k",
+        "top_lot": {
+          "title": "Head of an Afronaught",
+          "hammer_usd": 215900,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Scatology 1",
+          "ratio": 1.21
+        }
+      }
+    },
+    {
       "norm_name": "TONY SMITH",
       "display_name": "Tony Smith",
       "dates": "",
@@ -23243,6 +23297,33 @@
       }
     },
     {
+      "norm_name": "ANDREAS GURSKY",
+      "display_name": "Andreas Gursky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 317500,
+        "avg_usd": 317500,
+        "total_label": "$318k",
+        "avg_label": "$318k",
+        "top_lot": {
+          "title": "Cocoon II",
+          "hammer_usd": 317500,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Cocoon II",
+          "ratio": 1.81
+        }
+      }
+    },
+    {
       "norm_name": "THOMAS GAINSBOROUGH, R.A.",
       "display_name": "Thomas Gainsborough, R.A.",
       "dates": "",
@@ -23266,6 +23347,33 @@
         "top_ratio_lot": {
           "title": "Portrait of Mrs Sloper 'Spiritualised'",
           "ratio": 3.8
+        }
+      }
+    },
+    {
+      "norm_name": "ANASTASIA BAY",
+      "display_name": "Anastasia Bay",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 315240,
+        "avg_usd": 157620,
+        "total_label": "$315k",
+        "avg_label": "$158k",
+        "top_lot": {
+          "title": "Untitled 無題",
+          "hammer_usd": 300000,
+          "sale_name": "Contemporary Day Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled 無題",
+          "ratio": 3.33
         }
       }
     },
@@ -23297,6 +23405,33 @@
       }
     },
     {
+      "norm_name": "UGO RONDINONE",
+      "display_name": "Ugo Rondinone",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 308585,
+        "avg_usd": 77146,
+        "total_label": "$309k",
+        "avg_label": "$77k",
+        "top_lot": {
+          "title": "VIERTERMAINEUNZEHNHUNDERTACHTUNDNEUNZIG",
+          "hammer_usd": 241300,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "VIERTERMAINEUNZEHNHUNDERTACHTUNDNEUNZIG",
+          "ratio": 1.93
+        }
+      }
+    },
+    {
       "norm_name": "JAUME PLENSA",
       "display_name": "Jaume Plensa",
       "dates": "",
@@ -23320,33 +23455,6 @@
         "top_ratio_lot": {
           "title": "L'Anima della Musica",
           "ratio": 3.68
-        }
-      }
-    },
-    {
-      "norm_name": "CHRIS OFILI",
-      "display_name": "Chris Ofili",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 307835,
-        "avg_usd": 102612,
-        "total_label": "$308k",
-        "avg_label": "$103k",
-        "top_lot": {
-          "title": "Head of an Afronaught",
-          "hammer_usd": 215900,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Scatology 1",
-          "ratio": 1.21
         }
       }
     },
@@ -23401,33 +23509,6 @@
         "top_ratio_lot": {
           "title": "Landscape",
           "ratio": 3.23
-        }
-      }
-    },
-    {
-      "norm_name": "ANASTASIA BAY",
-      "display_name": "Anastasia Bay",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 300000,
-        "avg_usd": 300000,
-        "total_label": "$300k",
-        "avg_label": "$300k",
-        "top_lot": {
-          "title": "Untitled 無題",
-          "hammer_usd": 300000,
-          "sale_name": "Contemporary Day Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled 無題",
-          "ratio": 3.33
         }
       }
     },
@@ -23509,33 +23590,6 @@
         "top_ratio_lot": {
           "title": "La Dalbade, Toulouse",
           "ratio": 0.6
-        }
-      }
-    },
-    {
-      "norm_name": "UGO RONDINONE",
-      "display_name": "Ugo Rondinone",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 292075,
-        "avg_usd": 97358,
-        "total_label": "$292k",
-        "avg_label": "$97k",
-        "top_lot": {
-          "title": "VIERTERMAINEUNZEHNHUNDERTACHTUNDNEUNZIG",
-          "hammer_usd": 241300,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "VIERTERMAINEUNZEHNHUNDERTACHTUNDNEUNZIG",
-          "ratio": 1.93
         }
       }
     },
@@ -23644,6 +23698,33 @@
         "top_ratio_lot": {
           "title": "Woman Resting",
           "ratio": 1.44
+        }
+      }
+    },
+    {
+      "norm_name": "SARAH LUCAS",
+      "display_name": "Sarah Lucas",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 288985,
+        "avg_usd": 72246,
+        "total_label": "$289k",
+        "avg_label": "$72k",
+        "top_lot": {
+          "title": "God is Dad",
+          "hammer_usd": 129032,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "God is Dad",
+          "ratio": 3.23
         }
       }
     },
@@ -24350,6 +24431,33 @@
       }
     },
     {
+      "norm_name": "GILBERT AND GEORGE",
+      "display_name": "Gilbert And George",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 246200,
+        "avg_usd": 123100,
+        "total_label": "$246k",
+        "avg_label": "$123k",
+        "top_lot": {
+          "title": "Black Stare",
+          "hammer_usd": 170000,
+          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
+        },
+        "top_ratio_lot": {
+          "title": "Beard of ISIS",
+          "ratio": 6.1
+        }
+      }
+    },
+    {
       "norm_name": "JOYCE PENSATO",
       "display_name": "Joyce Pensato",
       "dates": "",
@@ -24539,33 +24647,6 @@
       }
     },
     {
-      "norm_name": "SARAH LUCAS",
-      "display_name": "Sarah Lucas",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 235645,
-        "avg_usd": 78548,
-        "total_label": "$236k",
-        "avg_label": "$79k",
-        "top_lot": {
-          "title": "God is Dad",
-          "hammer_usd": 129032,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "God is Dad",
-          "ratio": 3.23
-        }
-      }
-    },
-    {
       "norm_name": "JEAN-LOUIS FORAIN",
       "display_name": "Jean-Louis Forain",
       "dates": "",
@@ -24589,6 +24670,33 @@
         "top_ratio_lot": {
           "title": "Champ de courses",
           "ratio": 7.68
+        }
+      }
+    },
+    {
+      "norm_name": "WILLIAM KENTRIDGE",
+      "display_name": "William Kentridge",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 229464,
+        "avg_usd": 76488,
+        "total_label": "$229k",
+        "avg_label": "$76k",
+        "top_lot": {
+          "title": "Breakfast in the Ante-Chamber",
+          "hammer_usd": 152400,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Breakfast in the Ante-Chamber",
+          "ratio": 1.52
         }
       }
     },
@@ -26132,6 +26240,33 @@
       }
     },
     {
+      "norm_name": "RAINER FETTING",
+      "display_name": "Rainer Fetting",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 178676,
+        "avg_usd": 44669,
+        "total_label": "$179k",
+        "avg_label": "$45k",
+        "top_lot": {
+          "title": "Konzert in der Waldbühne",
+          "hammer_usd": 105883,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Konzert in der Waldbühne",
+          "ratio": 3.53
+        }
+      }
+    },
+    {
       "norm_name": "JEAN-BAPTISTE-CAMILLE COROT",
       "display_name": "Jean-Baptiste-Camille Corot",
       "dates": "",
@@ -26344,33 +26479,6 @@
         "top_ratio_lot": {
           "title": "Untitled 無題",
           "ratio": 1.13
-        }
-      }
-    },
-    {
-      "norm_name": "GILBERT AND GEORGE",
-      "display_name": "Gilbert And George",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 170000,
-        "avg_usd": 170000,
-        "total_label": "$170k",
-        "avg_label": "$170k",
-        "top_lot": {
-          "title": "Black Stare",
-          "hammer_usd": 170000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Black Stare",
-          "ratio": 0.97
         }
       }
     },
@@ -26776,33 +26884,6 @@
         "top_ratio_lot": {
           "title": "The glasshouse with armorial window, Farnley Hall, Yorkshire",
           "ratio": 1.67
-        }
-      }
-    },
-    {
-      "norm_name": "RAINER FETTING",
-      "display_name": "Rainer Fetting",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 164706,
-        "avg_usd": 54902,
-        "total_label": "$165k",
-        "avg_label": "$55k",
-        "top_lot": {
-          "title": "Konzert in der Waldbühne",
-          "hammer_usd": 105883,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Konzert in der Waldbühne",
-          "ratio": 3.53
         }
       }
     },
@@ -27698,6 +27779,33 @@
       }
     },
     {
+      "norm_name": "RICHARD LONG",
+      "display_name": "Richard Long",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 131445,
+        "avg_usd": 43815,
+        "total_label": "$131k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "192 Pieces of Wood",
+          "hammer_usd": 80645,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.98
+        }
+      }
+    },
+    {
       "norm_name": "IMI KNOEBEL",
       "display_name": "Imi Knoebel",
       "dates": "",
@@ -28427,8 +28535,8 @@
       }
     },
     {
-      "norm_name": "RICHARD LONG",
-      "display_name": "Richard Long",
+      "norm_name": "DENZIL FORRESTER",
+      "display_name": "Denzil Forrester",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -28437,19 +28545,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 113665,
-        "avg_usd": 56832,
+        "lot_count": 1,
+        "total_usd": 114300,
+        "avg_usd": 114300,
         "total_label": "$114k",
-        "avg_label": "$57k",
+        "avg_label": "$114k",
         "top_lot": {
-          "title": "192 Pieces of Wood",
-          "hammer_usd": 80645,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
+          "title": "Dub Salute",
+          "hammer_usd": 114300,
+          "sale_name": "Contemporary Day Auction L26017"
         },
         "top_ratio_lot": {
-          "title": "192 Pieces of Wood",
-          "ratio": 1.61
+          "title": "Dub Salute",
+          "ratio": 2.29
         }
       }
     },
@@ -29098,6 +29206,33 @@
       }
     },
     {
+      "norm_name": "ALEX ISRAEL",
+      "display_name": "Alex Israel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 104953,
+        "avg_usd": 52476,
+        "total_label": "$105k",
+        "avg_label": "$52k",
+        "top_lot": {
+          "title": "Self Portrait",
+          "hammer_usd": 53340,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Flat)",
+          "ratio": 1.29
+        }
+      }
+    },
+    {
       "norm_name": "GARY HUME",
       "display_name": "Gary Hume",
       "dates": "",
@@ -29283,6 +29418,33 @@
         "top_ratio_lot": {
           "title": "Blumenstrauß (Flower Bouquet)",
           "ratio": 1.02
+        }
+      }
+    },
+    {
+      "norm_name": "CHIYŪ UEMAE",
+      "display_name": "Chiyū Uemae",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 101600,
+        "avg_usd": 50800,
+        "total_label": "$102k",
+        "avg_label": "$51k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 53340,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 4.27
         }
       }
     },
@@ -30124,6 +30286,33 @@
       }
     },
     {
+      "norm_name": "JETHRO  BUCK",
+      "display_name": "Jethro  Buck",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 88900,
+        "avg_usd": 88900,
+        "total_label": "$89k",
+        "avg_label": "$89k",
+        "top_lot": {
+          "title": "Soaring",
+          "hammer_usd": 88900,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Soaring",
+          "ratio": 8.89
+        }
+      }
+    },
+    {
       "norm_name": "ANNE SEYMOUR DAMER",
       "display_name": "Anne Seymour Damer",
       "dates": "",
@@ -30502,6 +30691,60 @@
       }
     },
     {
+      "norm_name": "DEBORAH ROBERTS",
+      "display_name": "Deborah Roberts",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 82550,
+        "avg_usd": 82550,
+        "total_label": "$83k",
+        "avg_label": "$83k",
+        "top_lot": {
+          "title": "After the Thunder (RR)",
+          "hammer_usd": 82550,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "After the Thunder (RR)",
+          "ratio": 2.06
+        }
+      }
+    },
+    {
+      "norm_name": "YUN HYONG-KEUN",
+      "display_name": "Yun Hyong-Keun",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 82550,
+        "avg_usd": 82550,
+        "total_label": "$83k",
+        "avg_label": "$83k",
+        "top_lot": {
+          "title": "Burnt Umber and Ultramarine",
+          "hammer_usd": 82550,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Burnt Umber and Ultramarine",
+          "ratio": 1.18
+        }
+      }
+    },
+    {
       "norm_name": "DOROTHEA TANNING",
       "display_name": "Dorothea Tanning",
       "dates": "",
@@ -30714,33 +30957,6 @@
         "top_ratio_lot": {
           "title": "Handmalerei (Handpainting)",
           "ratio": 1.94
-        }
-      }
-    },
-    {
-      "norm_name": "WILLIAM KENTRIDGE",
-      "display_name": "William Kentridge",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 77064,
-        "avg_usd": 38532,
-        "total_label": "$77k",
-        "avg_label": "$39k",
-        "top_lot": {
-          "title": "Map Drawing (Sud-Polar-Karte)",
-          "hammer_usd": 48260,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Ramp",
-          "ratio": 1.34
         }
       }
     },
@@ -31200,6 +31416,33 @@
         "top_ratio_lot": {
           "title": "An architectural capriccio",
           "ratio": 5.59
+        }
+      }
+    },
+    {
+      "norm_name": "NICK KNIGHT",
+      "display_name": "Nick Knight",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 69850,
+        "avg_usd": 69850,
+        "total_label": "$70k",
+        "avg_label": "$70k",
+        "top_lot": {
+          "title": "Tatjana Patitz for Jil Sander",
+          "hammer_usd": 69850,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Tatjana Patitz for Jil Sander",
+          "ratio": 0.93
         }
       }
     },
@@ -31852,6 +32095,33 @@
       }
     },
     {
+      "norm_name": "EDMUND DE WAAL",
+      "display_name": "Edmund De Waal",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 63500,
+        "avg_usd": 63500,
+        "total_label": "$64k",
+        "avg_label": "$64k",
+        "top_lot": {
+          "title": "Tristia, I",
+          "hammer_usd": 63500,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Tristia, I",
+          "ratio": 3.17
+        }
+      }
+    },
+    {
       "norm_name": "THOMAS LUNY",
       "display_name": "Thomas Luny",
       "dates": "",
@@ -32226,6 +32496,33 @@
         "top_ratio_lot": {
           "title": "Les passe-partout du visible",
           "ratio": 1.5
+        }
+      }
+    },
+    {
+      "norm_name": "SHIRAZEH HOUSHIARY",
+      "display_name": "Shirazeh Houshiary",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 58420,
+        "avg_usd": 29210,
+        "total_label": "$58k",
+        "avg_label": "$29k",
+        "top_lot": {
+          "title": "Flay",
+          "hammer_usd": 38100,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Haze",
+          "ratio": 0.81
         }
       }
     },
@@ -32905,8 +33202,8 @@
       }
     },
     {
-      "norm_name": "ALEX ISRAEL",
-      "display_name": "Alex Israel",
+      "norm_name": "RICHARD PETTIBONE",
+      "display_name": "Richard Pettibone",
       "dates": "",
       "nationality": "",
       "movement": "",
@@ -32915,19 +33212,19 @@
       "famous_works": [],
       "lesser_known_works": [],
       "dataset": {
-        "lot_count": 1,
-        "total_usd": 51613,
-        "avg_usd": 51613,
-        "total_label": "$52k",
-        "avg_label": "$52k",
+        "lot_count": 3,
+        "total_usd": 52705,
+        "avg_usd": 17568,
+        "total_label": "$53k",
+        "avg_label": "$18k",
         "top_lot": {
-          "title": "Untitled (Flat)",
-          "hammer_usd": 51613,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
+          "title": "(i) Jasper Johns, 'Light Bulb', 1958 (red)(ii) Jasper Johns,",
+          "hammer_usd": 24130,
+          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
         },
         "top_ratio_lot": {
-          "title": "Untitled (Flat)",
-          "ratio": 1.29
+          "title": "i. Andy Warhol, ‘Brillo Box’, 1964, #2  ii. Andy Warhol, ‘Mo",
+          "ratio": 1.23
         }
       }
     },
@@ -33553,6 +33850,33 @@
       }
     },
     {
+      "norm_name": "CLAUDE VIALLAT",
+      "display_name": "Claude Viallat",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 47400,
+        "avg_usd": 23700,
+        "total_label": "$47k",
+        "avg_label": "$24k",
+        "top_lot": {
+          "title": "182/1980",
+          "hammer_usd": 25400,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "182/1980",
+          "ratio": 2.03
+        }
+      }
+    },
+    {
       "norm_name": "GUILLAUME SEIGNAC",
       "display_name": "Guillaume Seignac",
       "dates": "",
@@ -33576,6 +33900,33 @@
         "top_ratio_lot": {
           "title": "Odalisque",
           "ratio": 3.13
+        }
+      }
+    },
+    {
+      "norm_name": "RANA BEGUM",
+      "display_name": "Rana Begum",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 46721,
+        "avg_usd": 23360,
+        "total_label": "$47k",
+        "avg_label": "$23k",
+        "top_lot": {
+          "title": "No. 1337 Mesh",
+          "hammer_usd": 40640,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "No. 1337 Mesh",
+          "ratio": 3.01
         }
       }
     },
@@ -34498,6 +34849,33 @@
       }
     },
     {
+      "norm_name": "MARINA ABRAMOVIĆ",
+      "display_name": "Marina Abramović",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40640,
+        "avg_usd": 40640,
+        "total_label": "$41k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Shoes for Departure",
+          "hammer_usd": 40640,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Shoes for Departure",
+          "ratio": 1.02
+        }
+      }
+    },
+    {
       "norm_name": "DAVID ALFARO SIQUEIROS",
       "display_name": "David Alfaro Siqueiros",
       "dates": "",
@@ -34629,33 +35007,6 @@
         "top_ratio_lot": {
           "title": "Schüttbild",
           "ratio": 1.27
-        }
-      }
-    },
-    {
-      "norm_name": "SHIRAZEH HOUSHIARY",
-      "display_name": "Shirazeh Houshiary",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 38100,
-        "avg_usd": 38100,
-        "total_label": "$38k",
-        "avg_label": "$38k",
-        "top_lot": {
-          "title": "Flay",
-          "hammer_usd": 38100,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Flay",
-          "ratio": 0.76
         }
       }
     },
@@ -34845,6 +35196,33 @@
         "top_ratio_lot": {
           "title": "Victory",
           "ratio": 0.95
+        }
+      }
+    },
+    {
+      "norm_name": "GEOFFREY HOLDER",
+      "display_name": "Geoffrey Holder",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38100,
+        "avg_usd": 38100,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Bitching",
+          "hammer_usd": 38100,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Bitching",
+          "ratio": 2.18
         }
       }
     },
@@ -35736,6 +36114,114 @@
         "top_ratio_lot": {
           "title": "Fragrance of Books II",
           "ratio": 0.91
+        }
+      }
+    },
+    {
+      "norm_name": "BEN NICHOLSON",
+      "display_name": "Ben Nicholson",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 31750,
+        "avg_usd": 31750,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "April 58 (pewter mug)",
+          "hammer_usd": 31750,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "April 58 (pewter mug)",
+          "ratio": 2.12
+        }
+      }
+    },
+    {
+      "norm_name": "ALISON WATT",
+      "display_name": "Alison Watt",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 31750,
+        "avg_usd": 31750,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "Study for 'Lying Down'",
+          "hammer_usd": 31750,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Study for 'Lying Down'",
+          "ratio": 2.27
+        }
+      }
+    },
+    {
+      "norm_name": "MONA HATOUM",
+      "display_name": "Mona Hatoum",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 31750,
+        "avg_usd": 31750,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "∞",
+          "hammer_usd": 31750,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "∞",
+          "ratio": 1.27
+        }
+      }
+    },
+    {
+      "norm_name": "CLAIRE TABOURET",
+      "display_name": "Claire Tabouret",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 31750,
+        "avg_usd": 31750,
+        "total_label": "$32k",
+        "avg_label": "$32k",
+        "top_lot": {
+          "title": "Fall (Orange)",
+          "hammer_usd": 31750,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Fall (Orange)",
+          "ratio": 2.54
         }
       }
     },
@@ -36712,6 +37198,33 @@
       }
     },
     {
+      "norm_name": "HIROSHI SUGIMOTO",
+      "display_name": "Hiroshi Sugimoto",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 26035,
+        "avg_usd": 13018,
+        "total_label": "$26k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Orpheum, California",
+          "hammer_usd": 20320,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Orpheum, California",
+          "ratio": 1.63
+        }
+      }
+    },
+    {
       "norm_name": "FRANCESCO CLEMENTE",
       "display_name": "Francesco Clemente",
       "dates": "",
@@ -37279,33 +37792,6 @@
       }
     },
     {
-      "norm_name": "RICHARD PETTIBONE",
-      "display_name": "Richard Pettibone",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 24130,
-        "avg_usd": 24130,
-        "total_label": "$24k",
-        "avg_label": "$24k",
-        "top_lot": {
-          "title": "(i) Jasper Johns, 'Light Bulb', 1958 (red)(ii) Jasper Johns,",
-          "hammer_usd": 24130,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
-        },
-        "top_ratio_lot": {
-          "title": "(i) Jasper Johns, 'Light Bulb', 1958 (red)(ii) Jasper Johns,",
-          "ratio": 0.8
-        }
-      }
-    },
-    {
       "norm_name": "GEORGES ROCHEGROSSE",
       "display_name": "Georges Rochegrosse",
       "dates": "",
@@ -37626,33 +38112,6 @@
         "top_ratio_lot": {
           "title": "Untitled, N.D.",
           "ratio": 1.51
-        }
-      }
-    },
-    {
-      "norm_name": "CLAUDE VIALLAT",
-      "display_name": "Claude Viallat",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 22000,
-        "avg_usd": 22000,
-        "total_label": "$22k",
-        "avg_label": "$22k",
-        "top_lot": {
-          "title": "Sans titre",
-          "hammer_usd": 22000,
-          "sale_name": "Modern Contemporary Discoveries Pf2659"
-        },
-        "top_ratio_lot": {
-          "title": "Sans titre",
-          "ratio": 1.02
         }
       }
     },
@@ -38467,6 +38926,33 @@
       }
     },
     {
+      "norm_name": "MAGGI HAMBLING",
+      "display_name": "Maggi Hambling",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17780,
+        "avg_usd": 17780,
+        "total_label": "$18k",
+        "avg_label": "$18k",
+        "top_lot": {
+          "title": "Night Clouds (VI)",
+          "hammer_usd": 17780,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Night Clouds (VI)",
+          "ratio": 1.78
+        }
+      }
+    },
+    {
       "norm_name": "URSULA SCHULTZE-BLUHM",
       "display_name": "Ursula Schultze-Bluhm",
       "dates": "",
@@ -39250,6 +39736,33 @@
       }
     },
     {
+      "norm_name": "TARKA KINGS",
+      "display_name": "Tarka Kings",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Wet Hair III",
+          "hammer_usd": 15240,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Wet Hair III",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
       "norm_name": "SARA BERMAN",
       "display_name": "Sara Berman",
       "dates": "",
@@ -39921,6 +40434,33 @@
         "top_ratio_lot": {
           "title": "My Palomino Pony, Sea Biscuit, at Chincoteague Island, Partl",
           "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "DAVID NASH",
+      "display_name": "David Nash",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13970,
+        "avg_usd": 13970,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Small Red Column",
+          "hammer_usd": 13970,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Small Red Column",
+          "ratio": 1.12
         }
       }
     },
@@ -40947,6 +41487,33 @@
         "top_ratio_lot": {
           "title": "Pair of Busts of Laughing and Sulking Children",
           "ratio": 0.98
+        }
+      }
+    },
+    {
+      "norm_name": "SANDRA  BLOW",
+      "display_name": "Sandra  Blow",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 10795,
+        "avg_usd": 10795,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Abstract No. 2",
+          "hammer_usd": 10795,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Abstract No. 2",
+          "ratio": 1.08
         }
       }
     },
@@ -42733,33 +43300,6 @@
       }
     },
     {
-      "norm_name": "RANA BEGUM",
-      "display_name": "Rana Begum",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 6081,
-        "avg_usd": 6081,
-        "total_label": "$6k",
-        "avg_label": "$6k",
-        "top_lot": {
-          "title": "No. 1071",
-          "hammer_usd": 6081,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "No. 1071",
-          "ratio": 1.01
-        }
-      }
-    },
-    {
       "norm_name": "ÉMILE THÉODORE FRANDSEN",
       "display_name": "Émile Théodore Frandsen",
       "dates": "",
@@ -42783,33 +43323,6 @@
         "top_ratio_lot": {
           "title": "Nature morte",
           "ratio": 1.0
-        }
-      }
-    },
-    {
-      "norm_name": "HIROSHI SUGIMOTO",
-      "display_name": "Hiroshi Sugimoto",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 5715,
-        "avg_usd": 5715,
-        "total_label": "$6k",
-        "avg_label": "$6k",
-        "top_lot": {
-          "title": "Portrait of Marian",
-          "hammer_usd": 5715,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Portrait of Marian",
-          "ratio": 0.82
         }
       }
     },
@@ -44052,6 +44565,33 @@
         "top_ratio_lot": {
           "title": "First edition of the “Grande messe des morts”, signed and in",
           "ratio": 1.09
+        }
+      }
+    },
+    {
+      "norm_name": "CHARLINE VON HEYL",
+      "display_name": "Charline Von Heyl",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3810,
+        "avg_usd": 3810,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 3810,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.64
         }
       }
     },
