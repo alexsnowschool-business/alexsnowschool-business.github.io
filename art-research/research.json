@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3472,
-    "total_artists": 1371,
+    "total_lots": 3522,
+    "total_artists": 1383,
     "median_hammer_usd": 95250,
-    "pct_above_estimate": 46.6,
+    "pct_above_estimate": 46.4,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-10"
+    "generated_at": "2026-08-13"
   },
   "artists": [
     {
@@ -127,6 +127,65 @@
       }
     },
     {
+      "norm_name": "CLAUDE MONET",
+      "display_name": "Claude Monet",
+      "dates": "1840–1926",
+      "nationality": "French",
+      "movement": "Impressionism",
+      "movement_id": "impressionism",
+      "bio": "Claude Monet is the central figure of French Impressionism, a movement he helped found and define over a career spanning more than six decades. Born in Paris and raised in Normandy, he trained under Eugène Boudin and later in the Paris ateliers of Charles Gleyre, where he befriended Renoir, Sisley, and Bazille. His early seascapes and landscapes already displayed the interest in transient light that would characterise his mature work.\n\nMonet's commitment to painting en plein air — directly before the motif, at speed, in all weathers — led him to develop the broken brushstroke and high-key palette that scandalised the Salon and delighted a growing avant-garde public. His 1872 canvas Impression, soleil levant gave the movement its name after a hostile critic used the word 'impressionist' as a slur. Throughout the 1870s and 1880s he worked in serial groups — haystacks, Rouen Cathedral, poplars — demonstrating that light, not subject matter, was his true concern.\n\nIn 1883 Monet settled at Giverny, where he designed an elaborate water garden that became the obsessive subject of his final decades. The Nymphéas (Water Lilies) series, painted with failing eyesight and eventually on canvases of monumental scale, anticipates Abstract Expressionism in its dissolution of form into chromatic atmosphere. Eight of these panels were installed permanently in the Orangerie, Paris, in 1927, becoming among the most visited works of art in the world.",
+      "famous_works": [
+        {
+          "title": "Impression, soleil levant",
+          "year": "1872",
+          "notes": "The canvas that inadvertently named the Impressionist movement, depicting Le Havre harbour in dawn mist."
+        },
+        {
+          "title": "Water Lilies (Nymphéas)",
+          "year": "1896–1926",
+          "notes": "A serial cycle of roughly 250 paintings depicting the pond at Giverny, culminating in the Orangerie murals."
+        },
+        {
+          "title": "Rouen Cathedral series",
+          "year": "1892–1894",
+          "notes": "Thirty paintings of the same façade under different light conditions, the definitive statement of Monet's serial method."
+        },
+        {
+          "title": "Haystacks (Meules)",
+          "year": "1890–1891",
+          "notes": "A group of twenty-five canvases that established the series format and sold out immediately on exhibition."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "La Pie (The Magpie)",
+          "year": "1868–1869",
+          "notes": "A snow scene rejected by the Salon yet now considered one of the finest winter landscapes in French painting."
+        },
+        {
+          "title": "Women in the Garden",
+          "year": "1866",
+          "notes": "An ambitious large-format outdoor figure painting, rejected at the 1867 Salon, that Monet would later disavow but which reveals his early aspirations."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 108944700,
+        "avg_usd": 13618088,
+        "total_label": "$108.94M",
+        "avg_label": "$13.62M",
+        "top_lot": {
+          "title": "Nymphéas",
+          "hammer_usd": 45720000,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait d’homme debout",
+          "ratio": 5.88
+        }
+      }
+    },
+    {
       "norm_name": "JOAN MITCHELL",
       "display_name": "Joan Mitchell",
       "dates": "1925–1992",
@@ -187,65 +246,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 3.0
-        }
-      }
-    },
-    {
-      "norm_name": "CLAUDE MONET",
-      "display_name": "Claude Monet",
-      "dates": "1840–1926",
-      "nationality": "French",
-      "movement": "Impressionism",
-      "movement_id": "impressionism",
-      "bio": "Claude Monet is the central figure of French Impressionism, a movement he helped found and define over a career spanning more than six decades. Born in Paris and raised in Normandy, he trained under Eugène Boudin and later in the Paris ateliers of Charles Gleyre, where he befriended Renoir, Sisley, and Bazille. His early seascapes and landscapes already displayed the interest in transient light that would characterise his mature work.\n\nMonet's commitment to painting en plein air — directly before the motif, at speed, in all weathers — led him to develop the broken brushstroke and high-key palette that scandalised the Salon and delighted a growing avant-garde public. His 1872 canvas Impression, soleil levant gave the movement its name after a hostile critic used the word 'impressionist' as a slur. Throughout the 1870s and 1880s he worked in serial groups — haystacks, Rouen Cathedral, poplars — demonstrating that light, not subject matter, was his true concern.\n\nIn 1883 Monet settled at Giverny, where he designed an elaborate water garden that became the obsessive subject of his final decades. The Nymphéas (Water Lilies) series, painted with failing eyesight and eventually on canvases of monumental scale, anticipates Abstract Expressionism in its dissolution of form into chromatic atmosphere. Eight of these panels were installed permanently in the Orangerie, Paris, in 1927, becoming among the most visited works of art in the world.",
-      "famous_works": [
-        {
-          "title": "Impression, soleil levant",
-          "year": "1872",
-          "notes": "The canvas that inadvertently named the Impressionist movement, depicting Le Havre harbour in dawn mist."
-        },
-        {
-          "title": "Water Lilies (Nymphéas)",
-          "year": "1896–1926",
-          "notes": "A serial cycle of roughly 250 paintings depicting the pond at Giverny, culminating in the Orangerie murals."
-        },
-        {
-          "title": "Rouen Cathedral series",
-          "year": "1892–1894",
-          "notes": "Thirty paintings of the same façade under different light conditions, the definitive statement of Monet's serial method."
-        },
-        {
-          "title": "Haystacks (Meules)",
-          "year": "1890–1891",
-          "notes": "A group of twenty-five canvases that established the series format and sold out immediately on exhibition."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "La Pie (The Magpie)",
-          "year": "1868–1869",
-          "notes": "A snow scene rejected by the Salon yet now considered one of the finest winter landscapes in French painting."
-        },
-        {
-          "title": "Women in the Garden",
-          "year": "1866",
-          "notes": "An ambitious large-format outdoor figure painting, rejected at the 1867 Salon, that Monet would later disavow but which reveals his early aspirations."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 63224700,
-        "avg_usd": 9032100,
-        "total_label": "$63.22M",
-        "avg_label": "$9.03M",
-        "top_lot": {
-          "title": "Meules à Giverny",
-          "hammer_usd": 30200000,
-          "sale_name": "Modern Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Portrait d’homme debout",
-          "ratio": 5.88
         }
       }
     },
@@ -341,11 +341,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
-        "total_usd": 53660400,
-        "avg_usd": 17886800,
-        "total_label": "$53.66M",
-        "avg_label": "$17.89M",
+        "lot_count": 4,
+        "total_usd": 54041400,
+        "avg_usd": 13510350,
+        "total_label": "$54.04M",
+        "avg_label": "$13.51M",
         "top_lot": {
           "title": "River at Dusk 黃昏的河流",
           "hammer_usd": 44000000,
@@ -354,6 +354,70 @@
         "top_ratio_lot": {
           "title": "5:22 PM",
           "ratio": 1.32
+        }
+      }
+    },
+    {
+      "norm_name": "ROY LICHTENSTEIN",
+      "display_name": "Roy Lichtenstein",
+      "dates": "1923–1997",
+      "nationality": "American",
+      "movement": "Pop Art · Ben-Day Dots · Comic Book",
+      "movement_id": "pop-art",
+      "bio": "Born in New York City, Lichtenstein studied at the Art Students League before WWII service interrupted his training. After Ohio State University and teaching positions, he began in the late 1950s with Abstract Expressionist-influenced work before abruptly pivoting around 1961 to comic-book imagery. Where Warhol chose celebrity and consumer goods, Lichtenstein chose commercial printing — specifically the Ben-Day dot process used in cheap colour printing, enlarged and hand-applied to canvas. The 'romance comics' series, the war comics, the brushstroke paintings that turn the AbEx gesture into a printed cliché — all probe the distance between original and reproduction. His later work systematically parsed the history of modernism: Monet's haystacks, Picasso's cubism, Art Deco, Surrealism — each rendered in his flat, dot-screened vernacular. He produced one of the most coherent and formally rigorous bodies of work in American Pop Art and commanded premium prices throughout his career.",
+      "famous_works": [
+        {
+          "title": "Whaam!",
+          "year": "1963",
+          "notes": "A diptych reproducing a panel from DC Comics' All-American Men of War. Two metres wide. Now in the Tate Modern collection — the apotheosis of the war comic source material."
+        },
+        {
+          "title": "Drowning Girl",
+          "year": "1963",
+          "notes": "A single panel from a romance comic. The woman's thought bubble — 'I don't care! I'd rather sink — than call Brad for help!' — is the complete text. One of the most debated works in Pop Art."
+        },
+        {
+          "title": "Brushstroke",
+          "year": "1965",
+          "notes": "A large brushstroke rendered in Ben-Day dots. The gesture of action painting turned into a printed cliché — the most economical critique of Abstract Expressionism ever made."
+        },
+        {
+          "title": "Reflections on Minerva",
+          "year": "1990",
+          "notes": "From the Reflections series, where printed imagery appears to reflect in glass or mirror. Meta-commentary on the relationship between image, reproduction, and surface."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Water Lily Pond with Reflections (Study)",
+          "year": "2000–2001",
+          "notes": "A late work from the Monet Haystack series — Monet's Impressionist shimmer flattened to dots and primary colours. Art history as subject matter and formal problem simultaneously."
+        },
+        {
+          "title": "Interior with Waterlilies",
+          "year": "1991",
+          "notes": "Combines domestic interior with Monet's water-lily surface. The intersection of two pictorial traditions — modernist abstraction and decorative illusionism — made explicit."
+        },
+        {
+          "title": "The Ring",
+          "year": "1962",
+          "notes": "An early work from the romance comic period. Less reproduced than Drowning Girl but structurally important — the source material still visible through the transformation."
+        }
+      ],
+      "dataset": {
+        "lot_count": 51,
+        "total_usd": 52523551,
+        "avg_usd": 1029874,
+        "total_label": "$52.52M",
+        "avg_label": "$1.03M",
+        "top_lot": {
+          "title": "Reflections: Art",
+          "hammer_usd": 4500000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Setting Sun and Sea",
+          "ratio": 5.0
         }
       }
     },
@@ -408,70 +472,6 @@
         "top_ratio_lot": {
           "title": "18 December 2008",
           "ratio": 4.83
-        }
-      }
-    },
-    {
-      "norm_name": "ROY LICHTENSTEIN",
-      "display_name": "Roy Lichtenstein",
-      "dates": "1923–1997",
-      "nationality": "American",
-      "movement": "Pop Art · Ben-Day Dots · Comic Book",
-      "movement_id": "pop-art",
-      "bio": "Born in New York City, Lichtenstein studied at the Art Students League before WWII service interrupted his training. After Ohio State University and teaching positions, he began in the late 1950s with Abstract Expressionist-influenced work before abruptly pivoting around 1961 to comic-book imagery. Where Warhol chose celebrity and consumer goods, Lichtenstein chose commercial printing — specifically the Ben-Day dot process used in cheap colour printing, enlarged and hand-applied to canvas. The 'romance comics' series, the war comics, the brushstroke paintings that turn the AbEx gesture into a printed cliché — all probe the distance between original and reproduction. His later work systematically parsed the history of modernism: Monet's haystacks, Picasso's cubism, Art Deco, Surrealism — each rendered in his flat, dot-screened vernacular. He produced one of the most coherent and formally rigorous bodies of work in American Pop Art and commanded premium prices throughout his career.",
-      "famous_works": [
-        {
-          "title": "Whaam!",
-          "year": "1963",
-          "notes": "A diptych reproducing a panel from DC Comics' All-American Men of War. Two metres wide. Now in the Tate Modern collection — the apotheosis of the war comic source material."
-        },
-        {
-          "title": "Drowning Girl",
-          "year": "1963",
-          "notes": "A single panel from a romance comic. The woman's thought bubble — 'I don't care! I'd rather sink — than call Brad for help!' — is the complete text. One of the most debated works in Pop Art."
-        },
-        {
-          "title": "Brushstroke",
-          "year": "1965",
-          "notes": "A large brushstroke rendered in Ben-Day dots. The gesture of action painting turned into a printed cliché — the most economical critique of Abstract Expressionism ever made."
-        },
-        {
-          "title": "Reflections on Minerva",
-          "year": "1990",
-          "notes": "From the Reflections series, where printed imagery appears to reflect in glass or mirror. Meta-commentary on the relationship between image, reproduction, and surface."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Water Lily Pond with Reflections (Study)",
-          "year": "2000–2001",
-          "notes": "A late work from the Monet Haystack series — Monet's Impressionist shimmer flattened to dots and primary colours. Art history as subject matter and formal problem simultaneously."
-        },
-        {
-          "title": "Interior with Waterlilies",
-          "year": "1991",
-          "notes": "Combines domestic interior with Monet's water-lily surface. The intersection of two pictorial traditions — modernist abstraction and decorative illusionism — made explicit."
-        },
-        {
-          "title": "The Ring",
-          "year": "1962",
-          "notes": "An early work from the romance comic period. Less reproduced than Drowning Girl but structurally important — the source material still visible through the transformation."
-        }
-      ],
-      "dataset": {
-        "lot_count": 49,
-        "total_usd": 49158051,
-        "avg_usd": 1003226,
-        "total_label": "$49.16M",
-        "avg_label": "$1.00M",
-        "top_lot": {
-          "title": "Reflections: Art",
-          "hammer_usd": 4500000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Setting Sun and Sea",
-          "ratio": 5.0
         }
       }
     },
@@ -847,11 +847,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 7,
-        "total_usd": 30190600,
-        "avg_usd": 4312943,
-        "total_label": "$30.19M",
-        "avg_label": "$4.31M",
+        "lot_count": 8,
+        "total_usd": 31016100,
+        "avg_usd": 3877012,
+        "total_label": "$31.02M",
+        "avg_label": "$3.88M",
         "top_lot": {
           "title": "Les Distractions de Dagobert",
           "hammer_usd": 25000000,
@@ -901,11 +901,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 8,
-        "total_usd": 26361056,
-        "avg_usd": 3295132,
-        "total_label": "$26.36M",
-        "avg_label": "$3.30M",
+        "lot_count": 9,
+        "total_usd": 27504056,
+        "avg_usd": 3056006,
+        "total_label": "$27.50M",
+        "avg_label": "$3.06M",
         "top_lot": {
           "title": "Concetto spaziale, La fine di Dio",
           "hammer_usd": 20000000,
@@ -1031,6 +1031,60 @@
       }
     },
     {
+      "norm_name": "MARK ROTHKO",
+      "display_name": "Mark Rothko",
+      "dates": "1903–1970",
+      "nationality": "American (Latvian-born)",
+      "movement": "Abstract Expressionism · Colour-Field",
+      "movement_id": "colour-field",
+      "bio": "Mark Rothko is the supreme colourist of Abstract Expressionism, a painter whose vast, luminous rectangles of layered pigment have moved generations of viewers to tears and generated some of the highest auction prices in art history. Born Marcus Rothkowitz in Dvinsk (now Daugavpils, Latvia), he emigrated to the United States in 1913 and studied briefly at Yale before gravitating to the New York art world in the late 1920s.\n\nRothko's path to abstraction was gradual: he moved through Social Realism, mythological figure paintings influenced by Surrealism, and the Multiforms of the late 1940s before arriving, around 1950, at the signature format that would define his mature work — two or three luminous rectangular forms floating on a field of contrasting colour, their edges soft and trembling, their surfaces built up through multiple thin washes that create an illusion of interior light. He insisted that these paintings were not abstract but profoundly human — about tragedy, ecstasy, and doom — and that those who wept before them were sharing the same religious experience he had felt in making them.\n\nThe Seagram Murals (1958–1959), commissioned for the Four Seasons restaurant in New York but ultimately withheld by Rothko after a single dinner convinced him the setting was incompatible with his intentions, are among the most debated episodes in postwar art patronage. He donated a suite to the Tate, where they hang in a dedicated room. Rothko died by suicide in his studio in 1970.",
+      "famous_works": [
+        {
+          "title": "No. 61 (Rust and Blue)",
+          "year": "1953",
+          "notes": "A canonical Multiforms painting demonstrating the full emotional range of his mature colour method, in the collection of MOCA Los Angeles."
+        },
+        {
+          "title": "Orange, Red, Yellow",
+          "year": "1961",
+          "notes": "Sold for $86.9 million at Christie's New York in 2012, then a record for postwar and contemporary art."
+        },
+        {
+          "title": "Seagram Murals",
+          "year": "1958–1959",
+          "notes": "Dark maroon and black canvases made for the Four Seasons restaurant, withheld by Rothko and later distributed to the Tate, Harvard, and Japan."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Slow Swirl at the Edge of the Sea",
+          "year": "1944",
+          "notes": "A biomorphic Surrealist work showing his transitional period between figuration and abstraction, in MoMA's collection."
+        },
+        {
+          "title": "The Omen of the Eagle",
+          "year": "1942",
+          "notes": "A mythological composition influenced by Greek tragedy, part of his largely overlooked but critically important early 1940s series."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 24451774,
+        "avg_usd": 4890355,
+        "total_label": "$24.45M",
+        "avg_label": "$4.89M",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 10000000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Season's Greetings)",
+          "ratio": 3.87
+        }
+      }
+    },
+    {
       "norm_name": "MARC CHAGALL",
       "display_name": "Marc Chagall",
       "dates": "1887–1985",
@@ -1140,6 +1194,65 @@
         "top_ratio_lot": {
           "title": " Theology and Evolution 神學與進化論",
           "ratio": 1.0
+        }
+      }
+    },
+    {
+      "norm_name": "DAVID HOCKNEY",
+      "display_name": "David Hockney",
+      "dates": "b. 1937",
+      "nationality": "British",
+      "movement": "Pop Art · British Painting · Figuration",
+      "movement_id": "pop-art",
+      "bio": "Born in Bradford, Yorkshire, Hockney won every prize at the Royal College of Art (1959–62) before moving to Los Angeles in 1964, drawn by the light, the swimming pools, and the openness. His California paintings of the mid-1960s — the pool series, the portraits of friends and collectors — used flat, clear light and compositional calm to depict a world of pleasure without irony. The domesticity was the content. His Cubist photo collages (the Joiners, 1982–83) were a rigorous investigation of how a moving eye perceives space: hundreds of photographs assembled into composite images that represent time as well as space. His more recent work — iPad drawings of Yorkshire landscapes, the Arrival of Spring in Woldgate (2011) — pursues the same perceptual problem across new media without anxiety. He is the most celebrated living British painter and commands institutional prices across all major formats.",
+      "famous_works": [
+        {
+          "title": "A Bigger Splash",
+          "year": "1967",
+          "notes": "Two weeks to paint the palm trees and architecture; thirty minutes to paint the splash. The paradox of depicting instantaneous movement through laborious technique. Tate Modern."
+        },
+        {
+          "title": "Mr and Mrs Clark and Percy",
+          "year": "1970–71",
+          "notes": "A double portrait of the fashion designers Ossie Clark and Celia Birtwell. The compositional inversion — the wife seated, the husband standing — disturbs the conventional power dynamic."
+        },
+        {
+          "title": "Portrait of an Artist (Pool with Two Figures)",
+          "year": "1972",
+          "notes": "A boy looks down at a figure swimming beneath him. Made in a feverish 48-hour session the day before the exhibition opening. Sold for $90.3M in 2018 — the highest price for a living artist at the time."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Skater (Kasmin)",
+          "year": "1982",
+          "notes": "A photo collage from the Joiners series. The gallery owner Lawrence Kasmin is shown from multiple angles simultaneously — the static photograph made temporally complex."
+        },
+        {
+          "title": "Sun on the Pool, Los Angeles April 13, 1982",
+          "year": "1982",
+          "notes": "A pool painting from the later Los Angeles period. The light is more forensic, less atmospheric than the 1960s pool works — a different account of the same subject."
+        },
+        {
+          "title": "Garrowby Hill",
+          "year": "1998",
+          "notes": "A Yorkshire road winding over the wolds — the return to English landscape before the major Yorkshire series. Less famous than the Arrival of Spring but more quietly remarkable."
+        }
+      ],
+      "dataset": {
+        "lot_count": 18,
+        "total_usd": 18732768,
+        "avg_usd": 1040709,
+        "total_label": "$18.73M",
+        "avg_label": "$1.04M",
+        "top_lot": {
+          "title": "A Bigger Wave",
+          "hammer_usd": 7500000,
+          "sale_name": "Contemporary Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Caribbean Tea Time",
+          "ratio": 5.4
         }
       }
     },
@@ -1370,65 +1483,6 @@
       }
     },
     {
-      "norm_name": "DAVID HOCKNEY",
-      "display_name": "David Hockney",
-      "dates": "b. 1937",
-      "nationality": "British",
-      "movement": "Pop Art · British Painting · Figuration",
-      "movement_id": "pop-art",
-      "bio": "Born in Bradford, Yorkshire, Hockney won every prize at the Royal College of Art (1959–62) before moving to Los Angeles in 1964, drawn by the light, the swimming pools, and the openness. His California paintings of the mid-1960s — the pool series, the portraits of friends and collectors — used flat, clear light and compositional calm to depict a world of pleasure without irony. The domesticity was the content. His Cubist photo collages (the Joiners, 1982–83) were a rigorous investigation of how a moving eye perceives space: hundreds of photographs assembled into composite images that represent time as well as space. His more recent work — iPad drawings of Yorkshire landscapes, the Arrival of Spring in Woldgate (2011) — pursues the same perceptual problem across new media without anxiety. He is the most celebrated living British painter and commands institutional prices across all major formats.",
-      "famous_works": [
-        {
-          "title": "A Bigger Splash",
-          "year": "1967",
-          "notes": "Two weeks to paint the palm trees and architecture; thirty minutes to paint the splash. The paradox of depicting instantaneous movement through laborious technique. Tate Modern."
-        },
-        {
-          "title": "Mr and Mrs Clark and Percy",
-          "year": "1970–71",
-          "notes": "A double portrait of the fashion designers Ossie Clark and Celia Birtwell. The compositional inversion — the wife seated, the husband standing — disturbs the conventional power dynamic."
-        },
-        {
-          "title": "Portrait of an Artist (Pool with Two Figures)",
-          "year": "1972",
-          "notes": "A boy looks down at a figure swimming beneath him. Made in a feverish 48-hour session the day before the exhibition opening. Sold for $90.3M in 2018 — the highest price for a living artist at the time."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Skater (Kasmin)",
-          "year": "1982",
-          "notes": "A photo collage from the Joiners series. The gallery owner Lawrence Kasmin is shown from multiple angles simultaneously — the static photograph made temporally complex."
-        },
-        {
-          "title": "Sun on the Pool, Los Angeles April 13, 1982",
-          "year": "1982",
-          "notes": "A pool painting from the later Los Angeles period. The light is more forensic, less atmospheric than the 1960s pool works — a different account of the same subject."
-        },
-        {
-          "title": "Garrowby Hill",
-          "year": "1998",
-          "notes": "A Yorkshire road winding over the wolds — the return to English landscape before the major Yorkshire series. Less famous than the Arrival of Spring but more quietly remarkable."
-        }
-      ],
-      "dataset": {
-        "lot_count": 17,
-        "total_usd": 16446768,
-        "avg_usd": 967457,
-        "total_label": "$16.45M",
-        "avg_label": "$967k",
-        "top_lot": {
-          "title": "A Bigger Wave",
-          "hammer_usd": 7500000,
-          "sale_name": "Contemporary Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Caribbean Tea Time",
-          "ratio": 5.4
-        }
-      }
-    },
-    {
       "norm_name": "LE PHO",
       "display_name": "Le Pho",
       "dates": "1907–2001",
@@ -1596,56 +1650,56 @@
       }
     },
     {
-      "norm_name": "MARK ROTHKO",
-      "display_name": "Mark Rothko",
-      "dates": "1903–1970",
-      "nationality": "American (Latvian-born)",
-      "movement": "Abstract Expressionism · Colour-Field",
-      "movement_id": "colour-field",
-      "bio": "Mark Rothko is the supreme colourist of Abstract Expressionism, a painter whose vast, luminous rectangles of layered pigment have moved generations of viewers to tears and generated some of the highest auction prices in art history. Born Marcus Rothkowitz in Dvinsk (now Daugavpils, Latvia), he emigrated to the United States in 1913 and studied briefly at Yale before gravitating to the New York art world in the late 1920s.\n\nRothko's path to abstraction was gradual: he moved through Social Realism, mythological figure paintings influenced by Surrealism, and the Multiforms of the late 1940s before arriving, around 1950, at the signature format that would define his mature work — two or three luminous rectangular forms floating on a field of contrasting colour, their edges soft and trembling, their surfaces built up through multiple thin washes that create an illusion of interior light. He insisted that these paintings were not abstract but profoundly human — about tragedy, ecstasy, and doom — and that those who wept before them were sharing the same religious experience he had felt in making them.\n\nThe Seagram Murals (1958–1959), commissioned for the Four Seasons restaurant in New York but ultimately withheld by Rothko after a single dinner convinced him the setting was incompatible with his intentions, are among the most debated episodes in postwar art patronage. He donated a suite to the Tate, where they hang in a dedicated room. Rothko died by suicide in his studio in 1970.",
+      "norm_name": "WASSILY KANDINSKY",
+      "display_name": "Wassily Kandinsky",
+      "dates": "1866–1944",
+      "nationality": "Russian-French",
+      "movement": "Abstract Expressionism · Modernism",
+      "movement_id": "abstract-expressionism",
+      "bio": "Wassily Kandinsky is widely credited as the first painter to make a fully non-representational work, and his theoretical writings — Concerning the Spiritual in Art (1911) and Point and Line to Plane (1926) — remain foundational texts for understanding the development of abstraction in the twentieth century. Born in Moscow into a cultivated bourgeois family, he abandoned a legal career at thirty to study painting in Munich, where he founded the Neue Künstlervereinigung München and, with Franz Marc, the Blaue Reiter group in 1911.\n\nKandinsky's conviction that colour and form could induce spiritual states analogous to music — he was a synesthete who perceived colours when hearing sound — drove him toward the elimination of recognisable subject matter from his work. His Compositions, Improvisations, and Impressions of the pre-war period oscillate between near-abstraction and the retention of landscape and figurative elements; by the early 1910s some canvases contain no discernible subject at all. At the Weimar and Dessau Bauhaus (1922–1933), where he directed the mural workshop, his work became more geometric, influenced by Russian Constructivism and the rigorous spatial investigations of his Bauhaus colleagues.\n\nKandinsky spent his final decade in Neuilly-sur-Seine, France, having fled Nazi Germany, producing biomorphic abstractions that incorporate his characteristic colour theory within more organic, Miró-influenced forms. His influence on subsequent abstraction — on the New York School, on Concrete Art, on Op Art — is pervasive and fundamental.",
       "famous_works": [
         {
-          "title": "No. 61 (Rust and Blue)",
-          "year": "1953",
-          "notes": "A canonical Multiforms painting demonstrating the full emotional range of his mature colour method, in the collection of MOCA Los Angeles."
+          "title": "Composition VII",
+          "year": "1913",
+          "notes": "Considered his masterpiece, a vast canvas of swirling forms and colour that is among the most complex pre-war abstract paintings ever made."
         },
         {
-          "title": "Orange, Red, Yellow",
-          "year": "1961",
-          "notes": "Sold for $86.9 million at Christie's New York in 2012, then a record for postwar and contemporary art."
+          "title": "Improvisation 28 (second version)",
+          "year": "1912",
+          "notes": "A pivotal early abstraction in which landscape elements are on the verge of complete dissolution into pure form and colour."
         },
         {
-          "title": "Seagram Murals",
-          "year": "1958–1959",
-          "notes": "Dark maroon and black canvases made for the Four Seasons restaurant, withheld by Rothko and later distributed to the Tate, Harvard, and Japan."
+          "title": "Yellow-Red-Blue",
+          "year": "1925",
+          "notes": "A Bauhaus period work demonstrating his geometric turn, the primary colour theory of Concerning the Spiritual in Art applied with rigorous formal discipline."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Slow Swirl at the Edge of the Sea",
-          "year": "1944",
-          "notes": "A biomorphic Surrealist work showing his transitional period between figuration and abstraction, in MoMA's collection."
+          "title": "Murnau — Landscape with Tower",
+          "year": "1908",
+          "notes": "A transitional Bavarian landscape in which Fauvist colour pushes against the representational convention, approaching the abstraction of his breakthrough works."
         },
         {
-          "title": "The Omen of the Eagle",
-          "year": "1942",
-          "notes": "A mythological composition influenced by Greek tragedy, part of his largely overlooked but critically important early 1940s series."
+          "title": "Several Circles",
+          "year": "1926",
+          "notes": "A Bauhaus-period canvas of overlapping translucent circles on black, demonstrating his investigation of colour transparency and spatial depth through geometric means."
         }
       ],
       "dataset": {
-        "lot_count": 4,
-        "total_usd": 14926774,
-        "avg_usd": 3731694,
-        "total_label": "$14.93M",
-        "avg_label": "$3.73M",
+        "lot_count": 7,
+        "total_usd": 14822050,
+        "avg_usd": 2117436,
+        "total_label": "$14.82M",
+        "avg_label": "$2.12M",
         "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 10000000,
-          "sale_name": "Modern Evening Auction, NY 2024"
+          "title": "Villa Seeburg am Staffelsee",
+          "hammer_usd": 6269999,
+          "sale_name": "Evening Sale, Munich"
         },
         "top_ratio_lot": {
-          "title": "Untitled (Season's Greetings)",
-          "ratio": 3.87
+          "title": "Villa Seeburg am Staffelsee",
+          "ratio": 3.13
         }
       }
     },
@@ -1710,6 +1764,60 @@
         "top_ratio_lot": {
           "title": "Hollywood",
           "ratio": 4.62
+        }
+      }
+    },
+    {
+      "norm_name": "EGON SCHIELE",
+      "display_name": "Egon Schiele",
+      "dates": "1890–1918",
+      "nationality": "Austrian",
+      "movement": "Expressionism",
+      "movement_id": "expressionism",
+      "bio": "Egon Schiele was the most psychologically naked painter of the Viennese Expressionist generation, an artist who died at twenty-eight during the 1918 Spanish flu pandemic leaving a body of work of anguished intensity and graphic daring that has lost none of its power to disturb and move. Born in Tulln an der Donau, he entered the Vienna Academy of Fine Arts in 1906 and immediately attracted the attention of Gustav Klimt, who recognised his extraordinary draftsmanship and became his mentor.\n\nSchiele broke with Klimt's ornamental symbolism to develop a style of raw linearity in which the human body — contorted, emaciated, frontally displayed in positions of erotic exposure or existential isolation — became the vehicle for an investigation of desire, shame, mortality, and the relationship between artist and model that anticipated later developments in confessional art. His figures are typically isolated on blank grounds, their outlines jagged and emphatic, their flesh rendered in sickly yellows and livid reds. The lack of environmental context focuses attention entirely on the psychological and physical reality of the body.\n\nSchiele was arrested in 1912 on charges of obscenity and producing pornography, and spent twenty-four days in prison — an experience he documented in a series of small paintings. He died in October 1918, three days after his pregnant wife Edith, at the peak of the Spanish influenza pandemic. His works now rank among the most expensive works on paper at auction, and his reputation as one of the defining figures of European modernism is firmly established.",
+      "famous_works": [
+        {
+          "title": "Self-Portrait with Physalis",
+          "year": "1912",
+          "notes": "A confrontational self-portrait with the artist holding a Chinese lantern plant, the intense orange echoing the psychic tension of his self-examination."
+        },
+        {
+          "title": "The Family",
+          "year": "1918",
+          "notes": "His final major work, showing a naked man, woman, and child — a raw family portrait painted in the year of his own death."
+        },
+        {
+          "title": "Reclining Woman with Green Stockings",
+          "year": "1917",
+          "notes": "A characteristic figure work demonstrating his mature command of compressed spatial tension and erotic directness."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Dead Mother I",
+          "year": "1910",
+          "notes": "A small but harrowing canvas exploring themes of birth and death, the infant clinging to its mother's lifeless body."
+        },
+        {
+          "title": "Krumau Landscape (Town and River)",
+          "year": "1916",
+          "notes": "One of his finest townscapes, demonstrating that his obsessive formal intelligence was not confined to the figure."
+        }
+      ],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 12568460,
+        "avg_usd": 1047372,
+        "total_label": "$12.57M",
+        "avg_label": "$1.05M",
+        "top_lot": {
+          "title": "Tote Stadt IV (Blick über Dächer auf Häuserfassaden des Krum",
+          "hammer_usd": 4826000,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Leopold Czihaczek, auf rotem Sofa sitzend",
+          "ratio": 2.69
         }
       }
     },
@@ -2039,60 +2147,6 @@
         "top_ratio_lot": {
           "title": "Everything Comes 一切都來了",
           "ratio": 1.25
-        }
-      }
-    },
-    {
-      "norm_name": "WASSILY KANDINSKY",
-      "display_name": "Wassily Kandinsky",
-      "dates": "1866–1944",
-      "nationality": "Russian-French",
-      "movement": "Abstract Expressionism · Modernism",
-      "movement_id": "abstract-expressionism",
-      "bio": "Wassily Kandinsky is widely credited as the first painter to make a fully non-representational work, and his theoretical writings — Concerning the Spiritual in Art (1911) and Point and Line to Plane (1926) — remain foundational texts for understanding the development of abstraction in the twentieth century. Born in Moscow into a cultivated bourgeois family, he abandoned a legal career at thirty to study painting in Munich, where he founded the Neue Künstlervereinigung München and, with Franz Marc, the Blaue Reiter group in 1911.\n\nKandinsky's conviction that colour and form could induce spiritual states analogous to music — he was a synesthete who perceived colours when hearing sound — drove him toward the elimination of recognisable subject matter from his work. His Compositions, Improvisations, and Impressions of the pre-war period oscillate between near-abstraction and the retention of landscape and figurative elements; by the early 1910s some canvases contain no discernible subject at all. At the Weimar and Dessau Bauhaus (1922–1933), where he directed the mural workshop, his work became more geometric, influenced by Russian Constructivism and the rigorous spatial investigations of his Bauhaus colleagues.\n\nKandinsky spent his final decade in Neuilly-sur-Seine, France, having fled Nazi Germany, producing biomorphic abstractions that incorporate his characteristic colour theory within more organic, Miró-influenced forms. His influence on subsequent abstraction — on the New York School, on Concrete Art, on Op Art — is pervasive and fundamental.",
-      "famous_works": [
-        {
-          "title": "Composition VII",
-          "year": "1913",
-          "notes": "Considered his masterpiece, a vast canvas of swirling forms and colour that is among the most complex pre-war abstract paintings ever made."
-        },
-        {
-          "title": "Improvisation 28 (second version)",
-          "year": "1912",
-          "notes": "A pivotal early abstraction in which landscape elements are on the verge of complete dissolution into pure form and colour."
-        },
-        {
-          "title": "Yellow-Red-Blue",
-          "year": "1925",
-          "notes": "A Bauhaus period work demonstrating his geometric turn, the primary colour theory of Concerning the Spiritual in Art applied with rigorous formal discipline."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Murnau — Landscape with Tower",
-          "year": "1908",
-          "notes": "A transitional Bavarian landscape in which Fauvist colour pushes against the representational convention, approaching the abstraction of his breakthrough works."
-        },
-        {
-          "title": "Several Circles",
-          "year": "1926",
-          "notes": "A Bauhaus-period canvas of overlapping translucent circles on black, demonstrating his investigation of colour transparency and spatial depth through geometric means."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 9488050,
-        "avg_usd": 1581342,
-        "total_label": "$9.49M",
-        "avg_label": "$1.58M",
-        "top_lot": {
-          "title": "Villa Seeburg am Staffelsee",
-          "hammer_usd": 6269999,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Villa Seeburg am Staffelsee",
-          "ratio": 3.13
         }
       }
     },
@@ -2485,56 +2539,110 @@
       }
     },
     {
-      "norm_name": "EGON SCHIELE",
-      "display_name": "Egon Schiele",
-      "dates": "1890–1918",
-      "nationality": "Austrian",
-      "movement": "Expressionism",
-      "movement_id": "expressionism",
-      "bio": "Egon Schiele was the most psychologically naked painter of the Viennese Expressionist generation, an artist who died at twenty-eight during the 1918 Spanish flu pandemic leaving a body of work of anguished intensity and graphic daring that has lost none of its power to disturb and move. Born in Tulln an der Donau, he entered the Vienna Academy of Fine Arts in 1906 and immediately attracted the attention of Gustav Klimt, who recognised his extraordinary draftsmanship and became his mentor.\n\nSchiele broke with Klimt's ornamental symbolism to develop a style of raw linearity in which the human body — contorted, emaciated, frontally displayed in positions of erotic exposure or existential isolation — became the vehicle for an investigation of desire, shame, mortality, and the relationship between artist and model that anticipated later developments in confessional art. His figures are typically isolated on blank grounds, their outlines jagged and emphatic, their flesh rendered in sickly yellows and livid reds. The lack of environmental context focuses attention entirely on the psychological and physical reality of the body.\n\nSchiele was arrested in 1912 on charges of obscenity and producing pornography, and spent twenty-four days in prison — an experience he documented in a series of small paintings. He died in October 1918, three days after his pregnant wife Edith, at the peak of the Spanish influenza pandemic. His works now rank among the most expensive works on paper at auction, and his reputation as one of the defining figures of European modernism is firmly established.",
+      "norm_name": "SIGMAR POLKE",
+      "display_name": "Sigmar Polke",
+      "dates": "1941–2010",
+      "nationality": "German",
+      "movement": "Neo-Expressionism · Contemporary",
+      "movement_id": "neo-expressionism",
+      "bio": "Sigmar Polke was born in Oels, Silesia (now Oleśnica, Poland) in 1941. His family fled West Germany in 1953, eventually settling in Düsseldorf, where he studied at the Kunstakademie under Karl Otto Götz, alongside Gerhard Richter. In 1963 Polke and Richter announced 'Capitalist Realism', a German response to American Pop that used commercial and mass-media imagery not with Pop's cool detachment but with a corrosive, often scatological humour.\n\nPolke's practice is among the most formally inventive and intellectually restless in post-war art. He worked across decades in a staggering range of materials and methodologies — Raster dot paintings (enlarging commercial printing screens to canvas), paintings on patterned fabric, works using toxic and transformative chemicals, photographic darkroom experimentations, large-scale works on transparent polyester fabric — rarely settling into any single approach long enough for it to become a style. His use of Raster dots anticipated and complicated digital pixelation; his chemical works produced surfaces that continued to change after the work was 'finished'.\n\nPolke won the Golden Lion at the Venice Biennale in 1986, with an installation that filled the German Pavilion with iridescent chemical surfaces. He is represented posthumously by Michael Werner Gallery and his work is held by the Museum of Modern Art, the Museum Ludwig in Cologne, and major collections worldwide.",
       "famous_works": [
         {
-          "title": "Self-Portrait with Physalis",
-          "year": "1912",
-          "notes": "A confrontational self-portrait with the artist holding a Chinese lantern plant, the intense orange echoing the psychic tension of his self-examination."
+          "title": "Higher Powers Command: Paint the Upper Right Corner Black!",
+          "year": "1969",
+          "notes": "A painting in which Polke executes an apparently nonsensical instruction, simultaneously testing authority structures and the conventions of abstract painting."
         },
         {
-          "title": "The Family",
-          "year": "1918",
-          "notes": "His final major work, showing a naked man, woman, and child — a raw family portrait painted in the year of his own death."
+          "title": "Watchtower",
+          "year": "1984–1988",
+          "notes": "A series of paintings of watchtowers — associated with both the Nazi concentration camp system and the East German border — in which multiple layered materials create images of political resonance and formal complexity."
         },
         {
-          "title": "Reclining Woman with Green Stockings",
-          "year": "1917",
-          "notes": "A characteristic figure work demonstrating his mature command of compressed spatial tension and erotic directness."
+          "title": "Alice in Wonderland",
+          "year": "1971",
+          "notes": "A work on patterned fabric in which the interference between the applied image and the ground's pattern creates a pictorial complexity that is simultaneously humorous and formally sophisticated."
         }
       ],
       "lesser_known_works": [
         {
-          "title": "Dead Mother I",
-          "year": "1910",
-          "notes": "A small but harrowing canvas exploring themes of birth and death, the infant clinging to its mother's lifeless body."
+          "title": "Bunnies",
+          "year": "1966",
+          "notes": "An early Raster dot painting in which Playboy bunnies are reproduced at enlarged dot-screen scale, connecting commercial printing technology to questions of desire and reproduction."
         },
         {
-          "title": "Krumau Landscape (Town and River)",
-          "year": "1916",
-          "notes": "One of his finest townscapes, demonstrating that his obsessive formal intelligence was not confined to the figure."
+          "title": "Transformers Paintings",
+          "year": "1995",
+          "notes": "Works using chemicals that alter and transform the painted surface over time, making change itself a constitutive element of the work."
         }
       ],
       "dataset": {
-        "lot_count": 11,
-        "total_usd": 7742460,
-        "avg_usd": 703860,
-        "total_label": "$7.74M",
-        "avg_label": "$704k",
+        "lot_count": 7,
+        "total_usd": 8101232,
+        "avg_usd": 1157319,
+        "total_label": "$8.10M",
+        "avg_label": "$1.16M",
         "top_lot": {
-          "title": "Männlicher Akt im Profil nach rechts (Male Nude in Profile F",
-          "hammer_usd": 2000000,
+          "title": "Alpenveilchen",
+          "hammer_usd": 4800000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Secrets of Love and Marriage",
+          "ratio": 2.96
+        }
+      }
+    },
+    {
+      "norm_name": "ALBERTO GIACOMETTI",
+      "display_name": "Alberto Giacometti",
+      "dates": "1901–1966",
+      "nationality": "Swiss",
+      "movement": "Surrealism · Existentialism",
+      "movement_id": "surrealism",
+      "bio": "Alberto Giacometti was one of the defining sculptors of the twentieth century, a Swiss-Italian artist whose attenuated bronze figures — impossibly thin, their surfaces corroded and worked to exhaustion — became the visual embodiment of postwar existentialism and have commanded some of the highest auction prices ever achieved in the medium. Born in Borgonovo in the Swiss canton of Graubünden, the son of the Post-Impressionist painter Giovanni Giacometti, he moved to Paris in 1922 and spent the rest of his life in a tiny studio on the Rue Hippolyte-Maindron that became legendary for its squalor and its extraordinary productivity.\n\nGiacometti passed through a Surrealist period in the early 1930s — objects like The Palace at 4 AM (1932) remain among the most structurally inventive constructions of that movement — before abandoning Surrealism to pursue what he described as a direct confrontation with the problem of depicting what he actually saw: the human figure at a distance, against space, irreducible to conventional sculptural mass. The figures that emerged from his studio from the mid-1940s onward — Walking Man, City Square, the Chariot — are stripped to the existential minimum, their verticality heroic, their erosion expressing the fragility of human presence in the world.\n\nGiacometti's paintings and drawings are equally important: compulsive studies of his wife Annette, his brother Diego, and his studio interiors in which the subject is surrounded by the evidence of repeated, anxious revision. Jean-Paul Sartre, Samuel Beckett, and Jean Genet were among his closest intellectual companions, and his work has been understood as the visual correlative of their investigations into absurdity and isolation.",
+      "famous_works": [
+        {
+          "title": "Walking Man I (L'homme qui marche I)",
+          "year": "1960",
+          "notes": "The definitive statement of his mature sculptural vision, sold for $104.3 million in 2010, then a world record for any sculpture at auction."
+        },
+        {
+          "title": "City Square (La Place)",
+          "year": "1948–1949",
+          "notes": "Six attenuated figures crossing a bronze plaza, the defining image of postwar human isolation, in MoMA's collection."
+        },
+        {
+          "title": "The Palace at 4 AM",
+          "year": "1932",
+          "notes": "A dreamlike open construction of glass, wire, and bone that is one of the masterpieces of Surrealist object-making."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Chariot",
+          "year": "1950",
+          "notes": "A female figure on a wheeled cart inspired by Egyptian funerary vehicles, among his most ceremonially resolved bronze compositions."
+        },
+        {
+          "title": "Annette IV",
+          "year": "1962",
+          "notes": "One of his intense painted portraits of his wife, the canvas surface worked and reworked until it captures the anxiety of sustained looking."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 7878355,
+        "avg_usd": 1969589,
+        "total_label": "$7.88M",
+        "avg_label": "$1.97M",
+        "top_lot": {
+          "title": "Femme debout (Poseuse I)",
+          "hammer_usd": 5700000,
           "sale_name": "Modern Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Leopold Czihaczek, auf rotem Sofa sitzend",
-          "ratio": 2.69
+          "title": "Figure",
+          "ratio": 5.08
         }
       }
     },
@@ -3045,60 +3153,6 @@
       }
     },
     {
-      "norm_name": "SIGMAR POLKE",
-      "display_name": "Sigmar Polke",
-      "dates": "1941–2010",
-      "nationality": "German",
-      "movement": "Neo-Expressionism · Contemporary",
-      "movement_id": "neo-expressionism",
-      "bio": "Sigmar Polke was born in Oels, Silesia (now Oleśnica, Poland) in 1941. His family fled West Germany in 1953, eventually settling in Düsseldorf, where he studied at the Kunstakademie under Karl Otto Götz, alongside Gerhard Richter. In 1963 Polke and Richter announced 'Capitalist Realism', a German response to American Pop that used commercial and mass-media imagery not with Pop's cool detachment but with a corrosive, often scatological humour.\n\nPolke's practice is among the most formally inventive and intellectually restless in post-war art. He worked across decades in a staggering range of materials and methodologies — Raster dot paintings (enlarging commercial printing screens to canvas), paintings on patterned fabric, works using toxic and transformative chemicals, photographic darkroom experimentations, large-scale works on transparent polyester fabric — rarely settling into any single approach long enough for it to become a style. His use of Raster dots anticipated and complicated digital pixelation; his chemical works produced surfaces that continued to change after the work was 'finished'.\n\nPolke won the Golden Lion at the Venice Biennale in 1986, with an installation that filled the German Pavilion with iridescent chemical surfaces. He is represented posthumously by Michael Werner Gallery and his work is held by the Museum of Modern Art, the Museum Ludwig in Cologne, and major collections worldwide.",
-      "famous_works": [
-        {
-          "title": "Higher Powers Command: Paint the Upper Right Corner Black!",
-          "year": "1969",
-          "notes": "A painting in which Polke executes an apparently nonsensical instruction, simultaneously testing authority structures and the conventions of abstract painting."
-        },
-        {
-          "title": "Watchtower",
-          "year": "1984–1988",
-          "notes": "A series of paintings of watchtowers — associated with both the Nazi concentration camp system and the East German border — in which multiple layered materials create images of political resonance and formal complexity."
-        },
-        {
-          "title": "Alice in Wonderland",
-          "year": "1971",
-          "notes": "A work on patterned fabric in which the interference between the applied image and the ground's pattern creates a pictorial complexity that is simultaneously humorous and formally sophisticated."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Bunnies",
-          "year": "1966",
-          "notes": "An early Raster dot painting in which Playboy bunnies are reproduced at enlarged dot-screen scale, connecting commercial printing technology to questions of desire and reproduction."
-        },
-        {
-          "title": "Transformers Paintings",
-          "year": "1995",
-          "notes": "Works using chemicals that alter and transform the painted surface over time, making change itself a constitutive element of the work."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 6813452,
-        "avg_usd": 1362690,
-        "total_label": "$6.81M",
-        "avg_label": "$1.36M",
-        "top_lot": {
-          "title": "Alpenveilchen",
-          "hammer_usd": 4800000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "BZ am Mittag",
-          "ratio": 1.53
-        }
-      }
-    },
-    {
       "norm_name": "BERNARD BUFFET",
       "display_name": "Bernard Buffet",
       "dates": "1928–1999",
@@ -3477,60 +3531,6 @@
       }
     },
     {
-      "norm_name": "ALBERTO GIACOMETTI",
-      "display_name": "Alberto Giacometti",
-      "dates": "1901–1966",
-      "nationality": "Swiss",
-      "movement": "Surrealism · Existentialism",
-      "movement_id": "surrealism",
-      "bio": "Alberto Giacometti was one of the defining sculptors of the twentieth century, a Swiss-Italian artist whose attenuated bronze figures — impossibly thin, their surfaces corroded and worked to exhaustion — became the visual embodiment of postwar existentialism and have commanded some of the highest auction prices ever achieved in the medium. Born in Borgonovo in the Swiss canton of Graubünden, the son of the Post-Impressionist painter Giovanni Giacometti, he moved to Paris in 1922 and spent the rest of his life in a tiny studio on the Rue Hippolyte-Maindron that became legendary for its squalor and its extraordinary productivity.\n\nGiacometti passed through a Surrealist period in the early 1930s — objects like The Palace at 4 AM (1932) remain among the most structurally inventive constructions of that movement — before abandoning Surrealism to pursue what he described as a direct confrontation with the problem of depicting what he actually saw: the human figure at a distance, against space, irreducible to conventional sculptural mass. The figures that emerged from his studio from the mid-1940s onward — Walking Man, City Square, the Chariot — are stripped to the existential minimum, their verticality heroic, their erosion expressing the fragility of human presence in the world.\n\nGiacometti's paintings and drawings are equally important: compulsive studies of his wife Annette, his brother Diego, and his studio interiors in which the subject is surrounded by the evidence of repeated, anxious revision. Jean-Paul Sartre, Samuel Beckett, and Jean Genet were among his closest intellectual companions, and his work has been understood as the visual correlative of their investigations into absurdity and isolation.",
-      "famous_works": [
-        {
-          "title": "Walking Man I (L'homme qui marche I)",
-          "year": "1960",
-          "notes": "The definitive statement of his mature sculptural vision, sold for $104.3 million in 2010, then a world record for any sculpture at auction."
-        },
-        {
-          "title": "City Square (La Place)",
-          "year": "1948–1949",
-          "notes": "Six attenuated figures crossing a bronze plaza, the defining image of postwar human isolation, in MoMA's collection."
-        },
-        {
-          "title": "The Palace at 4 AM",
-          "year": "1932",
-          "notes": "A dreamlike open construction of glass, wire, and bone that is one of the masterpieces of Surrealist object-making."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Chariot",
-          "year": "1950",
-          "notes": "A female figure on a wheeled cart inspired by Egyptian funerary vehicles, among his most ceremonially resolved bronze compositions."
-        },
-        {
-          "title": "Annette IV",
-          "year": "1962",
-          "notes": "One of his intense painted portraits of his wife, the canvas surface worked and reworked until it captures the anxiety of sustained looking."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 6354355,
-        "avg_usd": 2118118,
-        "total_label": "$6.35M",
-        "avg_label": "$2.12M",
-        "top_lot": {
-          "title": "Femme debout (Poseuse I)",
-          "hammer_usd": 5700000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Figure",
-          "ratio": 5.08
-        }
-      }
-    },
-    {
       "norm_name": "FRANK LLOYD WRIGHT",
       "display_name": "Frank Lloyd Wright",
       "dates": "1867–1959",
@@ -3797,6 +3797,60 @@
         "top_ratio_lot": {
           "title": "Sister No.15  姐姐 15號",
           "ratio": 0.85
+        }
+      }
+    },
+    {
+      "norm_name": "GEORG BASELITZ",
+      "display_name": "Georg Baselitz",
+      "dates": "b. 1938",
+      "nationality": "German",
+      "movement": "Neo-Expressionism",
+      "movement_id": "neo-expressionism",
+      "bio": "Georg Baselitz was born Hans-Georg Kern in Deutschbaselitz, Saxony in 1938 and grew up in Soviet-occupied East Germany, fleeing to West Berlin in 1956 to study at the Hochschule für bildende Künste. His early paintings of the 1960s provoked scandal for their raw sexuality and anarchic imagery — two were confiscated by authorities — and established his commitment to provoking the normative expectations of both political systems within which he moved.\n\nThe decisive formal development of his career came in 1969, when he began painting his figures upside-down, a procedure he has maintained consistently for more than fifty years. The inversion refuses narrative: the viewer cannot construct a scene, cannot determine foreground from background in the conventional sense, and is forced to attend to the painting as a painted object — to its gestural surface, its colour, its marks — rather than to its depicted content. The figures are in the painting, but the painting is emphatically about itself.\n\nBaselitz has been a central figure in German art for six decades, associated with the resurgence of figuration in the late 1970s and 1980s, and his work has attracted sustained critical debate about the relationship between German cultural tradition, trauma, and the possibilities of Neo-Expressionism. He is represented by Gagosian Gallery and White Cube, and major retrospectives have been mounted at institutions including the Guggenheim Museum Bilbao.",
+      "famous_works": [
+        {
+          "title": "The Big Night Down the Drain",
+          "year": "1962–1963",
+          "notes": "A notorious early work confiscated by West Berlin authorities for obscenity, establishing Baselitz's commitment to transgressive imagery in his pre-inversion period."
+        },
+        {
+          "title": "Motif: The Shepherd (Der Hirte)",
+          "year": "1969",
+          "notes": "One of the first inverted paintings, marking the decisive formal decision that has defined Baselitz's practice for more than five decades."
+        },
+        {
+          "title": "Adler (Eagle)",
+          "year": "1977",
+          "notes": "A monumental inverted eagle in which the national symbol of Germany is subjected to Baselitz's characteristic formal disruption."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Remix series",
+          "year": "2005–present",
+          "notes": "A late series in which Baselitz revisits and repaints his own earlier works, making the history of the practice itself the subject of the paintings."
+        },
+        {
+          "title": "Elke I",
+          "year": "1969",
+          "notes": "An early inverted portrait of his wife Elke demonstrating the application of the inversion principle to the specific genre of portraiture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 11,
+        "total_usd": 5765129,
+        "avg_usd": 524103,
+        "total_label": "$5.77M",
+        "avg_label": "$524k",
+        "top_lot": {
+          "title": "Fingermalerei - Akt",
+          "hammer_usd": 2200000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Enddesign",
+          "ratio": 2.01
         }
       }
     },
@@ -4175,60 +4229,6 @@
         "top_ratio_lot": {
           "title": "East Winds No. 839031 東風 No. 839031",
           "ratio": 2.86
-        }
-      }
-    },
-    {
-      "norm_name": "GEORG BASELITZ",
-      "display_name": "Georg Baselitz",
-      "dates": "b. 1938",
-      "nationality": "German",
-      "movement": "Neo-Expressionism",
-      "movement_id": "neo-expressionism",
-      "bio": "Georg Baselitz was born Hans-Georg Kern in Deutschbaselitz, Saxony in 1938 and grew up in Soviet-occupied East Germany, fleeing to West Berlin in 1956 to study at the Hochschule für bildende Künste. His early paintings of the 1960s provoked scandal for their raw sexuality and anarchic imagery — two were confiscated by authorities — and established his commitment to provoking the normative expectations of both political systems within which he moved.\n\nThe decisive formal development of his career came in 1969, when he began painting his figures upside-down, a procedure he has maintained consistently for more than fifty years. The inversion refuses narrative: the viewer cannot construct a scene, cannot determine foreground from background in the conventional sense, and is forced to attend to the painting as a painted object — to its gestural surface, its colour, its marks — rather than to its depicted content. The figures are in the painting, but the painting is emphatically about itself.\n\nBaselitz has been a central figure in German art for six decades, associated with the resurgence of figuration in the late 1970s and 1980s, and his work has attracted sustained critical debate about the relationship between German cultural tradition, trauma, and the possibilities of Neo-Expressionism. He is represented by Gagosian Gallery and White Cube, and major retrospectives have been mounted at institutions including the Guggenheim Museum Bilbao.",
-      "famous_works": [
-        {
-          "title": "The Big Night Down the Drain",
-          "year": "1962–1963",
-          "notes": "A notorious early work confiscated by West Berlin authorities for obscenity, establishing Baselitz's commitment to transgressive imagery in his pre-inversion period."
-        },
-        {
-          "title": "Motif: The Shepherd (Der Hirte)",
-          "year": "1969",
-          "notes": "One of the first inverted paintings, marking the decisive formal decision that has defined Baselitz's practice for more than five decades."
-        },
-        {
-          "title": "Adler (Eagle)",
-          "year": "1977",
-          "notes": "A monumental inverted eagle in which the national symbol of Germany is subjected to Baselitz's characteristic formal disruption."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Remix series",
-          "year": "2005–present",
-          "notes": "A late series in which Baselitz revisits and repaints his own earlier works, making the history of the practice itself the subject of the paintings."
-        },
-        {
-          "title": "Elke I",
-          "year": "1969",
-          "notes": "An early inverted portrait of his wife Elke demonstrating the application of the inversion principle to the specific genre of portraiture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 10,
-        "total_usd": 5282529,
-        "avg_usd": 528253,
-        "total_label": "$5.28M",
-        "avg_label": "$528k",
-        "top_lot": {
-          "title": "Fingermalerei - Akt",
-          "hammer_usd": 2200000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Enddesign",
-          "ratio": 2.01
         }
       }
     },
@@ -4734,6 +4734,60 @@
       }
     },
     {
+      "norm_name": "DAMIEN HIRST",
+      "display_name": "Damien Hirst",
+      "dates": "b. 1965",
+      "nationality": "British",
+      "movement": "Contemporary · Conceptual",
+      "movement_id": "conceptual",
+      "bio": "Damien Hirst was born in Bristol in 1965 and grew up in Leeds before studying at Goldsmiths College in London, where he organised the Freeze exhibition in 1988 — a landmark moment for what came to be called the Young British Artists. By the early 1990s, he had become the defining public figure of a generation of British artists who deployed shock, spectacle, and media savvy to make art that was simultaneously critically engaged and commercially spectacular.\n\nHirst's most significant works are his Natural History series — animals preserved in formaldehyde in steel and glass vitrines — and his spin paintings and spot paintings, which exist in large editions. The shark of The Physical Impossibility of Death in the Mind of Someone Living and the bisected cow and calf of Mother and Child Divided are among the most discussed works of late twentieth-century art, their confrontation of mortality, beauty, and commodity spectacle generating both genuine philosophical engagement and considerable suspicion about their depth. The diamond-encrusted skull For the Love of God (2007) extended these investigations into the territory of extreme luxury.\n\nHirst is represented by White Cube and his own company Science Ltd. A celebrated auction of his work directly through Sotheby's in 2008 raised unprecedented sums and coincided almost exactly with the global financial crisis — a piece of dark timing that many commentators found apt. His work has been the subject of major retrospectives at institutions including Tate Modern.",
+      "famous_works": [
+        {
+          "title": "The Physical Impossibility of Death in the Mind of Someone Living",
+          "year": "1991",
+          "notes": "A tiger shark preserved in formaldehyde in a steel and glass vitrine, the foundational work of Hirst's Natural History series and a defining object of 1990s British art."
+        },
+        {
+          "title": "Mother and Child Divided",
+          "year": "1993",
+          "notes": "A cow and calf bisected and displayed in four vitrines, winner of the Turner Prize and a key work in contemporary art's engagement with biological life and institutional display."
+        },
+        {
+          "title": "For the Love of God",
+          "year": "2007",
+          "notes": "A platinum cast of an eighteenth-century human skull set with 8,601 diamonds, posing questions about mortality, luxury, and value with maximal theatrical impact."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "A Thousand Years",
+          "year": "1990",
+          "notes": "A steel and glass vitrine containing a fly-breeding box, a rotting cow's head, and an insect-o-cutor, creating a life cycle of reproduction and death without the artist's intervention."
+        },
+        {
+          "title": "Pharmacy",
+          "year": "1992",
+          "notes": "An installation replicating the interior of a British pharmacy in its entirety, making the aesthetics of medicine and the culture of health-consumption identical terms."
+        }
+      ],
+      "dataset": {
+        "lot_count": 13,
+        "total_usd": 4465591,
+        "avg_usd": 343507,
+        "total_label": "$4.47M",
+        "avg_label": "$344k",
+        "top_lot": {
+          "title": "Beautiful Dreamer 美麗的夢想家",
+          "hammer_usd": 1800000,
+          "sale_name": "Contemporary Evening Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "A Summers Day",
+          "ratio": 2.13
+        }
+      }
+    },
+    {
       "norm_name": "HANS HARTUNG",
       "display_name": "Hans Hartung",
       "dates": "1904–1989",
@@ -4788,60 +4842,6 @@
       }
     },
     {
-      "norm_name": "DAMIEN HIRST",
-      "display_name": "Damien Hirst",
-      "dates": "b. 1965",
-      "nationality": "British",
-      "movement": "Contemporary · Conceptual",
-      "movement_id": "conceptual",
-      "bio": "Damien Hirst was born in Bristol in 1965 and grew up in Leeds before studying at Goldsmiths College in London, where he organised the Freeze exhibition in 1988 — a landmark moment for what came to be called the Young British Artists. By the early 1990s, he had become the defining public figure of a generation of British artists who deployed shock, spectacle, and media savvy to make art that was simultaneously critically engaged and commercially spectacular.\n\nHirst's most significant works are his Natural History series — animals preserved in formaldehyde in steel and glass vitrines — and his spin paintings and spot paintings, which exist in large editions. The shark of The Physical Impossibility of Death in the Mind of Someone Living and the bisected cow and calf of Mother and Child Divided are among the most discussed works of late twentieth-century art, their confrontation of mortality, beauty, and commodity spectacle generating both genuine philosophical engagement and considerable suspicion about their depth. The diamond-encrusted skull For the Love of God (2007) extended these investigations into the territory of extreme luxury.\n\nHirst is represented by White Cube and his own company Science Ltd. A celebrated auction of his work directly through Sotheby's in 2008 raised unprecedented sums and coincided almost exactly with the global financial crisis — a piece of dark timing that many commentators found apt. His work has been the subject of major retrospectives at institutions including Tate Modern.",
-      "famous_works": [
-        {
-          "title": "The Physical Impossibility of Death in the Mind of Someone Living",
-          "year": "1991",
-          "notes": "A tiger shark preserved in formaldehyde in a steel and glass vitrine, the foundational work of Hirst's Natural History series and a defining object of 1990s British art."
-        },
-        {
-          "title": "Mother and Child Divided",
-          "year": "1993",
-          "notes": "A cow and calf bisected and displayed in four vitrines, winner of the Turner Prize and a key work in contemporary art's engagement with biological life and institutional display."
-        },
-        {
-          "title": "For the Love of God",
-          "year": "2007",
-          "notes": "A platinum cast of an eighteenth-century human skull set with 8,601 diamonds, posing questions about mortality, luxury, and value with maximal theatrical impact."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "A Thousand Years",
-          "year": "1990",
-          "notes": "A steel and glass vitrine containing a fly-breeding box, a rotting cow's head, and an insect-o-cutor, creating a life cycle of reproduction and death without the artist's intervention."
-        },
-        {
-          "title": "Pharmacy",
-          "year": "1992",
-          "notes": "An installation replicating the interior of a British pharmacy in its entirety, making the aesthetics of medicine and the culture of health-consumption identical terms."
-        }
-      ],
-      "dataset": {
-        "lot_count": 12,
-        "total_usd": 4427491,
-        "avg_usd": 368958,
-        "total_label": "$4.43M",
-        "avg_label": "$369k",
-        "top_lot": {
-          "title": "Beautiful Dreamer 美麗的夢想家",
-          "hammer_usd": 1800000,
-          "sale_name": "Contemporary Evening Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "A Summers Day",
-          "ratio": 2.13
-        }
-      }
-    },
-    {
       "norm_name": "SAM GILLIAM",
       "display_name": "Sam Gilliam",
       "dates": "1933–2022",
@@ -4892,6 +4892,119 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 2.1
+        }
+      }
+    },
+    {
+      "norm_name": "RASHID JOHNSON",
+      "display_name": "Rashid Johnson",
+      "dates": "b. 1977",
+      "nationality": "American",
+      "movement": "Contemporary · Black American Identity",
+      "movement_id": "contemporary",
+      "bio": "Born in Chicago, Johnson studied at Columbia College Chicago and the School of the Art Institute of Chicago. He works across photography, film, painting, sculpture, and installation, using materials with specific cultural and historical resonance: shea butter, black soap, tropical plants, mirrored tiles, books, wax. His practice investigates Black American identity, the history of trauma and beauty, the relationship between the domestic and the cosmological. The Shea Butter and Wax paintings combine these materials in sgraffito-like surfaces that have both Expressionist physicality and archival reference. He has been consistently collected by major US institutions and his market has grown substantially since the mid-2010s. His films and public works extend the same investigation into temporal and environmental dimensions.",
+      "famous_works": [
+        {
+          "title": "Anxious Men",
+          "year": "2011–ongoing",
+          "notes": "Agitated male faces drawn in black wax and oil stick on mylar tiles arranged in grids. The anxiety of the title is made structural in the jagged, pressured mark-making."
+        },
+        {
+          "title": "The Hikers",
+          "year": "2016",
+          "notes": "A large mural-scale work combining books, plants, shea butter, and wax. The library and the garden as twin repositories of knowledge — the domestic archive as survival tool."
+        },
+        {
+          "title": "Cosmic Slop",
+          "year": "2013",
+          "notes": "A video installation combining music (George Clinton's 'Cosmic Slop'), texts about Black American culture, and performance. The title connects George Clinton's cosmic black aesthetic to the material world."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The New Negro Escapist Social and Athletic Club",
+          "year": "2008",
+          "notes": "A photographic series depicting a fictional 1930s social club — history as imaginative reconstruction. Johnson's engagement with the Harlem Renaissance as a model for contemporary Black cultural production."
+        },
+        {
+          "title": "Falling Man",
+          "year": "2004",
+          "notes": "A photographic self-portrait series in a Superman falling pose — the heroic posture inverted. The superhero and the falling body: agency and vulnerability in the same gesture."
+        },
+        {
+          "title": "Nubian Monument",
+          "year": "2015",
+          "notes": "A steel tower covered with tropical plants and books. The monument tradition (the column, the obelisk) claimed for Black cultural production."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 4317520,
+        "avg_usd": 539690,
+        "total_label": "$4.32M",
+        "avg_label": "$540k",
+        "top_lot": {
+          "title": "Two Standing Broken Men",
+          "hammer_usd": 1450000,
+          "sale_name": "Contemporary Evening Auction, NY May 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled Anxious Red Drawing",
+          "ratio": 2.24
+        }
+      }
+    },
+    {
+      "norm_name": "RAOUL DUFY",
+      "display_name": "Raoul Dufy",
+      "dates": "1877–1953",
+      "nationality": "French",
+      "movement": "Fauvism · Modernism",
+      "movement_id": "modernism",
+      "bio": "Raoul Dufy was the most decoratively joyful painter of the French modern tradition, a Le Havre-born artist who translated the chromatic energy of Fauvism into a personal calligraphic language of festive subjects — regattas, race meetings, concert halls, Mediterranean harbours — that expressed a consistent delight in pleasure, colour, and the rhythms of fashionable life. Trained at the École des Beaux-Arts du Havre and then in Paris, he was initially drawn to the influence of the Impressionists and Pissarro before encountering Matisse's Luxe, calme et volupté at the 1905 Salon des Indépendants, an experience he described as immediately changing his understanding of painting.\n\nDufy's mature style, consolidated from around 1920, deploys a highly personal graphic shorthand — cursive lines in dark pigment laid over luminous colour washes that do not coincide with the contours — to create images of remarkable visual vitality and apparent spontaneity. His racing scenes at Deauville and Epsom, his Mediterranean port views, his images of the Nice Promenade and the grand concert halls of Paris, are all executed with a light, almost jazz-like rhythm that makes them among the most immediately pleasurable paintings of the early twentieth century.\n\nDufy was also a distinguished textile designer for the couturier Paul Poiret and later for the Lyon silk industry, and a significant book illustrator. His largest single work, La Fée Électricité (1937), a frieze of sixty panels covering 600 square metres commissioned for the Paris International Exposition, is the largest painting in the world.",
+      "famous_works": [
+        {
+          "title": "La Fée Électricité (The Spirit of Electricity)",
+          "year": "1937",
+          "notes": "A 600-square-metre panorama of the history of electricity from ancient myth to modern industry, now in the Musée d'Art Moderne de la Ville de Paris."
+        },
+        {
+          "title": "Regate à Cowes",
+          "year": "1934",
+          "notes": "A regatta scene in which his cursive line over luminous wash creates the definitive image of Anglo-French leisure culture."
+        },
+        {
+          "title": "Nice, la Promenade des Anglais",
+          "year": "c. 1926–1928",
+          "notes": "The Mediterranean promenade with its palm trees and fashionable pedestrians, the ideal subject for his festive chromatic method."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Les affiches à Trouville",
+          "year": "1906",
+          "notes": "An early Fauvist work of Norman beach posters in which the influence of Matisse is directly visible in the flat colour planes."
+        },
+        {
+          "title": "Hommage à Claude Debussy",
+          "year": "1952",
+          "notes": "A late work in which his love of music — he was a devoted concertgoer — is expressed through the concert hall subject that preoccupied his final years."
+        }
+      ],
+      "dataset": {
+        "lot_count": 25,
+        "total_usd": 4311690,
+        "avg_usd": 172468,
+        "total_label": "$4.31M",
+        "avg_label": "$172k",
+        "top_lot": {
+          "title": "Régates à Cowes",
+          "hammer_usd": 1058400,
+          "sale_name": "Impressionist and Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Robe pour Poiret, bleu, blanc et rouge",
+          "ratio": 6.45
         }
       }
     },
@@ -5166,6 +5279,60 @@
       }
     },
     {
+      "norm_name": "RICHARD PRINCE",
+      "display_name": "Richard Prince",
+      "dates": "b. 1949",
+      "nationality": "American",
+      "movement": "Appropriation Art · Neo-Conceptualism",
+      "movement_id": "conceptual",
+      "bio": "Richard Prince is the most consequential appropriation artist of the postwar period, a Panamanian Canal Zone-born artist whose systematic rephotographing of advertising images, paperback romance covers, and social media posts has placed questions of authorship, originality, and cultural ownership at the centre of contemporary art practice while generating some of the most legally contentious and commercially significant works of the past forty years. After a period cutting clippings from magazines at Time-Life Books in New York, Prince began photographing images from advertisements — particularly Marlboro cowboy campaigns — and presenting the resulting 'rephotographs' as original art works.\n\nPrince's Cowboys (1980–1992) — photographs of the Marlboro Man, the image of American masculine identity stripped of its advertising context and re-presented as fine art — are his most canonically important works, raising with unprecedented clarity the question of what constitutes originality when the artist's gesture consists entirely of selection and context shift. His Nurse paintings (2002–2008) paint over the covers of pulp romance novels, obscuring the text while retaining and modifying the image of the uniformed female figure, investigating desire, kitsch, and the conventions of genre fiction.\n\nPrince's New Portraits series (2014) — Instagram posts by other users, re-posted on his account and sold as original artworks — extended his appropriation practice into the digital economy of social media, generating both legal challenges and critical debate about the ethics and limits of artistic appropriation in the age of the internet.",
+      "famous_works": [
+        {
+          "title": "Untitled (Cowboy)",
+          "year": "1980–1992",
+          "notes": "Rephotographed Marlboro advertisements presenting the iconic American image without its commercial context — the foundational works of appropriation art."
+        },
+        {
+          "title": "Nurse paintings",
+          "year": "2002–2008",
+          "notes": "Pulp romance novel covers overpainted to retain the nurse figure while obscuring text, investigating desire, kitsch, and genre at monumental scale."
+        },
+        {
+          "title": "Spiritual America",
+          "year": "1983",
+          "notes": "A rephotograph of a Garry Gross photograph of a pre-pubescent Brooke Shields, a deeply controversial work about the commercialisation of childhood sexuality."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Girlfriend paintings",
+          "year": "1993",
+          "notes": "Works using biker magazine 'girlfriend' photographs, applying appropriation to vernacular erotic imagery at the margins of the art world's comfort zone."
+        },
+        {
+          "title": "Joke paintings",
+          "year": "1987–1993",
+          "notes": "Handwritten jokes from stand-up comedy, bar culture, and magazine cartoons transferred to canvas, testing whether humour can survive the context-shift from comedy to fine art."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 3914950,
+        "avg_usd": 489369,
+        "total_label": "$3.91M",
+        "avg_label": "$489k",
+        "top_lot": {
+          "title": "Untitled (Cowboy)",
+          "hammer_usd": 1200000,
+          "sale_name": "Contemporary Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "My Mother-In-Law",
+          "ratio": 2.54
+        }
+      }
+    },
+    {
       "norm_name": "ALICE NEEL",
       "display_name": "Alice Neel",
       "dates": "1900–1984",
@@ -5275,60 +5442,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.36
-        }
-      }
-    },
-    {
-      "norm_name": "RICHARD PRINCE",
-      "display_name": "Richard Prince",
-      "dates": "b. 1949",
-      "nationality": "American",
-      "movement": "Appropriation Art · Neo-Conceptualism",
-      "movement_id": "conceptual",
-      "bio": "Richard Prince is the most consequential appropriation artist of the postwar period, a Panamanian Canal Zone-born artist whose systematic rephotographing of advertising images, paperback romance covers, and social media posts has placed questions of authorship, originality, and cultural ownership at the centre of contemporary art practice while generating some of the most legally contentious and commercially significant works of the past forty years. After a period cutting clippings from magazines at Time-Life Books in New York, Prince began photographing images from advertisements — particularly Marlboro cowboy campaigns — and presenting the resulting 'rephotographs' as original art works.\n\nPrince's Cowboys (1980–1992) — photographs of the Marlboro Man, the image of American masculine identity stripped of its advertising context and re-presented as fine art — are his most canonically important works, raising with unprecedented clarity the question of what constitutes originality when the artist's gesture consists entirely of selection and context shift. His Nurse paintings (2002–2008) paint over the covers of pulp romance novels, obscuring the text while retaining and modifying the image of the uniformed female figure, investigating desire, kitsch, and the conventions of genre fiction.\n\nPrince's New Portraits series (2014) — Instagram posts by other users, re-posted on his account and sold as original artworks — extended his appropriation practice into the digital economy of social media, generating both legal challenges and critical debate about the ethics and limits of artistic appropriation in the age of the internet.",
-      "famous_works": [
-        {
-          "title": "Untitled (Cowboy)",
-          "year": "1980–1992",
-          "notes": "Rephotographed Marlboro advertisements presenting the iconic American image without its commercial context — the foundational works of appropriation art."
-        },
-        {
-          "title": "Nurse paintings",
-          "year": "2002–2008",
-          "notes": "Pulp romance novel covers overpainted to retain the nurse figure while obscuring text, investigating desire, kitsch, and genre at monumental scale."
-        },
-        {
-          "title": "Spiritual America",
-          "year": "1983",
-          "notes": "A rephotograph of a Garry Gross photograph of a pre-pubescent Brooke Shields, a deeply controversial work about the commercialisation of childhood sexuality."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Girlfriend paintings",
-          "year": "1993",
-          "notes": "Works using biker magazine 'girlfriend' photographs, applying appropriation to vernacular erotic imagery at the margins of the art world's comfort zone."
-        },
-        {
-          "title": "Joke paintings",
-          "year": "1987–1993",
-          "notes": "Handwritten jokes from stand-up comedy, bar culture, and magazine cartoons transferred to canvas, testing whether humour can survive the context-shift from comedy to fine art."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 3857800,
-        "avg_usd": 551114,
-        "total_label": "$3.86M",
-        "avg_label": "$551k",
-        "top_lot": {
-          "title": "Untitled (Cowboy)",
-          "hammer_usd": 1200000,
-          "sale_name": "Contemporary Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "My Mother-In-Law",
-          "ratio": 2.54
         }
       }
     },
@@ -5658,119 +5771,6 @@
         "top_ratio_lot": {
           "title": "A Grande Curva 宏大的弧線",
           "ratio": 1.75
-        }
-      }
-    },
-    {
-      "norm_name": "RASHID JOHNSON",
-      "display_name": "Rashid Johnson",
-      "dates": "b. 1977",
-      "nationality": "American",
-      "movement": "Contemporary · Black American Identity",
-      "movement_id": "contemporary",
-      "bio": "Born in Chicago, Johnson studied at Columbia College Chicago and the School of the Art Institute of Chicago. He works across photography, film, painting, sculpture, and installation, using materials with specific cultural and historical resonance: shea butter, black soap, tropical plants, mirrored tiles, books, wax. His practice investigates Black American identity, the history of trauma and beauty, the relationship between the domestic and the cosmological. The Shea Butter and Wax paintings combine these materials in sgraffito-like surfaces that have both Expressionist physicality and archival reference. He has been consistently collected by major US institutions and his market has grown substantially since the mid-2010s. His films and public works extend the same investigation into temporal and environmental dimensions.",
-      "famous_works": [
-        {
-          "title": "Anxious Men",
-          "year": "2011–ongoing",
-          "notes": "Agitated male faces drawn in black wax and oil stick on mylar tiles arranged in grids. The anxiety of the title is made structural in the jagged, pressured mark-making."
-        },
-        {
-          "title": "The Hikers",
-          "year": "2016",
-          "notes": "A large mural-scale work combining books, plants, shea butter, and wax. The library and the garden as twin repositories of knowledge — the domestic archive as survival tool."
-        },
-        {
-          "title": "Cosmic Slop",
-          "year": "2013",
-          "notes": "A video installation combining music (George Clinton's 'Cosmic Slop'), texts about Black American culture, and performance. The title connects George Clinton's cosmic black aesthetic to the material world."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The New Negro Escapist Social and Athletic Club",
-          "year": "2008",
-          "notes": "A photographic series depicting a fictional 1930s social club — history as imaginative reconstruction. Johnson's engagement with the Harlem Renaissance as a model for contemporary Black cultural production."
-        },
-        {
-          "title": "Falling Man",
-          "year": "2004",
-          "notes": "A photographic self-portrait series in a Superman falling pose — the heroic posture inverted. The superhero and the falling body: agency and vulnerability in the same gesture."
-        },
-        {
-          "title": "Nubian Monument",
-          "year": "2015",
-          "notes": "A steel tower covered with tropical plants and books. The monument tradition (the column, the obelisk) claimed for Black cultural production."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 3492020,
-        "avg_usd": 498860,
-        "total_label": "$3.49M",
-        "avg_label": "$499k",
-        "top_lot": {
-          "title": "Two Standing Broken Men",
-          "hammer_usd": 1450000,
-          "sale_name": "Contemporary Evening Auction, NY May 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled Anxious Red Drawing",
-          "ratio": 2.24
-        }
-      }
-    },
-    {
-      "norm_name": "RAOUL DUFY",
-      "display_name": "Raoul Dufy",
-      "dates": "1877–1953",
-      "nationality": "French",
-      "movement": "Fauvism · Modernism",
-      "movement_id": "modernism",
-      "bio": "Raoul Dufy was the most decoratively joyful painter of the French modern tradition, a Le Havre-born artist who translated the chromatic energy of Fauvism into a personal calligraphic language of festive subjects — regattas, race meetings, concert halls, Mediterranean harbours — that expressed a consistent delight in pleasure, colour, and the rhythms of fashionable life. Trained at the École des Beaux-Arts du Havre and then in Paris, he was initially drawn to the influence of the Impressionists and Pissarro before encountering Matisse's Luxe, calme et volupté at the 1905 Salon des Indépendants, an experience he described as immediately changing his understanding of painting.\n\nDufy's mature style, consolidated from around 1920, deploys a highly personal graphic shorthand — cursive lines in dark pigment laid over luminous colour washes that do not coincide with the contours — to create images of remarkable visual vitality and apparent spontaneity. His racing scenes at Deauville and Epsom, his Mediterranean port views, his images of the Nice Promenade and the grand concert halls of Paris, are all executed with a light, almost jazz-like rhythm that makes them among the most immediately pleasurable paintings of the early twentieth century.\n\nDufy was also a distinguished textile designer for the couturier Paul Poiret and later for the Lyon silk industry, and a significant book illustrator. His largest single work, La Fée Électricité (1937), a frieze of sixty panels covering 600 square metres commissioned for the Paris International Exposition, is the largest painting in the world.",
-      "famous_works": [
-        {
-          "title": "La Fée Électricité (The Spirit of Electricity)",
-          "year": "1937",
-          "notes": "A 600-square-metre panorama of the history of electricity from ancient myth to modern industry, now in the Musée d'Art Moderne de la Ville de Paris."
-        },
-        {
-          "title": "Regate à Cowes",
-          "year": "1934",
-          "notes": "A regatta scene in which his cursive line over luminous wash creates the definitive image of Anglo-French leisure culture."
-        },
-        {
-          "title": "Nice, la Promenade des Anglais",
-          "year": "c. 1926–1928",
-          "notes": "The Mediterranean promenade with its palm trees and fashionable pedestrians, the ideal subject for his festive chromatic method."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Les affiches à Trouville",
-          "year": "1906",
-          "notes": "An early Fauvist work of Norman beach posters in which the influence of Matisse is directly visible in the flat colour planes."
-        },
-        {
-          "title": "Hommage à Claude Debussy",
-          "year": "1952",
-          "notes": "A late work in which his love of music — he was a devoted concertgoer — is expressed through the concert hall subject that preoccupied his final years."
-        }
-      ],
-      "dataset": {
-        "lot_count": 24,
-        "total_usd": 3486190,
-        "avg_usd": 145258,
-        "total_label": "$3.49M",
-        "avg_label": "$145k",
-        "top_lot": {
-          "title": "Régates à Cowes",
-          "hammer_usd": 1058400,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Robe pour Poiret, bleu, blanc et rouge",
-          "ratio": 6.45
         }
       }
     },
@@ -6433,6 +6433,60 @@
       }
     },
     {
+      "norm_name": "ANSELM KIEFER",
+      "display_name": "Anselm Kiefer",
+      "dates": "b. 1945",
+      "nationality": "German",
+      "movement": "Neo-Expressionism · Contemporary",
+      "movement_id": "neo-expressionism",
+      "bio": "Anselm Kiefer was born in Donaueschingen, Germany in 1945 — the year of Germany's military defeat — and studied under Joseph Beuys at the Kunstakademie Düsseldorf, an encounter that confirmed his sense that German art had an obligation to confront the traumatic history from which it emerged. His early work, including the notorious photographs of himself performing the Nazi salute in various European locations, produced scandal and incomprehension; in retrospect it is understood as an attempt to exorcise rather than celebrate what the gesture represented.\n\nKiefer's paintings are among the most physically imposing and intellectually demanding of the post-war era. Executed on enormous canvases and wooden panels, they incorporate lead, straw, ash, wire, sand, and dried plants into surfaces of extraordinary material density. His subjects are drawn from German mythology, Kabbalah, Norse cosmology, and the history of Nazi ideology — not to aestheticise these things but to subject them to a process of interrogation through painting's own alchemical transformations. Vast landscapes scar with the marks of agricultural labour and military destruction; leaded libraries burn; the names of poets, philosophers, and historical catastrophes are inscribed across blackened surfaces.\n\nKiefer has worked in Germany, France, and his studio complex at Barjac in the Cévennes, and later in Croissy-sur-Seine. Major retrospectives have been mounted at the Royal Academy of Arts in London, the Centre Pompidou in Paris, and the Uffizi in Florence. His work stands as the most sustained artistic reckoning with German history and mythological consciousness in the second half of the twentieth century.",
+      "famous_works": [
+        {
+          "title": "To the Unknown Painter",
+          "year": "1983",
+          "notes": "A monumental canvas in which a heroic architectural interior is saturated in ash and straw, interrogating the relationship between artistic genius and ideological complicity."
+        },
+        {
+          "title": "Margarethe / Shulamith",
+          "year": "1981",
+          "notes": "Two monumental paintings responding to Paul Celan's 'Death Fugue', contrasting golden straw (Margarethe) with charred lead and ash (Shulamith) to embody the poem's two women."
+        },
+        {
+          "title": "The Orders of the Night (Die Ordnung der Engel)",
+          "year": "1996",
+          "notes": "A lead-encrusted canvas incorporating books and astronomical imagery, exploring the Kabbalistic concept of angelic hierarchies as a metaphor for cosmic order and human ambition."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Parsifal series",
+          "year": "1973",
+          "notes": "Early works on burlap engaging with Wagnerian mythology and the attic interiors of German cultural heritage as spaces of nationalist mythology."
+        },
+        {
+          "title": "Lot's Wife",
+          "year": "1989",
+          "notes": "A lead-and-salt installation in which the biblical transformation of a woman into a pillar of salt becomes a meditation on the petrification of memory."
+        }
+      ],
+      "dataset": {
+        "lot_count": 10,
+        "total_usd": 2953767,
+        "avg_usd": 295377,
+        "total_label": "$2.95M",
+        "avg_label": "$295k",
+        "top_lot": {
+          "title": "Velimir Chlebnikow",
+          "hammer_usd": 832104,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Für Robert Fludd (For Robert Fludd)",
+          "ratio": 2.84
+        }
+      }
+    },
+    {
       "norm_name": "XUE SONG",
       "display_name": "Xue Song",
       "dates": "b. 1965",
@@ -6979,60 +7033,6 @@
         "top_ratio_lot": {
           "title": "Paisaje heredado 4",
           "ratio": 2.29
-        }
-      }
-    },
-    {
-      "norm_name": "ANSELM KIEFER",
-      "display_name": "Anselm Kiefer",
-      "dates": "b. 1945",
-      "nationality": "German",
-      "movement": "Neo-Expressionism · Contemporary",
-      "movement_id": "neo-expressionism",
-      "bio": "Anselm Kiefer was born in Donaueschingen, Germany in 1945 — the year of Germany's military defeat — and studied under Joseph Beuys at the Kunstakademie Düsseldorf, an encounter that confirmed his sense that German art had an obligation to confront the traumatic history from which it emerged. His early work, including the notorious photographs of himself performing the Nazi salute in various European locations, produced scandal and incomprehension; in retrospect it is understood as an attempt to exorcise rather than celebrate what the gesture represented.\n\nKiefer's paintings are among the most physically imposing and intellectually demanding of the post-war era. Executed on enormous canvases and wooden panels, they incorporate lead, straw, ash, wire, sand, and dried plants into surfaces of extraordinary material density. His subjects are drawn from German mythology, Kabbalah, Norse cosmology, and the history of Nazi ideology — not to aestheticise these things but to subject them to a process of interrogation through painting's own alchemical transformations. Vast landscapes scar with the marks of agricultural labour and military destruction; leaded libraries burn; the names of poets, philosophers, and historical catastrophes are inscribed across blackened surfaces.\n\nKiefer has worked in Germany, France, and his studio complex at Barjac in the Cévennes, and later in Croissy-sur-Seine. Major retrospectives have been mounted at the Royal Academy of Arts in London, the Centre Pompidou in Paris, and the Uffizi in Florence. His work stands as the most sustained artistic reckoning with German history and mythological consciousness in the second half of the twentieth century.",
-      "famous_works": [
-        {
-          "title": "To the Unknown Painter",
-          "year": "1983",
-          "notes": "A monumental canvas in which a heroic architectural interior is saturated in ash and straw, interrogating the relationship between artistic genius and ideological complicity."
-        },
-        {
-          "title": "Margarethe / Shulamith",
-          "year": "1981",
-          "notes": "Two monumental paintings responding to Paul Celan's 'Death Fugue', contrasting golden straw (Margarethe) with charred lead and ash (Shulamith) to embody the poem's two women."
-        },
-        {
-          "title": "The Orders of the Night (Die Ordnung der Engel)",
-          "year": "1996",
-          "notes": "A lead-encrusted canvas incorporating books and astronomical imagery, exploring the Kabbalistic concept of angelic hierarchies as a metaphor for cosmic order and human ambition."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Parsifal series",
-          "year": "1973",
-          "notes": "Early works on burlap engaging with Wagnerian mythology and the attic interiors of German cultural heritage as spaces of nationalist mythology."
-        },
-        {
-          "title": "Lot's Wife",
-          "year": "1989",
-          "notes": "A lead-and-salt installation in which the biblical transformation of a woman into a pillar of salt becomes a meditation on the petrification of memory."
-        }
-      ],
-      "dataset": {
-        "lot_count": 9,
-        "total_usd": 2547367,
-        "avg_usd": 283041,
-        "total_label": "$2.55M",
-        "avg_label": "$283k",
-        "top_lot": {
-          "title": "Velimir Chlebnikow",
-          "hammer_usd": 832104,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Für Robert Fludd (For Robert Fludd)",
-          "ratio": 2.84
         }
       }
     },
@@ -10418,11 +10418,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 12,
-        "total_usd": 787985,
-        "avg_usd": 65665,
-        "total_label": "$788k",
-        "avg_label": "$66k",
+        "lot_count": 13,
+        "total_usd": 819735,
+        "avg_usd": 63057,
+        "total_label": "$820k",
+        "avg_label": "$63k",
         "top_lot": {
           "title": "Einzelgänger II",
           "hammer_usd": 209677,
@@ -11795,6 +11795,60 @@
       }
     },
     {
+      "norm_name": "FRANZ WEST",
+      "display_name": "Franz West",
+      "dates": "1947–2012",
+      "nationality": "Austrian",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Franz West was born in Vienna in 1947 and came of age in the intellectual milieu of Viennese Actionism, though his own practice took a very different direction: toward sculpture, furniture, and objects that question the boundaries between art and utility, formal presentation and informal use. Largely self-taught, he began making his Passstücke (Adaptives) in the late 1970s — small, lumpy plaster objects sized to be held, worn, or balanced against the body by gallery visitors, activating and completing the work through physical participation.\n\nWest developed these ideas into larger-scale sculptures and furniture that similarly demanded activation: sculptures to sit on, paper-maché and wire constructions in bright colours that look simultaneously childish and formally sophisticated, collaborative installations with friends and collaborators. His work consistently refuses the preciousness and distance of conventional sculpture, insisting on contact, use, and the social interaction that objects designed for bodies necessarily produce.\n\nWest won the Golden Lion for Lifetime Achievement at the 2011 Venice Biennale. He was represented by Gagosian Gallery and his work is held by major museums worldwide. His legacy extends beyond individual works to an attitude toward the relationship between art objects and their audience that has influenced numerous younger artists.",
+      "famous_works": [
+        {
+          "title": "Passstücke (Adaptives)",
+          "year": "1974–1979",
+          "notes": "Small plaster objects sized for bodily use by gallery visitors, in which the sculpture is completed only through physical contact and activation by the audience."
+        },
+        {
+          "title": "Epoxy works",
+          "year": "1990s",
+          "notes": "Large-scale painted epoxy sculptures of bulbous, lumpy forms in bright colours that combine formal playfulness with a material directness that resists aesthetic idealisation."
+        },
+        {
+          "title": "Furniture Works",
+          "year": "various",
+          "notes": "Wicker, steel, and found-material furniture that functions simultaneously as art and seating, collapsing the distinction between the aesthetic and the utilitarian."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Auditorium",
+          "year": "1993",
+          "notes": "An installation in which West's characteristic furniture-sculptures are arranged into a collective seating arrangement that transforms the gallery into a social space."
+        },
+        {
+          "title": "Collages",
+          "year": "1980s–1990s",
+          "notes": "A body of works on paper in which magazine images are rearranged and annotated in a manner that reflects West's intellectual engagement with psychoanalysis and Viennese cultural life."
+        }
+      ],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 449675,
+        "avg_usd": 89935,
+        "total_label": "$450k",
+        "avg_label": "$90k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 277200,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.58
+        }
+      }
+    },
+    {
       "norm_name": "ALBERT MARQUET",
       "display_name": "Albert Marquet",
       "dates": "1875–1947",
@@ -11845,60 +11899,6 @@
         "top_ratio_lot": {
           "title": "Poissy, le clocher",
           "ratio": 2.88
-        }
-      }
-    },
-    {
-      "norm_name": "FRANZ WEST",
-      "display_name": "Franz West",
-      "dates": "1947–2012",
-      "nationality": "Austrian",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Franz West was born in Vienna in 1947 and came of age in the intellectual milieu of Viennese Actionism, though his own practice took a very different direction: toward sculpture, furniture, and objects that question the boundaries between art and utility, formal presentation and informal use. Largely self-taught, he began making his Passstücke (Adaptives) in the late 1970s — small, lumpy plaster objects sized to be held, worn, or balanced against the body by gallery visitors, activating and completing the work through physical participation.\n\nWest developed these ideas into larger-scale sculptures and furniture that similarly demanded activation: sculptures to sit on, paper-maché and wire constructions in bright colours that look simultaneously childish and formally sophisticated, collaborative installations with friends and collaborators. His work consistently refuses the preciousness and distance of conventional sculpture, insisting on contact, use, and the social interaction that objects designed for bodies necessarily produce.\n\nWest won the Golden Lion for Lifetime Achievement at the 2011 Venice Biennale. He was represented by Gagosian Gallery and his work is held by major museums worldwide. His legacy extends beyond individual works to an attitude toward the relationship between art objects and their audience that has influenced numerous younger artists.",
-      "famous_works": [
-        {
-          "title": "Passstücke (Adaptives)",
-          "year": "1974–1979",
-          "notes": "Small plaster objects sized for bodily use by gallery visitors, in which the sculpture is completed only through physical contact and activation by the audience."
-        },
-        {
-          "title": "Epoxy works",
-          "year": "1990s",
-          "notes": "Large-scale painted epoxy sculptures of bulbous, lumpy forms in bright colours that combine formal playfulness with a material directness that resists aesthetic idealisation."
-        },
-        {
-          "title": "Furniture Works",
-          "year": "various",
-          "notes": "Wicker, steel, and found-material furniture that functions simultaneously as art and seating, collapsing the distinction between the aesthetic and the utilitarian."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Auditorium",
-          "year": "1993",
-          "notes": "An installation in which West's characteristic furniture-sculptures are arranged into a collective seating arrangement that transforms the gallery into a social space."
-        },
-        {
-          "title": "Collages",
-          "year": "1980s–1990s",
-          "notes": "A body of works on paper in which magazine images are rearranged and annotated in a manner that reflects West's intellectual engagement with psychoanalysis and Viennese cultural life."
-        }
-      ],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 438880,
-        "avg_usd": 109720,
-        "total_label": "$439k",
-        "avg_label": "$110k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 277200,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 1.58
         }
       }
     },
@@ -14640,11 +14640,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 2,
-        "total_usd": 152400,
-        "avg_usd": 76200,
-        "total_label": "$152k",
-        "avg_label": "$76k",
+        "lot_count": 3,
+        "total_usd": 155194,
+        "avg_usd": 51731,
+        "total_label": "$155k",
+        "avg_label": "$52k",
         "top_lot": {
           "title": "Untitled",
           "hammer_usd": 104013,
@@ -18032,6 +18032,60 @@
       }
     },
     {
+      "norm_name": "PHILIP GUSTON",
+      "display_name": "Philip Guston",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 3876000,
+        "avg_usd": 1938000,
+        "total_label": "$3.88M",
+        "avg_label": "$1.94M",
+        "top_lot": {
+          "title": "The Hill",
+          "hammer_usd": 3556000,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "The Hill",
+          "ratio": 1.19
+        }
+      }
+    },
+    {
+      "norm_name": "MIKHAIL LARIONOV",
+      "display_name": "Mikhail Larionov",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 3556000,
+        "avg_usd": 3556000,
+        "total_label": "$3.56M",
+        "avg_label": "$3.56M",
+        "top_lot": {
+          "title": "Head of a Soldier",
+          "hammer_usd": 3556000,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Head of a Soldier",
+          "ratio": 3.56
+        }
+      }
+    },
+    {
       "norm_name": "FRANCIS PICABIA",
       "display_name": "Francis Picabia",
       "dates": "",
@@ -18460,6 +18514,33 @@
         "top_ratio_lot": {
           "title": "Femme nue à la barrette 頭戴髮夾的裸女",
           "ratio": 1.29
+        }
+      }
+    },
+    {
+      "norm_name": "GIORGIO MORANDI",
+      "display_name": "Giorgio Morandi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1839000,
+        "avg_usd": 919500,
+        "total_label": "$1.84M",
+        "avg_label": "$920k",
+        "top_lot": {
+          "title": "Natura morta",
+          "hammer_usd": 950000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Natura morta",
+          "ratio": 0.95
         }
       }
     },
@@ -19031,6 +19112,33 @@
       }
     },
     {
+      "norm_name": "ELIZABETH PEYTON",
+      "display_name": "Elizabeth Peyton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 1454214,
+        "avg_usd": 181777,
+        "total_label": "$1.45M",
+        "avg_label": "$182k",
+        "top_lot": {
+          "title": "David Fray (Playing Ravel)",
+          "hammer_usd": 406400,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Vichy (David at the Spa)",
+          "ratio": 4.32
+        }
+      }
+    },
+    {
       "norm_name": "CINDY SHERMAN",
       "display_name": "Cindy Sherman",
       "dates": "",
@@ -19355,6 +19463,33 @@
       }
     },
     {
+      "norm_name": "LEON KOSSOFF",
+      "display_name": "Leon Kossoff",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 1225550,
+        "avg_usd": 408517,
+        "total_label": "$1.23M",
+        "avg_label": "$409k",
+        "top_lot": {
+          "title": "A Street in Willesden",
+          "hammer_usd": 863600,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Seated Figure",
+          "ratio": 6.35
+        }
+      }
+    },
+    {
       "norm_name": "ALEXANDER ARCHIPENKO",
       "display_name": "Alexander Archipenko",
       "dates": "",
@@ -19432,6 +19567,33 @@
         "top_ratio_lot": {
           "title": "Portrait of Mrs. Frank Millet",
           "ratio": 4.03
+        }
+      }
+    },
+    {
+      "norm_name": "MARLOW MOSS",
+      "display_name": "Marlow Moss",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 1206500,
+        "avg_usd": 1206500,
+        "total_label": "$1.21M",
+        "avg_label": "$1.21M",
+        "top_lot": {
+          "title": "White, Yellow and Black",
+          "hammer_usd": 1206500,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "White, Yellow and Black",
+          "ratio": 2.19
         }
       }
     },
@@ -19733,33 +19895,6 @@
       }
     },
     {
-      "norm_name": "ELIZABETH PEYTON",
-      "display_name": "Elizabeth Peyton",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 1047814,
-        "avg_usd": 149688,
-        "total_label": "$1.05M",
-        "avg_label": "$150k",
-        "top_lot": {
-          "title": "Peconic (Ben)",
-          "hammer_usd": 368300,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Vichy (David at the Spa)",
-          "ratio": 4.32
-        }
-      }
-    },
-    {
       "norm_name": "FÉLIX VALLOTTON",
       "display_name": "Félix Vallotton",
       "dates": "",
@@ -19891,33 +20026,6 @@
         "top_ratio_lot": {
           "title": "Study for Garden No. 1 (Diptych) 花園習作 NO. 1 (雙聯作)",
           "ratio": 0.54
-        }
-      }
-    },
-    {
-      "norm_name": "GIORGIO MORANDI",
-      "display_name": "Giorgio Morandi",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 950000,
-        "avg_usd": 950000,
-        "total_label": "$950k",
-        "avg_label": "$950k",
-        "top_lot": {
-          "title": "Natura morta",
-          "hammer_usd": 950000,
-          "sale_name": "Modern Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Natura morta",
-          "ratio": 0.95
         }
       }
     },
@@ -21110,6 +21218,33 @@
       }
     },
     {
+      "norm_name": "BANKSY",
+      "display_name": "Banksy",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 633222,
+        "avg_usd": 211074,
+        "total_label": "$633k",
+        "avg_label": "$211k",
+        "top_lot": {
+          "title": "Paranoid Pictures",
+          "hammer_usd": 338709,
+          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
+        },
+        "top_ratio_lot": {
+          "title": "Paranoid Pictures",
+          "ratio": 5.65
+        }
+      }
+    },
+    {
       "norm_name": "FLEMISH SCHOOL, EARLY 17TH CENTURY",
       "display_name": "Flemish School, Early 17Th Century",
       "dates": "",
@@ -21731,6 +21866,33 @@
       }
     },
     {
+      "norm_name": "BRUCE NAUMAN",
+      "display_name": "Bruce Nauman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 478790,
+        "avg_usd": 239395,
+        "total_label": "$479k",
+        "avg_label": "$239k",
+        "top_lot": {
+          "title": "Musical Chair Suspended as Foucault Pendulum",
+          "hammer_usd": 457200,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Musical Chair Suspended as Foucault Pendulum",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
       "norm_name": "CHIHARU SHIOTA",
       "display_name": "Chiharu Shiota",
       "dates": "",
@@ -21808,33 +21970,6 @@
         "top_ratio_lot": {
           "title": "Les Arbres rouges",
           "ratio": 2.7
-        }
-      }
-    },
-    {
-      "norm_name": "BRUCE NAUMAN",
-      "display_name": "Bruce Nauman",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 457200,
-        "avg_usd": 457200,
-        "total_label": "$457k",
-        "avg_label": "$457k",
-        "top_lot": {
-          "title": "Musical Chair Suspended as Foucault Pendulum",
-          "hammer_usd": 457200,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Musical Chair Suspended as Foucault Pendulum",
-          "ratio": 1.52
         }
       }
     },
@@ -22051,33 +22186,6 @@
         "top_ratio_lot": {
           "title": "Head study of a man in a ruﬀ (Portrait of a magistrate)",
           "ratio": 3.56
-        }
-      }
-    },
-    {
-      "norm_name": "BANKSY",
-      "display_name": "Banksy",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 442722,
-        "avg_usd": 221361,
-        "total_label": "$443k",
-        "avg_label": "$221k",
-        "top_lot": {
-          "title": "Paranoid Pictures",
-          "hammer_usd": 338709,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
-        },
-        "top_ratio_lot": {
-          "title": "Paranoid Pictures",
-          "ratio": 5.65
         }
       }
     },
@@ -22433,6 +22541,33 @@
       }
     },
     {
+      "norm_name": "NOAH DAVIS",
+      "display_name": "Noah Davis",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 406400,
+        "avg_usd": 406400,
+        "total_label": "$406k",
+        "avg_label": "$406k",
+        "top_lot": {
+          "title": "Untitled (Kids in Front Yard)",
+          "hammer_usd": 406400,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled (Kids in Front Yard)",
+          "ratio": 1.16
+        }
+      }
+    },
+    {
       "norm_name": "NGUYEN TIEN CHUNG",
       "display_name": "Nguyen Tien Chung",
       "dates": "",
@@ -22699,33 +22834,6 @@
         "top_ratio_lot": {
           "title": "The Treatment 19",
           "ratio": 1.29
-        }
-      }
-    },
-    {
-      "norm_name": "LEON KOSSOFF",
-      "display_name": "Leon Kossoff",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 361950,
-        "avg_usd": 180975,
-        "total_label": "$362k",
-        "avg_label": "$181k",
-        "top_lot": {
-          "title": "Seated Figure",
-          "hammer_usd": 222250,
-          "sale_name": "Modern Day Auction L26007"
-        },
-        "top_ratio_lot": {
-          "title": "Seated Figure",
-          "ratio": 6.35
         }
       }
     },
@@ -23157,33 +23265,6 @@
         },
         "top_ratio_lot": {
           "title": "Paysage de champangne du nord Vietnam sous la brume  越南北部鄉村景",
-          "ratio": 0.8
-        }
-      }
-    },
-    {
-      "norm_name": "PHILIP GUSTON",
-      "display_name": "Philip Guston",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 320000,
-        "avg_usd": 320000,
-        "total_label": "$320k",
-        "avg_label": "$320k",
-        "top_lot": {
-          "title": "The Actors V",
-          "hammer_usd": 320000,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "The Actors V",
           "ratio": 0.8
         }
       }
@@ -23698,6 +23779,33 @@
         "top_ratio_lot": {
           "title": "Woman Resting",
           "ratio": 1.44
+        }
+      }
+    },
+    {
+      "norm_name": "RICHARD HAMBLETON",
+      "display_name": "Richard Hambleton",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 289560,
+        "avg_usd": 144780,
+        "total_label": "$290k",
+        "avg_label": "$145k",
+        "top_lot": {
+          "title": "Venice",
+          "hammer_usd": 228600,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Venice",
+          "ratio": 3.27
         }
       }
     },
@@ -24755,33 +24863,6 @@
       }
     },
     {
-      "norm_name": "RICHARD HAMBLETON",
-      "display_name": "Richard Hambleton",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 228600,
-        "avg_usd": 228600,
-        "total_label": "$229k",
-        "avg_label": "$229k",
-        "top_lot": {
-          "title": "Venice",
-          "hammer_usd": 228600,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Venice",
-          "ratio": 3.27
-        }
-      }
-    },
-    {
       "norm_name": "WILLEM CLAESZ. HEDA",
       "display_name": "Willem Claesz. Heda",
       "dates": "",
@@ -24886,6 +24967,33 @@
         "top_ratio_lot": {
           "title": "Yellow Blossom",
           "ratio": 2.26
+        }
+      }
+    },
+    {
+      "norm_name": "JONAS BURGERT",
+      "display_name": "Jonas Burgert",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 224202,
+        "avg_usd": 44840,
+        "total_label": "$224k",
+        "avg_label": "$45k",
+        "top_lot": {
+          "title": "Haltstand",
+          "hammer_usd": 88235,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Haltstand",
+          "ratio": 1.76
         }
       }
     },
@@ -26533,33 +26641,6 @@
         "top_ratio_lot": {
           "title": "Portrait of a lady, aged 22, three-quarter length, wearing a",
           "ratio": 1.36
-        }
-      }
-    },
-    {
-      "norm_name": "JONAS BURGERT",
-      "display_name": "Jonas Burgert",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 169592,
-        "avg_usd": 56531,
-        "total_label": "$170k",
-        "avg_label": "$57k",
-        "top_lot": {
-          "title": "Haltstand",
-          "hammer_usd": 88235,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Haltstand",
-          "ratio": 1.76
         }
       }
     },
@@ -29661,6 +29742,33 @@
         "top_ratio_lot": {
           "title": "The Other Brother",
           "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "BEATRIZ MILHAZES",
+      "display_name": "Beatriz Milhazes",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 97790,
+        "avg_usd": 24448,
+        "total_label": "$98k",
+        "avg_label": "$24k",
+        "top_lot": {
+          "title": "Canela (Cinnamon)",
+          "hammer_usd": 31750,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Canela (Cinnamon)",
+          "ratio": 3.17
         }
       }
     },
@@ -34255,6 +34363,33 @@
       }
     },
     {
+      "norm_name": "FAUSTO MELOTTI",
+      "display_name": "Fausto Melotti",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 44400,
+        "avg_usd": 22200,
+        "total_label": "$44k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "L’Angelo dell’Apocalisse",
+          "hammer_usd": 25400,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Two Unique Vases",
+          "ratio": 1.9
+        }
+      }
+    },
+    {
       "norm_name": "ENGLISH, PROBABLY NOTTINGHAM, 15TH CENTURY",
       "display_name": "English, Probably Nottingham, 15Th Century",
       "dates": "",
@@ -35416,6 +35551,33 @@
       }
     },
     {
+      "norm_name": "MAGNUS PLESSEN",
+      "display_name": "Magnus Plessen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 35560,
+        "avg_usd": 35560,
+        "total_label": "$36k",
+        "avg_label": "$36k",
+        "top_lot": {
+          "title": "Fütterung",
+          "hammer_usd": 35560,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Fütterung",
+          "ratio": 2.03
+        }
+      }
+    },
+    {
       "norm_name": "ISAAC JULIEN",
       "display_name": "Isaac Julien",
       "dates": "",
@@ -36226,6 +36388,33 @@
       }
     },
     {
+      "norm_name": "MARTIN KIPPENBERGER",
+      "display_name": "Martin Kippenberger",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 31048,
+        "avg_usd": 10349,
+        "total_label": "$31k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "Ohne Titel (Untitled, Hôtel Le Bristol)",
+          "hammer_usd": 28000,
+          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
+        },
+        "top_ratio_lot": {
+          "title": "Ohne Titel (Untitled, Hôtel Le Bristol)",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "THOMAS GAINSBOROUGH, RA",
       "display_name": "Thomas Gainsborough, Ra",
       "dates": "",
@@ -36604,33 +36793,6 @@
       }
     },
     {
-      "norm_name": "MARTIN KIPPENBERGER",
-      "display_name": "Martin Kippenberger",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 28000,
-        "avg_usd": 28000,
-        "total_label": "$28k",
-        "avg_label": "$28k",
-        "top_lot": {
-          "title": "Ohne Titel (Untitled, Hôtel Le Bristol)",
-          "hammer_usd": 28000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Ohne Titel (Untitled, Hôtel Le Bristol)",
-          "ratio": 1.6
-        }
-      }
-    },
-    {
       "norm_name": "PAUL BRIL",
       "display_name": "Paul Bril",
       "dates": "",
@@ -37005,6 +37167,33 @@
         "top_ratio_lot": {
           "title": "Istoriato dish",
           "ratio": 0.8
+        }
+      }
+    },
+    {
+      "norm_name": "KENT MONKMAN",
+      "display_name": "Kent Monkman",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 27940,
+        "avg_usd": 27940,
+        "total_label": "$28k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Ha-Na-Tá-Nu-Maúk (Wolf Chief, Head Chief of the Tribe) with ",
+          "hammer_usd": 27940,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Ha-Na-Tá-Nu-Maúk (Wolf Chief, Head Chief of the Tribe) with ",
+          "ratio": 1.12
         }
       }
     },
@@ -37981,6 +38170,33 @@
       }
     },
     {
+      "norm_name": "WILHELM SASNAL",
+      "display_name": "Wilhelm Sasnal",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 23698,
+        "avg_usd": 11849,
+        "total_label": "$24k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Mickiewicz",
+          "hammer_usd": 12903,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Smuggler",
+          "ratio": 1.08
+        }
+      }
+    },
+    {
       "norm_name": "PRINCE PAUL TROUBETZKOY",
       "display_name": "Prince Paul Troubetzkoy",
       "dates": "",
@@ -38652,33 +38868,6 @@
         "top_ratio_lot": {
           "title": "Seated Bearded Man",
           "ratio": 2.72
-        }
-      }
-    },
-    {
-      "norm_name": "FAUSTO MELOTTI",
-      "display_name": "Fausto Melotti",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 19000,
-        "avg_usd": 19000,
-        "total_label": "$19k",
-        "avg_label": "$19k",
-        "top_lot": {
-          "title": "Two Unique Vases",
-          "hammer_usd": 19000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Two Unique Vases",
-          "ratio": 1.9
         }
       }
     },
@@ -39763,6 +39952,33 @@
       }
     },
     {
+      "norm_name": "DARREN ALMOND",
+      "display_name": "Darren Almond",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 15240,
+        "avg_usd": 15240,
+        "total_label": "$15k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "Present Form Exposed II",
+          "hammer_usd": 15240,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Present Form Exposed II",
+          "ratio": 1.22
+        }
+      }
+    },
+    {
       "norm_name": "SARA BERMAN",
       "display_name": "Sara Berman",
       "dates": "",
@@ -40708,33 +40924,6 @@
       }
     },
     {
-      "norm_name": "WILHELM SASNAL",
-      "display_name": "Wilhelm Sasnal",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 12903,
-        "avg_usd": 12903,
-        "total_label": "$13k",
-        "avg_label": "$13k",
-        "top_lot": {
-          "title": "Mickiewicz",
-          "hammer_usd": 12903,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Mickiewicz",
-          "ratio": 1.03
-        }
-      }
-    },
-    {
       "norm_name": "KENDELL GEERS",
       "display_name": "Kendell Geers",
       "dates": "",
@@ -40951,6 +41140,33 @@
       }
     },
     {
+      "norm_name": "GED QUINN",
+      "display_name": "Ged Quinn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12065,
+        "avg_usd": 12065,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Things Are Exactly As They Seem",
+          "hammer_usd": 12065,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Things Are Exactly As They Seem",
+          "ratio": 0.97
+        }
+      }
+    },
+    {
       "norm_name": "HORATIO GORDON ROBLEY",
       "display_name": "Horatio Gordon Robley",
       "dates": "",
@@ -41082,6 +41298,60 @@
         "top_ratio_lot": {
           "title": "The Jacamar Trap",
           "ratio": 7.98
+        }
+      }
+    },
+    {
+      "norm_name": "THOMAS NOZKOWSKI",
+      "display_name": "Thomas Nozkowski",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11430,
+        "avg_usd": 11430,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 11430,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.14
+        }
+      }
+    },
+    {
+      "norm_name": "PENNY SIOPIS",
+      "display_name": "Penny Siopis",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11430,
+        "avg_usd": 11430,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Paris Opera House",
+          "hammer_usd": 11430,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Paris Opera House",
+          "ratio": 1.91
         }
       }
     },
@@ -43647,6 +43917,60 @@
         "top_ratio_lot": {
           "title": "Spindle Chandelier with the Virgin and Child",
           "ratio": 0.76
+        }
+      }
+    },
+    {
+      "norm_name": "SARAH BALL",
+      "display_name": "Sarah Ball",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5334,
+        "avg_usd": 5334,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 5334,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 1.07
+        }
+      }
+    },
+    {
+      "norm_name": "HALIM AL-KARIM",
+      "display_name": "Halim Al-Karim",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5334,
+        "avg_usd": 5334,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Goddess of Beirut",
+          "hammer_usd": 5334,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Goddess of Beirut",
+          "ratio": 2.13
         }
       }
     },
