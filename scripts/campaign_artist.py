@@ -105,23 +105,41 @@ def get_rotation(db_path: Path = DB_PATH) -> list[str]:
 
 
 def _unposted_above_estimate_count(cur: sqlite3.Cursor, name: str) -> int:
-    """Count unposted lots among the top MAX_LOTS_PER_ARTIST by hammer for this artist."""
+    """Return how many more above-estimate lots this artist can still have posted.
+
+    Two independent conditions must both be satisfied for the result to be > 0:
+      1. The artist hasn't yet hit MAX_LOTS_PER_ARTIST posted reels.
+      2. They have at least one above-estimate lot that hasn't been posted yet.
+
+    Previously the subquery used ``LIMIT MAX_LOTS_PER_ARTIST`` which conflated
+    the posting cap with the pool of eligible lots — if the top-N lots were all
+    posted the artist appeared exhausted even when more lots existed or the cap
+    was later raised.
+    """
+    # How many reels have already been posted for this artist?
+    cur.execute(
+        "SELECT COUNT(*) FROM posted_reels WHERE UPPER(artist) LIKE '%' || UPPER(?) || '%'",
+        (name,),
+    )
+    already_posted = cur.fetchone()[0]
+    remaining_budget = MAX_LOTS_PER_ARTIST - already_posted
+    if remaining_budget <= 0:
+        return 0
+
+    # Count all unposted above-estimate lots (no artificial LIMIT).
     cur.execute(
         """
-        SELECT COUNT(*) FROM (
-            SELECT id FROM art_items
-            WHERE sale_performance = 'above'
-              AND artist IS NOT NULL
-              AND UPPER(artist) LIKE '%' || UPPER(?) || '%'
-            ORDER BY hammer_usd DESC
-            LIMIT ?
-        ) top_lots
-        WHERE id NOT IN (SELECT lot_id FROM posted_reels)
+        SELECT COUNT(*) FROM art_items
+        WHERE sale_performance = 'above'
+          AND artist IS NOT NULL
+          AND UPPER(artist) LIKE '%' || UPPER(?) || '%'
+          AND id NOT IN (SELECT lot_id FROM posted_reels)
         """,
-        (name, MAX_LOTS_PER_ARTIST),
+        (name,),
     )
     row = cur.fetchone()
-    return row[0] if row else 0
+    unposted = row[0] if row else 0
+    return min(unposted, remaining_budget)
 
 
 def next_artist(db_path: Path = DB_PATH) -> str:
