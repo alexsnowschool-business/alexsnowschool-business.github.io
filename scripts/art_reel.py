@@ -617,7 +617,18 @@ def _social_captions(lot: dict) -> dict:
         "\n\n#thehammerprice #artmarket #auctionresults #artcollecting #foryou",
     ]
     tt = "".join(tt_parts)
-    return {"instagram": ig, "tiktok": tt}
+    ln_parts = [
+        f"{artist} — \"{title}\"\n\n",
+        f"estimate: {_fmt(est_lo)}–{_fmt(est_hi)} | ",
+        f"sold: {_fmt(lot['hammer_usd'])} (+{pct:,.0f}% above estimate)\n\n",
+        f"{sale_name}\n" if sale_name else "",
+        f"{house}",
+        f"\n{url}" if url else "",
+        f"\n\ndata source: {house}",
+        "\n\n#thehammerprice #artmarket #auctionresults #artcollecting #contemporaryart",
+    ]
+    ln = "".join(ln_parts)
+    return {"instagram": ig, "tiktok": tt, "linkedin": ln}
 
 
 def _write_captions_md(output_dir: Path, lot: dict, captions: dict) -> None:
@@ -626,6 +637,7 @@ def _write_captions_md(output_dir: Path, lot: dict, captions: dict) -> None:
     title  = (lot.get("title") or "Untitled")[:60]
     ig     = captions.get("instagram", "")
     tt     = captions.get("tiktok", "")
+    ln     = captions.get("linkedin", "")
 
     md = (
         f"*{artist} · \"{title}\"*\n\n"
@@ -634,7 +646,10 @@ def _write_captions_md(output_dir: Path, lot: dict, captions: dict) -> None:
         f"```\n{ig}\n```\n\n"
         "## 🎵 TikTok\n\n"
         "### Caption\n"
-        f"```\n{tt}\n```\n"
+        f"```\n{tt}\n```\n\n"
+        "## 💼 LinkedIn\n\n"
+        "### Caption\n"
+        f"```\n{ln}\n```\n"
     )
     (output_dir / "captions.md").write_text(md, encoding="utf-8")
 
