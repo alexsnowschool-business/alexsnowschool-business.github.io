@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3522,
-    "total_artists": 1383,
+    "total_lots": 3572,
+    "total_artists": 1384,
     "median_hammer_usd": 95250,
-    "pct_above_estimate": 46.4,
+    "pct_above_estimate": 46.0,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-13"
+    "generated_at": "2026-08-17"
   },
   "artists": [
     {
@@ -697,6 +697,65 @@
       }
     },
     {
+      "norm_name": "GEORGE CONDO",
+      "display_name": "George Condo",
+      "dates": "b. 1957",
+      "nationality": "American",
+      "movement": "Neo-Expressionism · Artificial Realism",
+      "movement_id": "contemporary",
+      "bio": "Born in Concord, New Hampshire, Condo studied music and art before moving to New York in the early 1980s, where he worked briefly in Andy Warhol's Factory before establishing his own direction. He coined 'artificial realism' to describe his practice: figures derived from art-historical sources — Velázquez, Goya, Picasso, Rubens — are distorted, fragmented, and recombined in configurations that are simultaneously comic, disturbing, and technically accomplished. The faces are wrong in specific ways: features displaced, mouths enlarged, eyes asynchronous, foreheads compressed — a vocabulary of psychological disturbance rendered in traditional oil technique. He has lived and worked in London, Paris, and New York. His work is collected by Jay-Z and Kanye West (who commissioned his album artwork), and he commands consistently strong institutional prices. His technical virtuosity — the old-master surface over grotesque imagery — is the formal strategy: beauty and abjection held in the same gaze.",
+      "famous_works": [
+        {
+          "title": "The Fallen Butler",
+          "year": "2010",
+          "notes": "A large vertical canvas of a disintegrating figure — parts of the body in different states of dissolution. One of the defining works of Condo's mature period."
+        },
+        {
+          "title": "Crazy Face",
+          "year": "2007",
+          "notes": "A portrait head in which multiple faces occupy the same skull simultaneously. Cubism's simultaneous viewpoints pushed into the register of psychological multiplicity."
+        },
+        {
+          "title": "Sad Clown",
+          "year": "2004",
+          "notes": "From the Clown series — figures from commedia dell'arte traditions rendered with 17th-century technical authority and 21st-century psychological violence."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Popeye Show",
+          "year": "2002",
+          "notes": "Condo's engagement with cartoon characters — Popeye's physiognomy absorbed into his grotesque language. The border between the childlike and the disturbing is the subject."
+        },
+        {
+          "title": "The Big Bang Theory",
+          "year": "1995",
+          "notes": "An early career work showing the development of the multiple-figure canvas before it reached the density of the mature practice."
+        },
+        {
+          "title": "Puppet Show",
+          "year": "2000",
+          "notes": "Figures as marionettes — agency and control as explicit themes. The puppeteer's hand is absent but structurally present in every distorted pose."
+        }
+      ],
+      "dataset": {
+        "lot_count": 43,
+        "total_usd": 35986072,
+        "avg_usd": 836885,
+        "total_label": "$35.99M",
+        "avg_label": "$837k",
+        "top_lot": {
+          "title": "Inside the West Wing 西翼內部",
+          "hammer_usd": 19000000,
+          "sale_name": "Contemporary Evening Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 5.08
+        }
+      }
+    },
+    {
       "norm_name": "RENÉ MAGRITTE",
       "display_name": "René Magritte",
       "dates": "1898–1967",
@@ -747,65 +806,6 @@
         "top_ratio_lot": {
           "title": "Sans titre",
           "ratio": 25.81
-        }
-      }
-    },
-    {
-      "norm_name": "GEORGE CONDO",
-      "display_name": "George Condo",
-      "dates": "b. 1957",
-      "nationality": "American",
-      "movement": "Neo-Expressionism · Artificial Realism",
-      "movement_id": "contemporary",
-      "bio": "Born in Concord, New Hampshire, Condo studied music and art before moving to New York in the early 1980s, where he worked briefly in Andy Warhol's Factory before establishing his own direction. He coined 'artificial realism' to describe his practice: figures derived from art-historical sources — Velázquez, Goya, Picasso, Rubens — are distorted, fragmented, and recombined in configurations that are simultaneously comic, disturbing, and technically accomplished. The faces are wrong in specific ways: features displaced, mouths enlarged, eyes asynchronous, foreheads compressed — a vocabulary of psychological disturbance rendered in traditional oil technique. He has lived and worked in London, Paris, and New York. His work is collected by Jay-Z and Kanye West (who commissioned his album artwork), and he commands consistently strong institutional prices. His technical virtuosity — the old-master surface over grotesque imagery — is the formal strategy: beauty and abjection held in the same gaze.",
-      "famous_works": [
-        {
-          "title": "The Fallen Butler",
-          "year": "2010",
-          "notes": "A large vertical canvas of a disintegrating figure — parts of the body in different states of dissolution. One of the defining works of Condo's mature period."
-        },
-        {
-          "title": "Crazy Face",
-          "year": "2007",
-          "notes": "A portrait head in which multiple faces occupy the same skull simultaneously. Cubism's simultaneous viewpoints pushed into the register of psychological multiplicity."
-        },
-        {
-          "title": "Sad Clown",
-          "year": "2004",
-          "notes": "From the Clown series — figures from commedia dell'arte traditions rendered with 17th-century technical authority and 21st-century psychological violence."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Popeye Show",
-          "year": "2002",
-          "notes": "Condo's engagement with cartoon characters — Popeye's physiognomy absorbed into his grotesque language. The border between the childlike and the disturbing is the subject."
-        },
-        {
-          "title": "The Big Bang Theory",
-          "year": "1995",
-          "notes": "An early career work showing the development of the multiple-figure canvas before it reached the density of the mature practice."
-        },
-        {
-          "title": "Puppet Show",
-          "year": "2000",
-          "notes": "Figures as marionettes — agency and control as explicit themes. The puppeteer's hand is absent but structurally present in every distorted pose."
-        }
-      ],
-      "dataset": {
-        "lot_count": 42,
-        "total_usd": 33700072,
-        "avg_usd": 802383,
-        "total_label": "$33.70M",
-        "avg_label": "$802k",
-        "top_lot": {
-          "title": "Inside the West Wing 西翼內部",
-          "hammer_usd": 19000000,
-          "sale_name": "Contemporary Evening Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 5.08
         }
       }
     },
@@ -2151,6 +2151,60 @@
       }
     },
     {
+      "norm_name": "ANTONY GORMLEY",
+      "display_name": "Antony Gormley",
+      "dates": "b. 1950",
+      "nationality": "British",
+      "movement": "Contemporary · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
+      "famous_works": [
+        {
+          "title": "Angel of the North",
+          "year": "1998",
+          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
+        },
+        {
+          "title": "Another Place",
+          "year": "1997",
+          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
+        },
+        {
+          "title": "Event Horizon",
+          "year": "2007",
+          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Learning to Think",
+          "year": "1991",
+          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
+        },
+        {
+          "title": "One & Other",
+          "year": "2009",
+          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 9700319,
+        "avg_usd": 1212540,
+        "total_label": "$9.70M",
+        "avg_label": "$1.21M",
+        "top_lot": {
+          "title": "Open Hide",
+          "hammer_usd": 4800000,
+          "sale_name": "Contemporary Evening Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "Another Singularity",
+          "ratio": 3.78
+        }
+      }
+    },
+    {
       "norm_name": "FRANTIŠEK KUPKA",
       "display_name": "František Kupka",
       "dates": "1871–1957",
@@ -2201,60 +2255,6 @@
         "top_ratio_lot": {
           "title": "Étude pour Amorpha (recto; verso)",
           "ratio": 2.4
-        }
-      }
-    },
-    {
-      "norm_name": "ANTONY GORMLEY",
-      "display_name": "Antony Gormley",
-      "dates": "b. 1950",
-      "nationality": "British",
-      "movement": "Contemporary · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Antony Gormley was born in London in 1950, studied at Trinity College Cambridge, and later at the Central School of Art and Goldsmiths College. A period spent in India studying Buddhism in the mid-1970s was formative, deepening his preoccupation with the body as a site of consciousness and spiritual experience. He came to prominence in the 1980s with sculptures cast from his own body — initially in lead, later in iron and steel — that use the artist's own morphology as a universal template for exploring human presence and absence.\n\nGormley's work consistently treats the body not as a representation of a particular individual but as a vessel, a volume of space occupied by consciousness. The lead works of the 1980s show figures in positions of extreme physical vulnerability — crouching, curled, pressed against walls — that suggest both physical sensation and spiritual interior life. His later iron sculptures, multiplied in large installations across landscapes and urban spaces, explore collective presence: the singular body scattered across an environment, becoming population, horizon, and landscape simultaneously.\n\nAngel of the North, installed near Gateshead in 1998, is among the most visited works of public art in Britain. Gormley has exhibited at the White Cube gallery and had major retrospectives at institutions including the Hayward Gallery, the Royal Academy of Arts, and the Hermitage in St Petersburg. His practice stands as one of the most sustained contemporary investigations of the phenomenology of embodied experience.",
-      "famous_works": [
-        {
-          "title": "Angel of the North",
-          "year": "1998",
-          "notes": "A twenty-metre steel figure with vast wing-like arms installed near the A1 motorway in Gateshead, becoming an iconic symbol of post-industrial northern England."
-        },
-        {
-          "title": "Another Place",
-          "year": "1997",
-          "notes": "One hundred cast iron figures installed in the tidal flats of Crosby Beach, Merseyside, gazing out to sea in a meditation on migration, horizon, and collective human aspiration."
-        },
-        {
-          "title": "Event Horizon",
-          "year": "2007",
-          "notes": "An installation of cast iron figures deployed across rooftops and on the ground in various cities, making the unseen edges of urban space suddenly present to the viewer."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Learning to Think",
-          "year": "1991",
-          "notes": "A lead body case in a crouching position that embodies Gormley's early investigation of the body as a container of consciousness."
-        },
-        {
-          "title": "One & Other",
-          "year": "2009",
-          "notes": "A participatory work on the Fourth Plinth in Trafalgar Square in which 2,400 members of the public each occupied the plinth for one hour over 100 days."
-        }
-      ],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 9255819,
-        "avg_usd": 1322260,
-        "total_label": "$9.26M",
-        "avg_label": "$1.32M",
-        "top_lot": {
-          "title": "Open Hide",
-          "hammer_usd": 4800000,
-          "sale_name": "Contemporary Evening Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "Another Singularity",
-          "ratio": 3.78
         }
       }
     },
@@ -2765,6 +2765,60 @@
       }
     },
     {
+      "norm_name": "PIERRE BONNARD",
+      "display_name": "Pierre Bonnard",
+      "dates": "1867–1947",
+      "nationality": "French",
+      "movement": "Post-Impressionism",
+      "movement_id": "post-impressionism",
+      "bio": "Pierre Bonnard was born in Fontenay-aux-Roses near Paris in 1867 and studied at the École des Beaux-Arts and the Académie Julian, where he met Paul Sérusier, Maurice Denis, and other members of what became the Nabis — a group of painters who, inspired by Gauguin's flat, symbolic use of colour, developed an approach to painting as a two-dimensional arrangement of colour and form that led Bonnard toward the particular vision he maintained for the rest of his life.\n\nBonnard's mature paintings are among the most chromatically extraordinary in Western art. Working from memory and from colour notes rather than direct observation, he constructed domestic interiors, garden scenes, and nudes of his companion Marthe (whom he eventually married) in colour combinations of seemingly arbitrary intensity — oranges next to purples, greens next to reds — that are somehow always precisely right, the colour creating the space and the emotion simultaneously. Marthe, who bathed compulsively due to a health condition, appears in numerous canvases floating in bathtubs of purple and gold — images of domestic intimacy that are simultaneously quotidian and transcendent.\n\nBonnard worked largely apart from the major movements of twentieth-century art — Cubism, Surrealism, Abstract Expressionism passed him by — maintaining a domestic, intimate subject matter that many critics long dismissed as minor. The rehabilitation of his reputation has been substantial, and major retrospectives at the Tate, MoMA, and the Fondation Beyeler have confirmed his standing as one of the great colourists in the history of painting.",
+      "famous_works": [
+        {
+          "title": "The Bath",
+          "year": "1925",
+          "notes": "A painting of Marthe in the bathtub in which the body, the water, and the warm-tiled room are dissolved into a single chromatic field of extraordinary radiance."
+        },
+        {
+          "title": "The Dining Room in the Country",
+          "year": "1913",
+          "notes": "A large interior painting in which domestic space, garden, and figure are united by the chromatic logic that makes every spatial distinction simultaneously a colour decision."
+        },
+        {
+          "title": "Nude in the Bath and Small Dog",
+          "year": "1941–1946",
+          "notes": "A late painting of Marthe, from which she has recently died, in which her form in the tub is suffused with a luminosity that has the quality of memory rather than observation."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Almond Tree in Blossom",
+          "year": "1946",
+          "notes": "A late landscape from Bonnard's Le Cannet studio in which the almond tree's flowering is rendered with the trembling chromatic precision of his final years."
+        },
+        {
+          "title": "The Breakfast Table",
+          "year": "1936",
+          "notes": "A domestic scene in which the still-life arrangement of breakfast objects and the morning light create a composition of characteristic chromatic intimacy."
+        }
+      ],
+      "dataset": {
+        "lot_count": 13,
+        "total_usd": 7537786,
+        "avg_usd": 579830,
+        "total_label": "$7.54M",
+        "avg_label": "$580k",
+        "top_lot": {
+          "title": "Nu s'habillant",
+          "hammer_usd": 2800000,
+          "sale_name": "Modern Evening Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "Marthe ou Marie",
+          "ratio": 2.87
+        }
+      }
+    },
+    {
       "norm_name": "CHU TEH-CHUN",
       "display_name": "Chu Teh-Chun",
       "dates": "1920–2014",
@@ -2928,60 +2982,6 @@
         "top_ratio_lot": {
           "title": "Fuse",
           "ratio": 3.28
-        }
-      }
-    },
-    {
-      "norm_name": "PIERRE BONNARD",
-      "display_name": "Pierre Bonnard",
-      "dates": "1867–1947",
-      "nationality": "French",
-      "movement": "Post-Impressionism",
-      "movement_id": "post-impressionism",
-      "bio": "Pierre Bonnard was born in Fontenay-aux-Roses near Paris in 1867 and studied at the École des Beaux-Arts and the Académie Julian, where he met Paul Sérusier, Maurice Denis, and other members of what became the Nabis — a group of painters who, inspired by Gauguin's flat, symbolic use of colour, developed an approach to painting as a two-dimensional arrangement of colour and form that led Bonnard toward the particular vision he maintained for the rest of his life.\n\nBonnard's mature paintings are among the most chromatically extraordinary in Western art. Working from memory and from colour notes rather than direct observation, he constructed domestic interiors, garden scenes, and nudes of his companion Marthe (whom he eventually married) in colour combinations of seemingly arbitrary intensity — oranges next to purples, greens next to reds — that are somehow always precisely right, the colour creating the space and the emotion simultaneously. Marthe, who bathed compulsively due to a health condition, appears in numerous canvases floating in bathtubs of purple and gold — images of domestic intimacy that are simultaneously quotidian and transcendent.\n\nBonnard worked largely apart from the major movements of twentieth-century art — Cubism, Surrealism, Abstract Expressionism passed him by — maintaining a domestic, intimate subject matter that many critics long dismissed as minor. The rehabilitation of his reputation has been substantial, and major retrospectives at the Tate, MoMA, and the Fondation Beyeler have confirmed his standing as one of the great colourists in the history of painting.",
-      "famous_works": [
-        {
-          "title": "The Bath",
-          "year": "1925",
-          "notes": "A painting of Marthe in the bathtub in which the body, the water, and the warm-tiled room are dissolved into a single chromatic field of extraordinary radiance."
-        },
-        {
-          "title": "The Dining Room in the Country",
-          "year": "1913",
-          "notes": "A large interior painting in which domestic space, garden, and figure are united by the chromatic logic that makes every spatial distinction simultaneously a colour decision."
-        },
-        {
-          "title": "Nude in the Bath and Small Dog",
-          "year": "1941–1946",
-          "notes": "A late painting of Marthe, from which she has recently died, in which her form in the tub is suffused with a luminosity that has the quality of memory rather than observation."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Almond Tree in Blossom",
-          "year": "1946",
-          "notes": "A late landscape from Bonnard's Le Cannet studio in which the almond tree's flowering is rendered with the trembling chromatic precision of his final years."
-        },
-        {
-          "title": "The Breakfast Table",
-          "year": "1936",
-          "notes": "A domestic scene in which the still-life arrangement of breakfast objects and the morning light create a composition of characteristic chromatic intimacy."
-        }
-      ],
-      "dataset": {
-        "lot_count": 12,
-        "total_usd": 7182186,
-        "avg_usd": 598516,
-        "total_label": "$7.18M",
-        "avg_label": "$599k",
-        "top_lot": {
-          "title": "Nu s'habillant",
-          "hammer_usd": 2800000,
-          "sale_name": "Modern Evening Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "Marthe ou Marie",
-          "ratio": 2.87
         }
       }
     },
@@ -4346,6 +4346,60 @@
       }
     },
     {
+      "norm_name": "DAMIEN HIRST",
+      "display_name": "Damien Hirst",
+      "dates": "b. 1965",
+      "nationality": "British",
+      "movement": "Contemporary · Conceptual",
+      "movement_id": "conceptual",
+      "bio": "Damien Hirst was born in Bristol in 1965 and grew up in Leeds before studying at Goldsmiths College in London, where he organised the Freeze exhibition in 1988 — a landmark moment for what came to be called the Young British Artists. By the early 1990s, he had become the defining public figure of a generation of British artists who deployed shock, spectacle, and media savvy to make art that was simultaneously critically engaged and commercially spectacular.\n\nHirst's most significant works are his Natural History series — animals preserved in formaldehyde in steel and glass vitrines — and his spin paintings and spot paintings, which exist in large editions. The shark of The Physical Impossibility of Death in the Mind of Someone Living and the bisected cow and calf of Mother and Child Divided are among the most discussed works of late twentieth-century art, their confrontation of mortality, beauty, and commodity spectacle generating both genuine philosophical engagement and considerable suspicion about their depth. The diamond-encrusted skull For the Love of God (2007) extended these investigations into the territory of extreme luxury.\n\nHirst is represented by White Cube and his own company Science Ltd. A celebrated auction of his work directly through Sotheby's in 2008 raised unprecedented sums and coincided almost exactly with the global financial crisis — a piece of dark timing that many commentators found apt. His work has been the subject of major retrospectives at institutions including Tate Modern.",
+      "famous_works": [
+        {
+          "title": "The Physical Impossibility of Death in the Mind of Someone Living",
+          "year": "1991",
+          "notes": "A tiger shark preserved in formaldehyde in a steel and glass vitrine, the foundational work of Hirst's Natural History series and a defining object of 1990s British art."
+        },
+        {
+          "title": "Mother and Child Divided",
+          "year": "1993",
+          "notes": "A cow and calf bisected and displayed in four vitrines, winner of the Turner Prize and a key work in contemporary art's engagement with biological life and institutional display."
+        },
+        {
+          "title": "For the Love of God",
+          "year": "2007",
+          "notes": "A platinum cast of an eighteenth-century human skull set with 8,601 diamonds, posing questions about mortality, luxury, and value with maximal theatrical impact."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "A Thousand Years",
+          "year": "1990",
+          "notes": "A steel and glass vitrine containing a fly-breeding box, a rotting cow's head, and an insect-o-cutor, creating a life cycle of reproduction and death without the artist's intervention."
+        },
+        {
+          "title": "Pharmacy",
+          "year": "1992",
+          "notes": "An installation replicating the interior of a British pharmacy in its entirety, making the aesthetics of medicine and the culture of health-consumption identical terms."
+        }
+      ],
+      "dataset": {
+        "lot_count": 14,
+        "total_usd": 5037091,
+        "avg_usd": 359792,
+        "total_label": "$5.04M",
+        "avg_label": "$360k",
+        "top_lot": {
+          "title": "Beautiful Dreamer 美麗的夢想家",
+          "hammer_usd": 1800000,
+          "sale_name": "Contemporary Evening Auction, NY 2023"
+        },
+        "top_ratio_lot": {
+          "title": "A Summers Day",
+          "ratio": 2.13
+        }
+      }
+    },
+    {
       "norm_name": "WILLEM DE KOONING",
       "display_name": "Willem de Kooning",
       "dates": "1904–1997",
@@ -4734,60 +4788,6 @@
       }
     },
     {
-      "norm_name": "DAMIEN HIRST",
-      "display_name": "Damien Hirst",
-      "dates": "b. 1965",
-      "nationality": "British",
-      "movement": "Contemporary · Conceptual",
-      "movement_id": "conceptual",
-      "bio": "Damien Hirst was born in Bristol in 1965 and grew up in Leeds before studying at Goldsmiths College in London, where he organised the Freeze exhibition in 1988 — a landmark moment for what came to be called the Young British Artists. By the early 1990s, he had become the defining public figure of a generation of British artists who deployed shock, spectacle, and media savvy to make art that was simultaneously critically engaged and commercially spectacular.\n\nHirst's most significant works are his Natural History series — animals preserved in formaldehyde in steel and glass vitrines — and his spin paintings and spot paintings, which exist in large editions. The shark of The Physical Impossibility of Death in the Mind of Someone Living and the bisected cow and calf of Mother and Child Divided are among the most discussed works of late twentieth-century art, their confrontation of mortality, beauty, and commodity spectacle generating both genuine philosophical engagement and considerable suspicion about their depth. The diamond-encrusted skull For the Love of God (2007) extended these investigations into the territory of extreme luxury.\n\nHirst is represented by White Cube and his own company Science Ltd. A celebrated auction of his work directly through Sotheby's in 2008 raised unprecedented sums and coincided almost exactly with the global financial crisis — a piece of dark timing that many commentators found apt. His work has been the subject of major retrospectives at institutions including Tate Modern.",
-      "famous_works": [
-        {
-          "title": "The Physical Impossibility of Death in the Mind of Someone Living",
-          "year": "1991",
-          "notes": "A tiger shark preserved in formaldehyde in a steel and glass vitrine, the foundational work of Hirst's Natural History series and a defining object of 1990s British art."
-        },
-        {
-          "title": "Mother and Child Divided",
-          "year": "1993",
-          "notes": "A cow and calf bisected and displayed in four vitrines, winner of the Turner Prize and a key work in contemporary art's engagement with biological life and institutional display."
-        },
-        {
-          "title": "For the Love of God",
-          "year": "2007",
-          "notes": "A platinum cast of an eighteenth-century human skull set with 8,601 diamonds, posing questions about mortality, luxury, and value with maximal theatrical impact."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "A Thousand Years",
-          "year": "1990",
-          "notes": "A steel and glass vitrine containing a fly-breeding box, a rotting cow's head, and an insect-o-cutor, creating a life cycle of reproduction and death without the artist's intervention."
-        },
-        {
-          "title": "Pharmacy",
-          "year": "1992",
-          "notes": "An installation replicating the interior of a British pharmacy in its entirety, making the aesthetics of medicine and the culture of health-consumption identical terms."
-        }
-      ],
-      "dataset": {
-        "lot_count": 13,
-        "total_usd": 4465591,
-        "avg_usd": 343507,
-        "total_label": "$4.47M",
-        "avg_label": "$344k",
-        "top_lot": {
-          "title": "Beautiful Dreamer 美麗的夢想家",
-          "hammer_usd": 1800000,
-          "sale_name": "Contemporary Evening Auction, NY 2023"
-        },
-        "top_ratio_lot": {
-          "title": "A Summers Day",
-          "ratio": 2.13
-        }
-      }
-    },
-    {
       "norm_name": "HANS HARTUNG",
       "display_name": "Hans Hartung",
       "dates": "1904–1989",
@@ -5167,6 +5167,60 @@
         "top_ratio_lot": {
           "title": "Nice Quiet Hot Tears 寂靜的熱淚",
           "ratio": 2.8
+        }
+      }
+    },
+    {
+      "norm_name": "ADRIANA VAREJÃO",
+      "display_name": "Adriana Varejão",
+      "dates": "b. 1964",
+      "nationality": "Brazilian",
+      "movement": "Contemporary",
+      "movement_id": "contemporary",
+      "bio": "Adriana Varejão is the most internationally prominent Brazilian artist of her generation, a Rio de Janeiro-born painter and sculptor whose work engages with the cultural, colonial, and bodily violence that underlies Brazilian history and national identity through the visual languages of azulejo tile work, Baroque visceral imagery, and conceptual investigation. Trained at the School of Visual Arts of Parque Lage in Rio and subsequently at the Escola de Artes Visuais, she has exhibited extensively at international biennials and major institutions since the 1990s.\n\nVarejão's signature works are large trompe-l'oeil paintings of blue-and-white azulejo tiles that fracture to reveal bloody, fleshy, visceral interiors — walls that bleed, tiles that crack to expose anatomical organs or entrails. This formal strategy conflates the decorative tradition of Portuguese-Brazilian tile work — which decorated churches and palaces built with colonial wealth — with the bodily violence of colonialism, making the decorative surface itself the site of historical trauma. Her Map paintings and cartographic works similarly interrogate Brazil's colonial archive through the distortion and recombination of historical documents.\n\nVarejão is represented by Gagosian Gallery and her work is in major public and private collections worldwide. She is the recipient of numerous prizes and her critical reputation has grown steadily alongside her market recognition.",
+      "famous_works": [
+        {
+          "title": "Proposta para uma Catequese (Proposal for a Catechism) I and II",
+          "year": "1993",
+          "notes": "Two large trompe-l'oeil paintings in which colonial missionary imagery is placed alongside the visceral bodily content the colonial project imposed."
+        },
+        {
+          "title": "Azulejão series",
+          "year": "1995–present",
+          "notes": "Paintings of cracked and fractured blue-and-white tile walls that bleed or reveal fleshy interiors — her most celebrated and market-defining works."
+        },
+        {
+          "title": "Ruína de Charque com Bife Enrolado",
+          "year": "1992",
+          "notes": "An early work combining azulejo surface and meat subject in a single image, establishing the visceral-decorative tension of her mature practice."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Map paintings",
+          "year": "2000–present",
+          "notes": "Works based on historical cartographic imagery that investigate Brazil's colonial archive through visual distortion and recombination."
+        },
+        {
+          "title": "Polvo museum project",
+          "year": "2009",
+          "notes": "An entire ceramic tile installation for the Inhotim museum in Brazil demonstrating her work at its most architecturally ambitious scale."
+        }
+      ],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 4135000,
+        "avg_usd": 2067500,
+        "total_label": "$4.13M",
+        "avg_label": "$2.07M",
+        "top_lot": {
+          "title": "A Grande Curva 宏大的弧線",
+          "hammer_usd": 3500000,
+          "sale_name": "Contemporary Day Auction, NY 2024"
+        },
+        "top_ratio_lot": {
+          "title": "A Grande Curva 宏大的弧線",
+          "ratio": 1.75
         }
       }
     },
@@ -5717,60 +5771,6 @@
         "top_ratio_lot": {
           "title": "Chicken Mash",
           "ratio": 2.46
-        }
-      }
-    },
-    {
-      "norm_name": "ADRIANA VAREJÃO",
-      "display_name": "Adriana Varejão",
-      "dates": "b. 1964",
-      "nationality": "Brazilian",
-      "movement": "Contemporary",
-      "movement_id": "contemporary",
-      "bio": "Adriana Varejão is the most internationally prominent Brazilian artist of her generation, a Rio de Janeiro-born painter and sculptor whose work engages with the cultural, colonial, and bodily violence that underlies Brazilian history and national identity through the visual languages of azulejo tile work, Baroque visceral imagery, and conceptual investigation. Trained at the School of Visual Arts of Parque Lage in Rio and subsequently at the Escola de Artes Visuais, she has exhibited extensively at international biennials and major institutions since the 1990s.\n\nVarejão's signature works are large trompe-l'oeil paintings of blue-and-white azulejo tiles that fracture to reveal bloody, fleshy, visceral interiors — walls that bleed, tiles that crack to expose anatomical organs or entrails. This formal strategy conflates the decorative tradition of Portuguese-Brazilian tile work — which decorated churches and palaces built with colonial wealth — with the bodily violence of colonialism, making the decorative surface itself the site of historical trauma. Her Map paintings and cartographic works similarly interrogate Brazil's colonial archive through the distortion and recombination of historical documents.\n\nVarejão is represented by Gagosian Gallery and her work is in major public and private collections worldwide. She is the recipient of numerous prizes and her critical reputation has grown steadily alongside her market recognition.",
-      "famous_works": [
-        {
-          "title": "Proposta para uma Catequese (Proposal for a Catechism) I and II",
-          "year": "1993",
-          "notes": "Two large trompe-l'oeil paintings in which colonial missionary imagery is placed alongside the visceral bodily content the colonial project imposed."
-        },
-        {
-          "title": "Azulejão series",
-          "year": "1995–present",
-          "notes": "Paintings of cracked and fractured blue-and-white tile walls that bleed or reveal fleshy interiors — her most celebrated and market-defining works."
-        },
-        {
-          "title": "Ruína de Charque com Bife Enrolado",
-          "year": "1992",
-          "notes": "An early work combining azulejo surface and meat subject in a single image, establishing the visceral-decorative tension of her mature practice."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Map paintings",
-          "year": "2000–present",
-          "notes": "Works based on historical cartographic imagery that investigate Brazil's colonial archive through visual distortion and recombination."
-        },
-        {
-          "title": "Polvo museum project",
-          "year": "2009",
-          "notes": "An entire ceramic tile installation for the Inhotim museum in Brazil demonstrating her work at its most architecturally ambitious scale."
-        }
-      ],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 3500000,
-        "avg_usd": 3500000,
-        "total_label": "$3.50M",
-        "avg_label": "$3.50M",
-        "top_lot": {
-          "title": "A Grande Curva 宏大的弧線",
-          "hammer_usd": 3500000,
-          "sale_name": "Contemporary Day Auction, NY 2024"
-        },
-        "top_ratio_lot": {
-          "title": "A Grande Curva 宏大的弧線",
-          "ratio": 1.75
         }
       }
     },
@@ -19058,6 +19058,33 @@
       }
     },
     {
+      "norm_name": "TAMARA DE LEMPICKA",
+      "display_name": "Tamara De Lempicka",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1511300,
+        "avg_usd": 755650,
+        "total_label": "$1.51M",
+        "avg_label": "$756k",
+        "top_lot": {
+          "title": "Portrait d'une jeune femme triste",
+          "hammer_usd": 1079500,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait de femme",
+          "ratio": 4.32
+        }
+      }
+    },
+    {
       "norm_name": "LEE MAN FONG",
       "display_name": "Lee Man Fong",
       "dates": "",
@@ -20543,6 +20570,33 @@
       }
     },
     {
+      "norm_name": "SIDNEY NOLAN",
+      "display_name": "Sidney Nolan",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 762000,
+        "avg_usd": 762000,
+        "total_label": "$762k",
+        "avg_label": "$762k",
+        "top_lot": {
+          "title": "Ned Kelly at Glenrowan",
+          "hammer_usd": 762000,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Ned Kelly at Glenrowan",
+          "ratio": 1.09
+        }
+      }
+    },
+    {
       "norm_name": "SIR ALFRED JAMES MUNNINGS, P.R.A., R.W.S.",
       "display_name": "Sir Alfred James Munnings, P.R.A., R.W.S.",
       "dates": "",
@@ -21218,6 +21272,33 @@
       }
     },
     {
+      "norm_name": "ANDREAS GURSKY",
+      "display_name": "Andreas Gursky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 635000,
+        "avg_usd": 317500,
+        "total_label": "$635k",
+        "avg_label": "$318k",
+        "top_lot": {
+          "title": "Cocoon II",
+          "hammer_usd": 317500,
+          "sale_name": "Contemporary Day Auction L26017"
+        },
+        "top_ratio_lot": {
+          "title": "Cocoon II",
+          "ratio": 1.81
+        }
+      }
+    },
+    {
       "norm_name": "BANKSY",
       "display_name": "Banksy",
       "dates": "",
@@ -21646,6 +21727,33 @@
         "top_ratio_lot": {
           "title": "\"...the event matured, accomplished in sight of all non-exis",
           "ratio": 0.73
+        }
+      }
+    },
+    {
+      "norm_name": "BALTHUS",
+      "display_name": "Balthus",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 544690,
+        "avg_usd": 272345,
+        "total_label": "$545k",
+        "avg_label": "$272k",
+        "top_lot": {
+          "title": "Le Vase bleu",
+          "hammer_usd": 533400,
+          "sale_name": "Modern Contemporary Evening Auction L26006"
+        },
+        "top_ratio_lot": {
+          "title": "Le Vase bleu",
+          "ratio": 2.67
         }
       }
     },
@@ -22294,33 +22402,6 @@
         "top_ratio_lot": {
           "title": "Two less one black",
           "ratio": 9.95
-        }
-      }
-    },
-    {
-      "norm_name": "TAMARA DE LEMPICKA",
-      "display_name": "Tamara De Lempicka",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 431800,
-        "avg_usd": 431800,
-        "total_label": "$432k",
-        "avg_label": "$432k",
-        "top_lot": {
-          "title": "Portrait de femme",
-          "hammer_usd": 431800,
-          "sale_name": "Modern Day Auction L26007"
-        },
-        "top_ratio_lot": {
-          "title": "Portrait de femme",
-          "ratio": 4.32
         }
       }
     },
@@ -23374,33 +23455,6 @@
         "top_ratio_lot": {
           "title": "The Living Sky",
           "ratio": 6.35
-        }
-      }
-    },
-    {
-      "norm_name": "ANDREAS GURSKY",
-      "display_name": "Andreas Gursky",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 317500,
-        "avg_usd": 317500,
-        "total_label": "$318k",
-        "avg_label": "$318k",
-        "top_lot": {
-          "title": "Cocoon II",
-          "hammer_usd": 317500,
-          "sale_name": "Contemporary Day Auction L26017"
-        },
-        "top_ratio_lot": {
-          "title": "Cocoon II",
-          "ratio": 1.81
         }
       }
     },
@@ -41379,33 +41433,6 @@
         "top_ratio_lot": {
           "title": "Intaglio with Mercury and Chelone",
           "ratio": 1.52
-        }
-      }
-    },
-    {
-      "norm_name": "BALTHUS",
-      "display_name": "Balthus",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 11290,
-        "avg_usd": 11290,
-        "total_label": "$11k",
-        "avg_label": "$11k",
-        "top_lot": {
-          "title": "Michelina",
-          "hammer_usd": 11290,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Michelina",
-          "ratio": 1.61
         }
       }
     },
