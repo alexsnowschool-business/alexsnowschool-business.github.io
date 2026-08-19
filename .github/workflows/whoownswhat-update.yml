@@ -36,11 +36,17 @@ jobs:
         run: uv run python scripts/whoownswhat/seed_db.py
 
       # ── DISCOVERY ─────────────────────────────────────────────────────────
-      # Populate the company_queue with DAX40 + MDAX50 + private companies.
-      # INSERT OR IGNORE — safe to run every day; only adds genuinely new rows.
+      # Step 1 — static lists: DAX40 + MDAX50 + TecDAX + SDAX + Private.
+      # Step 2 — dynamic: Wikidata SPARQL for any German-listed companies
+      #          not already captured by the static lists.
+      # Both use INSERT OR IGNORE — safe to run every day.
 
-      - name: Discover German companies (populate queue)
+      - name: Discover German companies — static lists
         run: uv run python scripts/whoownswhat/discover_germany.py
+
+      - name: Discover German companies — dynamic (Wikidata SPARQL)
+        run: uv run python scripts/whoownswhat/discover_dynamic.py --country germany --limit 300
+        continue-on-error: true   # SPARQL endpoint occasionally rate-limits; don't block the pipeline
 
       # ── DAILY BATCH SCRAPE ────────────────────────────────────────────────
       # Picks the next 5 pending companies from the queue (DAX40 first, then MDAX).
