@@ -1,0 +1,78 @@
+name: Who Owns What — Daily Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *'     # 06:00 UTC every day (07:00 CET / 08:00 CEST)
+  workflow_dispatch:          # allow manual trigger from GitHub Actions UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write         # needed to commit updated data.js and whoownswhat.db
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python + uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: uv sync
+        env:
+          UV_INDEX_URL: https://pypi.org/simple/
+
+      # ── DATABASE SETUP ─────────────────────────────────────────────────────
+      # init_db creates the schema (idempotent — IF NOT EXISTS guards).
+      # The DB file is committed to the repo at data/whoownswhat.db.
+
+      - name: Initialise / migrate database schema
+        run: uv run python scripts/whoownswhat/init_db.py
+
+      - name: Seed curated static data (Germany Phase I)
+        run: uv run python scripts/whoownswhat/seed_db.py
+
+      # ── DISCOVERY ─────────────────────────────────────────────────────────
+      # Populate the company_queue with DAX40 + MDAX50 + private companies.
+      # INSERT OR IGNORE — safe to run every day; only adds genuinely new rows.
+
+      - name: Discover German companies (populate queue)
+        run: uv run python scripts/whoownswhat/discover_germany.py
+
+      # ── DAILY BATCH SCRAPE ────────────────────────────────────────────────
+      # Picks the next 5 pending companies from the queue (DAX40 first, then MDAX).
+      # Each run processes: Wikipedia → Wikidata → Bundestag Lobbyregister.
+      # At 5 per day, the full 90-company queue completes in ~18 days.
+      # After that, each company is re-scraped every ~18 days automatically
+      # (re-queued via --retry-errors or by resetting status to 'pending').
+
+      - name: Scrape company batch (5 per day)
+        run: uv run python scripts/whoownswhat/scrape_company_batch.py --batch 5
+        continue-on-error: true
+
+      # ── LOBBY REGISTER REFRESH ────────────────────────────────────────────
+      # Refresh lobbying budgets for already-seeded curated entities.
+
+      - name: Refresh Bundestag Lobby Register (curated entities)
+        run: uv run python scripts/whoownswhat/scrape_lobbying_register.py
+        continue-on-error: true
+
+      # ── EXPORT ────────────────────────────────────────────────────────────
+      # Regenerate data.js from the updated database.
+
+      - name: Export data.js from database
+        run: uv run python scripts/whoownswhat/export_data_js.py
+
+      # ── COMMIT ────────────────────────────────────────────────────────────
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add whoownswhat/data.js data/whoownswhat.db
+          git diff --cached --quiet && echo "No changes to commit" || \
+            git commit -m "chore(whoownswhat): daily data update [skip ci]"
+          git push

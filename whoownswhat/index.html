@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who Owns What — Search the World's Wealth &amp; Ownership</title>
+    <meta name="description" content="Track corporate ownership, billionaire wealth, executive pay, lobbying, and political spending — by country. Every claim links to the original source." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body data-page="landing">
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <a href="./index.html" class="nav__brand">Who Owns <span>What</span></a>
+        <div class="nav__search-wrap">
+            <input class="nav__search" type="search" placeholder="Search a company, person…" autocomplete="off" />
+            <span class="nav__search-icon">&#x2315;</span>
+            <div class="nav__dropdown" hidden></div>
+        </div>
+        <div class="nav__links">
+            <a href="#how-it-works" class="nav__link">Methodology</a>
+            <a href="../index.html" class="nav__link">Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <p class="hero__eyebrow">Public Data · Open Sources · No Spin</p>
+        <h1 class="hero__heading">Search the world's<br>wealth &amp; ownership.</h1>
+        <p class="hero__sub">Companies, billionaires, executives — shareholdings, executive pay, lobbying, and political spending, all in one place. Every claim links to the original source.</p>
+
+        <div class="search__wrap">
+            <div class="search">
+                <input class="search__input" type="search" placeholder='Try "Volkswagen", "Susanne Klatten", "SAP"…' autocomplete="off" />
+                <button class="search__btn">Search</button>
+            </div>
+            <div class="search__dropdown" hidden></div>
+        </div>
+        <p class="hero__note">Currently covering Germany — expanding to more countries continuously.</p>
+    </section>
+
+    <!-- COUNTRIES -->
+    <div class="divider"></div>
+
+    <section class="featured" style="padding-top:40px; padding-bottom:40px;">
+        <div class="featured__header">
+            <span class="featured__label">Browse by Country</span>
+            <div class="featured__rule"></div>
+        </div>
+        <div class="featured__grid" style="grid-template-columns: repeat(auto-fill, minmax(180px,1fr));">
+
+            <a class="entity-card" href="?country=germany" style="border-color: var(--gold-border);">
+                <div class="entity-card__tag" style="color:var(--gold);">Live</div>
+                <div class="entity-card__name">Germany</div>
+                <div class="entity-card__sub">DAX 40 · Mittelstand · Key billionaires</div>
+                <div class="entity-card__stat">
+                    <strong>5 Entities</strong>
+                    <span>Seeded · expanding</span>
+                </div>
+            </a>
+
+            <div class="entity-card" style="opacity:0.4; cursor:default;">
+                <div class="entity-card__tag">Coming Soon</div>
+                <div class="entity-card__name">United States</div>
+                <div class="entity-card__sub">S&amp;P 500 · Fortune 500</div>
+            </div>
+
+            <div class="entity-card" style="opacity:0.4; cursor:default;">
+                <div class="entity-card__tag">Coming Soon</div>
+                <div class="entity-card__name">United Kingdom</div>
+                <div class="entity-card__sub">FTSE 100 · London market</div>
+            </div>
+
+            <div class="entity-card" style="opacity:0.4; cursor:default;">
+                <div class="entity-card__tag">Coming Soon</div>
+                <div class="entity-card__name">France</div>
+                <div class="entity-card__sub">CAC 40 · grandes familles</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DAILY FACT CARDS -->
+    <section class="facts">
+        <div class="facts__inner">
+            <div class="facts__label">Key Facts</div>
+            <div class="facts__track" id="facts-track">
+                <!-- Populated by script.js from WOW_DATA.factCards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED INDIVIDUALS -->
+    <section class="featured">
+        <div class="featured__header">
+            <span class="featured__label">Germany — Key Individuals</span>
+            <div class="featured__rule"></div>
+        </div>
+        <div class="featured__grid" id="featured-people">
+            <!-- Populated by script.js -->
+        </div>
+    </section>
+
+    <!-- FEATURED COMPANIES -->
+    <section class="featured" style="padding-top:0;">
+        <div class="featured__header">
+            <span class="featured__label">Germany — Key Companies</span>
+            <div class="featured__rule"></div>
+        </div>
+        <div class="featured__grid" id="featured-companies">
+            <!-- Populated by script.js -->
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how-it-works">
+        <div class="how__inner">
+            <h2 class="how__heading">How it<br>works.</h2>
+            <div class="how__steps">
+                <div class="how__step">
+                    <div class="how__step-num">I.</div>
+                    <div>
+                        <div class="how__step-title">Search any company or person</div>
+                        <div class="how__step-body">Start from a country, or type a name directly. We cover companies, billionaires, and senior executives.</div>
+                    </div>
+                </div>
+                <div class="how__step">
+                    <div class="how__step-num">II.</div>
+                    <div>
+                        <div class="how__step-title">See ownership, pay &amp; influence</div>
+                        <div class="how__step-body">Shareholders, executive compensation, lobbying spend, political donations, regulatory fines, and labour disputes — in one view.</div>
+                    </div>
+                </div>
+                <div class="how__step">
+                    <div class="how__step-num">III.</div>
+                    <div>
+                        <div class="how__step-title">Every claim links to the original source</div>
+                        <div class="how__step-body">No unsourced allegations, no partisan spin. Every data point links back to the primary record: annual report, court filing, government database, or regulatory disclosure.</div>
+                    </div>
+                </div>
+                <div class="how__sources">
+                    Germany sources: Bundesanzeiger · BaFin · Handelsregister · Bundestag Lobbyregister · Manager Magazin · Statista
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span>Who Owns What &mdash; Public interest data</span>
+        <div class="footer__sources">
+            <span>Bundesanzeiger</span>
+            <span>BaFin</span>
+            <span>Bundestag Lobbyregister</span>
+            <span>Manager Magazin</span>
+        </div>
+    </footer>
+
+    <script src="./data.js"></script>
+    <script src="./script.js"></script>
+
+    <script>
+        // Alias for landing page fact track ID
+        document.addEventListener('DOMContentLoaded', function () {
+            var track = document.getElementById('facts-track');
+            if (track) track.className = 'facts__track';
+        });
+    </script>
+
+</body>
+
+</html>

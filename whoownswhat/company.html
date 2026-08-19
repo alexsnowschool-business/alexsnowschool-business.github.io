@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Profile — Who Owns What</title>
+    <meta name="description" content="Shareholders, executive pay, lobbying, political spending, fines, and labour disputes — all sourced." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body data-page="company">
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <a href="./index.html" class="nav__brand">Who Owns <span>What</span></a>
+        <div class="nav__search-wrap">
+            <input class="nav__search" type="search" placeholder="Search a company, person…" autocomplete="off" />
+            <span class="nav__search-icon">&#x2315;</span>
+            <div class="nav__dropdown" hidden></div>
+        </div>
+        <div class="nav__links">
+            <a href="./index.html#how-it-works" class="nav__link">Methodology</a>
+        </div>
+    </nav>
+
+    <!-- PROFILE -->
+    <main class="profile">
+
+        <!-- Back -->
+        <div class="profile__back">
+            <a href="./index.html">&#x2190; Back to Search</a>
+        </div>
+
+        <!-- Header -->
+        <div class="profile__header">
+            <div class="profile__meta-row">
+                <span class="profile__tag">Company</span>
+                <span class="profile__ticker" id="company-ticker"></span>
+                <span class="profile__sector" id="company-sector"></span>
+            </div>
+            <h1 class="profile__name" id="company-name"></h1>
+            <p class="profile__title-text" id="company-summary"></p>
+
+            <div class="profile__stats">
+                <div class="profile__stat">
+                    <div class="profile__stat-label">Market Cap</div>
+                    <div class="profile__stat-value" id="stat-market-cap"></div>
+                </div>
+                <div class="profile__stat">
+                    <div class="profile__stat-label">Employees</div>
+                    <div class="profile__stat-value" id="stat-employees"></div>
+                </div>
+                <div class="profile__stat">
+                    <div class="profile__stat-label">Headquarters</div>
+                    <div class="profile__stat-value" id="stat-hq"></div>
+                </div>
+                <div class="profile__stat">
+                    <div class="profile__stat-label">Founded</div>
+                    <div class="profile__stat-value" id="stat-founded"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- I. Shareholders -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num">I.</span> Largest Shareholders
+            </h2>
+            <table class="wow-table">
+                <thead>
+                    <tr>
+                        <th>Shareholder</th>
+                        <th>Stake</th>
+                        <th>Type</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody id="shareholders-body">
+                    <!-- Populated by script.js -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- II. Executive Compensation -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num">II.</span> Executive Compensation
+            </h2>
+            <div class="comp-block">
+                <div class="comp-card">
+                    <div class="comp-card__label">Chief Executive Officer</div>
+                    <div class="comp-card__name" id="comp-ceo-name"></div>
+                    <div style="font-size:0.75rem; color:var(--slate-light); margin-bottom:12px;" id="comp-ceo-title"></div>
+                    <div class="comp-card__label">Total Compensation</div>
+                    <div class="comp-card__value" id="comp-ceo-total"></div>
+                    <dl class="comp-card__breakdown">
+                        <dt>Salary</dt><dd id="comp-ceo-salary"></dd>
+                        <dt>Equity</dt><dd id="comp-ceo-equity"></dd>
+                    </dl>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-card__label">Median Employee Pay</div>
+                    <div class="comp-card__value" id="comp-worker"></div>
+                    <div style="margin-top:20px;">
+                        <div class="comp-ratio">
+                            <span class="comp-ratio__value" id="comp-ratio"></span>
+                            <span class="comp-ratio__label">CEO-to-worker pay ratio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size:0.72rem; color:var(--slate-light); margin-top:8px;" id="comp-source"></p>
+        </div>
+
+        <!-- III. Lobbying -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num">III.</span> Lobbying Expenditures
+            </h2>
+            <div id="lobbying-rows">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+
+        <!-- IV. Political Spending -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num">IV.</span> Political Donations &amp; Spending
+            </h2>
+            <div id="political-spending">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+
+        <!-- V. Fines & Settlements -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num">V.</span> Regulatory Fines &amp; Settlements
+            </h2>
+            <ul class="item-list" id="fines-list">
+                <!-- Populated by script.js -->
+            </ul>
+        </div>
+
+        <!-- VI. Labour -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num">VI.</span> Labour &amp; Workforce
+            </h2>
+            <ul class="plain-list" id="labor-list">
+                <!-- Populated by script.js -->
+            </ul>
+        </div>
+
+        <!-- VII. Competitors -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num">VII.</span> Market &amp; Competitors
+            </h2>
+            <div id="competitors-wrap">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+
+        <!-- Sources -->
+        <div class="section">
+            <h2 class="section__heading">
+                <span class="section__num" style="color:var(--slate-light);">&#x2605;</span> Primary Sources
+            </h2>
+            <p style="font-size:0.8rem; color:var(--slate-light); margin-bottom:16px;">
+                All data on this page links to the original public record. No unsourced claims.
+            </p>
+            <ul class="sources-list" id="sources-list">
+                <!-- Populated by script.js -->
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span>Who Owns What &mdash; Public interest data</span>
+        <div class="footer__sources">
+            <span>Bundesanzeiger</span>
+            <span>BaFin</span>
+            <span>Bundestag Lobbyregister</span>
+        </div>
+    </footer>
+
+    <script src="./data.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
