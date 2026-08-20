@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3572,
-    "total_artists": 1384,
-    "median_hammer_usd": 95250,
-    "pct_above_estimate": 46.0,
+    "total_lots": 3622,
+    "total_artists": 1412,
+    "median_hammer_usd": 94500,
+    "pct_above_estimate": 46.1,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-17"
+    "generated_at": "2026-08-20"
   },
   "artists": [
     {
@@ -22514,6 +22514,33 @@
       }
     },
     {
+      "norm_name": "張大千",
+      "display_name": "張大千",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 420000,
+        "avg_usd": 140000,
+        "total_label": "$420k",
+        "avg_label": "$140k",
+        "top_lot": {
+          "title": "Chang Dai-chien (Zhang Daqian), Scholar by Shore",
+          "hammer_usd": 170000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Chang Dai-chien（Zhang Daqian）, Bamboo Shoot",
+          "ratio": 1.47
+        }
+      }
+    },
+    {
       "norm_name": "KARIN KNEFFEL",
       "display_name": "Karin Kneffel",
       "dates": "",
@@ -24184,6 +24211,33 @@
         "top_ratio_lot": {
           "title": "Blue Angel",
           "ratio": 2.21
+        }
+      }
+    },
+    {
+      "norm_name": "董橋",
+      "display_name": "董橋",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 276000,
+        "avg_usd": 92000,
+        "total_label": "$276k",
+        "avg_label": "$92k",
+        "top_lot": {
+          "title": "Tung Chiao, Aphorism by Hong Yi",
+          "hammer_usd": 200000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Tung Chiao, Aphorism by Hong Yi",
+          "ratio": 3.92
         }
       }
     },
@@ -27752,6 +27806,33 @@
       }
     },
     {
+      "norm_name": "黃賓虹",
+      "display_name": "黃賓虹",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 140000,
+        "avg_usd": 140000,
+        "total_label": "$140k",
+        "avg_label": "$140k",
+        "top_lot": {
+          "title": "Huang Binhong, Misty Mountains",
+          "hammer_usd": 140000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Huang Binhong, Misty Mountains",
+          "ratio": 2.75
+        }
+      }
+    },
+    {
       "norm_name": "LARRY RIVERS",
       "display_name": "Larry Rivers",
       "dates": "",
@@ -28072,6 +28153,33 @@
         "top_ratio_lot": {
           "title": "A mother with an infant and an older child, and a maid carry",
           "ratio": 0.87
+        }
+      }
+    },
+    {
+      "norm_name": "鄭慕康",
+      "display_name": "鄭慕康",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 130000,
+        "avg_usd": 130000,
+        "total_label": "$130k",
+        "avg_label": "$130k",
+        "top_lot": {
+          "title": "Zheng Mukang, Beauty by a Banana Plant; Calligraphy",
+          "hammer_usd": 130000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Zheng Mukang, Beauty by a Banana Plant; Calligraphy",
+          "ratio": 10.83
         }
       }
     },
@@ -28504,6 +28612,60 @@
         "top_ratio_lot": {
           "title": "Pair of \"Rendezvous Pechêurs de Truite\" Armchairs",
           "ratio": 4.8
+        }
+      }
+    },
+    {
+      "norm_name": "孔小瑜",
+      "display_name": "孔小瑜",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 120000,
+        "avg_usd": 120000,
+        "total_label": "$120k",
+        "avg_label": "$120k",
+        "top_lot": {
+          "title": "Kong Xiaoyu, New Year Offerings",
+          "hammer_usd": 120000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Kong Xiaoyu, New Year Offerings",
+          "ratio": 2.18
+        }
+      }
+    },
+    {
+      "norm_name": "唐雲",
+      "display_name": "唐雲",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 120000,
+        "avg_usd": 60000,
+        "total_label": "$120k",
+        "avg_label": "$60k",
+        "top_lot": {
+          "title": "Tang Yun, Encounter in Secluded Mountains",
+          "hammer_usd": 60000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Tang Yun, Encounter in Secluded Mountains",
+          "ratio": 2.0
         }
       }
     },
@@ -29773,6 +29935,33 @@
       }
     },
     {
+      "norm_name": "吳昌碩",
+      "display_name": "吳昌碩",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 100000,
+        "avg_usd": 100000,
+        "total_label": "$100k",
+        "avg_label": "$100k",
+        "top_lot": {
+          "title": "Wu Changshuo, Poem in Xingshu",
+          "hammer_usd": 100000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Wu Changshuo, Poem in Xingshu",
+          "ratio": 1.96
+        }
+      }
+    },
+    {
       "norm_name": "REBECCA WARREN",
       "display_name": "Rebecca Warren",
       "dates": "",
@@ -30610,6 +30799,33 @@
       }
     },
     {
+      "norm_name": "葉恭綽",
+      "display_name": "葉恭綽",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 87000,
+        "avg_usd": 43500,
+        "total_label": "$87k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "Ye Gongchuo, Pine Tree",
+          "hammer_usd": 65000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Ye Gongchuo, Pine Tree",
+          "ratio": 3.1
+        }
+      }
+    },
+    {
       "norm_name": "AFTER FERNAND LEGER",
       "display_name": "After Fernand Leger",
       "dates": "",
@@ -30930,6 +31146,33 @@
         "top_ratio_lot": {
           "title": "Ce soir ou jamais",
           "ratio": 2.06
+        }
+      }
+    },
+    {
+      "norm_name": "溥儒",
+      "display_name": "溥儒",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 82000,
+        "avg_usd": 41000,
+        "total_label": "$82k",
+        "avg_label": "$41k",
+        "top_lot": {
+          "title": "Pu Ru, Boating in Clear River",
+          "hammer_usd": 42000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Pu Ru, Boating in Clear River",
+          "ratio": 0.93
         }
       }
     },
@@ -31366,6 +31609,33 @@
       }
     },
     {
+      "norm_name": "溥僩",
+      "display_name": "溥僩",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 75000,
+        "avg_usd": 37500,
+        "total_label": "$75k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Pu Xian, Bird on Plum Branch",
+          "hammer_usd": 55000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Pu Xian, Bird on Plum Branch",
+          "ratio": 2.44
+        }
+      }
+    },
+    {
       "norm_name": "ALBERT ANDRE",
       "display_name": "Albert Andre",
       "dates": "",
@@ -31443,6 +31713,33 @@
         "top_ratio_lot": {
           "title": "Sans titre",
           "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "高劍父",
+      "display_name": "高劍父",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 72000,
+        "avg_usd": 36000,
+        "total_label": "$72k",
+        "avg_label": "$36k",
+        "top_lot": {
+          "title": "Gao Jianfu, Calligraphy Inscription",
+          "hammer_usd": 48000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Gao Jianfu, Calligraphy Inscription",
+          "ratio": 0.94
         }
       }
     },
@@ -31929,6 +32226,33 @@
         "top_ratio_lot": {
           "title": "Watching the Dance",
           "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "黃般若、鄧芬、張谷雛等",
+      "display_name": "黃般若、鄧芬、張谷雛等",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 65000,
+        "avg_usd": 65000,
+        "total_label": "$65k",
+        "avg_label": "$65k",
+        "top_lot": {
+          "title": "Huang Bore; Deng Fen; Zhang Guchu, etc., Various Subjects",
+          "hammer_usd": 65000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Huang Bore; Deng Fen; Zhang Guchu, etc., Various Subjects",
+          "ratio": 1.27
         }
       }
     },
@@ -32658,6 +32982,33 @@
         "top_ratio_lot": {
           "title": "Les passe-partout du visible",
           "ratio": 1.5
+        }
+      }
+    },
+    {
+      "norm_name": "張度",
+      "display_name": "張度",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 60000,
+        "avg_usd": 60000,
+        "total_label": "$60k",
+        "avg_label": "$60k",
+        "top_lot": {
+          "title": "Zhang Du, Studio by Apricot Blossom Forest",
+          "hammer_usd": 60000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Zhang Du, Studio by Apricot Blossom Forest",
+          "ratio": 8.0
         }
       }
     },
@@ -34309,6 +34660,33 @@
       }
     },
     {
+      "norm_name": "陳達",
+      "display_name": "陳達",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 45000,
+        "avg_usd": 45000,
+        "total_label": "$45k",
+        "avg_label": "$45k",
+        "top_lot": {
+          "title": "Chen Da, Boating by Spring Willows; Strolling by Snowy Trees",
+          "hammer_usd": 45000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Chen Da, Boating by Spring Willows; Strolling by Snowy Trees",
+          "ratio": 3.0
+        }
+      }
+    },
+    {
       "norm_name": "JEAN-LOUIS-ANDRÉ-THÉODORE GÉRICAULT",
       "display_name": "Jean-Louis-André-Théodore Géricault",
       "dates": "",
@@ -34714,6 +35092,33 @@
       }
     },
     {
+      "norm_name": "鄭集賓",
+      "display_name": "鄭集賓",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 42000,
+        "avg_usd": 42000,
+        "total_label": "$42k",
+        "avg_label": "$42k",
+        "top_lot": {
+          "title": "Zheng Jibin, Various Subjects",
+          "hammer_usd": 42000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Zheng Jibin, Various Subjects",
+          "ratio": 3.5
+        }
+      }
+    },
+    {
       "norm_name": "JOAN MIRÓ (1893-1983) & JOAN GARDY ARTIGAS",
       "display_name": "Joan Miró (1893-1983) & Joan Gardy Artigas",
       "dates": "",
@@ -35088,6 +35493,33 @@
         "top_ratio_lot": {
           "title": "Muchacho en la fuente",
           "ratio": 1.15
+        }
+      }
+    },
+    {
+      "norm_name": "王震",
+      "display_name": "王震",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 40000,
+        "avg_usd": 40000,
+        "total_label": "$40k",
+        "avg_label": "$40k",
+        "top_lot": {
+          "title": "Wang Zhen, Liu Hai with Toad",
+          "hammer_usd": 40000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Wang Zhen, Liu Hai with Toad",
+          "ratio": 0.78
         }
       }
     },
@@ -36658,6 +37090,60 @@
       }
     },
     {
+      "norm_name": "朱梅邨",
+      "display_name": "朱梅邨",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 30000,
+        "avg_usd": 30000,
+        "total_label": "$30k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "Zhu Meicun, Washing by River",
+          "hammer_usd": 30000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Zhu Meicun, Washing by River",
+          "ratio": 1.33
+        }
+      }
+    },
+    {
+      "norm_name": "吳青霞",
+      "display_name": "吳青霞",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 30000,
+        "avg_usd": 30000,
+        "total_label": "$30k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "Wu Qingxia, Peach Blossom Land",
+          "hammer_usd": 30000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Wu Qingxia, Peach Blossom Land",
+          "ratio": 0.58
+        }
+      }
+    },
+    {
       "norm_name": "ERNST BARLACH",
       "display_name": "Ernst Barlach",
       "dates": "",
@@ -37545,6 +38031,33 @@
         "top_ratio_lot": {
           "title": "Nu à la toilette",
           "ratio": 2.6
+        }
+      }
+    },
+    {
+      "norm_name": "朱汝珍",
+      "display_name": "朱汝珍",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 26000,
+        "avg_usd": 26000,
+        "total_label": "$26k",
+        "avg_label": "$26k",
+        "top_lot": {
+          "title": "Zhu Ruzhen, Calligraphy Couplet in Kaishu",
+          "hammer_usd": 26000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Zhu Ruzhen, Calligraphy Couplet in Kaishu",
+          "ratio": 0.51
         }
       }
     },
@@ -38467,6 +38980,33 @@
       }
     },
     {
+      "norm_name": "殷梓湘",
+      "display_name": "殷梓湘",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 22000,
+        "avg_usd": 22000,
+        "total_label": "$22k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Yin Zixiang, Groom and Horse",
+          "hammer_usd": 22000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Yin Zixiang, Groom and Horse",
+          "ratio": 1.83
+        }
+      }
+    },
+    {
       "norm_name": "JEANNE MAMMEN",
       "display_name": "Jeanne Mammen",
       "dates": "",
@@ -38733,6 +39273,60 @@
         "top_ratio_lot": {
           "title": "A view of Frankfurt",
           "ratio": 1.16
+        }
+      }
+    },
+    {
+      "norm_name": "樓辛壺",
+      "display_name": "樓辛壺",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 20000,
+        "avg_usd": 20000,
+        "total_label": "$20k",
+        "avg_label": "$20k",
+        "top_lot": {
+          "title": "Lou Xinhu, Encounter in Autumn Garden",
+          "hammer_usd": 20000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Lou Xinhu, Encounter in Autumn Garden",
+          "ratio": 1.67
+        }
+      }
+    },
+    {
+      "norm_name": "葉曼叔",
+      "display_name": "葉曼叔",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 20000,
+        "avg_usd": 20000,
+        "total_label": "$20k",
+        "avg_label": "$20k",
+        "top_lot": {
+          "title": "Ye Manshu, Washing by Creek",
+          "hammer_usd": 20000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Ye Manshu, Washing by Creek",
+          "ratio": 1.67
         }
       }
     },
@@ -39412,6 +40006,33 @@
       }
     },
     {
+      "norm_name": "何紅玉",
+      "display_name": "何紅玉",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17000,
+        "avg_usd": 17000,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "He Hongyu, Butterflies over Fallen Flowers",
+          "hammer_usd": 17000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "He Hongyu, Butterflies over Fallen Flowers",
+          "ratio": 0.33
+        }
+      }
+    },
+    {
       "norm_name": "CIRCLE OF ALBERTO PULLICINO",
       "display_name": "Circle Of Alberto Pullicino",
       "dates": "",
@@ -39678,6 +40299,33 @@
         "top_ratio_lot": {
           "title": "Midnight in a Perfect World",
           "ratio": 3.2
+        }
+      }
+    },
+    {
+      "norm_name": "江寒汀",
+      "display_name": "江寒汀",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16000,
+        "avg_usd": 16000,
+        "total_label": "$16k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "Jiang Hanting, Green Bamboo by Rock",
+          "hammer_usd": 16000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Jiang Hanting, Green Bamboo by Rock",
+          "ratio": 0.71
         }
       }
     },
@@ -40299,6 +40947,60 @@
         "top_ratio_lot": {
           "title": "Sans titre",
           "ratio": 2.8
+        }
+      }
+    },
+    {
+      "norm_name": "陸恢",
+      "display_name": "陸恢",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 14000,
+        "avg_usd": 14000,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Lu Hui, Studio by Creek",
+          "hammer_usd": 14000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Lu Hui, Studio by Creek",
+          "ratio": 1.17
+        }
+      }
+    },
+    {
+      "norm_name": "戈湘嵐",
+      "display_name": "戈湘嵐",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 14000,
+        "avg_usd": 14000,
+        "total_label": "$14k",
+        "avg_label": "$14k",
+        "top_lot": {
+          "title": "Ge Xianglan, Horse by Pine Tree",
+          "hammer_usd": 14000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Ge Xianglan, Horse by Pine Tree",
+          "ratio": 2.33
         }
       }
     },
@@ -41325,6 +42027,33 @@
         "top_ratio_lot": {
           "title": "The Tale of the Curious Oysters",
           "ratio": 2.0
+        }
+      }
+    },
+    {
+      "norm_name": "倪田",
+      "display_name": "倪田",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 12000,
+        "avg_usd": 12000,
+        "total_label": "$12k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Ni Tian, Riding by Peach Grove",
+          "hammer_usd": 12000,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Ni Tian, Riding by Peach Grove",
+          "ratio": 0.8
         }
       }
     },
@@ -42459,6 +43188,33 @@
         "top_ratio_lot": {
           "title": "The Girl in the Red Velvet Clothes",
           "ratio": 0.85
+        }
+      }
+    },
+    {
+      "norm_name": "徐菊庵",
+      "display_name": "徐菊庵",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8500,
+        "avg_usd": 8500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Xu Ju'an, Pigs by Green Bamboo",
+          "hammer_usd": 8500,
+          "sale_name": "Inkspiration Chinese Paintings Online"
+        },
+        "top_ratio_lot": {
+          "title": "Xu Ju'an, Pigs by Green Bamboo",
+          "ratio": 1.55
         }
       }
     },
