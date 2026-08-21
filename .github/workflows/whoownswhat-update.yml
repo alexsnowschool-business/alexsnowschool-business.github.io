@@ -2,7 +2,8 @@ name: Who Owns What — Daily Update
 
 on:
   schedule:
-    - cron: '0 6 * * *'     # 06:00 UTC every day (07:00 CET / 08:00 CEST)
+    - cron: '0 6 * * *'     # 06:00 UTC daily — batch scrape + lobby refresh
+    - cron: '0 6 * * 1'     # 06:00 UTC Monday — also runs dynamic discovery
   workflow_dispatch:          # allow manual trigger from GitHub Actions UI
 
 jobs:
@@ -37,32 +38,36 @@ jobs:
 
       # ── DISCOVERY ─────────────────────────────────────────────────────────
       # Step 1 — static lists: DAX40 + MDAX50 + TecDAX + SDAX + Private.
-      # Step 2 — dynamic: Wikidata SPARQL for any German-listed companies
-      #          not already captured by the static lists.
-      # Both use INSERT OR IGNORE — safe to run every day.
+      #          Runs daily — INSERT OR IGNORE makes it idempotent.
+      # Step 2 — dynamic: Wikidata SPARQL for additional listed companies.
+      #          Runs weekly (Mondays only) to avoid queue bloat — controlled
+      #          via the second cron schedule in the trigger block.
 
       - name: Discover German companies — static lists
         run: uv run python scripts/whoownswhat/discover_germany.py
 
-      - name: Discover German companies — dynamic (Wikidata SPARQL)
+      - name: Discover German companies — dynamic (Wikidata SPARQL, Mondays only)
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 6 * * 1'
         run: uv run python scripts/whoownswhat/discover_dynamic.py --country germany --limit 300
         continue-on-error: true   # SPARQL endpoint occasionally rate-limits; don't block the pipeline
 
       # ── DAILY BATCH SCRAPE ────────────────────────────────────────────────
-      # Picks the next 5 pending companies from the queue (DAX40 first, then MDAX).
-      # Each run processes: Wikipedia → Wikidata → Bundestag Lobbyregister.
-      # At 5 per day, the full 90-company queue completes in ~18 days.
-      # After that, each company is re-scraped every ~18 days automatically
-      # (re-queued via --retry-errors or by resetting status to 'pending').
+      # Picks the next 25 pending/needs_refresh companies from the queue
+      # (needs_refresh first, then DAX40, then MDAX).
+      # Each run processes: Wikipedia → Wikidata SPARQL → Bundestag Lobbyregister.
+      # At 25 per day, 137 pending clears in ~6 days.
+      # Entities with <2/4 critical fields filled are marked 'needs_refresh'
+      # and re-queued automatically on the next run.
 
-      - name: Scrape company batch (5 per day)
-        run: uv run python scripts/whoownswhat/scrape_company_batch.py --batch 5
+      - name: Scrape company batch (25 per day)
+        run: uv run python scripts/whoownswhat/scrape_company_batch.py --batch 25
         continue-on-error: true
 
       # ── LOBBY REGISTER REFRESH ────────────────────────────────────────────
-      # Refresh lobbying budgets for already-seeded curated entities.
+      # Refresh lobbying budgets for all scraped German entities.
+      # Dynamically loads entity list from DB (not hardcoded).
 
-      - name: Refresh Bundestag Lobby Register (curated entities)
+      - name: Refresh Bundestag Lobby Register (all German entities)
         run: uv run python scripts/whoownswhat/scrape_lobbying_register.py
         continue-on-error: true
 

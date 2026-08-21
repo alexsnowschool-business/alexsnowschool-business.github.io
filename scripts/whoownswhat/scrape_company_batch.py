@@ -115,89 +115,79 @@ def fetch_wikipedia_pageprops(wiki_title: str) -> str | None:
     return None
 
 
-# ── WIKIDATA ───────────────────────────────────────────────────────────────
+# ── WIKIDATA (SPARQL) ──────────────────────────────────────────────────────
 
-# Wikidata property IDs we care about
-WD_PROPS = {
-    "P249":  "ticker",          # stock market index ticker
-    "P414":  "exchange",        # stock exchange
-    "P571":  "inception",       # date of founding
-    "P1128": "employees",       # number of employees
-    "P159":  "headquarters",    # headquarters location
-    "P2139": "revenue",         # total revenue
-    "P169":  "ceo",             # chief executive officer
-    "P856":  "website",         # official website
-    "P18":   "image",           # image
-    "P749":  "parent",          # parent company
-    "P452":  "industry",        # industry
-}
+SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 
-def fetch_wikidata_entity(qid: str) -> dict:
+
+def fetch_wikidata_sparql(qid: str) -> dict:
     """
-    Fetch structured data for a Wikidata entity.
-    Returns a dict of property_label → value (simplified).
+    Fetch structured facts for a Wikidata entity via SPARQL.
+    One request instead of 4-6 REST calls — labels resolved automatically.
+    Returns: {ceo, employees, inception, headquarters, website, industry, revenue}
     """
-    url = (
-        f"https://www.wikidata.org/w/api.php?"
-        f"action=wbgetentities&ids={qid}&props=claims|labels|descriptions"
-        f"&languages=en&format=json"
-    )
-    data = http_get(url)
-    if not data:
+    query = f"""
+SELECT ?ceoLabel ?employees ?foundedYear ?hqLabel ?website ?industryLabel ?revenueAmount WHERE {{
+  OPTIONAL {{ wd:{qid} wdt:P169 ?ceo }}
+  OPTIONAL {{ wd:{qid} wdt:P1128 ?employees }}
+  OPTIONAL {{
+    wd:{qid} wdt:P571 ?founded .
+    BIND(STR(YEAR(?founded)) AS ?foundedYear)
+  }}
+  OPTIONAL {{ wd:{qid} wdt:P159 ?hq }}
+  OPTIONAL {{ wd:{qid} wdt:P856 ?website }}
+  OPTIONAL {{ wd:{qid} wdt:P452 ?industry }}
+  OPTIONAL {{
+    wd:{qid} wdt:P2139 ?revenue .
+    BIND(STR(?revenue) AS ?revenueAmount)
+  }}
+  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en" }}
+}}
+LIMIT 1
+"""
+    params = urllib.parse.urlencode({"query": query, "format": "json"})
+    url = f"{SPARQL_ENDPOINT}?{params}"
+    headers = {
+        "User-Agent": (
+            "WhoOwnsWhat/1.0 (public-interest research; "
+            "https://github.com/alexsnowschool-business) urllib/3"
+        ),
+        "Accept": "application/sparql-results+json",
+    }
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=30, context=_SSL_CTX) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        print(f"    SPARQL error for {qid}: {exc}")
         return {}
 
-    entity = data.get("entities", {}).get(qid, {})
-    claims = entity.get("claims", {})
+    bindings = data.get("results", {}).get("bindings", [])
+    if not bindings:
+        return {}
+
+    b = bindings[0]
+
+    def val(key: str) -> str:
+        return b.get(key, {}).get("value", "")
+
     result: dict = {}
-
-    for prop_id, prop_label in WD_PROPS.items():
-        if prop_id not in claims:
-            continue
-        # Take first claim value (mainsnak)
-        snak = claims[prop_id][0].get("mainsnak", {})
-        dv = snak.get("datavalue", {})
-        dv_type = dv.get("type", "")
-        value = dv.get("value", "")
-
-        if dv_type == "string":
-            result[prop_label] = value
-        elif dv_type == "time":
-            # e.g. '+1972-01-01T00:00:00Z'
-            ts = value.get("time", "") if isinstance(value, dict) else ""
-            # Extract just the year
-            match = re.search(r"\+(\d{4})", ts)
-            result[prop_label] = match.group(1) if match else ts
-        elif dv_type == "quantity":
-            # e.g. {"amount": "+684000", "unit": "1"}
-            amount = value.get("amount", "") if isinstance(value, dict) else str(value)
-            result[prop_label] = amount.lstrip("+")
-        elif dv_type == "wikibase-entityid":
-            # For CEO, headquarters etc — we need to resolve the entity label
-            sub_qid = value.get("id", "") if isinstance(value, dict) else ""
-            label = resolve_wikidata_label(sub_qid)
-            result[prop_label] = label or sub_qid
-        elif dv_type == "monolingualtext":
-            result[prop_label] = value.get("text", "") if isinstance(value, dict) else str(value)
-        else:
-            result[prop_label] = str(value)
-
+    if val("ceoLabel"):
+        result["ceo"] = val("ceoLabel")
+    if val("employees"):
+        result["employees"] = val("employees")
+    if val("foundedYear"):
+        result["inception"] = val("foundedYear")
+    if val("hqLabel"):
+        result["headquarters"] = val("hqLabel")
+    if val("website"):
+        result["website"] = val("website")
+    if val("industryLabel"):
+        result["industry"] = val("industryLabel")
+    if val("revenueAmount"):
+        # SPARQL quantity values come as plain number strings
+        result["revenue"] = val("revenueAmount")
     return result
-
-
-def resolve_wikidata_label(qid: str) -> str | None:
-    """Resolve a Wikidata QID to its English label (for CEO names, HQ cities, etc.)."""
-    if not qid:
-        return None
-    url = (
-        f"https://www.wikidata.org/w/api.php?"
-        f"action=wbgetentities&ids={qid}&props=labels&languages=en&format=json"
-    )
-    time.sleep(DELAY)
-    data = http_get(url)
-    if not data:
-        return None
-    entity = data.get("entities", {}).get(qid, {})
-    return entity.get("labels", {}).get("en", {}).get("value")
 
 
 # ── LOBBYREGISTER ──────────────────────────────────────────────────────────
@@ -453,18 +443,12 @@ def scrape_company(conn: sqlite3.Connection, row: dict, dry_run: bool = False) -
     if not qid:
         qid = wiki.get("wikidata_qid", "")
 
-    # 2. Wikidata structured facts
+    # 2. Wikidata structured facts (via SPARQL — one request, labels pre-resolved)
     facts: dict = {}
     if qid:
-        print(f"    → Wikidata: {qid}")
-        facts = fetch_wikidata_entity(qid)
+        print(f"    → Wikidata SPARQL: {qid}")
+        facts = fetch_wikidata_sparql(qid)
         time.sleep(DELAY)
-        # Resolve CEO label if it's still a QID
-        if "ceo" in facts and facts["ceo"].startswith("Q"):
-            ceo_label = resolve_wikidata_label(facts["ceo"])
-            if ceo_label:
-                facts["ceo"] = ceo_label
-            time.sleep(DELAY)
 
     # 3. Bundestag Lobbyregister (only for incorporated German entities)
     lobby_budget = None
@@ -490,15 +474,27 @@ def scrape_company(conn: sqlite3.Connection, row: dict, dry_run: bool = False) -
 
     # Write to DB
     upsert_company(conn, slug, name, ticker, wiki, facts, lobby_budget)
-    mark_queue_status(conn, slug, "scraped")
-    log_scrape(conn, slug, "ok", f"CEO={facts.get('ceo','')}, lobby={lobby_budget}")
+
+    # Mark for re-scraping if critical fields are still empty
+    completeness = sum([
+        bool(facts.get("ceo")),
+        bool(facts.get("employees")),
+        bool(facts.get("inception")),
+        bool(lobby_budget),
+    ])
+    if completeness < 2:
+        mark_queue_status(conn, slug, "needs_refresh", f"completeness={completeness}/4")
+    else:
+        mark_queue_status(conn, slug, "scraped")
+
+    log_scrape(conn, slug, "ok", f"CEO={facts.get('ceo','')}, lobby={lobby_budget}, completeness={completeness}/4")
     return True
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Daily batch scraper for German companies.")
     parser.add_argument("--db", default=str(DEFAULT_DB))
-    parser.add_argument("--batch", type=int, default=5, help="Number of companies to process per run (default: 5)")
+    parser.add_argument("--batch", type=int, default=25, help="Number of companies to process per run (default: 25)")
     parser.add_argument("--dry-run", action="store_true", help="Fetch and print without writing to DB")
     parser.add_argument("--slug", help="Process one specific company slug (overrides --batch)")
     parser.add_argument("--retry-errors", action="store_true", help="Also process companies that previously errored")
@@ -521,8 +517,9 @@ def main() -> None:
     elif args.retry_errors:
         rows = list(conn.execute("""
             SELECT * FROM company_queue
-            WHERE status IN ('pending', 'error')
+            WHERE status IN ('pending', 'error', 'needs_refresh')
             ORDER BY
+                CASE status WHEN 'needs_refresh' THEN 0 WHEN 'error' THEN 1 ELSE 2 END,
                 CASE index_name WHEN 'DAX40' THEN 0 WHEN 'MDAX' THEN 1 ELSE 2 END,
                 id
             LIMIT ?
@@ -530,8 +527,9 @@ def main() -> None:
     else:
         rows = list(conn.execute("""
             SELECT * FROM company_queue
-            WHERE status = 'pending'
+            WHERE status IN ('pending', 'needs_refresh')
             ORDER BY
+                CASE status WHEN 'needs_refresh' THEN 0 ELSE 1 END,
                 CASE index_name WHEN 'DAX40' THEN 0 WHEN 'MDAX' THEN 1 ELSE 2 END,
                 id
             LIMIT ?
@@ -540,8 +538,9 @@ def main() -> None:
     if not rows:
         print("No pending companies in queue.")
         pending = conn.execute("SELECT COUNT(*) FROM company_queue WHERE status='pending'").fetchone()[0]
+        needs_refresh = conn.execute("SELECT COUNT(*) FROM company_queue WHERE status='needs_refresh'").fetchone()[0]
         scraped = conn.execute("SELECT COUNT(*) FROM company_queue WHERE status='scraped'").fetchone()[0]
-        print(f"Queue: {pending} pending, {scraped} scraped.")
+        print(f"Queue: {pending} pending, {needs_refresh} needs_refresh, {scraped} scraped.")
         conn.close()
         return
 
@@ -561,11 +560,14 @@ def main() -> None:
 
     conn.close()
 
-    pending_after = sqlite3.connect(args.db).execute(
-        "SELECT COUNT(*) FROM company_queue WHERE status='pending'"
-    ).fetchone()[0] if not args.dry_run else "?"
-
-    print(f"\nBatch complete: {ok} scraped, {errors} errors. Pending in queue: {pending_after}")
+    if not args.dry_run:
+        _conn = sqlite3.connect(args.db)
+        pending_after = _conn.execute("SELECT COUNT(*) FROM company_queue WHERE status='pending'").fetchone()[0]
+        refresh_after = _conn.execute("SELECT COUNT(*) FROM company_queue WHERE status='needs_refresh'").fetchone()[0]
+        _conn.close()
+        print(f"\nBatch complete: {ok} scraped, {errors} errors. Pending: {pending_after}, needs_refresh: {refresh_after}")
+    else:
+        print(f"\nBatch complete (dry-run): {ok} would scrape, {errors} errors.")
 
 
 if __name__ == "__main__":
