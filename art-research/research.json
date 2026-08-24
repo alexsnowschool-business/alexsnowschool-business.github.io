@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3622,
-    "total_artists": 1412,
-    "median_hammer_usd": 94500,
-    "pct_above_estimate": 46.1,
+    "total_lots": 3672,
+    "total_artists": 1427,
+    "median_hammer_usd": 88900,
+    "pct_above_estimate": 46.3,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-20"
+    "generated_at": "2026-08-24"
   },
   "artists": [
     {
@@ -3838,11 +3838,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 11,
-        "total_usd": 5765129,
-        "avg_usd": 524103,
+        "lot_count": 12,
+        "total_usd": 5769329,
+        "avg_usd": 480777,
         "total_label": "$5.77M",
-        "avg_label": "$524k",
+        "avg_label": "$481k",
         "top_lot": {
           "title": "Fingermalerei - Akt",
           "hammer_usd": 2200000,
@@ -7786,19 +7786,19 @@
         }
       ],
       "dataset": {
-        "lot_count": 1,
-        "total_usd": 2000000,
-        "avg_usd": 2000000,
-        "total_label": "$2.00M",
-        "avg_label": "$2.00M",
+        "lot_count": 2,
+        "total_usd": 2025000,
+        "avg_usd": 1012500,
+        "total_label": "$2.02M",
+        "avg_label": "$1.01M",
         "top_lot": {
           "title": "Troupeau de Moutons de Laine",
           "hammer_usd": 2000000,
           "sale_name": "Contemporary Evening Auction, NY 2025"
         },
         "top_ratio_lot": {
-          "title": "Troupeau de Moutons de Laine",
-          "ratio": 1.14
+          "title": "\"Cocotte\" Cachepot",
+          "ratio": 3.57
         }
       }
     },
@@ -24620,6 +24620,33 @@
       }
     },
     {
+      "norm_name": "JEAN PROUVÉ",
+      "display_name": "Jean Prouvé",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 249000,
+        "avg_usd": 124500,
+        "total_label": "$249k",
+        "avg_label": "$124k",
+        "top_lot": {
+          "title": "Sideboard",
+          "hammer_usd": 240000,
+          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
+        },
+        "top_ratio_lot": {
+          "title": "Sideboard",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "NEO RAUCH",
       "display_name": "Neo Rauch",
       "dates": "",
@@ -24805,33 +24832,6 @@
         "top_ratio_lot": {
           "title": "Deers 鹿",
           "ratio": 1.2
-        }
-      }
-    },
-    {
-      "norm_name": "JEAN PROUVÉ",
-      "display_name": "Jean Prouvé",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 240000,
-        "avg_usd": 240000,
-        "total_label": "$240k",
-        "avg_label": "$240k",
-        "top_lot": {
-          "title": "Sideboard",
-          "hammer_usd": 240000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Sideboard",
-          "ratio": 1.6
         }
       }
     },
@@ -30367,6 +30367,33 @@
       }
     },
     {
+      "norm_name": "MAISON DECOUR",
+      "display_name": "Maison Decour",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 91500,
+        "avg_usd": 30500,
+        "total_label": "$92k",
+        "avg_label": "$30k",
+        "top_lot": {
+          "title": "Sofa",
+          "hammer_usd": 60000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Sofa",
+          "ratio": 7.06
+        }
+      }
+    },
+    {
       "norm_name": "TIM NOBLE (B. 1966) & SUE WEBSTER",
       "display_name": "Tim Noble (B. 1966) & Sue Webster",
       "dates": "",
@@ -31663,6 +31690,33 @@
       }
     },
     {
+      "norm_name": "PIERRE JEANNERET",
+      "display_name": "Pierre Jeanneret",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 74000,
+        "avg_usd": 18500,
+        "total_label": "$74k",
+        "avg_label": "$18k",
+        "top_lot": {
+          "title": "Bench",
+          "hammer_usd": 28000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Bench",
+          "ratio": 2.24
+        }
+      }
+    },
+    {
       "norm_name": "NICOLAS KALMAKOFF",
       "display_name": "Nicolas Kalmakoff",
       "dates": "",
@@ -31740,6 +31794,33 @@
         "top_ratio_lot": {
           "title": "Gao Jianfu, Calligraphy Inscription",
           "ratio": 0.94
+        }
+      }
+    },
+    {
+      "norm_name": "VIGGO BOESEN",
+      "display_name": "Viggo Boesen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 70000,
+        "avg_usd": 70000,
+        "total_label": "$70k",
+        "avg_label": "$70k",
+        "top_lot": {
+          "title": "Pair of Armchairs",
+          "hammer_usd": 70000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of Armchairs",
+          "ratio": 2.8
         }
       }
     },
@@ -32608,6 +32689,33 @@
       }
     },
     {
+      "norm_name": "GEORGES JOUVE",
+      "display_name": "Georges Jouve",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 7,
+        "total_usd": 63500,
+        "avg_usd": 9071,
+        "total_label": "$64k",
+        "avg_label": "$9k",
+        "top_lot": {
+          "title": "Vide Poche",
+          "hammer_usd": 14000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Ashtray",
+          "ratio": 1.75
+        }
+      }
+    },
+    {
       "norm_name": "THOMAS LUNY",
       "display_name": "Thomas Luny",
       "dates": "",
@@ -33009,6 +33117,33 @@
         "top_ratio_lot": {
           "title": "Zhang Du, Studio by Apricot Blossom Forest",
           "ratio": 8.0
+        }
+      }
+    },
+    {
+      "norm_name": "RICK OWENS",
+      "display_name": "Rick Owens",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 59500,
+        "avg_usd": 11900,
+        "total_label": "$60k",
+        "avg_label": "$12k",
+        "top_lot": {
+          "title": "Pair of \"Evase\" Vases",
+          "hammer_usd": 28000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of \"Evase\" Vases",
+          "ratio": 18.67
         }
       }
     },
@@ -33522,6 +33657,33 @@
         "top_ratio_lot": {
           "title": "Phenomena, Batten down the Hatches",
           "ratio": 3.0
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXANDRE NOLL",
+      "display_name": "Alexandre Noll",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 53500,
+        "avg_usd": 17833,
+        "total_label": "$54k",
+        "avg_label": "$18k",
+        "top_lot": {
+          "title": "Table Lamp",
+          "hammer_usd": 32000,
+          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
+        },
+        "top_ratio_lot": {
+          "title": "Table Lamp",
+          "ratio": 2.56
         }
       }
     },
@@ -34957,6 +35119,33 @@
       }
     },
     {
+      "norm_name": "ANDRÉ BORDERIE",
+      "display_name": "André Borderie",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 43000,
+        "avg_usd": 21500,
+        "total_label": "$43k",
+        "avg_label": "$22k",
+        "top_lot": {
+          "title": "Vide Poche",
+          "hammer_usd": 32000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Vide Poche",
+          "ratio": 3.76
+        }
+      }
+    },
+    {
       "norm_name": "ARMAND GUILLAUMIN",
       "display_name": "Armand Guillaumin",
       "dates": "",
@@ -36361,6 +36550,33 @@
       }
     },
     {
+      "norm_name": "LINE VAUTRIN",
+      "display_name": "Line Vautrin",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 33500,
+        "avg_usd": 16750,
+        "total_label": "$34k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "\"Forme de Visage\" Box",
+          "hammer_usd": 25000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "\"Forme de Visage\" Box",
+          "ratio": 4.17
+        }
+      }
+    },
+    {
       "norm_name": "OTTO LANGE",
       "display_name": "Otto Lange",
       "dates": "",
@@ -36627,33 +36843,6 @@
         "top_ratio_lot": {
           "title": "Antibodies (n. TURQ) 抗體（N. TURQ）",
           "ratio": 0.46
-        }
-      }
-    },
-    {
-      "norm_name": "ALEXANDRE NOLL",
-      "display_name": "Alexandre Noll",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 32000,
-        "avg_usd": 32000,
-        "total_label": "$32k",
-        "avg_label": "$32k",
-        "top_lot": {
-          "title": "Table Lamp",
-          "hammer_usd": 32000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Table Lamp",
-          "ratio": 2.56
         }
       }
     },
@@ -38143,6 +38332,33 @@
       }
     },
     {
+      "norm_name": "MATHIEU MATÉGOT",
+      "display_name": "Mathieu Matégot",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 25700,
+        "avg_usd": 8567,
+        "total_label": "$26k",
+        "avg_label": "$9k",
+        "top_lot": {
+          "title": "Table Lamp",
+          "hammer_usd": 17000,
+          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
+        },
+        "top_ratio_lot": {
+          "title": "Table Lamp",
+          "ratio": 2.0
+        }
+      }
+    },
+    {
       "norm_name": "GIDEON RUBIN",
       "display_name": "Gideon Rubin",
       "dates": "",
@@ -38733,6 +38949,33 @@
         "top_ratio_lot": {
           "title": "Sans titre",
           "ratio": 1.92
+        }
+      }
+    },
+    {
+      "norm_name": "PAAVO TYNELL",
+      "display_name": "Paavo Tynell",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 24000,
+        "avg_usd": 8000,
+        "total_label": "$24k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Floor Lamp",
+          "hammer_usd": 8500,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Floor Lamp",
+          "ratio": 0.94
         }
       }
     },
@@ -39358,6 +39601,60 @@
       }
     },
     {
+      "norm_name": "SUZANNE RAMIE",
+      "display_name": "Suzanne Ramie",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 19500,
+        "avg_usd": 9750,
+        "total_label": "$20k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "Three Vessels",
+          "hammer_usd": 13000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "\"Coupe de Poing\"",
+          "ratio": 5.2
+        }
+      }
+    },
+    {
+      "norm_name": "CHARLOTTE PERRIAND",
+      "display_name": "Charlotte Perriand",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 19500,
+        "avg_usd": 9750,
+        "total_label": "$20k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "Bench",
+          "hammer_usd": 12000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "\"Berger\" Stool",
+          "ratio": 1.5
+        }
+      }
+    },
+    {
       "norm_name": "CARLOS GARAICOA",
       "display_name": "Carlos Garaicoa",
       "dates": "",
@@ -39871,33 +40168,6 @@
       }
     },
     {
-      "norm_name": "MATHIEU MATÉGOT",
-      "display_name": "Mathieu Matégot",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 17000,
-        "avg_usd": 17000,
-        "total_label": "$17k",
-        "avg_label": "$17k",
-        "top_lot": {
-          "title": "Table Lamp",
-          "hammer_usd": 17000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Table Lamp",
-          "ratio": 2.0
-        }
-      }
-    },
-    {
       "norm_name": "ANDRÉ BRETON | VALENTINE HUGO | NUSCH ÉLUARD | GRETA KNUTSON",
       "display_name": "André Breton | Valentine Hugo | Nusch Éluard | Greta Knutson",
       "dates": "",
@@ -40083,6 +40353,33 @@
         "top_ratio_lot": {
           "title": "Bust of a Boy, called the Young Emperor Nero",
           "ratio": 0.94
+        }
+      }
+    },
+    {
+      "norm_name": "FRANCESCO BALZANO",
+      "display_name": "Francesco Balzano",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 16500,
+        "avg_usd": 8250,
+        "total_label": "$16k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Pair of Side Tables",
+          "hammer_usd": 10000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of Side Tables",
+          "ratio": 1.67
         }
       }
     },
@@ -41680,6 +41977,33 @@
       }
     },
     {
+      "norm_name": "MARC DU PLANTIER",
+      "display_name": "Marc Du Plantier",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13000,
+        "avg_usd": 13000,
+        "total_label": "$13k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Sconce",
+          "hammer_usd": 13000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Sconce",
+          "ratio": 1.86
+        }
+      }
+    },
+    {
       "norm_name": "KENDELL GEERS",
       "display_name": "Kendell Geers",
       "dates": "",
@@ -42081,6 +42405,33 @@
         "top_ratio_lot": {
           "title": "The Jacamar Trap",
           "ratio": 7.98
+        }
+      }
+    },
+    {
+      "norm_name": "POL CHAMBOST",
+      "display_name": "Pol Chambost",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 11700,
+        "avg_usd": 3900,
+        "total_label": "$12k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "\"Corolle\" Vase",
+          "hammer_usd": 4500,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "\"Corolle\" Vase",
+          "ratio": 0.9
         }
       }
     },
@@ -43219,6 +43570,33 @@
       }
     },
     {
+      "norm_name": "SERGE MOUILLE",
+      "display_name": "Serge Mouille",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8500,
+        "avg_usd": 8500,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "Pair of \"Cachan\" Sconces",
+          "hammer_usd": 8500,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of \"Cachan\" Sconces",
+          "ratio": 0.85
+        }
+      }
+    },
+    {
       "norm_name": "BRASSAI",
       "display_name": "Brassai",
       "dates": "",
@@ -43539,33 +43917,6 @@
         "top_ratio_lot": {
           "title": "Composition «B.O»",
           "ratio": 1.33
-        }
-      }
-    },
-    {
-      "norm_name": "PAAVO TYNELL",
-      "display_name": "Paavo Tynell",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 8000,
-        "avg_usd": 8000,
-        "total_label": "$8k",
-        "avg_label": "$8k",
-        "top_lot": {
-          "title": "Floor Lamp",
-          "hammer_usd": 8000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Floor Lamp",
-          "ratio": 0.94
         }
       }
     },
@@ -45402,6 +45753,60 @@
         "top_ratio_lot": {
           "title": "Head and shoulders study of a young woman with long, dark ha",
           "ratio": 0.84
+        }
+      }
+    },
+    {
+      "norm_name": "CAMILLE HENROT",
+      "display_name": "Camille Henrot",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4200,
+        "avg_usd": 4200,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Study for Massacre of the Innocents",
+          "hammer_usd": 4200,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Study for Massacre of the Innocents",
+          "ratio": 0.84
+        }
+      }
+    },
+    {
+      "norm_name": "DENISE GATARD",
+      "display_name": "Denise Gatard",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 4100,
+        "avg_usd": 2050,
+        "total_label": "$4k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Vase",
+          "hammer_usd": 2200,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Coupe",
+          "ratio": 1.52
         }
       }
     },
