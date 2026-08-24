@@ -79,6 +79,19 @@ jobs:
         run: uv run python scripts/whoownswhat/scrape_lobbying_register.py
         continue-on-error: true
 
+      # ── OPENREGISTER ENRICHMENT ───────────────────────────────────────────
+      # Weekly (Mondays) to respect the 500 credit/month free tier.
+      # Fills: sector, headquarters (city), founded, employees, revenue.
+      # Autocomplete ID lookup = 1 credit; company details = 10 credits;
+      # financials = 10 credits. Hard cap of 45 entities per run (~450 credits).
+
+      - name: Enrich company data — OpenRegister (weekly, Mondays)
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 6 * * 1'
+        env:
+          OPENREGISTER_API_KEY: ${{ secrets.OPENREGISTER_API_KEY }}
+        run: uv run python scripts/whoownswhat/scrape_openregister.py
+        continue-on-error: true
+
       # ── SHAREHOLDER SCRAPE ────────────────────────────────────────────────
       # Two complementary sources:
       #   1. Wikidata SPARQL (P127) — strategic/founding shareholders (Quandt, QIA…)
