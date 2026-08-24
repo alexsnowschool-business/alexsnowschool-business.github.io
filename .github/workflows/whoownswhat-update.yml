@@ -63,12 +63,33 @@ jobs:
         run: uv run python scripts/whoownswhat/scrape_company_batch.py --batch 25
         continue-on-error: true
 
+      # ── DB CLEANUP ────────────────────────────────────────────────────────
+      # Remove boilerplate rows and normalise placeholder values (sector "—",
+      # bare "Germany" HQ, empty scalar fields) before scraping.
+
+      - name: Clean database (normalise placeholders)
+        run: uv run python scripts/whoownswhat/clean_db.py
+        continue-on-error: true
+
       # ── LOBBY REGISTER REFRESH ────────────────────────────────────────────
       # Refresh lobbying budgets for all scraped German entities.
       # Dynamically loads entity list from DB (not hardcoded).
 
       - name: Refresh Bundestag Lobby Register (all German entities)
         run: uv run python scripts/whoownswhat/scrape_lobbying_register.py
+        continue-on-error: true
+
+      # ── SHAREHOLDER SCRAPE ────────────────────────────────────────────────
+      # Two complementary sources:
+      #   1. Wikidata SPARQL (P127) — strategic/founding shareholders (Quandt, QIA…)
+      #   2. Yahoo Finance via yfinance — institutional holders (BlackRock, Vanguard…)
+
+      - name: Scrape shareholders — Wikidata SPARQL (strategic owners)
+        run: uv run python scripts/whoownswhat/scrape_shareholders_wikidata.py
+        continue-on-error: true
+
+      - name: Scrape shareholders — Yahoo Finance (institutional holders)
+        run: uv run python scripts/whoownswhat/scrape_institutional_holders.py
         continue-on-error: true
 
       # ── EXPORT ────────────────────────────────────────────────────────────
