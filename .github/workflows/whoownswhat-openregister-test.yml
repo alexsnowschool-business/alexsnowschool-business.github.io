@@ -27,7 +27,17 @@ jobs:
       - name: Discover companies
         run: uv run python scripts/whoownswhat/discover_germany.py
 
+      - name: Show enrichment candidates
+        run: |
+          sqlite3 data/whoownswhat.db \
+            "SELECT count(*) || ' companies need enrichment (revenue or other fields NULL)' FROM entities WHERE type='company' AND country='germany' AND (sector IS NULL OR headquarters IS NULL OR founded IS NULL OR employees IS NULL OR revenue IS NULL)"
+
       - name: Run OpenRegister scraper (limit 5)
         env:
           OPENREGISTER_API_KEY: ${{ secrets.OPENREGISTER_API_KEY }}
         run: uv run python scripts/whoownswhat/scrape_openregister.py --limit 5
+
+      - name: Verify data written
+        run: |
+          sqlite3 data/whoownswhat.db \
+            "SELECT name, sector, headquarters, founded, employees, revenue FROM entities WHERE type='company' AND country='germany' AND openregister_id IS NOT NULL LIMIT 10"

@@ -85,9 +85,9 @@ def save_openregister_id(conn: sqlite3.Connection, entity_id: str, or_id: str) -
 
 
 def needs_enrichment(conn: sqlite3.Connection, entity_id: str) -> bool:
-    """Return True if any of sector / headquarters / founded / employees is NULL."""
+    """Return True if any enrichable field is NULL. Revenue is OpenRegister-exclusive."""
     row = conn.execute(
-        """SELECT sector, headquarters, founded, employees
+        """SELECT sector, headquarters, founded, employees, revenue
            FROM entities WHERE id=?""",
         (entity_id,)
     ).fetchone()
