@@ -38,104 +38,94 @@ except ImportError:
     _SSL_CTX.verify_mode = ssl.CERT_NONE
 
 DEFAULT_DB = Path(__file__).resolve().parents[2] / "data" / "whoownswhat.db"
-REGISTER_BASE = "https://www.lobbyregister.bundestag.de"
-REGISTER_API  = f"{REGISTER_BASE}/suche"
+REGISTER_BASE    = "https://www.lobbyregister.bundestag.de"
+REGISTER_SEARCH  = f"{REGISTER_BASE}/suche"
+REGISTER_API     = f"{REGISTER_BASE}/sucheJson"   # open-data JSON endpoint
 YEAR = datetime.now(timezone.utc).strftime("%Y")
 DELAY = 1.5
 
-_HEADERS_JSON = {
+_HEADERS = {
     "User-Agent": "WhoOwnsWhat/1.0 public-interest research",
-    "Accept": "application/json, text/json",
-    "X-Requested-With": "XMLHttpRequest",
-    "Referer": REGISTER_API,
-}
-_HEADERS_HTML = {
-    "User-Agent": (
-        "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0"
-    ),
-    "Accept": "text/html,application/xhtml+xml",
-    "Accept-Language": "de,en;q=0.5",
+    "Accept": "application/json",
 }
 
 
 def fetch_json(name: str) -> list[dict]:
-    """Try to get JSON results from the register search API."""
+    """Fetch JSON results from the open-data /sucheJson endpoint."""
     params = urllib.parse.urlencode({
         "q": name,
-        "pageSize": "5",
-        "pageNumber": "0",
-        "status": "ALLE",
+        "sort": "RELEVANCE_DESC",
     })
     url = f"{REGISTER_API}?{params}"
-    req = urllib.request.Request(url, headers=_HEADERS_JSON)
+    req = urllib.request.Request(url, headers=_HEADERS)
     try:
         with urllib.request.urlopen(req, timeout=15, context=_SSL_CTX) as resp:
-            content_type = resp.headers.get("Content-Type", "")
-            raw = resp.read()
+            raw = resp.read().strip()
             if not raw:
                 return []
-            if "json" not in content_type.lower():
-                return []
             data = json.loads(raw)
-            if isinstance(data, list):
-                return data
-            return data.get("content", data.get("results", data.get("items", [])))
+            return data.get("results", [])
     except (urllib.error.URLError, json.JSONDecodeError, OSError) as exc:
-        print(f"    JSON fetch failed for '{name}': {exc}")
+        print(f"    Fetch failed for '{name}': {exc}")
         return []
 
 
-def fetch_html(name: str) -> str:
-    """Fetch the HTML search page as fallback."""
-    params = urllib.parse.urlencode({"q": name})
-    url = f"{REGISTER_API}?{params}"
-    req = urllib.request.Request(url, headers=_HEADERS_HTML)
-    try:
-        with urllib.request.urlopen(req, timeout=15, context=_SSL_CTX) as resp:
-            return resp.read().decode("utf-8", errors="replace")
-    except (urllib.error.URLError, OSError) as exc:
-        print(f"    HTML fetch failed for '{name}': {exc}")
-        return ""
-
-
-def parse_budget_from_html(html: str) -> str | None:
-    """Extract annual budget from lobbyregister HTML page."""
-    patterns = [
-        r'"jahresbudget"\s*:\s*"([^"]+)"',
-        r'"lobbyausgaben"\s*:\s*"([^"]+)"',
-        r'jahresbudget[^>]*>([^<]+)<',
-        r'Jahresbudget[:\s]+([€\d\.\,\s]+(?:Mio|Tsd|EUR)?)',
-        r'(\d{4,9})-(\d{4,9})',   # raw band like 1000001-5000000
-    ]
-    for pat in patterns:
-        m = re.search(pat, html, re.IGNORECASE)
-        if m:
-            return normalise_budget(m.group(1).strip())
-    return None
-
-
-def extract_budget_from_json(entries: list[dict]) -> str | None:
-    """Extract and normalise the budget from the first matching JSON entry."""
+def extract_budget_from_json(entries: list[dict], entity_name: str) -> str | None:
+    """
+    Extract and normalise the lobbying financial expenses from the best-matching entry.
+    New schema: result.financialExpenses.financialExpensesEuro.{from, to}
+    """
+    name_lower = entity_name.lower()
     for entry in entries:
-        raw = (
-            entry.get("jahresbudget") or
-            entry.get("lobbyausgaben") or
-            entry.get("annualBudget") or
-            entry.get("budget") or ""
-        )
-        if raw:
-            return normalise_budget(str(raw))
+        # Prefer an exact-ish name match
+        identity = entry.get("lobbyistIdentity", {})
+        reg_name = identity.get("name", "").lower()
+        if entity_name and reg_name and name_lower not in reg_name and reg_name not in name_lower:
+            continue
+
+        fe = entry.get("financialExpenses", {})
+        band = fe.get("financialExpensesEuro", {})
+        lo = band.get("from")
+        hi = band.get("to")
+        if lo is not None and hi is not None:
+            return normalise_budget(f"{lo}-{hi}")
+
+    # Second pass: accept any result if no name match found
+    for entry in entries:
+        fe = entry.get("financialExpenses", {})
+        band = fe.get("financialExpensesEuro", {})
+        lo = band.get("from")
+        hi = band.get("to")
+        if lo is not None and hi is not None:
+            return normalise_budget(f"{lo}-{hi}")
+
     return None
 
 
 def normalise_budget(raw: str) -> str | None:
-    """Convert '5000001-10000000' → '€5–10M', '29000000' → '€29M'."""
+    """
+    Convert a band or scalar euro amount into a human-readable string.
+    Lobbyregister bands are narrow (~€10K), so tight ranges collapse to a
+    single midpoint value: '2300001-2310000' → '€2.3M'.
+    Wide ranges display as '€5–10M'.
+    """
     raw = raw.strip().replace("EUR", "").replace("€", "").replace(" ", "").replace(".", "")
     if not raw or raw in ("-", "0", "null", "keine"):
         return None
     m = re.match(r"^(\d+)-(\d+)$", raw)
     if m:
         low, high = int(m.group(1)), int(m.group(2))
+        if low == 0 and high == 0:
+            return None
+        # Tight band (register uses ~10K steps): collapse to midpoint
+        if high - low < 500_000:
+            mid = (low + high) / 2
+            if mid >= 1_000_000:
+                return f"€{mid / 1_000_000:.1f}M".replace(".0M", "M")
+            if mid >= 1_000:
+                return f"€{mid / 1000:.0f}K"
+            return f"€{mid:,.0f}"
+        # Wide band: show range
         if high >= 1_000_000:
             return f"€{low // 1_000_000}–{high // 1_000_000}M"
         if high >= 1_000:
@@ -146,7 +136,7 @@ def normalise_budget(raw: str) -> str | None:
         if val == 0:
             return None
         if val >= 1_000_000:
-            return f"€{val // 1_000_000}M"
+            return f"€{val / 1_000_000:.1f}M".replace(".0M", "M")
         if val >= 1_000:
             return f"€{val // 1000:,}K"
         return f"€{val:,}"
@@ -157,28 +147,18 @@ def normalise_budget(raw: str) -> str | None:
 def scrape_entity(entity_id: str, name: str) -> str | None:
     """
     Attempt to find a lobbying budget for an entity. Returns budget string or None.
-    Strategy: JSON API → HTML parse → try shorter name variant.
+    Strategy: try full name, then first token (e.g. "BMW" from "BMW AG").
     """
-    # Build search terms: full name + first token (e.g. "BMW" from "BMW AG")
     terms = [name]
     first_token = name.split()[0]
     if first_token != name and len(first_token) >= 3:
         terms.append(first_token)
 
     for term in terms:
-        # 1. JSON API
         entries = fetch_json(term)
         time.sleep(DELAY)
         if entries:
-            budget = extract_budget_from_json(entries)
-            if budget:
-                return budget
-
-        # 2. HTML fallback
-        html = fetch_html(term)
-        time.sleep(DELAY)
-        if html:
-            budget = parse_budget_from_html(html)
+            budget = extract_budget_from_json(entries, name)
             if budget:
                 return budget
 
@@ -200,12 +180,12 @@ def update_lobbying(
     if row:
         cur.execute(
             "UPDATE lobbying SET amount=?, source=?, source_url=? WHERE id=?",
-            (amount, "Bundestag Lobbyregister", REGISTER_BASE, row[0]),
+            (amount, "Bundestag Lobbyregister", REGISTER_SEARCH, row[0]),
         )
     else:
         cur.execute(
             "INSERT INTO lobbying (entity_id,year,amount,currency,source,source_url) VALUES (?,?,?,?,?,?)",
-            (entity_id, YEAR, amount, "EUR", "Bundestag Lobbyregister", REGISTER_BASE),
+            (entity_id, YEAR, amount, "EUR", "Bundestag Lobbyregister", REGISTER_SEARCH),
         )
 
 
