@@ -144,35 +144,58 @@
         if (peopleGrid) {
             const people = Object.entries(WOW_DATA.entities)
                 .filter(([, e]) => e.type === 'person');
-            peopleGrid.innerHTML = people.map(([id, e]) => `
+            peopleGrid.innerHTML = people.map(([id, e]) => {
+                const rankLabel = e.netWorthRank ? ` · ${e.netWorthRank}` : '';
+                return `
                 <a class="entity-card" href="${profileUrl(id, 'person')}">
                     <div class="entity-card__tag">Individual</div>
                     <div class="entity-card__name">${e.name}</div>
                     <div class="entity-card__sub">${e.title}</div>
                     <div class="entity-card__stat">
                         <strong>${e.netWorth}</strong>
-                        <span>Net Worth · ${e.netWorthRank}</span>
+                        <span>Net Worth${rankLabel}</span>
                     </div>
                 </a>
-            `).join('');
+            `}).join('');
         }
 
-        // Featured companies
+        // Featured companies — only show entities with lobbying data, sorted by spend
         const companyGrid = qs('#featured-companies');
         if (companyGrid) {
+            const parseLobbyingAmount = (lobbying) => {
+                if (!lobbying || !lobbying.length) return -1;
+                const latest = lobbying.reduce((a, b) => a.year >= b.year ? a : b);
+                const m = latest.amount.replace(/[€,]/g, '').match(/([\d.]+)/);
+                return m ? parseFloat(m[1]) : 0;
+            };
+
             const companies = Object.entries(WOW_DATA.entities)
-                .filter(([, e]) => e.type === 'company');
-            companyGrid.innerHTML = companies.map(([id, e]) => `
+                .filter(([, e]) => e.type === 'company' && e.lobbying && e.lobbying.length > 0)
+                .sort((a, b) => parseLobbyingAmount(b[1].lobbying) - parseLobbyingAmount(a[1].lobbying))
+                .slice(0, 12);
+
+            companyGrid.innerHTML = companies.map(([id, e]) => {
+                const latest = e.lobbying.reduce((a, b) => a.year >= b.year ? a : b);
+                const sub = [e.sector, e.headquarters].filter(Boolean).join(' · ');
+                return `
                 <a class="entity-card" href="${profileUrl(id, 'company')}">
                     <div class="entity-card__tag">Company · ${e.ticker || e.sector}</div>
                     <div class="entity-card__name">${e.name}</div>
-                    <div class="entity-card__sub">${e.sector}</div>
+                    <div class="entity-card__sub">${sub}</div>
                     <div class="entity-card__stat">
-                        <strong>${e.marketCap}</strong>
-                        <span>Market Cap</span>
+                        <strong>${latest.amount}</strong>
+                        <span>Lobbying Budget · ${latest.year}</span>
                     </div>
                 </a>
-            `).join('');
+            `}).join('');
+        }
+
+        // Country card — update entity count from live data
+        const germanyCount = qs('.entity-card--germany-count');
+        if (germanyCount) {
+            const total = Object.values(WOW_DATA.entities)
+                .filter(e => e.country === 'germany').length;
+            germanyCount.textContent = `${total} Entities`;
         }
     }
 
