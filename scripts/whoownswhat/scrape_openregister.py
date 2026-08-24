@@ -160,14 +160,18 @@ def extract_sector(data: dict) -> str | None:
     """Extract WZ2025 industry description from company data."""
     codes = data.get("industry_codes") or []
     for code in codes:
-        # Prefer English label, fall back to German
-        label = code.get("label_en") or code.get("label_de") or code.get("label")
-        if label:
-            return label.strip()
+        # API may return strings or dicts
+        if isinstance(code, str):
+            if code.strip():
+                return code.strip()
+        elif isinstance(code, dict):
+            label = code.get("label_en") or code.get("label_de") or code.get("label")
+            if label:
+                return label.strip()
     # Fall back to purpose field (truncate to ~80 chars)
     purpose = data.get("purpose") or (data.get("purposes") or [{}])
     if isinstance(purpose, list) and purpose:
-        purpose = purpose[0].get("purpose", "")
+        purpose = purpose[0].get("purpose", "") if isinstance(purpose[0], dict) else purpose[0]
     if isinstance(purpose, str) and purpose:
         return purpose[:80].rstrip()
     return None
