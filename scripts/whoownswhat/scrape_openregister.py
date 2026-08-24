@@ -121,7 +121,7 @@ def api_get(path: str, headers: dict) -> dict | None:
 def autocomplete(name: str, headers: dict) -> str | None:
     """Find OpenRegister company ID via autocomplete (1 credit). Returns first active match."""
     params = urllib.parse.urlencode({"query": name})
-    url = f"{API_BASE}/search/autocomplete-company?{params}"
+    url = f"{API_BASE}/autocomplete/company?{params}"
     req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
