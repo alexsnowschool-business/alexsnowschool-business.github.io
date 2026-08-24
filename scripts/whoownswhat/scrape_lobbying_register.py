@@ -70,36 +70,45 @@ def fetch_json(name: str) -> list[dict]:
         return []
 
 
-def extract_budget_from_json(entries: list[dict], entity_name: str) -> str | None:
+def extract_budget_from_json(entries: list[dict], entity_name: str) -> tuple[str, str] | tuple[None, None]:
     """
-    Extract and normalise the lobbying financial expenses from the best-matching entry.
+    Extract lobbying financial expenses from the best-matching entry.
+    Returns (budget_string, details_page_url) or (None, None).
     New schema: result.financialExpenses.financialExpensesEuro.{from, to}
     """
     name_lower = entity_name.lower()
+
+    def _parse_entry(entry: dict) -> tuple[str, str] | tuple[None, None]:
+        fe = entry.get("financialExpenses", {})
+        band = fe.get("financialExpensesEuro", {})
+        lo = band.get("from")
+        hi = band.get("to")
+        if lo is None or hi is None:
+            return None, None
+        budget = normalise_budget(f"{lo}-{hi}")
+        url = (
+            entry.get("registerEntryDetails", {}).get("detailsPageUrl")
+            or REGISTER_SEARCH
+        )
+        return budget, url
+
+    # First pass: prefer a name match
     for entry in entries:
-        # Prefer an exact-ish name match
         identity = entry.get("lobbyistIdentity", {})
         reg_name = identity.get("name", "").lower()
         if entity_name and reg_name and name_lower not in reg_name and reg_name not in name_lower:
             continue
+        budget, url = _parse_entry(entry)
+        if budget:
+            return budget, url
 
-        fe = entry.get("financialExpenses", {})
-        band = fe.get("financialExpensesEuro", {})
-        lo = band.get("from")
-        hi = band.get("to")
-        if lo is not None and hi is not None:
-            return normalise_budget(f"{lo}-{hi}")
-
-    # Second pass: accept any result if no name match found
+    # Second pass: accept any result
     for entry in entries:
-        fe = entry.get("financialExpenses", {})
-        band = fe.get("financialExpensesEuro", {})
-        lo = band.get("from")
-        hi = band.get("to")
-        if lo is not None and hi is not None:
-            return normalise_budget(f"{lo}-{hi}")
+        budget, url = _parse_entry(entry)
+        if budget:
+            return budget, url
 
-    return None
+    return None, None
 
 
 def normalise_budget(raw: str) -> str | None:
@@ -144,9 +153,10 @@ def normalise_budget(raw: str) -> str | None:
         return raw if raw else None
 
 
-def scrape_entity(entity_id: str, name: str) -> str | None:
+def scrape_entity(entity_id: str, name: str) -> tuple[str, str] | tuple[None, None]:
     """
-    Attempt to find a lobbying budget for an entity. Returns budget string or None.
+    Attempt to find a lobbying budget for an entity.
+    Returns (budget_string, details_page_url) or (None, None).
     Strategy: try full name, then first token (e.g. "BMW" from "BMW AG").
     """
     terms = [name]
@@ -158,21 +168,22 @@ def scrape_entity(entity_id: str, name: str) -> str | None:
         entries = fetch_json(term)
         time.sleep(DELAY)
         if entries:
-            budget = extract_budget_from_json(entries, name)
+            budget, url = extract_budget_from_json(entries, name)
             if budget:
-                return budget
+                return budget, url
 
-    return None
+    return None, None
 
 
 def update_lobbying(
     conn: sqlite3.Connection,
     entity_id: str,
     amount: str,
+    source_url: str,
     dry_run: bool = False,
 ) -> None:
     if dry_run:
-        print(f"    [DRY RUN] Would upsert: {entity_id} {YEAR} {amount}")
+        print(f"    [DRY RUN] Would upsert: {entity_id} {YEAR} {amount} → {source_url}")
         return
     cur = conn.cursor()
     cur.execute("SELECT id FROM lobbying WHERE entity_id=? AND year=?", (entity_id, YEAR))
@@ -180,12 +191,12 @@ def update_lobbying(
     if row:
         cur.execute(
             "UPDATE lobbying SET amount=?, source=?, source_url=? WHERE id=?",
-            (amount, "Bundestag Lobbyregister", REGISTER_SEARCH, row[0]),
+            (amount, "Bundestag Lobbyregister", source_url, row[0]),
         )
     else:
         cur.execute(
             "INSERT INTO lobbying (entity_id,year,amount,currency,source,source_url) VALUES (?,?,?,?,?,?)",
-            (entity_id, YEAR, amount, "EUR", "Bundestag Lobbyregister", REGISTER_SEARCH),
+            (entity_id, YEAR, amount, "EUR", "Bundestag Lobbyregister", source_url),
         )
 
 
@@ -235,11 +246,11 @@ def main() -> None:
 
     for entity_id, name in entities:
         print(f"  [{entity_id}] {name}")
-        budget = scrape_entity(entity_id, name)
+        budget, url = scrape_entity(entity_id, name)
 
         if budget:
-            print(f"    ✓ {budget}")
-            update_lobbying(conn, entity_id, budget, args.dry_run)
+            print(f"    ✓ {budget}  ({url})")
+            update_lobbying(conn, entity_id, budget, url, args.dry_run)
             log_scrape(conn, entity_id, "ok", f"Budget: {budget}")
             updated += 1
         else:

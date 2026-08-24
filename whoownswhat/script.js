@@ -300,25 +300,6 @@
             hideSection('section-lobbying');
         }
 
-        // IV. Political Spending
-        const pol = entity.politicalSpending;
-        const polHasData = pol && (pol.pac || pol.total2022 || pol.note);
-        if (polHasData) {
-            const polBlock = qs('#political-spending');
-            if (polBlock) {
-                polBlock.innerHTML = `
-                    <div class="pol-block">
-                        <div class="pol-block__pac">PAC: <strong>${pol.pac}</strong></div>
-                        ${pol.total2022 ? `<div class="pol-block__pac">2022 Cycle Total: <strong>${pol.total2022}</strong></div>` : ''}
-                        <div class="pol-block__note">${pol.note}</div>
-                        <a class="pol-block__source" href="${pol.url}" target="_blank" rel="noopener">Source: ${pol.source} →</a>
-                    </div>
-                `;
-            }
-        } else {
-            hideSection('section-political');
-        }
-
         // V. Fines & Settlements
         if (hasData(entity.fines)) {
             const finesList = qs('#fines-list');
@@ -446,28 +427,6 @@
             }
         } else {
             hideSection('section-foundations');
-        }
-
-        // V. Political Spending
-        const polPerson = entity.politicalSpending;
-        const polPersonHasData = polPerson && (polPerson.total2024 || polPerson.total2022 || polPerson.total2020 ||
-            (polPerson.pac && polPerson.pac !== 'None' && polPerson.pac !== 'None disclosed'));
-        if (polPersonHasData) {
-            const polBlock = qs('#political-spending');
-            if (polBlock) {
-                polBlock.innerHTML = `
-                    <div class="pol-block">
-                        ${polPerson.pac && polPerson.pac !== 'None' && polPerson.pac !== 'None disclosed' ? `<div class="pol-block__pac">PAC: <strong>${polPerson.pac}</strong></div>` : ''}
-                        ${polPerson.total2024 ? `<div class="pol-block__pac">2024 Total: <strong>${polPerson.total2024}</strong></div>` : ''}
-                        ${polPerson.total2022 ? `<div class="pol-block__pac">2022 Total: <strong>${polPerson.total2022}</strong></div>` : ''}
-                        ${polPerson.total2020 ? `<div class="pol-block__pac">2020 Total: <strong>${polPerson.total2020}</strong></div>` : ''}
-                        <div class="pol-block__note">${polPerson.summary}</div>
-                        <a class="pol-block__source" href="${polPerson.url}" target="_blank" rel="noopener">Source: ${polPerson.source} →</a>
-                    </div>
-                `;
-            }
-        } else {
-            hideSection('section-political');
         }
 
         // VI. Timeline
