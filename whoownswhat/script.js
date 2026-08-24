@@ -367,67 +367,93 @@
         qs('#person-born').textContent = entity.born;
 
         // I. Summary
-        const summaryEl = qs('#person-summary');
-        if (summaryEl) summaryEl.textContent = entity.summary;
+        if (entity.summary) {
+            const summaryEl = qs('#person-summary');
+            if (summaryEl) summaryEl.textContent = entity.summary;
+        } else {
+            hideSection('section-summary');
+        }
 
         // II. Major Assets
-        const assetList = qs('#assets-list');
-        if (assetList && entity.assets) {
-            assetList.innerHTML = entity.assets.map(a => `
-                <div class="asset-card">
-                    <div class="asset-card__name">${a.name}</div>
-                    <div class="asset-card__desc">${a.description}</div>
-                    <a class="asset-card__source" href="${a.url}" target="_blank" rel="noopener">${a.source} →</a>
-                </div>
-            `).join('');
+        if (hasData(entity.assets)) {
+            const assetList = qs('#assets-list');
+            if (assetList) {
+                assetList.innerHTML = entity.assets.map(a => `
+                    <div class="asset-card">
+                        <div class="asset-card__name">${a.name}</div>
+                        <div class="asset-card__desc">${a.description}</div>
+                        <a class="asset-card__source" href="${a.url}" target="_blank" rel="noopener">${a.source} →</a>
+                    </div>
+                `).join('');
+            }
+        } else {
+            hideSection('section-assets');
         }
 
         // III. Board Memberships
-        const boardList = qs('#board-list');
-        if (boardList && entity.boardMemberships) {
-            boardList.innerHTML = entity.boardMemberships.map(b => `
-                <li class="plain-list__entry">
-                    <strong>${b.org}</strong> — ${b.role}
-                </li>
-            `).join('');
+        if (hasData(entity.boardMemberships)) {
+            const boardList = qs('#board-list');
+            if (boardList) {
+                boardList.innerHTML = entity.boardMemberships.map(b => `
+                    <li class="plain-list__entry">
+                        <strong>${b.org}</strong> — ${b.role}
+                    </li>
+                `).join('');
+            }
+        } else {
+            hideSection('section-board');
         }
 
         // IV. Foundations
-        const foundationList = qs('#foundations-list');
-        if (foundationList && entity.foundations) {
-            foundationList.innerHTML = entity.foundations.map(f => `
-                <li class="plain-list__entry">
-                    <strong>${f.name}</strong> — ${f.description}
-                    ${f.url ? `<a class="item-list__source" href="${f.url}" target="_blank" rel="noopener">→</a>` : ''}
-                </li>
-            `).join('');
+        if (hasData(entity.foundations)) {
+            const foundationList = qs('#foundations-list');
+            if (foundationList) {
+                foundationList.innerHTML = entity.foundations.map(f => `
+                    <li class="plain-list__entry">
+                        <strong>${f.name}</strong> — ${f.description}
+                        ${f.url ? `<a class="item-list__source" href="${f.url}" target="_blank" rel="noopener">→</a>` : ''}
+                    </li>
+                `).join('');
+            }
+        } else {
+            hideSection('section-foundations');
         }
 
         // V. Political Spending
-        const polBlock = qs('#political-spending');
-        if (polBlock && entity.politicalSpending) {
-            const p = entity.politicalSpending;
-            polBlock.innerHTML = `
-                <div class="pol-block">
-                    ${p.pac && p.pac !== 'None' && p.pac !== 'None disclosed' ? `<div class="pol-block__pac">PAC: <strong>${p.pac}</strong></div>` : ''}
-                    ${p.total2024 ? `<div class="pol-block__pac">2024 Total: <strong>${p.total2024}</strong></div>` : ''}
-                    ${p.total2020 ? `<div class="pol-block__pac">2020 Total: <strong>${p.total2020}</strong></div>` : ''}
-                    ${p.total2022 ? `<div class="pol-block__pac">2022 Total: <strong>${p.total2022}</strong></div>` : ''}
-                    <div class="pol-block__note">${p.summary}</div>
-                    <a class="pol-block__source" href="${p.url}" target="_blank" rel="noopener">Source: ${p.source} →</a>
-                </div>
-            `;
+        const polPerson = entity.politicalSpending;
+        const polPersonHasData = polPerson && (polPerson.total2024 || polPerson.total2022 || polPerson.total2020 ||
+            (polPerson.pac && polPerson.pac !== 'None' && polPerson.pac !== 'None disclosed'));
+        if (polPersonHasData) {
+            const polBlock = qs('#political-spending');
+            if (polBlock) {
+                polBlock.innerHTML = `
+                    <div class="pol-block">
+                        ${polPerson.pac && polPerson.pac !== 'None' && polPerson.pac !== 'None disclosed' ? `<div class="pol-block__pac">PAC: <strong>${polPerson.pac}</strong></div>` : ''}
+                        ${polPerson.total2024 ? `<div class="pol-block__pac">2024 Total: <strong>${polPerson.total2024}</strong></div>` : ''}
+                        ${polPerson.total2022 ? `<div class="pol-block__pac">2022 Total: <strong>${polPerson.total2022}</strong></div>` : ''}
+                        ${polPerson.total2020 ? `<div class="pol-block__pac">2020 Total: <strong>${polPerson.total2020}</strong></div>` : ''}
+                        <div class="pol-block__note">${polPerson.summary}</div>
+                        <a class="pol-block__source" href="${polPerson.url}" target="_blank" rel="noopener">Source: ${polPerson.source} →</a>
+                    </div>
+                `;
+            }
+        } else {
+            hideSection('section-political');
         }
 
         // VI. Timeline
-        const timeline = qs('#timeline');
-        if (timeline && entity.timeline) {
-            timeline.innerHTML = entity.timeline.map(t => `
-                <div class="timeline__entry">
-                    <div class="timeline__year">${t.year}</div>
-                    <div class="timeline__event">${t.event}</div>
-                </div>
-            `).join('');
+        if (hasData(entity.timeline)) {
+            const timeline = qs('#timeline');
+            if (timeline) {
+                timeline.innerHTML = entity.timeline.map(t => `
+                    <div class="timeline__entry">
+                        <div class="timeline__year">${t.year}</div>
+                        <div class="timeline__event">${t.event}</div>
+                    </div>
+                `).join('');
+            }
+        } else {
+            hideSection('section-timeline');
         }
 
         // Sources
