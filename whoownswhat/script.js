@@ -176,6 +176,20 @@
         }
     }
 
+    /* ── SECTION VISIBILITY ─────────────────────────────────── */
+
+    function hideSection(id) {
+        const el = qs('#' + id);
+        if (el) el.hidden = true;
+    }
+
+    function hasData(value) {
+        if (value === null || value === undefined) return false;
+        if (Array.isArray(value)) return value.length > 0;
+        if (typeof value === 'object') return Object.keys(value).length > 0;
+        return Boolean(value);
+    }
+
     /* ── COMPANY PROFILE ────────────────────────────────────── */
 
     function initCompanyProfile() {
@@ -199,100 +213,128 @@
         qs('#stat-founded').textContent = entity.founded;
 
         // I. Shareholders
-        const shareholdersTable = qs('#shareholders-body');
-        if (shareholdersTable) {
-            shareholdersTable.innerHTML = entity.shareholders.map(s => `
-                <tr>
-                    <td>${s.name}</td>
-                    <td class="wow-table__stake">${s.stake}</td>
-                    <td>${s.type}</td>
-                    <td><a class="wow-table__source-link" href="${s.url}" target="_blank" rel="noopener">${s.source}</a></td>
-                </tr>
-            `).join('');
+        if (hasData(entity.shareholders)) {
+            const shareholdersTable = qs('#shareholders-body');
+            if (shareholdersTable) {
+                shareholdersTable.innerHTML = entity.shareholders.map(s => `
+                    <tr>
+                        <td>${s.name}</td>
+                        <td class="wow-table__stake">${s.stake}</td>
+                        <td>${s.type}</td>
+                        <td><a class="wow-table__source-link" href="${s.url}" target="_blank" rel="noopener">${s.source}</a></td>
+                    </tr>
+                `).join('');
+            }
+        } else {
+            hideSection('section-shareholders');
         }
 
         // II. Compensation
         const comp = entity.compensation;
-        if (comp) {
-            qs('#comp-ceo-name').textContent = comp.ceeName;
-            qs('#comp-ceo-title').textContent = comp.ceoTitle;
-            qs('#comp-ceo-total').textContent = comp.ceoTotal;
-            qs('#comp-ceo-salary').textContent = comp.ceoSalary;
-            qs('#comp-ceo-equity').textContent = comp.ceoEquity;
-            qs('#comp-worker').textContent = comp.medianWorker;
-            qs('#comp-ratio').textContent = comp.ceoWorkerRatio;
+        const compHasData = comp && (comp.ceeName || comp.ceoTotal || comp.medianWorker);
+        if (compHasData) {
+            qs('#comp-ceo-name').textContent = comp.ceeName || '';
+            qs('#comp-ceo-title').textContent = comp.ceoTitle || '';
+            qs('#comp-ceo-total').textContent = comp.ceoTotal || '';
+            qs('#comp-ceo-salary').textContent = comp.ceoSalary || '';
+            qs('#comp-ceo-equity').textContent = comp.ceoEquity || '';
+            qs('#comp-worker').textContent = comp.medianWorker || '';
+            qs('#comp-ratio').textContent = comp.ceoWorkerRatio || '';
             const compSourceEl = qs('#comp-source');
-            if (compSourceEl) {
+            if (compSourceEl && comp.url) {
                 compSourceEl.innerHTML = `Source: <a href="${comp.url}" target="_blank" rel="noopener">${comp.source}</a>`;
             }
+        } else {
+            hideSection('section-compensation');
         }
 
         // III. Lobbying
-        const lobbyingWrap = qs('#lobbying-rows');
-        if (lobbyingWrap && entity.lobbying) {
-            const maxAmt = Math.max(...entity.lobbying.map(l => parseFloat(l.amount.replace(/[$M]/g, ''))));
-            lobbyingWrap.innerHTML = entity.lobbying.map(l => {
-                const pct = (parseFloat(l.amount.replace(/[$M]/g, '')) / maxAmt * 100).toFixed(0);
-                return `
-                    <div class="lobbying-row">
-                        <div class="lobbying-row__year">${l.year}</div>
-                        <div class="lobbying-row__bar-wrap">
-                            <div class="lobbying-row__bar" style="width:${pct}%"></div>
+        if (hasData(entity.lobbying)) {
+            const lobbyingWrap = qs('#lobbying-rows');
+            if (lobbyingWrap) {
+                const maxAmt = Math.max(...entity.lobbying.map(l => parseFloat(l.amount.replace(/[$M]/g, ''))));
+                lobbyingWrap.innerHTML = entity.lobbying.map(l => {
+                    const pct = (parseFloat(l.amount.replace(/[$M]/g, '')) / maxAmt * 100).toFixed(0);
+                    return `
+                        <div class="lobbying-row">
+                            <div class="lobbying-row__year">${l.year}</div>
+                            <div class="lobbying-row__bar-wrap">
+                                <div class="lobbying-row__bar" style="width:${pct}%"></div>
+                            </div>
+                            <div class="lobbying-row__amount">${l.amount}</div>
+                            <a class="lobbying-row__source" href="${l.url}" target="_blank" rel="noopener">${l.source}</a>
                         </div>
-                        <div class="lobbying-row__amount">${l.amount}</div>
-                        <a class="lobbying-row__source" href="${l.url}" target="_blank" rel="noopener">${l.source}</a>
-                    </div>
-                `;
-            }).join('');
+                    `;
+                }).join('');
+            }
+        } else {
+            hideSection('section-lobbying');
         }
 
         // IV. Political Spending
-        const polBlock = qs('#political-spending');
-        if (polBlock && entity.politicalSpending) {
-            const p = entity.politicalSpending;
-            polBlock.innerHTML = `
-                <div class="pol-block">
-                    <div class="pol-block__pac">PAC: <strong>${p.pac}</strong></div>
-                    ${p.total2022 ? `<div class="pol-block__pac">2022 Cycle Total: <strong>${p.total2022}</strong></div>` : ''}
-                    <div class="pol-block__note">${p.note}</div>
-                    <a class="pol-block__source" href="${p.url}" target="_blank" rel="noopener">Source: ${p.source} →</a>
-                </div>
-            `;
+        const pol = entity.politicalSpending;
+        const polHasData = pol && (pol.pac || pol.total2022 || pol.note);
+        if (polHasData) {
+            const polBlock = qs('#political-spending');
+            if (polBlock) {
+                polBlock.innerHTML = `
+                    <div class="pol-block">
+                        <div class="pol-block__pac">PAC: <strong>${pol.pac}</strong></div>
+                        ${pol.total2022 ? `<div class="pol-block__pac">2022 Cycle Total: <strong>${pol.total2022}</strong></div>` : ''}
+                        <div class="pol-block__note">${pol.note}</div>
+                        <a class="pol-block__source" href="${pol.url}" target="_blank" rel="noopener">Source: ${pol.source} →</a>
+                    </div>
+                `;
+            }
+        } else {
+            hideSection('section-political');
         }
 
         // V. Fines & Settlements
-        const finesList = qs('#fines-list');
-        if (finesList && entity.fines) {
-            finesList.innerHTML = entity.fines.map(f => `
-                <li class="item-list__entry">
-                    <span class="item-list__year">${f.year}</span>
-                    <span class="item-list__body">
-                        ${f.description}
-                        <a class="item-list__source" href="${f.url}" target="_blank" rel="noopener">${f.source} →</a>
-                    </span>
-                </li>
-            `).join('');
+        if (hasData(entity.fines)) {
+            const finesList = qs('#fines-list');
+            if (finesList) {
+                finesList.innerHTML = entity.fines.map(f => `
+                    <li class="item-list__entry">
+                        <span class="item-list__year">${f.year}</span>
+                        <span class="item-list__body">
+                            ${f.description}
+                            <a class="item-list__source" href="${f.url}" target="_blank" rel="noopener">${f.source} →</a>
+                        </span>
+                    </li>
+                `).join('');
+            }
+        } else {
+            hideSection('section-fines');
         }
 
         // VI. Labour
-        const laborList = qs('#labor-list');
-        if (laborList && entity.labor) {
-            laborList.innerHTML = entity.labor.map(l => `
-                <li class="plain-list__entry">
-                    ${l.description}
-                    <a class="item-list__source" href="${l.url}" target="_blank" rel="noopener">${l.source} →</a>
-                </li>
-            `).join('');
+        if (hasData(entity.labor)) {
+            const laborList = qs('#labor-list');
+            if (laborList) {
+                laborList.innerHTML = entity.labor.map(l => `
+                    <li class="plain-list__entry">
+                        ${l.description}
+                        <a class="item-list__source" href="${l.url}" target="_blank" rel="noopener">${l.source} →</a>
+                    </li>
+                `).join('');
+            }
+        } else {
+            hideSection('section-labor');
         }
 
         // VII. Competitors
-        const competitorWrap = qs('#competitors-wrap');
-        if (competitorWrap && entity.competitors) {
-            competitorWrap.innerHTML = `
-                <div class="competitor-pills">
-                    ${entity.competitors.map(c => `<span class="competitor-pill">${c}</span>`).join('')}
-                </div>
-            `;
+        if (hasData(entity.competitors)) {
+            const competitorWrap = qs('#competitors-wrap');
+            if (competitorWrap) {
+                competitorWrap.innerHTML = `
+                    <div class="competitor-pills">
+                        ${entity.competitors.map(c => `<span class="competitor-pill">${c}</span>`).join('')}
+                    </div>
+                `;
+            }
+        } else {
+            hideSection('section-competitors');
         }
 
         // Sources
