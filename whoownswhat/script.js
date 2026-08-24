@@ -162,24 +162,30 @@
         // Featured companies — only show entities with lobbying data, sorted by spend
         const companyGrid = qs('#featured-companies');
         if (companyGrid) {
-            const parseLobbyingAmount = (lobbying) => {
+            const parseLobbyingEuros = (lobbying) => {
                 if (!lobbying || !lobbying.length) return -1;
                 const latest = lobbying.reduce((a, b) => a.year >= b.year ? a : b);
-                const m = latest.amount.replace(/[€,]/g, '').match(/([\d.]+)/);
-                return m ? parseFloat(m[1]) : 0;
+                const amt = latest.amount || '';
+                const num = parseFloat(amt.replace(/[€,\s]/g, '').replace(/[MK].*$/, '')) || 0;
+                if (/M/i.test(amt)) return num * 1_000_000;
+                if (/K/i.test(amt)) return num * 1_000;
+                return num;
             };
 
             const companies = Object.entries(WOW_DATA.entities)
                 .filter(([, e]) => e.type === 'company' && e.lobbying && e.lobbying.length > 0)
-                .sort((a, b) => parseLobbyingAmount(b[1].lobbying) - parseLobbyingAmount(a[1].lobbying))
+                .sort((a, b) => parseLobbyingEuros(b[1].lobbying) - parseLobbyingEuros(a[1].lobbying))
                 .slice(0, 12);
 
             companyGrid.innerHTML = companies.map(([id, e]) => {
                 const latest = e.lobbying.reduce((a, b) => a.year >= b.year ? a : b);
-                const sub = [e.sector, e.headquarters].filter(Boolean).join(' · ');
+                const sector = e.sector && e.sector !== '—' ? e.sector : null;
+                const hq = e.headquarters && e.headquarters !== 'Germany' ? e.headquarters : null;
+                const sub = [sector, hq].filter(Boolean).join(' · ') || 'Germany';
+                const tag = e.ticker || sector || 'Company';
                 return `
                 <a class="entity-card" href="${profileUrl(id, 'company')}">
-                    <div class="entity-card__tag">Company · ${e.ticker || e.sector}</div>
+                    <div class="entity-card__tag">Company · ${tag}</div>
                     <div class="entity-card__name">${e.name}</div>
                     <div class="entity-card__sub">${sub}</div>
                     <div class="entity-card__stat">
