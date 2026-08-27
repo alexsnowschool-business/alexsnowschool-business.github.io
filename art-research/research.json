@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3672,
-    "total_artists": 1427,
-    "median_hammer_usd": 88900,
-    "pct_above_estimate": 46.3,
+    "total_lots": 3722,
+    "total_artists": 1429,
+    "median_hammer_usd": 88200,
+    "pct_above_estimate": 46.0,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-24"
+    "generated_at": "2026-08-27"
   },
   "artists": [
     {
@@ -44569,6 +44569,33 @@
       }
     },
     {
+      "norm_name": "SHINODA TOKO",
+      "display_name": "Shinoda Toko",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 6500,
+        "avg_usd": 6500,
+        "total_label": "$6k",
+        "avg_label": "$6k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 6500,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Untitled",
+          "ratio": 0.93
+        }
+      }
+    },
+    {
       "norm_name": "THEOPHILE ALEXANDRE STEINLEN",
       "display_name": "Theophile Alexandre Steinlen",
       "dates": "",
@@ -45780,6 +45807,33 @@
         "top_ratio_lot": {
           "title": "Study for Massacre of the Innocents",
           "ratio": 0.84
+        }
+      }
+    },
+    {
+      "norm_name": "TRAN VAN HA",
+      "display_name": "Tran Van Ha",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 4200,
+        "avg_usd": 4200,
+        "total_label": "$4k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Old flower vendor",
+          "hammer_usd": 4200,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Old flower vendor",
+          "ratio": 0.53
         }
       }
     },
