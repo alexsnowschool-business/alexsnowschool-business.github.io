@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 3722,
-    "total_artists": 1429,
-    "median_hammer_usd": 88200,
-    "pct_above_estimate": 46.0,
+    "total_lots": 3772,
+    "total_artists": 1451,
+    "median_hammer_usd": 85000,
+    "pct_above_estimate": 45.8,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-08-27"
+    "generated_at": "2026-08-31"
   },
   "artists": [
     {
@@ -2923,6 +2923,60 @@
         "top_ratio_lot": {
           "title": "At the Sea-Side, Panel I",
           "ratio": 3.57
+        }
+      }
+    },
+    {
+      "norm_name": "DIEGO GIACOMETTI",
+      "display_name": "Diego Giacometti",
+      "dates": "1902–1985",
+      "nationality": "Swiss",
+      "movement": "Modernism · Sculpture",
+      "movement_id": "sculpture",
+      "bio": "Diego Giacometti was born in Borgonovo, in the Italian-speaking Swiss canton of Graubünden in 1902, the younger brother of Alberto Giacometti. He arrived in Paris in 1925 and became his brother's essential collaborator, assistant, and model for the next four decades, his face and body appearing in many of Alberto's most important sculptures. He was for much of his life overshadowed by his more famous brother, yet his own distinct practice as a designer of decorative objects — bronzes, furniture, lamps — constitutes a highly original body of work.\n\nDiego's bronzes depict animals, birds, and fantastical composite creatures rendered with a surface texture of remarkable vitality — roughened, encrusted, alive with the marks of the making process. Tables, chairs, and lamps incorporating cast bronze animals and naturalistic forms, made for clients including Dior's Château de la Colle Noire and the Fondation Maeght, occupy a position between furniture, sculpture, and the decorative arts that resists easy categorisation. Their combination of craftsmanship, formal invention, and animistic spirit is entirely his own.\n\nFollowing Alberto's death in 1966, Diego's independent practice received greater recognition. His work is sought by collectors of both modern sculpture and decorative arts, and its distinctive character — sophisticated but unpretentious, French in craft tradition but Swiss in material directness — has attracted sustained critical appreciation.",
+      "famous_works": [
+        {
+          "title": "Table with Bird and Snake",
+          "year": "1975",
+          "notes": "A bronze table in which the supporting legs and surface are inhabited by naturalistic animals, fusing furniture and sculpture in Diego's characteristically animistic manner."
+        },
+        {
+          "title": "Pair of Andirons with Panthers",
+          "year": "1960s",
+          "notes": "Decorative bronze fireplace objects combining the craftsmanship of the applied arts with sculptural imagination of a high order."
+        },
+        {
+          "title": "Cat Table",
+          "year": "1970s",
+          "notes": "A bronze low table featuring cat forms integrated into the structure, demonstrating Diego's ability to make the decorative carry genuine sculptural weight."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Studies of Animals for Alberto",
+          "year": "1950s",
+          "notes": "Working drawings and models made in collaboration with his brother that document the productive intimacy of their decades-long professional relationship."
+        },
+        {
+          "title": "Floor Lamp with Herons",
+          "year": "1965",
+          "notes": "A bronze and iron floor lamp in which naturalistic bird forms support the functional element with characteristic elegance."
+        }
+      ],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 7331832,
+        "avg_usd": 916479,
+        "total_label": "$7.33M",
+        "avg_label": "$916k",
+        "top_lot": {
+          "title": "\"Promenade des Amis\" Console",
+          "hammer_usd": 4700000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Le chat maître d'hôtel",
+          "ratio": 3.2
         }
       }
     },
@@ -7236,11 +7290,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 3,
-        "total_usd": 2339430,
-        "avg_usd": 779810,
-        "total_label": "$2.34M",
-        "avg_label": "$780k",
+        "lot_count": 5,
+        "total_usd": 2357430,
+        "avg_usd": 471486,
+        "total_label": "$2.36M",
+        "avg_label": "$471k",
         "top_lot": {
           "title": "Untitled",
           "hammer_usd": 2228000,
@@ -7362,60 +7416,6 @@
         "top_ratio_lot": {
           "title": "Dec. 24, 2006",
           "ratio": 2.24
-        }
-      }
-    },
-    {
-      "norm_name": "DIEGO GIACOMETTI",
-      "display_name": "Diego Giacometti",
-      "dates": "1902–1985",
-      "nationality": "Swiss",
-      "movement": "Modernism · Sculpture",
-      "movement_id": "sculpture",
-      "bio": "Diego Giacometti was born in Borgonovo, in the Italian-speaking Swiss canton of Graubünden in 1902, the younger brother of Alberto Giacometti. He arrived in Paris in 1925 and became his brother's essential collaborator, assistant, and model for the next four decades, his face and body appearing in many of Alberto's most important sculptures. He was for much of his life overshadowed by his more famous brother, yet his own distinct practice as a designer of decorative objects — bronzes, furniture, lamps — constitutes a highly original body of work.\n\nDiego's bronzes depict animals, birds, and fantastical composite creatures rendered with a surface texture of remarkable vitality — roughened, encrusted, alive with the marks of the making process. Tables, chairs, and lamps incorporating cast bronze animals and naturalistic forms, made for clients including Dior's Château de la Colle Noire and the Fondation Maeght, occupy a position between furniture, sculpture, and the decorative arts that resists easy categorisation. Their combination of craftsmanship, formal invention, and animistic spirit is entirely his own.\n\nFollowing Alberto's death in 1966, Diego's independent practice received greater recognition. His work is sought by collectors of both modern sculpture and decorative arts, and its distinctive character — sophisticated but unpretentious, French in craft tradition but Swiss in material directness — has attracted sustained critical appreciation.",
-      "famous_works": [
-        {
-          "title": "Table with Bird and Snake",
-          "year": "1975",
-          "notes": "A bronze table in which the supporting legs and surface are inhabited by naturalistic animals, fusing furniture and sculpture in Diego's characteristically animistic manner."
-        },
-        {
-          "title": "Pair of Andirons with Panthers",
-          "year": "1960s",
-          "notes": "Decorative bronze fireplace objects combining the craftsmanship of the applied arts with sculptural imagination of a high order."
-        },
-        {
-          "title": "Cat Table",
-          "year": "1970s",
-          "notes": "A bronze low table featuring cat forms integrated into the structure, demonstrating Diego's ability to make the decorative carry genuine sculptural weight."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Studies of Animals for Alberto",
-          "year": "1950s",
-          "notes": "Working drawings and models made in collaboration with his brother that document the productive intimacy of their decades-long professional relationship."
-        },
-        {
-          "title": "Floor Lamp with Herons",
-          "year": "1965",
-          "notes": "A bronze and iron floor lamp in which naturalistic bird forms support the functional element with characteristic elegance."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 2211832,
-        "avg_usd": 368639,
-        "total_label": "$2.21M",
-        "avg_label": "$369k",
-        "top_lot": {
-          "title": "\"Berceau\" table, modèle aux chats",
-          "hammer_usd": 571500,
-          "sale_name": "Impressionist and Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Le chat maître d'hôtel",
-          "ratio": 3.2
         }
       }
     },
@@ -19463,6 +19463,33 @@
       }
     },
     {
+      "norm_name": "JEAN ROYÈRE",
+      "display_name": "Jean Royère",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 1245000,
+        "avg_usd": 311250,
+        "total_label": "$1.25M",
+        "avg_label": "$311k",
+        "top_lot": {
+          "title": "A Rare \"Chevron\" Three-Piece Sofa Suite",
+          "hammer_usd": 550000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "A Rare Low Table",
+          "ratio": 1.6
+        }
+      }
+    },
+    {
       "norm_name": "HENRI LE SIDANER",
       "display_name": "Henri Le Sidaner",
       "dates": "",
@@ -20539,6 +20566,33 @@
         "top_ratio_lot": {
           "title": "You Are My Tears",
           "ratio": 1.43
+        }
+      }
+    },
+    {
+      "norm_name": "CLAUDE LALANNE",
+      "display_name": "Claude Lalanne",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 780000,
+        "avg_usd": 390000,
+        "total_label": "$780k",
+        "avg_label": "$390k",
+        "top_lot": {
+          "title": "Pair of \"Structure Végétale\" Candelabra",
+          "hammer_usd": 400000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of \"Structure Végétale\" Candelabra",
+          "ratio": 1.33
         }
       }
     },
@@ -22190,6 +22244,33 @@
       }
     },
     {
+      "norm_name": "JEAN-MICHEL FRANK",
+      "display_name": "Jean-Michel Frank",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 450000,
+        "avg_usd": 225000,
+        "total_label": "$450k",
+        "avg_label": "$225k",
+        "top_lot": {
+          "title": "Cabinet",
+          "hammer_usd": 380000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Cabinet",
+          "ratio": 1.52
+        }
+      }
+    },
+    {
       "norm_name": "HENRI LAURENS",
       "display_name": "Henri Laurens",
       "dates": "",
@@ -22348,6 +22429,33 @@
         "top_ratio_lot": {
           "title": "Torse de femme",
           "ratio": 2.3
+        }
+      }
+    },
+    {
+      "norm_name": "ALEXANDRE NOLL",
+      "display_name": "Alexandre Noll",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 438500,
+        "avg_usd": 87700,
+        "total_label": "$438k",
+        "avg_label": "$88k",
+        "top_lot": {
+          "title": "A Unique Cabinet",
+          "hammer_usd": 320000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Table Lamp",
+          "ratio": 2.56
         }
       }
     },
@@ -28643,6 +28751,33 @@
       }
     },
     {
+      "norm_name": "ANGELO MANGIAROTTI",
+      "display_name": "Angelo Mangiarotti",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 120000,
+        "avg_usd": 120000,
+        "total_label": "$120k",
+        "avg_label": "$120k",
+        "top_lot": {
+          "title": "A Rare Desk",
+          "hammer_usd": 120000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "A Rare Desk",
+          "ratio": 4.0
+        }
+      }
+    },
+    {
       "norm_name": "唐雲",
       "display_name": "唐雲",
       "dates": "",
@@ -28666,6 +28801,33 @@
         "top_ratio_lot": {
           "title": "Tang Yun, Encounter in Secluded Mountains",
           "ratio": 2.0
+        }
+      }
+    },
+    {
+      "norm_name": "GEORGES JOUVE",
+      "display_name": "Georges Jouve",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 8,
+        "total_usd": 118500,
+        "avg_usd": 14812,
+        "total_label": "$118k",
+        "avg_label": "$15k",
+        "top_lot": {
+          "title": "\"Trois Boules\" Table Lamp",
+          "hammer_usd": 55000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Ashtray",
+          "ratio": 1.75
         }
       }
     },
@@ -29688,6 +29850,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.47
+        }
+      }
+    },
+    {
+      "norm_name": "PIERRE JEANNERET",
+      "display_name": "Pierre Jeanneret",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 102000,
+        "avg_usd": 20400,
+        "total_label": "$102k",
+        "avg_label": "$20k",
+        "top_lot": {
+          "title": "Bench",
+          "hammer_usd": 28000,
+          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
+        },
+        "top_ratio_lot": {
+          "title": "Bench",
+          "ratio": 2.24
         }
       }
     },
@@ -31636,6 +31825,33 @@
       }
     },
     {
+      "norm_name": "CHRISTIAN BÉRARD",
+      "display_name": "Christian Bérard",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 75000,
+        "avg_usd": 75000,
+        "total_label": "$75k",
+        "avg_label": "$75k",
+        "top_lot": {
+          "title": "An Important Carpet for Nelson Rockefeller",
+          "hammer_usd": 75000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "An Important Carpet for Nelson Rockefeller",
+          "ratio": 0.75
+        }
+      }
+    },
+    {
       "norm_name": "溥僩",
       "display_name": "溥僩",
       "dates": "",
@@ -31686,33 +31902,6 @@
         "top_ratio_lot": {
           "title": "Nature morte et statue",
           "ratio": 2.54
-        }
-      }
-    },
-    {
-      "norm_name": "PIERRE JEANNERET",
-      "display_name": "Pierre Jeanneret",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 74000,
-        "avg_usd": 18500,
-        "total_label": "$74k",
-        "avg_label": "$18k",
-        "top_lot": {
-          "title": "Bench",
-          "hammer_usd": 28000,
-          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
-        },
-        "top_ratio_lot": {
-          "title": "Bench",
-          "ratio": 2.24
         }
       }
     },
@@ -32689,33 +32878,6 @@
       }
     },
     {
-      "norm_name": "GEORGES JOUVE",
-      "display_name": "Georges Jouve",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 7,
-        "total_usd": 63500,
-        "avg_usd": 9071,
-        "total_label": "$64k",
-        "avg_label": "$9k",
-        "top_lot": {
-          "title": "Vide Poche",
-          "hammer_usd": 14000,
-          "sale_name": "Of Form And Color Online Art And Design From The Emmanuel De Bayser Collection"
-        },
-        "top_ratio_lot": {
-          "title": "Ashtray",
-          "ratio": 1.75
-        }
-      }
-    },
-    {
       "norm_name": "THOMAS LUNY",
       "display_name": "Thomas Luny",
       "dates": "",
@@ -33256,6 +33418,33 @@
       }
     },
     {
+      "norm_name": "GEORGE NAKASHIMA",
+      "display_name": "George Nakashima",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 57000,
+        "avg_usd": 28500,
+        "total_label": "$57k",
+        "avg_label": "$28k",
+        "top_lot": {
+          "title": "Sliding Two-Door Cabinet",
+          "hammer_usd": 32000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "\"Kornblut\" Cabinet",
+          "ratio": 1.0
+        }
+      }
+    },
+    {
       "norm_name": "JAMES WARD, R.A.",
       "display_name": "James Ward, R.A.",
       "dates": "",
@@ -33657,33 +33846,6 @@
         "top_ratio_lot": {
           "title": "Phenomena, Batten down the Hatches",
           "ratio": 3.0
-        }
-      }
-    },
-    {
-      "norm_name": "ALEXANDRE NOLL",
-      "display_name": "Alexandre Noll",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 53500,
-        "avg_usd": 17833,
-        "total_label": "$54k",
-        "avg_label": "$18k",
-        "top_lot": {
-          "title": "Table Lamp",
-          "hammer_usd": 32000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Table Lamp",
-          "ratio": 2.56
         }
       }
     },
@@ -36118,6 +36280,33 @@
       }
     },
     {
+      "norm_name": "JACQUES GRANGE",
+      "display_name": "Jacques Grange",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 38000,
+        "avg_usd": 38000,
+        "total_label": "$38k",
+        "avg_label": "$38k",
+        "top_lot": {
+          "title": "Four Custom Pedestals",
+          "hammer_usd": 38000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Four Custom Pedestals",
+          "ratio": 3.8
+        }
+      }
+    },
+    {
       "norm_name": "KARL HARTUNG",
       "display_name": "Karl Hartung",
       "dates": "",
@@ -36357,33 +36546,6 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 3.52
-        }
-      }
-    },
-    {
-      "norm_name": "JEAN ROYÈRE",
-      "display_name": "Jean Royère",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 35000,
-        "avg_usd": 35000,
-        "total_label": "$35k",
-        "avg_label": "$35k",
-        "top_lot": {
-          "title": "Occasional Table",
-          "hammer_usd": 35000,
-          "sale_name": "Art Design From The Collection Of Barbara Gladstone"
-        },
-        "top_ratio_lot": {
-          "title": "Occasional Table",
-          "ratio": 1.17
         }
       }
     },
@@ -38980,6 +39142,33 @@
       }
     },
     {
+      "norm_name": "UTAGAWA HIROSHIGE",
+      "display_name": "Utagawa Hiroshige",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 9,
+        "total_usd": 23900,
+        "avg_usd": 2656,
+        "total_label": "$24k",
+        "avg_label": "$3k",
+        "top_lot": {
+          "title": "Harima Province: Maiko Beach (Harima, Maiko no hama) | Edo p",
+          "hammer_usd": 6000,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Harima Province: Maiko Beach (Harima, Maiko no hama) | Edo p",
+          "ratio": 2.4
+        }
+      }
+    },
+    {
       "norm_name": "WILHELM SASNAL",
       "display_name": "Wilhelm Sasnal",
       "dates": "",
@@ -39655,6 +39844,33 @@
       }
     },
     {
+      "norm_name": "MAURICE MARINOT",
+      "display_name": "Maurice Marinot",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 19500,
+        "avg_usd": 9750,
+        "total_label": "$20k",
+        "avg_label": "$10k",
+        "top_lot": {
+          "title": "Covered Vase",
+          "hammer_usd": 12000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Covered Vase",
+          "ratio": 1.2
+        }
+      }
+    },
+    {
       "norm_name": "CARLOS GARAICOA",
       "display_name": "Carlos Garaicoa",
       "dates": "",
@@ -40303,6 +40519,33 @@
       }
     },
     {
+      "norm_name": "BIRGER KAIPIAINEN",
+      "display_name": "Birger Kaipiainen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17000,
+        "avg_usd": 17000,
+        "total_label": "$17k",
+        "avg_label": "$17k",
+        "top_lot": {
+          "title": "Plate",
+          "hammer_usd": 17000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Plate",
+          "ratio": 0.97
+        }
+      }
+    },
+    {
       "norm_name": "CIRCLE OF ALBERTO PULLICINO",
       "display_name": "Circle Of Alberto Pullicino",
       "dates": "",
@@ -40623,6 +40866,33 @@
         "top_ratio_lot": {
           "title": "Jiang Hanting, Green Bamboo by Rock",
           "ratio": 0.71
+        }
+      }
+    },
+    {
+      "norm_name": "GIO PONTI",
+      "display_name": "Gio Ponti",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 16000,
+        "avg_usd": 16000,
+        "total_label": "$16k",
+        "avg_label": "$16k",
+        "top_lot": {
+          "title": "\"Apta\" Folding Table",
+          "hammer_usd": 16000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "\"Apta\" Folding Table",
+          "ratio": 0.91
         }
       }
     },
@@ -42004,6 +42274,33 @@
       }
     },
     {
+      "norm_name": "FRANCO ALBINI AND FRANCA HELG",
+      "display_name": "Franco Albini And Franca Helg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 13000,
+        "avg_usd": 13000,
+        "total_label": "$13k",
+        "avg_label": "$13k",
+        "top_lot": {
+          "title": "Pair of \"Tre Pezzi\" Armchairs",
+          "hammer_usd": 13000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Pair of \"Tre Pezzi\" Armchairs",
+          "ratio": 0.87
+        }
+      }
+    },
+    {
       "norm_name": "KENDELL GEERS",
       "display_name": "Kendell Geers",
       "dates": "",
@@ -42755,6 +43052,60 @@
         },
         "top_ratio_lot": {
           "title": "The Ruins of Trionto",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "FRENCH",
+      "display_name": "French",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Trestle Table",
+          "hammer_usd": 11000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Trestle Table",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
+      "norm_name": "MIRA NAKASHIMA",
+      "display_name": "Mira Nakashima",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 11000,
+        "avg_usd": 11000,
+        "total_label": "$11k",
+        "avg_label": "$11k",
+        "top_lot": {
+          "title": "Set of Eight \"New\" Chairs",
+          "hammer_usd": 11000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "Set of Eight \"New\" Chairs",
           "ratio": 0.88
         }
       }
@@ -43975,6 +44326,33 @@
       }
     },
     {
+      "norm_name": "ALESSANDRO MENDINI",
+      "display_name": "Alessandro Mendini",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 8000,
+        "avg_usd": 8000,
+        "total_label": "$8k",
+        "avg_label": "$8k",
+        "top_lot": {
+          "title": "\"Cetonia\" Chest of Drawers",
+          "hammer_usd": 8000,
+          "sale_name": "Important Design 4"
+        },
+        "top_ratio_lot": {
+          "title": "\"Cetonia\" Chest of Drawers",
+          "ratio": 0.8
+        }
+      }
+    },
+    {
       "norm_name": "FAILE (EST. 1999)",
       "display_name": "Faile (Est. 1999)",
       "dates": "",
@@ -43998,6 +44376,33 @@
         "top_ratio_lot": {
           "title": "Untitled",
           "ratio": 1.4
+        }
+      }
+    },
+    {
+      "norm_name": "YOSHIDA HIROSHI",
+      "display_name": "Yoshida Hiroshi",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 7700,
+        "avg_usd": 3850,
+        "total_label": "$8k",
+        "avg_label": "$4k",
+        "top_lot": {
+          "title": "Sailboats: Mist (Hansen, kiri) | Taisho period, early 20th c",
+          "hammer_usd": 5500,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Sailboats: Mist (Hansen, kiri) | Taisho period, early 20th c",
+          "ratio": 2.2
         }
       }
     },
@@ -45136,6 +45541,33 @@
       }
     },
     {
+      "norm_name": "UTAGAWA KUNISADA",
+      "display_name": "Utagawa Kunisada",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 5300,
+        "avg_usd": 2650,
+        "total_label": "$5k",
+        "avg_label": "$3k",
+        "top_lot": {
+          "title": "An album of seventy-five woodblock prints | Edo period, 19th",
+          "hammer_usd": 4500,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "The actor Ichikawa Danjuro VII in the role of Takechi Samano",
+          "ratio": 0.89
+        }
+      }
+    },
+    {
       "norm_name": "EDOUARD PIGNON",
       "display_name": "Edouard Pignon",
       "dates": "",
@@ -45375,6 +45807,33 @@
         "top_ratio_lot": {
           "title": "Hercules hunting the Calydonian boar",
           "ratio": 0.71
+        }
+      }
+    },
+    {
+      "norm_name": "TSUCHIYA KOITSU",
+      "display_name": "Tsuchiya Koitsu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 5000,
+        "avg_usd": 5000,
+        "total_label": "$5k",
+        "avg_label": "$5k",
+        "top_lot": {
+          "title": "Rain in Ginza (Ginza no ame) | Showa period, 20th century",
+          "hammer_usd": 5000,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Rain in Ginza (Ginza no ame) | Showa period, 20th century",
+          "ratio": 2.0
         }
       }
     },
@@ -46837,6 +47296,33 @@
       }
     },
     {
+      "norm_name": "SUZUKI HARUNOBU",
+      "display_name": "Suzuki Harunobu",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 2200,
+        "avg_usd": 2200,
+        "total_label": "$2k",
+        "avg_label": "$2k",
+        "top_lot": {
+          "title": "Young couple with auspicious New Year dream symbols: Mount F",
+          "hammer_usd": 2200,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Young couple with auspicious New Year dream symbols: Mount F",
+          "ratio": 0.88
+        }
+      }
+    },
+    {
       "norm_name": "ADRIEN DAX",
       "display_name": "Adrien Dax",
       "dates": "",
@@ -47080,6 +47566,33 @@
       }
     },
     {
+      "norm_name": "KITAGAWA UTAMARO",
+      "display_name": "Kitagawa Utamaro",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1800,
+        "avg_usd": 900,
+        "total_label": "$2k",
+        "avg_label": "$900",
+        "top_lot": {
+          "title": "Abalone diver | Edo period, late 18th century",
+          "hammer_usd": 900,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Abalone diver | Edo period, late 18th century",
+          "ratio": 0.36
+        }
+      }
+    },
+    {
       "norm_name": "NAUM ARONSON",
       "display_name": "Naum Aronson",
       "dates": "",
@@ -47211,6 +47724,33 @@
         "top_ratio_lot": {
           "title": "Minia (Ocotilán)",
           "ratio": 0.67
+        }
+      }
+    },
+    {
+      "norm_name": "TOTOYA HOKKEI",
+      "display_name": "Totoya Hokkei",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 1300,
+        "avg_usd": 650,
+        "total_label": "$1k",
+        "avg_label": "$650",
+        "top_lot": {
+          "title": "Lu Wang (Rosho) and Daikokuten | Edo period, 19th century",
+          "hammer_usd": 800,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Lu Wang (Rosho) and Daikokuten | Edo period, 19th century",
+          "ratio": 0.64
         }
       }
     },
@@ -47373,6 +47913,33 @@
         "top_ratio_lot": {
           "title": "An Audience watching a Nautical Performance, possibly a Fête",
           "ratio": 0.17
+        }
+      }
+    },
+    {
+      "norm_name": "KATSUKAWA SHUN’EI",
+      "display_name": "Katsukawa Shun’Ei",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 900,
+        "avg_usd": 900,
+        "total_label": "$900",
+        "avg_label": "$900",
+        "top_lot": {
+          "title": "An actor in an onnagata role carrying a shamisen case | Edo ",
+          "hammer_usd": 900,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "An actor in an onnagata role carrying a shamisen case | Edo ",
+          "ratio": 0.36
         }
       }
     },
@@ -47562,6 +48129,33 @@
         "top_ratio_lot": {
           "title": "Study of Trees and Shrubs with Seated Figure; with Derelict ",
           "ratio": 0.51
+        }
+      }
+    },
+    {
+      "norm_name": "YASHIMA GAKUTEI",
+      "display_name": "Yashima Gakutei",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 600,
+        "avg_usd": 600,
+        "total_label": "$600",
+        "avg_label": "$600",
+        "top_lot": {
+          "title": "Two surimono from the series Twenty-Four Japanese Paragons o",
+          "hammer_usd": 600,
+          "sale_name": "Asian Art 5000 Years Pf2657"
+        },
+        "top_ratio_lot": {
+          "title": "Two surimono from the series Twenty-Four Japanese Paragons o",
+          "ratio": 0.67
         }
       }
     },
