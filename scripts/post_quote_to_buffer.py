@@ -61,11 +61,16 @@ def _build_captions(quote_text: str, author: str, book: str,
 
 
 def _youtube_title(quote_text: str, author: str) -> str:
-    """Short YouTube title — quote truncated to fit 100-char limit."""
-    base = f'"{quote_text}"'
-    if author:
-        base += f" — {author}"
-    return base if len(base) <= 100 else base[:97] + "…"
+    """Short YouTube title — kept ≤70 chars so it survives small screens and
+    search-result truncation; the author suffix always stays visible."""
+    max_len = 70
+    suffix  = f" — {author}" if author else ""
+    budget  = max_len - len(suffix) - 2  # 2 for the surrounding quote marks
+    text    = quote_text
+    if len(text) > budget:
+        # cut at a word boundary, drop trailing punctuation, add ellipsis
+        text = text[:budget - 1].rsplit(" ", 1)[0].rstrip(",.;:") + "…"
+    return f'"{text}"{suffix}'
 
 
 # ── GitHub release upload ─────────────────────────────────────────────────────

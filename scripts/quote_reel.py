@@ -2,16 +2,19 @@
 """
 Reading Quote Reel — Hermès aesthetic.
 
-Picks an unused quote from the account's quotes.db, downloads a random art
-piece image from art.db as a blurred background, renders a single 1080×1920
-frame, and produces a 15-second MP4 with low-volume ambient music.
+Picks unused quotes from the account's quotes.db (3 by default), pairs each
+with its own blurred art background from art.db, renders animated 1080×1920
+segments with a Ken Burns pan, TTS voiceover per quote (edge-tts, macOS `say`
+fallback), ducked ambient music, and a CTA that fades in at the end.
 
 Usage:
-    python scripts/quote_reel.py                          # auto-pick next unused quote
+    python scripts/quote_reel.py                          # 3 quotes, 3 backgrounds, voiceover
+    python scripts/quote_reel.py --count 1                # single-quote reel
     python scripts/quote_reel.py --account stoicism       # use a different account
-    python scripts/quote_reel.py --id 42                  # use specific quote id
-    python scripts/quote_reel.py --preview                # render frame PNG only, no video
-    python scripts/quote_reel.py --dry-run                # print chosen quote, do nothing
+    python scripts/quote_reel.py --id 42                  # use specific quote id (single)
+    python scripts/quote_reel.py --no-voice               # skip TTS voiceover
+    python scripts/quote_reel.py --preview                # render frame PNGs only, no video
+    python scripts/quote_reel.py --dry-run                # print chosen quotes, do nothing
 """
 
 import argparse
@@ -37,7 +40,13 @@ REELS_DIR    = BUSINESS_DIR / "reels"
 W, H         = 1080, 1920
 FPS          = 24
 TOTAL_S      = 8.0
-MUSIC_VOLUME = 0.25
+MUSIC_VOLUME = 0.30   # bumped from 0.25 for a stronger opening audio hook
+MUSIC_VOLUME_DUCKED = 0.12  # music level while a voiceover is playing
+KB_ZOOM      = 1.08   # Ken Burns: background rendered 8% oversize; we pan across it
+FADE_S       = 0.5    # segment fade in/out duration
+TTS_VOICE    = "en-US-ChristopherNeural"  # deep mature male; macOS `say` fallback
+TTS_RATE     = "-8%"     # slightly slower for an older, unhurried delivery
+TTS_PITCH    = "-12Hz"   # lower pitch for gravitas
 
 DEFAULT_PALETTE = {
     "bg":     (14, 10, 6),
@@ -93,6 +102,24 @@ def pick_quote(conn: sqlite3.Connection, quote_id: int | None = None) -> dict | 
     if not row:
         return None
     return {"id": row[0], "text": row[1], "author": row[2], "book": row[3]}
+
+
+def pick_quotes(conn: sqlite3.Connection, n: int) -> list[dict]:
+    """Pick up to n unused quotes, preferring the 60-110 char sweet spot."""
+    rows = conn.execute(
+        "SELECT id, text, author, book FROM quotes "
+        "WHERE used_at IS NULL AND LENGTH(text) BETWEEN 60 AND 110 "
+        "ORDER BY RANDOM() LIMIT ?", (n,)
+    ).fetchall()
+    if len(rows) < n:
+        have = [r[0] for r in rows]
+        placeholders = ",".join("?" * len(have)) or "-1"
+        rows += conn.execute(
+            f"SELECT id, text, author, book FROM quotes "
+            f"WHERE used_at IS NULL AND id NOT IN ({placeholders}) "
+            f"ORDER BY RANDOM() LIMIT ?", (*have, n - len(rows))
+        ).fetchall()
+    return [{"id": r[0], "text": r[1], "author": r[2], "book": r[3]} for r in rows]
 
 
 def mark_quote_used(conn: sqlite3.Connection, quote_id: int):
@@ -196,6 +223,60 @@ def prepare_background(art_img: Image.Image | None, palette: dict) -> Image.Imag
     return base
 
 
+def prepare_art_oversized(art_img: Image.Image | None, palette: dict,
+                          zoom: float = KB_ZOOM) -> Image.Image | None:
+    """Return a colour-graded, blurred art image at zoom × (W, H).
+
+    The Ken Burns pan crops a W×H window from this larger image each frame,
+    producing slow camera movement instead of a static background.
+    """
+    if art_img is None:
+        return None
+    ow, oh = int(W * zoom), int(H * zoom)
+    aw, ah = art_img.size
+    scale  = max(ow / aw, oh / ah)
+    nw, nh = int(aw * scale), int(ah * scale)
+    img    = art_img.resize((nw, nh), Image.LANCZOS)
+    x      = (nw - ow) // 2
+    y      = (nh - oh) // 2
+    img    = img.crop((x, y, x + ow, y + oh))
+    img    = ImageEnhance.Color(img).enhance(0.90)
+    img    = ImageEnhance.Contrast(img).enhance(0.95)
+    img    = ImageEnhance.Brightness(img).enhance(0.90)
+    r, g, b = img.split()
+    r = r.point(lambda v: min(255, int(v * 1.04)))
+    b = b.point(lambda v: max(0, int(v * 0.88)))
+    img    = Image.merge("RGB", (r, g, b))
+    img    = img.filter(ImageFilter.GaussianBlur(radius=3))
+    return img
+
+
+def build_overlay_mask(palette: dict) -> tuple[Image.Image, Image.Image]:
+    """Precompute the centre-band dark gradient overlay and its alpha mask.
+
+    Returns (overlay_rgb, mask_L) — reused across all Ken Burns frames so the
+    per-frame cost is just a crop + paste.
+    """
+    overlay = Image.new("RGB", (W, H), palette["bg"])
+    mask    = Image.new("L",   (W, H), 0)
+    d       = ImageDraw.Draw(mask)
+
+    center       = H // 2
+    band_half    = int(H * 0.30)
+    edge_alpha   = 40
+    centre_alpha = 140
+
+    for y_pos in range(H):
+        dist = abs(y_pos - center)
+        if dist <= band_half:
+            t     = 1.0 - dist / band_half
+            alpha = int(edge_alpha + (centre_alpha - edge_alpha) * t)
+        else:
+            alpha = edge_alpha
+        d.line([(0, y_pos), (W, y_pos)], fill=alpha)
+    return overlay, mask
+
+
 # ── Frame rendering ───────────────────────────────────────────────────────────
 
 def wrap_quote(text: str, font: ImageFont.FreeTypeFont, max_width: int,
@@ -254,7 +335,8 @@ class QuoteLayout:
 def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
                      handle: str, niche: str, art_artist: str, art_title: str,
                      lines_visible: int, current_line_alpha: int,
-                     author_alpha: int) -> Image.Image:
+                     author_alpha: int, cta_alpha: int = 0,
+                     cta_text: str = "") -> Image.Image:
     """Render one animation frame given per-element alpha values."""
     img  = bg.copy().convert("RGBA")
     draw = ImageDraw.Draw(img, "RGBA")
@@ -358,6 +440,13 @@ def _render_frame_at(layout: QuoteLayout, bg: Image.Image,
                           fill=(*palette["quote"], author_alpha))
 
 
+    # CTA overlay — "reason to stay" prompt that fades in during the end hold
+    if cta_alpha > 0 and cta_text:
+        cta_bbox = draw.textbbox((0, 0), cta_text, font=layout.label_font)
+        cta_w    = cta_bbox[2] - cta_bbox[0]
+        draw.text(((W - cta_w) // 2, H - 148), cta_text,
+                  font=layout.label_font, fill=(*palette["author"], cta_alpha))
+
     return img
 
 
@@ -370,70 +459,107 @@ def render_frame(quote: dict, bg: Image.Image, palette: dict,
                             len(layout.lines), 255, 255)
 
 
-def generate_frames(quote: dict, bg: Image.Image, bg_plain: Image.Image, palette: dict,
-                    handle: str, niche: str, art_artist: str, art_title: str,
-                    fps: int = FPS, total_s: float = TOTAL_S,
-                    fade_s: float = 0.5):
-    """Generator that yields PIL RGBA Images, one per animation frame."""
-    layout  = QuoteLayout(quote, palette)
-    n_lines = len(layout.lines)
+def plan_segment(quote: dict, palette: dict, vo_dur: float,
+                 reveal_per_element: float = 0.5) -> dict:
+    """Compute a segment's timing so the voiceover always fits.
 
-    start_hold_s       = 1.5  # opens on the full quote + art — the grid/loop thumbnail
-    fade_out_s         = 0.5  # dips down to the blank painting
-    blank_hold_s       = 0.8
-    fade_in_s          = 0.5
-    reveal_per_element = 0.5
-    reveal_s           = (n_lines + 1) * reveal_per_element
-    end_hold_s         = max(1.5, total_s - start_hold_s - fade_out_s -
-                            blank_hold_s - fade_in_s - reveal_s)
+    Segment = fade in → line reveals → author reveal → hold → fade out.
+    The voiceover starts as the first line begins revealing.
+    """
+    n_lines  = len(QuoteLayout(quote, palette).lines)
+    reveal_s = (n_lines + 1) * reveal_per_element
+    hold_s   = max(1.2, vo_dur + 0.6 - reveal_s)
+    total_s  = 2 * FADE_S + reveal_s + hold_s
+    return {"reveal_s": reveal_s, "hold_s": hold_s, "total_s": total_s}
 
-    reveal_frames    = int(reveal_per_element * fps)
-    start_hold_frames = int(start_hold_s * fps)
-    fade_out_frames  = int(fade_out_s * fps)
-    blank_hold_frames = int(blank_hold_s * fps)
-    fade_in_frames   = int(fade_in_s * fps)
-    end_hold_frames  = int(end_hold_s * fps)
 
-    def frame(bg_layer, lines_visible, current_line_alpha, author_alpha):
-        return _render_frame_at(layout, bg_layer, handle, niche, art_artist, art_title,
-                                lines_visible, current_line_alpha, author_alpha)
+def generate_multi_frames(segments: list[dict], palette: dict,
+                          handle: str, niche: str,
+                          fps: int = FPS, cta_text: str = ""):
+    """Generator yielding PIL RGBA frames for a multi-quote reel.
 
-    final_frame = frame(bg, n_lines, 255, 255)   # full quote + art, fully revealed
-    cover_frame = frame(bg_plain, 0, 0, 0)        # blank painting, no text
+    Each segment gets its own artwork with a Ken Burns pan: fade in from the
+    bg colour, reveal the quote line by line (voiceover starts here), hold
+    while the voiceover finishes, fade back out. The CTA fades in during the
+    final segment's hold. Segment dicts need: quote, art_img, art_artist,
+    art_title, total_s.
+    """
+    solid = Image.new("RGBA", (W, H), (*palette["bg"], 255))
+    last  = len(segments) - 1
 
-    # 1. Start hold — open on the full quote + art (the loop's bookend frame)
-    for _ in range(start_hold_frames):
-        yield final_frame
+    for si, seg in enumerate(segments):
+        quote   = seg["quote"]
+        layout  = QuoteLayout(quote, palette)
+        n_lines = len(layout.lines)
 
-    # 2. Fade out — full quote dips down to the blank painting
-    for f in range(fade_out_frames):
-        t = (f + 1) / fade_out_frames
-        yield Image.blend(final_frame, cover_frame, t)
+        kb_img = prepare_art_oversized(seg["art_img"], palette)
+        kb_overlay, kb_mask = (build_overlay_mask(palette) if kb_img is not None
+                               else (None, None))
+        bg_static = prepare_background(seg["art_img"], palette)
 
-    # 3. Blank hold
-    for _ in range(blank_hold_frames):
-        yield cover_frame
+        fade_frames   = int(FADE_S * fps)
+        reveal_frames = int(0.5 * fps)
+        seg_frames    = int(seg["total_s"] * fps)
+        hold_frames   = max(int(1.2 * fps),
+                            seg_frames - 2 * fade_frames -
+                            (n_lines + 1) * reveal_frames)
+        total_frames  = (2 * fade_frames + (n_lines + 1) * reveal_frames +
+                         hold_frames)
 
-    # 4. Fade in — painting darkens toward the overlay bg, still no text
-    for f in range(fade_in_frames):
-        t = (f + 1) / fade_in_frames
-        blended = Image.blend(bg_plain, bg, t)
-        yield frame(blended, 0, 0, 0)
+        def get_bg(frame_idx: int) -> Image.Image:
+            """Ken Burns crop for this segment's frame index."""
+            if kb_img is None:
+                return bg_static
+            progress = frame_idx / max(total_frames - 1, 1)
+            max_ox   = kb_img.width  - W
+            oy       = (kb_img.height - H) // 2
+            ox       = int(max_ox * (1.0 - progress))   # slow right → left drift
+            cropped  = kb_img.crop((ox, oy, ox + W, oy + H)).copy()
+            cropped.paste(kb_overlay, mask=kb_mask)
+            return cropped
 
-    # 5. Line reveals — full overlay bg, text fades in line by line
-    for line_idx in range(n_lines):
+        def rend(frame_idx, lines_visible, line_alpha, author_alpha, cta_a=0):
+            return _render_frame_at(layout, get_bg(frame_idx), handle, niche,
+                                    seg["art_artist"], seg["art_title"],
+                                    lines_visible, line_alpha, author_alpha,
+                                    cta_alpha=cta_a, cta_text=cta_text)
+
+        fi = 0
+
+        # 1. Fade in from solid bg colour to art (no text yet)
+        for f in range(fade_frames):
+            t = (f + 1) / fade_frames
+            yield Image.blend(solid, rend(fi, 0, 0, 0), t)
+            fi += 1
+
+        # 2. Line reveals — voiceover starts with the first line
+        for line_idx in range(n_lines):
+            for f in range(reveal_frames):
+                alpha = int(255 * (f + 1) / reveal_frames)
+                yield rend(fi, line_idx, alpha, 0)
+                fi += 1
+
+        # 3. Author reveal
         for f in range(reveal_frames):
             alpha = int(255 * (f + 1) / reveal_frames)
-            yield frame(bg, line_idx, alpha, 0)
+            yield rend(fi, n_lines, 255, alpha)
+            fi += 1
 
-    # 6. Author reveal
-    for f in range(reveal_frames):
-        alpha = int(255 * (f + 1) / reveal_frames)
-        yield frame(bg, n_lines, 255, alpha)
+        # 4. Hold — voiceover finishes; CTA fades in on the last segment
+        cta_start = hold_frames // 2
+        for f in range(hold_frames):
+            cta_a = 0
+            if si == last and cta_text and f >= cta_start:
+                cta_a = min(255, int(255 * (f - cta_start + 1) /
+                                     max(1, hold_frames - cta_start)))
+            yield rend(fi, n_lines, 255, 255, cta_a)
+            fi += 1
 
-    # 7. End hold — identical to the opening frame, so the loop is seamless
-    for _ in range(end_hold_frames):
-        yield final_frame
+        # 5. Fade out to solid bg colour
+        for f in range(fade_frames):
+            t = (f + 1) / fade_frames
+            yield Image.blend(rend(fi, n_lines, 255, 255), solid, t)
+            fi += 1
 
 
 # ── Music selection ───────────────────────────────────────────────────────────
@@ -450,6 +576,49 @@ def pick_music_track(seed: str) -> Path | None:
     return tracks[abs(hash(seed)) % len(tracks)]
 
 
+# ── Voiceover ─────────────────────────────────────────────────────────────────
+
+def synth_voiceover(text: str, out_path: Path, voice: str = TTS_VOICE) -> Path | None:
+    """Synthesize speech for one quote. Tries edge-tts first (works in CI),
+    falls back to macOS `say`. Returns the audio path or None."""
+    try:
+        import asyncio
+        import edge_tts
+
+        async def _run():
+            await edge_tts.Communicate(
+                text, voice, rate=TTS_RATE, pitch=TTS_PITCH
+            ).save(str(out_path))
+
+        asyncio.run(_run())
+        if out_path.exists() and out_path.stat().st_size > 0:
+            return out_path
+    except Exception as e:
+        print(f"  edge-tts unavailable ({e}); trying macOS say")
+
+    aiff = out_path.with_suffix(".aiff")
+    r = subprocess.run(["say", "-v", "Daniel", "-r", "160", "-o", str(aiff), text],
+                       capture_output=True)
+    if r.returncode == 0 and aiff.exists():
+        return aiff
+
+    print("  Warning: no TTS available — segment will have no voiceover")
+    return None
+
+
+def audio_duration(path: Path) -> float:
+    """Return audio duration in seconds via ffprobe."""
+    r = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=nw=1:nk=1", str(path)],
+        capture_output=True, text=True,
+    )
+    try:
+        return float(r.stdout.strip())
+    except ValueError:
+        return 0.0
+
+
 # ── Video export ──────────────────────────────────────────────────────────────
 
 def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
@@ -459,7 +628,7 @@ def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
     if music_track:
         af = (
             f"[1:a]"
-            f"afade=t=in:st=0:d=0.5,"
+            f"afade=t=in:st=0:d=0.2,"
             f"afade=t=out:st={fade_start:.2f}:d=2.0,"
             f"volume={MUSIC_VOLUME},"
             f"atrim=duration={TOTAL_S:.2f}"
@@ -503,8 +672,14 @@ def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
 
 
 def export_animated_video(frames_iter, out_path: Path, music_track: Path | None,
-                          fps: int = FPS, total_s: float = TOTAL_S):
-    """Pipe raw RGB frames to FFmpeg via stdin to produce an animated MP4."""
+                          fps: int = FPS, total_s: float = TOTAL_S,
+                          voiceovers: list[tuple[Path, float]] | None = None):
+    """Pipe raw RGB frames to FFmpeg via stdin to produce an animated MP4.
+
+    voiceovers: list of (audio_path, offset_seconds) mixed over the music,
+    which is ducked to MUSIC_VOLUME_DUCKED while voiceovers are present.
+    """
+    voiceovers = voiceovers or []
     fade_start = max(0.0, total_s - 2.0)
 
     raw_video_args = [
@@ -516,47 +691,56 @@ def export_animated_video(frames_iter, out_path: Path, music_track: Path | None,
         "-i", "pipe:0",
     ]
 
+    cmd = ["ffmpeg", "-y"] + raw_video_args
+
+    # Audio input 1: music (or silence)
     if music_track:
-        af = (
-            f"[1:a]"
-            f"afade=t=in:st=0:d=0.5,"
-            f"afade=t=out:st={fade_start:.2f}:d=2.0,"
-            f"volume={MUSIC_VOLUME},"
-            f"atrim=duration={total_s:.2f}"
-            f"[aout]"
-        )
-        cmd = (
-            ["ffmpeg", "-y"]
-            + raw_video_args
-            + [
-                "-stream_loop", "-1", "-i", str(music_track),
-                "-filter_complex", af,
-                "-map", "0:v",
-                "-map", "[aout]",
-                "-t", str(total_s),
-                "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-                "-pix_fmt", "yuv420p",
-                "-c:a", "aac", "-b:a", "192k",
-                "-shortest",
-                str(out_path),
-            ]
-        )
+        cmd += ["-stream_loop", "-1", "-i", str(music_track)]
         print(f"  ♪ Music: {music_track.name}")
     else:
-        cmd = (
-            ["ffmpeg", "-y"]
-            + raw_video_args
-            + [
-                "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
-                "-t", str(total_s),
-                "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-                "-pix_fmt", "yuv420p",
-                "-c:a", "aac", "-b:a", "128k",
-                "-shortest",
-                str(out_path),
-            ]
+        cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo"]
+        print("  ♪ No music tracks found — silent base track")
+
+    # Audio inputs 2..N: voiceovers
+    for vo_path, _ in voiceovers:
+        cmd += ["-i", str(vo_path)]
+
+    music_vol = MUSIC_VOLUME_DUCKED if voiceovers else MUSIC_VOLUME
+    parts = [
+        f"[1:a]"
+        f"afade=t=in:st=0:d=0.2,"
+        f"afade=t=out:st={fade_start:.2f}:d=2.0,"
+        f"volume={music_vol},"
+        f"atrim=duration={total_s:.2f}"
+        f"[a_base]"
+    ]
+    mix_ins = "[a_base]"
+    for i, (_, offset_s) in enumerate(voiceovers):
+        delay_ms = int(offset_s * 1000)
+        parts.append(f"[{2 + i}:a]adelay={delay_ms}:all=1[a_v{i}]")
+        mix_ins += f"[a_v{i}]"
+
+    if voiceovers:
+        parts.append(
+            f"{mix_ins}amix=inputs={1 + len(voiceovers)}"
+            f":duration=first:normalize=0[aout]"
         )
-        print("  ♪ No music tracks found — silent track")
+        af = ";".join(parts)
+        print(f"  ♪ Voiceovers: {len(voiceovers)} mixed in (music ducked to {music_vol})")
+    else:
+        af = parts[0].replace("[a_base]", "[aout]")
+
+    cmd += [
+        "-filter_complex", af,
+        "-map", "0:v",
+        "-map", "[aout]",
+        "-t", str(total_s),
+        "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+        "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "192k",
+        "-shortest",
+        str(out_path),
+    ]
 
     print(f"  Encoding → {out_path.name}")
 
@@ -593,7 +777,11 @@ def main():
     parser = argparse.ArgumentParser(description="Reading quote reel generator")
     parser.add_argument("--account", default="lifequoteshere",
                         help="Account slug matching accounts/<slug>.yaml")
-    parser.add_argument("--id",      type=int, help="Specific quote id to use")
+    parser.add_argument("--id",      type=int, help="Specific quote id to use (single-quote reel)")
+    parser.add_argument("--count",   type=int, default=3,
+                        help="Number of quotes per reel (default 3)")
+    parser.add_argument("--no-voice", action="store_true",
+                        help="Skip TTS voiceover")
     parser.add_argument("--preview", action="store_true",
                         help="Render frame PNG only, skip video encoding")
     parser.add_argument("--dry-run", action="store_true",
@@ -623,90 +811,139 @@ def main():
     q_conn   = sqlite3.connect(QUOTES_DB)
     art_conn = sqlite3.connect(ART_DB)
 
-    # ── Pick quote ────────────────────────────────────────────
-    quote = pick_quote(q_conn, args.id)
-    if not quote:
+    # ── Pick quotes ───────────────────────────────────────────
+    if args.id is not None:
+        q = pick_quote(q_conn, args.id)
+        quotes = [q] if q else []
+    else:
+        quotes = pick_quotes(q_conn, args.count)
+
+    if not quotes:
         print("No unused quotes available. Run: python scraper/goodreads_scraper.py")
         sys.exit(1)
 
-    print(f"\nQuote #{quote['id']} ({len(quote['text'])} chars)")
-    print(f"  Text:   {quote['text'][:80]}{'…' if len(quote['text']) > 80 else ''}")
-    print(f"  Author: {quote['author']}")
-    print(f"  Book:   {quote['book']}")
+    for quote in quotes:
+        print(f"\nQuote #{quote['id']} ({len(quote['text'])} chars)")
+        print(f"  Text:   {quote['text'][:80]}{'…' if len(quote['text']) > 80 else ''}")
+        print(f"  Author: {quote['author']}")
+        print(f"  Book:   {quote['book']}")
 
     if args.dry_run:
         q_conn.close()
         art_conn.close()
         return
 
-    # ── Pick art background ───────────────────────────────────
-    art_result = pick_art_image_url(art_conn)
-    art_img    = None
-    art_artist = ""
-    art_title  = ""
-
-    if art_result:
-        img_url, art_artist, art_title = art_result
-        print(f"\n  Art: {art_artist} — {art_title}")
-        print(f"  URL: {img_url}")
-        art_img = download_image(img_url)
-    else:
-        print("\n  No art images found; using plain dark background")
+    # ── Pick one art background per quote ─────────────────────
+    segments  = []
+    seen_urls = set()
+    for quote in quotes:
+        art_img    = None
+        art_artist = ""
+        art_title  = ""
+        for _ in range(8):  # retry to avoid duplicate artworks
+            art_result = pick_art_image_url(art_conn)
+            if not art_result:
+                break
+            img_url, cand_artist, cand_title = art_result
+            if img_url in seen_urls:
+                continue
+            seen_urls.add(img_url)
+            print(f"\n  Art: {cand_artist} — {cand_title}")
+            art_img = download_image(img_url)
+            if art_img is not None:
+                art_artist, art_title = cand_artist, cand_title
+                break
+        if art_img is None:
+            print("\n  No art image for this quote; using plain dark background")
+        segments.append({"quote": quote, "art_img": art_img,
+                         "art_artist": art_artist, "art_title": art_title})
 
     art_conn.close()
 
     # ── Output folder ─────────────────────────────────────────
     import reel_utils
-    slug = reel_utils.make_slug(f"{quote['author']} {quote['text'][:30]}")
+    first = quotes[0]
+    slug = reel_utils.make_slug(f"{first['author']} {first['text'][:30]}")
     folder_name = f"quote-{date.today().isoformat()}_{slug}"
     reel_dir = REELS_DIR / folder_name
     reel_dir.mkdir(parents=True, exist_ok=True)
     print(f"\n  Output: {reel_dir}")
 
-    bg_plain = prepare_art(art_img, palette)
-    bg       = prepare_background(art_img, palette)
+    if args.preview:
+        for i, seg in enumerate(segments):
+            bg    = prepare_background(seg["art_img"], palette)
+            frame = render_frame(seg["quote"], bg, palette, handle, niche,
+                                 seg["art_artist"], seg["art_title"])
+            frame_path = reel_dir / f"frame_{i}.png"
+            frame.convert("RGB").save(frame_path, "PNG")
+            print(f"  Frame saved: {frame_path.name}")
+
+    # ── Voiceovers ────────────────────────────────────────────
+    vo_durations = []
+    for i, seg in enumerate(segments):
+        seg["vo_path"] = None
+        seg["vo_dur"]  = 0.0
+        if args.no_voice:
+            continue
+        quote   = seg["quote"]
+        vo_text = quote["text"]
+        if quote["author"]:
+            vo_text += f" By {quote['author']}."
+        vo_path = synth_voiceover(vo_text, reel_dir / f"vo_{i}.mp3")
+        if vo_path:
+            seg["vo_path"] = vo_path
+            seg["vo_dur"]  = audio_duration(vo_path)
+            print(f"  ♪ Voiceover {i}: {vo_path.name} ({seg['vo_dur']:.1f}s)")
+        vo_durations.append(seg["vo_dur"])
+
+    # ── Segment timing ────────────────────────────────────────
+    voiceovers = []   # (path, absolute offset in seconds)
+    t_cursor   = 0.0
+    for seg in segments:
+        plan = plan_segment(seg["quote"], palette, seg["vo_dur"])
+        seg["total_s"] = plan["total_s"]
+        if seg["vo_path"]:
+            voiceovers.append((seg["vo_path"], t_cursor + FADE_S))
+        t_cursor += plan["total_s"]
+    total_s = t_cursor
+    print(f"\n  Total duration: {total_s:.1f}s ({len(segments)} segments)")
+
+    # Sidecar metadata for the Buffer poster — first quote at the top level
+    # for backward compatibility, all quotes under "quotes"
+    meta_path = reel_dir / "quote_meta.json"
+    meta_path.write_text(json.dumps({
+        "id":         first["id"],
+        "text":       first["text"],
+        "author":     first["author"],
+        "book":       first["book"],
+        "art_artist": segments[0]["art_artist"],
+        "art_title":  segments[0]["art_title"],
+        "quotes": [
+            {"id": s["quote"]["id"], "text": s["quote"]["text"],
+             "author": s["quote"]["author"], "book": s["quote"]["book"],
+             "art_artist": s["art_artist"], "art_title": s["art_title"]}
+            for s in segments
+        ],
+    }, ensure_ascii=False, indent=2))
 
     if args.preview:
-        frame      = render_frame(quote, bg, palette, handle, niche, art_artist, art_title)
-        frame_path = reel_dir / "frame.png"
-        frame.convert("RGB").save(frame_path, "PNG")
-        print(f"  Frame saved: {frame_path.name}")
-
-        meta_path = reel_dir / "quote_meta.json"
-        meta_path.write_text(json.dumps({
-            "id":         quote["id"],
-            "text":       quote["text"],
-            "author":     quote["author"],
-            "book":       quote["book"],
-            "art_artist": art_artist,
-            "art_title":  art_title,
-        }, ensure_ascii=False, indent=2))
-
         print("\n  Preview mode — skipping video encoding")
         q_conn.close()
         return
 
-    # Write sidecar metadata for the Buffer poster
-    meta_path = reel_dir / "quote_meta.json"
-    meta_path.write_text(json.dumps({
-        "id":         quote["id"],
-        "text":       quote["text"],
-        "author":     quote["author"],
-        "book":       quote["book"],
-        "art_artist": art_artist,
-        "art_title":  art_title,
-    }, ensure_ascii=False, indent=2))
-
     # ── Export animated video ─────────────────────────────────
+    cta_text    = cfg.get("cta", "Follow for daily wisdom")
     music_track = pick_music_track(folder_name)
     out_path    = reel_dir / f"{folder_name}.mp4"
-    frames      = generate_frames(quote, bg, bg_plain, palette, handle, niche,
-                                  art_artist, art_title)
-    export_animated_video(frames, out_path, music_track)
-    print(f"  Video: {out_path.name}  ({TOTAL_S:.0f}s)")
+    frames      = generate_multi_frames(segments, palette, handle, niche,
+                                        cta_text=cta_text)
+    export_animated_video(frames, out_path, music_track,
+                          total_s=total_s, voiceovers=voiceovers)
+    print(f"  Video: {out_path.name}  ({total_s:.1f}s)")
 
-    # ── Mark quote used ───────────────────────────────────────
-    mark_quote_used(q_conn, quote["id"])
+    # ── Mark quotes used ──────────────────────────────────────
+    for quote in quotes:
+        mark_quote_used(q_conn, quote["id"])
     q_conn.close()
 
     print("\nDone.")
