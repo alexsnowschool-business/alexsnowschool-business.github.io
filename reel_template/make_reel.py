@@ -183,6 +183,8 @@ PALETTES = {
 
 W, H = 1080, 1920
 
+KB_ZOOM = 1.08  # Ken Burns: render 8% oversized; pan a W×H window across it
+
 
 # ── Word-caption overlay helpers ──────────────────────────────────────────────
 
@@ -485,6 +487,20 @@ def grade_photo(photo, pal):
     r = r.point(lambda x: max(0, min(255, int(x * pal["red_shift"]))))
     b = b.point(lambda x: max(0, min(255, int(x * pal["blue_shift"] + pal["blue_lift"]))))
     return Image.merge("RGB", (r, g, b))
+
+def _ken_burns_crop(kb_photo, frame_k, total_frames, direction=1):
+    """Return a W×H crop of an oversized kb_photo, drifting horizontally.
+
+    direction: +1 = left→right,  -1 = right→left.
+    Uses smoothstep easing so the motion starts and ends gently.
+    """
+    t = frame_k / max(total_frames - 1, 1)
+    t = t * t * (3 - 2 * t)                      # smoothstep
+    max_ox = kb_photo.width  - W
+    max_oy = kb_photo.height - H
+    ox = int(max_ox * t) if direction >= 0 else int(max_ox * (1.0 - t))
+    oy = max_oy // 2                              # vertically centred
+    return kb_photo.crop((ox, oy, ox + W, oy + H))
 
 def get_caption_y(position):
     """Return the BOX_TOP y-coordinate based on caption position."""
@@ -984,6 +1000,17 @@ def main():
         always_caption  = cfg.get("caption_all_frames", False)
         per_frame_caps  = cfg.get("per_frame_captions")   # list of dicts, one per photo
 
+        # ── Ken Burns oversized variants ──────────────────────
+        KB_ENABLED = cfg.get("ken_burns", False)
+        photos_kb = {}
+        if KB_ENABLED:
+            _kb_z = cfg.get("ken_burns_zoom", KB_ZOOM)
+            for _fname, _photo in photos:
+                photos_kb[_fname] = _photo.resize(
+                    (int(W * _kb_z), int(H * _kb_z)), Image.LANCZOS
+                )
+            print(f"  ✓ Ken Burns enabled (zoom {_kb_z:.2f}×, {len(photos_kb)} photos)")
+
         # ── Cover frame (thumbnail bait) ──────────────────────
         # Holds the Act III reveal frame at the very start so platforms
         # (TikTok, YouTube Shorts, Instagram) auto-select it as the thumbnail.
@@ -1029,6 +1056,10 @@ def main():
             all_words = hook_answer_text.split() if hook_answer_text else []
             act2_offset = (fc or {}).get("act2_audio_offset", None)
 
+            # Ken Burns: alternate pan direction per photo index
+            _kb_photo = photos_kb.get(fname) if KB_ENABLED else None
+            _kb_dir   = 1 if i % 2 == 0 else -1
+
             if act2_offset is not None and all_words and hold_f > 0:
                 # Act II multi-frame: reveal appreciation words by global VO timestamp.
                 # act2_offset = seconds into tts_appreciation.mp3 when this crop starts.
@@ -1042,7 +1073,8 @@ def main():
                     partial_fc = dict(fc) if fc else {}
                     partial_fc["hook_answer"] = " ".join(all_words[:n_shown])
                     partial_fc["_hook_answer_full"] = hook_answer_text
-                    base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
+                    _src = _ken_burns_crop(_kb_photo, k, hold_f, _kb_dir) if _kb_photo else photo
+                    base = render_frame(_src, cfg, fnt, show_caption=show, frame_caption=partial_fc)
                     base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
                     frame_i += 1
             else:
@@ -1070,15 +1102,25 @@ def main():
                         partial_fc = dict(fc) if fc else {}
                         partial_fc["hook_answer"] = partial_answer
                         partial_fc["_hook_answer_full"] = hook_answer_text
-                        frame = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=partial_fc)
+                        _src = _ken_burns_crop(_kb_photo, k, hold_f, _kb_dir) if _kb_photo else photo
+                        frame = render_frame(_src, cfg, fnt, show_caption=show, frame_caption=partial_fc)
                         frame.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
                         frame_i += 1
                         base = frame
                 else:
-                    base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
-                    for _ in range(hold_f):
-                        base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
-                        frame_i += 1
+                    if _kb_photo is not None:
+                        # Ken Burns static-caption hold: pan while caption stays fixed
+                        base = None
+                        for k in range(hold_f):
+                            _src = _ken_burns_crop(_kb_photo, k, hold_f, _kb_dir)
+                            base = render_frame(_src, cfg, fnt, show_caption=show, frame_caption=fc)
+                            base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                            frame_i += 1
+                    else:
+                        base = render_frame(photo, cfg, fnt, show_caption=show, frame_caption=fc)
+                        for _ in range(hold_f):
+                            base.save(os.path.join(frames_dir, f"f{frame_i:05d}.png"))
+                            frame_i += 1
 
             # Act I only: block-by-block reveal (disable with block_reveal: False in config)
             if i == 0 and cfg.get("block_reveal", True):
