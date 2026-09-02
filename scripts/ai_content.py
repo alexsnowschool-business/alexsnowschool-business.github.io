@@ -312,6 +312,54 @@ Reply with only the 4-sentence voiceover text. Nothing else."""
     return raw.strip() if raw else None
 
 
+def generate_painting_note(artist: str, title: str) -> str | None:
+    """
+    Two-sentence spoken note explaining the painting shown behind a quote reel
+    segment. Returns plain lowercase text, or None if API unavailable.
+    """
+    if not OPENROUTER_KEY:
+        return None
+
+    system = (
+        "You write short spoken notes about paintings for quote videos. "
+        "Tone: informed, editorial, unhurried — like a knowledgeable friend explaining a painting, not a lecture. "
+        "Lowercase throughout. No emojis. No filler adjectives like 'stunning' or 'remarkable'."
+    )
+
+    prompt = f"""The painting "{title}" by {artist} appears behind a literary quote in a short video.
+
+Write exactly 2 sentences to be spoken after the quote is read:
+
+Sentence 1 — THE WORK: name the painting and the artist, and describe what it depicts. Be visual and specific.
+
+Sentence 2 — CONTEXT: place it in its movement, period, or the artist's story — one concrete detail.
+
+Rules:
+- 30–45 words total
+- All lowercase
+- Do NOT use the words "stunning", "remarkable", "incredible", "masterpiece"
+- If you do not recognise this specific work, speak to the artist's period and typical subjects instead — never invent facts about the painting itself
+
+Reply with only the 2-sentence text. Nothing else."""
+
+    raw = _call([{"role": "system", "content": system},
+                 {"role": "user",   "content": prompt}], max_tokens=200)
+    if not raw:
+        return None
+
+    # Free models often blow past the word budget — trim at sentence
+    # boundaries so the note stays short enough for a reel segment.
+    sentences = re.split(r"(?<=[.!?])\s+", raw.strip())
+    kept, words = [], 0
+    for s in sentences:
+        n = len(s.split())
+        if kept and words + n > 50:
+            break
+        kept.append(s)
+        words += n
+    return " ".join(kept)
+
+
 def generate_art_history(lot: dict) -> str | None:
     """
     Returns a 3–4 sentence art history blurb for Instagram first comment, or None.

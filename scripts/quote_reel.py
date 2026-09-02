@@ -5,7 +5,9 @@ Reading Quote Reel — Hermès aesthetic.
 Picks unused quotes from the account's quotes.db (3 by default), pairs each
 with its own blurred art background from art.db, renders animated 1080×1920
 segments with a Ken Burns pan, TTS voiceover per quote (edge-tts, macOS `say`
-fallback), ducked ambient music, and a CTA that fades in at the end.
+fallback) followed by a spoken note explaining the painting (AI-generated via
+ai_content.generate_painting_note, attribution-line fallback), ducked ambient
+music, and a CTA that fades in at the end.
 
 Usage:
     python scripts/quote_reel.py                          # 3 quotes, 3 backgrounds, voiceover
@@ -13,6 +15,7 @@ Usage:
     python scripts/quote_reel.py --account stoicism       # use a different account
     python scripts/quote_reel.py --id 42                  # use specific quote id (single)
     python scripts/quote_reel.py --no-voice               # skip TTS voiceover
+    python scripts/quote_reel.py --no-art-voice           # skip the painting explanation
     python scripts/quote_reel.py --preview                # render frame PNGs only, no video
     python scripts/quote_reel.py --dry-run                # print chosen quotes, do nothing
 """
@@ -47,6 +50,7 @@ FADE_S       = 0.5    # segment fade in/out duration
 TTS_VOICE    = "en-US-ChristopherNeural"  # deep mature male; macOS `say` fallback
 TTS_RATE     = "-8%"     # slightly slower for an older, unhurried delivery
 TTS_PITCH    = "-12Hz"   # lower pitch for gravitas
+ART_VO_GAP_S = 0.6       # pause between the quote voiceover and the painting note
 
 DEFAULT_PALETTE = {
     "bg":     (14, 10, 6),
@@ -606,6 +610,26 @@ def synth_voiceover(text: str, out_path: Path, voice: str = TTS_VOICE) -> Path |
     return None
 
 
+def painting_voiceover_text(art_artist: str, art_title: str) -> str:
+    """Spoken note explaining the painting behind a segment.
+
+    Tries the AI-generated two-sentence note (ai_content.generate_painting_note);
+    falls back to a simple attribution line when no API key is available."""
+    try:
+        from ai_content import generate_painting_note
+        note = generate_painting_note(art_artist, art_title)
+        if note:
+            return note
+    except Exception as e:
+        print(f"  Warning: painting note generation failed ({e}); using fallback")
+
+    artist = art_artist.title() if art_artist else ""
+    title  = art_title if art_title else "an untitled work"
+    if artist:
+        return f"The painting behind these words is {title}, by {artist}."
+    return f"The painting behind these words is {title}."
+
+
 def audio_duration(path: Path) -> float:
     """Return audio duration in seconds via ffprobe."""
     r = subprocess.run(
@@ -782,6 +806,8 @@ def main():
                         help="Number of quotes per reel (default 3)")
     parser.add_argument("--no-voice", action="store_true",
                         help="Skip TTS voiceover")
+    parser.add_argument("--no-art-voice", action="store_true",
+                        help="Skip the spoken note explaining each painting")
     parser.add_argument("--preview", action="store_true",
                         help="Render frame PNG only, skip video encoding")
     parser.add_argument("--dry-run", action="store_true",
@@ -881,8 +907,10 @@ def main():
     # ── Voiceovers ────────────────────────────────────────────
     vo_durations = []
     for i, seg in enumerate(segments):
-        seg["vo_path"] = None
-        seg["vo_dur"]  = 0.0
+        seg["vo_path"]     = None
+        seg["vo_dur"]      = 0.0
+        seg["art_vo_path"] = None
+        seg["art_vo_dur"]  = 0.0
         if args.no_voice:
             continue
         quote   = seg["quote"]
@@ -896,14 +924,31 @@ def main():
             print(f"  ♪ Voiceover {i}: {vo_path.name} ({seg['vo_dur']:.1f}s)")
         vo_durations.append(seg["vo_dur"])
 
+        # Painting note — spoken after the quote, explaining the artwork
+        if args.no_art_voice or not (seg["art_artist"] or seg["art_title"]):
+            continue
+        art_text = painting_voiceover_text(seg["art_artist"], seg["art_title"])
+        art_vo   = synth_voiceover(art_text, reel_dir / f"vo_art_{i}.mp3")
+        if art_vo:
+            seg["art_vo_path"] = art_vo
+            seg["art_vo_dur"]  = audio_duration(art_vo)
+            print(f"  ♪ Painting note {i}: {art_vo.name} ({seg['art_vo_dur']:.1f}s)")
+            print(f"    “{art_text}”")
+
     # ── Segment timing ────────────────────────────────────────
     voiceovers = []   # (path, absolute offset in seconds)
     t_cursor   = 0.0
     for seg in segments:
-        plan = plan_segment(seg["quote"], palette, seg["vo_dur"])
+        spoken_dur = seg["vo_dur"]
+        if seg["art_vo_path"]:
+            spoken_dur += ART_VO_GAP_S + seg["art_vo_dur"]
+        plan = plan_segment(seg["quote"], palette, spoken_dur)
         seg["total_s"] = plan["total_s"]
         if seg["vo_path"]:
             voiceovers.append((seg["vo_path"], t_cursor + FADE_S))
+        if seg["art_vo_path"]:
+            voiceovers.append((seg["art_vo_path"],
+                               t_cursor + FADE_S + seg["vo_dur"] + ART_VO_GAP_S))
         t_cursor += plan["total_s"]
     total_s = t_cursor
     print(f"\n  Total duration: {total_s:.1f}s ({len(segments)} segments)")
