@@ -1223,7 +1223,7 @@ def main():
                 f"[vo][bg]amix=inputs=2:duration=first:dropout_transition=2[aout]"
             )
             cmd = _build_cmd(
-                ["-itsoffset", str(_audio_offset), "-i", voiceover_path,
+                ["-i", voiceover_path,
                  "-stream_loop", "-1", "-i", _bg_track],
                 af, "[aout]"
             )
@@ -1236,7 +1236,7 @@ def main():
                 f"volume=1.0[aout]"
             )
             cmd = _build_cmd(
-                ["-itsoffset", str(_audio_offset), "-i", voiceover_path],
+                ["-i", voiceover_path],
                 af, "[aout]"
             )
             print(f"  ♪ Mixing voiceover (offset {_audio_offset:.1f}s): voiceover.mp3")
