@@ -38,6 +38,7 @@ import shutil
 import sqlite3
 import subprocess
 import sys
+import time
 import unicodedata
 from datetime import date, timedelta
 from io import BytesIO
@@ -531,29 +532,32 @@ def _esc(s: str) -> str:
 
 # ── Image preparation ──────────────────────────────────────────────────────────
 
-def _download_image(url: str | None) -> Image.Image | None:
+def _download_image(url: str | None, retries: int = 3) -> Image.Image | None:
     if not url:
         return None
-    try:
-        r = httpx.get(url, timeout=20, follow_redirects=True,
-                      headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                               "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"})
-        r.raise_for_status()
-        return Image.open(BytesIO(r.content)).convert("RGB")
-    except Exception as e:
-        print(f"  ⚠ download failed: {e}")
-        return None
+    for attempt in range(1, retries + 1):
+        try:
+            r = httpx.get(url, timeout=60, follow_redirects=True,
+                          headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"})
+            r.raise_for_status()
+            return Image.open(BytesIO(r.content)).convert("RGB")
+        except Exception as e:
+            print(f"  ⚠ download failed (attempt {attempt}/{retries}): {e}")
+            if attempt < retries:
+                time.sleep(2 * attempt)
+    return None
 
-def _first_image_url(lot: dict) -> str | None:
+def _image_urls(lot: dict) -> list[str]:
     raw = lot.get("image_urls")
     if isinstance(raw, list):
-        return raw[0] if raw else None
+        return raw
     if isinstance(raw, str):
         try:
-            return json.loads(raw)[0]
-        except (TypeError, ValueError, IndexError):
-            return None
-    return None
+            return json.loads(raw)
+        except (TypeError, ValueError):
+            return []
+    return []
 
 def _prepare_images(lot: dict, images_dir: Path) -> int:
     """
@@ -569,7 +573,11 @@ def _prepare_images(lot: dict, images_dir: Path) -> int:
         shutil.rmtree(images_dir)
     images_dir.mkdir(parents=True, exist_ok=True)
 
-    photo = _download_image(_first_image_url(lot))
+    photo = None
+    for url in _image_urls(lot):
+        photo = _download_image(url)
+        if photo:
+            break
     if not photo:
         return 0
 
