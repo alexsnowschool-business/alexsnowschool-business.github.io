@@ -1188,17 +1188,15 @@ def main() -> None:
         conn.close()
         sys.exit(1)
 
-    lot    = scored[0][0]
-    artist = _clean_artist(lot.get("artist") or "Unknown")
-    pct    = _pct_above(lot["hammer_usd"], lot["estimate_low"])
-
-    print(f"\n▸ {artist}")
-    print(f"  {(lot.get('title') or 'Untitled')[:60]}")
-    print(f"  estimate  {_fmt(lot['estimate_low'])}–{_fmt(lot.get('estimate_high') or lot['estimate_low'])}")
-    print(f"  sold      {_fmt(lot['hammer_usd'])}  (+{pct:.0f}%)")
-    print(f"  {lot.get('auction_house')}")
-
     if args.list:
+        lot    = scored[0][0]
+        artist = _clean_artist(lot.get("artist") or "Unknown")
+        pct    = _pct_above(lot["hammer_usd"], lot["estimate_low"])
+        print(f"\n▸ {artist}")
+        print(f"  {(lot.get('title') or 'Untitled')[:60]}")
+        print(f"  estimate  {_fmt(lot['estimate_low'])}–{_fmt(lot.get('estimate_high') or lot['estimate_low'])}")
+        print(f"  sold      {_fmt(lot['hammer_usd'])}  (+{pct:.0f}%)")
+        print(f"  {lot.get('auction_house')}")
         print(f"\n  {'#':<4} {'Artist':<30} {'Hammer':>12} {'%+':>7}  Score")
         print("  " + "─" * 60)
         for i, (l, score) in enumerate(scored[:5], 1):
@@ -1208,26 +1206,46 @@ def main() -> None:
         conn.close()
         return
 
-    # ── Build reel folder ──────────────────────────────────────
-    artist_slug = _make_slug(artist)
-    title_slug  = _make_slug(lot.get("title") or "untitled", max_len=20)
-    reel_slug   = f"{ref_date.isoformat()}_{artist_slug}_{title_slug}"
-    reel_dir    = REELS_DIR / reel_slug
-    images_dir  = reel_dir / "images"
-    output_dir  = reel_dir / "output"
+    # ── Pick first candidate whose images actually download ────
+    lot = artist = pct = reel_dir = images_dir = output_dir = reel_slug = n_images = None
+    for candidate, _score in scored:
+        c_artist = _clean_artist(candidate.get("artist") or "Unknown")
+        c_pct    = _pct_above(candidate["hammer_usd"], candidate["estimate_low"])
 
-    reel_dir.mkdir(parents=True, exist_ok=True)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    print(f"\n▸ Reel folder: reels/{reel_slug}/")
+        print(f"\n▸ {c_artist}")
+        print(f"  {(candidate.get('title') or 'Untitled')[:60]}")
+        print(f"  estimate  {_fmt(candidate['estimate_low'])}–{_fmt(candidate.get('estimate_high') or candidate['estimate_low'])}")
+        print(f"  sold      {_fmt(candidate['hammer_usd'])}  (+{c_pct:.0f}%)")
+        print(f"  {candidate.get('auction_house')}")
 
-    # ── Download + prepare images ──────────────────────────────
-    print("\n▸ Preparing images...")
-    n_images = _prepare_images(lot, images_dir)
-    if n_images == 0:
-        print("✗ No images downloaded — cannot generate reel.")
+        artist_slug = _make_slug(c_artist)
+        title_slug  = _make_slug(candidate.get("title") or "untitled", max_len=20)
+        c_reel_slug = f"{ref_date.isoformat()}_{artist_slug}_{title_slug}"
+        c_reel_dir  = REELS_DIR / c_reel_slug
+        c_images_dir = c_reel_dir / "images"
+        c_output_dir = c_reel_dir / "output"
+
+        c_reel_dir.mkdir(parents=True, exist_ok=True)
+        c_output_dir.mkdir(parents=True, exist_ok=True)
+        print(f"\n▸ Reel folder: reels/{c_reel_slug}/")
+
+        print("\n▸ Preparing images...")
+        n = _prepare_images(candidate, c_images_dir)
+        if n == 0:
+            print(f"  ⚠ No images downloaded for this lot — trying next candidate.")
+            shutil.rmtree(c_reel_dir, ignore_errors=True)
+            continue
+
+        print(f"  ✓ {n} images (source + top/left/right detail + centre)")
+        lot, artist, pct = candidate, c_artist, c_pct
+        reel_dir, images_dir, output_dir, reel_slug, n_images = (
+            c_reel_dir, c_images_dir, c_output_dir, c_reel_slug, n)
+        break
+
+    if lot is None:
+        print("✗ No candidate lots had downloadable images — cannot generate reel.")
         conn.close()
         sys.exit(1)
-    print(f"  ✓ {n_images} images (source + top/left/right detail + centre)")
 
     # ── Captions ───────────────────────────────────────────────
     captions = _social_captions(lot)
