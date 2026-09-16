@@ -364,12 +364,18 @@ async def _fetch_lot(
     even when the lot itself is skipped (non-art, parse fail, etc.).
     """
     lot_id = url.rstrip("/").rsplit("-", 1)[-1]
-    try:
-        r = await client.get(url, timeout=20)
-        r.raise_for_status()
-    except Exception as e:
-        tqdm.write(f"  fetch error {url}: {e}")
-        return None, None, None
+    r = None
+    for attempt in range(3):
+        try:
+            r = await client.get(url, timeout=20)
+            r.raise_for_status()
+            break
+        except Exception as e:
+            if attempt == 2:
+                tqdm.write(f"  fetch error {url} (giving up after 3 attempts): {e}")
+                return None, None, None
+            tqdm.write(f"  fetch error {url} (attempt {attempt + 1}/3): {e} — retrying")
+            await asyncio.sleep(2 * (attempt + 1))
 
     # Always extract navigation before deciding to skip
     next_url, sale_num = _extract_navigation(r.text)
