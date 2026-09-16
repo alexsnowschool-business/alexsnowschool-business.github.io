@@ -43,10 +43,21 @@ _HEADERS = {
 _CALENDAR_API       = f"{BASE_URL}/api/discoverywebsite/auctioncalendar/auctionresults"
 _CALENDAR_COMPONENT = "e7d92272-7bcc-4dba-ae5b-28e4f3729ae8"
 
-# Sale names that match our target departments
+# Sale names that match our target art departments. Named single-collection
+# sales (e.g. "Hiroshige: Colors of the Four Seasons") aren't caught here —
+# the calendar API exposes only opaque category IDs, not a department name,
+# so there's no reliable keyword to match those on.
 _TARGET_SALE_RE = re.compile(
-    r"(post.war and contemporary art day sale"
-    r"|impressionist and modern art day (sale|and works on paper sale))",
+    r"(post.war and contemporary art (day |evening )?sale"
+    r"|impressionist and modern art (day |evening )?(sale|and works on paper sale)"
+    r"|old masters?( to modern)? (day )?sale"
+    r"|old master (paintings|prints|drawings)"
+    r"|chinese (paintings|works of art|ceramics)"
+    r"|japanese (and korean )?art"
+    r"|asian art"
+    r"|latin american art"
+    r"|modern (british|and contemporary) art"
+    r"|works on paper)",
     re.IGNORECASE,
 )
 
@@ -171,11 +182,15 @@ async def discover_day_sales(
             title = ev.get("title_txt", "")
             if not _TARGET_SALE_RE.search(title):
                 continue
-            # Only closed (results available) sales
-            if "CLOSED" not in ev.get("subtitle_txt", ""):
-                continue
 
             sub = ev.get("subtitle_txt", "")
+            # Only closed (results available) sales
+            if "CLOSED" not in sub:
+                continue
+            # Online-only sales use a different lot-chain structure
+            # (onlineonly.christies.com, no next_lot_url) — skip them.
+            if ev.get("is_live") is False or "Online Auction" in sub:
+                continue
             sale_num_m = re.search(r"\b(\d{5})\b", sub)
             if not sale_num_m:
                 continue
