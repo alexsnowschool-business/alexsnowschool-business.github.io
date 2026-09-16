@@ -4,24 +4,33 @@ Correction from the original design draft assumption: insolvency notices
 are NOT published on bundesanzeiger.de (that site covers company
 disclosures/financial statements — a different legal publication channel).
 They're published at https://neu.insolvenzbekanntmachungen.de, the
-"Insolvenzbekanntmachungen" portal. Verified by hand-tracing the site's
-redirect chain (insolvenzbekanntmachungen.de -> neu.insolvenzbekanntmachungen.de)
-and reading its real search form (2026-09-16).
+"Insolvenzbekanntmachungen" portal. Verified 2026-09-16 by tracing the
+site's redirect chain (insolvenzbekanntmachungen.de ->
+neu.insolvenzbekanntmachungen.de) and driving its real JSF search form.
 
-Status: fetch_insolvency_notice reaches the real search endpoint with a
-verified session/ViewState handshake, but the final search POST still
-returns HTTP 500 despite matching every visible form field (including the
-disabled/select defaults). This looks like a JS-computed value or header
-this session's plain httpx POST doesn't reproduce — the kind of thing that
-needs a real browser network trace to diagnose, not more guessing.
+The search POST initially returned HTTP 500 despite matching every visible
+form field. Root cause: this app rejects non-ajax POSTs that are missing
+`Origin`/`Referer` headers matching its own host — plain httpx/curl
+requests without a browser-like header set trigger a server-side error
+instead of a clean 4xx. Sending both headers (see `_HEADERS` below) fixed
+it — verified against real live searches, e.g. "Goertz" returned a real
+notice: case 68c IK 523/25, Amtsgericht Hamburg, Goertz Hans-Peter,
+04.09.2026.
 
-TODO: once the Chrome extension is reconnected, drive one real search by
-hand, capture the exact request via read_network_requests, diff it against
-what this module sends, and fix `search_insolvency_notices` accordingly.
-Then write `parse_insolvency_notice` against the real results HTML.
+Not yet implemented: the "Veröffentlichungstext anzeigen" (view full
+publication text) popup, which is where the insolvency administrator's name
+would come from. It's a JSF ajax partial-render triggered by an
+`<input type="image">` — my ajax POST reached the server (200 OK) but the
+partial-response came back empty, meaning some required param (likely the
+image button's `name.x`/`name.y` click-coordinate pair, or a mismatched
+`execute`/`render` target) is still missing. `parse_insolvency_notice`
+below only extracts what's in the results-list HTML (case reference, court,
+name, date, register) — `administrator` is left `None` until that's cracked.
 """
 
 import re
+from datetime import datetime
+from urllib.parse import urlencode
 
 import httpx
 from bs4 import BeautifulSoup
@@ -29,7 +38,12 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://neu.insolvenzbekanntmachungen.de"
 SEARCH_URL = f"{BASE_URL}/ap/suche.jsf"
 
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; people-register-scraper/0.1)"}
+# The Origin/Referer pair is what fixed the 500 — see module docstring.
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "Origin": BASE_URL,
+    "Referer": SEARCH_URL,
+}
 
 
 def _view_state(html: str) -> str:
@@ -39,52 +53,117 @@ def _view_state(html: str) -> str:
     return match.group(1)
 
 
-def search_insolvency_notices(company_name: str) -> tuple[str, str]:
+def _default_search_form_data(html: str) -> list[tuple[str, str]]:
+    """Read every field of #frm_suche and its current default value.
+
+    JSF forms 500 if fields are missing/mismatched (see module docstring),
+    so we replay exactly what a browser would submit rather than
+    hand-listing fields and risking a stale guess.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    form = soup.find("form", id="frm_suche")
+    data: list[tuple[str, str]] = []
+
+    for input_ in form.find_all("input"):
+        name = input_.get("name")
+        if not name or input_.has_attr("disabled"):
+            continue
+        input_type = input_.get("type", "text")
+        if input_type in ("checkbox", "radio"):
+            if input_.has_attr("checked"):
+                data.append((name, input_.get("value", "on")))
+            continue
+        data.append((name, input_.get("value", "")))
+
+    for select in form.find_all("select"):
+        name = select.get("name")
+        if not name or select.has_attr("disabled"):
+            continue
+        option = select.find("option", selected=True) or select.find("option")
+        data.append((name, option.get("value", "") if option else ""))
+
+    for textarea in form.find_all("textarea"):
+        name = textarea.get("name")
+        if name:
+            data.append((name, textarea.text or ""))
+
+    return data
+
+
+def search_insolvency_notices(company_or_last_name: str) -> tuple[str, str]:
     """Search for insolvency notices by company/last name. Returns (url, html)."""
     with httpx.Client(timeout=30, follow_redirects=True, headers=HEADERS) as client:
         start = client.get(SEARCH_URL)
         start.raise_for_status()
-        view_state = _view_state(start.text)
 
+        form_data = _default_search_form_data(start.text)
+        form_data = [
+            (name, company_or_last_name if name == "frm_suche:litx_firmaNachName:text" else value)
+            for name, value in form_data
+        ]
+
+        # httpx's `data=` doesn't accept a list of (possibly-repeated) tuples
+        # cleanly, and this form can repeat a name (radio groups) — encode
+        # by hand instead.
+        body = urlencode(form_data)
         results = client.post(
             SEARCH_URL,
-            data={
-                "frm_suche": "frm_suche",
-                "frm_suche:ldi_datumVon:datumHtml5": "",
-                "frm_suche:ldi_datumBis:datumHtml5": "",
-                "frm_suche:litx_firmaNachName:text": company_name,
-                "frm_suche:litx_vorname:text": "",
-                "frm_suche:litx_sitzWohnsitz:text": "",
-                "frm_suche:iaz_aktenzeichen:itx_abteilung": "",
-                "frm_suche:iaz_aktenzeichen:itx_lfdNr": "",
-                "frm_suche:iaz_aktenzeichen:itx_jahr": "",
-                "frm_suche:iaz_aktenzeichen:ih_aktenzeichen": "true",
-                "frm_suche:iaz_aktenzeichen:som_registerzeichen:mysom": "NO_CODE",
-                "frm_suche:ir_registereintrag:itx_registernummer": "",
-                "frm_suche:ir_registereintrag:ih_registereintrag": "true",
-                "frm_suche:ir_registereintrag:som_registergericht:mysom": "NO_CODE",
-                "frm_suche:ir_registereintrag:som_registerart:mysom": "NO_CODE",
-                "frm_suche:lsom_bundesland:codelist:scl_bundesland:mysom": "NO_CODE",
-                "frm_suche:lsom_gegenstand:codelist:mysom": "NO_CODE",
-                "frm_suche:lsom_wildcard:lsom": "0",
-                "frm_suche:cbt_suchen": "Suchen",
-                "jakarta.faces.ViewState": view_state,
-            },
+            content=body,
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
         )
         results.raise_for_status()
         return str(results.url), results.text
 
 
-def parse_insolvency_notice(html: str) -> dict:
-    """Parse one insolvency notice out of raw HTML.
+def parse_search_results(html: str) -> list[dict]:
+    """Parse the results table (#tbl_ergebnis) into notice entries.
 
-    Returns a dict matching the `company_insolvent` event payload:
-    {company_name, register_number, court, filed_at, administrator}
+    Returns [{case_reference, court, name, sitz, register_number,
+    filed_at}, ...]. `register_number` is empty for natural-person
+    insolvencies (only company/juristic-person cases populate it).
     """
-    BeautifulSoup(html, "html.parser")  # placeholder to keep the import used
-    raise NotImplementedError(
-        "parse_insolvency_notice needs real result-row selectors — "
-        "search_insolvency_notices() doesn't return a successful results "
-        "page yet (see module docstring); fix that first, then write this "
-        "against the real markup."
-    )
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.find("table", id="tbl_ergebnis")
+    if table is None:
+        return []
+
+    notices = []
+    for row in table.select("tbody tr"):
+        date_span = row.select_one('span[id$=":otx_datum"]')
+        case_span = row.select_one('span[id$=":otx_azAkt"]')
+        court_span = row.select_one('span[id$=":otx_Gericht"]')
+        name_span = row.select_one('span[id$=":otx_schuldner"]')
+        sitz_span = row.select_one('span[id$=":otx_Sitz"]')
+        register_span = row.select_one('span[id$=":otx_register"]')
+
+        filed_at = None
+        if date_span and date_span.get_text(strip=True):
+            filed_at = datetime.strptime(date_span.get_text(strip=True), "%d.%m.%Y").date()
+
+        notices.append(
+            {
+                "filed_at": filed_at,
+                "case_reference": case_span.get_text(strip=True) if case_span else None,
+                "court": court_span.get_text(strip=True) if court_span else None,
+                "name": name_span.get_text(strip=True) if name_span else None,
+                "sitz": sitz_span.get_text(strip=True) if sitz_span else None,
+                "register_number": register_span.get_text(strip=True) if register_span else None,
+            }
+        )
+
+    return notices
+
+
+def parse_insolvency_notice(entry: dict) -> dict:
+    """Map one parsed result-row entry to the `company_insolvent` event payload.
+
+    `administrator` is always None for now — see module docstring on the
+    unfinished detail-popup ajax flow.
+    """
+    return {
+        "company_name": entry["name"],
+        "register_number": entry["register_number"] or None,
+        "court": entry["court"],
+        "filed_at": entry["filed_at"],
+        "administrator": None,
+    }

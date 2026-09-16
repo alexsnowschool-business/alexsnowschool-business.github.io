@@ -34,11 +34,22 @@ scraping" decision in the design draft:
 docker compose run --rm scraper python scrape_one.py --company "Example GmbH"
 ```
 
-**Before this works against real data:** `scraper/handelsregister.py` and
-`scraper/bundesanzeiger.py` have stub `parse_*` functions that raise
-`NotImplementedError`. Their real search URLs and result-page selectors need
-to be filled in after inspecting the live sites — see the `TODO` comments in
-those files, and design draft build-order steps 1-4.
+**Current real-data status** (verified live 2026-09-16):
+- Insolvency-notice search and Handelsregister company search both work
+  against the real sites — see the module docstrings in
+  `scraper/bundesanzeiger.py` and `scraper/handelsregister.py` for the exact
+  session/form handshake each needs.
+- One correction to the design draft: insolvency notices are published at
+  `neu.insolvenzbekanntmachungen.de`, not bundesanzeiger.de.
+- Not yet implemented: officer/appointment extraction (Handelsregister
+  doesn't expose it in the search results — it's in a separate generated
+  document) and the insolvency notice's full publication text/administrator
+  name (a JSF ajax popup not yet cracked). Both are documented as `TODO`s in
+  their respective modules. Until officer extraction exists, the graph view
+  will show companies but no linked people.
+- Both sites throttle repeated automated requests within a short window
+  (expect occasional `RemoteProtocolError`/connection drops if you run the
+  scraper many times in quick succession — this is the site, not a bug).
 
 Raw fetched pages are stored under `/app/data/raw/<source>/<uuid>.html`
 inside the `raw_data` named Docker volume before parsing (design draft
