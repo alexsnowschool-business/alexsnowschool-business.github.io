@@ -27,8 +27,10 @@ import sqlite3
 import subprocess
 import sys
 import threading
+import time
 from datetime import date, datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import httpx
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageEnhance
@@ -161,15 +163,20 @@ def pick_art_image_url(art_conn: sqlite3.Connection,
 
 # ── Image helpers ─────────────────────────────────────────────────────────────
 
-def download_image(url: str) -> Image.Image | None:
-    try:
-        with httpx.Client(timeout=20, follow_redirects=True) as client:
-            r = client.get(url, headers=HEADERS)
-            r.raise_for_status()
-            return Image.open(io.BytesIO(r.content)).convert("RGB")
-    except Exception as e:
-        print(f"  Warning: could not download art image: {e}")
-        return None
+def download_image(url: str, retries: int = 3) -> Image.Image | None:
+    referer = f"{urlsplit(url).scheme}://{urlsplit(url).netloc}/"
+    headers = {**HEADERS, "Referer": referer}
+    for attempt in range(1, retries + 1):
+        try:
+            with httpx.Client(timeout=60, follow_redirects=True) as client:
+                r = client.get(url, headers=headers)
+                r.raise_for_status()
+                return Image.open(io.BytesIO(r.content)).convert("RGB")
+        except Exception as e:
+            print(f"  Warning: could not download art image (attempt {attempt}/{retries}): {e}")
+            if attempt < retries:
+                time.sleep(2 * attempt)
+    return None
 
 
 def prepare_art(art_img: Image.Image | None, palette: dict) -> Image.Image:

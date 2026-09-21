@@ -43,6 +43,7 @@ import unicodedata
 from datetime import date, timedelta
 from io import BytesIO
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import httpx
 from PIL import Image
@@ -535,11 +536,13 @@ def _esc(s: str) -> str:
 def _download_image(url: str | None, retries: int = 3) -> Image.Image | None:
     if not url:
         return None
+    referer = f"{urlsplit(url).scheme}://{urlsplit(url).netloc}/"
     for attempt in range(1, retries + 1):
         try:
             r = httpx.get(url, timeout=60, follow_redirects=True,
                           headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"})
+                                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                                   "Referer": referer})
             r.raise_for_status()
             return Image.open(BytesIO(r.content)).convert("RGB")
         except Exception as e:
