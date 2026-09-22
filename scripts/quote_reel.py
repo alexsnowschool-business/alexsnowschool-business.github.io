@@ -498,6 +498,13 @@ def generate_multi_frames(segments: list[dict], palette: dict,
     solid = Image.new("RGBA", (W, H), (*palette["bg"], 255))
     last  = len(segments) - 1
 
+    # Frame 0 — full quote fully revealed, so platforms that grab the video's
+    # first frame as a thumbnail show the complete quote rather than a fade-in.
+    first_seg = segments[0]
+    thumb_bg  = prepare_background(first_seg["art_img"], palette)
+    yield render_frame(first_seg["quote"], thumb_bg, palette, handle, niche,
+                       first_seg["art_artist"], first_seg["art_title"]).convert("RGBA")
+
     for si, seg in enumerate(segments):
         quote   = seg["quote"]
         layout  = QuoteLayout(quote, palette)
