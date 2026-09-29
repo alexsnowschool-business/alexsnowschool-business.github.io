@@ -148,7 +148,7 @@ def pick_art_image_url(art_conn: sqlite3.Connection,
         "WHERE image_urls IS NOT NULL AND image_urls NOT IN ('', '[]') "
     )
     if only_paintings:
-        query += "AND medium_category = 'painting' "
+        query += "AND medium_category = 'painting' AND auction_house = 'Ketterer Kunst' "
     query += "ORDER BY RANDOM() LIMIT 20"
     rows = art_conn.execute(query).fetchall()
     for artist, title, urls_json in rows:
