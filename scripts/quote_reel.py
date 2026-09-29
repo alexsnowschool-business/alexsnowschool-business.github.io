@@ -881,7 +881,7 @@ def main():
         art_artist = ""
         art_title  = ""
         for _ in range(8):  # retry to avoid duplicate artworks
-            art_result = pick_art_image_url(art_conn)
+            art_result = pick_art_image_url(art_conn, only_paintings=True)
             if not art_result:
                 break
             img_url, cand_artist, cand_title = art_result
