@@ -1012,7 +1012,8 @@ def _record_posted(conn: sqlite3.Connection, lot: dict, slug: str,
     conn.commit()
     print(f"  ✓ recorded: {lot.get('artist')} — {(lot.get('title') or '')[:40]}")
 
-def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
+def _like_clauses(artist: str | None, title: str | None,
+                  auction_house: str | None = None) -> tuple[str, list]:
     parts, params = [], []
     if artist:
         parts.append("AND strip_accents(LOWER(artist)) LIKE strip_accents(LOWER(?))")
@@ -1020,16 +1021,20 @@ def _like_clauses(artist: str | None, title: str | None) -> tuple[str, list]:
     if title:
         parts.append("AND title LIKE ?")
         params.append(f"%{title}%")
+    if auction_house:
+        parts.append("AND auction_house = ?")
+        params.append(auction_house)
     return " ".join(parts), params
 
 def _query_lots(conn: sqlite3.Connection, limit: int = 50,
                 exclude_ids: set | None = None,
                 artist: str | None = None, title: str | None = None,
                 week_start: str | None = None, week_end: str | None = None,
-                order_by: str = "pct_above DESC") -> list[dict]:
+                order_by: str = "pct_above DESC",
+                auction_house: str | None = None) -> list[dict]:
     exclude      = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
-    flt_sql, flt_params = _like_clauses(artist, title)
+    flt_sql, flt_params = _like_clauses(artist, title, auction_house)
     date_sql    = "AND substr(scraped_at, 1, 10) BETWEEN ? AND ?" if week_start else ""
     date_params = (week_start, week_end) if week_start else ()
     rows = conn.execute(f"""
@@ -1050,10 +1055,11 @@ def _query_lots(conn: sqlite3.Connection, limit: int = 50,
 
 def _query_random_week_lot(conn: sqlite3.Connection,
                            exclude_ids: set | None = None,
-                           artist: str | None = None) -> list[dict]:
+                           artist: str | None = None,
+                           auction_house: str | None = None) -> list[dict]:
     exclude      = tuple(exclude_ids or [])
     placeholders = ",".join("?" * len(exclude)) if exclude else "NULL"
-    flt_sql, flt_params = _like_clauses(artist, None)
+    flt_sql, flt_params = _like_clauses(artist, None, auction_house)
     rows = conn.execute(f"""
         SELECT id, artist, title, hammer_usd, estimate_low, estimate_high,
                sale_name, sale_date, scraped_at, auction_house, image_urls, source_url,
@@ -1114,6 +1120,7 @@ def main() -> None:
     parser.add_argument("--week",         default=None,        help="ISO date in target week (default: today)")
     parser.add_argument("--artist",       default=None,        help="Filter by artist name (substring)")
     parser.add_argument("--title",        default=None,        help="Filter by title (substring)")
+    parser.add_argument("--auction-house", default=None,       help="Filter by exact auction house name (e.g. 'Ketterer Kunst')")
     parser.add_argument("--run",          action="store_true", help="Render video via make_reel.py after generating")
     parser.add_argument("--no-voice",     action="store_true", help="Skip the voiceover explaining the painting")
     args = parser.parse_args()
@@ -1140,6 +1147,8 @@ def main() -> None:
     print(f"  Mode: {'all-time' if args.all_time else f'week {week_label}'}")
     if args.artist:
         print(f"  Artist: \"{args.artist}\"")
+    if args.auction_house:
+        print(f"  Auction house: \"{args.auction_house}\"")
     print("═" * 60)
 
     skip = _posted_ids(conn)
@@ -1148,10 +1157,11 @@ def main() -> None:
 
     # ── Query ──────────────────────────────────────────────────
     if args.all_time:
-        lots = _query_lots(conn, 50, skip, args.artist, args.title, order_by=order_by)
+        lots = _query_lots(conn, 50, skip, args.artist, args.title, order_by=order_by,
+                           auction_house=args.auction_house)
 
         if not lots and args.artist:
-            rotation = list(dict.fromkeys(_ca.get_rotation(DB_PATH)))
+            rotation = list(dict.fromkeys(_ca.get_rotation(DB_PATH, args.auction_house)))
             try:
                 start_idx = next(i for i, a in enumerate(rotation)
                                  if a.lower() == args.artist.lower())
@@ -1161,25 +1171,32 @@ def main() -> None:
                 next_artist = rotation[(start_idx + offset) % len(rotation)]
                 if _posted_count_for_artist(conn, next_artist) >= _ca.MAX_LOTS_PER_ARTIST:
                     continue
-                if _query_lots(conn, 1, skip, next_artist, order_by=order_by):
+                if _query_lots(conn, 1, skip, next_artist, order_by=order_by,
+                              auction_house=args.auction_house):
                     print(f"\n  ⚠ All {args.artist} lots posted — trying: {next_artist}")
-                    lots = _query_lots(conn, 50, skip, next_artist, order_by=order_by)
+                    lots = _query_lots(conn, 50, skip, next_artist, order_by=order_by,
+                                      auction_house=args.auction_house)
                     break
             if not lots:
                 print("\n  ⚠ No rotation candidate — falling back to unfiltered.")
-                lots = _query_lots(conn, 50, skip, order_by=order_by)
+                lots = _query_lots(conn, 50, skip, order_by=order_by,
+                                   auction_house=args.auction_house)
     else:
         lots = _query_lots(conn, 50, skip, args.artist, args.title,
-                           week_start, week_end, order_by)
+                           week_start, week_end, order_by,
+                           auction_house=args.auction_house)
         if not lots:
-            rand = _query_random_week_lot(conn, skip, args.artist)
+            rand = _query_random_week_lot(conn, skip, args.artist,
+                                          auction_house=args.auction_house)
             if rand:
                 ws, we = _week_bounds(date.fromisoformat(rand[0]["scraped_at"][:10]))
                 print(f"  No data this week — using random week: {ws}")
-                lots = _query_lots(conn, 50, skip, args.artist, args.title, ws, we, order_by)
+                lots = _query_lots(conn, 50, skip, args.artist, args.title, ws, we, order_by,
+                                   auction_house=args.auction_house)
         if not lots:
             print("  Falling back to all-time top unposted.")
-            lots = _query_lots(conn, 50, skip, args.artist, args.title, order_by=order_by)
+            lots = _query_lots(conn, 50, skip, args.artist, args.title, order_by=order_by,
+                               auction_house=args.auction_house)
 
     # ── Score + pick ───────────────────────────────────────────
     notable = _build_notable_artists_set(conn)

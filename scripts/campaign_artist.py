@@ -41,10 +41,12 @@ def _matches(rotation_name: str, db_artist: str) -> bool:
     return rotation_name.upper() in db_artist.upper()
 
 
-def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
+def _build_rotation(cur: sqlite3.Cursor, auction_house: str | None = None) -> list[str]:
     """Return artists ordered by composite score, built from art_items."""
+    house_sql = "AND auction_house = ?" if auction_house else ""
+    params = (auction_house, MIN_LOTS) if auction_house else (MIN_LOTS,)
     cur.execute(
-        """
+        f"""
         SELECT
             artist,
             COUNT(*) AS lot_count,
@@ -54,10 +56,11 @@ def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
         FROM art_items
         WHERE sale_performance = 'above'
           AND artist IS NOT NULL
+          {house_sql}
         GROUP BY artist
         HAVING lot_count >= ?
         """,
-        (MIN_LOTS,),
+        params,
     )
 
     # Deduplicate: 'MARC CHAGALL' and 'Marc Chagall' collapse to 'Chagall' key,
@@ -95,16 +98,17 @@ def _build_rotation(cur: sqlite3.Cursor) -> list[str]:
     )
 
 
-def get_rotation(db_path: Path = DB_PATH) -> list[str]:
+def get_rotation(db_path: Path = DB_PATH, auction_house: str | None = None) -> list[str]:
     """Return the full artist rotation list built from art_items."""
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
-    rotation = _build_rotation(cur)
+    rotation = _build_rotation(cur, auction_house)
     conn.close()
     return rotation
 
 
-def _unposted_above_estimate_count(cur: sqlite3.Cursor, name: str) -> int:
+def _unposted_above_estimate_count(cur: sqlite3.Cursor, name: str,
+                                   auction_house: str | None = None) -> int:
     """Return how many more above-estimate lots this artist can still have posted.
 
     Two independent conditions must both be satisfied for the result to be > 0:
@@ -127,26 +131,29 @@ def _unposted_above_estimate_count(cur: sqlite3.Cursor, name: str) -> int:
         return 0
 
     # Count all unposted above-estimate lots (no artificial LIMIT).
+    house_sql = "AND auction_house = ?" if auction_house else ""
+    params = (name, auction_house) if auction_house else (name,)
     cur.execute(
-        """
+        f"""
         SELECT COUNT(*) FROM art_items
         WHERE sale_performance = 'above'
           AND artist IS NOT NULL
           AND UPPER(artist) LIKE '%' || UPPER(?) || '%'
           AND id NOT IN (SELECT lot_id FROM posted_reels)
+          {house_sql}
         """,
-        (name,),
+        params,
     )
     row = cur.fetchone()
     unposted = row[0] if row else 0
     return min(unposted, remaining_budget)
 
 
-def next_artist(db_path: Path = DB_PATH) -> str:
+def next_artist(db_path: Path = DB_PATH, auction_house: str | None = None) -> str:
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
 
-    rotation = _build_rotation(cur)
+    rotation = _build_rotation(cur, auction_house)
 
     # Fetch every post ever so we can find the true last-posted date per artist.
     cur.execute(
@@ -168,7 +175,7 @@ def next_artist(db_path: Path = DB_PATH) -> str:
         if current_campaign:
             break
 
-    if current_campaign and _unposted_above_estimate_count(cur, current_campaign) > 0:
+    if current_campaign and _unposted_above_estimate_count(cur, current_campaign, auction_house) > 0:
         conn.close()
         return current_campaign
 
@@ -200,7 +207,7 @@ def next_artist(db_path: Path = DB_PATH) -> str:
     # Only consider artists who still have unposted above-estimate lots.
     candidates = [
         a for a in rotation
-        if a not in blocked and _unposted_above_estimate_count(cur, a) > 0
+        if a not in blocked and _unposted_above_estimate_count(cur, a, auction_house) > 0
     ]
     if not candidates:
         # Fall back: ignore block and lot-exhaustion filter so we always return someone.
@@ -215,4 +222,9 @@ def next_artist(db_path: Path = DB_PATH) -> str:
 
 
 if __name__ == "__main__":
-    print(next_artist())
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--auction-house", default=None,
+                        help="Restrict rotation pool to this auction house (e.g. 'Ketterer Kunst')")
+    args = parser.parse_args()
+    print(next_artist(auction_house=args.auction_house))
