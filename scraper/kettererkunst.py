@@ -65,7 +65,10 @@ _SALE_BANNER_RE  = re.compile(
     re.DOTALL,
 )
 _ARTIST_RE       = re.compile(r"text-transform:uppercase;'>([^<]+)</span>")
-_TITLE_YEAR_RE   = re.compile(r"<i>([^<]+)</i>,\s*(\d{4})\.")
+_TITLE_YEAR_RE   = re.compile(
+    r"<i>([^<]+)</i>,\s*(?:Um\s+|Ca\.\s+|circa\s+)?(\d{4})(?:[/\-]\d{2,4})?,?\.",
+    re.IGNORECASE,
+)
 _MEDIUM_RE       = re.compile(
     r"</i>,\s*\d{4}\.\s*</div>\s*<div style='margin-top:15px;'>\s*([^<]+?)\s*</div>"
 )
