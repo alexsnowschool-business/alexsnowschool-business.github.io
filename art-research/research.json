@@ -1,16 +1,16 @@
 {
   "stats": {
-    "total_lots": 4090,
-    "total_artists": 1516,
-    "median_hammer_usd": 91229,
-    "pct_above_estimate": 46.0,
+    "total_lots": 4133,
+    "total_artists": 1528,
+    "median_hammer_usd": 89784,
+    "pct_above_estimate": 46.5,
     "max_ratio": 41.6,
     "sources": [
       "Christie's",
       "Ketterer Kunst",
       "Sotheby's"
     ],
-    "generated_at": "2026-10-01"
+    "generated_at": "2026-10-02"
   },
   "artists": [
     {
@@ -297,11 +297,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 60,
-        "total_usd": 59209951,
-        "avg_usd": 986833,
-        "total_label": "$59.21M",
-        "avg_label": "$987k",
+        "lot_count": 61,
+        "total_usd": 59244368,
+        "avg_usd": 971219,
+        "total_label": "$59.24M",
+        "avg_label": "$971k",
         "top_lot": {
           "title": "Reflections: Art",
           "hammer_usd": 4500000,
@@ -351,11 +351,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 56,
-        "total_usd": 58653631,
-        "avg_usd": 1047386,
-        "total_label": "$58.65M",
-        "avg_label": "$1.05M",
+        "lot_count": 57,
+        "total_usd": 58773342,
+        "avg_usd": 1031111,
+        "total_label": "$58.77M",
+        "avg_label": "$1.03M",
         "top_lot": {
           "title": "Homme assis",
           "hammer_usd": 12800000,
@@ -572,11 +572,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 59,
-        "total_usd": 43823949,
-        "avg_usd": 742779,
-        "total_label": "$43.82M",
-        "avg_label": "$743k",
+        "lot_count": 60,
+        "total_usd": 43844898,
+        "avg_usd": 730748,
+        "total_label": "$43.84M",
+        "avg_label": "$731k",
         "top_lot": {
           "title": "Late Four-Foot Flowers",
           "hammer_usd": 10000000,
@@ -2689,11 +2689,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 7,
-        "total_usd": 8101232,
-        "avg_usd": 1157319,
-        "total_label": "$8.10M",
-        "avg_label": "$1.16M",
+        "lot_count": 8,
+        "total_usd": 8123678,
+        "avg_usd": 1015460,
+        "total_label": "$8.12M",
+        "avg_label": "$1.02M",
         "top_lot": {
           "title": "Alpenveilchen",
           "hammer_usd": 4800000,
@@ -2702,6 +2702,60 @@
         "top_ratio_lot": {
           "title": "Secrets of Love and Marriage",
           "ratio": 2.96
+        }
+      }
+    },
+    {
+      "norm_name": "LYONEL FEININGER",
+      "display_name": "Lyonel Feininger",
+      "dates": "1871–1956",
+      "nationality": "American-German",
+      "movement": "Expressionism · Cubism",
+      "movement_id": "expressionism",
+      "bio": "Lyonel Feininger was a German-American artist of extraordinary formal refinement who fused the faceted planes of Cubism with the chromatic and spiritual concerns of German Expressionism to create architectural and maritime subjects of luminous, crystalline beauty. Born in New York to German musician parents, he was sent to Germany at sixteen to study music and stayed for fifty years, becoming a central figure of the German avant-garde before returning permanently to America after the rise of National Socialism.\n\nFeininger worked initially as a caricaturist and cartoonist — his comic strips for the Chicago Tribune were ahead of their time in formal invention — before turning fully to painting in the early 1900s after encountering Cubism in Paris. He developed a personal variant of the Cubist spatial method in which architectural forms — medieval German churches and Baltic fishing villages — are decomposed into interlocking planes of translucent colour that diffuse and reflect light with an almost stained-glass luminosity. He was a founding master of the Weimar Bauhaus in 1919, producing the institution's famous woodcut cover image, and remained associated with it until its dissolution in 1933.\n\nFeininger's late New York work, returned to his native city in 1937, applies his crystalline architectural method to the Manhattan skyline and waterfront with a new vigour and chromatic brightness. His market has been consistently strong in Germany and the United States, with major canvases of his mature German period achieving significant sums.",
+      "famous_works": [
+        {
+          "title": "Cathedral (Kathedrale)",
+          "year": "1919",
+          "notes": "The Bauhaus's founding woodcut cover image — a crystalline Gothic cathedral rising above a starlit city."
+        },
+        {
+          "title": "Church of the Minorities II (Gelmeroda IV)",
+          "year": "1926",
+          "notes": "One of eleven paintings of the Gelmeroda church in Thuringia, his most sustained architectural meditation in the Cubist-Expressionist mode."
+        },
+        {
+          "title": "The Steamer Odin II",
+          "year": "1927",
+          "notes": "A maritime subject in which a vessel is dissolved into interlocking planes of pale blue, grey, and gold, capturing the quality of Baltic coastal light."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Umpferstedt I",
+          "year": "1914",
+          "notes": "An early mature work in which the small German village is translated into a tower of interpenetrating planes, his crystalline style fully formed."
+        },
+        {
+          "title": "Manhattan I",
+          "year": "1940",
+          "notes": "A New York skyscraper composition in which his European crystalline method is applied to the vertical drama of American urban architecture."
+        }
+      ],
+      "dataset": {
+        "lot_count": 22,
+        "total_usd": 8016911,
+        "avg_usd": 364405,
+        "total_label": "$8.02M",
+        "avg_label": "$364k",
+        "top_lot": {
+          "title": "Trompetenbläser I (Trumpeters I)",
+          "hammer_usd": 4300000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "At the Sea-Side, Panel I",
+          "ratio": 3.57
         }
       }
     },
@@ -3036,60 +3090,6 @@
         "top_ratio_lot": {
           "title": "Rose and Pink around Ochre and Reds",
           "ratio": 4.95
-        }
-      }
-    },
-    {
-      "norm_name": "LYONEL FEININGER",
-      "display_name": "Lyonel Feininger",
-      "dates": "1871–1956",
-      "nationality": "American-German",
-      "movement": "Expressionism · Cubism",
-      "movement_id": "expressionism",
-      "bio": "Lyonel Feininger was a German-American artist of extraordinary formal refinement who fused the faceted planes of Cubism with the chromatic and spiritual concerns of German Expressionism to create architectural and maritime subjects of luminous, crystalline beauty. Born in New York to German musician parents, he was sent to Germany at sixteen to study music and stayed for fifty years, becoming a central figure of the German avant-garde before returning permanently to America after the rise of National Socialism.\n\nFeininger worked initially as a caricaturist and cartoonist — his comic strips for the Chicago Tribune were ahead of their time in formal invention — before turning fully to painting in the early 1900s after encountering Cubism in Paris. He developed a personal variant of the Cubist spatial method in which architectural forms — medieval German churches and Baltic fishing villages — are decomposed into interlocking planes of translucent colour that diffuse and reflect light with an almost stained-glass luminosity. He was a founding master of the Weimar Bauhaus in 1919, producing the institution's famous woodcut cover image, and remained associated with it until its dissolution in 1933.\n\nFeininger's late New York work, returned to his native city in 1937, applies his crystalline architectural method to the Manhattan skyline and waterfront with a new vigour and chromatic brightness. His market has been consistently strong in Germany and the United States, with major canvases of his mature German period achieving significant sums.",
-      "famous_works": [
-        {
-          "title": "Cathedral (Kathedrale)",
-          "year": "1919",
-          "notes": "The Bauhaus's founding woodcut cover image — a crystalline Gothic cathedral rising above a starlit city."
-        },
-        {
-          "title": "Church of the Minorities II (Gelmeroda IV)",
-          "year": "1926",
-          "notes": "One of eleven paintings of the Gelmeroda church in Thuringia, his most sustained architectural meditation in the Cubist-Expressionist mode."
-        },
-        {
-          "title": "The Steamer Odin II",
-          "year": "1927",
-          "notes": "A maritime subject in which a vessel is dissolved into interlocking planes of pale blue, grey, and gold, capturing the quality of Baltic coastal light."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Umpferstedt I",
-          "year": "1914",
-          "notes": "An early mature work in which the small German village is translated into a tower of interpenetrating planes, his crystalline style fully formed."
-        },
-        {
-          "title": "Manhattan I",
-          "year": "1940",
-          "notes": "A New York skyscraper composition in which his European crystalline method is applied to the vertical drama of American urban architecture."
-        }
-      ],
-      "dataset": {
-        "lot_count": 20,
-        "total_usd": 7346524,
-        "avg_usd": 367326,
-        "total_label": "$7.35M",
-        "avg_label": "$367k",
-        "top_lot": {
-          "title": "Trompetenbläser I (Trumpeters I)",
-          "hammer_usd": 4300000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "At the Sea-Side, Panel I",
-          "ratio": 3.57
         }
       }
     },
@@ -5225,6 +5225,60 @@
       }
     },
     {
+      "norm_name": "EDVARD MUNCH",
+      "display_name": "Edvard Munch",
+      "dates": "1863–1944",
+      "nationality": "Norwegian",
+      "movement": "Expressionism · Symbolism",
+      "movement_id": "expressionism",
+      "bio": "Edvard Munch was the most psychologically nakedly expressive painter of the late nineteenth century and the foundational figure of German Expressionism, a Norwegian artist whose images of anxiety, desire, jealousy, illness, and death gave visual form to interior states of unprecedented directness and became the defining reference for a generation of German and Austrian painters. Born in Ådalsbruk into a family scarred by illness and early death — he lost his mother to tuberculosis at five and his beloved sister Sophie at fourteen — he trained at the Royal School of Art and Design in Kristiania (Oslo) before travelling to Paris, where encounters with van Gogh, Gauguin, and the Symbolists proved decisive.\n\nMunch conceived of his major works as a unified Frieze of Life — a sustained investigation into 'poetry of life, love, and death' — through which the recurring subjects of anxiety, the life force, and existential isolation are treated as interlocking themes. His technique evolved from Naturalism through Synthetist flatness and van Gogh's swirling impasto to the thick, heavily worked surfaces of his mature style in which colour and mark carry emotional charge independently of subject matter. His prints — woodcuts, lithographs, etchings — are among the most original and influential in the modern tradition, their bold simplifications creating imagery of equal power to his paintings.\n\nAfter a mental breakdown and hospitalisation in 1908–1909, Munch spent his remaining decades in Norway, producing monumental decorative cycles for the University of Oslo Aula (1911–1914) and continuing to paint with undiminished energy until his death in 1944.",
+      "famous_works": [
+        {
+          "title": "The Scream (Skrik)",
+          "year": "1893",
+          "notes": "An androgynous figure against a blood-red sky, the defining image of existential anxiety in Western art, existing in four versions across multiple media."
+        },
+        {
+          "title": "The Kiss",
+          "year": "1897",
+          "notes": "Two figures in embrace dissolved into a single silhouette, the identity of the lovers obliterated by desire, in multiple painted and print versions."
+        },
+        {
+          "title": "Madonna",
+          "year": "1894–1895",
+          "notes": "A female figure in erotic abandon surrounded by a lithographed border of spermatozoa and a foetal figure, his most controversial and symbolically rich image."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "The Sick Child",
+          "year": "1885–1886",
+          "notes": "A portrait of his dying sister Sophie, repeatedly reprised over his career, in which scratched, overworked surfaces embody the labour of grief."
+        },
+        {
+          "title": "Workers in the Snow",
+          "year": "1910",
+          "notes": "A monumental outdoor figure scene demonstrating the physical directness of his post-breakdown style applied to a subject of social solidarity."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 4349177,
+        "avg_usd": 1087294,
+        "total_label": "$4.35M",
+        "avg_label": "$1.09M",
+        "top_lot": {
+          "title": "Kvinne på verandatrappen",
+          "hammer_usd": 1619250,
+          "sale_name": "Impressionist &amp; Modern Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Kvinne på verandatrappen",
+          "ratio": 2.49
+        }
+      }
+    },
+    {
       "norm_name": "JEAN DUBUFFET",
       "display_name": "Jean Dubuffet",
       "dates": "1901–1985",
@@ -5275,60 +5329,6 @@
         "top_ratio_lot": {
           "title": "Robinet",
           "ratio": 7.5
-        }
-      }
-    },
-    {
-      "norm_name": "EDVARD MUNCH",
-      "display_name": "Edvard Munch",
-      "dates": "1863–1944",
-      "nationality": "Norwegian",
-      "movement": "Expressionism · Symbolism",
-      "movement_id": "expressionism",
-      "bio": "Edvard Munch was the most psychologically nakedly expressive painter of the late nineteenth century and the foundational figure of German Expressionism, a Norwegian artist whose images of anxiety, desire, jealousy, illness, and death gave visual form to interior states of unprecedented directness and became the defining reference for a generation of German and Austrian painters. Born in Ådalsbruk into a family scarred by illness and early death — he lost his mother to tuberculosis at five and his beloved sister Sophie at fourteen — he trained at the Royal School of Art and Design in Kristiania (Oslo) before travelling to Paris, where encounters with van Gogh, Gauguin, and the Symbolists proved decisive.\n\nMunch conceived of his major works as a unified Frieze of Life — a sustained investigation into 'poetry of life, love, and death' — through which the recurring subjects of anxiety, the life force, and existential isolation are treated as interlocking themes. His technique evolved from Naturalism through Synthetist flatness and van Gogh's swirling impasto to the thick, heavily worked surfaces of his mature style in which colour and mark carry emotional charge independently of subject matter. His prints — woodcuts, lithographs, etchings — are among the most original and influential in the modern tradition, their bold simplifications creating imagery of equal power to his paintings.\n\nAfter a mental breakdown and hospitalisation in 1908–1909, Munch spent his remaining decades in Norway, producing monumental decorative cycles for the University of Oslo Aula (1911–1914) and continuing to paint with undiminished energy until his death in 1944.",
-      "famous_works": [
-        {
-          "title": "The Scream (Skrik)",
-          "year": "1893",
-          "notes": "An androgynous figure against a blood-red sky, the defining image of existential anxiety in Western art, existing in four versions across multiple media."
-        },
-        {
-          "title": "The Kiss",
-          "year": "1897",
-          "notes": "Two figures in embrace dissolved into a single silhouette, the identity of the lovers obliterated by desire, in multiple painted and print versions."
-        },
-        {
-          "title": "Madonna",
-          "year": "1894–1895",
-          "notes": "A female figure in erotic abandon surrounded by a lithographed border of spermatozoa and a foetal figure, his most controversial and symbolically rich image."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "The Sick Child",
-          "year": "1885–1886",
-          "notes": "A portrait of his dying sister Sophie, repeatedly reprised over his career, in which scratched, overworked surfaces embody the labour of grief."
-        },
-        {
-          "title": "Workers in the Snow",
-          "year": "1910",
-          "notes": "A monumental outdoor figure scene demonstrating the physical directness of his post-breakdown style applied to a subject of social solidarity."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 4319250,
-        "avg_usd": 1439750,
-        "total_label": "$4.32M",
-        "avg_label": "$1.44M",
-        "top_lot": {
-          "title": "Kvinne på verandatrappen",
-          "hammer_usd": 1619250,
-          "sale_name": "Impressionist &amp; Modern Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Kvinne på verandatrappen",
-          "ratio": 2.49
         }
       }
     },
@@ -6104,6 +6104,60 @@
       }
     },
     {
+      "norm_name": "PIERO DORAZIO",
+      "display_name": "Piero Dorazio",
+      "dates": "1927–2005",
+      "nationality": "Italian",
+      "movement": "Abstract · Colour-Field",
+      "movement_id": "colour-field",
+      "bio": "Piero Dorazio was born in Rome in 1927 and studied at the Faculty of Architecture at the University of Rome. He was a co-founder of the Italian avant-garde group Forma Uno in 1947, which promoted abstract art against the Socialist Realist positions that dominated the Italian left, and subsequently developed a distinctive practice of pure colour abstraction that placed him within an international conversation about the possibilities of non-representational painting.\n\nDorazio's paintings from the late 1950s onward are characterised by grids, webs, and networks of coloured lines, strokes, and bands that create vibrating optical effects of great chromatic intensity. He was deeply involved in the international dialogue between European concrete abstraction and American Colour Field painting, visiting New York and establishing connections with the Abstract Expressionist generation. His work explores the resonances between closely related hues and the optical effects created by the layering and intersection of colour lines.\n\nHe taught at the University of Pennsylvania from 1960 to 1969 and maintained close connections with American abstract painting throughout his career, while remaining a significant figure in the Italian context. His work is held by major European and American museums, and he received the prestigious Leone d'Oro for lifetime achievement at the Venice Biennale.",
+      "famous_works": [
+        {
+          "title": "Painting (Thread series)",
+          "year": "1960s",
+          "notes": "A canvas in which networks of brightly coloured thread-like strokes create vibrating optical fields that exemplify Dorazio's mature investigation of colour interaction."
+        },
+        {
+          "title": "Net Series",
+          "year": "1968–1980",
+          "notes": "A sustained investigation of grid and net structures in which the intersection of coloured lines creates optical phenomena of great complexity."
+        },
+        {
+          "title": "Composition in Blue",
+          "year": "1955",
+          "notes": "An early abstract work demonstrating the chromatic intensity and formal intelligence that would develop into Dorazio's distinctive mature language."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Forma Uno Period works",
+          "year": "1947–1953",
+          "notes": "Early abstract paintings from Dorazio's formative group association that demonstrate his initial development away from figuration toward pure abstraction."
+        },
+        {
+          "title": "Late career investigations",
+          "year": "1990–2005",
+          "notes": "Works from the final phase of Dorazio's career in which the network and thread structures are pursued with continued formal clarity and chromatic ambition."
+        }
+      ],
+      "dataset": {
+        "lot_count": 6,
+        "total_usd": 3389434,
+        "avg_usd": 564906,
+        "total_label": "$3.39M",
+        "avg_label": "$565k",
+        "top_lot": {
+          "title": "Tic-Tac Rosso",
+          "hammer_usd": 2992800,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Tic-Tac Rosso",
+          "ratio": 9.98
+        }
+      }
+    },
+    {
       "norm_name": "ANISH KAPOOR",
       "display_name": "Anish Kapoor",
       "dates": "b. 1954",
@@ -6158,6 +6212,60 @@
       }
     },
     {
+      "norm_name": "EMIL NOLDE",
+      "display_name": "Emil Nolde",
+      "dates": "1867–1956",
+      "nationality": "German-Danish",
+      "movement": "Expressionism",
+      "movement_id": "expressionism",
+      "bio": "Emil Nolde was the most chromatically powerful of the German Expressionists, a self-taught painter from the Schleswig-Holstein marshes whose flower paintings, sea pictures, and religious canvases achieve an intensity of colour sensation that has rarely been equalled in the European tradition. Born Hans Emil Hansen near the village of Nolde (whose name he adopted in 1902) in what was then the Danish-German borderland, he worked initially as a furniture carver and drawing teacher before being rejected by the Munich Academy in 1898 and committing to self-directed study.\n\nNolde's brief association with the Dresden Expressionist group Die Brücke (1906–1907) is less significant than his independent development of a painterly language rooted in his direct experience of the north German landscape — the flat marshes, the turbulent North Sea, the grey winter light — and in his encounter with ethnographic and primitive art during a journey to the South Pacific in 1913–1914. His flower paintings, in particular, deploy colour with an almost violent immediacy: poppies, sunflowers, and dahlias rendered in pure pigment that threatens to dissolve the forms it describes.\n\nNolde's political biography is deeply compromised: an early member of the Nazi party (his membership was rejected) who simultaneously had his work declared degenerate — over 1,000 works confiscated in 1937 — he spent the war years in inner exile at Seebüll, painting the small, secretly made 'Unpainted Pictures' in watercolour. His antisemitism has been the subject of sustained scholarly reassessment that has complicated but not displaced his position as a major painter.",
+      "famous_works": [
+        {
+          "title": "Dance Around the Golden Calf",
+          "year": "1910",
+          "notes": "A biblical scene rendered with the raw chromatic energy of his mature Expressionist method, now in the Pinakothek der Moderne, Munich."
+        },
+        {
+          "title": "Flower Garden",
+          "year": "c. 1915–1920",
+          "notes": "Large-format flower paintings in which pure colour pushes against formal dissolution, among the most sought-after works at German auction."
+        },
+        {
+          "title": "The Sea (Wogendes Meer)",
+          "year": "c. 1930s",
+          "notes": "North Sea seascapes in which the turbulent surface of the water is rendered in ultramarine and viridian of extraordinary chromatic force."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Unpainted Pictures (Ungemalte Bilder)",
+          "year": "1938–1945",
+          "notes": "Small watercolours secretly made during the Nazi prohibition on his work, their scale and intimacy in sharp contrast to his usual large-format canvases."
+        },
+        {
+          "title": "Prophet",
+          "year": "1912",
+          "notes": "A small woodcut of extraordinary spiritual intensity, his compressed graphic means creating a face of archaic hieratic power."
+        }
+      ],
+      "dataset": {
+        "lot_count": 13,
+        "total_usd": 3337581,
+        "avg_usd": 256737,
+        "total_label": "$3.34M",
+        "avg_label": "$257k",
+        "top_lot": {
+          "title": "Herbstmeer VII (Autumn Sea VII)",
+          "hammer_usd": 2200000,
+          "sale_name": "Modern Evening Auction, NY 2025"
+        },
+        "top_ratio_lot": {
+          "title": "Mutter mit Kind",
+          "ratio": 2.51
+        }
+      }
+    },
+    {
       "norm_name": "KOHEI NAWA",
       "display_name": "Kohei Nawa",
       "dates": "b. 1975",
@@ -6208,6 +6316,65 @@
         "top_ratio_lot": {
           "title": "PixCell-Bambi #15 PIXCELL系列 - 小鹿斑比15號",
           "ratio": 1.2
+        }
+      }
+    },
+    {
+      "norm_name": "ERNST LUDWIG KIRCHNER",
+      "display_name": "Ernst Ludwig Kirchner",
+      "dates": "1880–1938",
+      "nationality": "German",
+      "movement": "German Expressionism · Die Brücke",
+      "movement_id": "expressionism",
+      "bio": "Born in Aschaffenburg, Kirchner studied architecture in Dresden before co-founding Die Brücke (The Bridge) in 1905 with Erich Heckel, Karl Schmidt-Rottluff, and Fritz Bleyl — a group dedicated to building from the art of the past a bridge to a new, vital present. He moved to Berlin in 1911, and the Berlin street scenes of 1913–15 — angular, crowded, erotically charged, painted in strident acid greens, magentas, and cadmium — are the most iconic images of Wilhelmine urban modernity's psychological underside. The figures on the Ku'damm are distorted and alienated; the streetwalkers on the Friedrichstrasse are both predatory and prey. WWI military service precipitated a mental and physical collapse from which he never fully recovered. He moved to Davos, painted the Alps with increasing formal abstractness, and managed a partial recovery before the Nazi designation of Expressionism as 'Degenerate Art' destroyed his standing. He killed himself in 1938.",
+      "famous_works": [
+        {
+          "title": "Street, Berlin",
+          "year": "1913",
+          "notes": "Elongated figures in furs crowd a wet street. The spatial compression, acid colour, and psychological unease are the movement's signature — and its most direct legacy for subsequent German and Austrian painting."
+        },
+        {
+          "title": "Marzella",
+          "year": "1909–10",
+          "notes": "One of the Dresden period nudes — a young girl painted with raw urgency against a flat decorative ground. The influence of Edvard Munch and African sculpture simultaneously visible."
+        },
+        {
+          "title": "The Drinkers",
+          "year": "1914–15",
+          "notes": "Four figures around a table, the wartime atmosphere compressing the composition into near-suffocating density. Kirchner's response to the imminent catastrophe."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Mountain Forest, Staffelalp",
+          "year": "1923",
+          "notes": "A Davos alpine forest — the German Expressionist city nightmare replaced by Swiss landscape. The angularity persists but the colour lightens toward a tentative post-traumatic recovery."
+        },
+        {
+          "title": "Winter Moon Landscape",
+          "year": "1919",
+          "notes": "A Davos snow scene with extraordinary flat blues — the landscape as psychological space, the cold as mood made form."
+        },
+        {
+          "title": "Fränzi before Carved Chair",
+          "year": "1910",
+          "notes": "A seated girl before a decoratively carved chair. Kirchner's Brücke period at its most formally complex — the flat pattern of the chair competing with the figure."
+        }
+      ],
+      "dataset": {
+        "lot_count": 9,
+        "total_usd": 3296200,
+        "avg_usd": 366244,
+        "total_label": "$3.30M",
+        "avg_label": "$366k",
+        "top_lot": {
+          "title": "Sonnentänzerin",
+          "hammer_usd": 992124,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Drahtseilläufer",
+          "ratio": 6.45
         }
       }
     },
@@ -6375,60 +6542,6 @@
         "top_ratio_lot": {
           "title": "Lava",
           "ratio": 0.8
-        }
-      }
-    },
-    {
-      "norm_name": "EMIL NOLDE",
-      "display_name": "Emil Nolde",
-      "dates": "1867–1956",
-      "nationality": "German-Danish",
-      "movement": "Expressionism",
-      "movement_id": "expressionism",
-      "bio": "Emil Nolde was the most chromatically powerful of the German Expressionists, a self-taught painter from the Schleswig-Holstein marshes whose flower paintings, sea pictures, and religious canvases achieve an intensity of colour sensation that has rarely been equalled in the European tradition. Born Hans Emil Hansen near the village of Nolde (whose name he adopted in 1902) in what was then the Danish-German borderland, he worked initially as a furniture carver and drawing teacher before being rejected by the Munich Academy in 1898 and committing to self-directed study.\n\nNolde's brief association with the Dresden Expressionist group Die Brücke (1906–1907) is less significant than his independent development of a painterly language rooted in his direct experience of the north German landscape — the flat marshes, the turbulent North Sea, the grey winter light — and in his encounter with ethnographic and primitive art during a journey to the South Pacific in 1913–1914. His flower paintings, in particular, deploy colour with an almost violent immediacy: poppies, sunflowers, and dahlias rendered in pure pigment that threatens to dissolve the forms it describes.\n\nNolde's political biography is deeply compromised: an early member of the Nazi party (his membership was rejected) who simultaneously had his work declared degenerate — over 1,000 works confiscated in 1937 — he spent the war years in inner exile at Seebüll, painting the small, secretly made 'Unpainted Pictures' in watercolour. His antisemitism has been the subject of sustained scholarly reassessment that has complicated but not displaced his position as a major painter.",
-      "famous_works": [
-        {
-          "title": "Dance Around the Golden Calf",
-          "year": "1910",
-          "notes": "A biblical scene rendered with the raw chromatic energy of his mature Expressionist method, now in the Pinakothek der Moderne, Munich."
-        },
-        {
-          "title": "Flower Garden",
-          "year": "c. 1915–1920",
-          "notes": "Large-format flower paintings in which pure colour pushes against formal dissolution, among the most sought-after works at German auction."
-        },
-        {
-          "title": "The Sea (Wogendes Meer)",
-          "year": "c. 1930s",
-          "notes": "North Sea seascapes in which the turbulent surface of the water is rendered in ultramarine and viridian of extraordinary chromatic force."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Unpainted Pictures (Ungemalte Bilder)",
-          "year": "1938–1945",
-          "notes": "Small watercolours secretly made during the Nazi prohibition on his work, their scale and intimacy in sharp contrast to his usual large-format canvases."
-        },
-        {
-          "title": "Prophet",
-          "year": "1912",
-          "notes": "A small woodcut of extraordinary spiritual intensity, his compressed graphic means creating a face of archaic hieratic power."
-        }
-      ],
-      "dataset": {
-        "lot_count": 10,
-        "total_usd": 3193928,
-        "avg_usd": 319393,
-        "total_label": "$3.19M",
-        "avg_label": "$319k",
-        "top_lot": {
-          "title": "Herbstmeer VII (Autumn Sea VII)",
-          "hammer_usd": 2200000,
-          "sale_name": "Modern Evening Auction, NY 2025"
-        },
-        "top_ratio_lot": {
-          "title": "Frau mit roter Kopfbedeckung",
-          "ratio": 2.06
         }
       }
     },
@@ -7244,65 +7357,6 @@
         "top_ratio_lot": {
           "title": "Untitled (#45)",
           "ratio": 2.02
-        }
-      }
-    },
-    {
-      "norm_name": "ERNST LUDWIG KIRCHNER",
-      "display_name": "Ernst Ludwig Kirchner",
-      "dates": "1880–1938",
-      "nationality": "German",
-      "movement": "German Expressionism · Die Brücke",
-      "movement_id": "expressionism",
-      "bio": "Born in Aschaffenburg, Kirchner studied architecture in Dresden before co-founding Die Brücke (The Bridge) in 1905 with Erich Heckel, Karl Schmidt-Rottluff, and Fritz Bleyl — a group dedicated to building from the art of the past a bridge to a new, vital present. He moved to Berlin in 1911, and the Berlin street scenes of 1913–15 — angular, crowded, erotically charged, painted in strident acid greens, magentas, and cadmium — are the most iconic images of Wilhelmine urban modernity's psychological underside. The figures on the Ku'damm are distorted and alienated; the streetwalkers on the Friedrichstrasse are both predatory and prey. WWI military service precipitated a mental and physical collapse from which he never fully recovered. He moved to Davos, painted the Alps with increasing formal abstractness, and managed a partial recovery before the Nazi designation of Expressionism as 'Degenerate Art' destroyed his standing. He killed himself in 1938.",
-      "famous_works": [
-        {
-          "title": "Street, Berlin",
-          "year": "1913",
-          "notes": "Elongated figures in furs crowd a wet street. The spatial compression, acid colour, and psychological unease are the movement's signature — and its most direct legacy for subsequent German and Austrian painting."
-        },
-        {
-          "title": "Marzella",
-          "year": "1909–10",
-          "notes": "One of the Dresden period nudes — a young girl painted with raw urgency against a flat decorative ground. The influence of Edvard Munch and African sculpture simultaneously visible."
-        },
-        {
-          "title": "The Drinkers",
-          "year": "1914–15",
-          "notes": "Four figures around a table, the wartime atmosphere compressing the composition into near-suffocating density. Kirchner's response to the imminent catastrophe."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Mountain Forest, Staffelalp",
-          "year": "1923",
-          "notes": "A Davos alpine forest — the German Expressionist city nightmare replaced by Swiss landscape. The angularity persists but the colour lightens toward a tentative post-traumatic recovery."
-        },
-        {
-          "title": "Winter Moon Landscape",
-          "year": "1919",
-          "notes": "A Davos snow scene with extraordinary flat blues — the landscape as psychological space, the cold as mood made form."
-        },
-        {
-          "title": "Fränzi before Carved Chair",
-          "year": "1910",
-          "notes": "A seated girl before a decoratively carved chair. Kirchner's Brücke period at its most formally complex — the flat pattern of the chair competing with the figure."
-        }
-      ],
-      "dataset": {
-        "lot_count": 6,
-        "total_usd": 2750764,
-        "avg_usd": 458461,
-        "total_label": "$2.75M",
-        "avg_label": "$458k",
-        "top_lot": {
-          "title": "Sonnentänzerin",
-          "hammer_usd": 992124,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Drahtseilläufer",
-          "ratio": 6.45
         }
       }
     },
@@ -10759,6 +10813,60 @@
       }
     },
     {
+      "norm_name": "OTTO MUELLER",
+      "display_name": "Otto Mueller",
+      "dates": "1874–1930",
+      "nationality": "German",
+      "movement": "Expressionism · Die Brücke",
+      "movement_id": "expressionism",
+      "bio": "Otto Mueller was born in Liebau, Silesia (now Lubawka, Poland) in 1874 and studied at the Dresden Academy of Fine Arts before joining Die Brücke in 1910 — unusually, invited to join rather than being a founder. He was the oldest member of the group and his visual sensibility, more lyrical and less confrontational than Kirchner or Schmidt-Rottluff, gave his work a distinctive character within the Expressionist milieu.\n\nMueller worked primarily with distemper (a water-based tempera) rather than oil, a medium whose matte, fresco-like quality gave his canvases a warmth and softness quite different from the aggressive impasto of some Die Brücke contemporaries. His subjects were above all the nude in landscape — figures bathing in lakes and rivers, reclining in dunes and grasses — treated with a simplified elongation of form and a muted warmth of colour that relates his figures to the Egyptian and archaic sources he admired. His gypsies and his landscape subjects are among the most immediately beautiful productions of German Expressionism.\n\nMueller taught at the Breslau Academy until 1933, when he was dismissed by the Nazis. His work appeared in the Degenerate Art exhibition of 1937, and many of his paintings were confiscated from German museums.",
+      "famous_works": [
+        {
+          "title": "Two Nudes in the Dunes",
+          "year": "1920",
+          "notes": "A distemper painting of two female bathers in a landscape in which the elongated simplification of the figures and the warm muted tones create an image of Arcadian harmony."
+        },
+        {
+          "title": "Bathers in the Pond",
+          "year": "1910",
+          "notes": "An early Die Brücke period painting demonstrating Mueller's distinctive approach to the nude-in-landscape subject within the group's shared formal concerns."
+        },
+        {
+          "title": "Gypsy Women with Sunflowers",
+          "year": "1927",
+          "notes": "A painting of Romani women in a landscape that demonstrates Mueller's ongoing engagement with gypsies as subjects of both formal interest and ethnographic attention."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Yellow Nudes",
+          "year": "1922",
+          "notes": "A painting in which Mueller's characteristic warm palette and elongated figures are presented with particular chromatic intensity."
+        },
+        {
+          "title": "Boy with Cat",
+          "year": "1915",
+          "notes": "A smaller-scale figurative work demonstrating Mueller's lyrical approach to intimate subjects outside his more characteristic bather compositions."
+        }
+      ],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 827650,
+        "avg_usd": 275883,
+        "total_label": "$828k",
+        "avg_label": "$276k",
+        "top_lot": {
+          "title": "Badende am Waldsee",
+          "hammer_usd": 523739,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Sitzender Frauenakt mit Bäumen und Hügeln",
+          "ratio": 1.76
+        }
+      }
+    },
+    {
       "norm_name": "GENIEVE FIGGIS",
       "display_name": "Genieve Figgis",
       "dates": "b. 1972",
@@ -11174,11 +11282,11 @@
         }
       ],
       "dataset": {
-        "lot_count": 6,
-        "total_usd": 674200,
-        "avg_usd": 112367,
-        "total_label": "$674k",
-        "avg_label": "$112k",
+        "lot_count": 7,
+        "total_usd": 713106,
+        "avg_usd": 101872,
+        "total_label": "$713k",
+        "avg_label": "$102k",
         "top_lot": {
           "title": "Purple Mask",
           "hammer_usd": 435483,
@@ -11241,6 +11349,60 @@
         "top_ratio_lot": {
           "title": "Composition with Red Circle",
           "ratio": 1.33
+        }
+      }
+    },
+    {
+      "norm_name": "VICTOR VASARELY",
+      "display_name": "Victor Vasarely",
+      "dates": "1906–1997",
+      "nationality": "French",
+      "movement": "Op Art · Modernism",
+      "movement_id": "modernism",
+      "bio": "Victor Vasarely was born Győző Vásárhelyi in Pécs, Hungary in 1906 and studied at the Mühely School in Budapest, a Bauhaus-inspired institution where he absorbed the principles of geometric abstraction and design. Moving to Paris in 1930, he worked as a graphic designer and commercial artist, developing through his advertising work a mastery of visual perception and optical effect that would become the foundation of his fine art practice.\n\nFrom the late 1940s, Vasarely developed the systematic investigation of optical phenomena — colour interaction, figure-ground ambiguity, spatial illusion — that made him the founding father of Op Art. His paintings and prints use grids of geometric forms in precisely calibrated colour relationships to create effects of vibration, movement, and three-dimensional illusion on flat surfaces. His ambition was not merely optical sensation but a democratic art: he believed that his visual investigations could be translated into architectural environments, serial multiples, and design applications that would bring aesthetic experience to everyone.\n\nVasarely established the Fondation Vasarely in Aix-en-Provence in 1976, a Bauhaus-inspired centre for visual research housed in a building he designed, and his work was exhibited internationally throughout the 1960s and 1970s as Op Art attracted worldwide popular attention. His work is held by the Fondation Vasarely and major museums internationally.",
+      "famous_works": [
+        {
+          "title": "Vega-Nor",
+          "year": "1969",
+          "notes": "A large painting in which a grid of squares distorted at the centre creates an illusion of a spherical form projecting from or receding into the picture plane."
+        },
+        {
+          "title": "Zebra",
+          "year": "1937",
+          "notes": "An early optical painting in which black and white stripes create a figure-ground ambiguity that announces Vasarely's central concerns twenty years before Op Art was named."
+        },
+        {
+          "title": "Kettes",
+          "year": "1956",
+          "notes": "A painting in which the subtle modulation of a geometric grid creates a pulsing spatial dynamic characteristic of Vasarely's mature optical investigations."
+        }
+      ],
+      "lesser_known_works": [
+        {
+          "title": "Orion MC",
+          "year": "1963",
+          "notes": "An optical work in which the interaction of circular and square forms creates spatial illusions of considerable visual complexity."
+        },
+        {
+          "title": "Gestalt series",
+          "year": "1970s",
+          "notes": "Works from Vasarely's late career in which the optical investigations of the earlier work are pursued at increasingly large scale and chromatic complexity."
+        }
+      ],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 666700,
+        "avg_usd": 166675,
+        "total_label": "$667k",
+        "avg_label": "$167k",
+        "top_lot": {
+          "title": "Korna",
+          "hammer_usd": 374100,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "VEGA (2)",
+          "ratio": 5.04
         }
       }
     },
@@ -12659,60 +12821,6 @@
       }
     },
     {
-      "norm_name": "PIERO DORAZIO",
-      "display_name": "Piero Dorazio",
-      "dates": "1927–2005",
-      "nationality": "Italian",
-      "movement": "Abstract · Colour-Field",
-      "movement_id": "colour-field",
-      "bio": "Piero Dorazio was born in Rome in 1927 and studied at the Faculty of Architecture at the University of Rome. He was a co-founder of the Italian avant-garde group Forma Uno in 1947, which promoted abstract art against the Socialist Realist positions that dominated the Italian left, and subsequently developed a distinctive practice of pure colour abstraction that placed him within an international conversation about the possibilities of non-representational painting.\n\nDorazio's paintings from the late 1950s onward are characterised by grids, webs, and networks of coloured lines, strokes, and bands that create vibrating optical effects of great chromatic intensity. He was deeply involved in the international dialogue between European concrete abstraction and American Colour Field painting, visiting New York and establishing connections with the Abstract Expressionist generation. His work explores the resonances between closely related hues and the optical effects created by the layering and intersection of colour lines.\n\nHe taught at the University of Pennsylvania from 1960 to 1969 and maintained close connections with American abstract painting throughout his career, while remaining a significant figure in the Italian context. His work is held by major European and American museums, and he received the prestigious Leone d'Oro for lifetime achievement at the Venice Biennale.",
-      "famous_works": [
-        {
-          "title": "Painting (Thread series)",
-          "year": "1960s",
-          "notes": "A canvas in which networks of brightly coloured thread-like strokes create vibrating optical fields that exemplify Dorazio's mature investigation of colour interaction."
-        },
-        {
-          "title": "Net Series",
-          "year": "1968–1980",
-          "notes": "A sustained investigation of grid and net structures in which the intersection of coloured lines creates optical phenomena of great complexity."
-        },
-        {
-          "title": "Composition in Blue",
-          "year": "1955",
-          "notes": "An early abstract work demonstrating the chromatic intensity and formal intelligence that would develop into Dorazio's distinctive mature language."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Forma Uno Period works",
-          "year": "1947–1953",
-          "notes": "Early abstract paintings from Dorazio's formative group association that demonstrate his initial development away from figuration toward pure abstraction."
-        },
-        {
-          "title": "Late career investigations",
-          "year": "1990–2005",
-          "notes": "Works from the final phase of Dorazio's career in which the network and thread structures are pursued with continued formal clarity and chromatic ambition."
-        }
-      ],
-      "dataset": {
-        "lot_count": 5,
-        "total_usd": 396634,
-        "avg_usd": 79327,
-        "total_label": "$397k",
-        "avg_label": "$79k",
-        "top_lot": {
-          "title": "Prima che il lago geli",
-          "hammer_usd": 308826,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Untitled",
-          "ratio": 6.55
-        }
-      }
-    },
-    {
       "norm_name": "STERLING RUBY",
       "display_name": "Sterling Ruby",
       "dates": "b. 1972",
@@ -13145,60 +13253,6 @@
       }
     },
     {
-      "norm_name": "OTTO MUELLER",
-      "display_name": "Otto Mueller",
-      "dates": "1874–1930",
-      "nationality": "German",
-      "movement": "Expressionism · Die Brücke",
-      "movement_id": "expressionism",
-      "bio": "Otto Mueller was born in Liebau, Silesia (now Lubawka, Poland) in 1874 and studied at the Dresden Academy of Fine Arts before joining Die Brücke in 1910 — unusually, invited to join rather than being a founder. He was the oldest member of the group and his visual sensibility, more lyrical and less confrontational than Kirchner or Schmidt-Rottluff, gave his work a distinctive character within the Expressionist milieu.\n\nMueller worked primarily with distemper (a water-based tempera) rather than oil, a medium whose matte, fresco-like quality gave his canvases a warmth and softness quite different from the aggressive impasto of some Die Brücke contemporaries. His subjects were above all the nude in landscape — figures bathing in lakes and rivers, reclining in dunes and grasses — treated with a simplified elongation of form and a muted warmth of colour that relates his figures to the Egyptian and archaic sources he admired. His gypsies and his landscape subjects are among the most immediately beautiful productions of German Expressionism.\n\nMueller taught at the Breslau Academy until 1933, when he was dismissed by the Nazis. His work appeared in the Degenerate Art exhibition of 1937, and many of his paintings were confiscated from German museums.",
-      "famous_works": [
-        {
-          "title": "Two Nudes in the Dunes",
-          "year": "1920",
-          "notes": "A distemper painting of two female bathers in a landscape in which the elongated simplification of the figures and the warm muted tones create an image of Arcadian harmony."
-        },
-        {
-          "title": "Bathers in the Pond",
-          "year": "1910",
-          "notes": "An early Die Brücke period painting demonstrating Mueller's distinctive approach to the nude-in-landscape subject within the group's shared formal concerns."
-        },
-        {
-          "title": "Gypsy Women with Sunflowers",
-          "year": "1927",
-          "notes": "A painting of Romani women in a landscape that demonstrates Mueller's ongoing engagement with gypsies as subjects of both formal interest and ethnographic attention."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Yellow Nudes",
-          "year": "1922",
-          "notes": "A painting in which Mueller's characteristic warm palette and elongated figures are presented with particular chromatic intensity."
-        },
-        {
-          "title": "Boy with Cat",
-          "year": "1915",
-          "notes": "A smaller-scale figurative work demonstrating Mueller's lyrical approach to intimate subjects outside his more characteristic bather compositions."
-        }
-      ],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 303911,
-        "avg_usd": 151956,
-        "total_label": "$304k",
-        "avg_label": "$152k",
-        "top_lot": {
-          "title": "Waldlandschaft",
-          "hammer_usd": 215900,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Sitzender Frauenakt mit Bäumen und Hügeln",
-          "ratio": 1.76
-        }
-      }
-    },
-    {
       "norm_name": "JENNIFER GUIDI",
       "display_name": "Jennifer Guidi",
       "dates": "b. 1972",
@@ -13303,60 +13357,6 @@
         "top_ratio_lot": {
           "title": "Study for Arrest Series",
           "ratio": 2.26
-        }
-      }
-    },
-    {
-      "norm_name": "VICTOR VASARELY",
-      "display_name": "Victor Vasarely",
-      "dates": "1906–1997",
-      "nationality": "French",
-      "movement": "Op Art · Modernism",
-      "movement_id": "modernism",
-      "bio": "Victor Vasarely was born Győző Vásárhelyi in Pécs, Hungary in 1906 and studied at the Mühely School in Budapest, a Bauhaus-inspired institution where he absorbed the principles of geometric abstraction and design. Moving to Paris in 1930, he worked as a graphic designer and commercial artist, developing through his advertising work a mastery of visual perception and optical effect that would become the foundation of his fine art practice.\n\nFrom the late 1940s, Vasarely developed the systematic investigation of optical phenomena — colour interaction, figure-ground ambiguity, spatial illusion — that made him the founding father of Op Art. His paintings and prints use grids of geometric forms in precisely calibrated colour relationships to create effects of vibration, movement, and three-dimensional illusion on flat surfaces. His ambition was not merely optical sensation but a democratic art: he believed that his visual investigations could be translated into architectural environments, serial multiples, and design applications that would bring aesthetic experience to everyone.\n\nVasarely established the Fondation Vasarely in Aix-en-Provence in 1976, a Bauhaus-inspired centre for visual research housed in a building he designed, and his work was exhibited internationally throughout the 1960s and 1970s as Op Art attracted worldwide popular attention. His work is held by the Fondation Vasarely and major museums internationally.",
-      "famous_works": [
-        {
-          "title": "Vega-Nor",
-          "year": "1969",
-          "notes": "A large painting in which a grid of squares distorted at the centre creates an illusion of a spherical form projecting from or receding into the picture plane."
-        },
-        {
-          "title": "Zebra",
-          "year": "1937",
-          "notes": "An early optical painting in which black and white stripes create a figure-ground ambiguity that announces Vasarely's central concerns twenty years before Op Art was named."
-        },
-        {
-          "title": "Kettes",
-          "year": "1956",
-          "notes": "A painting in which the subtle modulation of a geometric grid creates a pulsing spatial dynamic characteristic of Vasarely's mature optical investigations."
-        }
-      ],
-      "lesser_known_works": [
-        {
-          "title": "Orion MC",
-          "year": "1963",
-          "notes": "An optical work in which the interaction of circular and square forms creates spatial illusions of considerable visual complexity."
-        },
-        {
-          "title": "Gestalt series",
-          "year": "1970s",
-          "notes": "Works from Vasarely's late career in which the optical investigations of the earlier work are pursued at increasingly large scale and chromatic complexity."
-        }
-      ],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 292600,
-        "avg_usd": 97533,
-        "total_label": "$293k",
-        "avg_label": "$98k",
-        "top_lot": {
-          "title": "AIX-MC",
-          "hammer_usd": 201600,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "VEGA (2)",
-          "ratio": 5.04
         }
       }
     },
@@ -18221,6 +18221,33 @@
       }
     },
     {
+      "norm_name": "ALEXEJ VON JAWLENSKY",
+      "display_name": "Alexej Von Jawlensky",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 12,
+        "total_usd": 2814058,
+        "avg_usd": 234505,
+        "total_label": "$2.81M",
+        "avg_label": "$235k",
+        "top_lot": {
+          "title": "Portrait",
+          "hammer_usd": 598560,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Bretonische Häuser mit Heuhaufen",
+          "ratio": 2.92
+        }
+      }
+    },
+    {
       "norm_name": "CHILDE HASSAM",
       "display_name": "Childe Hassam",
       "dates": "",
@@ -18649,33 +18676,6 @@
         "top_ratio_lot": {
           "title": "Untitled Film Still #54",
           "ratio": 2.6
-        }
-      }
-    },
-    {
-      "norm_name": "ALEXEJ VON JAWLENSKY",
-      "display_name": "Alexej Von Jawlensky",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 10,
-        "total_usd": 1923700,
-        "avg_usd": 192370,
-        "total_label": "$1.92M",
-        "avg_label": "$192k",
-        "top_lot": {
-          "title": "Nordisch (Großer Abstrakter Kopf)",
-          "hammer_usd": 426473,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Nordisch (Großer Abstrakter Kopf)",
-          "ratio": 2.13
         }
       }
     },
@@ -22271,6 +22271,33 @@
       }
     },
     {
+      "norm_name": "STEVEN PARRINO",
+      "display_name": "Steven Parrino",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 541959,
+        "avg_usd": 270980,
+        "total_label": "$542k",
+        "avg_label": "$271k",
+        "top_lot": {
+          "title": "Screw Ball",
+          "hammer_usd": 317500,
+          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Blunt Barney's Hole",
+          "ratio": 1.87
+        }
+      }
+    },
+    {
       "norm_name": "A DING PERSIMMON-GLAZED HEXAFOIL BOWL",
       "display_name": "A Ding Persimmon-Glazed Hexafoil Bowl",
       "dates": "",
@@ -22375,6 +22402,33 @@
         "top_ratio_lot": {
           "title": "The Greek Favourite in the Harem",
           "ratio": 2.0
+        }
+      }
+    },
+    {
+      "norm_name": "ASGER JORN",
+      "display_name": "Asger Jorn",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 485045,
+        "avg_usd": 97009,
+        "total_label": "$485k",
+        "avg_label": "$97k",
+        "top_lot": {
+          "title": "Untitled",
+          "hammer_usd": 209677,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Ohne Titel",
+          "ratio": 3.0
         }
       }
     },
@@ -22996,33 +23050,6 @@
         "top_ratio_lot": {
           "title": "Two less one black",
           "ratio": 9.95
-        }
-      }
-    },
-    {
-      "norm_name": "ASGER JORN",
-      "display_name": "Asger Jorn",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 425190,
-        "avg_usd": 106298,
-        "total_label": "$425k",
-        "avg_label": "$106k",
-        "top_lot": {
-          "title": "Untitled",
-          "hammer_usd": 209677,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Ohne Titel",
-          "ratio": 3.0
         }
       }
     },
@@ -23864,6 +23891,33 @@
       }
     },
     {
+      "norm_name": "PAULA MODERSOHN-BECKER",
+      "display_name": "Paula Modersohn-Becker",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 2,
+        "total_usd": 359136,
+        "avg_usd": 179568,
+        "total_label": "$359k",
+        "avg_label": "$180k",
+        "top_lot": {
+          "title": "Sitzendes Mädchen mit blauem Hut und Blume in der rechten Ha",
+          "hammer_usd": 194532,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Sitzendes Mädchen mit blauem Hut und Blume in der rechten Ha",
+          "ratio": 1.95
+        }
+      }
+    },
+    {
       "norm_name": "OSSIP ZADKINE",
       "display_name": "Ossip Zadkine",
       "dates": "",
@@ -23995,6 +24049,33 @@
         "top_ratio_lot": {
           "title": "Masque My",
           "ratio": 2.29
+        }
+      }
+    },
+    {
+      "norm_name": "ARNULF RAINER",
+      "display_name": "Arnulf Rainer",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 346771,
+        "avg_usd": 115590,
+        "total_label": "$347k",
+        "avg_label": "$116k",
+        "top_lot": {
+          "title": "Übermalte Übermalung",
+          "hammer_usd": 179568,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Handmalerei (Handpainting)",
+          "ratio": 1.94
         }
       }
     },
@@ -24350,6 +24431,33 @@
       }
     },
     {
+      "norm_name": "KURT SCHWITTERS",
+      "display_name": "Kurt Schwitters",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 319350,
+        "avg_usd": 79838,
+        "total_label": "$319k",
+        "avg_label": "$80k",
+        "top_lot": {
+          "title": "Radblumen",
+          "hammer_usd": 241935,
+          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Radblumen",
+          "ratio": 2.42
+        }
+      }
+    },
+    {
       "norm_name": "GEORG TAPPERT",
       "display_name": "Georg Tappert",
       "dates": "",
@@ -24427,33 +24535,6 @@
         "top_ratio_lot": {
           "title": "Untitled 8",
           "ratio": 3.74
-        }
-      }
-    },
-    {
-      "norm_name": "STEVEN PARRINO",
-      "display_name": "Steven Parrino",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 317500,
-        "avg_usd": 317500,
-        "total_label": "$318k",
-        "avg_label": "$318k",
-        "top_lot": {
-          "title": "Screw Ball",
-          "hammer_usd": 317500,
-          "sale_name": "Post-War &amp; Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Screw Ball",
-          "ratio": 0.79
         }
       }
     },
@@ -24670,6 +24751,33 @@
         "top_ratio_lot": {
           "title": "Landscape",
           "ratio": 3.23
+        }
+      }
+    },
+    {
+      "norm_name": "ERICH HECKEL",
+      "display_name": "Erich Heckel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 5,
+        "total_usd": 300264,
+        "avg_usd": 60053,
+        "total_label": "$300k",
+        "avg_label": "$60k",
+        "top_lot": {
+          "title": "Schiffe im Kanal",
+          "hammer_usd": 147060,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Haus am Berg",
+          "ratio": 2.98
         }
       }
     },
@@ -24940,33 +25048,6 @@
         "top_ratio_lot": {
           "title": "Les cabines pavoisées",
           "ratio": 2.1
-        }
-      }
-    },
-    {
-      "norm_name": "KURT SCHWITTERS",
-      "display_name": "Kurt Schwitters",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 281940,
-        "avg_usd": 93980,
-        "total_label": "$282k",
-        "avg_label": "$94k",
-        "top_lot": {
-          "title": "Radblumen",
-          "hammer_usd": 241935,
-          "sale_name": "Impressionist and Modern Art Day and Works on Paper Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Radblumen",
-          "ratio": 2.42
         }
       }
     },
@@ -26699,33 +26780,6 @@
       }
     },
     {
-      "norm_name": "ERICH HECKEL",
-      "display_name": "Erich Heckel",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 4,
-        "total_usd": 213473,
-        "avg_usd": 53368,
-        "total_label": "$213k",
-        "avg_label": "$53k",
-        "top_lot": {
-          "title": "Schiffe im Kanal",
-          "hammer_usd": 147060,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Haus am Berg",
-          "ratio": 2.98
-        }
-      }
-    },
-    {
       "norm_name": "ANDRE LHOTE",
       "display_name": "Andre Lhote",
       "dates": "",
@@ -27428,6 +27482,33 @@
       }
     },
     {
+      "norm_name": "LESSER URY",
+      "display_name": "Lesser Ury",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 188493,
+        "avg_usd": 62831,
+        "total_label": "$188k",
+        "avg_label": "$63k",
+        "top_lot": {
+          "title": "Waterloo Bridge bei Nebel, London",
+          "hammer_usd": 88235,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Der blaue Berg",
+          "ratio": 1.5
+        }
+      }
+    },
+    {
       "norm_name": "ISA GENZKEN",
       "display_name": "Isa Genzken",
       "dates": "",
@@ -27451,6 +27532,33 @@
         "top_ratio_lot": {
           "title": "Ohne Titel",
           "ratio": 1.47
+        }
+      }
+    },
+    {
+      "norm_name": "IMI KNOEBEL",
+      "display_name": "Imi Knoebel",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 183184,
+        "avg_usd": 61061,
+        "total_label": "$183k",
+        "avg_label": "$61k",
+        "top_lot": {
+          "title": "Sojus",
+          "hammer_usd": 69850,
+          "sale_name": "Post-War and Contemporary Art Day Sale"
+        },
+        "top_ratio_lot": {
+          "title": "Portrait K2 (Lola)",
+          "ratio": 1.5
         }
       }
     },
@@ -27617,6 +27725,33 @@
       }
     },
     {
+      "norm_name": "EMIL SCHUMACHER",
+      "display_name": "Emil Schumacher",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 3,
+        "total_usd": 177373,
+        "avg_usd": 59124,
+        "total_label": "$177k",
+        "avg_label": "$59k",
+        "top_lot": {
+          "title": "Zargala",
+          "hammer_usd": 95588,
+          "sale_name": "Evening Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Afri",
+          "ratio": 1.5
+        }
+      }
+    },
+    {
       "norm_name": "MAX ERNST (1891-1976) & LEONORA CARRINGTON",
       "display_name": "Max Ernst (1891-1976) & Leonora Carrington",
       "dates": "",
@@ -27640,6 +27775,33 @@
         "top_ratio_lot": {
           "title": "La femme demi-tête",
           "ratio": 4.4
+        }
+      }
+    },
+    {
+      "norm_name": "AUGUST MACKE",
+      "display_name": "August Macke",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 4,
+        "total_usd": 175407,
+        "avg_usd": 43852,
+        "total_label": "$175k",
+        "avg_label": "$44k",
+        "top_lot": {
+          "title": "Kandern 3",
+          "hammer_usd": 80883,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Zwei Frauen am Fenster (Elisabeth Macke und Emma Lübbecke-Jo",
+          "ratio": 1.5
         }
       }
     },
@@ -28697,33 +28859,6 @@
       }
     },
     {
-      "norm_name": "AUGUST MACKE",
-      "display_name": "August Macke",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 3,
-        "total_usd": 148472,
-        "avg_usd": 49491,
-        "total_label": "$148k",
-        "avg_label": "$49k",
-        "top_lot": {
-          "title": "Kandern 3",
-          "hammer_usd": 80883,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Porträtstudie Sofie Gerhardt",
-          "ratio": 1.34
-        }
-      }
-    },
-    {
       "norm_name": "OTTO PIENE",
       "display_name": "Otto Piene",
       "dates": "",
@@ -29264,33 +29399,6 @@
       }
     },
     {
-      "norm_name": "IMI KNOEBEL",
-      "display_name": "Imi Knoebel",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 130810,
-        "avg_usd": 65405,
-        "total_label": "$131k",
-        "avg_label": "$65k",
-        "top_lot": {
-          "title": "Sojus",
-          "hammer_usd": 69850,
-          "sale_name": "Post-War and Contemporary Art Day Sale"
-        },
-        "top_ratio_lot": {
-          "title": "Sojus",
-          "ratio": 1.0
-        }
-      }
-    },
-    {
       "norm_name": "JORDI RIBES",
       "display_name": "Jordi Ribes",
       "dates": "",
@@ -29584,33 +29692,6 @@
         "top_ratio_lot": {
           "title": "Kommendes Rot",
           "ratio": 1.82
-        }
-      }
-    },
-    {
-      "norm_name": "EMIL SCHUMACHER",
-      "display_name": "Emil Schumacher",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 2,
-        "total_usd": 124999,
-        "avg_usd": 62500,
-        "total_label": "$125k",
-        "avg_label": "$62k",
-        "top_lot": {
-          "title": "Zargala",
-          "hammer_usd": 95588,
-          "sale_name": "Evening Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Necho",
-          "ratio": 1.47
         }
       }
     },
@@ -29966,6 +30047,33 @@
       }
     },
     {
+      "norm_name": "HEINZ MACK",
+      "display_name": "Heinz Mack",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 119711,
+        "avg_usd": 119711,
+        "total_label": "$120k",
+        "avg_label": "$120k",
+        "top_lot": {
+          "title": "Dynamische Struktur Weiß auf Schwarz",
+          "hammer_usd": 119711,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Dynamische Struktur Weiß auf Schwarz",
+          "ratio": 1.5
+        }
+      }
+    },
+    {
       "norm_name": "GEORGES JOUVE",
       "display_name": "Georges Jouve",
       "dates": "",
@@ -30205,6 +30313,33 @@
         "top_ratio_lot": {
           "title": "Cardinale seduto",
           "ratio": 2.83
+        }
+      }
+    },
+    {
+      "norm_name": "CARL SPITZWEG",
+      "display_name": "Carl Spitzweg",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 112229,
+        "avg_usd": 112229,
+        "total_label": "$112k",
+        "avg_label": "$112k",
+        "top_lot": {
+          "title": "Vor der Stadt",
+          "hammer_usd": 112229,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Vor der Stadt",
+          "ratio": 2.81
         }
       }
     },
@@ -32284,33 +32419,6 @@
       }
     },
     {
-      "norm_name": "LESSER URY",
-      "display_name": "Lesser Ury",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 88235,
-        "avg_usd": 88235,
-        "total_label": "$88k",
-        "avg_label": "$88k",
-        "top_lot": {
-          "title": "Waterloo Bridge bei Nebel, London",
-          "hammer_usd": 88235,
-          "sale_name": "Day Sale, Munich"
-        },
-        "top_ratio_lot": {
-          "title": "Waterloo Bridge bei Nebel, London",
-          "ratio": 1.47
-        }
-      }
-    },
-    {
       "norm_name": "MARÍA HELENA VIEIRA DA SILVA",
       "display_name": "María Helena Vieira Da Silva",
       "dates": "",
@@ -32716,6 +32824,33 @@
       }
     },
     {
+      "norm_name": "KARL HAGEMEISTER",
+      "display_name": "Karl Hagemeister",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 80805,
+        "avg_usd": 80805,
+        "total_label": "$81k",
+        "avg_label": "$81k",
+        "top_lot": {
+          "title": "Seerosen am Ufer des Schwielowsees",
+          "hammer_usd": 80805,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Seerosen am Ufer des Schwielowsees",
+          "ratio": 5.77
+        }
+      }
+    },
+    {
       "norm_name": "OSKAR SCHLEMMER",
       "display_name": "Oskar Schlemmer",
       "dates": "",
@@ -32847,33 +32982,6 @@
         "top_ratio_lot": {
           "title": "Au Café",
           "ratio": 1.57
-        }
-      }
-    },
-    {
-      "norm_name": "ARNULF RAINER",
-      "display_name": "Arnulf Rainer",
-      "dates": "",
-      "nationality": "",
-      "movement": "",
-      "movement_id": "contemporary",
-      "bio": "",
-      "famous_works": [],
-      "lesser_known_works": [],
-      "dataset": {
-        "lot_count": 1,
-        "total_usd": 77419,
-        "avg_usd": 77419,
-        "total_label": "$77k",
-        "avg_label": "$77k",
-        "top_lot": {
-          "title": "Handmalerei (Handpainting)",
-          "hammer_usd": 77419,
-          "sale_name": "Post-War and Contemporary Art Day Sale&#160;&#160;&#160;"
-        },
-        "top_ratio_lot": {
-          "title": "Handmalerei (Handpainting)",
-          "ratio": 1.94
         }
       }
     },
@@ -33198,6 +33306,33 @@
         "top_ratio_lot": {
           "title": "Pu Xian, Bird on Plum Branch",
           "ratio": 2.44
+        }
+      }
+    },
+    {
+      "norm_name": "GÜNTER FRUHTRUNK",
+      "display_name": "Günter Fruhtrunk",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 74820,
+        "avg_usd": 74820,
+        "total_label": "$75k",
+        "avg_label": "$75k",
+        "top_lot": {
+          "title": "Destruktion / Entäusserung",
+          "hammer_usd": 74820,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Destruktion / Entäusserung",
+          "ratio": 0.94
         }
       }
     },
@@ -35223,6 +35358,33 @@
         "top_ratio_lot": {
           "title": "Phenomena, Batten down the Hatches",
           "ratio": 3.0
+        }
+      }
+    },
+    {
+      "norm_name": "PETER BRÜNING",
+      "display_name": "Peter Brüning",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 53870,
+        "avg_usd": 53870,
+        "total_label": "$54k",
+        "avg_label": "$54k",
+        "top_lot": {
+          "title": "Ohne Titel",
+          "hammer_usd": 53870,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Ohne Titel",
+          "ratio": 1.35
         }
       }
     },
@@ -37711,6 +37873,33 @@
       }
     },
     {
+      "norm_name": "THEO VON BROCKHUSEN",
+      "display_name": "Theo Von Brockhusen",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 35913,
+        "avg_usd": 35913,
+        "total_label": "$36k",
+        "avg_label": "$36k",
+        "top_lot": {
+          "title": "Gartenlandschaft",
+          "hammer_usd": 35913,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Gartenlandschaft",
+          "ratio": 2.39
+        }
+      }
+    },
+    {
       "norm_name": "JEAN-BAPTISTE AUGUSTE CLÉSINGER",
       "display_name": "Jean-Baptiste Auguste Clésinger",
       "dates": "",
@@ -38116,6 +38305,33 @@
       }
     },
     {
+      "norm_name": "LEO PUTZ",
+      "display_name": "Leo Putz",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 33669,
+        "avg_usd": 33669,
+        "total_label": "$34k",
+        "avg_label": "$34k",
+        "top_lot": {
+          "title": "Aktstudie zu den Badenden II",
+          "hammer_usd": 33669,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Aktstudie zu den Badenden II",
+          "ratio": 1.35
+        }
+      }
+    },
+    {
       "norm_name": "LINE VAUTRIN",
       "display_name": "Line Vautrin",
       "dates": "",
@@ -38220,6 +38436,33 @@
         "top_ratio_lot": {
           "title": "STAGE",
           "ratio": 0.83
+        }
+      }
+    },
+    {
+      "norm_name": "ANITA RÉE",
+      "display_name": "Anita Rée",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 32920,
+        "avg_usd": 32920,
+        "total_label": "$33k",
+        "avg_label": "$33k",
+        "top_lot": {
+          "title": "Knabe mit Kaninchen",
+          "hammer_usd": 32920,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Knabe mit Kaninchen",
+          "ratio": 1.65
         }
       }
     },
@@ -39759,6 +40002,60 @@
         "top_ratio_lot": {
           "title": "That watches and receives",
           "ratio": 4.19
+        }
+      }
+    },
+    {
+      "norm_name": "JEAN FAUTRIER",
+      "display_name": "Jean Fautrier",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 26935,
+        "avg_usd": 26935,
+        "total_label": "$27k",
+        "avg_label": "$27k",
+        "top_lot": {
+          "title": "Tête de fille",
+          "hammer_usd": 26935,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Tête de fille",
+          "ratio": 1.35
+        }
+      }
+    },
+    {
+      "norm_name": "FRANZ MARC",
+      "display_name": "Franz Marc",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 26935,
+        "avg_usd": 26935,
+        "total_label": "$27k",
+        "avg_label": "$27k",
+        "top_lot": {
+          "title": "Schwimmendes Reh",
+          "hammer_usd": 26935,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Schwimmendes Reh",
+          "ratio": 1.35
         }
       }
     },
@@ -41757,6 +42054,33 @@
         "top_ratio_lot": {
           "title": "Sonnenblume",
           "ratio": 0.93
+        }
+      }
+    },
+    {
+      "norm_name": "EMY ROEDER",
+      "display_name": "Emy Roeder",
+      "dates": "",
+      "nationality": "",
+      "movement": "",
+      "movement_id": "contemporary",
+      "bio": "",
+      "famous_works": [],
+      "lesser_known_works": [],
+      "dataset": {
+        "lot_count": 1,
+        "total_usd": 17956,
+        "avg_usd": 17956,
+        "total_label": "$18k",
+        "avg_label": "$18k",
+        "top_lot": {
+          "title": "Sitzende verhüllte Frau in Tripolis",
+          "hammer_usd": 17956,
+          "sale_name": "Day Sale, Munich"
+        },
+        "top_ratio_lot": {
+          "title": "Sitzende verhüllte Frau in Tripolis",
+          "ratio": 2.57
         }
       }
     },
