@@ -2,7 +2,7 @@
 """
 Reading Quote Reel — Hermès aesthetic.
 
-Picks unused quotes from the account's quotes.db (3 by default), pairs each
+Picks an unused quote from the account's quotes.db (1 by default), pairs it
 with its own blurred art background from art.db, renders animated 1080×1920
 segments with a Ken Burns pan, TTS voiceover per quote (edge-tts, macOS `say`
 fallback) followed by a spoken note explaining the painting (AI-generated via
@@ -10,8 +10,8 @@ ai_content.generate_painting_note, attribution-line fallback), ducked ambient
 music, and a CTA that fades in at the end.
 
 Usage:
-    python scripts/quote_reel.py                          # 3 quotes, 3 backgrounds, voiceover
-    python scripts/quote_reel.py --count 1                # single-quote reel
+    python scripts/quote_reel.py                          # 1 quote, voiceover
+    python scripts/quote_reel.py --count 3                # multi-quote reel
     python scripts/quote_reel.py --account stoicism       # use a different account
     python scripts/quote_reel.py --id 42                  # use specific quote id (single)
     python scripts/quote_reel.py --no-voice               # skip TTS voiceover
@@ -816,8 +816,8 @@ def main():
     parser.add_argument("--account", default="lifequoteshere",
                         help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--id",      type=int, help="Specific quote id to use (single-quote reel)")
-    parser.add_argument("--count",   type=int, default=3,
-                        help="Number of quotes per reel (default 3)")
+    parser.add_argument("--count",   type=int, default=1,
+                        help="Number of quotes per reel (default 1)")
     parser.add_argument("--no-voice", action="store_true",
                         help="Skip TTS voiceover")
     parser.add_argument("--no-art-voice", action="store_true",
