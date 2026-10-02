@@ -31,17 +31,17 @@ jobs:
         env:
           UV_INDEX_URL: https://pypi.org/simple/
 
-      - name: Run Christie's scraper
-        run: uv run python -m scraper.christies --max-lots 300 --lookback-months 18
-        env:
-          UV_INDEX_URL: https://pypi.org/simple/
-          PYTHONPATH: .
+      # - name: Run Christie's scraper
+      #   run: uv run python -m scraper.christies --max-lots 300 --lookback-months 18
+      #   env:
+      #     UV_INDEX_URL: https://pypi.org/simple/
+      #     PYTHONPATH: .
 
-      - name: Run Sotheby's scraper
-        run: uv run python -m scraper.sothebys --max-lots 50
-        env:
-          UV_INDEX_URL: https://pypi.org/simple/
-          PYTHONPATH: .
+      # - name: Run Sotheby's scraper
+      #   run: uv run python -m scraper.sothebys --max-lots 50
+      #   env:
+      #     UV_INDEX_URL: https://pypi.org/simple/
+      #     PYTHONPATH: .
 
       - name: Run Ketterer Kunst scraper
         run: uv run python -m scraper.kettererkunst --max-lots 100 --max-pages 20
