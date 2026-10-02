@@ -494,6 +494,18 @@ def _prices_to_speech(text: str) -> str:
 def _pct_above(hammer: float, low: float) -> float:
     return round((hammer / low - 1) * 100, 1)
 
+def _fmt_estimate_range(est_lo: float, est_hi: float) -> str:
+    """'$X–$Y', or just '$X' when the low and high estimates match."""
+    if est_lo == est_hi:
+        return _fmt(est_lo)
+    return f"{_fmt(est_lo)}–{_fmt(est_hi)}"
+
+def _fmt_estimate_range_tts(est_lo: float, est_hi: float) -> str:
+    """Spoken estimate range, or a single spoken value when low == high."""
+    if est_lo == est_hi:
+        return _fmt_price_tts(est_lo)
+    return f"{_fmt_price_tts(est_lo)} to {_fmt_price_tts(est_hi)}"
+
 def _clean_artist(name: str) -> str:
     return re.sub(r"\s*\([^)]+\)\s*$", "", name or "").strip().title()
 
@@ -611,7 +623,7 @@ def _hook_caption(lot: dict, pct: float) -> tuple[str, str]:
     hammer   = _fmt(lot["hammer_usd"])
     est_lo   = lot["estimate_low"]
     est_hi   = lot.get("estimate_high") or est_lo
-    estimate = f"{_fmt(est_lo)}–{_fmt(est_hi)}"
+    estimate = _fmt_estimate_range(est_lo, est_hi)
     fmt = dict(n=f"{mult:.0f}×", artist=artist, title=title, house=house,
                hammer=hammer, estimate=estimate, pct=f"{pct:,.0f}%")
     for threshold, q_variants, a_variants in _HOOK_TEMPLATES:
@@ -633,7 +645,7 @@ def _social_captions(lot: dict) -> dict:
     ig_parts = [
         f"{artist}\n",
         f'"{title}"\n\n',
-        f"estimate: {_fmt(est_lo)}–{_fmt(est_hi)}\n",
+        f"estimate: {_fmt_estimate_range(est_lo, est_hi)}\n",
         f"sold: {_fmt(lot['hammer_usd'])}  (+{pct:,.0f}% above estimate)\n\n",
         f"{sale_name}\n" if sale_name else "",
         f"{house}",
@@ -643,7 +655,7 @@ def _social_captions(lot: dict) -> dict:
     ig = "".join(ig_parts)
     tt_parts = [
         f"{artist} · \"{title}\"\n",
-        f"estimate {_fmt(est_lo)}–{_fmt(est_hi)} → sold {_fmt(lot['hammer_usd'])} (+{pct:,.0f}%)\n",
+        f"estimate {_fmt_estimate_range(est_lo, est_hi)} → sold {_fmt(lot['hammer_usd'])} (+{pct:,.0f}%)\n",
         f"{sale_name} · " if sale_name else "",
         f"{house}",
         f"\n{url}" if url else "",
@@ -652,7 +664,7 @@ def _social_captions(lot: dict) -> dict:
     tt = "".join(tt_parts)
     ln_parts = [
         f"{artist} — \"{title}\"\n\n",
-        f"estimate: {_fmt(est_lo)}–{_fmt(est_hi)} | ",
+        f"estimate: {_fmt_estimate_range(est_lo, est_hi)} | ",
         f"sold: {_fmt(lot['hammer_usd'])} (+{pct:,.0f}% above estimate)\n\n",
         f"{sale_name}\n" if sale_name else "",
         f"{house}",
@@ -718,7 +730,7 @@ def _generate_config(lot: dict, week_label: str, captions: dict,
     year      = scraped[:4] if scraped else str(date.today().year)
 
     tag_line  = f"@thehammerprice  ·  {artist.lower()}  ·  {year}"
-    est_str   = f"estimate: {_fmt(est_lo)}–{_fmt(est_hi)}"
+    est_str   = f"estimate: {_fmt_estimate_range(est_lo, est_hi)}"
     sold_str  = f"sold: {_fmt(hammer)}."
     pct_str   = f"+{pct:,.0f}% above estimate."
 
@@ -877,7 +889,7 @@ def _build_voiceover(lot: dict, pct: float, reel_dir: Path) -> tuple[list | None
     lot_ctx.update({
         "artist":       artist,
         "hammer_fmt":   _fmt(lot["hammer_usd"]),
-        "estimate_fmt": f"{_fmt(est_lo)}–{_fmt(est_hi)}",
+        "estimate_fmt": _fmt_estimate_range(est_lo, est_hi),
         "pct_above":    pct,
     })
 
@@ -898,7 +910,7 @@ def _build_voiceover(lot: dict, pct: float, reel_dir: Path) -> tuple[list | None
 
     intro = f"this is {title.lower()}, by {artist.lower()}."
     data  = (
-        f"the estimate was {_fmt_price_tts(est_lo)} to {_fmt_price_tts(est_hi)}. "
+        f"the estimate was {_fmt_estimate_range_tts(est_lo, est_hi)}. "
         f"it sold for {_fmt_price_tts(lot['hammer_usd'])}. "
         f"that's plus {pct:.0f} percent above estimate."
     )
@@ -1214,7 +1226,7 @@ def main() -> None:
         pct    = _pct_above(lot["hammer_usd"], lot["estimate_low"])
         print(f"\n▸ {artist}")
         print(f"  {(lot.get('title') or 'Untitled')[:60]}")
-        print(f"  estimate  {_fmt(lot['estimate_low'])}–{_fmt(lot.get('estimate_high') or lot['estimate_low'])}")
+        print(f"  estimate  {_fmt_estimate_range(lot['estimate_low'], lot.get('estimate_high') or lot['estimate_low'])}")
         print(f"  sold      {_fmt(lot['hammer_usd'])}  (+{pct:.0f}%)")
         print(f"  {lot.get('auction_house')}")
         print(f"\n  {'#':<4} {'Artist':<30} {'Hammer':>12} {'%+':>7}  Score")
@@ -1234,7 +1246,7 @@ def main() -> None:
 
         print(f"\n▸ {c_artist}")
         print(f"  {(candidate.get('title') or 'Untitled')[:60]}")
-        print(f"  estimate  {_fmt(candidate['estimate_low'])}–{_fmt(candidate.get('estimate_high') or candidate['estimate_low'])}")
+        print(f"  estimate  {_fmt_estimate_range(candidate['estimate_low'], candidate.get('estimate_high') or candidate['estimate_low'])}")
         print(f"  sold      {_fmt(candidate['hammer_usd'])}  (+{c_pct:.0f}%)")
         print(f"  {candidate.get('auction_house')}")
 
