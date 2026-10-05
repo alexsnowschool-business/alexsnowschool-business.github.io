@@ -1,5 +1,5 @@
-handle: "@lifeqouteshere"
-niche: "life"
+handle: "@qoutes_arts_pieces"
+niche: "art"
 
 quotes_db: "data/quotes.db"
 art_db:    "data/art.db"
@@ -29,12 +29,21 @@ scrape_tags:
   - painting
   - imagination
   - aesthetics
+  - sculpture
+  - gallery
+  - exhibition
+  - masterpiece
+  - canvas
+  - museum
+  - craftsmanship
+  - inspiration
+  - vision
 
 hashtags_tiktok: >-
-  #burnout #midlifecrisis  #quarterlifecrisis #quotesoftheday  #fyp
+  #artquotes #fineart #artistsoninstagram #quotesoftheday  #fyp
 
 hashtags_instagram: >-
-  #burnout #midlifecrisis #quotesoftheday
+  #artquotes #fineart #quotesoftheday
 
 buffer_token_env:        "PROVENANCE_BUFFER_TOKEN"
 buffer_tiktok_id_env:    "PROVENANCE_BUFFER_TIKTOK_ID"
@@ -42,7 +51,7 @@ buffer_instagram_id_env: "PROVENANCE_BUFFER_INSTAGRAM_ID"
 buffer_youtube_id_env:   "PROVENANCE_BUFFER_YOUTUBE_ID"
 
 hashtags_youtube: >-
-  #burnout #midlifecrisis #quarterlifecrisis #quotesoftheday #shorts
+  #artquotes #fineart #artistsoninstagram #quotesoftheday #shorts
 
 palette:
   bg:     [14, 10, 6]
