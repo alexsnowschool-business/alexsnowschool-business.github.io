@@ -191,10 +191,10 @@ def _parse_lot_detail(body: str, anummer: str, obnr: str) -> dict | None:
     est_m  = _ESTIMATE_RE.search(body)
     sold_m = _SOLD_RE.search(body)
     # Ketterer publishes a single estimate figure, not a low/high range.
-    est_low   = _parse_num(est_m.group(1)) if est_m else None
+    est_low   = _parse_num(est_m.group(2)) if est_m else None
     est_high  = est_low
-    hammer    = _parse_num(sold_m.group(1)) if sold_m else None
-    hammer_usd = _parse_num(sold_m.group(2)) if sold_m else None
+    hammer    = _parse_num(sold_m.group(2)) if sold_m else None
+    hammer_usd = hammer
 
     desc_m      = _DESC_BLOCK_RE.search(body)
     dimensions  = None
@@ -223,7 +223,7 @@ def _parse_lot_detail(body: str, anummer: str, obnr: str) -> dict | None:
         "estimate_low":    est_low,
         "estimate_high":   est_high,
         "hammer_price":    hammer,
-        "currency":        "EUR",
+        "currency":        "USD",
         "hammer_usd":      hammer_usd,
         "provenance":      provenance,
         "description":     f"{artist} — {title}" if title else artist,
