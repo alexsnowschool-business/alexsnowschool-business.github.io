@@ -3,7 +3,7 @@
 Scrape quotes from goodreads.com/quotes and store in an account's quotes.db.
 
 Usage:
-    python scripts/goodreads_scraper.py                         # scrape lifequoteshere (default)
+    python scripts/goodreads_scraper.py                         # scrape qoutes_arts_pieces (default)
     python scripts/goodreads_scraper.py --account stoicdaily    # scrape a different account
     python scripts/goodreads_scraper.py --tags books reading    # override tags
     python scripts/goodreads_scraper.py --pages 5               # pages per tag (default 3)
@@ -218,7 +218,7 @@ def cmd_purge_religious(conn: sqlite3.Connection, account: str):
 
 def main():
     parser = argparse.ArgumentParser(description="Goodreads quote scraper")
-    parser.add_argument("--account", default="lifequoteshere",
+    parser.add_argument("--account", default="qoutes_arts_pieces",
                         help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--tags",  nargs="+", default=None,
                         help="Override Goodreads tag slugs (default: from account config)")

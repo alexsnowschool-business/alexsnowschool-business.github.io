@@ -8,7 +8,7 @@ on:
       account:
         description: "Account slug (matches accounts/<slug>.yaml)"
         required: false
-        default: "lifequoteshere"
+        default: "qoutes_arts_pieces"
       quote_id:
         description: "Specific quote ID to use (leave blank for auto)"
         required: false
@@ -54,7 +54,7 @@ jobs:
         env:
           PYTHONPATH: "scripts:."
         run: |
-          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ACCOUNT="${{ inputs.account || 'qoutes_arts_pieces' }}"
           ARGS="--account $ACCOUNT"
           if [ -n "${{ inputs.quote_id }}" ]; then
             ARGS="$ARGS --id ${{ inputs.quote_id }}"
@@ -84,7 +84,7 @@ jobs:
           GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: "scripts:."
         run: |
-          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ACCOUNT="${{ inputs.account || 'qoutes_arts_pieces' }}"
           ARGS="${{ steps.reel.outputs.folder }} --account $ACCOUNT"
           if [ -n "${{ inputs.schedule_at }}" ]; then
             ARGS="$ARGS --schedule '${{ inputs.schedule_at }}'"
@@ -96,6 +96,6 @@ jobs:
         env:
           PYTHONPATH: "scripts:."
         run: |
-          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ACCOUNT="${{ inputs.account || 'qoutes_arts_pieces' }}"
           uv run python scripts/post_quote_to_buffer.py \
             ${{ steps.reel.outputs.folder }} --account $ACCOUNT --dry-run

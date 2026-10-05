@@ -215,7 +215,7 @@ def render_card_set(quotes: list[dict], arts: list[tuple[Image.Image | None, str
 
 def main():
     parser = argparse.ArgumentParser(description="Quote card carousel generator")
-    parser.add_argument("--account", default="lifequoteshere",
+    parser.add_argument("--account", default="qoutes_arts_pieces",
                         help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--count",   type=int, default=5, help="Number of cards to render")
     parser.add_argument("--dry-run", action="store_true",

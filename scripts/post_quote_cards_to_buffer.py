@@ -159,7 +159,7 @@ def _post_to_buffer(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Post a quote card carousel to Instagram and TikTok via Buffer.")
     parser.add_argument("cards_dir",     help="Folder from quote_cards.py, e.g. output/quote_cards/cards-2026-07-15_slug")
-    parser.add_argument("--account",     default="lifequoteshere",
+    parser.add_argument("--account",     default="qoutes_arts_pieces",
                         help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--schedule",    default=None, help="ISO 8601 datetime, e.g. 2026-07-15T19:00:00+07:00")
     parser.add_argument("--no-instagram", dest="instagram", action="store_false", default=True)

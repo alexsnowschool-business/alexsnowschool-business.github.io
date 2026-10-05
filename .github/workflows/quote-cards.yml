@@ -8,7 +8,7 @@ on:
       account:
         description: "Account slug (matches accounts/<slug>.yaml)"
         required: false
-        default: "lifequoteshere"
+        default: "qoutes_arts_pieces"
       count:
         description: "Number of cards in the carousel"
         required: false
@@ -49,7 +49,7 @@ jobs:
         env:
           PYTHONPATH: "scripts:."
         run: |
-          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ACCOUNT="${{ inputs.account || 'qoutes_arts_pieces' }}"
           COUNT="${{ inputs.count || '5' }}"
           uv run python scripts/quote_cards.py --account "$ACCOUNT" --count "$COUNT"
 
@@ -75,7 +75,7 @@ jobs:
           GH_TOKEN:                       ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: "scripts:."
         run: |
-          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ACCOUNT="${{ inputs.account || 'qoutes_arts_pieces' }}"
           ARGS="${{ steps.cards.outputs.folder }} --account $ACCOUNT"
           if [ -n "${{ inputs.schedule_at }}" ]; then
             ARGS="$ARGS --schedule '${{ inputs.schedule_at }}'"
@@ -87,6 +87,6 @@ jobs:
         env:
           PYTHONPATH: "scripts:."
         run: |
-          ACCOUNT="${{ inputs.account || 'lifequoteshere' }}"
+          ACCOUNT="${{ inputs.account || 'qoutes_arts_pieces' }}"
           uv run python scripts/post_quote_cards_to_buffer.py \
             ${{ steps.cards.outputs.folder }} --account $ACCOUNT --dry-run

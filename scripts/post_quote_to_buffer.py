@@ -217,7 +217,7 @@ def main() -> None:
         description="Post a reading quote reel to TikTok/Instagram via Buffer."
     )
     parser.add_argument("reel_dir",       help="Reel folder, e.g. reels/quote-2026-07-12_slug")
-    parser.add_argument("--account",      default="lifequoteshere",
+    parser.add_argument("--account",      default="qoutes_arts_pieces",
                         help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--schedule",     default=None,
                         help="ISO 8601 datetime, e.g. 2026-07-13T19:00:00+07:00")

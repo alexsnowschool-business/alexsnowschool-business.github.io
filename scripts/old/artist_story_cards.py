@@ -335,7 +335,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("artist", nargs="?", help="Artist name")
     parser.add_argument("--force", action="store_true", help="Re-fetch profile")
-    parser.add_argument("--account", default="lifequoteshere")
+    parser.add_argument("--account", default="qoutes_arts_pieces")
     args = parser.parse_args()
 
     if args.artist:

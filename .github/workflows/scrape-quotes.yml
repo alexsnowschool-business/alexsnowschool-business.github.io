@@ -8,7 +8,7 @@ on:
       account:
         description: "Account slug to scrape (leave blank = all accounts)"
         required: false
-        default: "lifequoteshere"
+        default: "qoutes_arts_pieces"
 
 jobs:
   scrape-quotes:
@@ -36,7 +36,7 @@ jobs:
         run: |
           ACCOUNTS="${{ inputs.account }}"
           if [ -z "$ACCOUNTS" ]; then
-            ACCOUNTS="lifequoteshere"
+            ACCOUNTS="qoutes_arts_pieces"
           fi
           for ACCOUNT in $ACCOUNTS; do
             echo "=== Scraping: $ACCOUNT ==="
@@ -50,7 +50,7 @@ jobs:
         run: |
           ACCOUNTS="${{ inputs.account }}"
           if [ -z "$ACCOUNTS" ]; then
-            ACCOUNTS="lifequoteshere"
+            ACCOUNTS="qoutes_arts_pieces"
           fi
           for ACCOUNT in $ACCOUNTS; do
             uv run python -c "

@@ -813,7 +813,7 @@ def export_animated_video(frames_iter, out_path: Path, music_track: Path | None,
 
 def main():
     parser = argparse.ArgumentParser(description="Reading quote reel generator")
-    parser.add_argument("--account", default="lifequoteshere",
+    parser.add_argument("--account", default="qoutes_arts_pieces",
                         help="Account slug matching accounts/<slug>.yaml")
     parser.add_argument("--id",      type=int, help="Specific quote id to use (single-quote reel)")
     parser.add_argument("--count",   type=int, default=1,
