@@ -30,7 +30,7 @@ BUSINESS_DIR = SCRIPT_DIR.parent
 
 from quote_reel import (  # noqa: E402 — needs sys.path insert above
     load_font, pick_quote, mark_quote_used, pick_art_image_url, download_image,
-    _palette, wrap_quote,
+    _palette, wrap_quote, _ensure_art_used_table, used_art_urls, mark_art_used,
 )
 
 OUTPUT_DIR = BUSINESS_DIR / "output" / "quote_cards"
@@ -241,6 +241,8 @@ def main():
 
     q_conn   = sqlite3.connect(QUOTES_DB)
     art_conn = sqlite3.connect(ART_DB)
+    _ensure_art_used_table(art_conn)
+    persisted_used_urls = used_art_urls(art_conn)
 
     quotes: list[dict] = []
     seen_ids: set[int] = set()
@@ -268,11 +270,14 @@ def main():
 
     # ── Pick a distinct art background per card ────────────────
     arts: list[tuple[Image.Image | None, str, str]] = []
+    art_urls: list[str | None] = []
     used_urls: set[str] = set()
     for _ in quotes:
         art_result = None
         for _attempt in range(10):
-            candidate = pick_art_image_url(art_conn, only_paintings=True)
+            candidate = pick_art_image_url(
+                art_conn, only_paintings=True, exclude=used_urls | persisted_used_urls
+            )
             if not candidate:
                 break
             if candidate[0] not in used_urls:
@@ -284,10 +289,10 @@ def main():
             print(f"  Art: {art_artist} — {art_title}")
             art_img = download_image(img_url)
             arts.append((art_img, art_artist, art_title))
+            art_urls.append(img_url)
         else:
             arts.append((None, "", ""))
-
-    art_conn.close()
+            art_urls.append(None)
 
     # ── Output folder ─────────────────────────────────────────
     import reel_utils
@@ -313,7 +318,11 @@ def main():
 
     for quote in quotes:
         mark_quote_used(q_conn, quote["id"])
+    for url in art_urls:
+        if url:
+            mark_art_used(art_conn, url)
     q_conn.close()
+    art_conn.close()
 
     print("\nDone.")
 

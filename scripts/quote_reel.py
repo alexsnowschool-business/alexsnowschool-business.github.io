@@ -136,28 +136,54 @@ def mark_quote_used(conn: sqlite3.Connection, quote_id: int):
     conn.commit()
 
 
+def _ensure_art_used_table(art_conn: sqlite3.Connection):
+    art_conn.execute(
+        "CREATE TABLE IF NOT EXISTS used_art_backgrounds ("
+        "image_url TEXT PRIMARY KEY, used_at TEXT)"
+    )
+    art_conn.commit()
+
+
+def used_art_urls(art_conn: sqlite3.Connection) -> set[str]:
+    """Image URLs already used as a quote background in a previous run."""
+    return {r[0] for r in art_conn.execute("SELECT image_url FROM used_art_backgrounds")}
+
+
+def mark_art_used(art_conn: sqlite3.Connection, image_url: str):
+    art_conn.execute(
+        "INSERT OR IGNORE INTO used_art_backgrounds (image_url, used_at) VALUES (?, ?)",
+        (image_url, datetime.now(timezone.utc).isoformat()),
+    )
+    art_conn.commit()
+
+
 def pick_art_image_url(art_conn: sqlite3.Connection,
-                       only_paintings: bool = False) -> tuple[str, str, str] | None:
+                       only_paintings: bool = False,
+                       exclude: set[str] | None = None) -> tuple[str, str, str] | None:
     """Return (image_url, artist, title) for a random art item with images.
 
     `only_paintings` restricts to medium_category = 'painting' — excludes
     photography, sculpture, works on paper, manuscripts, etc.
+    `exclude` skips image URLs already used as a background (this run or a
+    previous one — see `used_art_urls`).
     """
+    exclude = exclude or set()
     query = (
         "SELECT artist, title, image_urls FROM art_items "
         "WHERE image_urls IS NOT NULL AND image_urls NOT IN ('', '[]') "
     )
     if only_paintings:
         query += "AND medium_category = 'painting' AND auction_house = 'Ketterer Kunst' "
-    query += "ORDER BY RANDOM() LIMIT 20"
+    query += "ORDER BY RANDOM() LIMIT 50"
     rows = art_conn.execute(query).fetchall()
     for artist, title, urls_json in rows:
         try:
             urls = json.loads(urls_json)
         except (json.JSONDecodeError, TypeError):
             continue
-        if urls:
-            return urls[0], artist, title
+        for url in urls:
+            if url not in exclude:
+                return url, artist, title
     return None
 
 
@@ -850,6 +876,8 @@ def main():
 
     q_conn   = sqlite3.connect(QUOTES_DB)
     art_conn = sqlite3.connect(ART_DB)
+    _ensure_art_used_table(art_conn)
+    persisted_used_urls = used_art_urls(art_conn)
 
     # ── Pick quotes ───────────────────────────────────────────
     if args.id is not None:
@@ -880,8 +908,11 @@ def main():
         art_img    = None
         art_artist = ""
         art_title  = ""
+        art_url    = None
         for _ in range(8):  # retry to avoid duplicate artworks
-            art_result = pick_art_image_url(art_conn, only_paintings=True)
+            art_result = pick_art_image_url(
+                art_conn, only_paintings=True, exclude=seen_urls | persisted_used_urls
+            )
             if not art_result:
                 break
             img_url, cand_artist, cand_title = art_result
@@ -891,14 +922,12 @@ def main():
             print(f"\n  Art: {cand_artist} — {cand_title}")
             art_img = download_image(img_url)
             if art_img is not None:
-                art_artist, art_title = cand_artist, cand_title
+                art_artist, art_title, art_url = cand_artist, cand_title, img_url
                 break
         if art_img is None:
             print("\n  No art image for this quote; using plain dark background")
-        segments.append({"quote": quote, "art_img": art_img,
+        segments.append({"quote": quote, "art_img": art_img, "art_url": art_url,
                          "art_artist": art_artist, "art_title": art_title})
-
-    art_conn.close()
 
     # ── Output folder ─────────────────────────────────────────
     import reel_utils
@@ -988,6 +1017,7 @@ def main():
     if args.preview:
         print("\n  Preview mode — skipping video encoding")
         q_conn.close()
+        art_conn.close()
         return
 
     # ── Export animated video ─────────────────────────────────
@@ -1000,10 +1030,14 @@ def main():
                           total_s=total_s, voiceovers=voiceovers)
     print(f"  Video: {out_path.name}  ({total_s:.1f}s)")
 
-    # ── Mark quotes used ──────────────────────────────────────
+    # ── Mark quotes and art backgrounds used ───────────────────
     for quote in quotes:
         mark_quote_used(q_conn, quote["id"])
+    for seg in segments:
+        if seg["art_url"]:
+            mark_art_used(art_conn, seg["art_url"])
     q_conn.close()
+    art_conn.close()
 
     print("\nDone.")
 
