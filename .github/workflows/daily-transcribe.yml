@@ -64,9 +64,8 @@ jobs:
           fi
           rm -f "$titles_file"
 
-          git diff --cached --quiet || git commit -m "chore(art-culture-audio): daily transcription + categorization batch [skip ci]
-
-${summary}"
+          message=$(printf 'chore(art-culture-audio): daily transcription + categorization batch [skip ci]\n\n%s' "$summary")
+          git diff --cached --quiet || git commit -m "$message"
           for i in 1 2 3; do
             git push && break
             echo "Push rejected (attempt $i/3) — pulling and retrying..."
