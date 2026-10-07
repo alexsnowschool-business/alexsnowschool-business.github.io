@@ -4,18 +4,14 @@ Reading Quote Reel — Hermès aesthetic.
 
 Picks an unused quote from the account's quotes.db (1 by default), pairs it
 with its own blurred art background from art.db, renders animated 1080×1920
-segments with a Ken Burns pan, TTS voiceover per quote (edge-tts, macOS `say`
-fallback) followed by a spoken note explaining the painting (AI-generated via
-ai_content.generate_painting_note, attribution-line fallback), ducked ambient
-music, and a CTA that fades in at the end.
+segments with a Ken Burns pan, ambient music, and a CTA that fades in at the
+end.
 
 Usage:
-    python scripts/quote_reel.py                          # 1 quote, voiceover
+    python scripts/quote_reel.py                          # 1 quote
     python scripts/quote_reel.py --count 3                # multi-quote reel
     python scripts/quote_reel.py --account stoicism       # use a different account
     python scripts/quote_reel.py --id 42                  # use specific quote id (single)
-    python scripts/quote_reel.py --no-voice               # skip TTS voiceover
-    python scripts/quote_reel.py --no-art-voice           # skip the painting explanation
     python scripts/quote_reel.py --preview                # render frame PNGs only, no video
     python scripts/quote_reel.py --dry-run                # print chosen quotes, do nothing
 """
@@ -46,13 +42,9 @@ W, H         = 1080, 1920
 FPS          = 24
 TOTAL_S      = 8.0
 MUSIC_VOLUME = 0.30   # bumped from 0.25 for a stronger opening audio hook
-MUSIC_VOLUME_DUCKED = 0.12  # music level while a voiceover is playing
 KB_ZOOM      = 1.08   # Ken Burns: background rendered 8% oversize; we pan across it
 FADE_S       = 0.5    # segment fade in/out duration
-TTS_VOICE    = "en-US-ChristopherNeural"  # deep mature male; macOS `say` fallback
-TTS_RATE     = "-8%"     # slightly slower for an older, unhurried delivery
-TTS_PITCH    = "-12Hz"   # lower pitch for gravitas
-ART_VO_GAP_S = 0.6       # pause between the quote voiceover and the painting note
+SEGMENT_HOLD_S = 3.0  # how long a segment holds fully revealed before fading out
 
 DEFAULT_PALETTE = {
     "bg":     (14, 10, 6),
@@ -496,16 +488,12 @@ def render_frame(quote: dict, bg: Image.Image, palette: dict,
                             len(layout.lines), 255, 255)
 
 
-def plan_segment(quote: dict, palette: dict, vo_dur: float,
+def plan_segment(quote: dict, palette: dict,
                  reveal_per_element: float = 0.5) -> dict:
-    """Compute a segment's timing so the voiceover always fits.
-
-    Segment = fade in → line reveals → author reveal → hold → fade out.
-    The voiceover starts as the first line begins revealing.
-    """
+    """Compute a segment's timing: fade in → line reveals → author reveal → hold → fade out."""
     n_lines  = len(QuoteLayout(quote, palette).lines)
     reveal_s = (n_lines + 1) * reveal_per_element
-    hold_s   = max(1.2, vo_dur + 0.6 - reveal_s)
+    hold_s   = SEGMENT_HOLD_S
     total_s  = 2 * FADE_S + reveal_s + hold_s
     return {"reveal_s": reveal_s, "hold_s": hold_s, "total_s": total_s}
 
@@ -516,10 +504,9 @@ def generate_multi_frames(segments: list[dict], palette: dict,
     """Generator yielding PIL RGBA frames for a multi-quote reel.
 
     Each segment gets its own artwork with a Ken Burns pan: fade in from the
-    bg colour, reveal the quote line by line (voiceover starts here), hold
-    while the voiceover finishes, fade back out. The CTA fades in during the
-    final segment's hold. Segment dicts need: quote, art_img, art_artist,
-    art_title, total_s.
+    bg colour, reveal the quote line by line, hold, fade back out. The CTA
+    fades in during the final segment's hold. Segment dicts need: quote,
+    art_img, art_artist, art_title, total_s.
     """
     solid = Image.new("RGBA", (W, H), (*palette["bg"], 255))
     last  = len(segments) - 1
@@ -576,7 +563,7 @@ def generate_multi_frames(segments: list[dict], palette: dict,
             yield Image.blend(solid, rend(fi, 0, 0, 0), t)
             fi += 1
 
-        # 2. Line reveals — voiceover starts with the first line
+        # 2. Line reveals
         for line_idx in range(n_lines):
             for f in range(reveal_frames):
                 alpha = int(255 * (f + 1) / reveal_frames)
@@ -589,7 +576,7 @@ def generate_multi_frames(segments: list[dict], palette: dict,
             yield rend(fi, n_lines, 255, alpha)
             fi += 1
 
-        # 4. Hold — voiceover finishes; CTA fades in on the last segment
+        # 4. Hold — CTA fades in on the last segment
         cta_start = hold_frames // 2
         for f in range(hold_frames):
             cta_a = 0
@@ -618,69 +605,6 @@ def pick_music_track(seed: str) -> Path | None:
     if not tracks:
         return None
     return tracks[abs(hash(seed)) % len(tracks)]
-
-
-# ── Voiceover ─────────────────────────────────────────────────────────────────
-
-def synth_voiceover(text: str, out_path: Path, voice: str = TTS_VOICE) -> Path | None:
-    """Synthesize speech for one quote. Tries edge-tts first (works in CI),
-    falls back to macOS `say`. Returns the audio path or None."""
-    try:
-        import asyncio
-        import edge_tts
-
-        async def _run():
-            await edge_tts.Communicate(
-                text, voice, rate=TTS_RATE, pitch=TTS_PITCH
-            ).save(str(out_path))
-
-        asyncio.run(_run())
-        if out_path.exists() and out_path.stat().st_size > 0:
-            return out_path
-    except Exception as e:
-        print(f"  edge-tts unavailable ({e}); trying macOS say")
-
-    aiff = out_path.with_suffix(".aiff")
-    r = subprocess.run(["say", "-v", "Daniel", "-r", "160", "-o", str(aiff), text],
-                       capture_output=True)
-    if r.returncode == 0 and aiff.exists():
-        return aiff
-
-    print("  Warning: no TTS available — segment will have no voiceover")
-    return None
-
-
-def painting_voiceover_text(art_artist: str, art_title: str) -> str:
-    """Spoken note explaining the painting behind a segment.
-
-    Tries the AI-generated two-sentence note (ai_content.generate_painting_note);
-    falls back to a simple attribution line when no API key is available."""
-    try:
-        from ai_content import generate_painting_note
-        note = generate_painting_note(art_artist, art_title)
-        if note:
-            return note
-    except Exception as e:
-        print(f"  Warning: painting note generation failed ({e}); using fallback")
-
-    artist = art_artist.title() if art_artist else ""
-    title  = art_title if art_title else "an untitled work"
-    if artist:
-        return f"The painting behind these words is {title}, by {artist}."
-    return f"The painting behind these words is {title}."
-
-
-def audio_duration(path: Path) -> float:
-    """Return audio duration in seconds via ffprobe."""
-    r = subprocess.run(
-        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-         "-of", "default=nw=1:nk=1", str(path)],
-        capture_output=True, text=True,
-    )
-    try:
-        return float(r.stdout.strip())
-    except ValueError:
-        return 0.0
 
 
 # ── Video export ──────────────────────────────────────────────────────────────
@@ -736,14 +660,8 @@ def export_video(frame_path: Path, out_path: Path, music_track: Path | None):
 
 
 def export_animated_video(frames_iter, out_path: Path, music_track: Path | None,
-                          fps: int = FPS, total_s: float = TOTAL_S,
-                          voiceovers: list[tuple[Path, float]] | None = None):
-    """Pipe raw RGB frames to FFmpeg via stdin to produce an animated MP4.
-
-    voiceovers: list of (audio_path, offset_seconds) mixed over the music,
-    which is ducked to MUSIC_VOLUME_DUCKED while voiceovers are present.
-    """
-    voiceovers = voiceovers or []
+                          fps: int = FPS, total_s: float = TOTAL_S):
+    """Pipe raw RGB frames to FFmpeg via stdin to produce an animated MP4."""
     fade_start = max(0.0, total_s - 2.0)
 
     raw_video_args = [
@@ -765,34 +683,14 @@ def export_animated_video(frames_iter, out_path: Path, music_track: Path | None,
         cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo"]
         print("  ♪ No music tracks found — silent base track")
 
-    # Audio inputs 2..N: voiceovers
-    for vo_path, _ in voiceovers:
-        cmd += ["-i", str(vo_path)]
-
-    music_vol = MUSIC_VOLUME_DUCKED if voiceovers else MUSIC_VOLUME
-    parts = [
+    af = (
         f"[1:a]"
         f"afade=t=in:st=0:d=0.2,"
         f"afade=t=out:st={fade_start:.2f}:d=2.0,"
-        f"volume={music_vol},"
+        f"volume={MUSIC_VOLUME},"
         f"atrim=duration={total_s:.2f}"
-        f"[a_base]"
-    ]
-    mix_ins = "[a_base]"
-    for i, (_, offset_s) in enumerate(voiceovers):
-        delay_ms = int(offset_s * 1000)
-        parts.append(f"[{2 + i}:a]adelay={delay_ms}:all=1[a_v{i}]")
-        mix_ins += f"[a_v{i}]"
-
-    if voiceovers:
-        parts.append(
-            f"{mix_ins}amix=inputs={1 + len(voiceovers)}"
-            f":duration=first:normalize=0[aout]"
-        )
-        af = ";".join(parts)
-        print(f"  ♪ Voiceovers: {len(voiceovers)} mixed in (music ducked to {music_vol})")
-    else:
-        af = parts[0].replace("[a_base]", "[aout]")
+        f"[aout]"
+    )
 
     cmd += [
         "-filter_complex", af,
@@ -844,10 +742,6 @@ def main():
     parser.add_argument("--id",      type=int, help="Specific quote id to use (single-quote reel)")
     parser.add_argument("--count",   type=int, default=1,
                         help="Number of quotes per reel (default 1)")
-    parser.add_argument("--no-voice", action="store_true",
-                        help="Skip TTS voiceover")
-    parser.add_argument("--no-art-voice", action="store_true",
-                        help="Skip the spoken note explaining each painting")
     parser.add_argument("--preview", action="store_true",
                         help="Render frame PNG only, skip video encoding")
     parser.add_argument("--dry-run", action="store_true",
@@ -947,51 +841,11 @@ def main():
             frame.convert("RGB").save(frame_path, "PNG")
             print(f"  Frame saved: {frame_path.name}")
 
-    # ── Voiceovers ────────────────────────────────────────────
-    vo_durations = []
-    for i, seg in enumerate(segments):
-        seg["vo_path"]     = None
-        seg["vo_dur"]      = 0.0
-        seg["art_vo_path"] = None
-        seg["art_vo_dur"]  = 0.0
-        if args.no_voice:
-            continue
-        quote   = seg["quote"]
-        vo_text = quote["text"]
-        if quote["author"]:
-            vo_text += f" By {quote['author']}."
-        vo_path = synth_voiceover(vo_text, reel_dir / f"vo_{i}.mp3")
-        if vo_path:
-            seg["vo_path"] = vo_path
-            seg["vo_dur"]  = audio_duration(vo_path)
-            print(f"  ♪ Voiceover {i}: {vo_path.name} ({seg['vo_dur']:.1f}s)")
-        vo_durations.append(seg["vo_dur"])
-
-        # Painting note — spoken after the quote, explaining the artwork
-        if args.no_art_voice or not (seg["art_artist"] or seg["art_title"]):
-            continue
-        art_text = painting_voiceover_text(seg["art_artist"], seg["art_title"])
-        art_vo   = synth_voiceover(art_text, reel_dir / f"vo_art_{i}.mp3")
-        if art_vo:
-            seg["art_vo_path"] = art_vo
-            seg["art_vo_dur"]  = audio_duration(art_vo)
-            print(f"  ♪ Painting note {i}: {art_vo.name} ({seg['art_vo_dur']:.1f}s)")
-            print(f"    “{art_text}”")
-
     # ── Segment timing ────────────────────────────────────────
-    voiceovers = []   # (path, absolute offset in seconds)
-    t_cursor   = 0.0
+    t_cursor = 0.0
     for seg in segments:
-        spoken_dur = seg["vo_dur"]
-        if seg["art_vo_path"]:
-            spoken_dur += ART_VO_GAP_S + seg["art_vo_dur"]
-        plan = plan_segment(seg["quote"], palette, spoken_dur)
+        plan = plan_segment(seg["quote"], palette)
         seg["total_s"] = plan["total_s"]
-        if seg["vo_path"]:
-            voiceovers.append((seg["vo_path"], t_cursor + FADE_S))
-        if seg["art_vo_path"]:
-            voiceovers.append((seg["art_vo_path"],
-                               t_cursor + FADE_S + seg["vo_dur"] + ART_VO_GAP_S))
         t_cursor += plan["total_s"]
     total_s = t_cursor
     print(f"\n  Total duration: {total_s:.1f}s ({len(segments)} segments)")
@@ -1026,8 +880,7 @@ def main():
     out_path    = reel_dir / f"{folder_name}.mp4"
     frames      = generate_multi_frames(segments, palette, handle, niche,
                                         cta_text=cta_text)
-    export_animated_video(frames, out_path, music_track,
-                          total_s=total_s, voiceovers=voiceovers)
+    export_animated_video(frames, out_path, music_track, total_s=total_s)
     print(f"  Video: {out_path.name}  ({total_s:.1f}s)")
 
     # ── Mark quotes and art backgrounds used ───────────────────
