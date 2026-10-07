@@ -107,8 +107,30 @@ def assemble_episodes(raw_episodes: list[dict]) -> list[dict]:
     return episodes
 
 
+def load_existing_raw_episodes() -> list[dict]:
+    """Reload data/episodes.json (if present) in the same shape fetch_episodes_from_rss()
+    produces, so episodes that have since rotated out of the BBC RSS feed window (but still
+    have a transcript on disk) aren't dropped from the rebuilt output."""
+    data = load_json(OUTPUT_FILE)
+    episodes = data.get("episodes", []) if isinstance(data, dict) else data
+    return [
+        {
+            "id": ep["id"],
+            "title": ep["title"],
+            "description": ep.get("description"),
+            "published": ep.get("published"),
+            "feed": ep.get("feed"),
+            "audio_url": ep.get("source_url") or ep.get("mp3"),
+        }
+        for ep in episodes
+    ]
+
+
 def build() -> list[dict]:
-    return assemble_episodes(fetch_episodes_from_rss())
+    fresh = fetch_episodes_from_rss()
+    seen_ids = {ep["id"] for ep in fresh}
+    stale = [ep for ep in load_existing_raw_episodes() if ep["id"] not in seen_ids]
+    return assemble_episodes(fresh + stale)
 
 
 def write_episodes(episodes: list[dict]):
