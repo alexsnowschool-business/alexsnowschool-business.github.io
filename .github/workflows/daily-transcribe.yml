@@ -1,0 +1,58 @@
+name: Daily Transcribe — Read & Listen Archive
+
+on:
+  schedule:
+    # 5:00 UTC daily
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  transcribe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      contents: write
+
+    defaults:
+      run:
+        working-directory: art-culture-audio
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg --quiet
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Transcribe up to 20 episodes and rebuild episodes.json
+        env:
+          PYTHONUNBUFFERED: "1"
+          # tiny keeps a 20-episode daily batch within CI time limits;
+          # bump to "base"/"small" if runtime allows.
+          WHISPER_MODEL_SIZE: "tiny"
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
+        run: python scripts/transcribe_daily.py
+
+      - name: Commit new transcripts and episodes.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add transcripts/ data/episodes.json data/topic_cache/
+          git diff --cached --quiet || git commit -m "chore(art-culture-audio): daily transcription + categorization batch [skip ci]"
+          for i in 1 2 3; do
+            git push && break
+            echo "Push rejected (attempt $i/3) — pulling and retrying..."
+            git pull --rebase
+            sleep $((RANDOM % 10 + 1))
+          done

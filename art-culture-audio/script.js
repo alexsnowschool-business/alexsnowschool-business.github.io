@@ -71,14 +71,20 @@ const markCompletedBtn = document.getElementById('markCompleted');
 const audioPlayer = document.getElementById('audioPlayer');
 
 function renderTopicFilters() {
-    const topics = [...new Set(episodes.map(e => e.topic).filter(Boolean))].sort();
+    const counts = {};
+    episodes.forEach((e) => {
+        if (!e.topic) return;
+        counts[e.topic] = (counts[e.topic] || 0) + 1;
+    });
+    const topics = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+
     topicFiltersEl.innerHTML = '';
 
     const allBtn = document.createElement('button');
     allBtn.type = 'button';
     allBtn.className = `pill ${activeTopicFilter === 'all' ? 'pill--active' : ''}`;
     allBtn.dataset.topic = 'all';
-    allBtn.textContent = 'All Topics';
+    allBtn.textContent = `All Topics (${episodes.length})`;
     topicFiltersEl.appendChild(allBtn);
 
     topics.forEach((topic) => {
@@ -86,7 +92,7 @@ function renderTopicFilters() {
         btn.type = 'button';
         btn.className = `pill ${activeTopicFilter === topic ? 'pill--active' : ''}`;
         btn.dataset.topic = topic;
-        btn.textContent = topic;
+        btn.textContent = `${topic} (${counts[topic]})`;
         topicFiltersEl.appendChild(btn);
     });
 }

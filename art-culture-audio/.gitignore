@@ -18,9 +18,8 @@ downloads/*.m4a
 downloads/*.wav
 downloads/*.json
 
-# Transcripts
-transcripts/*.txt
-transcripts/*.json
+# Transcripts are committed (see scripts/transcribe_daily.py) so daily CI runs
+# accumulate progress instead of re-transcribing the same episodes each day.
 
 # Generated PDFs
 pdfs/*.pdf
