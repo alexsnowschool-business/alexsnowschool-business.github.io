@@ -78,11 +78,16 @@ class WhisperTranscriber:
             duration = (datetime.now() - start_time).total_seconds()
             logger.info(f"Transcription completed in {duration:.1f} seconds")
             
+            try:
+                audio_file_rel = str(audio_path.resolve().relative_to(Config.BASE_DIR))
+            except ValueError:
+                audio_file_rel = audio_path.name
+
             transcript_data = {
                 'text': result['text'].strip(),
                 'language': result.get('language', language),
                 'segments': result.get('segments', []),
-                'audio_file': str(audio_path),
+                'audio_file': audio_file_rel,
                 'model': self.model_size,
                 'transcription_time': duration,
                 'timestamp': datetime.now().isoformat(),
