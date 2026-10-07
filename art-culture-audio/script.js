@@ -44,7 +44,13 @@ function saveHistory(history) {
     localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
 }
 
+// Synced across devices via data/completed.json (written by the "Mark Episode
+// Completed" GitHub Actions workflow) — takes priority over the purely local,
+// per-browser localStorage status.
+let sharedCompleted = {};
+
 function getStatus(history, id) {
+    if (sharedCompleted[id]) return 'completed';
     return history[id]?.status || 'not_started';
 }
 
@@ -133,7 +139,7 @@ function renderTopicFilters() {
 function renderStats() {
     const total = episodes.length;
     const transcribed = episodes.filter(e => e.has_transcript).length;
-    const completed = Object.values(history).filter(h => h.status === 'completed').length;
+    const completed = episodes.filter(e => getStatus(history, e.id) === 'completed').length;
 
     statsEl.innerHTML = `
         <button type="button" class="stat ${activeStatusFilter === 'all' && activeTranscriptFilter === 'all' ? 'stat--active' : ''}" data-stat="total">
@@ -258,6 +264,14 @@ function renderEpisode(id) {
         updateStatusBadge(episode.id);
     };
 
+    const copyTitleBtn = document.getElementById('copyTitle');
+    copyTitleBtn.onclick = () => {
+        navigator.clipboard?.writeText(episode.title);
+        const original = copyTitleBtn.textContent;
+        copyTitleBtn.textContent = 'Copied!';
+        setTimeout(() => { copyTitleBtn.textContent = original; }, 1500);
+    };
+
     audioPlayer.onplay = () => {
         markAccessed(episode.id);
         history = loadHistory();
@@ -266,9 +280,17 @@ function renderEpisode(id) {
 }
 
 function renderHistoryList() {
-    const entries = Object.entries(history)
-        .map(([id, h]) => ({ episode: episodes.find(e => e.id === id), ...h }))
-        .filter(h => h.episode)
+    const ids = new Set([...Object.keys(history), ...Object.keys(sharedCompleted)]);
+
+    const entries = [...ids]
+        .map((id) => {
+            const episode = episodes.find(e => e.id === id);
+            const local = history[id];
+            const shared = sharedCompleted[id];
+            const lastAccessed = shared?.completed_at || local?.lastAccessed;
+            return episode ? { episode, status: getStatus(history, id), lastAccessed } : null;
+        })
+        .filter(Boolean)
         .sort((a, b) => new Date(b.lastAccessed) - new Date(a.lastAccessed));
 
     historyListEl.innerHTML = '';
@@ -414,12 +436,15 @@ function parsePublished(dateStr) {
     return Number.isNaN(time) ? -Infinity : time;
 }
 
-fetch('data/episodes.json', { cache: 'no-store' })
-    .then(res => res.json())
-    .then(data => {
+Promise.all([
+    fetch('data/episodes.json', { cache: 'no-store' }).then(res => res.json()),
+    fetch('data/completed.json', { cache: 'no-store' }).then(res => res.ok ? res.json() : {}).catch(() => ({})),
+])
+    .then(([data, completedData]) => {
         episodes = (data.episodes || []).sort(
             (a, b) => parsePublished(b.published) - parsePublished(a.published)
         );
+        sharedCompleted = completedData || {};
         router();
     })
     .catch(() => {

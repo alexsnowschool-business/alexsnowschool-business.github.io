@@ -29,6 +29,7 @@ downloads/*.mp3
 data/*
 !data/topic_cache/
 !data/episodes.json
+!data/completed.json
 # Logs
 *.log
 

@@ -1,0 +1,43 @@
+name: Mark Episode Completed — Read & Listen Archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      episode_title:
+        description: "Exact episode title, as shown on the site"
+        required: true
+
+jobs:
+  mark-completed:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    defaults:
+      run:
+        working-directory: art-culture-audio
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mark episode completed
+        run: python scripts/mark_completed.py "${{ inputs.episode_title }}"
+
+      - name: Commit and push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/completed.json
+          git diff --cached --quiet || git commit -m "chore(art-culture-audio): mark '${{ inputs.episode_title }}' completed [skip ci]"
+          for i in 1 2 3; do
+            git push && break
+            echo "Push rejected (attempt $i/3) — pulling and retrying..."
+            git pull --rebase
+            sleep $((RANDOM % 10 + 1))
+          done

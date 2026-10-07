@@ -7,6 +7,7 @@ Brand tone: Editorial listening room — quiet, unhurried, text-forward
 ## Key sections
 - Library (`index.html#/`) — searchable list of episodes, filterable by listening status
 - Episode detail (`index.html#/episode/<id>`) — audio player + full transcript, status tracked in `localStorage`
+- History (`index.html#/history`) — episodes with any progress, newest-activity first
 
 ## Data flow
 - `scripts/build_episodes_json.py` fetches episode metadata (title, description, published, audio URL)
@@ -27,6 +28,21 @@ Brand tone: Editorial listening room — quiet, unhurried, text-forward
   RSS fetch) so the new transcripts and AI topic categorization land in `data/episodes.json` together.
   `transcripts/*.txt`/`*.json` are committed (not gitignored) so this backlog persists across daily runs
   instead of re-transcribing the same episodes.
+
+## Listening status (local vs. synced)
+- "Unheard"/"In Progress" and the `lastAccessed`/`accessCount` tracking are purely local — stored in each
+  browser's `localStorage` (`audioArchiveHistory`), never leave the device, and don't sync anywhere.
+- "Completed" can also come from `data/completed.json` (`{ "<episode id>": { title, completed_at } }`),
+  which the frontend fetches alongside `episodes.json` and treats as authoritative — `getStatus()` checks it
+  before falling back to the local status. This is the cross-device sync path: since this is a single-user
+  personal site (no accounts/auth), rather than adding a hosted backend, completing an episode on any device
+  syncs to others by manually running the `.github/workflows/mark-completed.yml` workflow_dispatch with the
+  episode's exact title (the episode page has a "Copy Title" button for this) — it calls
+  `scripts/mark_completed.py`, which hashes the title with the same `slugify()` used for episode ids and
+  commits the update. `data/completed.json` is the other exception carved out of the `data/*` gitignore rule.
+- The in-page "Mark as Read" button only ever writes to local `localStorage` — it does not trigger the
+  workflow — so a device will show "Completed" immediately for itself, but other devices only pick it up
+  after the GitHub Action runs and the page is reloaded.
 
 ## Backend (unchanged)
 - `app.py` / `src/` still hold the Gradio tool used locally to download BBC RSS episodes and run Whisper
