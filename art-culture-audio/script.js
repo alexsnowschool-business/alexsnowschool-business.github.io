@@ -394,7 +394,7 @@ function parsePublished(dateStr) {
     return Number.isNaN(time) ? -Infinity : time;
 }
 
-fetch('data/episodes.json')
+fetch('data/episodes.json', { cache: 'no-store' })
     .then(res => res.json())
     .then(data => {
         episodes = (data.episodes || []).sort(
