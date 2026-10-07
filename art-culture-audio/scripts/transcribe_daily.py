@@ -28,7 +28,7 @@ import build_episodes_json  # noqa: E402
 
 logger = setup_logger(__name__)
 
-DAILY_LIMIT = 20
+DAILY_LIMIT = 5
 
 
 def published_sort_key(ep: dict) -> float:

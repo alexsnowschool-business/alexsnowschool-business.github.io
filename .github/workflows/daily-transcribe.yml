@@ -34,10 +34,10 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Transcribe up to 20 episodes and rebuild episodes.json
+      - name: Transcribe up to 5 episodes and rebuild episodes.json
         env:
           PYTHONUNBUFFERED: "1"
-          # tiny keeps a 20-episode daily batch within CI time limits;
+          # tiny keeps a 5-episode daily batch well within CI time limits;
           # bump to "base"/"small" if runtime allows.
           WHISPER_MODEL_SIZE: "tiny"
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
