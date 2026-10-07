@@ -14,6 +14,24 @@ function formatDate(dateStr) {
     return Number.isNaN(time) ? '' : DATE_FORMATTER.format(new Date(time));
 }
 
+// Warm, muted, editorial palette — one hue per topic, no cool grays or neons.
+const TOPIC_COLORS = {
+    History: '#c9a84c',       // gold
+    Philosophy: '#a0522d',    // sienna
+    Culture: '#c1694f',       // terracotta
+    Sociology: '#7d7a3f',     // olive
+    Economics: '#8c6a3f',     // bronze
+    Arts: '#a3463d',          // brick red
+    Literature: '#6b4f3f',    // umber
+    Uncategorized: '#8a7f6a', // taupe
+};
+
+function topicTag(topic) {
+    if (!topic || topic === 'Uncategorized') return '';
+    const color = TOPIC_COLORS[topic] || TOPIC_COLORS.Uncategorized;
+    return `<span class="tag" style="--tag-color: ${color}">${topic}</span>`;
+}
+
 function loadHistory() {
     try {
         return JSON.parse(localStorage.getItem(HISTORY_KEY)) || {};
@@ -164,8 +182,9 @@ function renderList() {
         card.type = 'button';
         card.className = 'episode-card';
         card.innerHTML = `
-            <span>
+            <span class="episode-card__heading">
                 <span class="episode-card__title">${episode.title}</span>
+                ${topicTag(episode.topic)}
             </span>
             <span class="episode-card__meta">
                 <span class="status-badge status-badge--${status}">${STATUS_LABEL[status]}</span>
@@ -260,8 +279,9 @@ function renderHistoryList() {
         card.type = 'button';
         card.className = 'episode-card';
         card.innerHTML = `
-            <span>
+            <span class="episode-card__heading">
                 <span class="episode-card__title">${episode.title}</span>
+                ${topicTag(episode.topic)}
             </span>
             <span class="episode-card__meta">
                 <span class="status-badge status-badge--${status}">${STATUS_LABEL[status]}</span>

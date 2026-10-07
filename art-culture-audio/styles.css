@@ -271,11 +271,30 @@ main {
     width: 100%;
 }
 
+.episode-card__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
 .episode-card__title {
     font-family: var(--font-heading);
     font-size: 1.4rem;
     font-weight: 400;
-    margin-bottom: 6px;
+}
+
+.tag {
+    align-self: flex-start;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border: 1px solid color-mix(in srgb, var(--tag-color, var(--gold)) 45%, transparent);
+    background: color-mix(in srgb, var(--tag-color, var(--gold)) 12%, transparent);
+    color: var(--tag-color, var(--gold));
+    white-space: nowrap;
 }
 
 .episode-card__desc {
