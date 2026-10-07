@@ -92,13 +92,20 @@ def main():
     batch = candidates[:DAILY_LIMIT]
     logger.info(f"{len(candidates)} untranscribed episode(s) found; transcribing {len(batch)} today")
 
-    transcribed = 0
+    transcribed_titles = []
     for i, ep in enumerate(batch, 1):
         logger.info(f"[{i}/{len(batch)}] {ep['title']}")
         if transcribe_episode(scraper, transcriber, ep):
-            transcribed += 1
+            transcribed_titles.append(ep["title"])
 
-    logger.info(f"Transcribed {transcribed}/{len(batch)} episode(s)")
+    logger.info(f"Transcribed {len(transcribed_titles)}/{len(batch)} episode(s)")
+
+    # Consumed by .github/workflows/daily-transcribe.yml to list the
+    # transcribed episode titles in the commit message; not committed itself.
+    titles_file = BASE_DIR / ".transcribed_titles.txt"
+    titles_file.write_text(
+        "\n".join(transcribed_titles), encoding="utf-8"
+    )
 
     # Reuse the RSS data already fetched above instead of hitting every feed
     # again — only transcript merging + AI categorization run from here.
