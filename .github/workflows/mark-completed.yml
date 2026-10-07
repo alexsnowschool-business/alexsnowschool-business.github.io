@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python dependencies
-        run: pip install -r requirements.txt
+        run: pip install feedparser requests tqdm python-dotenv
 
       - name: Mark episode completed
         run: python scripts/mark_completed.py "${{ inputs.episode_title }}"
