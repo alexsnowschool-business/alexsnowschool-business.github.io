@@ -1,0 +1,13 @@
+gradio
+openai-whisper
+google-generativeai
+huggingface_hub
+beautifulsoup4
+requests
+feedparser
+pydub
+numpy
+pandas
+python-dotenv
+tqdm
+reportlab
