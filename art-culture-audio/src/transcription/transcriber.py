@@ -78,16 +78,23 @@ class WhisperTranscriber:
             duration = (datetime.now() - start_time).total_seconds()
             logger.info(f"Transcription completed in {duration:.1f} seconds")
             
-            try:
-                audio_file_rel = str(audio_path.resolve().relative_to(Config.BASE_DIR))
-            except ValueError:
-                audio_file_rel = audio_path.name
+            # Prefer the original RSS/CDN URL (from the downloads/*.json sidecar) so
+            # transcripts stay portable and don't depend on a local downloads/ copy.
+            source_url = self.file_manager.load_metadata(audio_path).get('source_url')
+            if source_url:
+                audio_file_ref = source_url
+            else:
+                try:
+                    audio_file_ref = str(audio_path.resolve().relative_to(Config.BASE_DIR))
+                except ValueError:
+                    audio_file_ref = audio_path.name
 
             transcript_data = {
                 'text': result['text'].strip(),
                 'language': result.get('language', language),
                 'segments': result.get('segments', []),
-                'audio_file': audio_file_rel,
+                'audio_file': audio_file_ref,
+                'title': audio_path.stem,
                 'model': self.model_size,
                 'transcription_time': duration,
                 'timestamp': datetime.now().isoformat(),
@@ -111,9 +118,9 @@ class WhisperTranscriber:
             Path to saved transcript file
         """
         if output_path is None:
-            # Generate output path based on audio filename
-            audio_path = Path(transcript_data['audio_file'])
-            output_path = Config.TRANSCRIPTS_DIR / f"{audio_path.stem}_transcript.txt"
+            # Generate output path based on the original audio title (audio_file
+            # may be a remote URL rather than a local filename)
+            output_path = Config.TRANSCRIPTS_DIR / f"{transcript_data['title']}_transcript.txt"
         
         # Save transcript text
         with open(output_path, 'w', encoding='utf-8') as f:
