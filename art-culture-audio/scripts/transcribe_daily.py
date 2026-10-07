@@ -5,12 +5,14 @@ Daily CI job for the Read & Listen archive:
    long-standing backlog and anything newly published since yesterday).
 2. Transcribe up to DAILY_LIMIT episodes that don't have a transcript yet
    (oldest-published first), downloading each one only for the duration of
-   the transcription pass.
+   the transcription pass. If TRANSCRIBE_EPISODE_TITLE is set (see
+   .github/workflows/daily-transcribe.yml's workflow_dispatch input), only
+   that one episode (exact title match, transcribed even if already done) is
+   processed instead of the daily batch.
 3. Rebuild data/episodes.json, which also re-categorizes every episode by
    description via the OpenRouter AI categorizer.
 
-DAILY_LIMIT is configurable via the TRANSCRIBE_DAILY_LIMIT env var (see
-.github/workflows/daily-transcribe.yml's workflow_dispatch input), defaulting
+DAILY_LIMIT is configurable via the TRANSCRIBE_DAILY_LIMIT env var, defaulting
 to 5.
 
 Run: uv run python scripts/transcribe_daily.py
@@ -34,6 +36,7 @@ import build_episodes_json  # noqa: E402
 logger = setup_logger(__name__)
 
 DAILY_LIMIT = int(os.getenv("TRANSCRIBE_DAILY_LIMIT", "5"))
+EPISODE_TITLE = os.getenv("TRANSCRIBE_EPISODE_TITLE", "").strip()
 
 
 def published_sort_key(ep: dict) -> float:
@@ -52,6 +55,11 @@ def find_untranscribed(all_episodes: list) -> list:
     candidates = [ep for ep in all_episodes if not already_transcribed(ep["title"])]
     candidates.sort(key=published_sort_key)
     return candidates
+
+
+def find_by_title(all_episodes: list, title: str) -> dict | None:
+    needle = title.strip().lower()
+    return next((ep for ep in all_episodes if ep["title"].strip().lower() == needle), None)
 
 
 def transcribe_episode(scraper: RSScraper, transcriber: WhisperTranscriber, ep: dict) -> bool:
@@ -86,11 +94,20 @@ def main():
     scraper = RSScraper()
     transcriber = WhisperTranscriber()
 
-    logger.info("Scanning all BBC RSS feeds for episodes without a transcript...")
+    logger.info("Scanning all BBC RSS feeds for episodes...")
     all_episodes = build_episodes_json.fetch_episodes_from_rss(scraper)
-    candidates = find_untranscribed(all_episodes)
-    batch = candidates[:DAILY_LIMIT]
-    logger.info(f"{len(candidates)} untranscribed episode(s) found; transcribing {len(batch)} today")
+
+    if EPISODE_TITLE:
+        episode = find_by_title(all_episodes, EPISODE_TITLE)
+        if episode is None:
+            logger.error(f"No episode found matching title: {EPISODE_TITLE!r}")
+            sys.exit(1)
+        batch = [episode]
+        logger.info(f"Transcribing requested episode: {episode['title']}")
+    else:
+        candidates = find_untranscribed(all_episodes)
+        batch = candidates[:DAILY_LIMIT]
+        logger.info(f"{len(candidates)} untranscribed episode(s) found; transcribing {len(batch)} today")
 
     transcribed_titles = []
     for i, ep in enumerate(batch, 1):

@@ -10,6 +10,10 @@ on:
         description: "Max episodes to transcribe this run"
         required: false
         default: "5"
+      episode_title:
+        description: "Exact episode title to transcribe (overrides daily_limit, ignores already-transcribed check)"
+        required: false
+        default: ""
 
 jobs:
   transcribe:
@@ -46,6 +50,7 @@ jobs:
           # bump to "base"/"small" if runtime allows (and daily_limit grows).
           WHISPER_MODEL_SIZE: "tiny"
           TRANSCRIBE_DAILY_LIMIT: ${{ inputs.daily_limit || '5' }}
+          TRANSCRIBE_EPISODE_TITLE: ${{ inputs.episode_title || '' }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
         run: python scripts/transcribe_daily.py
