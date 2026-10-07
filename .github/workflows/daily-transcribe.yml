@@ -21,6 +21,7 @@ jobs:
     timeout-minutes: 350
     permissions:
       contents: write
+      actions: write
 
     defaults:
       run:
@@ -77,3 +78,8 @@ jobs:
             git pull --rebase
             sleep $((RANDOM % 10 + 1))
           done
+
+      - name: Trigger Pages deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run static.yml --ref main
