@@ -450,7 +450,7 @@ main {
 
 .transcript {
     line-height: 1.85;
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     color: var(--slate);
     white-space: pre-wrap;
     max-width: 68ch;
