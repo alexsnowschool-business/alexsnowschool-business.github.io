@@ -5,6 +5,11 @@ on:
     # 5:00 UTC daily
     - cron: "0 5 * * *"
   workflow_dispatch:
+    inputs:
+      daily_limit:
+        description: "Max episodes to transcribe this run"
+        required: false
+        default: "5"
 
 jobs:
   transcribe:
@@ -34,12 +39,13 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Transcribe up to 5 episodes and rebuild episodes.json
+      - name: Transcribe episodes and rebuild episodes.json
         env:
           PYTHONUNBUFFERED: "1"
           # tiny keeps a 5-episode daily batch well within CI time limits;
-          # bump to "base"/"small" if runtime allows.
+          # bump to "base"/"small" if runtime allows (and daily_limit grows).
           WHISPER_MODEL_SIZE: "tiny"
+          TRANSCRIBE_DAILY_LIMIT: ${{ inputs.daily_limit || '5' }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
         run: python scripts/transcribe_daily.py

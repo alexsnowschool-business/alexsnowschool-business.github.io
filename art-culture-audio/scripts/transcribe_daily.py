@@ -9,9 +9,14 @@ Daily CI job for the Read & Listen archive:
 3. Rebuild data/episodes.json, which also re-categorizes every episode by
    description via the OpenRouter AI categorizer.
 
+DAILY_LIMIT is configurable via the TRANSCRIBE_DAILY_LIMIT env var (see
+.github/workflows/daily-transcribe.yml's workflow_dispatch input), defaulting
+to 5.
+
 Run: uv run python scripts/transcribe_daily.py
 """
 
+import os
 import sys
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -28,7 +33,7 @@ import build_episodes_json  # noqa: E402
 
 logger = setup_logger(__name__)
 
-DAILY_LIMIT = 5
+DAILY_LIMIT = int(os.getenv("TRANSCRIBE_DAILY_LIMIT", "5"))
 
 
 def published_sort_key(ep: dict) -> float:

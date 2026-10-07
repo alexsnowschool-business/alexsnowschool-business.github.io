@@ -130,8 +130,6 @@ main {
     display: flex;
     gap: 40px;
     padding: 20px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
     margin-bottom: 32px;
 }
 
@@ -139,6 +137,21 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.stat:hover .stat__value {
+    color: var(--gold);
+}
+
+.stat--active .stat__label {
+    color: var(--gold);
 }
 
 .stat__value {
@@ -182,7 +195,12 @@ main {
 
 .toolbar__filters {
     display: flex;
-    gap: 6px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-row {
+    margin-bottom: 20px;
 }
 
 .pill {
@@ -435,23 +453,64 @@ main {
 }
 
 @media (max-width: 640px) {
-    .header, .footer {
-        padding: 20px 24px;
+    .header {
+        padding: 16px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .header__nav {
+        gap: 18px;
+    }
+
+    .brand {
+        font-size: 1.15rem;
+    }
+
+    .footer {
+        padding: 20px 20px;
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
     }
 
     main {
-        padding: 40px 20px 72px;
+        padding: 32px 20px 64px;
+    }
+
+    .hero__title {
+        font-size: 1.9rem;
+    }
+
+    .stats {
+        gap: 24px;
+    }
+
+    .stat__value {
+        font-size: 1.4rem;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .episode-card {
-        grid-template-columns: 32px 1fr;
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
     .episode-card__meta {
-        grid-column: 1 / -1;
-        align-items: flex-start;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
-        margin-top: 8px;
+    }
+
+    .episode__title {
+        font-size: 1.6rem;
+    }
+
+    .episode__actions {
+        flex-wrap: wrap;
     }
 }

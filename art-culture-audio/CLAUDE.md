@@ -21,7 +21,8 @@ Brand tone: Editorial listening room — quiet, unhurried, text-forward
   `data/*` gitignore rule (`!data/episodes.json`).
 - `scripts/transcribe_daily.py` (run daily by `.github/workflows/daily-transcribe.yml`) scans every RSS feed
   for episodes without a transcript — covering both the old backlog and anything newly published — picks the
-  5 oldest-published untranscribed ones, downloads each just long enough to run Whisper, deletes the audio
+  N oldest-published untranscribed ones (`TRANSCRIBE_DAILY_LIMIT` env var, default 5, configurable per-run via
+  the workflow's `daily_limit` input), downloads each just long enough to run Whisper, deletes the audio
   again, then reuses that same fetched RSS data with `build_episodes_json.assemble_episodes()` (no second
   RSS fetch) so the new transcripts and AI topic categorization land in `data/episodes.json` together.
   `transcripts/*.txt`/`*.json` are committed (not gitignored) so this backlog persists across daily runs

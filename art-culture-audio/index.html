@@ -19,7 +19,8 @@
     <header class="header">
         <a href="../" class="brand">Culture <span>&amp; Audio Archive</span></a>
         <nav class="header__nav">
-            <button type="button" class="header__link header__link--active" data-view="library">Library</button>
+            <button type="button" class="header__link" data-view="library">Library</button>
+            <button type="button" class="header__link" data-view="history">History</button>
             <a class="header__link" href="../">Portfolio</a>
         </nav>
     </header>
@@ -46,11 +47,29 @@
                 </div>
             </div>
 
-            <div class="toolbar__filters" id="topicFilters"></div>
+            <div class="toolbar__filters filter-row" id="transcriptFilters">
+                <button type="button" class="pill pill--active" data-transcript="all">All</button>
+                <button type="button" class="pill" data-transcript="yes">Transcribed</button>
+                <button type="button" class="pill" data-transcript="no">Not Yet</button>
+            </div>
+
+            <div class="toolbar__filters filter-row" id="topicFilters"></div>
 
             <div class="episode-list" id="episodeList"></div>
             <p class="empty-state" id="emptyState" hidden>No episodes match your search.</p>
             <div class="pagination" id="pagination"></div>
+        </section>
+
+        <!-- HISTORY VIEW -->
+        <section id="view-history" class="view" hidden>
+            <div class="hero">
+                <p class="hero__eyebrow">I. Your Progress</p>
+                <h1 class="hero__title">Listening<br>History</h1>
+                <p class="hero__desc">Episodes you've started or finished, most recently played first.</p>
+            </div>
+
+            <div class="episode-list" id="historyList"></div>
+            <p class="empty-state" id="historyEmptyState" hidden>Nothing played yet — episodes you start will show up here.</p>
         </section>
 
         <!-- EPISODE DETAIL VIEW -->

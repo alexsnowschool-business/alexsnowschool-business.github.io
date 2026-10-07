@@ -5,6 +5,15 @@ const STATUS_LABEL = {
     completed: 'Completed',
 };
 
+const DATE_FORMATTER = new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric', month: 'short', year: 'numeric',
+});
+
+function formatDate(dateStr) {
+    const time = dateStr ? new Date(dateStr).getTime() : NaN;
+    return Number.isNaN(time) ? '' : DATE_FORMATTER.format(new Date(time));
+}
+
 function loadHistory() {
     try {
         return JSON.parse(localStorage.getItem(HISTORY_KEY)) || {};
@@ -54,16 +63,22 @@ let episodes = [];
 let history = loadHistory();
 let activeStatusFilter = 'all';
 let activeTopicFilter = 'all';
+let activeTranscriptFilter = 'all';
 let activeQuery = '';
 let currentPage = 1;
 
 const libraryView = document.getElementById('view-library');
 const episodeView = document.getElementById('view-episode');
+const historyView = document.getElementById('view-history');
 const episodeListEl = document.getElementById('episodeList');
 const emptyStateEl = document.getElementById('emptyState');
+const historyListEl = document.getElementById('historyList');
+const historyEmptyStateEl = document.getElementById('historyEmptyState');
+const navLinks = document.querySelectorAll('.header__link[data-view]');
 const statsEl = document.getElementById('stats');
 const searchEl = document.getElementById('search');
 const statusFiltersEl = document.getElementById('statusFilters');
+const transcriptFiltersEl = document.getElementById('transcriptFilters');
 const topicFiltersEl = document.getElementById('topicFilters');
 const paginationEl = document.getElementById('pagination');
 const backLink = document.getElementById('backToLibrary');
@@ -103,10 +118,22 @@ function renderStats() {
     const completed = Object.values(history).filter(h => h.status === 'completed').length;
 
     statsEl.innerHTML = `
-        <div class="stat"><span class="stat__value">${total}</span><span class="stat__label">Episodes</span></div>
-        <div class="stat"><span class="stat__value">${transcribed}</span><span class="stat__label">Transcribed</span></div>
-        <div class="stat"><span class="stat__value">${completed}</span><span class="stat__label">Completed</span></div>
+        <button type="button" class="stat ${activeStatusFilter === 'all' && activeTranscriptFilter === 'all' ? 'stat--active' : ''}" data-stat="total">
+            <span class="stat__value">${total}</span><span class="stat__label">Episodes</span>
+        </button>
+        <button type="button" class="stat ${activeTranscriptFilter === 'yes' ? 'stat--active' : ''}" data-stat="transcribed">
+            <span class="stat__value">${transcribed}</span><span class="stat__label">Transcribed</span>
+        </button>
+        <button type="button" class="stat ${activeStatusFilter === 'completed' ? 'stat--active' : ''}" data-stat="completed">
+            <span class="stat__value">${completed}</span><span class="stat__label">Completed</span>
+        </button>
     `;
+}
+
+function activatePill(container, dataAttr, value) {
+    [...container.children].forEach((c) => {
+        c.classList.toggle('pill--active', c.dataset[dataAttr] === value);
+    });
 }
 
 function filteredEpisodes() {
@@ -114,8 +141,10 @@ function filteredEpisodes() {
         const status = getStatus(history, e.id);
         const matchesStatus = activeStatusFilter === 'all' || status === activeStatusFilter;
         const matchesTopic = activeTopicFilter === 'all' || e.topic === activeTopicFilter;
+        const matchesTranscript = activeTranscriptFilter === 'all'
+            || (activeTranscriptFilter === 'yes' ? !!e.has_transcript : !e.has_transcript);
         const matchesQuery = e.title.toLowerCase().includes(activeQuery.toLowerCase());
-        return matchesStatus && matchesTopic && matchesQuery;
+        return matchesStatus && matchesTopic && matchesTranscript && matchesQuery;
     });
 }
 
@@ -140,7 +169,7 @@ function renderList() {
             </span>
             <span class="episode-card__meta">
                 <span class="status-badge status-badge--${status}">${STATUS_LABEL[status]}</span>
-                ${episode.published ? `<span class="episode-card__published">${episode.published}</span>` : ''}
+                ${formatDate(episode.published) ? `<span class="episode-card__published">${formatDate(episode.published)}</span>` : ''}
             </span>
         `;
         card.addEventListener('click', () => {
@@ -189,7 +218,7 @@ function renderEpisode(id) {
     document.getElementById('episodeEyebrow').textContent =
         `II. ${episode.has_transcript ? 'Lecture with Transcript' : 'Audio Recording'}`;
     document.getElementById('episodeTitle').textContent = episode.title;
-    document.getElementById('episodePublished').textContent = episode.published || '';
+    document.getElementById('episodePublished').textContent = formatDate(episode.published);
 
     audioPlayer.src = episode.mp3;
 
@@ -217,6 +246,39 @@ function renderEpisode(id) {
     };
 }
 
+function renderHistoryList() {
+    const entries = Object.entries(history)
+        .map(([id, h]) => ({ episode: episodes.find(e => e.id === id), ...h }))
+        .filter(h => h.episode)
+        .sort((a, b) => new Date(b.lastAccessed) - new Date(a.lastAccessed));
+
+    historyListEl.innerHTML = '';
+    historyEmptyStateEl.hidden = entries.length > 0;
+
+    entries.forEach(({ episode, status, lastAccessed }) => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'episode-card';
+        card.innerHTML = `
+            <span>
+                <span class="episode-card__title">${episode.title}</span>
+            </span>
+            <span class="episode-card__meta">
+                <span class="status-badge status-badge--${status}">${STATUS_LABEL[status]}</span>
+                <span class="episode-card__published">Last played ${formatDate(lastAccessed)}</span>
+            </span>
+        `;
+        card.addEventListener('click', () => {
+            location.hash = `#/episode/${episode.id}`;
+        });
+        historyListEl.appendChild(card);
+    });
+}
+
+function setActiveNav(view) {
+    navLinks.forEach(link => link.classList.toggle('header__link--active', link.dataset.view === view));
+}
+
 function updateStatusBadge(id) {
     const status = getStatus(history, id);
     const badge = document.getElementById('episodeStatus');
@@ -226,21 +288,61 @@ function updateStatusBadge(id) {
 
 function router() {
     const hash = location.hash;
-    const match = hash.match(/^#\/episode\/(.+)$/);
+    const episodeMatch = hash.match(/^#\/episode\/(.+)$/);
 
-    if (match) {
-        libraryView.hidden = true;
+    libraryView.hidden = true;
+    historyView.hidden = true;
+    episodeView.hidden = true;
+    audioPlayer.pause();
+
+    if (episodeMatch) {
         episodeView.hidden = false;
-        renderEpisode(match[1]);
+        setActiveNav('library');
+        renderEpisode(episodeMatch[1]);
+    } else if (hash === '#/history') {
+        historyView.hidden = false;
+        setActiveNav('history');
+        history = loadHistory();
+        renderHistoryList();
     } else {
         libraryView.hidden = false;
-        episodeView.hidden = true;
-        audioPlayer.pause();
+        setActiveNav('library');
         renderStats();
         renderTopicFilters();
         renderList();
     }
 }
+
+navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        location.hash = link.dataset.view === 'history' ? '#/history' : '#/';
+    });
+});
+
+statsEl.addEventListener('click', (e) => {
+    const stat = e.target.closest('.stat');
+    if (!stat) return;
+
+    if (stat.dataset.stat === 'transcribed') {
+        activeTranscriptFilter = 'yes';
+        activeTopicFilter = 'all';
+        activatePill(transcriptFiltersEl, 'transcript', 'yes');
+    } else if (stat.dataset.stat === 'completed') {
+        activeStatusFilter = 'completed';
+        activatePill(statusFiltersEl, 'status', 'completed');
+    } else {
+        activeStatusFilter = 'all';
+        activeTranscriptFilter = 'all';
+        activeTopicFilter = 'all';
+        activatePill(statusFiltersEl, 'status', 'all');
+        activatePill(transcriptFiltersEl, 'transcript', 'all');
+    }
+
+    currentPage = 1;
+    renderStats();
+    renderTopicFilters();
+    renderList();
+});
 
 searchEl.addEventListener('input', (e) => {
     activeQuery = e.target.value;
@@ -252,9 +354,22 @@ statusFiltersEl.addEventListener('click', (e) => {
     const btn = e.target.closest('.pill');
     if (!btn) return;
     activeStatusFilter = btn.dataset.status;
-    [...statusFiltersEl.children].forEach(c => c.classList.remove('pill--active'));
-    btn.classList.add('pill--active');
+    activatePill(statusFiltersEl, 'status', activeStatusFilter);
     currentPage = 1;
+    renderStats();
+    renderList();
+});
+
+transcriptFiltersEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.pill');
+    if (!btn) return;
+    activeTranscriptFilter = btn.dataset.transcript;
+    activatePill(transcriptFiltersEl, 'transcript', activeTranscriptFilter);
+    // Search across all topics rather than whatever topic happened to be active.
+    activeTopicFilter = 'all';
+    currentPage = 1;
+    renderStats();
+    renderTopicFilters();
     renderList();
 });
 
