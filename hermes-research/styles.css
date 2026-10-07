@@ -16,7 +16,7 @@
     --rule: rgba(26, 25, 22, 0.10);
     --rule-gold: rgba(168, 134, 74, 0.28);
     --font-serif: 'Cormorant Garamond', 'Georgia', serif;
-    --font-sans: 'Jost', 'Helvetica Neue', sans-serif;
+    --font-sans: 'Alegreya', Georgia, serif;
     --gradient-gold: linear-gradient(135deg, #A8864A 0%, #C4A96A 50%, #8C7040 100%);
     --shadow-lift: 0 4px 40px rgba(26, 25, 22, 0.12);
     --transition: 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -30,7 +30,7 @@ body {
     background: var(--ivory);
     color: var(--slate);
     line-height: 1.85;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 18px;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
@@ -97,7 +97,7 @@ img { max-width: 100%; display: block; }
 .nav-links a {
     font-family: var(--font-sans);
     font-size: 0.64rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--stone);
@@ -216,7 +216,7 @@ img { max-width: 100%; display: block; }
     font-size: 1.0rem;
     color: rgba(244, 239, 230, 0.45);
     line-height: 2;
-    font-weight: 300;
+    font-weight: 400;
     max-width: 480px;
 }
 
@@ -243,7 +243,7 @@ img { max-width: 100%; display: block; }
 .stat-label {
     font-family: var(--font-sans);
     font-size: 0.62rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: rgba(244, 239, 230, 0.32);
@@ -293,7 +293,7 @@ section { padding: 120px 0; }
     font-family: var(--font-sans);
     color: var(--stone);
     font-size: 1.05rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 2;
     max-width: 560px;
     letter-spacing: 0.01em;
@@ -432,7 +432,7 @@ section { padding: 120px 0; }
     font-size: 1.02rem;
     color: var(--stone);
     line-height: 1.95;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.01em;
 }
 
@@ -519,7 +519,7 @@ section { padding: 120px 0; }
 .thinker-dates {
     font-family: var(--font-sans);
     font-size: 0.68rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.12em;
     color: var(--stone);
     margin-bottom: 6px;
@@ -557,7 +557,7 @@ section { padding: 120px 0; }
     font-size: 1.04rem;
     color: rgba(244, 239, 230, 0.52);
     line-height: 2.05;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 20px;
     letter-spacing: 0.01em;
 }
@@ -646,7 +646,7 @@ section { padding: 120px 0; }
     font-size: 1.04rem;
     color: var(--stone);
     line-height: 2.0;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.01em;
 }
 
@@ -675,7 +675,7 @@ section { padding: 120px 0; }
     font-size: 1.05rem;
     color: var(--stone);
     line-height: 2.0;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 22px;
     letter-spacing: 0.01em;
 }
@@ -710,7 +710,7 @@ section { padding: 120px 0; }
     font-family: var(--font-sans);
     font-size: 0.96rem;
     color: var(--stone);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8;
     letter-spacing: 0.01em;
 }
@@ -790,7 +790,7 @@ section { padding: 120px 0; }
     font-size: 0.98rem;
     color: var(--stone);
     line-height: 1.85;
-    font-weight: 300;
+    font-weight: 400;
     flex: 1;
     letter-spacing: 0.01em;
 }
@@ -833,7 +833,7 @@ section { padding: 120px 0; }
 .footer-left {
     font-family: var(--font-sans);
     font-size: 0.72rem;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(244, 239, 230, 0.22);
     letter-spacing: 0.06em;
 }

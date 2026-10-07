@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Hermès Archive — Resale Analysis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Alegreya:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -15,7 +15,7 @@
   --border:#cfc0a5;
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Jost',sans-serif; font-weight:300; background:var(--bg); color:var(--text); }
+body { font-family:'Alegreya',serif; font-weight:400; background:var(--bg); color:var(--text); }
 nav {
   background:var(--nav-bg); height:60px; position:sticky; top:0; z-index:100;
   display:flex; align-items:center; justify-content:space-between;
@@ -40,7 +40,7 @@ nav {
   padding-bottom:.6rem; border-bottom:1px solid var(--border);
   display:flex; align-items:baseline; gap:.75rem;
 }
-.section-num { font-size:10px; letter-spacing:.14em; color:var(--text-mute); text-transform:uppercase; font-family:'Jost',sans-serif; font-weight:600; }
+.section-num { font-size:10px; letter-spacing:.14em; color:var(--text-mute); text-transform:uppercase; font-family:'Alegreya',serif; font-weight:600; }
 .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(175px,1fr)); gap:14px; margin-bottom:2rem; }
 .kpi { background:var(--bg-card); border:1px solid var(--border); padding:1.2rem; }
 .kpi .label { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.12em; color:var(--text-mute); }
@@ -96,7 +96,7 @@ tbody tr:hover { background:#ece5d8; }
 </div>
 
 <script>
-Chart.defaults.font.family = "'Jost', sans-serif";
+Chart.defaults.font.family = "'Alegreya', serif";
 Chart.defaults.color = '#a8937a';
 Chart.defaults.borderColor = '#cfc0a5';
 
@@ -277,7 +277,7 @@ async function init() {
 
   <div class="section-label"><span class="section-num">VII</span> Data Coverage</div>
   <div class="card" style="margin-bottom:3rem">
-    <div class="card-title">Field Coverage by Source <span style="font-family:\'Jost\',sans-serif;font-size:12px;font-weight:400;color:var(--text-mute);margin-left:8px">${d.total_with_metadata.toLocaleString()} / ${d.total_items.toLocaleString()} items (${descCovPct}%)</span></div>
+    <div class="card-title">Field Coverage by Source <span style="font-family:\'Alegreya\',serif;font-size:12px;font-weight:400;color:var(--text-mute);margin-left:8px">${d.total_with_metadata.toLocaleString()} / ${d.total_items.toLocaleString()} items (${descCovPct}%)</span></div>
     <div class="card-sub" style="margin-bottom:1rem">Proportion of items with each metadata field populated</div>
     <div style="overflow-x:auto">
       <table style="font-size:12px"><thead><tr><th>Platform</th><th>Items</th>${coverageHeader}</tr></thead><tbody>${coverageRows}</tbody></table>

@@ -22,7 +22,7 @@ venture-name/
 
 ## II. HTML Boilerplate
 
-- Link Google Fonts: Cormorant Garamond (italic, 400/600) + Jost (300/400)
+- Link Google Fonts: Cormorant Garamond (italic, 400/600) + Alegreya (400/500)
 - Use semantic HTML5 elements (`<main>`, `<section>`, `<nav>`, `<footer>`)
 - No inline styles — all styling via `styles.css`
 
@@ -36,7 +36,7 @@ Define these tokens in `:root` before any other rules:
     --slate: #3a3a3a;
     --gold: #c9a84c;
     --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'Jost', sans-serif;
+    --font-body: 'Alegreya', serif;
 }
 ```
 

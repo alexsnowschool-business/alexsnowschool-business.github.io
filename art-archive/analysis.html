@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Art Archive — Analysis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Alegreya:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
@@ -26,7 +26,7 @@
     --border:   #cfc0a5;
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Jost',sans-serif; font-weight:300; background:var(--bg); color:var(--text); }
+body { font-family:'Alegreya',serif; font-weight:400; background:var(--bg); color:var(--text); }
 
 nav {
     background:var(--nav-bg); height:60px; position:sticky; top:0; z-index:100;
@@ -54,7 +54,7 @@ nav {
     padding-bottom:.6rem; border-bottom:1px solid var(--border);
     display:flex; align-items:baseline; gap:.75rem;
 }
-.section-num { font-size:10px; letter-spacing:.14em; color:var(--text-mute); text-transform:uppercase; font-weight:600; font-style:normal; font-family:'Jost',sans-serif; }
+.section-num { font-size:10px; letter-spacing:.14em; color:var(--text-mute); text-transform:uppercase; font-weight:600; font-style:normal; font-family:'Alegreya',serif; }
 
 .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:14px; margin-bottom:2rem; }
 .kpi { background:var(--bg-card); border:1px solid var(--border); padding:1.2rem; }
@@ -148,7 +148,7 @@ function fmtFull(n) {
 function pct(a, total) { return total ? Math.round(a/total*100) + '%' : '—'; }
 
 const CHART_DEFAULTS = {
-    font: { family: "'Jost', sans-serif", size: 11, weight: '300' },
+    font: { family: "'Alegreya', serif", size: 11, weight: '300' },
     color: '#6b5640',
 };
 Chart.defaults.font = CHART_DEFAULTS.font;

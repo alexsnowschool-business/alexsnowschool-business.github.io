@@ -6,7 +6,7 @@ type: always
 
 # Design System (Provenance / shared aesthetic)
 
-- **Fonts**: Cormorant Garamond italic for headings, Jost 300/400 for body
+- **Fonts**: Cormorant Garamond italic for headings, Alegreya 400/500 for body
 - **Colors**: `--ivory`, `--slate`, `--gold` via CSS custom properties; warm palette only — no cool grays, no neons
 - **Icons/numbers**: Roman numerals (I. II. III. IV.), no emoji
 - **Borders**: 1px hairlines only
