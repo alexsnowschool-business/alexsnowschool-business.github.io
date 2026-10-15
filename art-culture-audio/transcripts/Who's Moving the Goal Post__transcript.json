@@ -2,9 +2,9 @@
   "audio_file": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss/proto/http/vpid/p02r7t7v.mp3",
   "model": "tiny",
   "language": "en",
-  "transcription_time": 66.078632,
-  "timestamp": "2026-10-15T09:43:10.937076",
-  "word_count": 4724,
-  "file_hash": "0c122defd0eb55df278d18dd5254fee2",
-  "created_at": "2026-10-15T09:43:10.938341"
+  "transcription_time": 82.392633,
+  "timestamp": "2026-10-15T14:46:29.257184",
+  "word_count": 4764,
+  "file_hash": "8cfb67b3c9abd8fd89d469ff7f730986",
+  "created_at": "2026-10-15T14:46:29.262958"
 }
