@@ -7,4 +7,5 @@ reels/
 output/beat_the_estimate/
 output/quote_cards/
 output/artist_cards/
-studentroadtogermany/__pycache__/dist/
+studentroadtogermany/__pycache__/
+dist/
