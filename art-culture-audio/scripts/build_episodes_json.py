@@ -15,6 +15,7 @@ BASE_DIR = Path(__file__).parent.parent
 sys.path.insert(0, str(BASE_DIR))
 
 from src.scraper.rss_scraper import RSScraper  # noqa: E402
+from src.utils.file_manager import FileManager  # noqa: E402
 from src.utils.openrouter_categorizer import OpenRouterCategorizer  # noqa: E402
 
 TRANSCRIPTS_DIR = BASE_DIR / "transcripts"
@@ -23,6 +24,13 @@ OUTPUT_FILE = BASE_DIR / "data" / "episodes.json"
 
 def slugify(title: str) -> str:
     return hashlib.md5(title.encode("utf-8")).hexdigest()[:10]
+
+
+def transcript_path(title: str, suffix: str = ".txt") -> Path:
+    """Transcript file for an episode title. The transcriber names files after
+    the sanitized audio filename, so titles containing ':' or '?' must be
+    sanitized the same way to be found again."""
+    return TRANSCRIPTS_DIR / f"{FileManager.sanitize_filename(title)}_transcript{suffix}"
 
 
 def load_json(path: Path) -> dict:
@@ -72,8 +80,8 @@ def assemble_episodes(raw_episodes: list[dict]) -> list[dict]:
 
     for ep in raw_episodes:
         title = ep["title"]
-        transcript_meta = load_json(TRANSCRIPTS_DIR / f"{title}_transcript.json")
-        transcript_txt_path = TRANSCRIPTS_DIR / f"{title}_transcript.txt"
+        transcript_meta = load_json(transcript_path(title, ".json"))
+        transcript_txt_path = transcript_path(title)
         transcript_text = (
             transcript_txt_path.read_text(encoding="utf-8")
             if transcript_txt_path.exists()

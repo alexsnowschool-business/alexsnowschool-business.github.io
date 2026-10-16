@@ -18,8 +18,10 @@ to 5.
 Run: uv run python scripts/transcribe_daily.py
 """
 
+import json
 import os
 import sys
+from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
@@ -37,6 +39,7 @@ logger = setup_logger(__name__)
 
 DAILY_LIMIT = int(os.getenv("TRANSCRIBE_DAILY_LIMIT", "5"))
 EPISODE_TITLE = os.getenv("TRANSCRIBE_EPISODE_TITLE", "").strip()
+MANIFEST_FILE = BASE_DIR / "data" / "transcribed.json"
 
 
 def published_sort_key(ep: dict) -> float:
@@ -47,12 +50,29 @@ def published_sort_key(ep: dict) -> float:
         return float("inf")
 
 
-def already_transcribed(title: str) -> bool:
-    return (Config.TRANSCRIPTS_DIR / f"{title}_transcript.txt").exists()
+def load_manifest(all_episodes: list) -> dict:
+    """Episode id -> {title, transcribed_at}. Keyed by the stable episode id
+    (md5 of the title), never by a filename. Transcripts already on disk are
+    folded in on every run, so the first run backfills the manifest."""
+    try:
+        manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        manifest = {}
+    for ep in all_episodes:
+        if ep["id"] not in manifest and build_episodes_json.transcript_path(ep["title"]).exists():
+            manifest[ep["id"]] = {"title": ep["title"], "transcribed_at": None}
+    return manifest
 
 
-def find_untranscribed(all_episodes: list) -> list:
-    candidates = [ep for ep in all_episodes if not already_transcribed(ep["title"])]
+def save_manifest(manifest: dict):
+    MANIFEST_FILE.parent.mkdir(parents=True, exist_ok=True)
+    MANIFEST_FILE.write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True), encoding="utf-8"
+    )
+
+
+def find_untranscribed(all_episodes: list, manifest: dict) -> list:
+    candidates = [ep for ep in all_episodes if ep["id"] not in manifest]
     candidates.sort(key=published_sort_key)
     return candidates
 
@@ -97,6 +117,8 @@ def main():
     logger.info("Scanning all BBC RSS feeds for episodes...")
     all_episodes = build_episodes_json.fetch_episodes_from_rss(scraper)
 
+    manifest = load_manifest(all_episodes)
+
     if EPISODE_TITLE:
         episode = find_by_title(all_episodes, EPISODE_TITLE)
         if episode is None:
@@ -105,7 +127,7 @@ def main():
         batch = [episode]
         logger.info(f"Transcribing requested episode: {episode['title']}")
     else:
-        candidates = find_untranscribed(all_episodes)
+        candidates = find_untranscribed(all_episodes, manifest)
         batch = candidates[:DAILY_LIMIT]
         logger.info(f"{len(candidates)} untranscribed episode(s) found; transcribing {len(batch)} today")
 
@@ -114,7 +136,13 @@ def main():
         logger.info(f"[{i}/{len(batch)}] {ep['title']}")
         if transcribe_episode(scraper, transcriber, ep):
             transcribed_titles.append(ep["title"])
+            manifest[ep["id"]] = {
+                "title": ep["title"],
+                "transcribed_at": datetime.now(timezone.utc).isoformat(),
+            }
+            save_manifest(manifest)  # persist per episode so a crash keeps progress
 
+    save_manifest(manifest)  # also persists the backfill when nothing was transcribed
     logger.info(f"Transcribed {len(transcribed_titles)}/{len(batch)} episode(s)")
 
     # Consumed by .github/workflows/daily-transcribe.yml to list the
