@@ -49,7 +49,7 @@ jobs:
           PYTHONUNBUFFERED: "1"
           # tiny keeps a 5-episode daily batch well within CI time limits;
           # bump to "base"/"small" if runtime allows (and daily_limit grows).
-          WHISPER_MODEL_SIZE: "tiny"
+          WHISPER_MODEL_SIZE: "small"
           TRANSCRIBE_DAILY_LIMIT: ${{ inputs.daily_limit || '5' }}
           TRANSCRIBE_EPISODE_TITLE: ${{ inputs.episode_title || '' }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
