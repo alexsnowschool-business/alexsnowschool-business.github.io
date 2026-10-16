@@ -1,7 +1,7 @@
 {
-    "name": "alexsnowschool-business",
+    "name": "business",
     "compatibility_date": "2026-10-16",
     "assets": {
-        "directory": "./"
+        "directory": "./dist"
     }
 }
