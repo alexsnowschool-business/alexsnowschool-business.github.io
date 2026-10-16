@@ -1,14 +1,11 @@
 """Copy the art-culture-audio venture into dist/ for Cloudflare deploys."""
+import re
 import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "art-culture-audio"
 DIST = ROOT / "dist"
-
-# The venture links back to the portfolio hub with "../", which does not exist
-# when it is served from the root of its own site.
-HUB_URL = "https://alexsnowschool-business.github.io/"
 
 # Names skipped anywhere inside the venture folder.
 IGNORE_NAMES = shutil.ignore_patterns(
@@ -54,7 +51,7 @@ def main():
     index = DIST / "index.html"
     html = index.read_text(encoding="utf-8")
     html = html.replace('<a href="../" class="brand">', '<a href="./" class="brand">')
-    html = html.replace('href="../">Portfolio', f'href="{HUB_URL}">Portfolio')
+    html = re.sub(r'[ \t]*<a class="header__link" href="\.\./">Portfolio</a>\n', "", html)
     index.write_text(html, encoding="utf-8")
 
     count = sum(1 for path in DIST.rglob("*") if path.is_file())
