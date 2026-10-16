@@ -1,0 +1,56 @@
+# Deploy the static site to Cloudflare (Workers static assets).
+# Uses a shallow checkout so the large database history is never cloned.
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "index.html"
+      - "art-archive/**"
+      - "art-culture-audio/**"
+      - "art-research/**"
+      - "hermes-archive/**"
+      - "hermes-research/**"
+      - "scripts/build_site.py"
+      - "wrangler.jsonc"
+      - ".github/workflows/deploy-cloudflare.yml"
+
+  # Commits made by GITHUB_TOKEN do not trigger push workflows, so redeploy
+  # after the workflows that commit site data (episodes.json, completed.json).
+  workflow_run:
+    workflows:
+      - "Daily Transcribe — Read & Listen Archive"
+      - "Mark Episode Completed — Read & Listen Archive"
+    types: [completed]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # For workflow_run, deploy only when the upstream run succeeded.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Build site
+        run: python3 scripts/build_site.py
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
