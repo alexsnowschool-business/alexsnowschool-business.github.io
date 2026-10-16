@@ -1,0 +1,34 @@
+# Allowlist: ignore everything at the repo root, then re-include only the site.
+/*
+!/index.html
+!/art-archive/
+!/art-culture-audio/
+!/art-research/
+!/hermes-archive/
+!/hermes-research/
+
+# Inside the published folders, drop anything that is not site content.
+CLAUDE.md
+*.py
+*.db
+*.sqlite
+*.sqlite3
+*.env
+.env*
+__pycache__/
+.venv/
+node_modules/
+pyproject.toml
+uv.lock
+requirements.txt
+
+# art-culture-audio: transcript text is already embedded in data/episodes.json
+/art-culture-audio/transcripts/
+/art-culture-audio/pdfs/
+/art-culture-audio/src/
+/art-culture-audio/scripts/
+/art-culture-audio/test/
+/art-culture-audio/*.md
+/art-culture-audio/data/history/
+/art-culture-audio/data/topic_cache/
+/art-culture-audio/data/transcribed.json
