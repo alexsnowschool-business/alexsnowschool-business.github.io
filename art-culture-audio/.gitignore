@@ -30,6 +30,7 @@ data/*
 !data/topic_cache/
 !data/episodes.json
 !data/completed.json
+!data/transcribed.json
 # Logs
 *.log
 
