@@ -1,20 +1,16 @@
-"""Copy only the publishable site into dist/ for Cloudflare deploys."""
+"""Copy the art-culture-audio venture into dist/ for Cloudflare deploys."""
 import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+SRC = ROOT / "art-culture-audio"
 DIST = ROOT / "dist"
 
-ROOT_FILES = ["index.html"]
-VENTURES = [
-    "art-archive",
-    "art-culture-audio",
-    "art-research",
-    "hermes-archive",
-    "hermes-research",
-]
+# The venture links back to the portfolio hub with "../", which does not exist
+# when it is served from the root of its own site.
+HUB_URL = "https://alexsnowschool-business.github.io/"
 
-# Names skipped anywhere inside a venture folder.
+# Names skipped anywhere inside the venture folder.
 IGNORE_NAMES = shutil.ignore_patterns(
     "CLAUDE.md",
     "*.py",
@@ -29,9 +25,9 @@ IGNORE_NAMES = shutil.ignore_patterns(
     "requirements.txt",
 )
 
-# art-culture-audio: the site only fetches data/episodes.json and
-# data/completed.json; transcript text is embedded in episodes.json.
-AUDIO_SKIP = {
+# The site only fetches data/episodes.json and data/completed.json;
+# transcript text is embedded in episodes.json.
+SKIP = {
     "transcripts",
     "pdfs",
     "src",
@@ -47,20 +43,20 @@ AUDIO_SKIP = {
 
 
 def ignore(directory, names):
-    skipped = set(IGNORE_NAMES(directory, names))
-    if Path(directory).name in ("art-culture-audio", "data") and "art-culture-audio" in Path(directory).parts:
-        skipped |= AUDIO_SKIP.intersection(names)
-    return skipped
+    return set(IGNORE_NAMES(directory, names)) | SKIP.intersection(names)
 
 
 def main():
     if DIST.exists():
         shutil.rmtree(DIST)
-    DIST.mkdir()
-    for name in ROOT_FILES:
-        shutil.copy2(ROOT / name, DIST / name)
-    for venture in VENTURES:
-        shutil.copytree(ROOT / venture, DIST / venture, ignore=ignore)
+    shutil.copytree(SRC, DIST, ignore=ignore)
+
+    index = DIST / "index.html"
+    html = index.read_text(encoding="utf-8")
+    html = html.replace('<a href="../" class="brand">', '<a href="./" class="brand">')
+    html = html.replace('href="../">Portfolio', f'href="{HUB_URL}">Portfolio')
+    index.write_text(html, encoding="utf-8")
+
     count = sum(1 for path in DIST.rglob("*") if path.is_file())
     print(f"Built {DIST} with {count} files")
 

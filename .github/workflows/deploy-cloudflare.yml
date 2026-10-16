@@ -6,12 +6,7 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "index.html"
-      - "art-archive/**"
       - "art-culture-audio/**"
-      - "art-research/**"
-      - "hermes-archive/**"
-      - "hermes-research/**"
       - "scripts/build_site.py"
       - "wrangler.jsonc"
       - ".github/workflows/deploy-cloudflare.yml"
