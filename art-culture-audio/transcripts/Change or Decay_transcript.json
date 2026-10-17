@@ -1,0 +1,10 @@
+{
+  "audio_file": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss/proto/http/vpid/p02r8556.mp3",
+  "model": "tiny",
+  "language": "en",
+  "transcription_time": 76.478048,
+  "timestamp": "2026-10-17T09:11:46.923685",
+  "word_count": 4950,
+  "file_hash": "b3f07925c83300a49abb8eb7dddbddd3",
+  "created_at": "2026-10-17T09:11:46.924352"
+}
