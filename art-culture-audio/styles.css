@@ -469,6 +469,53 @@ main {
     font-style: italic;
 }
 
+/* ── EPISODE NAV ── */
+.episode-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 68ch;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.episode-nav[hidden],
+.episode-nav__link[hidden] {
+    display: none;
+}
+
+.episode-nav__link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 48%;
+    color: var(--slate);
+    text-decoration: none;
+}
+
+.episode-nav__link--next {
+    margin-left: auto;
+    text-align: right;
+}
+
+.episode-nav__label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.episode-nav__title {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.35rem;
+}
+
+.episode-nav__link:hover .episode-nav__title {
+    color: var(--gold);
+}
+
 /* ── FOOTER ── */
 .footer {
     border-top: 1px solid var(--border);

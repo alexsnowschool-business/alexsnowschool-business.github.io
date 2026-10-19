@@ -233,6 +233,33 @@ function renderPagination(pageCount) {
     paginationEl.appendChild(makeBtn('Next', currentPage + 1, currentPage === pageCount));
 }
 
+function renderEpisodeNav(episode) {
+    const navEl = document.getElementById('episodeNav');
+    const transcribed = episodes
+        .filter(e => e.has_transcript)
+        .sort((a, b) => parsePublished(a.published) - parsePublished(b.published));
+    const index = transcribed.findIndex(e => e.id === episode.id);
+    navEl.hidden = index === -1;
+    if (index === -1) return;
+
+    const fill = (linkId, target, label) => {
+        const link = document.getElementById(linkId);
+        link.hidden = !target;
+        if (!target) return;
+        link.href = `#/episode/${target.id}`;
+        link.innerHTML = '';
+        const labelEl = document.createElement('span');
+        labelEl.className = 'episode-nav__label';
+        labelEl.textContent = label;
+        const titleEl = document.createElement('span');
+        titleEl.className = 'episode-nav__title';
+        titleEl.textContent = target.title;
+        link.append(labelEl, titleEl);
+    };
+    fill('episodePrev', transcribed[index - 1], 'Previous');
+    fill('episodeNext', transcribed[index + 1], 'Next');
+}
+
 function renderEpisode(id) {
     const episode = episodes.find(e => e.id === id);
     if (!episode) {
@@ -255,6 +282,8 @@ function renderEpisode(id) {
         transcriptBody.textContent = 'No transcript has been generated for this episode yet.';
         transcriptBody.classList.add('transcript--empty');
     }
+
+    renderEpisodeNav(episode);
 
     updateStatusBadge(episode.id);
 
@@ -341,6 +370,7 @@ function router() {
         episodeView.hidden = false;
         setActiveNav('library');
         renderEpisode(episodeMatch[1]);
+        window.scrollTo(0, 0);
     } else if (hash === '#/history') {
         historyView.hidden = false;
         setActiveNav('history');
