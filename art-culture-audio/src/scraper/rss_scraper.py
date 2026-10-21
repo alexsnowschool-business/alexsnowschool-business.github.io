@@ -20,6 +20,7 @@ class RSScraper:
     # Popular BBC podcast RSS feeds
     BBC_FEEDS = {
         'reith_lectures': 'https://podcasts.files.bbci.co.uk/p02p8xh7.rss',
+        'reith_lectures_modern': 'https://podcasts.files.bbci.co.uk/b00729d9.rss',
         'in_our_time': 'https://podcasts.files.bbci.co.uk/p01f0vzr.rss',
         'in_our_time_history': 'https://podcasts.files.bbci.co.uk/p01gyd7j.rss',
         'the_documentary': 'https://podcasts.files.bbci.co.uk/p02nq0lx.rss',
