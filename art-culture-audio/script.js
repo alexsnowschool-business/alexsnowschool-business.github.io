@@ -26,6 +26,21 @@ const TOPIC_COLORS = {
     Uncategorized: '#8a7f6a', // taupe
 };
 
+const PROGRAM_LABELS = {
+    reith_lectures: 'Reith Lectures',
+    reith_lectures_modern: 'Reith Lectures',
+    in_our_time: 'In Our Time',
+    in_our_time_history: 'In Our Time',
+    the_documentary: 'The Documentary',
+    analysis: 'Analysis',
+    thinking_allowed: 'Thinking Allowed',
+    more_or_less: 'More or Less',
+};
+
+function programLabel(episode) {
+    return PROGRAM_LABELS[episode.feed] || 'Other';
+}
+
 function topicTag(topic) {
     if (!topic || topic === 'Uncategorized') return '';
     const color = TOPIC_COLORS[topic] || TOPIC_COLORS.Uncategorized;
@@ -87,6 +102,7 @@ let episodes = [];
 let history = loadHistory();
 let activeStatusFilter = 'all';
 let activeTopicFilter = 'all';
+let activeProgramFilter = 'all';
 let activeTranscriptFilter = 'all';
 let activeQuery = '';
 let currentPage = 1;
@@ -104,6 +120,7 @@ const searchEl = document.getElementById('search');
 const statusFiltersEl = document.getElementById('statusFilters');
 const transcriptFiltersEl = document.getElementById('transcriptFilters');
 const topicFiltersEl = document.getElementById('topicFilters');
+const programFilterEl = document.getElementById('programFilter');
 const paginationEl = document.getElementById('pagination');
 const backLink = document.getElementById('backToLibrary');
 const markCompletedBtn = document.getElementById('markCompleted');
@@ -136,6 +153,26 @@ function renderTopicFilters() {
     });
 }
 
+function renderProgramFilter() {
+    const counts = {};
+    episodes.forEach((e) => {
+        const label = programLabel(e);
+        counts[label] = (counts[label] || 0) + 1;
+    });
+    const programs = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+
+    programFilterEl.innerHTML = '';
+    [['all', `All Programmes (${episodes.length})`]]
+        .concat(programs.map((label) => [label, `${label} (${counts[label]})`]))
+        .forEach(([value, text]) => {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = text;
+            option.selected = value === activeProgramFilter;
+            programFilterEl.appendChild(option);
+        });
+}
+
 function renderStats() {
     const total = episodes.length;
     const transcribed = episodes.filter(e => e.has_transcript).length;
@@ -165,10 +202,11 @@ function filteredEpisodes() {
         const status = getStatus(history, e.id);
         const matchesStatus = activeStatusFilter === 'all' || status === activeStatusFilter;
         const matchesTopic = activeTopicFilter === 'all' || e.topic === activeTopicFilter;
+        const matchesProgram = activeProgramFilter === 'all' || programLabel(e) === activeProgramFilter;
         const matchesTranscript = activeTranscriptFilter === 'all'
             || (activeTranscriptFilter === 'yes' ? !!e.has_transcript : !e.has_transcript);
         const matchesQuery = e.title.toLowerCase().includes(activeQuery.toLowerCase());
-        return matchesStatus && matchesTopic && matchesTranscript && matchesQuery;
+        return matchesStatus && matchesTopic && matchesProgram && matchesTranscript && matchesQuery;
     });
 }
 
@@ -380,6 +418,7 @@ function router() {
         libraryView.hidden = false;
         setActiveNav('library');
         renderStats();
+        renderProgramFilter();
         renderTopicFilters();
         renderList();
     }
@@ -406,12 +445,14 @@ statsEl.addEventListener('click', (e) => {
         activeStatusFilter = 'all';
         activeTranscriptFilter = 'all';
         activeTopicFilter = 'all';
+        activeProgramFilter = 'all';
         activatePill(statusFiltersEl, 'status', 'all');
         activatePill(transcriptFiltersEl, 'transcript', 'all');
     }
 
     currentPage = 1;
     renderStats();
+    renderProgramFilter();
     renderTopicFilters();
     renderList();
 });
@@ -451,6 +492,12 @@ topicFiltersEl.addEventListener('click', (e) => {
     activeTopicFilter = btn.dataset.topic;
     [...topicFiltersEl.children].forEach(c => c.classList.remove('pill--active'));
     btn.classList.add('pill--active');
+    currentPage = 1;
+    renderList();
+});
+
+programFilterEl.addEventListener('change', (e) => {
+    activeProgramFilter = e.target.value;
     currentPage = 1;
     renderList();
 });

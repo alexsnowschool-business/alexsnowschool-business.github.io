@@ -201,6 +201,21 @@ main {
     border-color: var(--gold);
 }
 
+.toolbar__select {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--slate);
+    cursor: pointer;
+}
+
+.toolbar__select:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
 .toolbar__filters {
     display: flex;
     flex-wrap: wrap;
