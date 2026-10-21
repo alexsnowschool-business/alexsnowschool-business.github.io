@@ -102,7 +102,7 @@ let episodes = [];
 let history = loadHistory();
 let activeStatusFilter = 'all';
 let activeTopicFilter = 'all';
-let activeProgramFilter = 'all';
+let activeProgramFilter = 'Reith Lectures';
 let activeTranscriptFilter = 'all';
 let activeQuery = '';
 let currentPage = 1;
@@ -127,11 +127,14 @@ const markCompletedBtn = document.getElementById('markCompleted');
 const audioPlayer = document.getElementById('audioPlayer');
 
 function renderTopicFilters() {
+    // Counts reflect every other active filter, so they match what each pill would show.
+    const matching = filteredEpisodes({ ignoreTopic: true });
     const counts = {};
-    episodes.forEach((e) => {
+    matching.forEach((e) => {
         if (!e.topic) return;
         counts[e.topic] = (counts[e.topic] || 0) + 1;
     });
+    if (activeTopicFilter !== 'all' && !counts[activeTopicFilter]) counts[activeTopicFilter] = 0;
     const topics = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
 
     topicFiltersEl.innerHTML = '';
@@ -140,7 +143,7 @@ function renderTopicFilters() {
     allBtn.type = 'button';
     allBtn.className = `pill ${activeTopicFilter === 'all' ? 'pill--active' : ''}`;
     allBtn.dataset.topic = 'all';
-    allBtn.textContent = `All Topics (${episodes.length})`;
+    allBtn.textContent = `All Topics (${matching.length})`;
     topicFiltersEl.appendChild(allBtn);
 
     topics.forEach((topic) => {
@@ -197,11 +200,11 @@ function activatePill(container, dataAttr, value) {
     });
 }
 
-function filteredEpisodes() {
+function filteredEpisodes({ ignoreTopic = false } = {}) {
     return episodes.filter(e => {
         const status = getStatus(history, e.id);
         const matchesStatus = activeStatusFilter === 'all' || status === activeStatusFilter;
-        const matchesTopic = activeTopicFilter === 'all' || e.topic === activeTopicFilter;
+        const matchesTopic = ignoreTopic || activeTopicFilter === 'all' || e.topic === activeTopicFilter;
         const matchesProgram = activeProgramFilter === 'all' || programLabel(e) === activeProgramFilter;
         const matchesTranscript = activeTranscriptFilter === 'all'
             || (activeTranscriptFilter === 'yes' ? !!e.has_transcript : !e.has_transcript);
@@ -211,6 +214,7 @@ function filteredEpisodes() {
 }
 
 function renderList() {
+    renderTopicFilters();
     const list = filteredEpisodes();
     const pageCount = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
     currentPage = Math.min(Math.max(1, currentPage), pageCount);
@@ -419,7 +423,6 @@ function router() {
         setActiveNav('library');
         renderStats();
         renderProgramFilter();
-        renderTopicFilters();
         renderList();
     }
 }
@@ -453,7 +456,6 @@ statsEl.addEventListener('click', (e) => {
     currentPage = 1;
     renderStats();
     renderProgramFilter();
-    renderTopicFilters();
     renderList();
 });
 
@@ -482,7 +484,6 @@ transcriptFiltersEl.addEventListener('click', (e) => {
     activeTopicFilter = 'all';
     currentPage = 1;
     renderStats();
-    renderTopicFilters();
     renderList();
 });
 
