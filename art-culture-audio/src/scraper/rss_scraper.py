@@ -23,6 +23,7 @@ class RSScraper:
         'reith_lectures_modern': 'https://podcasts.files.bbci.co.uk/b00729d9.rss',
         'in_our_time': 'https://podcasts.files.bbci.co.uk/p01f0vzr.rss',
         'in_our_time_history': 'https://podcasts.files.bbci.co.uk/p01gyd7j.rss',
+        'in_our_time_main': 'https://podcasts.files.bbci.co.uk/b006qykl.rss',
         'the_documentary': 'https://podcasts.files.bbci.co.uk/p02nq0lx.rss',
         'analysis': 'https://podcasts.files.bbci.co.uk/b006r4vz.rss',
         'thinking_allowed': 'https://podcasts.files.bbci.co.uk/b006qy05.rss',

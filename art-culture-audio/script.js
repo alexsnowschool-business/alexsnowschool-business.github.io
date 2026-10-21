@@ -31,6 +31,7 @@ const PROGRAM_LABELS = {
     reith_lectures_modern: 'Reith Lectures',
     in_our_time: 'In Our Time',
     in_our_time_history: 'In Our Time',
+    in_our_time_main: 'In Our Time',
     the_documentary: 'The Documentary',
     analysis: 'Analysis',
     thinking_allowed: 'Thinking Allowed',
