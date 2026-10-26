@@ -273,26 +273,34 @@ def main():
     art_urls: list[str | None] = []
     used_urls: set[str] = set()
     for _ in quotes:
-        art_result = None
+        art_img = None
+        art_artist = art_title = ""
+        img_url = None
+        # Retry on download failure so one dead URL doesn't leave a flat card.
         for _attempt in range(10):
             candidate = pick_art_image_url(
-                art_conn, only_paintings=True, exclude=used_urls | persisted_used_urls
+                art_conn, only_paintings=True, exclude=used_urls | persisted_used_urls,
+                oldest_first=True,
             )
             if not candidate:
+                # Unused pool exhausted — reuse a painting from an earlier run
+                # (still distinct within this carousel).
+                candidate = pick_art_image_url(
+                    art_conn, only_paintings=True, exclude=used_urls, oldest_first=True
+                )
+            if not candidate:
                 break
-            if candidate[0] not in used_urls:
-                art_result = candidate
+            url, artist, title = candidate
+            used_urls.add(url)  # never retry a URL within this run
+            print(f"  Art: {artist} — {title}")
+            art_img = download_image(url)
+            if art_img:
+                img_url, art_artist, art_title = url, artist, title
                 break
-        if art_result:
-            img_url, art_artist, art_title = art_result
-            used_urls.add(img_url)
-            print(f"  Art: {art_artist} — {art_title}")
-            art_img = download_image(img_url)
-            arts.append((art_img, art_artist, art_title))
-            art_urls.append(img_url)
-        else:
-            arts.append((None, "", ""))
-            art_urls.append(None)
+        if art_img is None:
+            print("  WARNING: no painting background found for this card")
+        arts.append((art_img, art_artist, art_title))
+        art_urls.append(img_url)
 
     # ── Output folder ─────────────────────────────────────────
     import reel_utils

@@ -19,6 +19,7 @@ Usage:
 import argparse
 import io
 import json
+import random
 import sqlite3
 import subprocess
 import sys
@@ -151,13 +152,16 @@ def mark_art_used(art_conn: sqlite3.Connection, image_url: str):
 
 def pick_art_image_url(art_conn: sqlite3.Connection,
                        only_paintings: bool = False,
-                       exclude: set[str] | None = None) -> tuple[str, str, str] | None:
+                       exclude: set[str] | None = None,
+                       oldest_first: bool = False) -> tuple[str, str, str] | None:
     """Return (image_url, artist, title) for a random art item with images.
 
     `only_paintings` restricts to medium_category = 'painting' — excludes
     photography, sculpture, works on paper, manuscripts, etc.
     `exclude` skips image URLs already used as a background (this run or a
     previous one — see `used_art_urls`).
+    `oldest_first` walks the whole table in scraped_at order and returns the
+    first unused image (a queue); otherwise the pick is random.
     """
     exclude = exclude or set()
     query = (
@@ -166,17 +170,23 @@ def pick_art_image_url(art_conn: sqlite3.Connection,
     )
     if only_paintings:
         query += "AND medium_category = 'painting' AND auction_house = 'Ketterer Kunst' "
-    query += "ORDER BY RANDOM() LIMIT 50"
+    # No SQL LIMIT: exclusion happens in Python, so sampling a fixed window first
+    # lets already-used images crowd out every candidate as the used set grows.
+    if oldest_first:
+        query += "ORDER BY scraped_at, rowid"
     rows = art_conn.execute(query).fetchall()
+    candidates: list[tuple[str, str, str]] = []
     for artist, title, urls_json in rows:
         try:
             urls = json.loads(urls_json)
         except (json.JSONDecodeError, TypeError):
             continue
-        for url in urls:
-            if url not in exclude:
-                return url, artist, title
-    return None
+        candidates.extend(
+            (url, artist, title) for url in urls if url and url not in exclude
+        )
+    if not candidates:
+        return None
+    return candidates[0] if oldest_first else random.choice(candidates)
 
 
 # ── Image helpers ─────────────────────────────────────────────────────────────
