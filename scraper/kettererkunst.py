@@ -3,10 +3,9 @@ Ketterer Kunst sold-lot scraper — plain HTTP, no JS rendering needed.
 
 Discovery:
   Paginate https://www.kettererkunst.com/result.php?seite=N&shw=1&auswahl=vk&gebiet=9
-  ("auswahl=vk" = "verkauft" / sold; "gebiet=9" = the Modern & Contemporary Art
-  department, identified from an Evening Sale lot during scoping — Ketterer
-  also runs Post-War/Contemporary, rare books, and other departments under
-  different `gebiet` values not yet catalogued here).
+  ("auswahl=vk" = "verkauft" / sold; "gebiet=0" = all departments. It was
+  originally gebiet=9 (Modern & Contemporary Art), but that code returns no
+  lots since Ketterer's site change in Oct 2026).
 
   Each listing page embeds 30 lots as `/still/kunst/pic570/{anummer}/{obnr}.jpg`
   image paths, which double as the (auction_number, object_number) key needed
@@ -40,7 +39,7 @@ AUCTION_HOUSE = "Ketterer Kunst"
 BASE_URL      = "https://www.kettererkunst.com"
 RESULTS_URL   = f"{BASE_URL}/result.php"
 DETAIL_URL    = f"{BASE_URL}/details-e.php"
-GEBIET        = "9"  # Modern & Contemporary Art department
+GEBIET        = "0"  # was "9" (Modern & Contemporary); 9 returns no lots since Oct 2026
 
 _HEADERS = {
     "User-Agent": (
