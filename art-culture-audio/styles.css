@@ -496,13 +496,7 @@ main {
 }
 
 .episode-nav--player {
-    margin-top: 16px;
-    margin-bottom: 24px;
-    padding-top: 16px;
-}
-
-.episode-nav--player .episode-nav__title {
-    font-size: 1.1rem;
+    margin-top: 0;
 }
 
 .episode-nav[hidden],

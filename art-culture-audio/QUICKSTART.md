@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-## 🚀 Get Started in 3 Steps
+## Get Started in 3 Steps
 
 ### 1. Setup (One-time)
 
@@ -43,21 +43,21 @@ Open browser to: http://localhost:7860
 - Ask: "What are the main themes discussed?"
 - Get AI-powered responses with source citations!
 
-## 📚 Popular BBC Feeds
+## Popular BBC Feeds
 
 - **Reith Lectures**: `https://podcasts.files.bbci.co.uk/p00fzl9g.rss`
 - **In Our Time**: `https://podcasts.files.bbci.co.uk/p01f0vzr.rss`
 - **The Documentary**: `https://podcasts.files.bbci.co.uk/p02nq0lx.rss`
 - **Analysis**: `https://podcasts.files.bbci.co.uk/b006r4vz.rss`
 
-## 💡 Tips
+## Tips
 
 - Start with `base` Whisper model (good balance of speed/accuracy)
 - Transcription is FREE and runs locally (no API costs)
 - Load transcripts to vector store once per session
 - All data stored locally in `downloads/`, `transcripts/`, and `data/`
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 **Chat not working?**
 - Make sure you set `GOOGLE_AI_API_KEY` in `.env`
