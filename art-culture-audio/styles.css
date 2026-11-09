@@ -495,10 +495,6 @@ main {
     border-top: 1px solid var(--border);
 }
 
-.episode-nav--player {
-    margin-top: 0;
-}
-
 .episode-nav[hidden],
 .episode-nav__link[hidden] {
     display: none;
