@@ -7,7 +7,7 @@ on:
 
 jobs:
   scrape-art:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # Playwright does not support ubuntu-26.04 yet
     permissions:
       contents: write       # needed to commit scraped data back
       actions: write        # needed to trigger static.yml via gh workflow run
