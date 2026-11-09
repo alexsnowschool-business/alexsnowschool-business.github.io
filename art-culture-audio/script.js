@@ -277,30 +277,31 @@ function renderPagination(pageCount) {
 }
 
 function renderEpisodeNav(episode) {
-    const navEl = document.getElementById('episodeNav');
+    const navEls = document.querySelectorAll('.episode-nav');
     const transcribed = episodes
         .filter(e => e.has_transcript)
         .sort((a, b) => parsePublished(a.published) - parsePublished(b.published));
     const index = transcribed.findIndex(e => e.id === episode.id);
-    navEl.hidden = index === -1;
+    navEls.forEach(navEl => { navEl.hidden = index === -1; });
     if (index === -1) return;
 
-    const fill = (linkId, target, label) => {
-        const link = document.getElementById(linkId);
+    const targets = { prev: transcribed[index - 1], next: transcribed[index + 1] };
+    const labels = { prev: 'Previous', next: 'Next' };
+    document.querySelectorAll('.episode-nav__link').forEach(link => {
+        const dir = link.dataset.dir;
+        const target = targets[dir];
         link.hidden = !target;
         if (!target) return;
         link.href = `#/episode/${target.id}`;
         link.innerHTML = '';
         const labelEl = document.createElement('span');
         labelEl.className = 'episode-nav__label';
-        labelEl.textContent = label;
+        labelEl.textContent = labels[dir];
         const titleEl = document.createElement('span');
         titleEl.className = 'episode-nav__title';
         titleEl.textContent = target.title;
         link.append(labelEl, titleEl);
-    };
-    fill('episodePrev', transcribed[index - 1], 'Previous');
-    fill('episodeNext', transcribed[index + 1], 'Next');
+    });
 }
 
 function renderEpisode(id) {

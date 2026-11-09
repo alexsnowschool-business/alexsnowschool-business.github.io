@@ -495,6 +495,16 @@ main {
     border-top: 1px solid var(--border);
 }
 
+.episode-nav--player {
+    margin-top: 16px;
+    margin-bottom: 24px;
+    padding-top: 16px;
+}
+
+.episode-nav--player .episode-nav__title {
+    font-size: 1.1rem;
+}
+
 .episode-nav[hidden],
 .episode-nav__link[hidden] {
     display: none;
