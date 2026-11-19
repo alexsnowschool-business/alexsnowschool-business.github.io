@@ -39,6 +39,14 @@ logger = setup_logger(__name__)
 
 DAILY_LIMIT = int(os.getenv("TRANSCRIBE_DAILY_LIMIT", "5"))
 EPISODE_TITLE = os.getenv("TRANSCRIBE_EPISODE_TITLE", "").strip()
+PROGRAMME = os.getenv("TRANSCRIBE_PROGRAMME", "all").strip() or "all"
+YEAR = os.getenv("TRANSCRIBE_YEAR", "").strip()
+# "2018" or a range such as "2013-2025"; invalid values fail the run early.
+_year_parts = [int(y) for y in YEAR.replace("–", "-").split("-") if y.strip()] if YEAR else []
+if len(_year_parts) > 2:
+    raise SystemExit(f"Invalid TRANSCRIBE_YEAR: {YEAR!r}")
+YEAR_FROM = _year_parts[0] if _year_parts else 0
+YEAR_TO = _year_parts[-1] if _year_parts else 0
 MANIFEST_FILE = BASE_DIR / "data" / "transcribed.json"
 
 
@@ -71,8 +79,21 @@ def save_manifest(manifest: dict):
     )
 
 
+def matches_filters(ep: dict) -> bool:
+    """Optional programme (feed) and publication-year filters."""
+    if PROGRAMME != "all" and ep.get("feed") != PROGRAMME:
+        return False
+    if YEAR:
+        try:
+            year = parsedate_to_datetime(ep.get("published", "")).year
+        except (TypeError, ValueError):
+            return False
+        return YEAR_FROM <= year <= YEAR_TO
+    return True
+
+
 def find_untranscribed(all_episodes: list, manifest: dict) -> list:
-    candidates = [ep for ep in all_episodes if ep["id"] not in manifest]
+    candidates = [ep for ep in all_episodes if ep["id"] not in manifest and matches_filters(ep)]
     candidates.sort(key=published_sort_key)
     return candidates
 
@@ -129,7 +150,7 @@ def main():
     else:
         candidates = find_untranscribed(all_episodes, manifest)
         batch = candidates[:DAILY_LIMIT]
-        logger.info(f"{len(candidates)} untranscribed episode(s) found; transcribing {len(batch)} today")
+        logger.info(f"{len(candidates)} untranscribed episode(s) found; transcribing {len(batch)} today (programme={PROGRAMME}, year={YEAR or 'any'})")
 
     transcribed_titles = []
     for i, ep in enumerate(batch, 1):

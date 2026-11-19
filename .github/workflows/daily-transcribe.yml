@@ -10,6 +10,26 @@ on:
         description: "Max episodes to transcribe this run"
         required: false
         default: "5"
+      programme:
+        description: "Only transcribe episodes from this programme (feed)"
+        required: false
+        type: choice
+        default: "all"
+        options:
+          - all
+          - reith_lectures
+          - reith_lectures_modern
+          - in_our_time
+          - in_our_time_history
+          - in_our_time_main
+          - the_documentary
+          - analysis
+          - thinking_allowed
+          - more_or_less
+      year:
+        description: "Year or range, e.g. 2018 or 2013-2025 (modern Reith Lectures) — blank = any"
+        required: false
+        default: ""
       episode_title:
         description: "Exact episode title to transcribe (overrides daily_limit, ignores already-transcribed check)"
         required: false
@@ -51,6 +71,8 @@ jobs:
           # bump to "base"/"small" if runtime allows (and daily_limit grows).
           WHISPER_MODEL_SIZE: "tiny"
           TRANSCRIBE_DAILY_LIMIT: ${{ inputs.daily_limit || '5' }}
+          TRANSCRIBE_PROGRAMME: ${{ inputs.programme || 'all' }}
+          TRANSCRIBE_YEAR: ${{ inputs.year || '' }}
           TRANSCRIBE_EPISODE_TITLE: ${{ inputs.episode_title || '' }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
