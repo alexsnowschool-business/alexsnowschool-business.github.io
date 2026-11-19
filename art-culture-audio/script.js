@@ -278,7 +278,8 @@ function renderPagination(pageCount) {
 
 function renderEpisodeNav(episode) {
     const navEls = document.querySelectorAll('.episode-nav');
-    const ordered = [...episodes]
+    const ordered = episodes
+        .filter(e => programLabel(e) === programLabel(episode))
         .sort((a, b) => parsePublished(a.published) - parsePublished(b.published));
     const index = ordered.findIndex(e => e.id === episode.id);
     navEls.forEach(navEl => { navEl.hidden = index === -1; });
