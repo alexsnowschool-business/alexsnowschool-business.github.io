@@ -278,14 +278,13 @@ function renderPagination(pageCount) {
 
 function renderEpisodeNav(episode) {
     const navEls = document.querySelectorAll('.episode-nav');
-    const transcribed = episodes
-        .filter(e => e.has_transcript)
+    const ordered = [...episodes]
         .sort((a, b) => parsePublished(a.published) - parsePublished(b.published));
-    const index = transcribed.findIndex(e => e.id === episode.id);
+    const index = ordered.findIndex(e => e.id === episode.id);
     navEls.forEach(navEl => { navEl.hidden = index === -1; });
     if (index === -1) return;
 
-    const targets = { prev: transcribed[index - 1], next: transcribed[index + 1] };
+    const targets = { prev: ordered[index - 1], next: ordered[index + 1] };
     const labels = { prev: 'Previous', next: 'Next' };
     document.querySelectorAll('.episode-nav__link').forEach(link => {
         const dir = link.dataset.dir;
